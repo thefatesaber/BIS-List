@@ -447,7 +447,7 @@ const CLASSES = [
       {"slot": "Ring 1", "item": "Bloodoath Signet", "wowhead": 178871, "q": 3, "ilvl": 33, "source": "Theater of Pain — An Affront of Challengers", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Band of the Ancient Dredger", "wowhead": 159461, "q": 3, "ilvl": 33, "source": "Siege of Boralus — Hadal Darkfathom", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Trinket 1", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul", "status": "sim"},
-      {"slot": "Trinket 2", "item": "Herkuml War Token", "wowhead": 50355, "ilvl": 15, "source": "Dalaran — Emblem of Frost vendor", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Chaos Talisman", "wowhead": 137459, "q": 3, "ilvl": 33, "source": "Assault on Violet Hold — Fel Lord Betrug", "status": "sim"},
       {"slot": "Main Hand", "item": "Distant Land", "wowhead": 50040, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Mighty Agility", "enchsp": 95471, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 3}], "status": "sim"}
     ],
     obtainable:[],
@@ -718,7 +718,7 @@ function renderMain(){
   }).join("");
 
   const notes = cls.notes || [];
-  $("classnotes").hidden = notes.length === 0;
+  $("classnotes").hidden = true; // class notes hidden for now
   $("classnotes").innerHTML = notes.length
     ? '<h3>'+esc(cls.spec)+' notes</h3>' + notes.map(n=>'<p>'+esc(n)+'</p>').join("")
     : "";
