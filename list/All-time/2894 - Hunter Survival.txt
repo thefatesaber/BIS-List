@@ -1,0 +1,107 @@
+# Base Actor
+override.spell_data=effect.483865.base_value=0
+hunter="Legacythirty"
+level=30
+race=goblin
+region=us
+server=thrall
+role=attack
+professions=leatherworking=66/engineering=1
+spec=survival
+# loot_spec=survival
+
+talents=C8PApei1JmYNvFfEFaN5bWuGKAAAAAAwYmhBDAAAAAAmxAY8AmBABAAAAAAAYMGMAAAwADAA
+
+# Helm of Desolation 33
+head=,id=28192,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30,enchant=12crit
+# Ukhel Ancestry Beads (135)
+neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213500/213500/71852,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Pauldrons of Desolation 33
+shoulder=,id=27713,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=7202,drop_level=30
+# Drape of the Faceless General (43)
+back=,id=46032,ilevel=43,enchant_id=3243,gem_id=71852/71852,bonus_id=9043,drop_level=30
+# Embrace of the Phoenix (44)
+chest=,id=34373,ilevel=44,enchant_id=6625,gem_id=71852/71852/71852,bonus_id=9037,drop_level=30
+# Bracers of the Forest Stalker (33)
+wrist=,id=34698,ilevel=33,enchant_id=4416,gem_id=71852/71852,bonus_id=6710/6652/8810,drop_level=30
+# Thalassian Ranger Gauntlets (44)
+hands=,id=34343,ilevel=44,enchant_id=5259,gem_id=71852/71852,bonus_id=9037,drop_level=30
+# Gronnstalker's Belt (44)
+waist=,id=34549,ilevel=44,gem_id=71852/71852,bonus_id=9037,bonus_id=9035,drop_level=30
+# Wyrmscale Greaves (33)
+legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=6710/6652,drop_level=30
+# Star-Strider Boots (40)
+feet=,id=29951,ilevel=40,enchant_id=1887,gem_id=71852/71852,bonus_id=9035,drop_level=30
+# signet_of_the_false_accuser (33)
+finger1=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Fleshfused Circle (33)
+finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Dragonspine Trophy (38)
+trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
+# Armored Elekk Tusk (32)
+trinket2=,ilevel=32,id=108902,bonus_id=6691/6703,drop_level=29
+# Distand Land (47)
+main_hand=,id=50040,ilevel=47,enchant_id=4227,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+external_buffs.pool=power_infusion:120
+# Custom APL
+# Custom APL — level 30 single target, v2.1.
+
+actions.precombat=summon_pet
+actions.precombat+=/snapshot_stats
+actions.precombat+=/wildfire_bomb
+
+actions=auto_attack
+actions+=/use_item,slot=trinket1
+actions+=/use_item,slot=trinket2
+actions+=/use_items
+actions+=/kill_command,if=buff.tip_of_the_spear.stack=0
+actions+=/boomstick,if=buff.tip_of_the_spear.up
+actions+=/wildfire_bomb,if=buff.tip_of_the_spear.up&full_recharge_time<4+gcd
+actions+=/kill_command,if=buff.tip_of_the_spear.stack<2
+actions+=/raptor_strike
+
+# Simulation Options
+iterations=10000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level=+3
+enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
