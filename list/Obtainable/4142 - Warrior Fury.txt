@@ -25,7 +25,7 @@ waist=,ilevel=40,id=30032,gem_id=40146/40146/40146,bonus_id=9035,drop_level=30
 # Felfury Legplates (44)
 legs=,id=34180,ilevel=44,enchant_id=3823,gem_id=40146/40146/40146,bonus_id=9037
 # Onslaught Treads 44
-feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=213500,bonus_id=9037,drop_level=30
+feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=213494,bonus_id=9037,drop_level=30
 # Loop of Vitriolic Intent (33)
 finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=40146,bonus_id=6710/41/8810,drop_level=30
 # Loop of Pulsing Veins (33)
