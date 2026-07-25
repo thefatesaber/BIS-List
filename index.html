@@ -153,6 +153,7 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .classnotes{margin:18px 0 0; padding:12px 14px; border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
 .classnotes h3{margin:0 0 6px; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--dim); font-weight:600}
 .classnotes p{margin:3px 0; color:var(--dust); font-size:12px}
+.credit{margin:10px 2px 0; color:var(--dim); font-size:11.5px; font-style:italic}
 .actions{margin-top:16px; display:flex; gap:10px; align-items:center}
 .btn{
   font:inherit; font-size:12px; cursor:pointer; border-radius:3px;
@@ -263,6 +264,7 @@ footer{
     <div class="tabs" id="tabs" role="tablist"></div>
     <p class="constraint" id="constraint"></p>
     <div class="ledger" id="ledger"></div>
+    <p class="credit" id="creditline" hidden></p>
     <div class="classnotes" id="classnotes" hidden></div>
     <div class="actions">
       <button class="btn" id="copybtn">Copy list as text</button>
@@ -285,6 +287,7 @@ footer{
      ench     enchant name (optional)
      enchsp   enchant spell id for the wowhead link (optional)
      dps      sim dps for rail ordering
+     credits  optional {listId: name} — renders a thanks line under that list
      gems     [{id, name, n}] socketed gems (optional)
      status   "confirmed" | "sim" | "theory" | "tbd"
      note     free text, shown under the row (optional)
@@ -311,6 +314,7 @@ const LIST_TYPES = [
 const CLASSES = [
 { id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:5042,
   notes:["Weapon DPS dominates stat weights. Gem Mastery/Crit — haste only past the rage-starvation threshold.", "Trinket slot head-to-head (Death's Choice vs current pair) still open."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -355,6 +359,7 @@ const CLASSES = [
 },
 { id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2259,
   notes:["Set reconciled vs live parse (Exhibiting: sim 1798 vs parse 1782).", "Shadowmourne unresolved — Chaos Bane proc unmodeled in SimC; reassess once modeled or confirmed unmodelable.", "Ring on-equip procs are the Crusader-model lines (two independent sources stack additively)."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -397,6 +402,7 @@ const CLASSES = [
 },
 { id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2823,
   notes:["Bonereaver's Edge modeled 11% flat per attack — log-validated ≈89.6% uptime / ≈11.35 procs/min."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -439,6 +445,7 @@ const CLASSES = [
 },
 { id:"hunter", name:"Hunter", spec:"Survival", color:"#AAD372", dps:2894,
   notes:["Dragonspine at ≈1 PPM effective on SV's sparse attack stream — KC/WFB are spells, don't roll attack procs.", "Per-ability diff vs a logged Details! parse pending (merge pet rows)."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Helm of Desolation", "wowhead": 28192, "q": 3, "ilvl": 33, "source": "The Black Morass — Aeonus", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
@@ -481,6 +488,7 @@ const CLASSES = [
 },
 { id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3781,
   notes:["Nibelung Val'kyr proc modeled as calibrated discharge — verify the 1450 holy anchor used Fateccaster's SP, not Fatecastr's.", "Pendant/Meteorite tick rates are spec-dependent — do not inherit cross-spec."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Vengeful Gladiator's Silk Cowl", "wowhead": 33758, "ilvl": 44, "source": "Arena Season 3 — Vengeful Gladiator (retired)", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -523,6 +531,7 @@ const CLASSES = [
 },
 { id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2751,
   notes:["Cat attacks are AP-normalized — weapon DPS irrelevant, weapon is a pure stat stick.", "Crusader is dead for Feral (Holy Strength is Strength — useless for an Agility spec)."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim"},
@@ -565,6 +574,7 @@ const CLASSES = [
 },
 { id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:3935,
   notes:["SimC undercounts Resto: Acid Rain (378443) unimplemented, LvB crit→damage scaling absent — Crit and Int understated.", "Sim instruments excluded from this list: Ascendance haste proxy (trinket1 in the profile) and the Acid Rain shirt proxy. The Pendant+Meteorite pair is simmed as one merged 35-vers line to free the slot."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Helm of Desolation", "wowhead": 28192, "q": 3, "ilvl": 33, "source": "The Black Morass — Aeonus", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim"},
@@ -607,6 +617,7 @@ const CLASSES = [
 },
 { id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:2443,
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213488, "name": "Quick Emerald", "n": 2, "q": 3}], "status": "sim"},
@@ -651,6 +662,7 @@ const CLASSES = [
 },
 { id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:4060,
   notes:["L30 stat priority: Int ≫ Haste ≈ Mastery > Crit > Vers."],
+  credits:{"herald": "Emmaløve"},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Cowl of Icy Breaths", "wowhead": 45464, "ilvl": 42, "source": "Ulduar — Hodir", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -708,6 +720,7 @@ const CLASSES = [
 },
 { id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:3131,
   notes:["L30 stat priority: Int ≫ Crit ≈ Vers > Haste > Mastery (inverted from max level)."],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Cowl of Icy Breaths", "wowhead": 45464, "ilvl": 42, "source": "Ulduar — Hodir", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -750,6 +763,7 @@ const CLASSES = [
 },
 { id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2447,
   notes:[],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
@@ -794,6 +808,7 @@ const CLASSES = [
 },
 { id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2346,
   notes:[],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
@@ -838,6 +853,7 @@ const CLASSES = [
 },
 { id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:2423,
   notes:[],
+  credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Helm of Desolation", "wowhead": 28192, "q": 3, "ilvl": 33, "source": "The Black Morass — Aeonus", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213746, "name": "Elusive Blasphemite", "n": 1}, {"id": 40155, "name": "Reckless Ametrine", "n": 1}], "status": "sim"},
@@ -972,6 +988,9 @@ function renderMain(){
 
   const notes = cls.notes || [];
   $("classnotes").hidden = true; // class notes hidden for now
+  const cr = cls.credits && cls.credits[state.list];
+  $("creditline").hidden = !cr;
+  if (cr) $("creditline").textContent = "Special thanks to " + cr + " for this list.";
   $("classnotes").innerHTML = notes.length
     ? '<h3>'+esc(cls.spec)+' notes</h3>' + notes.map(n=>'<p>'+esc(n)+'</p>').join("")
     : "";
