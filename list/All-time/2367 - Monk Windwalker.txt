@@ -33,18 +33,14 @@ feet=,id=49895,ilevel=47,enchant_id=1887,gem_id=71852/71852,bonus_id=9051,drop_l
 finger1=,id=159462,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # signet_of_the_false_accuser (33)
 finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Sharpened Twilight Scale (47)
-trinket1=,id=50355,ilevel=15
 # Dragonspine Trophy (38)
-trinket2=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
+trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
+# Chaos Talisman (33)
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38) — calibrated: 12 procs / 291s WW dummy log
 main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4444,equip=procby/attack_procon/hit_2.5ppm_4.77haste_5dur
 # Hand of the Deceiver (44)
 off_hand=,id=34331,ilevel=44,enchant_id=5950,gem_id=71852/71852,bonus_id=9037,drop_level=30
-
-#4099
-#213482
-#trinket1=Sharpened_Twilight_Scale,ilevel=47,stats=14crit,equip=procby/attack_41ap_15dur_45cd_21%
 
 # Consumables
 # potion=golemblood_potion
@@ -81,10 +77,7 @@ actions.precombat+=/variable,name=patchwerk,value=fight_style.patchwerk|fight_st
 actions=auto_attack,target_if=max:target.time_to_die
 actions+=/touch_of_karma,target_if=max:target.time_to_die
 # Move to target
-actions+=/roll,if=movement.distance>5
-actions+=/chi_torpedo,if=movement.distance>5
 actions+=/flying_serpent_kick,if=movement.distance>5
-actions+=/spear_hand_strike,if=target.debuff.casting.react
 actions+=/potion,if=buff.invoke_xuen_the_white_tiger.remains>15|fight_remains<=30
 actions+=/potion,if=talent.flurry_strikes&chi>2&(time<5|cooldown.zenith.up&time<5|time>300&((trinket.1.is.algethar_puzzle_box&trinket.1.cooldown.remains>100|trinket.2.is.algethar_puzzle_box&trinket.2.cooldown.remains>100)|!trinket.1.has_use_buff&!trinket.2.has_use_buff)&talent.flurry_strikes|time>300&buff.zenith.up)
 # Enable PI if available
