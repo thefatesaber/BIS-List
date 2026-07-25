@@ -14,8 +14,8 @@ talents=C8PApei1JmYNvFfEFaN5bWuGKAAAAAAwYmhBDAAAAAAmxAY8AmBABAAAAAAAYMGMAAAwADAA
 
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30,enchant=12crit
-# Ukhel Ancestry Beads (135)
-neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213500/213500/71852,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Chain of the Green Flight (135)
+neck=,id=137311,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=7202,drop_level=30
 # Drape of the Faceless General (43)
@@ -32,10 +32,10 @@ waist=,id=34549,ilevel=44,gem_id=71852/71852,bonus_id=9037,bonus_id=9035,drop_le
 legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=6710/6652,drop_level=30
 # Star-Strider Boots (40)
 feet=,id=29951,ilevel=40,enchant_id=1887,gem_id=71852/71852,bonus_id=9035,drop_level=30
-# signet_of_the_false_accuser (33)
-finger1=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Signet of the Highborne Magi (33)
+finger1=,id=134537,ilevel=33,enchant_id=6110,gem_id=71852,drop_level=30
 # Fleshfused Circle (33)
-finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71852,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
 # Armored Elekk Tusk (32)
