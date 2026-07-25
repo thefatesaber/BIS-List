@@ -33,7 +33,7 @@ finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=40146,bonus_id=6710/6652/881
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
 # Chaos Talisman (33)
-trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,content_tuning=485,drop_level=30
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # The untamed Blade (40)
 main_hand=The_Untamed_Blade,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_14%
 # Bonereaver's Edge (38)
