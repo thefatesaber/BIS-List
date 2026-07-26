@@ -6,34 +6,34 @@ spec=fury
 role=attack
 talents=CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA
 ### Combo 1
-# Helm of the Faceless 43
-head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9042,drop_level=30
+# Overlord's Helmet of Second Sight (32)
+head=,id=31105,gem_id=40111/40111/40111,bonus_id=6691,drop_level=29
 # Hatecoil Commander's Amulet (33)
-neck=,id=134492,ilevel=33,enchant_id=5890,gem_id=40146,bonus_id=6710/6652/8810,drop_level=30
-# Spaulders of the Thalassian Savior (44)
-shoulder=,id=34193,ilevel=44,gem_id=213494/213494,bonus_id=9037
-# Titanskin Cloak (43)
-back=,id=45496,ilevel=43,enchant_id=3243,gem_id=40146,bonus_id=9043
-# Onslaught Breastplate (42)
-chest=,id=30975,ilevel=42,enchant_id=6625,gem_id=40146/40146/40146,bonus_id=9036
+neck=,id=134492,ilevel=33,enchant_id=5890,gem_id=40111,bonus_id=6710/6652/8810,drop_level=30
+# Shoulderguards of Opportunity (39)
+shoulder=,id=40185,gem_id=40111,bonus_id=9039
+# Drape of Inimitable Fate (35)
+back=,id=67140,bonus_id=6660,drop_level=35
+# Warbringer Breastplate (38)
+chest=,id=29019,bonus_id=9034,gem_id=40111/40111/40111,drop_level=30
 # Bracers of Eradication (40)
-wrist=,id=30057,ilevel=40,enchant_id=1885,gem_id=40146,bonus_id=9035
-# Hard Khorium Battlefists 44
-hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=40146/40146,bonus_id=9037,drop_level=30
+wrist=,id=30057,ilevel=40,enchant_id=1885,gem_id=40111,bonus_id=9035
+# Heroes' Dreadnaught Gauntlets (38)
+hands=,id=39609,bonus_id=9038
 # Red Belt of Battle 40
-waist=,ilevel=40,id=30032,gem_id=40146/40146/40146,bonus_id=9035,drop_level=30
-# Felfury Legplates (44)
-legs=,id=34180,ilevel=44,enchant_id=3823,gem_id=40146/40146/40146,bonus_id=9037
-# Onslaught Treads 44
-feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=213494,bonus_id=9037,drop_level=30
+waist=,ilevel=40,id=30032,gem_id=40111/40111/40111,bonus_id=9035,drop_level=30
+# Greaves of the Martyr (32)
+legs=,id=30536,enchant_id=4881,gem_id=40111/40111/40111,bonus_id=6710,drop_level=29
+# Sha'tari Wrought Greaves (33)
+feet=,id=28176,enchant_id=4062,gem_id=40111/40111,bonus_id=6710,drop_level=30
 # Loop of Vitriolic Intent (33)
-finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=40146,bonus_id=6710/41/8810,drop_level=30
+finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=40111,bonus_id=6710/41/8810,drop_level=30
 # Loop of Pulsing Veins (33)
-finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=40146,bonus_id=6710/6652/8810,drop_level=30
+finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=40111,bonus_id=6710/6652/8810,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
-# Chaos Talisman (33)
-trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
+# Pendant of the Violet Eye (38)
+trinket2=,id=28727,bonus_id=9034,drop_level=30
 # The untamed Blade (40)
 main_hand=The_Untamed_Blade,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_14%
 # Bonereaver's Edge (38)
