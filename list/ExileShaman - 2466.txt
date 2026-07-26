@@ -1,0 +1,119 @@
+# SimC Expert Mode: Header
+max_time=300
+fixed_time=1
+# Base Actor — Nibelung DPS set, 32196 gems
+# WoW 12.0.5.67823, TOC 120005
+#
+# === CUSTOM MODELING (lvl 30 workarounds) ===
+# 1. LAVA SURGE: over-procs; throttled via line_cd=5 on lava_burst.
+# 2. ACID RAIN: on-use DAMAGE proxy on the SHIRT. cd=20 holds ~90% uptime to match the log now that
+#    the shared item cooldown is off (at cd=18 with no shared lock it would run ~100% and over-credit).
+# 3. ASCENDANCE: synthetic on-use HASTE on trinket1 (use=170haste_20dur_180cd). Fires clean because:
+#      a) default_item_group_cooldown=0 removes the 20s shared lock that was starving it (proven: the
+#         vers trinket went from Start ~1.0-1.4 to a clean 3.0 once this was set).
+#      b) NO line_cd on its use line. The item is already 180cd, so line_cd is redundant -- and on an
+#         off-GCD use_item it blocks the line entirely (that was the "buff never appeared" bug).
+#    The item's own 180cd gives 2 uses (Start ~2.0). 170 haste ~= +25% multiplicative
+#    (21.39% -> ~51.7% effective). Tune the 170 to your in-game Ascendance char-sheet haste.
+override.spell_data=spell.77756.proc_chance=20
+override.spell_data=effect.68166.base_value=0
+# LvB damage fix: resto drops Lava Burst's crit-chance scaling; +16.4% coef bump (1.38996->1.6184) to match log's 6.1k Avg Hit @24.86% crit. Fixed for this crit level, doesn't scale.
+override.spell_data=effect.747255.sp_coefficient=1.6184
+shaman="Tempestas"
+level=30
+race=zandalari_troll
+zandalari_loa=paku
+server=korgath
+server=thrall
+role=attack
+default_item_group_cooldown=0
+professions=leatherworking=2/
+spec=restoration
+talents=CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA
+head=,ilevel=44,id=34332,gem_id=32196/76885,bonus_id=9037
+neck=,ilevel=44,id=35290,enchant_id=5439,gem_id=32196,bonus_id=9037
+shoulder=,ilevel=47,id=50698,gem_id=32196/32196,bonus_id=9051
+back=,ilevel=31,id=6542,enchant_id=3243,bonus_id=6654/1705
+chest=,ilevel=42,id=31017,enchant_id=4418,gem_id=32196/32196/32196,bonus_id=9036
+# >>> ACID RAIN PROXY on the SHIRT (damage on-use). cd 18->20 to preserve ~90% uptime (see note 2).
+shirt=acid_rain_proxy,use=480nature_1tick_18dur_20cd
+# >>> TABARD free (Ascendance is the synthetic haste trinket below; vers is merged on trinket2)
+wrist=,ilevel=44,id=34437,enchant_id=4414,gem_id=32196,bonus_id=9037,drop_level=30
+hands=,ilevel=42,id=31008,enchant_id=4430,gem_id=32196,bonus_id=9036,drop_level=30
+waist=,ilevel=44,id=34542,gem_id=32196/32196,bonus_id=9037,drop_level=30
+legs=,ilevel=42,id=31020,gem_id=32196,bonus_id=9036
+feet=,ilevel=44,id=34566,gem_id=32196,bonus_id=9037
+finger1=,ilevel=43,id=45946,enchant_id=6109,gem_id=32196,bonus_id=9043
+finger2=,ilevel=44,id=34166,bonus_id=9037
+# >>> ASCENDANCE = synthetic on-use haste. 170 = haste RATING (tune to in-game Ascendance haste).
+trinket1=Ascendance_buff,use=170haste_20dur_180cd
+# vers (Pendant + Meteorite merged: 35 vers)
+trinket2=,ilevel=30,id=37835,bonus_id=6660,drop_level=30
+main_hand=,ilevel=14,id=30723,enchant_id=3830,gem_id=32196/32196
+off_hand=,ilevel=42,id=45450,enchant_id=4434,bonus_id=9042
+
+temporary_enchant=
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+# Custom APL
+actions.precombat=snapshot_stats
+actions.precombat+=/lightning_shield
+actions=wind_shear
+actions+=/lightning_shield,if=buff.lightning_shield.down
+# 1. RAIN (Acid Rain proxy)
+actions+=/use_item,name=acid_rain_proxy
+# 2. SHOCK
+actions+=/flame_shock,if=dot.flame_shock.refreshable
+# 3. RACIALS / TRINKETS — held until Flame Shock is up.
+#    trinket1 = Ascendance: NO line_cd. Item is 180cd natively -> 2 uses. (line_cd blocks an off-GCD use.)
+actions+=/blood_fury,if=dot.flame_shock.ticking
+actions+=/berserking,if=dot.flame_shock.ticking
+actions+=/fireblood,if=dot.flame_shock.ticking
+actions+=/ancestral_call,if=dot.flame_shock.ticking
+actions+=/use_item,slot=trinket1,use_off_gcd=1,if=dot.flame_shock.ticking
+actions+=/use_item,slot=trinket2,use_off_gcd=1,if=dot.flame_shock.ticking
+actions+=/potion,if=dot.flame_shock.ticking
+# 4. Lava Burst, then Lightning Bolt filler.
+actions+=/lava_burst,line_cd=6.5,if=buff.lava_surge.up|dot.flame_shock.ticking
+actions+=/lightning_bolt
+actions+=/flame_shock,moving=1,if=dot.flame_shock.refreshable
+actions+=/frost_shock,moving=1
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+temporary_enchant=disabled
+enemy=Fluffy_Pillow_Custom
+target_level=+3
+enemy_custom_health_timeline=20:0.2
+
+name=Shaman
+
+# Simulation Options
+iterations=10000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level=+3
+enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
