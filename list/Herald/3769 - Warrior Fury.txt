@@ -7,33 +7,33 @@ role=attack
 talents=CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA
 ### Combo 1
 # Overlord's Helmet of Second Sight (32)
-head=,id=31105,gem_id=40111/40111/40111,bonus_id=6691,drop_level=29
+head=,ilevel=33,id=31105,gem_id=40146/40146/40146,bonus_id=6691,drop_level=30
 # Hatecoil Commander's Amulet (33)
-neck=,id=134492,ilevel=33,enchant_id=5890,gem_id=40111,bonus_id=6710/6652/8810,drop_level=30
-# Shoulderguards of Opportunity (39)
-shoulder=,id=40185,gem_id=40111,bonus_id=9039
-# Drape of Inimitable Fate (35)
-back=,id=67140,bonus_id=6660,drop_level=35
+neck=,id=134492,ilevel=33,enchant_id=5890,gem_id=40146,bonus_id=6710/6652/8810,drop_level=30
+# Destroyer Shoulderblades (40)
+shoulder=,id=30122,bonus_id=9035,enchant_id=3835
+# Cloak of the Shadowed Sun (39)
+back=,ilevel=39,id=40252,enchant_id=3243,gem_id=40146/40146,bonus_id=9039
 # Warbringer Breastplate (38)
-chest=,id=29019,bonus_id=9034,gem_id=40111/40111/40111,drop_level=30
+chest=,ilevel=38,id=29019,bonus_id=9034,enchant_id=6625,gem_id=40146/40146/40146,drop_level=30
 # Bracers of Eradication (40)
-wrist=,id=30057,ilevel=40,enchant_id=1885,gem_id=40111,bonus_id=9035
-# Heroes' Dreadnaught Gauntlets (38)
-hands=,id=39609,bonus_id=9038
+wrist=,id=30057,ilevel=40,enchant_id=1885,gem_id=40146,bonus_id=9035
+# Faith Bearer's Gauntlets (33)
+hands=,ilevel=33,id=25942,enchant_id=4432,gem_id=40146/40146,bonus_id=7202
 # Red Belt of Battle 40
-waist=,ilevel=40,id=30032,gem_id=40111/40111/40111,bonus_id=9035,drop_level=30
-# Greaves of the Martyr (32)
-legs=,id=30536,enchant_id=4881,gem_id=40111/40111/40111,bonus_id=6710,drop_level=29
+waist=,ilevel=40,id=30032,gem_id=40146/40146/40146,bonus_id=9035,drop_level=30
+# Greaves of the Martyr (33)
+legs=,ilevel=33,id=30536,enchant_id=4881,gem_id=40146/40146/40146,bonus_id=6710,drop_level=30
 # Sha'tari Wrought Greaves (33)
-feet=,id=28176,enchant_id=4062,gem_id=40111/40111,bonus_id=6710,drop_level=30
+feet=,ilevel=33,id=28176,enchant_id=4062,gem_id=40146/40146,bonus_id=6710,drop_level=30
 # Loop of Vitriolic Intent (33)
-finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=40111,bonus_id=6710/41/8810,drop_level=30
+finger1=,id=134530,ilevel=33,enchant_id=6110,gem_id=40146,bonus_id=6710/41/8810,drop_level=30
 # Loop of Pulsing Veins (33)
-finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=40111,bonus_id=6710/6652/8810,drop_level=30
+finger2=,id=159463,ilevel=33,enchant_id=6110,gem_id=40146,bonus_id=6710/6652/8810,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
 # Pendant of the Violet Eye (38)
-trinket2=,id=28727,bonus_id=9034,drop_level=30
+trinket2=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # The untamed Blade (40)
 main_hand=The_Untamed_Blade,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_14%
 # Bonereaver's Edge (38)
