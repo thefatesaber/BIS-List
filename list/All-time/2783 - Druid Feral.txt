@@ -36,8 +36,8 @@ finger1=,id=178871,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10
 finger2=,id=159461,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
-# herkuml_war_token (15)
-trinket2=herkuml_war_token,id=50355,ilevel=15
+# Chaos Talisman (33)
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Distand Land (47)
 main_hand=,id=50040,ilevel=47,enchant_id=4227,gem_id=32194/32194/32194,bonus_id=9051,drop_level=30
 
