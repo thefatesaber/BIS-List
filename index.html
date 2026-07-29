@@ -149,6 +149,7 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   border:1px solid currentColor}
 .hm.only{color:#ff9d5c}
 .hm.ilvl{color:#8ab4f8}
+.hm.socket{color:#ff5c5c}
 .alts{grid-column:2 / -1; padding-left:44px; padding-top:2px;
   color:var(--dim); font-size:11px; overflow-wrap:anywhere}
 .alts em{font-style:normal; color:var(--tbd); text-transform:uppercase;
@@ -503,7 +504,7 @@ const CLASSES = [
       {"slot": "Shoulders", "item": "Pauldrons of Desolation", "wowhead": 27713, "q": 3, "ilvl": 33, "source": "The Slave Pens — Quagmirran", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "only"},
       {"slot": "Chest", "item": "Embrace of the Phoenix", "wowhead": 34373, "ilvl": 44, "source": "Crafted — Leatherworking", "ench": "Waking Stats", "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"},
-      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Agility", "enchsp": 104391, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Agility", "enchsp": 104391, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "socket"},
       {"slot": "Hands", "item": "Thalassian Ranger Gauntlets", "wowhead": 34343, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Major Agility", "enchsp": 44529, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Gronnstalker's Belt", "wowhead": 34549, "ilvl": 44, "source": "Sunwell Plateau — Brutallus (token)", "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Legs", "item": "Wyrmscale Greaves", "wowhead": 30534, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Primal Leg Reinforcements", "enchsp": 124559, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"},
@@ -520,7 +521,7 @@ const CLASSES = [
       {"slot": "Shoulders", "item": "Pauldrons of Desolation", "wowhead": 27713, "q": 3, "ilvl": 33, "source": "The Slave Pens — Quagmirran", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "only"},
       {"slot": "Chest", "item": "Embrace of the Phoenix", "wowhead": 34373, "ilvl": 44, "source": "Crafted — Leatherworking", "ench": "Waking Stats", "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"},
-      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Agility", "enchsp": 104391, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Agility", "enchsp": 104391, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "socket"},
       {"slot": "Hands", "item": "Thalassian Ranger Gauntlets", "wowhead": 34343, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Major Agility", "enchsp": 44529, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Gronnstalker's Belt", "wowhead": 34549, "ilvl": 44, "source": "Sunwell Plateau — Brutallus (token)", "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Legs", "item": "Wyrmscale Greaves", "wowhead": 30534, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Primal Leg Reinforcements", "enchsp": 124559, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"},
@@ -584,7 +585,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim"},
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim", "hm": "socket"},
       {"slot": "Neck", "item": "Amnesia", "wowhead": 200210, "q": 3, "ilvl": 33, "source": "Azure Span — Forgotten Creation (rare)", "ench": "Mark of the Claw", "enchsp": 190892, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 3}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim", "hm": "only"},
@@ -601,7 +602,7 @@ const CLASSES = [
       {"slot": "Main Hand", "item": "Distant Land", "wowhead": 50040, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Mighty Agility", "enchsp": 95471, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 3}], "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim"},
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim", "hm": "socket"},
       {"slot": "Neck", "item": "Hook Charm Necklace", "wowhead": 151437, "q": 3, "ilvl": 33, "source": "Blackfathom Deeps — Thruk", "ench": "Mark of the Claw", "enchsp": 190892, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 1}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 32194, "name": "Delicate Crimson Spinel", "n": 2}], "status": "sim", "hm": "only"},
@@ -632,7 +633,7 @@ const CLASSES = [
       {"slot": "Shoulders", "item": "Pauldrons of Desolation", "wowhead": 27713, "q": 3, "ilvl": 33, "source": "The Slave Pens — Quagmirran", "ench": "Greater Inscription of the Storm", "enchsp": 59937, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim"},
       {"slot": "Chest", "item": "Embrace of the Phoenix", "wowhead": 34373, "ilvl": 44, "source": "Crafted — Leatherworking", "ench": "Exceptional Stats", "enchsp": 27960, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
-      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Super Intellect", "enchsp": 104389, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Super Intellect", "enchsp": 104389, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim", "hm": "socket"},
       {"slot": "Hands", "item": "Thalassian Ranger Gauntlets", "wowhead": 34343, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Greater Haste", "enchsp": 104416, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Skyshatter Cord", "wowhead": 34542, "ilvl": 44, "source": "Sunwell Plateau — Brutallus (token)", "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Legs", "item": "Wyrmscale Greaves", "wowhead": 30534, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Frozen Spellthread", "enchsp": 387291, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
@@ -649,7 +650,7 @@ const CLASSES = [
       {"slot": "Shoulders", "item": "Pauldrons of Desolation", "wowhead": 27713, "q": 3, "ilvl": 33, "source": "The Slave Pens — Quagmirran", "ench": "Greater Inscription of the Storm", "enchsp": 59937, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim"},
       {"slot": "Chest", "item": "Embrace of the Phoenix", "wowhead": 34373, "ilvl": 44, "source": "Crafted — Leatherworking", "ench": "Exceptional Stats", "enchsp": 27960, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
-      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Super Intellect", "enchsp": 104389, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Super Intellect", "enchsp": 104389, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim", "hm": "socket"},
       {"slot": "Hands", "item": "Thalassian Ranger Gauntlets", "wowhead": 34343, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Greater Haste", "enchsp": 104416, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Skyshatter Cord", "wowhead": 34542, "ilvl": 44, "source": "Sunwell Plateau — Brutallus (token)", "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Legs", "item": "Wyrmscale Greaves", "wowhead": 30534, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Frozen Spellthread", "enchsp": 387291, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
@@ -670,7 +671,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213488, "name": "Quick Emerald", "n": 2, "q": 3}], "status": "sim"},
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213488, "name": "Quick Emerald", "n": 2, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 3, "q": 3}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 1, "q": 3}], "status": "sim"},
@@ -688,7 +689,7 @@ const CLASSES = [
       {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213488, "name": "Quick Emerald", "n": 2, "q": 3}], "status": "sim"},
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213488, "name": "Quick Emerald", "n": 2, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 1, "q": 3}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 1, "q": 3}], "status": "sim"},
@@ -816,7 +817,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Claw", "enchsp": 190892, "gems": [{"id": 40150, "name": "Deft Ametrine", "n": 3}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 40150, "name": "Deft Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 40150, "name": "Deft Ametrine", "n": 2}], "status": "sim", "hm": "only"},
@@ -834,7 +835,7 @@ const CLASSES = [
       {"slot": "Off Hand", "item": "Hand of the Deceiver", "wowhead": 34331, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Gale-Force Striking", "enchsp": 255141, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Claw", "enchsp": 190892, "gems": [{"id": 40150, "name": "Deft Ametrine", "n": 1}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 40150, "name": "Deft Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 40150, "name": "Deft Ametrine", "n": 2}], "status": "sim", "hm": "only"},
@@ -861,7 +862,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Neck", "item": "Phoenix Feather Pendant", "wowhead": 200284, "q": 3, "ilvl": 33, "source": "Thaldraszus — Eldoren the Reborn (rare)", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213482, "name": "Masterful Emerald", "n": 1, "q": 3}, {"id": 32194, "name": "Delicate Crimson Spinel", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "only"},
@@ -879,7 +880,7 @@ const CLASSES = [
       {"slot": "Off Hand", "item": "Hand of the Deceiver", "wowhead": 34331, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Gale-Force Striking", "enchsp": 255141, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Neck", "item": "Brysngamen, Torc of Helheim", "wowhead": 133636, "q": 3, "ilvl": 33, "source": "Maw of Souls — Helya", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "only"},
@@ -911,7 +912,7 @@ const CLASSES = [
       {"slot": "Shoulders", "item": "Pauldrons of Desolation", "wowhead": 27713, "q": 3, "ilvl": 33, "source": "The Slave Pens — Quagmirran", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim"},
       {"slot": "Chest", "item": "Embrace of the Phoenix", "wowhead": 34373, "ilvl": 44, "source": "Crafted — Leatherworking", "ench": "Waking Stats", "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
-      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Spellpower", "enchsp": 44635, "gems": [{"id": 40113, "name": "Brilliant Cardinal Ruby", "n": 2}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Spellpower", "enchsp": 44635, "gems": [{"id": 40113, "name": "Brilliant Cardinal Ruby", "n": 2}], "status": "sim", "hm": "socket"},
       {"slot": "Hands", "item": "Thalassian Ranger Gauntlets", "wowhead": 34343, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 40113, "name": "Brilliant Cardinal Ruby", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Terror Pit Girdle", "wowhead": 28778, "ilvl": 38, "source": "Magtheridon's Lair — Magtheridon", "ench": "Shadowed Belt Clasp", "enchsp": 411899, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Wyrmscale Greaves", "wowhead": 30534, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Frozen Spellthread", "enchsp": 387294, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
@@ -928,7 +929,7 @@ const CLASSES = [
       {"slot": "Shoulders", "item": "Pauldrons of Desolation", "wowhead": 27713, "q": 3, "ilvl": 43, "source": "The Slave Pens — Quagmirran", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim"},
       {"slot": "Chest", "item": "Embrace of the Phoenix", "wowhead": 34373, "ilvl": 44, "source": "Crafted — Leatherworking", "ench": "Waking Stats", "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
-      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Spellpower", "enchsp": 44635, "gems": [{"id": 40113, "name": "Brilliant Cardinal Ruby", "n": 2}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Spellpower", "enchsp": 44635, "gems": [{"id": 40113, "name": "Brilliant Cardinal Ruby", "n": 2}], "status": "sim", "hm": "socket"},
       {"slot": "Hands", "item": "Thalassian Ranger Gauntlets", "wowhead": 34343, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 40113, "name": "Brilliant Cardinal Ruby", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Terror Pit Girdle", "wowhead": 28778, "ilvl": 38, "source": "Magtheridon's Lair — Magtheridon", "ench": "Shadowed Belt Clasp", "enchsp": 411899, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Wyrmscale Greaves", "wowhead": 30534, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Frozen Spellthread", "enchsp": 387294, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
@@ -1019,6 +1020,7 @@ function gemLinks(e){
 function hmBadge(e){
   if(e.hm === "only")  return '<span class="hm only" title="Hard mode exclusive \u2014 does not drop on normal">HM only</span>';
   if(e.hm === "ilvl")  return '<span class="hm ilvl" title="Drops on normal too; hard mode gives the higher item level">HM ilvl</span>';
+  if(e.hm === "socket") return '<span class="hm socket" title="Only the socket-proc roll of this item is worth using">Socket Proc</span>';
   return "";
 }
 
@@ -1095,7 +1097,7 @@ function asText(){
   mergedList(cls, state.list).forEach(e => {
     if(!e.item || (e.status||"tbd")==="tbd"){ tbd.push(e.slot); return; }
     const gtxt = e.gems ? e.gems.map(g=>g.name+(g.n>1?" \u00d7"+g.n:"")).join(", ") : "";
-    const hm = e.hm==="only" ? "HM only" : (e.hm==="ilvl" ? "HM ilvl" : "");
+    const hm = e.hm==="only" ? "HM only" : (e.hm==="ilvl" ? "HM ilvl" : (e.hm==="socket" ? "Socket Proc" : ""));
     const iv = e.ilvl==null ? "" :
       ((e.hm==="ilvl" && e.ilvlNormal!=null) ? "ilvl "+e.ilvlNormal+"\u2192"+e.ilvl+" HM" : "ilvl "+e.ilvl);
     const bits = [iv, hm, e.source||"", e.ench||"", gtxt].filter(Boolean).join(" · ");
