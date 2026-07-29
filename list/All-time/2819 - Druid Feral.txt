@@ -11,9 +11,9 @@ talents=CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAA
 
 ### Combo 1
 # wastewalker_helm (33)
-head=,id=28224,ilevel=33,gem_id=76884/32194/32194,bonus_id=7202,drop_level=30
+head=,id=28224,ilevel=33,gem_id=76884/213743/32194,bonus_id=7202,drop_level=30
 # Amnesia (135)
-neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=32194/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32194/32194,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
