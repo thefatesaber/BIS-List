@@ -36,6 +36,7 @@ back=,ilevel=43,id=46042,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=3
 chest=,ilevel=44,id=34373,enchant_id=2661,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
 # >>> ACID RAIN PROXY on the SHIRT (damage on-use). cd 18->20 to preserve ~90% uptime (see note 2).
 shirt=acid_rain_proxy,use=480nature_1tick_18dur_20cd
+tabard=Ascendance_buff,use=170haste_20dur_180cd
 # >>> TABARD free (Ascendance is the synthetic haste trinket below; vers is merged on trinket2)
 wrist=,ilevel=33,id=34698,enchant_id=4414,gem_id=32196/32196,bonus_id=7202,drop_level=30
 hands=,ilevel=44,id=34343,enchant_id=4430,gem_id=32196/32196,bonus_id=9037,drop_level=30
@@ -44,10 +45,8 @@ legs=,ilevel=33,id=30534,enchant_id=6539,gem_id=32196/32196/32196,bonus_id=7202,
 feet=,ilevel=44,id=34566,enchant_id=4426,gem_id=32196,bonus_id=9037,drop_level=30
 finger1=,ilevel=33,id=159458,enchant_id=6109,gem_id=32196,drop_level=30
 finger2=,ilevel=33,id=162548,enchant_id=6109,gem_id=32196,drop_level=30
-# >>> ASCENDANCE = synthetic on-use haste. 170 = haste RATING (tune to in-game Ascendance haste).
-trinket1=Ascendance_buff,use=170haste_20dur_180cd
-# vers (Pendant + Meteorite merged: 35 vers)
-trinket2=Solace_of_the_Fallen,ilevel=44,stats=9int_48vers
+trinket1=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
+trinket2=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
 main_hand=nibelung_h,ilevel=47,stats=52int_14sta_14sp,equip=1450holy_16rppm_nocrit_procby/spell,enchant=13sp
 
 temporary_enchant=
@@ -64,12 +63,12 @@ actions+=/use_item,name=acid_rain_proxy
 # 2. SHOCK
 actions+=/flame_shock,if=dot.flame_shock.refreshable
 # 3. RACIALS / TRINKETS — held until Flame Shock is up.
-#    trinket1 = Ascendance: NO line_cd. Item is 180cd natively -> 2 uses. (line_cd blocks an off-GCD use.)
+#    Ascendance = tabard on-use, fired by name. NO line_cd (item is 180cd natively -> 2 uses; line_cd blocks an off-GCD use).
 actions+=/blood_fury,if=dot.flame_shock.ticking
 actions+=/berserking,if=dot.flame_shock.ticking
 actions+=/fireblood,if=dot.flame_shock.ticking
 actions+=/ancestral_call,if=dot.flame_shock.ticking
-actions+=/use_item,slot=trinket1,use_off_gcd=1,if=dot.flame_shock.ticking
+actions+=/use_item,name=ascendance_buff,use_off_gcd=1,if=dot.flame_shock.ticking
 actions+=/use_item,slot=trinket2,use_off_gcd=1,if=dot.flame_shock.ticking
 actions+=/potion,if=dot.flame_shock.ticking
 # 4. Lava Burst, then Lightning Bolt filler.
