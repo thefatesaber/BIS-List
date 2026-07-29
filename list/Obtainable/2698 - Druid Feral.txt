@@ -13,7 +13,7 @@ talents=CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAA
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/32194/32194,bonus_id=7202,drop_level=30
 # Hook Charm Necklace (135)
-neck=,id=151437,ilevel=33,enchant_id=5890,gem_id=32194,drop_level=30
+neck=,id=151437,ilevel=33,enchant_id=5437,gem_id=32194,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32194/32194,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
