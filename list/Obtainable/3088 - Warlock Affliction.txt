@@ -10,16 +10,16 @@ spec=affliction
 
 talents=CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZW8AAAAAAAAAAAAAAAAgBDAYmBYwAAAA
 
-# Cowl of Icy Breaths 42
-head=,ilevel=42,id=45464,gem_id=25893/213743,bonus_id=9037,drop_level=30
+# Merciless Gladiator's Felweave Cowl 45
+head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659
 # Splintered Obsidian Shard 135
 neck=,ilevel=33,id=151399,enchant_id=5437,gem_id=40155,drop_level=30
 # Hatefury Mantle 42
 shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=40155/40155,bonus_id=9036,drop_level=30
 # Drape of the Messenger 43
 back=,ilevel=43,id=46042,enchant_id=3243,gem_id=40155,bonus_id=9043,drop_level=30
-# Sunfire Robe 44
-chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9037,drop_level=30
+# Merciless Gladiator's Felweave Raiment 45
+chest=,ilevel=45,id=31982,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9357,drop_level=30,content_tuning=2659
 # Bracers of the Malefic 44
 wrist=,ilevel=44,id=34436,enchant_id=2332,gem_id=40155,bonus_id=9037,drop_level=30
 # Pharos Gloves 43
@@ -34,10 +34,10 @@ feet=,ilevel=43,id=45537,enchant_id=4092,gem_id=40155/40155,bonus_id=9043,drop_l
 finger1=,ilevel=33,id=178736,enchant_id=6109,gem_id=40155,drop_level=30
 # Bottle-Popper Ring 33
 finger2=,ilevel=33,id=151410,enchant_id=6108,gem_id=40155,drop_level=30
-# Solace of the Fallen 45
-trinket1=Solace_of_the_Fallen,id=47432,ilevel=45
+# Meteorite Crystal 43
+trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Pendant of the Violet Eye 38
-trinket2=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+trinket2=Meteorite_Crystal,ilevel=43,stats=9int,use=16vers_20stack_0.515tick_20dur_120cd
 # Nibelung 47
 main_hand=nibelung_h,ilevel=47,stats=49int_14sta_6mastery_14sp,equip=1450holy_16rppm_nocrit_procby/spell
 
