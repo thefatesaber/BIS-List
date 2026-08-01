@@ -15,19 +15,19 @@ talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
 # Ukhel Ancestry Beads (140)
-neck=,id=193676,ilevel=33,enchant_id=5437,gem_id=40150/40150/40150,bonus_id=9156/6652/9477/8782,drop_level=30
+neck=,id=193676,ilevel=33,enchant_id=5437,gem_id=71852/71852/71852,bonus_id=9156/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
-shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=40150/40150,bonus_id=6710/6652,drop_level=30
+shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
-back=,id=46032,ilevel=43,enchant_id=3243,gem_id=40150/40150,bonus_id=9043,drop_level=30
+back=,id=46032,ilevel=43,enchant_id=3243,gem_id=71852/71852,bonus_id=9043,drop_level=30
 # Harness of Carnal Instinct (44)
-chest=,id=34211,ilevel=44,enchant_id=6625,gem_id=40150/40150/40150,bonus_id=9037,drop_level=30
+chest=,id=34211,ilevel=44,enchant_id=6625,gem_id=71852/71852/71852,bonus_id=9037,drop_level=30
 # Umbrage Armbands (47)
-wrist=,id=54580,ilevel=47,enchant_id=4416,gem_id=40150,bonus_id=9051,drop_level=30
+wrist=,id=54580,ilevel=47,enchant_id=4416,gem_id=71852,bonus_id=9051,drop_level=30
 # Gloves of the Endless Dark (43)
-hands=,id=46043,ilevel=43,enchant_id=1887,gem_id=40150/40150,bonus_id=9043,drop_level=30
+hands=,id=46043,ilevel=43,enchant_id=1887,gem_id=71852/71852,bonus_id=9043,drop_level=30
 # Soul-Devouring Cinch (43)
-waist=,id=46095,ilevel=43,gem_id=40150/40150/40150,bonus_id=9043,drop_level=30
+waist=,id=46095,ilevel=43,gem_id=71852/71852/71852,bonus_id=9043,drop_level=30
 # Plague-Soaked Leather Leggings (47)
 legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
 # Slayer's Boots (44)
@@ -41,9 +41,23 @@ trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108has
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_2.5ppm_4.77haste_5dur
-# Vibroblade (33) — Puncture debuff encoded as vers: 121.9 x U x phys_share (currently U=1.0 ceiling, 0.90 phys)
-off_hand=vibroblade,ilevel=33,weapon=axe_2.60speed_7min_15max,ilevel=33,quality=rare,stats=110vers
+main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_0.9ppm_184haste_5dur
+# Vibroblade (33)
+off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
+#effective DPS = D0 × (1 + A × P × U)
+#D0 = naked sim DPS (2727 — the sim with the proc counting for zero)
+#A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
+#P = proportion affected = physical share = 0.969
+#U = measured uptime
+
+#59.68% on Twins 
+#45.90% on Jaraxxus 
+#65.25% on 1st boss of northrend beast
+#so
+#u=((59.68+45.9+65.25)/3) = 56.94
+
+
+#effective DPS = 2727 × (1 + 0.2083 × 0.969 × 0.5694) = 3040
 
 # Consumables
 # potion=golemblood_potion
