@@ -42,8 +42,8 @@ trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108has
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
 main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_2.5ppm_4.77haste_5dur
-# Hand of the Deceiver (44)
-off_hand=,id=34331,ilevel=44,enchant_id=5950,gem_id=71852/71852,bonus_id=9037,drop_level=30
+# Vibroblade (33) — Puncture debuff encoded as vers: 121.9 x U x phys_share (currently U=1.0 ceiling, 0.90 phys)
+off_hand=vibroblade,ilevel=33,weapon=axe_2.60speed_7min_15max,ilevel=33,quality=rare,stats=110vers
 
 # Consumables
 # potion=golemblood_potion
@@ -61,7 +61,7 @@ midnight.crucible_of_erratic_energies_violence=0
 midnight.crucible_of_erratic_energies_sustenance=0
 midnight.crucible_of_erratic_energies_predation=0
 
-external_buffs.pool=power_infusion:120
+#external_buffs.pool=power_infusion:120
 # Custom APL
 # Executed before combat begins.
 actions.precombat=apply_poison,nonlethal=none,lethal=instant
