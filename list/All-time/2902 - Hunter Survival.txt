@@ -27,8 +27,8 @@ chest=,id=34373,ilevel=44,enchant_id=6625,gem_id=71852/71852/71852,bonus_id=9037
 wrist=,id=34698,ilevel=33,enchant_id=4416,gem_id=71852/71852,bonus_id=6710/6652/8810,drop_level=30
 # Thalassian Ranger Gauntlets (44)
 hands=,id=34343,ilevel=44,enchant_id=5259,gem_id=71852/71852,bonus_id=9037,drop_level=30
-# Gronnstalker's Belt (44)
-waist=,id=34549,ilevel=44,gem_id=71852/71852,bonus_id=9037,bonus_id=9035,drop_level=30
+# Belt of Dragons (43)
+waist=,id=45553,ilevel=43,gem_id=71852/71852/71852,bonus_id=90343,bonus_id=9035,drop_level=30
 # Wyrmscale Greaves (33)
 legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=6710/6652,drop_level=30
 # Star-Strider Boots (40)
