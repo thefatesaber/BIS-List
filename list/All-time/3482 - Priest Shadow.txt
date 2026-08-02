@@ -42,8 +42,8 @@ finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10
 trinket1=Meteorite_Crystal,ilevel=43,stats=9int,use=16vers_20stack_0.515tick_20dur_120cd
 # Pendant of the Violet Eye 38 
 trinket2=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
-# Nibelung 47 
-main_hand=nibelung_h,ilevel=47,stats=49int_14sta_6mastery_14sp,equip=1450holy_16rppm_nocrit_procby/spell,enchant=13sp
+# Abracadaver 47 
+main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
 
 #finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 #feet=,ilevel=43,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_level=30

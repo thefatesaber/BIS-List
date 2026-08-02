@@ -63,12 +63,10 @@ finger2=,ilevel=33,id=178736,enchant_id=6109,gem_id=32196/32196,drop_level=30
 trinket1=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
 # Gale of Shadows 33
 trinket2=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
-# Nibelung 47
-main_hand=nibelung_h,ilevel=47,stats=52int_14sta_14sp,equip=1450holy_16rppm_nocrit_procby/spell,enchant=13sp
-
-#waist=,ilevel=44,id=34542,gem_id=32196/32196,bonus_id=9037,drop_level=30
-#feet=,ilevel=44,id=34566,enchant_id=4426,gem_id=32196,bonus_id=9037,drop_level=30
-#feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_level=30
+# Royal Scepter of Terenas II 47 
+main_hand=royal_scepter_of_terenas_ii,id=50734,ilevel=47,bonus_id=9051,gem_id=32196,enchant_id=2669
+# The Boreal Guard 43
+off_hand=the_boreal_guard,id=45877,ilevel=43,gem_id=32196/32196,enchant_id=4434,bonus_id=9041
 
 temporary_enchant=
 midnight.crucible_of_erratic_energies_violence=0

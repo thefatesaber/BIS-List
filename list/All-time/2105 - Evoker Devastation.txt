@@ -39,8 +39,8 @@ finger2=,id=178736,ilevel=33,enchant_id=6111,gem_id=32196/32196,bonus_id=6710/10
 trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Meteorite Crystal 43
 trinket2=Pendant_of_the_Violet_Eye,ilevel=43,stats=8int,use=16vers_20stack_0.515tick_20dur_120cd
-# Nibelung 47 
-main_hand=nibelung_h,ilevel=47,stats=49int_14sta_6mastery_14sp,equip=1450holy_16rppm_nocrit_procby/spell,enchant=13sp
+# Abracadaver 47 
+main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
 
 # Consumables
