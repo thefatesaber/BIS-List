@@ -33,7 +33,7 @@ talents=CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAA
 # Helm of Desolation 33
 head=,ilevel=33,id=28192,gem_id=25893/213743/32196,bonus_id=7202,drop_level=30
 # Hook Charm Necklace 33
-neck=,ilevel=33,id=151437,enchant_id=5437,gem_id=32196/,drop_level=30
+neck=,ilevel=33,id=151437,enchant_id=5437,gem_id=213476,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,ilevel=33,id=27713,enchant_id=3810,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Drape of the Messenger 43
