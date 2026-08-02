@@ -36,13 +36,13 @@ finger1=,id=151410,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
 # Stitchflesh's Misplaced Signet 33
 finger2=,id=178736,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
 # Phylactery of the Nameless Lich (47)
-trinket1=,ilevel=47,id=50365,bonus_id=9051,drop_level=30
+trinket1=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
 # Solace of the Fallen (45)
 trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
-# Nibelung 47 
-main_hand=nibelung_h,ilevel=47,stats=49int_14sta_6mastery_14sp,equip=1450holy_16rppm_nocrit_procby/spell,enchant=13sp
+# Abracadaver 47 
+main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
-
+#trinket1=,ilevel=47,id=50365,bonus_id=9051,drop_level=30
 # Consumables
 # potion=golemblood_potion
 # flask=flask_of_titanic_strength

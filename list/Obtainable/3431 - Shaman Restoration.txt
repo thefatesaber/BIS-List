@@ -62,8 +62,8 @@ finger2=,ilevel=33,id=162548,enchant_id=6109,gem_id=32196,drop_level=30
 trinket1=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
 # Gale of Shadows 33
 trinket2=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
-# Nibelung 47
-main_hand=nibelung_h,ilevel=47,stats=52int_14sta_14sp,equip=1450holy_16rppm_nocrit_procby/spell,enchant=13sp
+# Abracadaver 47 
+main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
 temporary_enchant=
 midnight.crucible_of_erratic_energies_violence=0
