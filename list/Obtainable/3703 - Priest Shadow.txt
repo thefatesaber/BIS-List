@@ -35,7 +35,7 @@ legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,
 # Slippers of the seacaller 42
 feet=,ilevel=43,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_level=30
 # Footbomb Championship Ring 33
-finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=213482,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Fleshfused Circle 33
 finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Solace of the Defeated (45)
