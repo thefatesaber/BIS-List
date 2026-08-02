@@ -64,8 +64,8 @@ trinket1=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
 trinket2=,ilevel=38,id=18820,bonus_id=9029,drop_level=30
 # torch_of_holy_fire 39
 main_hand=torch_of_holy_fire,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
-# The Boreal Guard 41
-off_hand=the_boreal_guard,ilevel=41,id=45877,gem_id=32196/32196,enchant_id=4434,bonus_id=9041
+# surplus_limb 39
+off_hand=surplus_limb,id=40273,bonus_id=9039,enchant_id=4434
 
 temporary_enchant=
 midnight.crucible_of_erratic_energies_violence=0
