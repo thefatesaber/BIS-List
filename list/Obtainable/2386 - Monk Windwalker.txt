@@ -1,4 +1,4 @@
-# All-time - Monk - Windwalker
+# Obtainable - Monk - Windwalker
 # Base Actor
 monk="Fateruler"
 level=30
@@ -12,8 +12,8 @@ talents=C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAA
 ### Combo 1
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
-# Phoenix Feather Pendant (135)
-neck=,id=200284,ilevel=33,enchant_id=5890,gem_id=213482/32194/71852,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Brysngamen, Torc of Helheim (135)
+neck=,id=133636,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
 # mantle_of_perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=7202,drop_level=30
 # Drape of the Faceless General (43)
@@ -30,16 +30,16 @@ waist=,id=46095,ilevel=43,gem_id=71852/71852/71852,bonus_id=9043,drop_level=30
 legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
 # Footpads of Impending Death (47)
 feet=,id=49895,ilevel=47,enchant_id=1887,gem_id=71852/71852,bonus_id=9051,drop_level=30
-# Footbomb Championship Ring (33)
-finger1=,id=159462,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Braided Silver Ring (33)
+finger1=,id=134539,ilevel=33,enchant_id=6110,gem_id=71852,drop_level=30
 # signet_of_the_false_accuser (33)
-finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
-# Eskhandar's Right Claw (38) — calibrated: 12 procs / 291s WW dummy log
-main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4444,equip=procby/attack_procon/hit_2.5ppm_4.77haste_5dur
+# Eskhandar's Right Claw (38)
+main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_0.9ppm_184haste_5dur
 # Hand of the Deceiver (44)
 off_hand=,id=34331,ilevel=44,enchant_id=5950,gem_id=71852/71852,bonus_id=9037,drop_level=30
 
