@@ -1,3 +1,4 @@
+# All-time - Warrior - Fury
 # Base Actor
 warrior=Kleaveland
 race=maghar_orc

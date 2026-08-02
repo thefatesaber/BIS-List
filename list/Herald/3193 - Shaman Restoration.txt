@@ -1,3 +1,4 @@
+# Herald - Shaman - Restoration
 # SimC Expert Mode: Header
 max_time=300
 fixed_time=1

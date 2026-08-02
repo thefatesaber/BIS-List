@@ -1,3 +1,4 @@
+# Obtainable - Monk - Windwalker
 # Base Actor
 monk="Fateruler"
 level=30

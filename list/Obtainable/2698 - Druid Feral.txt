@@ -1,3 +1,4 @@
+# Obtainable - Druid - Feral
 druid="Promoting"
 level=30
 race=troll

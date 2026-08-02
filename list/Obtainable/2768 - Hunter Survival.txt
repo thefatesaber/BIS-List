@@ -1,3 +1,4 @@
+# Obtainable - Hunter - Survival
 # Base Actor
 override.spell_data=effect.483865.base_value=0
 hunter="Legacythirty"

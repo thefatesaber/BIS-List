@@ -1,3 +1,4 @@
+# Obtainable - Mage - Frost
 mage="Fateccaster"
 level=30
 race=nightborne

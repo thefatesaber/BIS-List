@@ -1,3 +1,4 @@
+# Herald - Warrior - Fury
 # Base Actor
 warrior=Kleaveland
 race=maghar_orc

@@ -1,3 +1,4 @@
+# Obtainable - Evoker - Devastation
 # Base Actor
 evoker="Fatedefile"
 level=30

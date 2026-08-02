@@ -1,3 +1,4 @@
+# All-time - Warlock - Affliction
 warlock="Fatecastr"
 level=30
 race=troll

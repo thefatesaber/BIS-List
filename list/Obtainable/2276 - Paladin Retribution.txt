@@ -1,3 +1,4 @@
+# Obtainable - Paladin - Retribution
 paladin="Exhibiting"
 level=30
 race=blood_elf

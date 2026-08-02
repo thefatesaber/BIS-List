@@ -1,3 +1,4 @@
+# Obtainable - Death Knight - Frost
 # Base Actor
 deathknight=Asimiir
 race=orc

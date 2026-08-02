@@ -1,3 +1,4 @@
+# Herald - Priest - Shadow
 priest="Fateprayer"
 level=30
 race=pandaren
