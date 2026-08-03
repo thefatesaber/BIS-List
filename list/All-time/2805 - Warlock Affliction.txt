@@ -9,12 +9,12 @@ professions=tailoring=75/inscription=75
 spec=affliction
 # loot_spec=affliction
 
-talents=CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZW8AAAAAAAAAAAAAAAAgBDAYmBYwAAAA
+talents=CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA
 
 # Merciless Gladiator's Felweave Cowl 45
 head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659
-# Ukhel Ancestry Beads 135
-neck=,ilevel=33,id=193676,enchant_id=5437,gem_id=213488/40155/40155,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Tuskarr Bone Necklace 135
+neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=213488/40155/40155,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Hatefury Mantle 42
 shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=40155/40155,bonus_id=9036,drop_level=30
 # Drape of the Messenger 43
@@ -163,8 +163,8 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
+enemy=Fluffy_Pillow_Custom
+target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps

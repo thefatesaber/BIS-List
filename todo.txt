@@ -4,7 +4,5 @@ Need to verify All-time
 	mage
 	priest
 	DK
-	warlock
-	DH
 
-test Gale of shadow on Evoker, DH. Need to make the item manually.
+test Gale of shadow on Evoker, DH, warlock. Need to make the item manually.
