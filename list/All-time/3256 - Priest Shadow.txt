@@ -39,9 +39,9 @@ finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10
 # Fleshfused Circle 33
 finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Meteorite Crystal 43 
-trinket1=Meteorite_Crystal,ilevel=43,stats=9int,use=16vers_20stack_0.515tick_20dur_120cd
+trinket1=Meteorite_Crystal,ilevel=43,stats=9int,use=16vers_20stack_1.4tick_20dur_120cd
 # Pendant of the Violet Eye 38 
-trinket2=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+trinket2=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_1.4tick_20dur_120cd
 # Abracadaver 47 
 main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
 
@@ -122,12 +122,12 @@ actions.cds+=/desperate_prayer,if=health.pct<=75
 actions.heal_for_tof=holy_nova,if=talent.lightburst
 
 actions.main=variable,name=dots_up,op=set,value=active_dot.vampiric_touch=active_enemies&active_dot.shadow_word_pain>=active_dot.vampiric_touch,if=active_enemies<3
+actions.main+=/void_volley
 actions.main+=/call_action_list,name=cds,if=fight_remains<30|target.time_to_die>15&(!variable.holding_tentacle_slam|active_enemies>2)&variable.dots_up
 # High Priority Shadow Word: Death when Devour Matter is active (target shielded or forced)
 actions.main+=/shadow_word_death,target_if=max:(target.health.pct<=20)*100+dot.shadow_word_madness.ticking,if=(priest.force_devour_matter|target.has_absorb)&talent.devour_matter
 # Do not overcap on insanity
 actions.main+=/shadow_word_madness,target_if=max:target.time_to_die*(dot.shadow_word_madness.remains<=gcd.max|variable.dr_force_prio|!talent.distorted_reality&variable.me_force_prio),if=active_dot.shadow_word_madness<=1&dot.shadow_word_madness.remains<=gcd.max|insanity.deficit<=35|buff.mind_devourer.react|!raid_event.adds.exists&target.time_to_die<=10|buff.entropic_rift.up&action.shadow_word_madness.cost>0
-actions.main+=/void_volley
 # Blast more burst :wicked:
 actions.main+=/void_blast,target_if=max:(dot.shadow_word_madness.remains*1000+target.time_to_die)
 # Use Tentacle Slam to prevent capping charges or to refresh Vampiric Touch
@@ -170,8 +170,8 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
+enemy=Fluffy_Pillow_Custom
+target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps

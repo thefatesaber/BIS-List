@@ -3,6 +3,5 @@ Need to verify All-time
 	shaman
 	mage
 	priest
-	DK
 
 test Gale of shadow on Evoker, DH, warlock. Need to make the item manually.
