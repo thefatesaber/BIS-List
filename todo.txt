@@ -6,6 +6,5 @@ Need to verify All-time
 	DK
 	warlock
 	DH
-	Hunter
 
-test Gale of shadow on Evoker. Need to make the item manually.
+test Gale of shadow on Evoker, DH. Need to make the item manually.
