@@ -39,8 +39,8 @@ finger1=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10
 finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
-# Armored Elekk Tusk (32)
-trinket2=,ilevel=32,id=108902,bonus_id=6691/6703,drop_level=29
+# Chaos Talisman (33)
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Distand Land (47)
 main_hand=,id=50040,ilevel=47,enchant_id=4227,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
 
@@ -83,8 +83,8 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
+enemy=Fluffy_Pillow_Custom
+target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps

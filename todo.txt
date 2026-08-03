@@ -1,1 +1,11 @@
+Need to verify All-time
+	warrior
+	shaman
+	mage
+	priest
+	DK
+	warlock
+	DH
+	Hunter
+
 test Gale of shadow on Evoker. Need to make the item manually.
