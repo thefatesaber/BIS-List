@@ -31,7 +31,7 @@ hands=,id=46043,ilevel=43,enchant_id=2937,gem_id=213500/213500,bonus_id=9043,dro
 # Soul-Devouring Cinch (43)
 waist=,id=46095,ilevel=43,gem_id=213500/213500/213500,bonus_id=9043,drop_level=30
 # Plague-Soaked Leather Leggings (47)
-legs=,id=51889,ilevel=47,enchant_id=6539,gem_id=213500/213500/213500,bonus_id=9051,drop_level=30
+legs=,id=51889,ilevel=47,enchant_id=6541,gem_id=213500/213500/213500,bonus_id=9051,drop_level=30
 # Footpads of Silence (42)
 feet=,id=45564,ilevel=42,enchant_id=4429,gem_id=213500/213500,bonus_id=9042,drop_level=30
 # signet_of_the_false_accuser (33)
