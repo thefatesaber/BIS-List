@@ -1,0 +1,135 @@
+# All-time - Shaman - Restoration
+# SimC Expert Mode: Header
+max_time=300
+fixed_time=1
+# Base Actor — Nibelung DPS set, 32196 gems
+# WoW 12.0.5.67823, TOC 120005
+#
+# === CUSTOM MODELING (lvl 30 workarounds) ===
+# 1. LAVA SURGE: over-procs; throttled via line_cd=5 on lava_burst.
+# 2. ACID RAIN: on-use DAMAGE proxy on the SHIRT. cd=20 holds ~90% uptime to match the log now that
+#    the shared item cooldown is off (at cd=18 with no shared lock it would run ~100% and over-credit).
+# 3. ASCENDANCE: synthetic on-use HASTE on trinket1 (use=170haste_20dur_180cd). Fires clean because:
+#      a) default_item_group_cooldown=0 removes the 20s shared lock that was starving it (proven: the
+#         vers trinket went from Start ~1.0-1.4 to a clean 3.0 once this was set).
+#      b) NO line_cd on its use line. The item is already 180cd, so line_cd is redundant -- and on an
+#         off-GCD use_item it blocks the line entirely (that was the "buff never appeared" bug).
+#    The item's own 180cd gives 2 uses (Start ~2.0). 170 haste ~= +25% multiplicative
+#    (21.39% -> ~51.7% effective). Tune the 170 to your in-game Ascendance char-sheet haste.
+override.spell_data=spell.77756.proc_chance=20
+override.spell_data=effect.68166.base_value=0
+# LvB damage fix: resto drops Lava Burst's crit-chance scaling; +16.4% coef bump (1.38996->1.6184) to match log's 6.1k Avg Hit @24.86% crit. Fixed for this crit level, doesn't scale.
+override.spell_data=effect.747255.sp_coefficient=1.6184
+shaman="Broadcasting"
+level=30
+race=pandaren
+region=us
+server=thrall
+role=attack
+default_item_group_cooldown=0
+professions=alchemy=4/engineering=100
+spec=restoration
+talents=CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA
+# Helm of Desolation 33
+head=,ilevel=33,id=28192,gem_id=76885/213743/32196,bonus_id=7202,drop_level=30
+# Amnesia 33
+neck=,ilevel=33,id=200210,enchant_id=5437,gem_id=213485/32196/32196,bonus_id=9156/6652/9477/8782,drop_level=30
+# Pauldrons of Desolation 33
+shoulder=,ilevel=33,id=27713,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
+# Drape of the Messenger 43
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=30
+# Embrace of the Phoenix 44
+chest=,ilevel=44,id=34373,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
+# >>> ACID RAIN PROXY on the SHIRT (damage on-use). cd 18->20 to preserve ~90% uptime (see note 2).
+shirt=acid_rain_proxy,use=480nature_1tick_18dur_20cd
+tabard=Ascendance_buff,use=170haste_20dur_180cd
+# >>> TABARD free (Ascendance is the synthetic haste trinket below; vers is merged on trinket2)
+# Bracers of the Forest Stalker 33
+wrist=,ilevel=33,id=34698,enchant_id=4414,gem_id=32196/32196,bonus_id=7202,drop_level=30
+# Thalassian Ranger Gauntlets 44
+hands=,ilevel=44,id=34343,enchant_id=2937,gem_id=32196/32196,bonus_id=9037,drop_level=30
+# Terror Pit Girdle 38
+waist=,id=28778,ilevel=38,enchant_id=6906,gem_id=32196/32196/32196,bonus_id=9034,drop_level=30
+# Wyrmscale Greaves 33
+legs=,ilevel=33,id=30534,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=7202,drop_level=30
+# Star-Strider Boots 40
+feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_level=30
+# Emperor's Seal 33
+finger1=,ilevel=33,id=231437,enchant_id=6109,gem_id=32196/32196,drop_level=30
+# Stitchflesh's Misplaced Signet 33
+finger2=,ilevel=33,id=178736,enchant_id=6109,gem_id=32196/32196,drop_level=30
+# >>> ASCENDANCE = synthetic on-use haste. 170 = haste RATING (tune to in-game Ascendance haste).
+# Solace of the Fallen 45
+trinket1=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
+# Gale of Shadows 33
+trinket2=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
+# Royal Scepter of Terenas II 47 
+main_hand=royal_scepter_of_terenas_ii,id=50734,ilevel=47,bonus_id=9051,gem_id=32196,enchant_id=2669
+# The Boreal Guard 43
+off_hand=the_boreal_guard,id=45877,ilevel=43,gem_id=32196/32196,enchant_id=4434,bonus_id=9041
+
+temporary_enchant=
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+# Custom APL
+actions.precombat=snapshot_stats
+actions.precombat+=/lightning_shield
+actions=wind_shear
+actions+=/lightning_shield,if=buff.lightning_shield.down
+# 1. RAIN (Acid Rain proxy)
+actions+=/use_item,name=acid_rain_proxy
+# 2. SHOCK
+actions+=/flame_shock,if=dot.flame_shock.refreshable
+# 3. RACIALS / TRINKETS — held until Flame Shock is up.
+#    Ascendance = tabard on-use, fired by name. NO line_cd (item is 180cd natively -> 2 uses; line_cd blocks an off-GCD use).
+actions+=/blood_fury,if=dot.flame_shock.ticking
+actions+=/berserking,if=dot.flame_shock.ticking
+actions+=/fireblood,if=dot.flame_shock.ticking
+actions+=/ancestral_call,if=dot.flame_shock.ticking
+actions+=/use_item,name=ascendance_buff,use_off_gcd=1,if=dot.flame_shock.ticking
+actions+=/use_item,slot=trinket2,use_off_gcd=1,if=dot.flame_shock.ticking
+actions+=/potion,if=dot.flame_shock.ticking
+# 4. Lava Burst, then Lightning Bolt filler.
+actions+=/lava_burst,line_cd=6.5,if=buff.lava_surge.up|dot.flame_shock.ticking
+actions+=/lightning_bolt
+actions+=/flame_shock,moving=1,if=dot.flame_shock.refreshable
+actions+=/frost_shock,moving=1
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+temporary_enchant=disabled
+#enemy=Fluffy_Pillow_Custom
+#target_level=+3
+#enemy_custom_health_timeline=20:0.2
+
+name=Shaman
+
+# Simulation Options
+iterations=10000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
