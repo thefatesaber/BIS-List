@@ -1,4 +1,4 @@
-# Obtainable - Rogue - Outlaw
+# All-time - Rogue - Outlaw
 # Base Actor
 rogue="Fatesneak"
 level=30
@@ -16,7 +16,7 @@ talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
 # Ukhel Ancestry Beads (140)
-neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213494,drop_level=30
+neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213494/71852/71852,bonus_id=9156/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
@@ -33,10 +33,10 @@ waist=,id=46095,ilevel=43,gem_id=71852/71852/71852,bonus_id=9043,drop_level=30
 legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
 # Slayer's Boots (44)
 feet=,id=34575,ilevel=44,enchant_id=1887,gem_id=71852,bonus_id=9043,drop_level=30
-# Loop of Vitriolic Intent (33)
-finger1=,id=134530,ilevel=33,enchant_id=6110,gem_id=71852,bonus_id=6710/41/8810,drop_level=30
+# Stitchflesh's Misplaced Signet (33)
+finger1=,id=159462,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Signet of the False Accuser (33)
-finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852,drop_level=30
+finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine_Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
 # Chaos Talisman (33)
@@ -46,7 +46,7 @@ main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quali
 # Vibroblade (33)
 off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
 #effective DPS = D0 × (1 + A × P × U)
-#D0 = naked sim DPS (2619 — the sim with the proc counting for zero)
+#D0 = naked sim DPS (1919 — the sim with the proc counting for zero)
 #A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
 #P = proportion affected = physical share = 0.969
 #U = measured uptime
@@ -58,7 +58,7 @@ off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=3
 #u=((59.68+45.9+65.25)/3) = 56.94
 
 
-#effective DPS = 2619 × (1 + 0.2083 × 0.969 × 0.5694) = 2920
+#effective DPS = 1919 × (1 + 0.2083 × 0.969 × 0.5694) = 2140
 
 # Consumables
 # potion=golemblood_potion
@@ -121,9 +121,9 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-enemy=Fluffy_Pillow_Custom
-target_level=+3
-enemy_custom_health_timeline=20:0.2
+#enemy=Fluffy_Pillow_Custom
+#target_level=+3
+#enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
 override.allow_flasks=0

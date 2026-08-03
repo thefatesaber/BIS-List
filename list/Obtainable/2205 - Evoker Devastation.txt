@@ -1,4 +1,4 @@
-# All-time - Evoker - Devastation
+# Obtainable - Evoker - Devastation
 # Base Actor
 evoker="Fatedefile"
 level=30
@@ -12,9 +12,9 @@ talents=CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAAMDAGMAgZawMBAAPwMzMADADAAAAAAAAADAA
 
 ### Combo 1
 # Helm of Desolation 33
-head=,id=28192,ilevel=44,gem_id=25893/213746/213746,bonus_id=7202,drop_level=30,enchant=12crit
-# Bromach's Disentombed Locket 135
-neck=,id=193809,ilevel=33,enchant_id=5437,gem_id=32196/32196/32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+head=,id=28192,ilevel=44,gem_id=25893/213746/32196,bonus_id=7202,drop_level=30,enchant=12crit
+# Hook Charm Necklace 135
+neck=,id=151437,ilevel=33,enchant_id=5437,gem_id=32196,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=43,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Drape of the Messenger 43
@@ -31,18 +31,18 @@ waist=,id=28778,ilevel=38,enchant_id=6906,gem_id=32196/32196/32196,bonus_id=9034
 legs=,id=30534,ilevel=33,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=7202/6652,drop_level=30
 # Star-Strider Boots 40
 feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_level=30
-# Ritual Commander's Ring 33
-finger1=,id=178781,ilevel=33,enchant_id=6111,gem_id=32196/32196,bonus_id=6710/10386/6652/10394/10879,drop_level=30
+# Bottle-Popper Ring 33
+finger1=,id=151410,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
 # Stitchflesh's Misplaced Signet 33
-finger2=,id=178736,ilevel=33,enchant_id=6111,gem_id=32196/32196,bonus_id=6710/10386/6652/10395/10879,drop_level=30
-# Pendant of the Violet Eye 38
-trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
-# Meteorite Crystal 43
-trinket2=Pendant_of_the_Violet_Eye,ilevel=43,stats=8int,use=16vers_20stack_0.515tick_20dur_120cd
+finger2=,id=178736,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
+# Phylactery of the Nameless Lich (47)
+trinket1=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
+# Solace of the Fallen (45)
+trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
 # Abracadaver 47 
 main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
-
+#trinket1=,ilevel=47,id=50365,bonus_id=9051,drop_level=30
 # Consumables
 # potion=golemblood_potion
 # flask=flask_of_titanic_strength
@@ -185,9 +185,9 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-enemy=Fluffy_Pillow_Custom
-target_level=+3
-enemy_custom_health_timeline=20:0.2
+#enemy=Fluffy_Pillow_Custom
+#target_level=+3
+#enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 #html=Fury_toolTEST_Results.html
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps

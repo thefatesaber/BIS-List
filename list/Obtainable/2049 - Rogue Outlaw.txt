@@ -1,4 +1,4 @@
-# Herald - Rogue - Outlaw
+# Obtainable - Rogue - Outlaw
 # Base Actor
 rogue="Fatesneak"
 level=30
@@ -16,23 +16,23 @@ talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
 # Ukhel Ancestry Beads (140)
-neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
+neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213494,drop_level=30
 # Mantle of Perenolde (33)
-shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=213494/40150,bonus_id=6710/6652,drop_level=30
-# Cloak of the Coming Night 33
-back=,ilevel=33,id=34708,enchant_id=3243,gem_id=40146/40146,bonus_id=7202
-# Bloodsea Brigand's Vest 40
-chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=40150/40150/40150,bonus_id=9035,drop_level=30
-# Eversong Cuffs 33
-wrist=,id=34602,ilevel=33,enchant_id=4416,gem_id=40150/40150,bonus_id=7202,drop_level=30
-# Liar's Tongue Gloves 38
-hands=,id=28776,ilevel=38,enchant_id=5259,gem_id=40150/40150,bonus_id=9034,drop_level=30
-# Belt of One-Hundred Deaths 40
-waist=,id=30106,ilevel=40,gem_id=71852/71852/71852,bonus_id=9035,drop_level=30
-# Moonchild Leggings 33
-legs=,id=27492,ilevel=33,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=7202,drop_level=30
-# Footwraps of Vile Deceit 39
-feet=,id=40243,ilevel=39,enchant_id=1887,gem_id=71852,bonus_id=9039,drop_level=30
+shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=6710/6652,drop_level=30
+# Drape of the Faceless General (43)
+back=,id=46032,ilevel=43,enchant_id=3243,gem_id=71852/71852,bonus_id=9043,drop_level=30
+# Harness of Carnal Instinct (44)
+chest=,id=34211,ilevel=44,enchant_id=6625,gem_id=71852/71852/71852,bonus_id=9037,drop_level=30
+# Umbrage Armbands (47)
+wrist=,id=54580,ilevel=47,enchant_id=4416,gem_id=71852,bonus_id=9051,drop_level=30
+# Gloves of the Endless Dark (43)
+hands=,id=46043,ilevel=43,enchant_id=5259,gem_id=71852/71852,bonus_id=9043,drop_level=30
+# Soul-Devouring Cinch (43)
+waist=,id=46095,ilevel=43,gem_id=71852/71852/71852,bonus_id=9043,drop_level=30
+# Plague-Soaked Leather Leggings (47)
+legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
+# Slayer's Boots (44)
+feet=,id=34575,ilevel=44,enchant_id=1887,gem_id=71852,bonus_id=9043,drop_level=30
 # Loop of Vitriolic Intent (33)
 finger1=,id=134530,ilevel=33,enchant_id=6110,gem_id=71852,bonus_id=6710/41/8810,drop_level=30
 # Signet of the False Accuser (33)
@@ -46,7 +46,7 @@ main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quali
 # Vibroblade (33)
 off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
 #effective DPS = D0 × (1 + A × P × U)
-#D0 = naked sim DPS (2379 — the sim with the proc counting for zero)
+#D0 = naked sim DPS (1838 — the sim with the proc counting for zero)
 #A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
 #P = proportion affected = physical share = 0.969
 #U = measured uptime
@@ -58,9 +58,7 @@ off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=3
 #u=((59.68+45.9+65.25)/3) = 56.94
 
 
-#effective DPS = 2379 × (1 + 0.2083 × 0.969 × 0.5694) = 2652
-
-
+#effective DPS = 1838 × (1 + 0.2083 × 0.969 × 0.5694) = 2049
 
 # Consumables
 # potion=golemblood_potion
@@ -78,6 +76,7 @@ midnight.crucible_of_erratic_energies_violence=0
 midnight.crucible_of_erratic_energies_sustenance=0
 midnight.crucible_of_erratic_energies_predation=0
 
+external_buffs.pool=power_infusion:120
 # Custom APL
 # Executed before combat begins.
 actions.precombat=apply_poison,nonlethal=none,lethal=instant
@@ -117,17 +116,14 @@ actions.build+=/sinister_strike
 actions.finish=between_the_eyes
 actions.finish+=/dispatch
 
-# Vibroblade (33)
-off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
-
 # Simulation Options
 iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-enemy=Fluffy_Pillow_Custom
-target_level=+3
-enemy_custom_health_timeline=20:0.2
+#enemy=Fluffy_Pillow_Custom
+#target_level=+3
+#enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
 override.allow_flasks=0

@@ -1,4 +1,4 @@
-# Obtainable - Demon Hunter - Devour
+# All-time - Demon Hunter - Devour
 # Base Actor
 demonhunter="Fateberserkr"
 level=30
@@ -16,7 +16,7 @@ talents=CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZDAAAAAA
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76885/213743/213488,bonus_id=7202,drop_level=30
 # Ukhel Ancestry Beads (135)
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213488,drop_level=30
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213488/213488/213488,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # mantle_of_perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3838,gem_id=213488/213488,bonus_id=7202,drop_level=30
 # Drape of the Messenger (43)
@@ -35,16 +35,16 @@ legs=,id=51889,ilevel=47,enchant_id=6539,gem_id=213500/213500/213500,bonus_id=90
 # Footpads of Silence (42)
 feet=,id=45564,ilevel=42,enchant_id=4429,gem_id=213500/213500,bonus_id=9042,drop_level=30
 # signet_of_the_false_accuser (33)
-finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=213500,drop_level=30
-# Arch-Druid's Tainted Seal (33)
-finger2=,ilevel=33,id=134487,enchant_id=6110,gem_id=213500,drop_level=30
-# Solace_of_the_Fallen (45)
-trinket1=,id=47432,ilevel=45
-# Solace_of_the_Fallen (44)
-trinket2=Solace_of_the_Fallen,ilevel=44,stats=9int_24vers
+finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Fleshfused Circle (33)
+finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Pendant of the Violet Eye (43)
+trinket1=Pendant_of_the_Violet_Eye_Macro,ilevel=43,stats=8int,use=380vers_20dur_120cd
+# Meteorite Crystal (38)
+trinket2=Meteorite_Crystal_Macro,ilevel=38,use=320vers_20dur_120cd
 # Bloodsurge, Kel'Thuzad's Blade of Agony (47)
 main_hand=bloodsurge_kelthuzads_blade_of_agony,id=50732,ilevel=47,bonus_id=905130,gem_id=213500,enchant=13sp
-# Rigormortis (47)
+# Bloodsurge, Kel'Thuzad's Blade of Agony (47)
 off_hand=Rigormortis,id=50704,ilevel=47,bonus_id=905130,gem_id=213500,enchant=13sp
 
 # Consumables
@@ -134,9 +134,9 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-enemy=Fluffy_Pillow_Custom
-target_level=+3
-enemy_custom_health_timeline=20:0.2
+#enemy=Fluffy_Pillow_Custom
+#target_level=+3
+#enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 #html=Fury_toolTEST_Results.html
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps

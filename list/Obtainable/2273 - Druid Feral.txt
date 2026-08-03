@@ -1,4 +1,4 @@
-# All-time - Druid - Feral
+# Obtainable - Druid - Feral
 druid="Promoting"
 level=30
 race=troll
@@ -12,9 +12,9 @@ talents=CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAA
 
 ### Combo 1
 # wastewalker_helm (33)
-head=,id=28224,ilevel=33,gem_id=76884/213743/32194,bonus_id=7202,drop_level=30
-# Amnesia (135)
-neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+head=,id=28224,ilevel=33,gem_id=76884/32194/32194,bonus_id=7202,drop_level=30
+# Hook Charm Necklace (135)
+neck=,id=151437,ilevel=33,enchant_id=5437,gem_id=32194,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32194/32194,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
@@ -31,10 +31,10 @@ waist=,id=46095,ilevel=43,gem_id=32194/32194/32194,bonus_id=9043,drop_level=30
 legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=32194/32194/32194,bonus_id=9051,drop_level=30
 # Footpads of Impending Death (47)
 feet=,id=49895,ilevel=47,enchant_id=1887,gem_id=32194/32194,bonus_id=9051,drop_level=30
-# Bloodoath Signet (33)
-finger1=,id=178871,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Band of the Ancient Dredger (33)
-finger2=,id=159461,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Stitchflesh's Misplaced Signet (33)
+finger1=,id=178736,ilevel=33,enchant_id=6109,gem_id=32194,drop_level=30
+# Bottle-Popper Ring (33)
+finger2=,id=151410,ilevel=33,enchant_id=6109,gem_id=32194,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
 # Chaos Talisman (33)
@@ -242,9 +242,9 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-enemy=Fluffy_Pillow_Custom
-target_level=+3
-enemy_custom_health_timeline=20:0.2
+#enemy=Fluffy_Pillow_Custom
+#target_level=+3
+#enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
 override.allow_flasks=0

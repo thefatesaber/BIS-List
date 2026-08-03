@@ -1,4 +1,4 @@
-# Herald - Priest - Shadow
+# Obtainable - Priest - Shadow
 priest="Fateprayer"
 level=30
 race=pandaren
@@ -14,38 +14,40 @@ talents=CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAW
 # Saved Loadout: dummy 5 min
 # talents=CIQA4VPTJ8eQb8/qEm8PyGu4yADAAAAAAAAAAAAAYgxwMLGMA4BYAYGYwAGAAAAAAgBAzA2YAAAA
 
-# forgotten_shadow_hood 33
-head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30
+# cowl_of_icy_breaths 42
+head=,ilevel=42,id=45464,gem_id=25893/213743,bonus_id=9041,drop_level=30
 # Ukhel Ancestry Beads 135
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,bonus_id=7978/7975/6652/9477/8782,drop_level=30
-# wings_of_the_avatar 40
-shoulder=,ilevel=40,id=30163,enchant_id=3838,gem_id=40155/40155,bonus_id=9035,drop_level=30
-# pennant_cloak 40
-back=,ilevel=43,id=44005,enchant_id=3243,gem_id=40155,bonus_id=9039,drop_level=30
-# vestments_of_the_seawitch 40
-chest=,ilevel=40,id=30107,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9035,drop_level=30
-# bindings_of_raging_fire 33
-wrist=,ilevel=33,id=34697,enchant_id=2332,gem_id=40155,bonus_id=7202,drop_level=30
-# manaspark_gloves 33
-hands=,ilevel=33,id=24450,enchant_id=2937,gem_id=71854/71854,bonus_id=7202,drop_level=30
+# Hatefury Mantle 42
+shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=40155/40155,bonus_id=9036,drop_level=30
+# Drape of the Messenger 43
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=40155,bonus_id=9043,drop_level=30
+# Sunfire Robe 44
+chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9037,drop_level=30
+# Cuffs of Absolution 44
+wrist=,ilevel=44,id=34435,enchant_id=2332,gem_id=40155,bonus_id=9037,drop_level=30
+# Handguards of Defiled Worlds 44
+hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
 # Belt of Blasting 40
 waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
-# breeches_of_the_occultist 33
-legs=,ilevel=33,id=30531,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,drop_level=30
-# saviors_slippers 41
-feet=,ilevel=41,id=45567,enchant_id=4069,gem_id=71854/71854,bonus_id=9043,drop_level=30
+# Leggings of Calamity 44
+legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
+# Slippers of the seacaller 42
+feet=,ilevel=43,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_level=30
 # Footbomb Championship Ring 33
-finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854,drop_level=30
+finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=213482,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Fleshfused Circle 33
-finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
-# Armored Elekk Tusk (33)
-trinket1=,id=108902,bonus_id=4811,drop_level=30
+finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Solace of the Defeated (45)
+trinket1=,id=47059,bonus_id=9047,drop_level=30
 # Pendant of the Violet Eye 38 
 trinket2=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
-# torch_of_holy_fire 39
-main_hand=torch_of_holy_fire,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
-# surplus_limb 39
-off_hand=surplus_limb,id=40273,bonus_id=9039,enchant_id=4434
+# Abracadaver 47 
+main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
+
+#finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+#feet=,ilevel=43,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_level=30
+#feet=,ilevel=43,id=45537,enchant_id=4069,gem_id=71854/71854,bonus_id=,drop_level=30
 
 
 # Consumables
@@ -168,9 +170,9 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-enemy=Fluffy_Pillow_Custom
-target_level=+3
-enemy_custom_health_timeline=20:0.2
+#enemy=Fluffy_Pillow_Custom
+#target_level=+3
+#enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
 override.allow_flasks=0
