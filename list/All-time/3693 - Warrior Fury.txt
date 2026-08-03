@@ -34,7 +34,7 @@ finger2=,ilevel=33,id=178736,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/
 # Dragonspine Trophy 38
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_3.5%
 # Heart of Roccor (155)
-trinket2=,id=231456,bonus_id=12378/7756,drop_level=30,content_tuning=181
+trinket2=,id=231456,bonus_id=12378/7756,drop_level=30
 # The Untamed Blade 40
 main_hand=The_Untamed_Blade,ilevel=40,weapon=sword2h_3.6speed_17min_29max,enchant_id=1900,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_4%
 # The Jackhammer 33
