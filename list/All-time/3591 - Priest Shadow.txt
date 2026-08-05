@@ -1,4 +1,8 @@
 # All-time - Priest - Shadow
+# Void Volley: SimC live path can't cast VV on Voidform charges (PTR-gated in C++), so 3 sim casts carry ~10 real ones — coefficient inflated 1.06049×5.60 to restore VV's 10.3% logged damage share
+override.spell_data=effect.1241611.sp_coefficient=5.939
+override.spell_data=spell.10060.spell_level=1
+
 priest="Fateprayer"
 level=30
 race=pandaren
@@ -17,15 +21,15 @@ talents=CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAW
 # cowl_of_icy_breaths 42
 head=,ilevel=42,id=45464,gem_id=25893/213743,bonus_id=9041,drop_level=30
 # Ukhel Ancestry Beads 135
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213482/40155,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213482/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Hatefury Mantle 42
-shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=40155/40155,bonus_id=9036,drop_level=30
+shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=213500/71854,bonus_id=9036,drop_level=30
 # Drape of the Messenger 43
-back=,ilevel=43,id=46042,enchant_id=3243,gem_id=40155,bonus_id=9043,drop_level=30
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
 # Sunfire Robe 44
-chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9037,drop_level=30
+chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
 # Cuffs of Absolution 44
-wrist=,ilevel=44,id=34435,enchant_id=2332,gem_id=40155,bonus_id=9037,drop_level=30
+wrist=,ilevel=44,id=34435,enchant_id=2332,gem_id=71854,bonus_id=9037,drop_level=30
 # Handguards of Defiled Worlds 44
 hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
 # Belt of Blasting 40
@@ -38,10 +42,10 @@ feet=,ilevel=43,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_l
 finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Fleshfused Circle 33
 finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Meteorite Crystal 43 
-trinket1=Meteorite_Crystal,ilevel=43,stats=9int,use=16vers_20stack_1.4tick_20dur_120cd
-# Pendant of the Violet Eye 38 
-trinket2=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_1.4tick_20dur_120cd
+# Gale of Shadows 33
+trinket1=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+# Solace of the Fallen 45
+trinket2=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
 # Abracadaver 47 
 main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
 
@@ -162,8 +166,6 @@ actions.main+=/shadow_word_pain,target_if=min:remains
 
 actions.trinkets=use_item,slot=trinket1
 actions.trinkets+=/use_item,slot=trinket2
-
-name=Priest
 
 # Simulation Options
 iterations=10000
