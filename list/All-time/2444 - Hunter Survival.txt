@@ -11,7 +11,7 @@ professions=leatherworking=66/engineering=1
 spec=survival
 # loot_spec=survival
 
-talents=C8PApei1JmYNvFfEFaN5bWuGKAAAAAAwYmhBDAAAAAAmxAY8AmBABAAAAAAAYMGMAAAwADAA
+talents=C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA
 
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30,enchant=12crit

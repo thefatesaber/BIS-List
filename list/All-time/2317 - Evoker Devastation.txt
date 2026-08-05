@@ -12,7 +12,7 @@ talents=CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAAMDAGMAgZawMBAAPwMzMADADAAAAAAAAADAA
 
 ### Combo 1
 # Helm of Desolation 33
-head=,id=28192,ilevel=44,gem_id=25893/213746/213746,bonus_id=7202,drop_level=30,enchant=12crit
+head=,id=28192,ilevel=44,gem_id=25893/213746/32196,bonus_id=7202,drop_level=30,enchant=12crit
 # Tuskarr Bone Necklace 135
 neck=,id=193666,ilevel=33,enchant_id=5437,gem_id=32196/32196/32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Pauldrons of Desolation 33
@@ -35,10 +35,10 @@ feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_le
 finger1=,id=178781,ilevel=33,enchant_id=6111,gem_id=32196/32196,bonus_id=6710/10386/6652/10394/10879,drop_level=30
 # Stitchflesh's Misplaced Signet 33
 finger2=,id=178736,ilevel=33,enchant_id=6109,gem_id=32196/32196,bonus_id=6710/10386/6652/10395/10879,drop_level=30
-# Pendant of the Violet Eye 38
-trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_1.4tick_20dur_120cd
-# Meteorite Crystal 43
-trinket2=Pendant_of_the_Violet_Eye,ilevel=43,stats=8int,use=16vers_20stack_1.4tick_20dur_120cd
+# Solace of the Fallen 45
+trinket1=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
+# Gale of Shadows 33
+trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Abracadaver 47 
 main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
