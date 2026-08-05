@@ -31,10 +31,10 @@ waist=,ilevel=40,id=30038,gem_id=40155/40155/40155,bonus_id=9035,drop_level=30
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=40155/40155/40155,bonus_id=9037,drop_level=30
 # Boots of Fiery Resolution 43
 feet=,ilevel=43,id=45537,enchant_id=4092,gem_id=40155/40155,bonus_id=9043,drop_level=30
-# Stitchflesh's Misplaced Signet 33
+# Bloodoath Signet 33
 finger1=,id=178871,ilevel=33,enchant_id=6108,gem_id=40155/40155,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Footbomb Championship Ring 33
-finger2=,ilevel=33,id=178736,enchant_id=6108,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Band of the Ancient Dredger 33
+finger2=,ilevel=33,id=159461,enchant_id=6108,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Meteorite Crystal 43
 trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Pendant of the Violet Eye 38
