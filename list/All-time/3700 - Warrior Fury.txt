@@ -22,7 +22,7 @@ wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=213500,bonus_id=9035,drop_level
 # Hard Khorium Battlefists 44
 hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=213500/213500,bonus_id=9037,drop_level=30
 # Red Belt of Battle 40
-waist=,ilevel=40,id=30032,gem_id=213500/213500/213500,bonus_id=9035,drop_level=30
+waist=,ilevel=40,id=30032,gem_id=213488/32217/213500,bonus_id=9035,drop_level=30
 # Felfury Legplates 44
 legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=213500/213500/213500,bonus_id=9037,drop_level=30
 # Onslaught Treads 44
