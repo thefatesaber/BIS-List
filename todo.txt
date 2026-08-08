@@ -1,8 +1,5 @@
 Need to verify obtainable
-	shaman
-	mage
 	DK
-	warlock
 	DH
 	Hunter
 	Evoker
