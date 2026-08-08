@@ -835,7 +835,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:2822, dpsByList:{"alltime": 2822, "obtainable": 2600},
+{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:2822, dpsByList:{"alltime": 2822, "obtainable": 2600, "herald": 2351},
   notes:["L30 stat priority: Int ≫ Crit ≈ Vers > Haste > Mastery (inverted from max level)."],
   credits:{},
   lists:{
@@ -874,7 +874,22 @@ const CLASSES = [
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
-      
+      {"slot": "Head", "item": "Forgotten Shadow Hood", "wowhead": 37684, "q": 3, "ilvl": 33, "source": "Culling of Stratholme — Salramm the Fleshcrafter", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
+      {"slot": "Neck", "item": "Tuskarr Bone Necklace", "wowhead": 193666, "q": 3, "ilvl": 33, "source": "Brackenhide Hollow — Gutshot", "ench": "Mark of the Claw", "enchsp": 190892, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
+      {"slot": "Shoulders", "item": "Wings of the Avatar", "wowhead": 30163, "ilvl": 40, "source": "Tempest Keep — Void Reaver (token)", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
+      {"slot": "Back", "item": "Pennant Cloak", "wowhead": 44005, "ilvl": 43, "source": "Obsidian Sanctum — Sartharion", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim"},
+      {"slot": "Chest", "item": "Vestments of the Sea-Witch", "wowhead": 30107, "ilvl": 40, "source": "Serpentshrine Cavern — Lady Vashj", "ench": "Waking Stats", "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bindings of Raging Fire", "wowhead": 34697, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Superior Spellpower", "enchsp": 60767, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim"},
+      {"slot": "Hands", "item": "Manaspark Gloves", "wowhead": 24450, "q": 3, "ilvl": 33, "source": "The Underbog — Hungarfen", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
+      {"slot": "Waist", "item": "Belt of Blasting", "wowhead": 30038, "ilvl": 40, "source": "Crafted — Tailoring", "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"},
+      {"slot": "Legs", "item": "Breeches of the Occultist", "wowhead": 30531, "ilvl": 33, "source": "The Black Morass — Aeonus", "ench": "Frozen Spellthread", "enchsp": 387294, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
+      {"slot": "Feet", "item": "Savior's Slippers", "wowhead": 45567, "ilvl": 41, "source": "Crafted — Tailoring", "ench": "Precision", "enchsp": 74236, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Ring 1", "item": "Bloodoath Signet", "wowhead": 178871, "q": 3, "ilvl": 33, "source": "Theater of Pain — An Affront of Challengers", "ench": "Accord of Critical Strike", "enchsp": 298009, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Ring 2", "item": "Band of the Ancient Dredger", "wowhead": 159461, "q": 3, "ilvl": 33, "source": "Siege of Boralus — Hadal Darkfathom", "ench": "Accord of Critical Strike", "enchsp": 298009, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Alternative: the double-passive pair, Gale of Shadows + Solace of the Fallen, trades ceiling for consistency."},
+      {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
+      {"slot": "Main Hand", "item": "Torch of Holy Fire", "wowhead": 40395, "ilvl": 39, "source": "Naxxramas — Kel'Thuzad", "ench": "Major Spellpower", "enchsp": 27975, "status": "sim"},
+      {"slot": "Off Hand", "item": "Surplus Limb", "wowhead": 40273, "source": "Naxxramas — Patchwerk", "ench": "Major Intellect", "enchsp": 104445, "status": "sim"}
     ]
   }
 },

@@ -1,0 +1,192 @@
+# All-time - Warlock - Affliction
+warlock="Fatecastr"
+level=30
+race=troll
+region=us
+server=zuljin
+role=spell
+professions=tailoring=75/inscription=75
+spec=affliction
+# loot_spec=affliction
+
+talents=CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA
+
+# forgotten_shadow_hood 33
+head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30
+# Tuskarr Bone Necklace 33
+neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=213488,drop_level=30
+# wings_of_the_avatar 40
+shoulder=,ilevel=40,id=30163,enchant_id=3838,gem_id=32196/32196,bonus_id=9035,drop_level=30
+# pennant_cloak 40
+back=,ilevel=43,id=44005,enchant_id=3243,gem_id=32196,bonus_id=9039,drop_level=30
+# vestments_of_the_seawitch 40
+chest=,ilevel=40,id=30107,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
+# bindings_of_raging_fire 33
+wrist=,ilevel=33,id=34697,enchant_id=2332,gem_id=32196,bonus_id=7202,drop_level=30
+# manaspark_gloves 33
+hands=,ilevel=33,id=24450,enchant_id=2937,gem_id=32196/32196,bonus_id=7202,drop_level=30
+# Belt of Blasting 40
+waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
+# breeches_of_the_occultist 33
+legs=,ilevel=33,id=30531,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,drop_level=30
+# saviors_slippers 41
+feet=,ilevel=41,id=45567,enchant_id=4092,gem_id=71854/71854,bonus_id=9043,drop_level=30
+# Bloodoath Signet 33
+finger1=,id=178871,ilevel=33,enchant_id=6108,gem_id=32196,drop_level=30
+# Band of the Ancient Dredger 33
+finger2=,ilevel=33,id=159461,enchant_id=6108,gem_id=32196,drop_level=30
+# Pendant of the Violet Eye 38
+trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+# Gale of Shadows 33
+trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+# Solace of the Fallen 45
+#trinket2=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
+# torch_of_holy_fire 39
+main_hand=torch_of_holy_fire,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
+# surplus_limb 39
+off_hand=surplus_limb,id=40273,bonus_id=9039,enchant_id=4434
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL
+# this default action priority list is automatically created based on your character.
+# it is a attempt to provide you with a action list that is both simple and practicable,
+# while resulting in a meaningful and good simulation. it may not result in the absolutely highest possible dps.
+# feel free to edit, adapt and improve it to your own needs.
+# simulationcraft is always looking for updates and improvements to the default action lists.
+
+# executed before combat begins. accepts non-harmful actions only.
+actions.precombat=summon_pet
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.summon_darkglare.duration=0|cooldown.summon_darkglare.duration%%trinket.1.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&(trinket.2.cooldown.duration%%cooldown.summon_darkglare.duration=0|cooldown.summon_darkglare.duration%%trinket.2.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_1_buff_duration,value=trinket.1.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_2_buff_duration,value=trinket.2.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs|variable.trinket_2_buffs&((trinket.2.cooldown.duration%variable.trinket_2_buff_duration)*(1+0.5*trinket.2.has_buff.intellect)*(variable.trinket_2_sync))>((trinket.1.cooldown.duration%variable.trinket_1_buff_duration)*(1+0.5*trinket.1.has_buff.intellect)*(variable.trinket_1_sync))
+actions.precombat+=/grimoire_of_sacrifice,if=talent.grimoire_of_sacrifice
+actions.precombat+=/seed_of_corruption,if=(active_enemies>1)|active_enemies>2
+actions.precombat+=/haunt,if=active_enemies<2|(active_enemies<3)
+
+# executed every time the actor is available.
+actions=call_action_list,name=variables
+actions+=/call_action_list,name=end_of_fight
+actions+=/call_action_list,name=ogcd
+actions+=/call_action_list,name=items
+actions+=/call_action_list,name=soul_harvester
+actions+=/seed_of_corruption,if=talent.nocturnal_yield&active_enemies>1&buff.nightfall.react&(buff.nightfall.react=buff.nightfall.max_stack|buff.nightfall.remains<execute_time*buff.nightfall.max_stack)
+actions+=/malefic_grasp,chain=1,early_chain_if=buff.nightfall.react,if=pet.darkglare.active
+actions+=/drain_soul,chain=1,early_chain_if=buff.nightfall.react,interrupt_if=tick_time>0.5
+actions+=/shadow_bolt
+
+actions.sh_aoe=haunt
+actions.sh_aoe+=/seed_of_corruption
+# do not care about losing shards in 2+ targets
+actions.sh_aoe+=/dark_harvest
+# maintain ~5 agonies (will be 6 with shared agony)
+actions.sh_aoe+=/agony,target_if=min:remains,if=active_dot.agony<5&remains<5
+actions.sh_aoe+=/summon_darkglare
+actions.sh_aoe+=/unstable_affliction,if=!talent.sow_the_seeds|buff.shard_instability.react
+actions.sh_aoe+=/agony,target_if=min:remains,if=remains<duration*0.5
+actions.sh_aoe+=/malefic_grasp,if=pet.darkglare.remains<gcd
+
+actions.sh_cleave=haunt
+actions.sh_cleave+=/seed_of_corruption,if=(!dot.corruption.ticking|dot.corruption.refreshable)&!dot.seed_of_corruption.ticking&!prev.seed_of_corruption&!action.seed_of_corruption.in_flight
+actions.sh_cleave+=/unstable_affliction,cycle_targets=1,if=!ticking&cooldown.dark_harvest.remains<gcd.max
+# do not care about losing shards in 2+ targets
+actions.sh_cleave+=/dark_harvest
+actions.sh_cleave+=/agony,target_if=refreshable
+actions.sh_cleave+=/summon_darkglare
+actions.sh_cleave+=/malefic_grasp,if=buff.nightfall.react>1|pet.darkglare.remains<gcd
+actions.sh_cleave+=/drain_soul,if=buff.nightfall.react>1
+actions.sh_cleave+=/shadow_bolt,if=buff.nightfall.react>1
+actions.sh_cleave+=/unstable_affliction,if=!talent.patient_zero&!talent.sow_the_seeds&(soul_shard|buff.shard_instability.react)
+actions.sh_cleave+=/seed_of_corruption,if=talent.patient_zero&talent.sow_the_seeds
+
+# haunt on cd for apex, regardless of nightfall stacks
+actions.sh_st=haunt
+actions.sh_st+=/agony,if=remains<3
+actions.sh_st+=/corruption,if=remains<3
+# do not overcap shards
+actions.sh_st+=/dark_harvest,if=soul_shard<3&execute_time<(dot.agony.remains<?dot.corruption.remains)
+# use dark harvest only outside darkglare
+actions.sh_st+=/summon_darkglare,if=cooldown.dark_harvest.remains
+actions.sh_st+=/malefic_grasp,if=buff.nightfall.react>1|pet.darkglare.remains<gcd
+actions.sh_st+=/drain_soul,if=buff.nightfall.react>1
+actions.sh_st+=/shadow_bolt,if=buff.nightfall.react>1
+# sh does not care about saving shards in pure patchwerk. in reality it's good to save 1 shard for cascading calamity
+actions.sh_st+=/unstable_affliction,if=soul_shard|buff.shard_instability.react
+
+actions.end_of_fight=unstable_affliction,if=soul_shard&fight_remains<8&(!talent.patient_zero&!talent.sow_the_seeds)
+actions.end_of_fight+=/seed_of_corruption,if=soul_shard&fight_remains<8&(talent.patient_zero&talent.sow_the_seeds)
+actions.end_of_fight+=/drain_soul,if=buff.nightfall.react&fight_remains<5
+actions.end_of_fight+=/shadow_bolt,if=buff.nightfall.react&fight_remains<5
+
+actions.items=use_item,slot=trinket1
+actions.items+=/use_item,slot=trinket2
+actions.items+=/use_item,use_off_gcd=1,slot=main_hand
+
+actions.ogcd=potion,use_off_gcd=1,if=variable.cds_active|fight_remains<32
+actions.ogcd+=/berserking,use_off_gcd=1,if=variable.cds_active|fight_remains<14
+actions.ogcd+=/blood_fury,use_off_gcd=1,if=variable.cds_active|fight_remains<17
+actions.ogcd+=/fireblood,use_off_gcd=1,if=variable.cds_active|fight_remains<10
+actions.ogcd+=/ancestral_call,use_off_gcd=1,if=variable.cds_active|fight_remains<17
+
+actions.soul_harvester=call_action_list,name=sh_st,if=active_enemies=1
+actions.soul_harvester+=/call_action_list,name=sh_cleave,if=active_enemies=2
+actions.soul_harvester+=/call_action_list,name=sh_aoe,if=active_enemies>2
+
+actions.variables=variable,name=cds_active,op=set,value=!talent.summon_darkglare|pet.darkglare.remains
+actions.variables+=/variable,name=darkglare_active,op=set,value=pet.darkglare.active|(cooldown.summon_darkglare.duration-cooldown.summon_darkglare.remains)<20
+actions.variables+=/cycling_variable,name=min_agony,op=min,value=dot.agony.remains+(99*!dot.agony.remains)
+actions.variables+=/variable,name=trinket_1_will_lose_cast,value=((floor((fight_remains%trinket.1.cooldown.duration)+1)!=floor((fight_remains+(cooldown.summon_darkglare.duration-cooldown.summon_darkglare.remains))%cooldown.summon_darkglare.duration))&(floor((fight_remains%trinket.1.cooldown.duration)+1))!=(floor(((fight_remains-cooldown.summon_darkglare.remains)%trinket.1.cooldown.duration)+1))|((floor((fight_remains%trinket.1.cooldown.duration)+1)=floor((fight_remains+(cooldown.summon_darkglare.duration-cooldown.summon_darkglare.remains))%cooldown.summon_darkglare.duration))&(((fight_remains-cooldown.summon_darkglare.remains%%trinket.1.cooldown.duration)-cooldown.summon_darkglare.remains-variable.trinket_1_buff_duration)>0)))&cooldown.summon_darkglare.remains>20
+actions.variables+=/variable,name=trinket_2_will_lose_cast,value=((floor((fight_remains%trinket.2.cooldown.duration)+1)!=floor((fight_remains+(cooldown.summon_darkglare.duration-cooldown.summon_darkglare.remains))%cooldown.summon_darkglare.duration))&(floor((fight_remains%trinket.2.cooldown.duration)+1))!=(floor(((fight_remains-cooldown.summon_darkglare.remains)%trinket.2.cooldown.duration)+1))|((floor((fight_remains%trinket.2.cooldown.duration)+1)=floor((fight_remains+(cooldown.summon_darkglare.duration-cooldown.summon_darkglare.remains))%cooldown.summon_darkglare.duration))&(((fight_remains-cooldown.summon_darkglare.remains%%trinket.2.cooldown.duration)-cooldown.summon_darkglare.remains-variable.trinket_2_buff_duration)>0)))&cooldown.summon_darkglare.remains>20
+
+warlock.soul_shards=0
+warlock.default_pet=sayaad
+
+
+name=Warlock
+
+# Simulation Options
+iterations=10000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
