@@ -22,7 +22,7 @@ wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=213500,bonus_id=9035,drop_level
 # Hard Khorium Battlefists 44
 hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=213500/213500,bonus_id=9037,drop_level=30
 # Red Belt of Battle 40
-waist=,ilevel=40,id=30032,gem_id=213500/213500/213500,bonus_id=9035,drop_level=30
+waist=,ilevel=40,id=30032,gem_id=213488/32217/213500,bonus_id=9035,drop_level=30
 # Felfury Legplates 44
 legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=213500/213500/213500,bonus_id=9037,drop_level=30
 # Onslaught Treads 44
@@ -34,7 +34,7 @@ finger2=,ilevel=33,id=178736,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/
 # Dragonspine Trophy 38
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_3.5%
 # Heart of Roccor (155)
-trinket2=,id=231456,bonus_id=12378/7756,drop_level=30,content_tuning=181
+trinket2=,id=231456,bonus_id=12378/7756,drop_level=30
 # The Untamed Blade 40
 main_hand=The_Untamed_Blade,ilevel=40,weapon=sword2h_3.6speed_17min_29max,enchant_id=1900,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_4%
 # The Jackhammer 33

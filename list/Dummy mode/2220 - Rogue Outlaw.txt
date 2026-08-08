@@ -14,7 +14,7 @@ talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
 
 
 # wastewalker_helm (33)
-head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
+head=,id=50206,ilevel=33,gem_id=76884/213743/71852,bonus_id=6710,drop_level=30
 # Ukhel Ancestry Beads (140)
 neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213494/71852/71852,bonus_id=9156/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
@@ -42,11 +42,11 @@ trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108has
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_0.9ppm_184haste_5dur
+main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_1.2ppm_184haste_5dur
 # Vibroblade (33)
 off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
 #effective DPS = D0 × (1 + A × P × U)
-#D0 = naked sim DPS (1919 — the sim with the proc counting for zero)
+#D0 = naked sim DPS (1991 — the sim with the proc counting for zero)
 #A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
 #P = proportion affected = physical share = 0.969
 #U = measured uptime
@@ -58,7 +58,7 @@ off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=3
 #u=((59.68+45.9+65.25)/3) = 56.94
 
 
-#effective DPS = 1919 × (1 + 0.2083 × 0.969 × 0.5694) = 2140
+#effective DPS = 1991 × (1 + 0.2083 × 0.969 × 0.5694) = 2220
 
 # Consumables
 # potion=golemblood_potion

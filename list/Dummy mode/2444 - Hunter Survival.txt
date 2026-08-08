@@ -11,7 +11,7 @@ professions=leatherworking=66/engineering=1
 spec=survival
 # loot_spec=survival
 
-talents=C8PApei1JmYNvFfEFaN5bWuGKAAAAAAwYmhBDAAAAAAmxAY8AmBABAAAAAAAYMGMAAAwADAA
+talents=C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA
 
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30,enchant=12crit
@@ -39,8 +39,8 @@ finger1=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10
 finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
-# Armored Elekk Tusk (32)
-trinket2=,ilevel=32,id=108902,bonus_id=6691/6703,drop_level=29
+# Chaos Talisman (33)
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Distand Land (47)
 main_hand=,id=50040,ilevel=47,enchant_id=4227,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
 
