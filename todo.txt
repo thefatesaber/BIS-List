@@ -6,8 +6,3 @@ Need to verify obtainable
 	DK
 	warlock
 	DH
-	Hunter
-	Druid
-	Evoker
-	Paladin
-	Rogue
