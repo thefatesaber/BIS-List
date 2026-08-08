@@ -80,6 +80,10 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .cls .who{display:flex; flex-direction:column; min-width:0}
 .cls .who small{color:var(--dim); font-size:10.5px; letter-spacing:.03em}
 .cls .fill{margin-left:auto; color:var(--dim); font-size:10.5px}
+.cls .dps{margin-left:auto; padding-left:8px; color:var(--dim); font-size:11px;
+  font-variant-numeric:tabular-nums; letter-spacing:.02em; transition:color .15s ease}
+.cls:hover .dps{color:var(--dust)}
+.cls.on .dps{color:var(--cc); font-weight:600}
 .cls.on .fill{color:var(--dust)}
 
 /* ---------- spec header + tabs ---------- */
@@ -88,6 +92,12 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   margin:0; font-family:var(--display); font-weight:600;
   font-size:clamp(17px,2.6vw,22px); letter-spacing:.03em; color:var(--cc,#fff);
 }
+.dpsbadge{display:inline-flex; align-items:baseline; gap:5px; margin-left:2px; padding:3px 10px;
+  border:1px solid color-mix(in srgb, var(--cc) 45%, transparent); border-radius:999px;
+  background:color-mix(in srgb, var(--cc) 12%, transparent);
+  color:var(--dust); font-size:11px; letter-spacing:.08em; text-transform:uppercase}
+.dpsbadge b{color:var(--cc); font-size:14px; font-weight:700; letter-spacing:0;
+  font-variant-numeric:tabular-nums; text-transform:none}
 .spec-head .clsname{color:var(--cc,var(--dust)); font-family:var(--display); font-weight:600;
   letter-spacing:.03em; font-size:clamp(17px,2.6vw,22px)}
 .tabs{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:6px}
@@ -252,6 +262,7 @@ footer{
   .cls{flex:0 0 auto; border-left:0; border-bottom:2px solid transparent; padding:6px 10px}
   .cls.on{border-bottom-color:var(--cc)}
   .cls .who small,.cls .fill{display:none}
+  .cls .dps{margin-left:6px; padding-left:0}
   main{padding:16px 14px 40px}
   .row{grid-template-columns:1fr auto; gap:1px 10px; padding:9px 12px}
   .row.head{display:none}
@@ -323,7 +334,8 @@ footer{
      source   where it drops (optional)
      ench     enchant name (optional)
      enchsp   enchant spell id for the wowhead link (optional)
-     dps      sim dps for rail ordering
+     dps      all-time sim dps (kept for reference)
+     dpsByList  {alltime, obtainable, herald} — per-list sim dps
      credits  optional {listId: name} — renders a thanks line under that list
      why      optional per-row one-liner explaining the pick
      gems     [{id, name, n}] socketed gems — n renders as n separate socket icons
@@ -357,7 +369,7 @@ const LIST_TYPES = [
 ];
 
 const CLASSES = [
-{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3700,
+{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3700, dpsByList:{"alltime": 3700, "obtainable": 3018, "herald": 2784},
   notes:["Weapon DPS dominates stat weights. Gem Mastery/Crit — haste only past the rage-starvation threshold.", "Trinket slot head-to-head (Death's Choice vs current pair) still open."],
   credits:{},
   lists:{
@@ -417,7 +429,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2335,
+{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2335, dpsByList:{"alltime": 2335, "obtainable": 2186},
   notes:["Set reconciled vs live parse (Exhibiting: sim 1798 vs parse 1782).", "Shadowmourne unresolved — Chaos Bane proc unmodeled in SimC; reassess once modeled or confirmed unmodelable.", "Ring on-equip procs are the Crusader-model lines (two independent sources stack additively)."],
   credits:{},
   lists:{
@@ -460,7 +472,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2706,
+{ id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2706, dpsByList:{"alltime": 2706, "obtainable": 2588},
   notes:["Bonereaver's Edge modeled 11% flat per attack — log-validated ≈89.6% uptime / ≈11.35 procs/min."],
   credits:{},
   lists:{
@@ -503,7 +515,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"hunter", name:"Hunter", spec:"Survival", color:"#AAD372", dps:2444,
+{ id:"hunter", name:"Hunter", spec:"Survival", color:"#AAD372", dps:2444, dpsByList:{"alltime": 2444, "obtainable": 2303},
   notes:["Dragonspine at ≈1 PPM effective on SV's sparse attack stream — KC/WFB are spells, don't roll attack procs.", "Per-ability diff vs a logged Details! parse pending (merge pet rows)."],
   credits:{},
   lists:{
@@ -546,7 +558,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3269,
+{ id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3269, dpsByList:{"alltime": 3269, "obtainable": 3116},
   notes:["Nibelung Val'kyr proc modeled as calibrated discharge — verify the 1450 holy anchor used Fateccaster's SP, not Fatecastr's.", "Pendant/Meteorite tick rates are spec-dependent — do not inherit cross-spec."],
   credits:{},
   lists:{
@@ -589,7 +601,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2380,
+{ id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2380, dpsByList:{"alltime": 2380, "obtainable": 2273},
   notes:["Cat attacks are AP-normalized — weapon DPS irrelevant, weapon is a pure stat stick.", "Crusader is dead for Feral (Holy Strength is Strength — useless for an Agility spec)."],
   credits:{},
   lists:{
@@ -632,7 +644,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:3779,
+{ id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:3779, dpsByList:{"alltime": 3779, "obtainable": 3543, "herald": 3196},
   notes:["SimC undercounts Resto: Acid Rain (378443) unimplemented, LvB crit→damage scaling absent — Crit and Int understated.", "Sim instruments excluded from this list: Ascendance haste proxy (trinket1 in the profile) and the Acid Rain shirt proxy. The Pendant+Meteorite pair is simmed as one merged 35-vers line to free the slot."],
   credits:{},
   lists:{
@@ -691,7 +703,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:2703,
+{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:2703, dpsByList:{"alltime": 2703, "obtainable": 2406},
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
   credits:{},
   lists:{
@@ -736,7 +748,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3591,
+{ id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3591, dpsByList:{"alltime": 3591, "obtainable": 3016, "herald": 2679},
   notes:["L30 stat priority: Int ≫ Haste ≈ Mastery > Crit > Vers."],
   credits:{"herald": "Emmaløve"},
   lists:{
@@ -794,7 +806,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:2822,
+{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:2822, dpsByList:{"alltime": 2822, "obtainable": 2600},
   notes:["L30 stat priority: Int ≫ Crit ≈ Vers > Haste > Mastery (inverted from max level)."],
   credits:{},
   lists:{
@@ -837,7 +849,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2220,
+{ id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2220, dpsByList:{"alltime": 2220, "obtainable": 2049, "herald": 1857},
   notes:[],
   credits:{},
   lists:{
@@ -897,7 +909,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2079,
+{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2079, dpsByList:{"alltime": 2079, "obtainable": 1831},
   notes:[],
   credits:{},
   lists:{
@@ -942,7 +954,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:2317,
+{ id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:2317, dpsByList:{"alltime": 2317, "obtainable": 2205},
   notes:[],
   credits:{},
   lists:{
@@ -991,10 +1003,11 @@ const CLASSES = [
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 let state = { cls: CLASSES[0].id, list: LIST_TYPES[0].id, sort: "dps" };
+const dpsFor = (c, listId) => (c.dpsByList && c.dpsByList[listId != null ? listId : state.list]) || 0;
 function sortedClasses(){
   const a = [...CLASSES];
   if(state.sort === "alpha") a.sort((x,y) => x.name.localeCompare(y.name) || x.spec.localeCompare(y.spec));
-  else a.sort((x,y) => (y.dps||0) - (x.dps||0));
+  else a.sort((x,y) => (dpsFor(y) - dpsFor(x)) || ((y.dps||0) - (x.dps||0)));
   return a;
 }
 
@@ -1027,6 +1040,7 @@ function renderRail(){
     return '<button class="cls'+on+'" style="--cc:'+c.color+'" data-cls="'+c.id+'">'
       + '<span class="dot"></span>'
       + '<span class="who">'+esc(c.name)+'<small>'+esc(c.spec)+'</small></span>'
+      + (dpsFor(c) ? '<span class="dps">'+dpsFor(c).toLocaleString()+'</span>' : "")
       + '</button>';
   }).join("");
 }
@@ -1102,7 +1116,8 @@ function renderMain(){
 
   $("spechead").innerHTML =
     '<h2 style="--cc:'+cls.color+'">'+esc(cls.spec)+'</h2>'
-    + '<span class="clsname" style="--cc:'+cls.color+'">'+esc(cls.name)+'</span>';
+    + '<span class="clsname" style="--cc:'+cls.color+'">'+esc(cls.name)+'</span>'
+    + (dpsFor(cls) ? '<span class="dpsbadge" style="--cc:'+cls.color+'"><b>'+dpsFor(cls).toLocaleString()+'</b> DPS</span>' : "");
 
   $("tabs").innerHTML = LIST_TYPES.map(l =>
     '<button class="tab'+(l.id===state.list?" on":"")+'" role="tab" data-list="'+l.id+'">'+esc(l.label)+'</button>'
