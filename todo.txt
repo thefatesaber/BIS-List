@@ -1,8 +1,6 @@
 Need to verify obtainable
 	shaman
 	mage
-	warrior
-	priest
 	DK
 	warlock
 	DH
@@ -10,5 +8,4 @@ Need to verify obtainable
 	Druid
 	Evoker
 	Paladin
-	Rogue
 	Monk
