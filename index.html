@@ -178,7 +178,13 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .classnotes h3{margin:0 0 6px; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--dim); font-weight:600}
 .classnotes p{margin:3px 0; color:var(--dust); font-size:12px}
 .credit{margin:10px 2px 0; color:var(--dim); font-size:11.5px; font-style:italic}
-.why{grid-column:2 / -1; padding-left:44px; color:var(--dim); font-size:11px; font-style:italic}
+.why{grid-column:2 / -1; margin:5px 0 2px 44px; padding:7px 10px; border-left:2px solid var(--edge);
+  background:rgba(255,255,255,.025); border-radius:0 4px 4px 0;
+  color:var(--dust); font-size:11.5px; line-height:1.55; font-style:normal; max-width:78ch}
+.why b{color:var(--parchment); font-weight:600; letter-spacing:.02em}
+.why a{color:#8ab4f8; text-decoration:none; border-bottom:1px dotted rgba(138,180,248,.5)}
+.why a:hover{border-bottom-style:solid}
+.why a ins, .why a del, .why a span[class*="icon"]{display:none !important}
 .actions{margin-top:16px; display:flex; gap:10px; align-items:center}
 .btn{
   font:inherit; font-size:12px; cursor:pointer; border-radius:3px;
@@ -257,7 +263,7 @@ footer{
   .gems a.gname{font-size:0; gap:0}
   .gemgrp{padding:1px 0}
   .note{grid-column:1 / -1}
-  .why{grid-column:1 / -1; padding-left:0}
+  .why{grid-column:1 / -1; margin-left:0; max-width:none}
   .alts{grid-column:1 / -1; padding-left:44px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -557,9 +563,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 42, "source": "Black Temple — High Warlord Naj'entus", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Seal of the City Watch", "wowhead": 162542, "q": 3, "ilvl": 33, "source": "Siege of Boralus — Sergeant Bainbridge", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
-      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."}
+      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     obtainable:[
       {"slot": "Head", "item": "Vengeful Gladiator's Silk Cowl", "wowhead": 33758, "ilvl": 44, "source": "Arena Season 3 — Vengeful Gladiator (retired)", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -574,9 +580,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 42, "source": "Black Temple — High Warlord Naj'entus", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Signet of the Highborne Magi", "wowhead": 134537, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Shade of Xavius", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
-      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."}
+      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
       
@@ -643,9 +649,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Versatility", "enchsp": 20024, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Emperor's Seal", "wowhead": 231437, "ilvl": 33, "source": "Blackrock Depths (Anniversary) — Emperor Dagran Thaurissan", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Stitchflesh's Misplaced Signet", "wowhead": 178736, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Surgeon Stitchflesh", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 2}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
-      {"slot": "Main Hand", "item": "Royal Scepter of Terenas II", "wowhead": 50734, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 1}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."},
+      {"slot": "Main Hand", "item": "Royal Scepter of Terenas II", "wowhead": 50734, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 1}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."},
       {"slot": "Off Hand", "item": "The Boreal Guard", "wowhead": 45877, "ilvl": 43, "source": "Ulduar — Hodir (Rare Cache of Winter)", "ench": "Major Intellect", "enchsp": 104445, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 2}], "status": "sim"}
     ],
     obtainable:[
@@ -661,7 +667,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Versatility", "enchsp": 20024, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Seal of the Regal Loa", "wowhead": 159458, "q": 3, "ilvl": 33, "source": "Atal'Dazar — Rezan", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Thornwoven Band", "wowhead": 162548, "q": 3, "ilvl": 33, "source": "Waycrest Manor — Soulbound Goliath", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"}
     ],
@@ -678,7 +684,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Versatility", "enchsp": 20024, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Seal of the Regal Loa", "wowhead": 159458, "q": 3, "ilvl": 33, "source": "Atal'Dazar — Rezan", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Thornwoven Band", "wowhead": 162548, "q": 3, "ilvl": 33, "source": "Waycrest Manor — Soulbound Goliath", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Talisman of Ephemeral Power", "wowhead": 18820, "ilvl": 38, "source": "Molten Core — trash", "status": "sim"},
       {"slot": "Main Hand", "item": "Torch of Holy Fire", "wowhead": 40395, "ilvl": 39, "source": "Naxxramas — Kel'Thuzad", "ench": "Major Spellpower", "enchsp": 27975, "status": "sim"},
       {"slot": "Off Hand", "item": "Surplus Limb", "wowhead": 40273, "source": "Naxxramas — Patchwerk", "ench": "Major Intellect", "enchsp": 104445, "status": "sim"}
@@ -702,7 +708,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Footpads of Silence", "wowhead": 45564, "ilvl": 42, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Ring 1", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
       {"slot": "Main Hand", "item": "Bloodsurge, Kel'Thuzad's Blade of Agony", "wowhead": 50732, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"},
       {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"}
@@ -720,7 +726,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Footpads of Silence", "wowhead": 45564, "ilvl": 42, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Ring 1", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Arch-Druid's Tainted Seal", "wowhead": 134487, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Archdruid Glaidalis", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
       {"slot": "Main Hand", "item": "Bloodsurge, Kel'Thuzad's Blade of Agony", "wowhead": 50732, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"},
       {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"}
@@ -747,9 +753,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 43, "source": "Black Temple — High Warlord Naj'entus", "ench": "Haste", "enchsp": 74199, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Footbomb Championship Ring", "wowhead": 159462, "q": 3, "ilvl": 33, "source": "The MOTHERLODE!! — Coin-Operated Crowd Pummeler", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
-      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."}
+      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     obtainable:[
       {"slot": "Head", "item": "Cowl of Icy Breaths", "wowhead": 45464, "ilvl": 42, "source": "Ulduar — Hodir", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -764,9 +770,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 43, "source": "Black Temple — High Warlord Naj'entus", "ench": "Haste", "enchsp": 74199, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Footbomb Championship Ring", "wowhead": 159462, "q": 3, "ilvl": 33, "source": "The MOTHERLODE!! — Coin-Operated Crowd Pummeler", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213482, "name": "Masterful Emerald", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Solace of the Defeated", "wowhead": 47059, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Solace of the Defeated", "wowhead": 47059, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim"},
-      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."}
+      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
       {"slot": "Head", "item": "Forgotten Shadow Hood", "wowhead": 37684, "q": 3, "ilvl": 33, "source": "Culling of Stratholme — Salramm the Fleshcrafter", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -781,7 +787,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Savior's Slippers", "wowhead": 45567, "ilvl": 41, "source": "Crafted — Tailoring", "ench": "Haste", "enchsp": 74199, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Footbomb Championship Ring", "wowhead": 159462, "q": 3, "ilvl": 33, "source": "The MOTHERLODE!! — Coin-Operated Crowd Pummeler", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Armored Elekk Tusk", "wowhead": 108902, "q": 3, "source": "Shadowmoon Valley (WoD) — treasure", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Armored Elekk Tusk", "wowhead": 108902, "q": 3, "source": "Shadowmoon Valley (WoD) — treasure", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim"},
       {"slot": "Main Hand", "item": "Torch of Holy Fire", "wowhead": 40395, "ilvl": 39, "source": "Naxxramas — Kel'Thuzad", "ench": "Major Spellpower", "enchsp": 27975, "status": "sim"},
       {"slot": "Off Hand", "item": "Surplus Limb", "wowhead": 40273, "source": "Naxxramas — Patchwerk", "ench": "Major Intellect", "enchsp": 104445, "status": "sim"}
@@ -805,9 +811,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Treads of the False Oracle", "wowhead": 45537, "ilvl": 43, "source": "Ulduar — Yogg-Saron", "ench": "Precision", "enchsp": 74236, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Bloodoath Signet", "wowhead": 178871, "q": 3, "ilvl": 33, "source": "Theater of Pain — An Affront of Challengers", "ench": "Accord of Critical Strike", "enchsp": 298009, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Band of the Ancient Dredger", "wowhead": 159461, "q": 3, "ilvl": 33, "source": "Siege of Boralus — Hadal Darkfathom", "ench": "Accord of Critical Strike", "enchsp": 298009, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
-      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."}
+      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     obtainable:[
       {"slot": "Head", "item": "Merciless Gladiator's Felweave Cowl", "wowhead": 31980, "ilvl": 45, "source": "Legacy PvP vendor — Marks of Honor (Merciless Gladiator)", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
@@ -822,9 +828,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Treads of the False Oracle", "wowhead": 45537, "ilvl": 43, "source": "Ulduar — Yogg-Saron", "ench": "Precision", "enchsp": 74236, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Stitchflesh's Misplaced Signet", "wowhead": 178736, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Surgeon Stitchflesh", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Bottle-Popper Ring", "wowhead": 151410, "q": 3, "ilvl": 33, "source": "Blackrock Depths — Plugger Spazzring", "ench": "Accord of Critical Strike", "enchsp": 298009, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
-      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."}
+      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
       
@@ -953,9 +959,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Versatility", "enchsp": 20024, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Ritual Commander's Ring", "wowhead": 178781, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Nalthor the Rimebinder", "ench": "Accord of Versatility", "enchsp": 297991, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Stitchflesh's Misplaced Signet", "wowhead": 178736, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Surgeon Stitchflesh", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
-      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."}
+      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     obtainable:[
       {"slot": "Head", "item": "Helm of Desolation", "wowhead": 28192, "q": 3, "ilvl": 44, "source": "The Black Morass — Aeonus", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213746, "name": "Elusive Blasphemite", "n": 1}, {"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
@@ -970,9 +976,9 @@ const CLASSES = [
       {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Versatility", "enchsp": 20024, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Bottle-Popper Ring", "wowhead": 151410, "q": 3, "ilvl": 33, "source": "Blackrock Depths — Plugger Spazzring", "ench": "Accord of Versatility", "enchsp": 297991, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Stitchflesh's Misplaced Signet", "wowhead": 178736, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Surgeon Stitchflesh", "ench": "Accord of Versatility", "enchsp": 297991, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Pairing is spec-dependent: the on-use pair (Pendant of the Violet Eye + Meteorite Crystal) has the higher ceiling and should sim ahead once both fire in the same window, while Gale of Shadows / Solace of the Fallen trade that for consistency"},
+      {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
-      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Nibelung has the higher ceiling here, but its Val'kyr are pure RNG — the current weapon is the consistent pick."}
+      {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
       
@@ -1031,6 +1037,21 @@ function enchLink(e){
     ? "https://www.wowhead.com/spell=" + e.enchsp
     : "https://www.wowhead.com/search?q=" + encodeURIComponent(e.ench);
   return '<a href="'+url+'" target="_blank" rel="noopener">'+esc(e.ench)+'</a>';
+}
+const WHY_ITEMS = {
+  "Nibelung": 50648, "Abracadaver": 51887,
+  "Pendant of the Violet Eye": 28727, "Meteorite Crystal": 46051,
+  "Gale of Shadows": 56462, "Solace of the Fallen": 47432,
+  "Vibroblade": 9485
+};
+function whyHtml(text){
+  let out = esc(text);
+  const names = Object.keys(WHY_ITEMS).sort((a,b) => b.length - a.length);
+  for(const n of names){
+    const re = new RegExp("(?![^<]*>)" + n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g");
+    out = out.replace(re, '<a href="https://www.wowhead.com/item='+WHY_ITEMS[n]+'" target="_blank" rel="noopener">'+n+'</a>');
+  }
+  return out.replace(/^([^:]{3,40}:)/, '<b>$1</b>');
 }
 function gemLinks(e){
   if(!e.gems) return "";
@@ -1106,7 +1127,7 @@ function renderMain(){
       + '<span class="ench">'+enchLink(e)+'</span>'
       + '<span class="gems">'+gemLinks(e)+'</span>'
       + ((e.item && sub) ? '<span class="note">'+sub+hmBadge(e)+'</span>' : "")
-      + (e.why ? '<span class="why">'+esc(e.why)+'</span>' : "")
+      + (e.why ? '<span class="why">'+whyHtml(e.why)+'</span>' : "")
       + (e.item ? altLinks(e) : "")
       + '</div>';
   }).join("");
