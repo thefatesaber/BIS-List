@@ -1,4 +1,4 @@
-# All-time - Shaman - Restoration
+# Herald - Shaman - Restoration
 # SimC Expert Mode: Header
 max_time=300
 fixed_time=1
@@ -29,44 +29,43 @@ role=attack
 default_item_group_cooldown=0
 professions=alchemy=4/engineering=100
 spec=restoration
-talents=CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMW2YGwAMMAAQAIAYGwsMgADMwmh5BAAAAAAAAAA
+talents=CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA
 # Helm of Desolation 33
-head=,ilevel=33,id=28192,gem_id=76885/213743/32196,bonus_id=7202,drop_level=30
-# Amnesia 33
-neck=,ilevel=33,id=200210,enchant_id=5437,gem_id=213485/32196/32196,bonus_id=9156/6652/9477/8782,drop_level=30
+head=,ilevel=33,id=28192,gem_id=25893/213743/32196,bonus_id=7202,drop_level=30
+# Necklace of the Dark Blaze 33
+neck=,ilevel=33,id=88354,enchant_id=5437,gem_id=32196,drop_level=30
 # Pauldrons of Desolation 33
-shoulder=,ilevel=33,id=27713,enchant_id=3838,gem_id=40133/40133,bonus_id=7202,drop_level=30
-# Drape of the Messenger 43
-back=,ilevel=43,id=46042,enchant_id=3243,gem_id=40133,bonus_id=9043,drop_level=30
-# Embrace of the Phoenix 44
-chest=,ilevel=44,id=34373,enchant_id=6625,gem_id=40133/40133/40133,bonus_id=9037,drop_level=30
+shoulder=,ilevel=33,id=27713,enchant_id=3810,gem_id=32196/32196,bonus_id=7202,drop_level=30
+# Reanimator's Cloak 33
+back=,ilevel=33,id=37799,enchant_id=3243,gem_id=32196,bonus_id=4196,drop_level=30
+# Hauberk of Desolation 33
+chest=,ilevel=33,id=28401,enchant_id=2661,gem_id=32196/32196/32196,bonus_id=7202,drop_level=30
 # >>> ACID RAIN PROXY on the SHIRT (damage on-use). cd 18->20 to preserve ~90% uptime (see note 2).
-shirt=acid_rain_proxy,use=480nature_1tick_18dur_20cd
+shirt=acid_rain_proxy,use=480nature_maycrit_1tick_18dur_20cd
 tabard=Ascendance_buff,use=170haste_20dur_180cd
 # >>> TABARD free (Ascendance is the synthetic haste trinket below; vers is merged on trinket2)
 # Bracers of the Forest Stalker 33
-wrist=,ilevel=33,id=34698,enchant_id=4414,gem_id=40133/40133,bonus_id=7202,drop_level=30
-# Thalassian Ranger Gauntlets 44
-hands=,ilevel=44,id=34343,enchant_id=2937,gem_id=40133/40133,bonus_id=9037,drop_level=30
+wrist=,ilevel=33,id=34698,enchant_id=4414,gem_id=32196/32196,bonus_id=7202,drop_level=30
+# Gauntlets of Desolation 33
+hands=,ilevel=33,id=27528,enchant_id=4430,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Terror Pit Girdle 38
-waist=,id=28778,ilevel=38,enchant_id=6906,gem_id=40133/40133/40133,bonus_id=9034,drop_level=30
+waist=,ilevel=38,id=28778,gem_id=32196/32196/32196,bonus_id=9034,drop_level=30
 # Wyrmscale Greaves 33
-legs=,ilevel=33,id=30534,enchant_id=6541,gem_id=40133/40133/40133,bonus_id=7202,drop_level=30
+legs=,ilevel=33,id=30534,enchant_id=6539,gem_id=32196/32196/32196,bonus_id=7202,drop_level=30
 # Star-Strider Boots 40
-feet=,id=29951,ilevel=40,enchant_id=851,gem_id=40133/40133,bonus_id=9035,drop_level=30
-# Emperor's Seal 33
-finger1=,ilevel=33,id=231437,enchant_id=6109,gem_id=40133/40133,drop_level=30
-# Stitchflesh's Misplaced Signet 33
-finger2=,ilevel=33,id=178736,enchant_id=6109,gem_id=40133/40133,drop_level=30
-# >>> ASCENDANCE = synthetic on-use haste. 170 = haste RATING (tune to in-game Ascendance haste).
-# Solace of the Fallen 45
-trinket1=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
+feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_level=30
+# Seal of the Regal Loa 33
+finger1=,ilevel=33,id=159458,enchant_id=6109,gem_id=32196,drop_level=30
+# Thornwoven Band 33
+finger2=,ilevel=33,id=162548,enchant_id=6109,gem_id=32196,drop_level=30
 # Gale of Shadows 33
-trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
-# Royal Scepter of Terenas II 47 
-main_hand=royal_scepter_of_terenas_ii,id=50734,ilevel=47,bonus_id=9051,gem_id=40133,enchant_id=2669
-# The Boreal Guard 43
-off_hand=the_boreal_guard,id=45877,ilevel=43,gem_id=40133/40133,enchant_id=4434,bonus_id=9041
+trinket1=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+# Talisman of Ephemeral Power 38
+trinket2=,ilevel=38,id=18820,bonus_id=9029,drop_level=30
+# torch_of_holy_fire 39
+main_hand=torch_of_holy_fire,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
+# surplus_limb 39
+off_hand=surplus_limb,id=40273,bonus_id=9039,enchant_id=4434
 
 temporary_enchant=
 midnight.crucible_of_erratic_energies_violence=0
