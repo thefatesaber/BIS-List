@@ -5,7 +5,5 @@ Need to verify obtainable
 	warlock
 	DH
 	Hunter
-	Druid
 	Evoker
 	Paladin
-	Monk
