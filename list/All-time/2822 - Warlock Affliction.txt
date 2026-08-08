@@ -35,7 +35,7 @@ feet=,ilevel=43,id=45537,enchant_id=4092,gem_id=40155/40155,bonus_id=9043,drop_l
 finger1=,id=178871,ilevel=33,enchant_id=6108,gem_id=40155/40155,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Band of the Ancient Dredger 33
 finger2=,ilevel=33,id=159461,enchant_id=6108,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Meteorite Crystal 43
+# Pendant of the Violet Eye 38
 trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Gale of Shadows 33
 trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic

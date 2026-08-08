@@ -5,4 +5,3 @@ Need to verify obtainable
 	priest
 	DK
 	warlock
-	DH

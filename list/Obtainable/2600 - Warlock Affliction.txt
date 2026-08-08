@@ -14,15 +14,15 @@ talents=CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZW8AAAAAAAAAAAAAAAAgBDAYmBYwAAAA
 # Merciless Gladiator's Felweave Cowl 45
 head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659
 # Splintered Obsidian Shard 135
-neck=,ilevel=33,id=151399,enchant_id=5437,gem_id=40155,drop_level=30
+neck=,ilevel=33,id=151399,enchant_id=5437,gem_id=32218,drop_level=30
 # Hatefury Mantle 42
-shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=40155/40155,bonus_id=9036,drop_level=30
+shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=32218/32218,bonus_id=9036,drop_level=30
 # Drape of the Messenger 43
-back=,ilevel=43,id=46042,enchant_id=3243,gem_id=40155,bonus_id=9043,drop_level=30
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=32218,bonus_id=9043,drop_level=30
 # Merciless Gladiator's Felweave Raiment 45
-chest=,ilevel=45,id=31982,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9357,drop_level=30,content_tuning=2659
+chest=,ilevel=45,id=31982,enchant_id=6625,gem_id=32218/32218/32218,bonus_id=9357,drop_level=30,content_tuning=2659
 # Bracers of the Malefic 44
-wrist=,ilevel=44,id=34436,enchant_id=2332,gem_id=40155,bonus_id=9037,drop_level=30
+wrist=,ilevel=44,id=34436,enchant_id=2332,gem_id=32218,bonus_id=9037,drop_level=30
 # Pharos Gloves 43
 hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=40155/40155,bonus_id=9043,drop_level=30
 # Belt of Blasting 40
@@ -37,8 +37,8 @@ finger1=,ilevel=33,id=178736,enchant_id=6109,gem_id=40155,drop_level=30
 finger2=,ilevel=33,id=151410,enchant_id=6108,gem_id=40155,drop_level=30
 # Meteorite Crystal 43
 trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
-# Pendant of the Violet Eye 38
-trinket2=Meteorite_Crystal,ilevel=43,stats=9int,use=16vers_20stack_0.515tick_20dur_120cd
+# Gale of Shadows 33
+trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Abracadaver 47 
 main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
@@ -163,8 +163,8 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
+enemy=Fluffy_Pillow_Custom
+target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
