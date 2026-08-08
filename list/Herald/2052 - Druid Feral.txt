@@ -39,7 +39,7 @@ finger2=,id=134532,ilevel=33,enchant_id=6109,gem_id=40150,drop_level=30
 trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
-# Black Ice (38
+# Black Ice (38)
 main_hand=,id=40497,ilevel=38,enchant_id=4227,bonus_id=9039,drop_level=30
 
 # Consumables

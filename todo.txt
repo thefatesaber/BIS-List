@@ -1,6 +1,4 @@
 Need to verify obtainable
 	DK
 	DH
-	Hunter
-	Evoker
 	Paladin
