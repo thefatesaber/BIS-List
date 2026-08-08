@@ -27,9 +27,9 @@ chest=,ilevel=40,id=30107,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9035
 # bindings_of_raging_fire 33
 wrist=,ilevel=33,id=34697,enchant_id=2332,gem_id=40155,bonus_id=7202,drop_level=30
 # manaspark_gloves 33
-hands=,ilevel=33,id=24450,enchant_id=2937,gem_id=71854/71854,bonus_id=7202,drop_level=30
+hands=,ilevel=33,id=24450,enchant_id=2937,gem_id=40155/40155,bonus_id=7202,drop_level=30
 # Belt of Blasting 40
-waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
+waist=,ilevel=40,id=30038,gem_id=40155/40155/40155,bonus_id=9035,drop_level=30
 # breeches_of_the_occultist 33
 legs=,ilevel=33,id=30531,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,drop_level=30
 # saviors_slippers 41
@@ -38,8 +38,8 @@ feet=,ilevel=41,id=45567,enchant_id=4069,gem_id=71854/71854,bonus_id=9043,drop_l
 finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854,drop_level=30
 # Fleshfused Circle 33
 finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
-# Armored Elekk Tusk (33)
-trinket1=,id=108902,bonus_id=4811,drop_level=30
+# Gale of Shadows 33
+trinket1=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Pendant of the Violet Eye 38 
 trinket2=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # torch_of_holy_fire 39
@@ -168,8 +168,8 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
+enemy=Fluffy_Pillow_Custom
+target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps

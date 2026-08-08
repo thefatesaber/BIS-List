@@ -1,3 +1,14 @@
 Need to verify obtainable
+	shaman
+	mage
 	warrior
+	priest
 	DK
+	warlock
+	DH
+	Hunter
+	Druid
+	Evoker
+	Paladin
+	Rogue
+	Monk
