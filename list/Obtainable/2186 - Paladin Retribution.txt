@@ -14,13 +14,13 @@ talents=CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwA
 # Helm of the Faceless (42)
 head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30
 # Ukhel Ancestry Beads (140)
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71856,drop_level=30
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,drop_level=30
 # Lightbringer Shoulderbraces (42)
-shoulder=,ilevel=42,id=30997,enchant_id=3808,gem_id=71856/71856,bonus_id=9036,drop_level=30
+shoulder=,ilevel=42,id=30997,enchant_id=3808,gem_id=213500/213500,bonus_id=9036,drop_level=30
 # Titanskin Cloak (43)
-back=,ilevel=43,id=45496,enchant_id=3243,gem_id=71856,bonus_id=9043,drop_level=30
+back=,ilevel=43,id=45496,enchant_id=3243,gem_id=213500,bonus_id=9043,drop_level=30
 # Hard Khorium Battleplate (44)
-chest=,ilevel=44,id=34377,enchant_id=6625,gem_id=71856/71856/71856,bonus_id=9037,drop_level=30
+chest=,ilevel=44,id=34377,enchant_id=6625,gem_id=213500/213500/71856,bonus_id=9037,drop_level=30
 # bracers_of_eradication 40
 wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=71856,bonus_id=9035,drop_level=30
 # Hard Khorium Battlefists (44)
@@ -112,8 +112,8 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
+enemy=Fluffy_Pillow_Custom
+target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
