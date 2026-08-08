@@ -61,7 +61,7 @@ finger2=,ilevel=33,id=162548,enchant_id=6109,gem_id=32196,drop_level=30
 # Solace of the Fallen 45
 trinket1=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
 # Gale of Shadows 33
-trinket2=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
+trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Abracadaver 47 
 main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
@@ -97,9 +97,6 @@ flask=disabled
 food=disabled
 augmentation=disabled
 temporary_enchant=disabled
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
-#enemy_custom_health_timeline=20:0.2
 
 name=Shaman
 
@@ -108,8 +105,8 @@ iterations=10000
 desired_targets=1
 max_time=300
 fixed_time=1
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
+enemy=Fluffy_Pillow_Custom
+target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps

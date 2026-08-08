@@ -100,9 +100,6 @@ flask=disabled
 food=disabled
 augmentation=disabled
 temporary_enchant=disabled
-#enemy=Fluffy_Pillow_Custom
-#target_level=+3
-#enemy_custom_health_timeline=20:0.2
 
 name=Shaman
 

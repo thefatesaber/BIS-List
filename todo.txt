@@ -1,7 +1,4 @@
 Need to verify obtainable
 	shaman
-	mage
 	warrior
-	priest
 	DK
-	warlock
