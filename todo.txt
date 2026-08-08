@@ -1,4 +1,3 @@
 Need to verify obtainable
-	shaman
 	warrior
 	DK
