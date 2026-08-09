@@ -206,7 +206,7 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .statcell.r .val{flex-direction:row-reverse}
 .statcell .pct{color:var(--cc); font-size:15px; font-weight:700}
 .statcell .rat{color:var(--dim); font-size:11.5px}
-.statweb{grid-column:2; grid-row:1 / span 2; display:block; justify-self:center}
+.statweb{grid-column:2; grid-row:1 / span 2; display:block; justify-self:center; max-width:100%}
 .statpanel.wtop .statweb{grid-row:2 / span 2}
 .stattop{grid-column:1 / -1; display:grid; grid-template-columns:1fr auto 1fr;
   grid-template-columns:subgrid}
@@ -342,6 +342,7 @@ footer{
   .note{grid-column:1 / -1}
   .why{grid-column:1 / -1; margin-left:0; max-width:none}
   .statpanel{gap:0 10px; padding:12px}
+  .statweb{width:104px; height:104px}
   .consum{gap:5px 10px}
   .consum .tbtn{margin-left:0; flex:1 0 100%; order:9}
   .paneline{grid-template-columns:minmax(0,1fr)}
@@ -1435,6 +1436,7 @@ const PRIMARY = {warrior:"Strength", paladin:"Strength", deathknight:"Strength",
   hunter:"Agility", druid:"Agility", rogue:"Agility", monk:"Agility",
   mage:"Intellect", shaman:"Intellect", priest:"Intellect", warlock:"Intellect", evoker:"Intellect",
   demonhunter:"Intellect"};
+const STAT_CAP = 75;
 function statPanel(cls){
   const s = cls.stats && cls.stats[state.list];
   const el = $("statpanel");
@@ -1451,13 +1453,16 @@ function statPanel(cls){
     + (s.stam != null ? tcell("Stamina", s.stam, true) : '')
     + '</div>' : "";
   const K = [["crit","Critical Strike"],["mastery","Mastery"],["haste","Haste"],["vers","Versatility"]];
-  const cap = Math.max(...K.map(([k]) => (s[k]||[0])[0])) * 1.3 || 1;
+  // Fixed scale, shared by every panel, so shapes are comparable between specs.
+  // 75 clears the highest secondary in the dataset (monk mastery 71.88) without
+  // clipping it flat against the outer ring.
+  const cap = STAT_CAP;
   const cell = (k, label, right) =>
     '<div class="statcell'+(right?" r":"")+'"><span class="lbl">'+label+'</span>'
     + '<span class="val"><span class="pct">'+((s[k]||[0])[0]).toFixed(2)+'%</span>'
     + '<span class="rat">'+((s[k]||[0,0])[1])+'</span></span></div>';
   // diamond: crit up, mastery right, vers down, haste left
-  const R = 46, C = 60, order = ["crit","mastery","vers","haste"];
+  const R = 92, C = 70, order = ["crit","mastery","vers","haste"];
   const pt = (i, f) => {
     const ang = -Math.PI*3/4 + i*Math.PI/2, r = R*f;
     return [C + r*Math.cos(ang), C + r*Math.sin(ang)];
@@ -1465,11 +1470,11 @@ function statPanel(cls){
   const poly = f => order.map((_,i) => pt(i,f).map(n => n.toFixed(1)).join(",")).join(" ");
   const vals = order.map(k => Math.min(1, ((s[k]||[0])[0]) / cap));
   const shape = order.map((k,i) => pt(i, vals[i]).map(n => n.toFixed(1)).join(",")).join(" ");
-  const web = '<svg class="statweb" width="120" height="120" viewBox="0 0 120 120">'
+  const web = '<svg class="statweb" width="140" height="140" viewBox="0 0 140 140">'
     + [1,.66,.33].map(f => '<polygon class="ring" points="'+poly(f)+'"/>').join("")
     + order.map((_,i) => { const [x,y] = pt(i,1); return '<line class="axis" x1="'+C+'" y1="'+C+'" x2="'+x.toFixed(1)+'" y2="'+y.toFixed(1)+'"/>'; }).join("")
     + '<polygon class="area" points="'+shape+'"/>'
-    + order.map((_,i) => { const [x,y] = pt(i, vals[i]); return '<circle class="dot" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3"/>'; }).join("")
+    + order.map((_,i) => { const [x,y] = pt(i, vals[i]); return '<circle class="dot" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4"/>'; }).join("")
     + '</svg>';
   el.innerHTML = top + cell("crit","Critical Strike") + web + cell("mastery","Mastery", true)
     + cell("haste","Haste") + cell("vers","Versatility", true);
