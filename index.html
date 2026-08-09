@@ -369,7 +369,7 @@ const LIST_TYPES = [
 ];
 
 const CLASSES = [
-{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3700, dpsByList:{"alltime": 3700, "obtainable": 3018, "herald": 2784},
+{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3700, dpsByList:{"alltime": 3700, "obtainable": 3018, "herald": 2859},
   notes:["Weapon DPS dominates stat weights. Gem Mastery/Crit — haste only past the rage-starvation threshold.", "Trinket slot head-to-head (Death's Choice vs current pair) still open."],
   credits:{},
   lists:{
@@ -410,9 +410,9 @@ const CLASSES = [
       {"slot": "Off Hand", "item": "Bonereaver's Edge", "wowhead": 17076, "ilvl": 38, "source": "Molten Core — Ragnaros", "ench": "Crusader", "enchsp": 20034, "status": "confirmed"}
     ],
     herald:[
-      {"slot": "Head", "item": "Overlord's Helmet of Second Sight", "wowhead": 31105, "q": 3, "ilvl": 33, "source": "Quest: Teron Gorefiend, I am... — Shadowmoon Valley", "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 3}], "status": "sim"},
+      {"slot": "Head", "item": "Helm of the Corrupted Mind", "wowhead": 39260, "ilvl": 39, "source": "Naxxramas — Loatheb", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
       {"slot": "Neck", "item": "Hatecoil Commander's Amulet", "wowhead": 134492, "q": 3, "ilvl": 33, "source": "Eye of Azshara — Warlord Parjesh", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Shoulders", "item": "Destroyer Shoulderblades", "wowhead": 30122, "source": "Tempest Keep — Void Reaver (token)", "ench": "Master's Inscription of the Axe", "enchsp": 61117, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 2}], "status": "sim"},
+      {"slot": "Shoulders", "item": "Destroyer Shoulderblades", "wowhead": 30122, "ilvl": 40, "source": "Tempest Keep — Void Reaver (token)", "ench": "Master's Inscription of the Axe", "enchsp": 61117, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Cloak of the Shadowed Sun", "wowhead": 40252, "ilvl": 39, "source": "Naxxramas — trash", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Chest", "item": "Warbringer Breastplate", "wowhead": 29019, "ilvl": 38, "source": "Magtheridon's Lair — Magtheridon (token)", "ench": "Waking Stats", "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 3}], "status": "sim"},
       {"slot": "Wrist", "item": "Bracers of Eradication", "wowhead": 30057, "ilvl": 40, "source": "Serpentshrine Cavern — The Lurker Below", "ench": "Superior Strength", "enchsp": 20010, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim"},
@@ -429,7 +429,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2335, dpsByList:{"alltime": 2335, "obtainable": 2186},
+{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2335, dpsByList:{"alltime": 2335, "obtainable": 2186, "herald": 2075},
   notes:["Set reconciled vs live parse (Exhibiting: sim 1798 vs parse 1782).", "Shadowmourne unresolved — Chaos Bane proc unmodeled in SimC; reassess once modeled or confirmed unmodelable.", "Ring on-equip procs are the Crusader-model lines (two independent sources stack additively)."],
   credits:{},
   lists:{
@@ -468,7 +468,21 @@ const CLASSES = [
       {"slot": "Main Hand", "item": "The Untamed Blade", "wowhead": 19334, "ilvl": 40, "source": "Blackwing Lair — Razorgore the Untamed", "ench": "Crusader", "enchsp": 20034, "status": "sim"}
     ],
     herald:[
-      
+      {"slot": "Head", "item": "Helm of the Corrupted Mind", "wowhead": 39260, "ilvl": 39, "source": "Naxxramas — Loatheb", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
+      {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
+      {"slot": "Shoulders", "item": "Destroyer Shoulderblades", "wowhead": 30122, "ilvl": 40, "source": "Tempest Keep — Void Reaver (token)", "ench": "Master's Inscription of the Axe", "enchsp": 61117, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
+      {"slot": "Back", "item": "Cloak of the Shadowed Sun", "wowhead": 40252, "ilvl": 39, "source": "Naxxramas — trash", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
+      {"slot": "Chest", "item": "Justicar Chestpiece", "wowhead": 29062, "ilvl": 38, "source": "Magtheridon's Lair — Magtheridon (token)", "ench": "Waking Stats", "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bracers of Eradication", "wowhead": 30057, "ilvl": 40, "source": "Serpentshrine Cavern — The Lurker Below", "ench": "Superior Strength", "enchsp": 20010, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"},
+      {"slot": "Hands", "item": "Faith Bearer's Gauntlets", "wowhead": 25942, "q": 3, "ilvl": 33, "source": "Mana-Tombs — Pandemonius", "ench": "Super Strength", "enchsp": 104419, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
+      {"slot": "Waist", "item": "Red Belt of Battle", "wowhead": 30032, "ilvl": 40, "source": "Crafted — Blacksmithing", "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
+      {"slot": "Legs", "item": "Greaves of the Martyr", "wowhead": 30536, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Draconic Leg Reinforcements", "enchsp": 124561, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
+      {"slot": "Feet", "item": "Sha'tari Wrought Greaves", "wowhead": 28176, "q": 3, "ilvl": 33, "source": "Quest: Into the Heart of the Labyrinth — Shadow Labyrinth", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
+      {"slot": "Ring 1", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
+      {"slot": "Ring 2", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
+      {"slot": "Trinket 1", "item": "Herkuml War Token", "wowhead": 50355, "ilvl": 15, "source": "Dalaran — Emblem of Frost vendor", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Chaos Talisman", "wowhead": 137459, "q": 3, "ilvl": 33, "source": "Assault on Violet Hold — Fel Lord Betrug", "status": "sim"},
+      {"slot": "Main Hand", "item": "The Untamed Blade", "wowhead": 19334, "ilvl": 40, "source": "Blackwing Lair — Razorgore the Untamed", "ench": "Crusader", "enchsp": 20034, "status": "sim"}
     ]
   }
 },

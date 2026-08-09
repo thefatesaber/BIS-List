@@ -7,12 +7,12 @@ spec=fury
 role=attack
 talents=CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA
 ### Combo 1
-# Overlord's Helmet of Second Sight (32)
-head=,ilevel=33,id=31105,gem_id=40146/40146/40146,bonus_id=6691,drop_level=30
+# Helm of the Corrupted Mind (39)
+head=helm_of_the_corrupted_mind,ilevel=39,id=39260,gem_id=76886/213743,bonus_id=9039
 # Hatecoil Commander's Amulet (33)
 neck=,id=134492,ilevel=33,enchant_id=5890,gem_id=40146,bonus_id=6710/6652/8810,drop_level=30
 # Destroyer Shoulderblades (40)
-shoulder=,id=30122,gem_id=40146/40146,bonus_id=9035,enchant_id=3835
+shoulder=,id=30122,ilevel=40,gem_id=40146/40146,bonus_id=9035,enchant_id=3835
 # Cloak of the Shadowed Sun (39)
 back=,ilevel=39,id=40252,enchant_id=3243,gem_id=40146/40146,bonus_id=9039
 # Warbringer Breastplate (38)
