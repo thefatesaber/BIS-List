@@ -1,4 +1,4 @@
-# Herald - Evoker - Devastation
+# Obtainable - Evoker - Devastation
 # Base Actor
 evoker="Fatedefile"
 level=30
@@ -8,43 +8,41 @@ server=thrall
 role=spell
 professions=leatherworking=75/engineering=1
 spec=devastation
-talents=CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAAMDAGMAgZawMBAAPwMzMADADAAAAAAAAADAAA
+talents=CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA
 
 ### Combo 1
 # Helm of Desolation 33
 head=,id=28192,ilevel=44,gem_id=25893/213746/32196,bonus_id=7202,drop_level=30,enchant=12crit
-# Tuskarr Bone Necklace 135
-neck=,id=193666,ilevel=33,enchant_id=5437,gem_id=32196/32196/32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Hook Charm Necklace 135
+neck=,id=151437,ilevel=33,enchant_id=5437,gem_id=32196,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=43,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
-# Reanimator's Cloak 33
-back=,ilevel=33,id=37799,enchant_id=3243,gem_id=32196,bonus_id=4196,drop_level=30
-# Hauberk of Desolation 33
-chest=,ilevel=33,id=28401,enchant_id=2661,gem_id=32196/32196/32196,bonus_id=7202,drop_level=30
+# Drape of the Messenger 43
+back=,id=46042,ilevel=43,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=30
+# Embrace of the Phoenix 44
+chest=,id=34373,ilevel=44,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
 # Bracers of the Forest Stalker 33
-wrist=,ilevel=33,id=34698,enchant_id=4414,gem_id=32196/32196,bonus_id=7202,drop_level=30
-# Gauntlets of Desolation 33
-hands=,ilevel=33,id=27528,enchant_id=4430,gem_id=32196/32196,bonus_id=7202,drop_level=30
+wrist=,id=34698,ilevel=33,enchant_id=2326,gem_id=40113/40113,bonus_id=7202,drop_level=30
+# Thalassian Ranger Gauntlets 44
+hands=,id=34343,ilevel=44,enchant_id=2937,gem_id=40113/40113,bonus_id=9037,drop_level=30
 # Terror Pit Girdle 38
-waist=,ilevel=38,id=28778,gem_id=32196/32196/32196,bonus_id=9034,drop_level=30
+waist=,id=28778,ilevel=38,enchant_id=6906,gem_id=32196/32196/32196,bonus_id=9034,drop_level=30
 # Wyrmscale Greaves 33
-legs=,ilevel=33,id=30534,enchant_id=6539,gem_id=32196/32196/32196,bonus_id=7202,drop_level=30
+legs=,id=30534,ilevel=33,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=7202/6652,drop_level=30
 # Star-Strider Boots 40
 feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_level=30
-# Seal of the Regal Loa 33
-finger1=,ilevel=33,id=159458,enchant_id=6109,gem_id=32196,drop_level=30
-# Thornwoven Band 33
-finger2=,ilevel=33,id=162548,enchant_id=6109,gem_id=32196,drop_level=30
-# Gale of Shadows 33
-trinket1=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
-# Talisman of Ephemeral Power 38
-trinket2=,ilevel=38,id=18820,bonus_id=9029,drop_level=30
-# torch_of_holy_fire 39
-main_hand=torch_of_holy_fire,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
-# surplus_limb 39
-off_hand=surplus_limb,id=40273,bonus_id=9039,enchant_id=4434
+# Bottle-Popper Ring 33
+finger1=,id=151410,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
+# Stitchflesh's Misplaced Signet 33
+finger2=,id=178736,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
+# Phylactery of the Nameless Lich (47)
+trinket1=gale_of_shadows,ilevel=33,id=56462,bonus_id=8998
+# Solace of the Fallen (45)
+trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
+# Abracadaver 47 
+main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
-
+#trinket1=,ilevel=47,id=50365,bonus_id=9051,drop_level=30
 # Consumables
 # potion=golemblood_potion
 # flask=flask_of_titanic_strength
