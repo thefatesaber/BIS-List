@@ -8,7 +8,8 @@ server=thrall
 role=spell
 professions=leatherworking=75/engineering=1
 spec=devastation
-talents=CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAAMDAGMAgZawMBAAPwMzMADADAAAAAAAAADAAA
+talents=CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA
+
 
 ### Combo 1
 # Helm of Desolation 33
