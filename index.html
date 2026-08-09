@@ -169,6 +169,9 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .hm.only{color:#ff9d5c}
 .hm.ilvl{color:#8ab4f8}
 .hm.socket{color:#ff5c5c}
+.vtag{margin-left:7px; font-size:9.5px; font-weight:600; letter-spacing:.07em;
+  text-transform:uppercase; padding:1px 5px; border-radius:3px; white-space:nowrap;
+  color:#e0a53f; border:1px solid currentColor; vertical-align:1px}
 .alts{grid-column:2 / -1; padding-left:44px; padding-top:2px;
   color:var(--dim); font-size:11px; overflow-wrap:anywhere}
 .alts em{font-style:normal; color:var(--tbd); text-transform:uppercase;
@@ -416,6 +419,8 @@ footer{
      item     item name (omit or leave list empty -> renders TBD)
      wowhead  numeric item ID (optional; falls back to Wowhead search)
      ilvl     number/string (optional)
+     variant  string (optional) — difficulty label shown beside the item name,
+              e.g. "Heroic". Defaults from ITEM_VARIANT by item id.
      source   where it drops (optional)
      ench     enchant name (optional)
      enchsp   enchant spell id for the wowhead link (optional)
@@ -450,9 +455,18 @@ const CONFIG = {
   guild: "Fate — NA-Thrall",
   patch: "12.0.5 (Midnight)",
   bracket: "Level 30",
-  // Herald of the Titans gear rule — set the exact caps you're enforcing:
-  heraldRule: "SET ME: equipped/weapon ilvl caps for Herald of the Titans"
+  // Herald of the Titans achievement requirements.
+  heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks and rings, every piece must come from Classic, TBC or WotLK."
 };
+
+/* Some items share a display name across difficulties — the DBC lists 47271 and
+   47432 both as "Solace of the Fallen" — so a list showing both reads as a
+   duplicate. Tag by item id here and the label renders beside the link, in the
+   text export, and in the alts line. A row-level `variant` overrides this.     */
+const ITEM_VARIANT = {
+  47432: "Heroic"   // Solace of the Fallen (normal is 47271)
+};
+const variantOf = e => e.variant || ITEM_VARIANT[e.wowhead] || "";
 
 const DEFAULT_SLOTS = ["Head","Neck","Shoulders","Back","Chest","Wrist","Hands",
   "Waist","Legs","Feet","Ring 1","Ring 2","Trinket 1","Trinket 2","Main Hand","Off Hand"];
@@ -547,7 +561,7 @@ const CLASSES = [
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Chest", "item": "Hard Khorium Battleplate", "wowhead": 34377, "ilvl": 44, "source": "Crafted — Blacksmithing", "ench": "Waking Stats", "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
       {"slot": "Wrist", "item": "Bracers of Eradication", "wowhead": 30057, "ilvl": 40, "source": "Serpentshrine Cavern — The Lurker Below", "ench": "Superior Strength", "enchsp": 20010, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"},
-      {"slot": "Hands", "item": "Hard Khorium Battlefists", "wowhead": 34378, "ilvl": 42, "source": "Crafted — Blacksmithing", "ench": "Super Strength", "enchsp": 104419, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
+      {"slot": "Hands", "item": "Hard Khorium Battlefists", "wowhead": 34378, "ilvl": 44, "source": "Crafted — Blacksmithing", "ench": "Super Strength", "enchsp": 104419, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Waist", "item": "Red Belt of Battle", "wowhead": 30032, "ilvl": 40, "source": "Crafted — Blacksmithing", "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Felfury Legplates", "wowhead": 34180, "ilvl": 44, "source": "Sunwell Plateau — Brutallus", "ench": "Draconic Leg Reinforcements", "enchsp": 124561, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
       {"slot": "Feet", "item": "Dreadboots of the Legion", "wowhead": 32345, "ilvl": 42, "source": "Black Temple — Reliquary of Souls", "ench": "Greater Assault", "enchsp": 60763, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
@@ -564,7 +578,7 @@ const CLASSES = [
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "only"},
       {"slot": "Chest", "item": "Hard Khorium Battleplate", "wowhead": 34377, "ilvl": 44, "source": "Crafted — Blacksmithing", "ench": "Waking Stats", "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}, {"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Wrist", "item": "Bracers of Eradication", "wowhead": 30057, "ilvl": 40, "source": "Serpentshrine Cavern — The Lurker Below", "ench": "Superior Strength", "enchsp": 20010, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim"},
-      {"slot": "Hands", "item": "Hard Khorium Battlefists", "wowhead": 34378, "ilvl": 42, "source": "Crafted — Blacksmithing", "ench": "Super Strength", "enchsp": 104419, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Hands", "item": "Hard Khorium Battlefists", "wowhead": 34378, "ilvl": 44, "source": "Crafted — Blacksmithing", "ench": "Super Strength", "enchsp": 104419, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Red Belt of Battle", "wowhead": 30032, "ilvl": 40, "source": "Crafted — Blacksmithing", "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Felfury Legplates", "wowhead": 34180, "ilvl": 44, "source": "Sunwell Plateau — Brutallus", "ench": "Draconic Leg Reinforcements", "enchsp": 124561, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
       {"slot": "Feet", "item": "Dreadboots of the Legion", "wowhead": 32345, "ilvl": 42, "source": "Black Temple — Reliquary of Souls", "ench": "Greater Assault", "enchsp": 60763, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
@@ -735,14 +749,14 @@ const CLASSES = [
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Chest", "item": "Sunfire Robe", "wowhead": 34364, "ilvl": 44, "source": "Crafted — Tailoring", "ench": "Waking Stats", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Wrist", "item": "Bracers of the Tempest", "wowhead": 34447, "ilvl": 44, "source": "Sunwell Plateau — Kalecgos (token)", "ench": "Super Intellect", "enchsp": 104389, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
-      {"slot": "Hands", "item": "Pharos Gloves", "wowhead": 45665, "ilvl": 44, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Hands", "item": "Pharos Gloves", "wowhead": 45665, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Belt of Blasting", "wowhead": 30038, "ilvl": 40, "source": "Crafted — Tailoring", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Leggings of Calamity", "wowhead": 34181, "ilvl": 44, "source": "Sunwell Plateau — Brutallus", "ench": "Frozen Spellthread", "enchsp": 387294, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 42, "source": "Black Temple — High Warlord Naj'entus", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Seal of the City Watch", "wowhead": 162542, "q": 3, "ilvl": 33, "source": "Siege of Boralus — Sergeant Bainbridge", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
-      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     obtainable:[
@@ -752,14 +766,14 @@ const CLASSES = [
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Chest", "item": "Sunfire Robe", "wowhead": 34364, "ilvl": 44, "source": "Crafted — Tailoring", "ench": "Waking Stats", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Wrist", "item": "Bracers of the Tempest", "wowhead": 34447, "ilvl": 44, "source": "Sunwell Plateau — Kalecgos (token)", "ench": "Super Intellect", "enchsp": 104389, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
-      {"slot": "Hands", "item": "Pharos Gloves", "wowhead": 45665, "ilvl": 44, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Hands", "item": "Pharos Gloves", "wowhead": 45665, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Belt of Blasting", "wowhead": 30038, "ilvl": 40, "source": "Crafted — Tailoring", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Leggings of Calamity", "wowhead": 34181, "ilvl": 44, "source": "Sunwell Plateau — Brutallus", "ench": "Frozen Spellthread", "enchsp": 387294, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 42, "source": "Black Temple — High Warlord Naj'entus", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Signet of the Highborne Magi", "wowhead": 134537, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Shade of Xavius", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
-      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
@@ -868,7 +882,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Versatility", "enchsp": 20024, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Emperor's Seal", "wowhead": 231437, "ilvl": 33, "source": "Blackrock Depths (Anniversary) — Emperor Dagran Thaurissan", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Stitchflesh's Misplaced Signet", "wowhead": 178736, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Surgeon Stitchflesh", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 2}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
+      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
       {"slot": "Main Hand", "item": "Royal Scepter of Terenas II", "wowhead": 50734, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 1}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."},
       {"slot": "Off Hand", "item": "The Boreal Guard", "wowhead": 45877, "ilvl": 43, "source": "Ulduar — Hodir (Rare Cache of Winter)", "ench": "Major Intellect", "enchsp": 104445, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 2}], "status": "sim"}
@@ -886,7 +900,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Versatility", "enchsp": 20024, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Seal of the Regal Loa", "wowhead": 159458, "q": 3, "ilvl": 33, "source": "Atal'Dazar — Rezan", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Thornwoven Band", "wowhead": 162548, "q": 3, "ilvl": 33, "source": "Waycrest Manor — Soulbound Goliath", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40133, "name": "Purified Dreadstone", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
+      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim"}
     ],
@@ -985,7 +999,7 @@ const CLASSES = [
   credits:{"herald": "Emmaløve"},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Cowl of Icy Breaths", "wowhead": 45464, "ilvl": 42, "source": "Ulduar — Hodir", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
+      {"slot": "Head", "item": "Cowl of Icy Breaths", "wowhead": 45464, "ilvl": 43, "source": "Ulduar — Hodir", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}, {"id": 213482, "name": "Masterful Emerald", "n": 1, "q": 3}, {"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Shoulders", "item": "Hatefury Mantle", "wowhead": 30884, "ilvl": 42, "source": "Hyjal Summit — Anetheron", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}, {"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
@@ -994,15 +1008,15 @@ const CLASSES = [
       {"slot": "Hands", "item": "Pharos Gloves", "wowhead": 45665, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Belt of Blasting", "wowhead": 30038, "ilvl": 40, "source": "Crafted — Tailoring", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Leggings of Calamity", "wowhead": 34181, "ilvl": 44, "source": "Sunwell Plateau — Brutallus", "ench": "Frozen Spellthread", "enchsp": 387294, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
-      {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 43, "source": "Black Temple — High Warlord Naj'entus", "ench": "Haste", "enchsp": 74199, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 42, "source": "Black Temple — High Warlord Naj'entus", "ench": "Haste", "enchsp": 74199, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Footbomb Championship Ring", "wowhead": 159462, "q": 3, "ilvl": 33, "source": "The MOTHERLODE!! — Coin-Operated Crowd Pummeler", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
-      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Cowl of Icy Breaths", "wowhead": 45464, "ilvl": 42, "source": "Ulduar — Hodir", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
+      {"slot": "Head", "item": "Cowl of Icy Breaths", "wowhead": 45464, "ilvl": 43, "source": "Ulduar — Hodir", "gems": [{"id": 25893, "name": "Mystical Skyfire Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Hatefury Mantle", "wowhead": 30884, "ilvl": 42, "source": "Hyjal Summit — Anetheron", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 40155, "name": "Reckless Ametrine", "n": 1}], "status": "sim"},
@@ -1011,7 +1025,7 @@ const CLASSES = [
       {"slot": "Hands", "item": "Pharos Gloves", "wowhead": 45665, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Belt of Blasting", "wowhead": 30038, "ilvl": 40, "source": "Crafted — Tailoring", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Leggings of Calamity", "wowhead": 34181, "ilvl": 44, "source": "Sunwell Plateau — Brutallus", "ench": "Frozen Spellthread", "enchsp": 387294, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
-      {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 43, "source": "Black Temple — High Warlord Naj'entus", "ench": "Haste", "enchsp": 74199, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Feet", "item": "Slippers of the Seacaller", "wowhead": 32239, "ilvl": 42, "source": "Black Temple — High Warlord Naj'entus", "ench": "Haste", "enchsp": 74199, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Footbomb Championship Ring", "wowhead": 159462, "q": 3, "ilvl": 33, "source": "The MOTHERLODE!! — Coin-Operated Crowd Pummeler", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213482, "name": "Masterful Emerald", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Solace of the Defeated", "wowhead": 47059, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
@@ -1257,7 +1271,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Versatility", "enchsp": 20024, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Ritual Commander's Ring", "wowhead": 178781, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Nalthor the Rimebinder", "ench": "Accord of Versatility", "enchsp": 297991, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Stitchflesh's Misplaced Signet", "wowhead": 178736, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Surgeon Stitchflesh", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
+      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
       {"slot": "Trinket 2", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
@@ -1275,7 +1289,7 @@ const CLASSES = [
       {"slot": "Ring 1", "item": "Bottle-Popper Ring", "wowhead": 151410, "q": 3, "ilvl": 33, "source": "Blackrock Depths — Plugger Spazzring", "ench": "Accord of Versatility", "enchsp": 297991, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Stitchflesh's Misplaced Signet", "wowhead": 178736, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Surgeon Stitchflesh", "ench": "Accord of Versatility", "enchsp": 297991, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
-      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
@@ -1495,7 +1509,7 @@ function altLinks(e){
       ? '<span class="pending">sim pending</span>'
       : '<span class="delta">'+(a.delta>0?"+":"")+esc(a.delta)+'%</span>';
     return '<a'+(a.q?' class="q'+a.q+'"':'')+' href="'+href+'" target="_blank" rel="noopener">'
-         + esc(a.item)+'</a> '+d;
+         + esc(a.item)+'</a>'+vTag(a)+' '+d;
   });
   return '<span class="alts"><em>within noise:</em> '
        + parts.join(' <span class="sep">\u00b7</span> ') + '</span>';
@@ -1551,6 +1565,7 @@ function consumSimc(c){
   }
   return L.join("\n");
 }
+const vTag = e => { const v = variantOf(e); return v ? '<span class="vtag">'+esc(v)+'</span>' : ""; };
 function whRefresh(){
   if (window.$WowheadPower && window.$WowheadPower.refreshLinks) window.$WowheadPower.refreshLinks();
 }
@@ -1582,7 +1597,7 @@ function renderMain(){
     const sub = [ilvlTxt, e.source?esc(e.source):""].filter(Boolean).join(" · ");
     return '<div class="row" style="--i:'+i+'">'
       + '<span class="slot">'+esc(e.slot)+'</span>'
-      + '<span class="item">'+(e.item ? whLink(e) : '<span class="none">—</span>')+'</span>'
+      + '<span class="item">'+(e.item ? whLink(e)+vTag(e) : '<span class="none">—</span>')+'</span>'
       + '<span class="ench">'+enchLink(e)+'</span>'
       + '<span class="gems">'+gemLinks(e)+'</span>'
       + ((e.item && sub) ? '<span class="note">'+sub+hmBadge(e)+'</span>' : "")
@@ -1633,10 +1648,14 @@ function asText(){
     const iv = e.ilvl==null ? "" :
       ((e.hm==="ilvl" && e.ilvlNormal!=null) ? "ilvl "+e.ilvlNormal+"\u2192"+e.ilvl+" HM" : "ilvl "+e.ilvl);
     const bits = [iv, hm, e.source||"", e.ench||"", gtxt].filter(Boolean).join(" · ");
-    lines.push("- "+e.slot+": ["+e.item+"]"+(bits?" — "+bits:""));
+    const vt = variantOf(e);
+    lines.push("- "+e.slot+": ["+e.item+"]"+(vt?" ("+vt+")":"")+(bits?" — "+bits:""));
     if(e.alts && e.alts.length){
-      lines.push("    within noise: "+e.alts.map(a=>
-        "["+a.item+"]"+(a.delta==null?" (sim pending)":" ("+(a.delta>0?"+":"")+a.delta+"%)")).join(", "));
+      lines.push("    within noise: "+e.alts.map(a=>{
+        const av = variantOf(a);
+        return "["+a.item+"]"+(av?" ("+av+")":"")
+          + (a.delta==null?" (sim pending)":" ("+(a.delta>0?"+":"")+a.delta+"%)");
+      }).join(", "));
     }
   });
   if(tbd.length) lines.push("- TBD: "+tbd.join(", "));
