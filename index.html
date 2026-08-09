@@ -10,9 +10,16 @@
 <meta property="og:site_name" content="Fate BiS Compendium">
 <meta property="og:title" content="Fate — L30 BiS Compendium">
 <meta property="og:description" content="Sim-validated BiS for all 13 specs at level 30. All-Time, Obtainable, and Herald of the Titans.">
-<meta name="twitter:card" content="summary">
-<!-- Inline SVG favicon: no extra request, no 404 in the console. -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0d12'/%3E%3Cpath d='M16 5l9 5.5v11L16 27l-9-5.5v-11z' fill='none' stroke='%23a335ee' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M16 11l4.5 2.75v5.5L16 22l-4.5-2.75v-5.5z' fill='%23a335ee'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://thefatesaber.github.io/BIS-List/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fate — L30 BiS Compendium">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thefatesaber.github.io/BIS-List/assets/og.png">
+<!-- PNG first for Safari, which does not render SVG favicons; .ico for old IE/Edge. -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="shortcut icon" href="assets/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <!-- Optional: uncomment for live Wowhead tooltips when hosting / opening locally.
@@ -118,6 +125,7 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .tab:hover{color:var(--parchment)}
 .tab.on{color:var(--void); background:var(--parchment); border-color:var(--parchment); font-weight:600}
 .constraint{color:var(--dim); font-size:11.5px; margin:0 0 16px; font-style:italic}
+.meta .updated{color:var(--dim)}
 
 /* ---------- slot ledger ---------- */
 .ledger{border:1px solid var(--edge); border-radius:4px; overflow:hidden}
@@ -456,6 +464,8 @@ const CONFIG = {
   guild: "Fate — NA-Thrall",
   patch: "12.0.5 (Midnight)",
   bracket: "Level 30",
+  // Bump on every data change — a sim-derived list with no date can't be trusted.
+  updated: "2026-08-09",
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks and rings, every piece must come from Classic, TBC or WotLK."
 };
@@ -1571,6 +1581,13 @@ function consumSimc(c){
   return L.join("\n");
 }
 const vTag = e => { const v = variantOf(e); return v ? '<span class="vtag">'+esc(v)+'</span>' : ""; };
+// Parsed as UTC so the rendered date doesn't shift a day west of Greenwich.
+function fmtUpdated(iso){
+  const [y, m, d] = String(iso).split("-").map(Number);
+  if(!y || !m || !d) return iso;
+  return new Date(Date.UTC(y, m-1, d)).toLocaleDateString("en-GB",
+    { day:"numeric", month:"short", year:"numeric", timeZone:"UTC" });
+}
 function whRefresh(){
   if (window.$WowheadPower && window.$WowheadPower.refreshLinks) window.$WowheadPower.refreshLinks();
 }
@@ -1630,7 +1647,15 @@ function renderMain(){
   $("copyout").style.display = "none";
 }
 
-function render(){ renderRail(); renderMain(); whRefresh(); writeHash(); }
+let lastCounted = null;
+function countView(){
+  if(!(window.goatcounter && window.goatcounter.count)) return;
+  const path = (location.hash || "").replace(/^#/, "") || "home";
+  if(path === lastCounted) return;   // re-renders (sort changes) aren't new views
+  lastCounted = path;
+  window.goatcounter.count({ path: path, title: document.title, event: false });
+}
+function render(){ renderRail(); renderMain(); whRefresh(); writeHash(); countView(); }
 
 function asText(){
   const cls = CLASSES.find(c => c.id === state.cls);
@@ -1706,7 +1731,8 @@ $("copybtn").addEventListener("click", () => {
   }
 });
 
-$("metaline").innerHTML = "<b>"+esc(CONFIG.guild)+"</b> · "+esc(CONFIG.patch)+" · "+esc(CONFIG.bracket);
+$("metaline").innerHTML = "<b>"+esc(CONFIG.guild)+"</b> · "+esc(CONFIG.patch)+" · "+esc(CONFIG.bracket)
+  + (CONFIG.updated ? ' · <span class="updated">updated '+esc(fmtUpdated(CONFIG.updated))+'</span>' : "");
 
 // Back/forward and pasted-link navigation.
 window.addEventListener("hashchange", () => { if(readHash()) render(); });
@@ -1714,5 +1740,7 @@ window.addEventListener("hashchange", () => { if(readHash()) render(); });
 readHash();
 render();
 </script>
+<script data-goatcounter="https://fate.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
