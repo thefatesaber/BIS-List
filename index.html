@@ -184,6 +184,17 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 }
 
 /* ---------- notes + actions ---------- */
+.talents{display:flex; align-items:center; gap:10px; margin:0 0 14px; padding:9px 12px;
+  border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
+.talents h3{margin:0; flex:none; font-size:10px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--dim); font-weight:600}
+.talents code{flex:1; min-width:0; overflow-x:auto; white-space:nowrap; color:var(--dust);
+  font-size:11.5px; letter-spacing:.01em; scrollbar-width:thin}
+.tbtn{flex:none; background:none; border:1px solid var(--edge); color:var(--dust); font:inherit;
+  font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px;
+  border-radius:4px; cursor:pointer; transition:color .15s ease, border-color .15s ease, transform .13s ease}
+.tbtn:hover{color:var(--parchment); border-color:var(--dust); transform:translateY(-1px)}
+.tbtn:active{transform:translateY(0) scale(.98)}
 .classnotes{margin:18px 0 0; padding:12px 14px; border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
 .classnotes h3{margin:0 0 6px; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--dim); font-weight:600}
 .classnotes p{margin:3px 0; color:var(--dust); font-size:12px}
@@ -275,6 +286,8 @@ footer{
   .gemgrp{padding:1px 0}
   .note{grid-column:1 / -1}
   .why{grid-column:1 / -1; margin-left:0; max-width:none}
+  .talents{flex-wrap:wrap; gap:6px}
+  .talents code{flex:1 0 100%; order:3}
   .alts{grid-column:1 / -1; padding-left:44px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -311,6 +324,11 @@ footer{
     <div class="spec-head" id="spechead"></div>
     <div class="tabs" id="tabs" role="tablist"></div>
     <p class="constraint" id="constraint"></p>
+    <div class="talents" id="talents" hidden>
+      <h3>Talent string</h3>
+      <code id="talentstr"></code>
+      <button class="tbtn" id="talentcopy">Copy</button>
+    </div>
     <div class="ledger" id="ledger"></div>
     <p class="credit" id="creditline" hidden></p>
     <div class="classnotes" id="classnotes" hidden></div>
@@ -336,6 +354,7 @@ footer{
      enchsp   enchant spell id for the wowhead link (optional)
      dps      all-time sim dps (kept for reference)
      dpsByList  {alltime, obtainable, herald} — per-list sim dps
+     talents    {alltime, obtainable, herald} — per-list talent import string
      credits  optional {listId: name} — renders a thanks line under that list
      why      optional per-row one-liner explaining the pick
      gems     [{id, name, n}] socketed gems — n renders as n separate socket icons
@@ -370,6 +389,7 @@ const LIST_TYPES = [
 
 const CLASSES = [
 { id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3700, dpsByList:{"alltime": 3700, "obtainable": 3018, "herald": 2870},
+  talents:{"alltime": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA", "obtainable": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA", "herald": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA"},
   notes:["Weapon DPS dominates stat weights. Gem Mastery/Crit — haste only past the rage-starvation threshold.", "Trinket slot head-to-head (Death's Choice vs current pair) still open."],
   credits:{},
   lists:{
@@ -430,6 +450,7 @@ const CLASSES = [
   }
 },
 { id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2335, dpsByList:{"alltime": 2335, "obtainable": 2186, "herald": 2075},
+  talents:{"alltime": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA", "obtainable": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA", "herald": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA"},
   notes:["Set reconciled vs live parse (Exhibiting: sim 1798 vs parse 1782).", "Shadowmourne unresolved — Chaos Bane proc unmodeled in SimC; reassess once modeled or confirmed unmodelable.", "Ring on-equip procs are the Crusader-model lines (two independent sources stack additively)."],
   credits:{},
   lists:{
@@ -487,6 +508,7 @@ const CLASSES = [
   }
 },
 { id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2706, dpsByList:{"alltime": 2706, "obtainable": 2588, "herald": 2348},
+  talents:{"alltime": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "obtainable": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "herald": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA"},
   notes:["Bonereaver's Edge modeled 11% flat per attack — log-validated ≈89.6% uptime / ≈11.35 procs/min."],
   credits:{},
   lists:{
@@ -544,6 +566,7 @@ const CLASSES = [
   }
 },
 { id:"hunter", name:"Hunter", spec:"Survival", color:"#AAD372", dps:2444, dpsByList:{"alltime": 2444, "obtainable": 2303, "herald": 2077},
+  talents:{"alltime": "C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA", "obtainable": "C8PApei1JmYNvFfEFaN5bWuGKAAAAAAwYmhBDAAAAAAmxAY8AmBABAAAAAAAYMGMAAAwADAA", "herald": "C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA"},
   notes:["Dragonspine at ≈1 PPM effective on SV's sparse attack stream — KC/WFB are spells, don't roll attack procs.", "Per-ability diff vs a logged Details! parse pending (merge pet rows)."],
   credits:{},
   lists:{
@@ -601,6 +624,7 @@ const CLASSES = [
   }
 },
 { id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3269, dpsByList:{"alltime": 3269, "obtainable": 3116, "herald": 2721},
+  talents:{"alltime": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA", "obtainable": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA", "herald": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA"},
   notes:["Nibelung Val'kyr proc modeled as calibrated discharge — verify the 1450 holy anchor used Fateccaster's SP, not Fatecastr's.", "Pendant/Meteorite tick rates are spec-dependent — do not inherit cross-spec."],
   credits:{},
   lists:{
@@ -659,6 +683,7 @@ const CLASSES = [
   }
 },
 { id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2380, dpsByList:{"alltime": 2380, "obtainable": 2273, "herald": 2052},
+  talents:{"alltime": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA", "obtainable": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA", "herald": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA"},
   notes:["Cat attacks are AP-normalized — weapon DPS irrelevant, weapon is a pure stat stick.", "Crusader is dead for Feral (Holy Strength is Strength — useless for an Agility spec)."],
   credits:{},
   lists:{
@@ -716,6 +741,7 @@ const CLASSES = [
   }
 },
 { id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:3819, dpsByList:{"alltime": 3819, "obtainable": 3564, "herald": 3213},
+  talents:{"alltime": "CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMW2YGwAMMAAQAIAYGwsMgADMwmh5BAAAAAAAAAA", "obtainable": "CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA", "herald": "CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA"},
   notes:["SimC undercounts Resto: Acid Rain (378443) unimplemented, LvB crit→damage scaling absent — Crit and Int understated.", "Sim instruments excluded from this list: Ascendance haste proxy (trinket1 in the profile) and the Acid Rain shirt proxy. The Pendant+Meteorite pair is simmed as one merged 35-vers line to free the slot."],
   credits:{},
   lists:{
@@ -775,6 +801,7 @@ const CLASSES = [
   }
 },
 { id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:2703, dpsByList:{"alltime": 2703, "obtainable": 2406, "herald": 2089},
+  talents:{"alltime": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZBAAAAAAAAA", "obtainable": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZDAAAAAAAAA", "herald": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZBAAAAAAAAA"},
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
   credits:{},
   lists:{
@@ -835,6 +862,7 @@ const CLASSES = [
   }
 },
 { id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3591, dpsByList:{"alltime": 3591, "obtainable": 3016, "herald": 2679},
+  talents:{"alltime": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA", "obtainable": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA", "herald": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA"},
   notes:["L30 stat priority: Int ≫ Haste ≈ Mastery > Crit > Vers."],
   credits:{"herald": "Emmaløve"},
   lists:{
@@ -893,6 +921,7 @@ const CLASSES = [
   }
 },
 { id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:2822, dpsByList:{"alltime": 2822, "obtainable": 2600, "herald": 2351},
+  talents:{"alltime": "CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA", "obtainable": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZW8AAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "herald": "CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA"},
   notes:["L30 stat priority: Int ≫ Crit ≈ Vers > Haste > Mastery (inverted from max level)."],
   credits:{},
   lists:{
@@ -951,6 +980,7 @@ const CLASSES = [
   }
 },
 { id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2220, dpsByList:{"alltime": 2220, "obtainable": 2049, "herald": 1857},
+  talents:{"alltime": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "obtainable": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "herald": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA"},
   notes:[],
   credits:{},
   lists:{
@@ -1011,6 +1041,7 @@ const CLASSES = [
   }
 },
 { id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2079, dpsByList:{"alltime": 2079, "obtainable": 1831, "herald": 1987},
+  talents:{"alltime": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "obtainable": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "herald": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA"},
   notes:[],
   credits:{},
   lists:{
@@ -1071,6 +1102,7 @@ const CLASSES = [
   }
 },
 { id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:2446, dpsByList:{"alltime": 2446, "obtainable": 2335, "herald": 2092},
+  talents:{"alltime": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "obtainable": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "herald": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA"},
   notes:[],
   credits:{},
   lists:{
@@ -1279,6 +1311,9 @@ function renderMain(){
   }).join("");
 
   const notes = cls.notes || [];
+  const tal = cls.talents && cls.talents[state.list];
+  $("talents").hidden = !tal;
+  if (tal) $("talentstr").textContent = tal;
   $("classnotes").hidden = true; // class notes hidden for now
   const cr = cls.credits && cls.credits[state.list];
   $("creditline").hidden = !cr;
@@ -1314,6 +1349,12 @@ function asText(){
 }
 
 $("sortsel").addEventListener("change", ev => { state.sort = ev.target.value; render(); });
+$("talentcopy").addEventListener("click", () => {
+  const t = $("talentstr").textContent, b = $("talentcopy");
+  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1400); };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(()=>{});
+  else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); done(); }
+});
 $("classsel").addEventListener("change", ev => { state.cls = ev.target.value; render(); });
 document.addEventListener("click", ev => {
   const c = ev.target.closest(".cls");
