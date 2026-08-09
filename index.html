@@ -184,6 +184,49 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 }
 
 /* ---------- notes + actions ---------- */
+.statpanel{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:0 18px;
+  margin:0 0 14px; padding:14px 16px; border:1px solid var(--edge); border-radius:6px;
+  background:linear-gradient(180deg, rgba(255,255,255,.035), transparent 65%), var(--slate)}
+.statcell{display:flex; flex-direction:column; gap:3px; padding:7px 0}
+.statcell.r{align-items:flex-end; text-align:right}
+.statcell .lbl{color:var(--parchment); font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:600}
+.statcell .val{display:flex; align-items:baseline; gap:8px; font-variant-numeric:tabular-nums}
+.statcell.r .val{flex-direction:row-reverse}
+.statcell .pct{color:var(--cc); font-size:15px; font-weight:700}
+.statcell .rat{color:var(--dim); font-size:11.5px}
+.statweb{grid-column:2; grid-row:1 / span 2; display:block; justify-self:center}
+.statpanel.wtop .statweb{grid-row:2 / span 2}
+.stattop{grid-column:1 / -1; display:grid; grid-template-columns:1fr auto 1fr;
+  grid-template-columns:subgrid}
+.stattop > .statcell{grid-column:1}
+.stattop > .statcell.r{grid-column:3}
+.statweb .ring{fill:none; stroke:rgba(255,255,255,.14); stroke-width:1}
+.statweb .ring:first-of-type{stroke:rgba(255,255,255,.24); stroke-width:1.5;
+  fill:color-mix(in srgb, var(--cc) 7%, transparent)}
+.statweb .axis{stroke:rgba(255,255,255,.10); stroke-width:1; stroke-dasharray:2 3}
+.statweb .area{fill:color-mix(in srgb, var(--cc) 26%, transparent); stroke:var(--cc); stroke-width:1.5;
+  stroke-linejoin:round}
+.statweb .dot{fill:var(--parchment); stroke:var(--cc); stroke-width:1.5}
+.paneline{display:grid; grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto;
+  gap:14px; margin:0 0 14px}
+.paneline > .statpanel{grid-column:1; grid-row:1 / 3; margin:0}
+.paneline > .consum{grid-column:2; grid-row:1; margin:0; min-width:0}
+.paneline > .talents{grid-column:2; grid-row:2; margin:0; min-width:0}
+.paneline.solo{grid-template-columns:minmax(0,1fr)}
+.paneline.solo > .consum, .paneline.solo > .talents{grid-column:1}
+.statpanel[hidden], .consum[hidden]{display:none !important}
+.consum{display:flex; align-items:center; align-content:center; flex-wrap:wrap; gap:6px 14px;
+  margin:0 0 14px; padding:9px 12px;
+  border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
+.consum h3{margin:0; flex:none; font-size:10px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--dim); font-weight:600}
+#consumlines{display:contents}
+.consum .cline{white-space:nowrap; color:var(--dust); font-size:12px}
+.consum .cline b{color:var(--dim); font-weight:600; font-size:10px; letter-spacing:.07em;
+  text-transform:uppercase; margin-right:5px}
+.consum .cline small{color:var(--dim); font-size:10.5px; margin-left:3px}
+.consum .cbreak{flex:1 0 100%; height:0; margin:0; padding:0}
+.consum .tbtn{margin-left:auto}
 .talents{display:flex; align-items:center; gap:10px; margin:0 0 14px; padding:9px 12px;
   border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
 .talents h3{margin:0; flex:none; font-size:10px; letter-spacing:.09em; text-transform:uppercase;
@@ -286,6 +329,13 @@ footer{
   .gemgrp{padding:1px 0}
   .note{grid-column:1 / -1}
   .why{grid-column:1 / -1; margin-left:0; max-width:none}
+  .statpanel{gap:0 10px; padding:12px}
+  .consum{gap:5px 10px}
+  .consum .tbtn{margin-left:0; flex:1 0 100%; order:9}
+  .paneline{grid-template-columns:minmax(0,1fr)}
+  .paneline > .statpanel{grid-column:1; grid-row:auto}
+  .paneline > .consum, .paneline > .talents{grid-column:1; grid-row:auto}
+  .statcell .pct{font-size:14px}
   .talents{flex-wrap:wrap; gap:6px}
   .talents code{flex:1 0 100%; order:3}
   .alts{grid-column:1 / -1; padding-left:44px}
@@ -324,10 +374,18 @@ footer{
     <div class="spec-head" id="spechead"></div>
     <div class="tabs" id="tabs" role="tablist"></div>
     <p class="constraint" id="constraint"></p>
-    <div class="talents" id="talents" hidden>
-      <h3>Talent string</h3>
-      <code id="talentstr"></code>
-      <button class="tbtn" id="talentcopy">Copy</button>
+    <div class="paneline" id="paneline">
+      <div class="statpanel" id="statpanel" hidden></div>
+      <div class="consum" id="consum" hidden>
+        <h3>Consumables</h3>
+        <span id="consumlines"></span>
+        <button class="tbtn" id="consumcopy">Copy SimC</button>
+      </div>
+      <div class="talents" id="talents" hidden>
+        <h3>Talent string</h3>
+        <code id="talentstr"></code>
+        <button class="tbtn" id="talentcopy">Copy</button>
+      </div>
     </div>
     <div class="ledger" id="ledger"></div>
     <p class="credit" id="creditline" hidden></p>
@@ -355,6 +413,15 @@ footer{
      dps      all-time sim dps (kept for reference)
      dpsByList  {alltime, obtainable, herald} — per-list sim dps
      talents    {alltime, obtainable, herald} — per-list talent import string
+     stats      {list: {crit|haste|mastery|vers: [percent, rating]}} — optional stat panel;
+                also takes main: N (primary stat rating, label auto per class)
+                and stam: N (stamina), shown in a band above the secondaries
+     consumables  {potion, flask, food, oil}, each {item, wowhead}; oil is
+                  either {item, wowhead, hands:"MH/OH"|"MH"} for one weapon
+                  buff, or {mh:{item,wowhead}, oh:{item,wowhead}} for a
+                  different buff per hand (oh optional). Flat = shared across
+                  all three lists, or key by list id:
+                  {alltime:{...}, obtainable:{...}, herald:{...}}
      credits  optional {listId: name} — renders a thanks line under that list
      why      optional per-row one-liner explaining the pick
      gems     [{id, name, n}] socketed gems — n renders as n separate socket icons
@@ -390,6 +457,12 @@ const LIST_TYPES = [
 const CLASSES = [
 { id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3700, dpsByList:{"alltime": 3700, "obtainable": 3018, "herald": 2870},
   talents:{"alltime": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA", "obtainable": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA", "herald": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA"},
+  consumables:{"alltime": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
+               "obtainable": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}},
+               "herald": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}},
+  stats:{"alltime": {"main": 212, "stam": 1036, "crit": [23.45, 92], "mastery": [50.24, 139], "haste": [15.52, 74], "vers": [6.66, 39]},
+         "obtainable": {"main": 239, "stam": 1042, "crit": [19.64, 73], "mastery": [22.71, 41], "haste": [31.31, 150], "vers": [3.76, 22]},
+         "herald": {"main": 246, "stam": 1051, "crit": [18.84, 69], "mastery": [22.15, 39], "haste": [24.96, 119], "vers": [2.05, 12]}},
   notes:["Weapon DPS dominates stat weights. Gem Mastery/Crit — haste only past the rage-starvation threshold.", "Trinket slot head-to-head (Death's Choice vs current pair) still open."],
   credits:{},
   lists:{
@@ -451,6 +524,10 @@ const CLASSES = [
 },
 { id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2335, dpsByList:{"alltime": 2335, "obtainable": 2186, "herald": 2075},
   talents:{"alltime": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA", "obtainable": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA", "herald": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA"},
+  consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Superior Mana Oil", "wowhead": 22521, "hands": "MH"}},
+  stats:{"alltime": {"main": 186, "stam": 1088, "crit": [22.45, 82], "mastery": [54.58, 163], "haste": [16.99, 81], "vers": [2.39, 14]},
+         "obtainable": {"main": 184, "stam": 1089, "crit": [19.04, 65], "mastery": [50.61, 147], "haste": [18.45, 88], "vers": [4.27, 25]},
+         "herald": {"main": 170, "stam": 1103, "crit": [19.04, 65], "mastery": [55.06, 165], "haste": [13.84, 66], "vers": [2.90, 17]}},
   notes:["Set reconciled vs live parse (Exhibiting: sim 1798 vs parse 1782).", "Shadowmourne unresolved — Chaos Bane proc unmodeled in SimC; reassess once modeled or confirmed unmodelable.", "Ring on-equip procs are the Crusader-model lines (two independent sources stack additively)."],
   credits:{},
   lists:{
@@ -509,6 +586,10 @@ const CLASSES = [
 },
 { id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2706, dpsByList:{"alltime": 2706, "obtainable": 2588, "herald": 2348},
   talents:{"alltime": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "obtainable": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "herald": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA"},
+  consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH"}},
+  stats:{"alltime": {"main": 235, "stam": 1039, "crit": [21.65, 83], "mastery": [58.12, 105], "haste": [20.58, 76], "vers": [3.76, 22]},
+         "obtainable": {"main": 228, "stam": 1039, "crit": [21.65, 83], "mastery": [53.71, 94], "haste": [20.58, 76], "vers": [3.76, 22]},
+         "herald": {"main": 222, "stam": 1046, "crit": [18.84, 69], "mastery": [56.52, 101], "haste": [18.18, 65], "vers": [2.05, 12]}},
   notes:["Bonereaver's Edge modeled 11% flat per attack — log-validated ≈89.6% uptime / ≈11.35 procs/min."],
   credits:{},
   lists:{
@@ -567,6 +648,12 @@ const CLASSES = [
 },
 { id:"hunter", name:"Hunter", spec:"Survival", color:"#AAD372", dps:2444, dpsByList:{"alltime": 2444, "obtainable": 2303, "herald": 2077},
   talents:{"alltime": "C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA", "obtainable": "C8PApei1JmYNvFfEFaN5bWuGKAAAAAAwYmhBDAAAAAAmxAY8AmBABAAAAAAAYMGMAAAwADAA", "herald": "C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA"},
+  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
+               "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
+               "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
+  stats:{"alltime": {"main": 268, "stam": 1057, "crit": [30.46, 102], "mastery": [27.94, 124], "haste": [20.49, 92], "vers": [0.85, 5]},
+         "obtainable": {"main": 261, "stam": 1057, "crit": [33.67, 118], "mastery": [25.73, 111], "haste": [17.71, 68], "vers": [2.73, 16]},
+         "herald": {"main": 240, "stam": 1058, "crit": [27.45, 87], "mastery": [25.90, 112], "haste": [21.12, 95], "vers": [0.85, 5]}},
   notes:["Dragonspine at ≈1 PPM effective on SV's sparse attack stream — KC/WFB are spells, don't roll attack procs.", "Per-ability diff vs a logged Details! parse pending (merge pet rows)."],
   credits:{},
   lists:{
@@ -625,6 +712,10 @@ const CLASSES = [
 },
 { id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3269, dpsByList:{"alltime": 3269, "obtainable": 3116, "herald": 2721},
   talents:{"alltime": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA", "obtainable": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA", "herald": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA"},
+  consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
+  stats:{"alltime": {"main": 277, "stam": 1052, "crit": [23.65, 83], "mastery": [49.71, 115], "haste": [13.84, 66], "vers": [7.52, 44]},
+         "obtainable": {"main": 270, "stam": 1052, "crit": [24.85, 89], "mastery": [46.18, 104], "haste": [12.37, 59], "vers": [7.52, 44]},
+         "herald": {"main": 243, "stam": 1055, "crit": [20.64, 68], "mastery": [44.89, 100], "haste": [9.65, 46], "vers": [6.66, 39]}},
   notes:["Nibelung Val'kyr proc modeled as calibrated discharge — verify the 1450 holy anchor used Fateccaster's SP, not Fatecastr's.", "Pendant/Meteorite tick rates are spec-dependent — do not inherit cross-spec."],
   credits:{},
   lists:{
@@ -684,6 +775,12 @@ const CLASSES = [
 },
 { id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2380, dpsByList:{"alltime": 2380, "obtainable": 2273, "herald": 2052},
   talents:{"alltime": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA", "obtainable": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA", "herald": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA"},
+  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
+               "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
+               "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
+  stats:{"alltime": {"main": 297, "stam": 1097, "crit": [27.85, 89], "mastery": [16.00, 0], "haste": [28.94, 138], "vers": [1.54, 9]},
+         "obtainable": {"main": 286, "stam": 1100, "crit": [24.24, 71], "mastery": [16.00, 0], "haste": [28.10, 134], "vers": [3.59, 21]},
+         "herald": {"main": 254, "stam": 1093, "crit": [27.05, 85], "mastery": [16.00, 0], "haste": [28.10, 134], "vers": [2.22, 13]}},
   notes:["Cat attacks are AP-normalized — weapon DPS irrelevant, weapon is a pure stat stick.", "Crusader is dead for Feral (Holy Strength is Strength — useless for an Agility spec)."],
   credits:{},
   lists:{
@@ -742,6 +839,10 @@ const CLASSES = [
 },
 { id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:3819, dpsByList:{"alltime": 3819, "obtainable": 3564, "herald": 3213},
   talents:{"alltime": "CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMW2YGwAMMAAQAIAYGwsMgADMwmh5BAAAAAAAAAA", "obtainable": "CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA", "herald": "CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA"},
+  consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
+  stats:{"alltime": {"main": 276, "stam": 1227, "crit": [21.25, 81], "mastery": [24.00, 0], "haste": [26.00, 124], "vers": [14.35, 84]},
+         "obtainable": {"main": 273, "stam": 1063, "crit": [22.65, 88], "mastery": [24.00, 0], "haste": [26.00, 124], "vers": [9.74, 57]},
+         "herald": {"main": 260, "stam": 1064, "crit": [15.83, 54], "mastery": [24.00, 0], "haste": [23.07, 110], "vers": [10.42, 61]}},
   notes:["SimC undercounts Resto: Acid Rain (378443) unimplemented, LvB crit→damage scaling absent — Crit and Int understated.", "Sim instruments excluded from this list: Ascendance haste proxy (trinket1 in the profile) and the Acid Rain shirt proxy. The Pendant+Meteorite pair is simmed as one merged 35-vers line to free the slot."],
   credits:{},
   lists:{
@@ -802,6 +903,10 @@ const CLASSES = [
 },
 { id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:2703, dpsByList:{"alltime": 2703, "obtainable": 2406, "herald": 2089},
   talents:{"alltime": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZBAAAAAAAAA", "obtainable": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZDAAAAAAAAA", "herald": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZBAAAAAAAAA"},
+  consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH/OH"}},
+  stats:{"alltime": {"main": 258, "stam": 1064, "crit": [19.44, 67], "mastery": [40.25, 162], "haste": [20.55, 98], "vers": [4.10, 24]},
+         "obtainable": {"main": 238, "stam": 1066, "crit": [18.64, 63], "mastery": [34.08, 130], "haste": [29.57, 141], "vers": [4.10, 24]},
+         "herald": {"main": 210, "stam": 1056, "crit": [19.04, 65], "mastery": [36.89, 144], "haste": [16.36, 78], "vers": [3.25, 19]}},
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
   credits:{},
   lists:{
@@ -863,6 +968,10 @@ const CLASSES = [
 },
 { id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3591, dpsByList:{"alltime": 3591, "obtainable": 3016, "herald": 2679},
   talents:{"alltime": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA", "obtainable": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA", "herald": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA"},
+  consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
+  stats:{"alltime": {"main": 271, "stam": 1114, "crit": [20.85, 79], "mastery": [15.33, 113], "haste": [26.98, 111], "vers": [1.88, 11]},
+         "obtainable": {"main": 271, "stam": 1114, "crit": [20.85, 79], "mastery": [12.83, 88], "haste": [27.62, 114], "vers": [1.88, 11]},
+         "herald": {"main": 246, "stam": 1121, "crit": [14.63, 48], "mastery": [11.32, 73], "haste": [26.11, 107], "vers": [4.78, 28]}},
   notes:["L30 stat priority: Int ≫ Haste ≈ Mastery > Crit > Vers."],
   credits:{"herald": "Emmaløve"},
   lists:{
@@ -922,6 +1031,10 @@ const CLASSES = [
 },
 { id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:2822, dpsByList:{"alltime": 2822, "obtainable": 2600, "herald": 2351},
   talents:{"alltime": "CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA", "obtainable": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZW8AAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "herald": "CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA"},
+  consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
+  stats:{"alltime": {"main": 272, "stam": 1157, "crit": [29.87, 114], "mastery": [20.00, 0], "haste": [28.94, 138], "vers": [10.08, 59]},
+         "obtainable": {"main": 263, "stam": 1157, "crit": [28.06, 105], "mastery": [20.00, 0], "haste": [26.84, 128], "vers": [12.13, 71]},
+         "herald": {"main": 258, "stam": 1161, "crit": [25.45, 92], "mastery": [25.01, 10], "haste": [17.62, 84], "vers": [6.32, 37]}},
   notes:["L30 stat priority: Int ≫ Crit ≈ Vers > Haste > Mastery (inverted from max level)."],
   credits:{},
   lists:{
@@ -981,6 +1094,12 @@ const CLASSES = [
 },
 { id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2220, dpsByList:{"alltime": 2220, "obtainable": 2049, "herald": 1857},
   talents:{"alltime": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "obtainable": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "herald": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA"},
+  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}},
+               "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}},
+               "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
+  stats:{"alltime": {"main": 244, "stam": 1046, "crit": [22.64, 63], "mastery": [29.26, 106], "haste": [23.88, 108], "vers": [0.00, 0]},
+         "obtainable": {"main": 237, "stam": 1049, "crit": [23.04, 65], "mastery": [26.86, 94], "haste": [23.24, 105], "vers": [0.00, 0]},
+         "herald": {"main": 223, "stam": 1043, "crit": [21.63, 58], "mastery": [23.25, 76], "haste": [20.70, 93], "vers": [2.22, 13]}},
   notes:[],
   credits:{},
   lists:{
@@ -1042,6 +1161,12 @@ const CLASSES = [
 },
 { id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2079, dpsByList:{"alltime": 2079, "obtainable": 1831, "herald": 1987},
   talents:{"alltime": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "obtainable": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "herald": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA"},
+  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
+               "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
+               "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
+  stats:{"alltime": {"main": 247, "stam": 1055, "crit": [26.65, 83], "mastery": [71.88, 114], "haste": [16.57, 79], "vers": [0.00, 0]},
+         "obtainable": {"main": 241, "stam": 1055, "crit": [23.64, 68], "mastery": [66.74, 103], "haste": [16.57, 79], "vers": [2.73, 16]},
+         "herald": {"main": 217, "stam": 1045, "crit": [26.05, 80], "mastery": [66.74, 103], "haste": [9.23, 44], "vers": [2.22, 13]}},
   notes:[],
   credits:{},
   lists:{
@@ -1103,6 +1228,10 @@ const CLASSES = [
 },
 { id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:2446, dpsByList:{"alltime": 2446, "obtainable": 2335, "herald": 2092},
   talents:{"alltime": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "obtainable": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "herald": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA"},
+  consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
+  stats:{"alltime": {"main": 298, "stam": 1060, "crit": [27.07, 110], "mastery": [13.50, 0], "haste": [22.86, 109], "vers": [7.18, 42]},
+         "obtainable": {"main": 285, "stam": 1060, "crit": [22.85, 89], "mastery": [13.50, 0], "haste": [28.10, 134], "vers": [6.32, 37]},
+         "herald": {"main": 268, "stam": 1066, "crit": [21.45, 82], "mastery": [13.50, 0], "haste": [22.02, 105], "vers": [9.40, 55]}},
   notes:[],
   credits:{},
   lists:{
@@ -1230,6 +1359,49 @@ function whyHtml(text){
   }
   return out.replace(/^([^:]{3,40}:)/, '<b>$1</b>');
 }
+const PRIMARY = {warrior:"Strength", paladin:"Strength", deathknight:"Strength",
+  hunter:"Agility", druid:"Agility", rogue:"Agility", monk:"Agility",
+  mage:"Intellect", shaman:"Intellect", priest:"Intellect", warlock:"Intellect", evoker:"Intellect",
+  demonhunter:"Intellect"};
+function statPanel(cls){
+  const s = cls.stats && cls.stats[state.list];
+  const el = $("statpanel");
+  if(!s){ el.hidden = true; return; }
+  el.hidden = false;
+  el.style.setProperty("--cc", cls.color);
+  const hasTop = s.main != null || s.stam != null;
+  el.classList.toggle("wtop", hasTop);
+  const tcell = (label, v, right) => '<div class="statcell'+(right?" r":"")+'">'
+    + '<span class="lbl">'+label+'</span>'
+    + '<span class="val"><span class="pct">'+v+'</span></span></div>';
+  const top = hasTop ? '<div class="stattop">'
+    + (s.main != null ? tcell(PRIMARY[cls.id] || "Primary", s.main) : '<span></span>')
+    + (s.stam != null ? tcell("Stamina", s.stam, true) : '')
+    + '</div>' : "";
+  const K = [["crit","Critical Strike"],["mastery","Mastery"],["haste","Haste"],["vers","Versatility"]];
+  const cap = Math.max(...K.map(([k]) => (s[k]||[0])[0])) * 1.3 || 1;
+  const cell = (k, label, right) =>
+    '<div class="statcell'+(right?" r":"")+'"><span class="lbl">'+label+'</span>'
+    + '<span class="val"><span class="pct">'+((s[k]||[0])[0]).toFixed(2)+'%</span>'
+    + '<span class="rat">'+((s[k]||[0,0])[1])+'</span></span></div>';
+  // diamond: crit up, mastery right, vers down, haste left
+  const R = 46, C = 60, order = ["crit","mastery","vers","haste"];
+  const pt = (i, f) => {
+    const ang = -Math.PI*3/4 + i*Math.PI/2, r = R*f;
+    return [C + r*Math.cos(ang), C + r*Math.sin(ang)];
+  };
+  const poly = f => order.map((_,i) => pt(i,f).map(n => n.toFixed(1)).join(",")).join(" ");
+  const vals = order.map(k => Math.min(1, ((s[k]||[0])[0]) / cap));
+  const shape = order.map((k,i) => pt(i, vals[i]).map(n => n.toFixed(1)).join(",")).join(" ");
+  const web = '<svg class="statweb" width="120" height="120" viewBox="0 0 120 120">'
+    + [1,.66,.33].map(f => '<polygon class="ring" points="'+poly(f)+'"/>').join("")
+    + order.map((_,i) => { const [x,y] = pt(i,1); return '<line class="axis" x1="'+C+'" y1="'+C+'" x2="'+x.toFixed(1)+'" y2="'+y.toFixed(1)+'"/>'; }).join("")
+    + '<polygon class="area" points="'+shape+'"/>'
+    + order.map((_,i) => { const [x,y] = pt(i, vals[i]); return '<circle class="dot" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3"/>'; }).join("")
+    + '</svg>';
+  el.innerHTML = top + cell("crit","Critical Strike") + web + cell("mastery","Mastery", true)
+    + cell("haste","Haste") + cell("vers","Versatility", true);
+}
 function gemLinks(e){
   if(!e.gems) return "";
   return e.gems.map(g => {
@@ -1269,6 +1441,57 @@ function altLinks(e){
   });
   return '<span class="alts"><em>within noise:</em> '
        + parts.join(' <span class="sep">\u00b7</span> ') + '</span>';
+}
+const CONSUM_ORDER = [["potion","Potion"],["flask","Flask"],["food","Food"],["oil","Weapon"]];
+function consumFor(cls, listId){
+  const c = cls.consumables;
+  if(!c) return null;
+  return (c.potion || c.flask || c.food || c.oil) ? c : (c[listId] || null);
+}
+const simcTok = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"");
+// Normalize either oil form into [{item, wowhead, hand}] so render and SimC
+// export share one shape. Single-item form fans out to both hands when MH/OH.
+function oilParts(o){
+  if(!o) return [];
+  if(o.mh || o.oh){
+    const out = [];
+    if(o.mh) out.push(Object.assign({hand:"MH"}, o.mh));
+    if(o.oh) out.push(Object.assign({hand:"OH"}, o.oh));
+    return out;
+  }
+  if(!o.item) return [];
+  return [Object.assign({hand:o.hands || "MH"}, o)];
+}
+function consumHtml(c){
+  return CONSUM_ORDER.map(([k,label]) => {
+    if(k === "oil"){
+      const parts = oilParts(c.oil);
+      if(!parts.length) return "";
+      // Weapon buffs always start their own row, however many hands are listed.
+      return '<span class="cbreak"></span>' + parts.map((e,i) =>
+        '<span class="cline">'+(i ? "" : '<b>'+label+'</b>')+whLink(e)
+        + ' <small>'+esc(e.hand)+'</small></span>').join("");
+    }
+    const e = c[k]; if(!e || !e.item) return "";
+    return '<span class="cline"><b>'+label+'</b>'+whLink(e)+'</span>';
+  }).filter(Boolean).join("");
+}
+function consumSimc(c){
+  const L = [];
+  if(c.potion) L.push("potion="+simcTok(c.potion.item));
+  if(c.flask)  L.push("flask="+simcTok(c.flask.item));
+  if(c.food)   L.push("food="+simcTok(c.food.item));
+  const parts = oilParts(c.oil);
+  if(parts.length){
+    const seg = [];
+    for(const e of parts){
+      const t = simcTok(e.item);
+      if(e.hand === "OH") seg.push("off_hand:"+t);
+      else { seg.push("main_hand:"+t); if(e.hand === "MH/OH") seg.push("off_hand:"+t); }
+    }
+    L.push("temporary_enchant="+seg.join("/"));
+  }
+  return L.join("\n");
 }
 function whRefresh(){
   if (window.$WowheadPower && window.$WowheadPower.refreshLinks) window.$WowheadPower.refreshLinks();
@@ -1311,9 +1534,14 @@ function renderMain(){
   }).join("");
 
   const notes = cls.notes || [];
+  statPanel(cls);
   const tal = cls.talents && cls.talents[state.list];
   $("talents").hidden = !tal;
   if (tal) $("talentstr").textContent = tal;
+  const cons = consumFor(cls, state.list);
+  $("consum").hidden = !cons;
+  if (cons) $("consumlines").innerHTML = consumHtml(cons);
+  $("paneline").classList.toggle("solo", $("statpanel").hidden);
   $("classnotes").hidden = true; // class notes hidden for now
   const cr = cls.credits && cls.credits[state.list];
   $("creditline").hidden = !cr;
@@ -1330,6 +1558,15 @@ function asText(){
   const cls = CLASSES.find(c => c.id === state.cls);
   const lt  = LIST_TYPES.find(l => l.id === state.list);
   const lines = ["**"+cls.spec+" "+cls.name+" — BiS ("+lt.label+")** · "+CONFIG.patch+" · "+CONFIG.bracket];
+  const cons = consumFor(cls, state.list);
+  if(cons) lines.push("- Consumables: " + CONSUM_ORDER.map(([k,label]) => {
+    if(k === "oil"){
+      const parts = oilParts(cons.oil);
+      return parts.length ? label+" "+parts.map(e => "["+e.item+"] ("+e.hand+")").join(" ") : "";
+    }
+    const e = cons[k]; if(!e || !e.item) return "";
+    return label+" ["+e.item+"]";
+  }).filter(Boolean).join(" · "));
   const tbd = [];
   mergedList(cls, state.list).forEach(e => {
     if(!e.item || (e.status||"tbd")==="tbd"){ tbd.push(e.slot); return; }
@@ -1352,6 +1589,15 @@ $("sortsel").addEventListener("change", ev => { state.sort = ev.target.value; re
 $("talentcopy").addEventListener("click", () => {
   const t = $("talentstr").textContent, b = $("talentcopy");
   const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1400); };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(()=>{});
+  else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); done(); }
+});
+$("consumcopy").addEventListener("click", () => {
+  const cls = CLASSES.find(c => c.id === state.cls);
+  const cons = consumFor(cls, state.list);
+  if(!cons) return;
+  const t = consumSimc(cons), b = $("consumcopy");
+  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy SimC", 1400); };
   if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(()=>{});
   else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); done(); }
 });
