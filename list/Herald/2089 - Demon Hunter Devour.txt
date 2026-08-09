@@ -33,7 +33,7 @@ waist=,id=30106,ilevel=40,gem_id=213500/213500/213500,bonus_id=9035,drop_level=3
 # Moonchild Leggings 33
 legs=,id=27492,ilevel=33,enchant_id=6541,gem_id=213500/213500/213500,bonus_id=7202,drop_level=30
 # Footwraps of Vile Deceit 39
-feet=,id=40243,ilevel=39,enchant_id=1887,gem_id=71854,bonus_id=9039,drop_level=30
+feet=,id=40243,ilevel=39,enchant_id=4429,gem_id=71854,bonus_id=9039,drop_level=30
 # signet_of_the_false_accuser (33)
 finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
 # Fleshfused Circle (33)

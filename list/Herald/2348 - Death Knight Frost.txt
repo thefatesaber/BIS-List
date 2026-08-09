@@ -26,7 +26,7 @@ waist=,ilevel=40,id=30032,gem_id=71856/71856/71856,bonus_id=9035,drop_level=30
 # Greaves of the Martyr (33)
 legs=,ilevel=33,id=30536,enchant_id=4881,gem_id=71856/71856/71856,bonus_id=6710,drop_level=30
 # Sha'tari Wrought Greaves (33)
-feet=,ilevel=33,id=28176,enchant_id=4062,gem_id=71856/71856,bonus_id=6710,drop_level=30
+feet=,ilevel=33,id=28176,enchant_id=4429,gem_id=71856/71856,bonus_id=6710,drop_level=30
 # Ritual Bone Band 33
 finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=71856,drop_level=30
 # Fleshfused Circle 33
