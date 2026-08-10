@@ -39,7 +39,7 @@ trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108has
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4444,equip=procby/attack_procon/hit_0.9ppm_184haste_5dur
+main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4444,equip=procby/attack_procon/hit_2.5ppm_184haste_5dur
 # Hand of the Deceiver (44)
 off_hand=,id=34331,ilevel=44,enchant_id=4444,gem_id=71852/71852,bonus_id=9037,drop_level=30
 

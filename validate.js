@@ -96,9 +96,10 @@ for (const c of CLASSES) {
       }
 
       // Ulduar drops have normal and hardmode versions; each needs a decision
-      // on record, even if the decision is "normal is fine".
+      // on record, even if the decision is "normal is fine". All are decided as
+      // of the 2026-08-09 pass, so a missing flag is now a hard failure.
       if (/Ulduar/.test(r.source || "") && !r.hm)
-        warn(`${at}: ${item} is from Ulduar with no hm flag`);
+        err(`${at}: ${item} is from Ulduar with no hm flag`);
 
       // hm:"ilvl" was retired; "only" and "socket" are the surviving badges.
       if (r.hm && !["only", "socket"].includes(r.hm))
