@@ -97,10 +97,10 @@ actions+=/flame_shock,moving=1,if=dot.flame_shock.refreshable
 actions+=/frost_shock,moving=1
 augmentation=disabled
 
-potion=volcanic_potion
-flask=flask_of_distilled_wisdom
-food=severed_sagefish_head
-temporary_enchant=main_hand:superior_wizard_oil
+potion=disabled
+flask=disabled
+food=disabled
+temporary_enchant=disabled
 
 name=Shaman
 
