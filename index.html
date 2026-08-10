@@ -439,7 +439,9 @@ footer{
      stats      {list: {crit|haste|mastery|vers: [percent, rating]}} — optional stat panel;
                 also takes main: N (primary stat rating, label auto per class)
                 and stam: N (stamina), shown in a band above the secondaries
-     consumables  {potion, flask, food, oil}, each {item, wowhead}; oil is
+     consumables  {potion, flask, food, oil}, each {item, wowhead}; any of them
+                  may add token:"..." to override the SimC token derived from
+                  the name, needed for ranked items like hissing_rune_3. oil is
                   either {item, wowhead, hands:"MH/OH"|"MH"} for one weapon
                   buff, or {mh:{item,wowhead}, oh:{item,wowhead}} for a
                   different buff per hand (oh optional). Flat = shared across
@@ -475,7 +477,8 @@ const CONFIG = {
    duplicate. Tag by item id here and the label renders beside the link, in the
    text export, and in the alts line. A row-level `variant` overrides this.     */
 const ITEM_VARIANT = {
-  47432: "Heroic"   // Solace of the Fallen (normal is 47271)
+  47432: "Heroic",   // Solace of the Fallen (normal is 47271)
+  204973: "Rank 3"   // Hissing Rune (rank 1 is 204971, rank 2 is 204972)
 };
 const variantOf = e => e.variant || ITEM_VARIANT[e.wowhead] || "";
 
@@ -491,9 +494,7 @@ const LIST_TYPES = [
 const CLASSES = [
 { id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3700, dpsByList:{"alltime": 3700, "obtainable": 3018, "herald": 2870},
   talents:{"alltime": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA", "obtainable": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA", "herald": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA"},
-  consumables:{"alltime": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
-               "obtainable": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}},
-               "herald": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}},
+  consumables:{"alltime": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}, "herald": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}},
   stats:{"alltime": {"main": 212, "stam": 1036, "crit": [23.45, 92], "mastery": [50.24, 139], "haste": [15.52, 74], "vers": [6.66, 39]},
          "obtainable": {"main": 239, "stam": 1042, "crit": [19.64, 73], "mastery": [22.71, 41], "haste": [31.31, 150], "vers": [3.76, 22]},
          "herald": {"main": 246, "stam": 1051, "crit": [18.84, 69], "mastery": [22.15, 39], "haste": [24.96, 119], "vers": [2.05, 12]}},
@@ -558,7 +559,7 @@ const CLASSES = [
 },
 { id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2335, dpsByList:{"alltime": 2335, "obtainable": 2186, "herald": 2075},
   talents:{"alltime": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA", "obtainable": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA", "herald": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA"},
-  consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Superior Mana Oil", "wowhead": 22521, "hands": "MH"}},
+  consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Hissing Rune", "wowhead": 204973, "token": "hissing_rune_3", "hands": "MH"}},
   stats:{"alltime": {"main": 186, "stam": 1088, "crit": [22.45, 82], "mastery": [54.58, 163], "haste": [16.99, 81], "vers": [2.39, 14]},
          "obtainable": {"main": 184, "stam": 1089, "crit": [19.04, 65], "mastery": [50.61, 147], "haste": [18.45, 88], "vers": [4.27, 25]},
          "herald": {"main": 170, "stam": 1103, "crit": [19.04, 65], "mastery": [55.06, 165], "haste": [13.84, 66], "vers": [2.90, 17]}},
@@ -620,7 +621,7 @@ const CLASSES = [
 },
 { id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2706, dpsByList:{"alltime": 2706, "obtainable": 2588, "herald": 2348},
   talents:{"alltime": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "obtainable": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "herald": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA"},
-  consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Titanic Strength", "wowhead": 58088}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH"}},
+  consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH"}},
   stats:{"alltime": {"main": 235, "stam": 1039, "crit": [21.65, 83], "mastery": [58.12, 105], "haste": [20.58, 76], "vers": [3.76, 22]},
          "obtainable": {"main": 228, "stam": 1039, "crit": [21.65, 83], "mastery": [53.71, 94], "haste": [20.58, 76], "vers": [3.76, 22]},
          "herald": {"main": 222, "stam": 1046, "crit": [18.84, 69], "mastery": [56.52, 101], "haste": [18.18, 65], "vers": [2.05, 12]}},
@@ -682,9 +683,7 @@ const CLASSES = [
 },
 { id:"hunter", name:"Hunter", spec:"Survival", color:"#AAD372", dps:2444, dpsByList:{"alltime": 2444, "obtainable": 2303, "herald": 2077},
   talents:{"alltime": "C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA", "obtainable": "C8PApei1JmYNvFfEFaN5bWuGKAAAAAAwYmhBDAAAAAAmxAY8AmBABAAAAAAAYMGMAAAwADAA", "herald": "C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA"},
-  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
-               "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
-               "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
+  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
   stats:{"alltime": {"main": 268, "stam": 1057, "crit": [30.46, 102], "mastery": [27.94, 124], "haste": [20.49, 92], "vers": [0.85, 5]},
          "obtainable": {"main": 261, "stam": 1057, "crit": [33.67, 118], "mastery": [25.73, 111], "haste": [17.71, 68], "vers": [2.73, 16]},
          "herald": {"main": 240, "stam": 1058, "crit": [27.45, 87], "mastery": [25.90, 112], "haste": [21.12, 95], "vers": [0.85, 5]}},
@@ -809,9 +808,7 @@ const CLASSES = [
 },
 { id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2380, dpsByList:{"alltime": 2380, "obtainable": 2273, "herald": 2052},
   talents:{"alltime": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA", "obtainable": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA", "herald": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA"},
-  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
-               "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
-               "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
+  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
   stats:{"alltime": {"main": 297, "stam": 1097, "crit": [27.85, 89], "mastery": [16.00, 0], "haste": [28.94, 138], "vers": [1.54, 9]},
          "obtainable": {"main": 286, "stam": 1100, "crit": [24.24, 71], "mastery": [16.00, 0], "haste": [28.10, 134], "vers": [3.59, 21]},
          "herald": {"main": 254, "stam": 1093, "crit": [27.05, 85], "mastery": [16.00, 0], "haste": [28.10, 134], "vers": [2.22, 13]}},
@@ -1128,9 +1125,7 @@ const CLASSES = [
 },
 { id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2220, dpsByList:{"alltime": 2220, "obtainable": 2049, "herald": 1857},
   talents:{"alltime": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "obtainable": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "herald": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA"},
-  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}},
-               "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}},
-               "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
+  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
   stats:{"alltime": {"main": 244, "stam": 1046, "crit": [22.64, 63], "mastery": [29.26, 106], "haste": [23.88, 108], "vers": [0.00, 0]},
          "obtainable": {"main": 237, "stam": 1049, "crit": [23.04, 65], "mastery": [26.86, 94], "haste": [23.24, 105], "vers": [0.00, 0]},
          "herald": {"main": 223, "stam": 1043, "crit": [21.63, 58], "mastery": [23.25, 76], "haste": [20.70, 93], "vers": [2.22, 13]}},
@@ -1195,9 +1190,7 @@ const CLASSES = [
 },
 { id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2079, dpsByList:{"alltime": 2079, "obtainable": 1831, "herald": 1987},
   talents:{"alltime": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "obtainable": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "herald": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA"},
-  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
-               "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
-               "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of the Winds", "wowhead": 58087}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
+  consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
   stats:{"alltime": {"main": 247, "stam": 1055, "crit": [26.65, 83], "mastery": [71.88, 114], "haste": [16.57, 79], "vers": [0.00, 0]},
          "obtainable": {"main": 241, "stam": 1055, "crit": [23.64, 68], "mastery": [66.74, 103], "haste": [16.57, 79], "vers": [2.73, 16]},
          "herald": {"main": 217, "stam": 1045, "crit": [26.05, 80], "mastery": [66.74, 103], "haste": [9.23, 44], "vers": [2.22, 13]}},
@@ -1535,7 +1528,17 @@ function consumFor(cls, listId){
   if(!c) return null;
   return (c.potion || c.flask || c.food || c.oil) ? c : (c[listId] || null);
 }
-const simcTok = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"");
+// Faithful port of util::tokenize in simc's engine/util/util.cpp. Punctuation
+// is ERASED, not replaced — "Potion of the Tol'vir" is potion_of_the_tolvir and
+// "Beer-Basted Crocolisk" is beerbasted_crocolisk. Substituting an underscore
+// breaks find_consumable's substring match and the buff silently never applies.
+const simcTok = s => [...String(s)]
+  .map(ch => ch.charCodeAt(0) >= 0x80 ? ""
+           : /[a-z]/i.test(ch)        ? ch.toLowerCase()
+           : ch === " "               ? "_"
+           : /[0-9_+.%]/.test(ch)     ? ch
+           : "")
+  .join("").replace(/^[_+]+/, "");
 // Normalize either oil form into [{item, wowhead, hand}] so render and SimC
 // export share one shape. Single-item form fans out to both hands when MH/OH.
 function oilParts(o){
@@ -1556,23 +1559,24 @@ function consumHtml(c){
       if(!parts.length) return "";
       // Weapon buffs always start their own row, however many hands are listed.
       return '<span class="cbreak"></span>' + parts.map((e,i) =>
-        '<span class="cline">'+(i ? "" : '<b>'+label+'</b>')+whLink(e)
+        '<span class="cline">'+(i ? "" : '<b>'+label+'</b>')+whLink(e)+vTag(e)
         + ' <small>'+esc(e.hand)+'</small></span>').join("");
     }
     const e = c[k]; if(!e || !e.item) return "";
-    return '<span class="cline"><b>'+label+'</b>'+whLink(e)+'</span>';
+    return '<span class="cline"><b>'+label+'</b>'+whLink(e)+vTag(e)+'</span>';
   }).filter(Boolean).join("");
 }
+const tokenOf = e => e.token || simcTok(e.item);
 function consumSimc(c){
   const L = [];
-  if(c.potion) L.push("potion="+simcTok(c.potion.item));
-  if(c.flask)  L.push("flask="+simcTok(c.flask.item));
-  if(c.food)   L.push("food="+simcTok(c.food.item));
+  if(c.potion) L.push("potion="+tokenOf(c.potion));
+  if(c.flask)  L.push("flask="+tokenOf(c.flask));
+  if(c.food)   L.push("food="+tokenOf(c.food));
   const parts = oilParts(c.oil);
   if(parts.length){
     const seg = [];
     for(const e of parts){
-      const t = simcTok(e.item);
+      const t = tokenOf(e);
       if(e.hand === "OH") seg.push("off_hand:"+t);
       else { seg.push("main_hand:"+t); if(e.hand === "MH/OH") seg.push("off_hand:"+t); }
     }
@@ -1663,12 +1667,13 @@ function asText(){
   const lines = ["**"+cls.spec+" "+cls.name+" — BiS ("+lt.label+")** · "+CONFIG.patch+" · "+CONFIG.bracket];
   const cons = consumFor(cls, state.list);
   if(cons) lines.push("- Consumables: " + CONSUM_ORDER.map(([k,label]) => {
+    const vs = e => { const v = variantOf(e); return v ? " ("+v+")" : ""; };
     if(k === "oil"){
       const parts = oilParts(cons.oil);
-      return parts.length ? label+" "+parts.map(e => "["+e.item+"] ("+e.hand+")").join(" ") : "";
+      return parts.length ? label+" "+parts.map(e => "["+e.item+"]"+vs(e)+" ("+e.hand+")").join(" ") : "";
     }
     const e = cons[k]; if(!e || !e.item) return "";
-    return label+" ["+e.item+"]";
+    return label+" ["+e.item+"]"+vs(e);
   }).filter(Boolean).join(" · "));
   const tbd = [];
   mergedList(cls, state.list).forEach(e => {

@@ -95,11 +95,12 @@ actions+=/lava_burst,line_cd=6.5,if=buff.lava_surge.up|dot.flame_shock.ticking
 actions+=/lightning_bolt
 actions+=/flame_shock,moving=1,if=dot.flame_shock.refreshable
 actions+=/frost_shock,moving=1
-potion=disabled
-flask=disabled
-food=disabled
 augmentation=disabled
-temporary_enchant=disabled
+
+potion=volcanic_potion
+flask=flask_of_distilled_wisdom
+food=severed_sagefish_head
+temporary_enchant=main_hand:superior_wizard_oil
 
 name=Shaman
 
