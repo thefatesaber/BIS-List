@@ -100,9 +100,9 @@ for (const c of CLASSES) {
       if (/Ulduar/.test(r.source || "") && !r.hm)
         warn(`${at}: ${item} is from Ulduar with no hm flag`);
 
-      // hm:"ilvl" renders as "ilvl X -> Y HM", so it needs both numbers.
-      if (r.hm === "ilvl" && r.ilvlNormal == null)
-        err(`${at}: ${item} has hm:"ilvl" but no ilvlNormal`);
+      // hm:"ilvl" was retired; "only" and "socket" are the surviving badges.
+      if (r.hm && !["only", "socket"].includes(r.hm))
+        err(`${at}: ${item} has unknown hm value "${r.hm}"`);
 
       if (r.alts && r.alts.length && !r.why)
         warn(`${at}: ${item} lists alternates but has no why note`);

@@ -175,7 +175,6 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   text-transform:uppercase; padding:1px 6px; border-radius:3px; white-space:nowrap;
   border:1px solid currentColor}
 .hm.only{color:#ff9d5c}
-.hm.ilvl{color:#8ab4f8}
 .hm.socket{color:#ff5c5c}
 .vtag{margin-left:7px; font-size:9.5px; font-weight:600; letter-spacing:.07em;
   text-transform:uppercase; padding:1px 5px; border-radius:3px; white-space:nowrap;
@@ -452,7 +451,6 @@ footer{
      gems     [{id, name, n}] socketed gems — n renders as n separate socket icons
      hm       "only" -> hard-mode exclusive drop (badge)
               "ilvl" -> drops on normal too, hard mode gives higher ilvl (badge)
-     ilvlNormal  with hm:"ilvl", the NORMAL-mode ilvl. Renders "ilvl 41 -> 43 HM".
                  `ilvl` should always be the value you actually simmed.
      alts     [{item, wowhead, q, delta}] near-tie alternates. delta = signed %
               vs the listed BiS (e.g. -0.3). Omit delta -> renders "sim pending".
@@ -502,7 +500,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "ilvl"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Neck", "item": "Crystalized Sigil", "wowhead": 200446, "q": 3, "ilvl": 33, "source": "Ohn'ahran Plains — Liskheszaera (rare)", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Master's Inscription of the Axe", "enchsp": 61117, "gems": [{"id": 213458, "name": "Masterful Ruby", "n": 1, "q": 3}, {"id": 213491, "name": "Deadly Onyx", "n": 1, "q": 3}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213491, "name": "Deadly Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "only"},
@@ -520,7 +518,7 @@ const CLASSES = [
       {"slot": "Off Hand", "item": "The Jackhammer", "wowhead": 9423, "q": 3, "ilvl": 33, "source": "Uldaman — trash", "ench": "Crusader", "enchsp": 20034, "status": "confirmed"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "ilvl"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Neck", "item": "Hatecoil Commander's Amulet", "wowhead": 134492, "q": 3, "ilvl": 33, "source": "Eye of Azshara — Warlord Parjesh", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Master's Inscription of the Axe", "enchsp": 61117, "gems": [{"id": 213494, "name": "Quick Onyx", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim", "hm": "only"},
@@ -567,7 +565,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "ilvl"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}, {"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Shoulders", "item": "Lightbringer Shoulderbraces", "wowhead": 30997, "ilvl": 42, "source": "Black Temple — Mother Shahraz (token)", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
@@ -584,7 +582,7 @@ const CLASSES = [
       {"slot": "Main Hand", "item": "The Untamed Blade", "wowhead": 19334, "ilvl": 40, "source": "Blackwing Lair — Razorgore the Untamed", "ench": "Crusader", "enchsp": 20034, "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "ilvl"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Lightbringer Shoulderbraces", "wowhead": 30997, "ilvl": 42, "source": "Black Temple — Mother Shahraz (token)", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "only"},
@@ -629,7 +627,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "ilvl"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}, {"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Lionsmane Inscription", "enchsp": 86401, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
@@ -646,7 +644,7 @@ const CLASSES = [
       {"slot": "Main Hand", "item": "Bonereaver's Edge", "wowhead": 17076, "ilvl": 38, "source": "Molten Core — Ragnaros", "ench": "Rune of the Fallen Crusader", "enchsp": 53344, "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "ilvl"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Lionsmane Inscription", "enchsp": 86401, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
@@ -1188,7 +1186,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2079, dpsByList:{"alltime": 2079, "obtainable": 1831, "herald": 1987},
+{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2079, dpsByList:{"alltime": 2079, "obtainable": 1869, "herald": 1987},
   talents:{"alltime": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "obtainable": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "herald": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
   stats:{"alltime": {"main": 247, "stam": 1055, "crit": [26.65, 83], "mastery": [71.88, 114], "haste": [16.57, 79], "vers": [0.00, 0]},
@@ -1230,8 +1228,8 @@ const CLASSES = [
       {"slot": "Ring 2", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul", "status": "sim"},
       {"slot": "Trinket 2", "item": "Chaos Talisman", "wowhead": 137459, "q": 3, "ilvl": 33, "source": "Assault on Violet Hold — Fel Lord Betrug", "status": "sim"},
-      {"slot": "Main Hand", "item": "Eskhandar's Right Claw", "wowhead": 18203, "ilvl": 38, "source": "Molten Core — Magmadar", "ench": "Landslide", "enchsp": 74246, "status": "sim"},
-      {"slot": "Off Hand", "item": "Hand of the Deceiver", "wowhead": 34331, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Gale-Force Striking", "enchsp": 255141, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"}
+      {"slot": "Main Hand", "item": "Eskhandar's Right Claw", "wowhead": 18203, "ilvl": 38, "source": "Molten Core — Magmadar", "ench": "Dancing Steel", "enchsp": 104434, "status": "sim"},
+      {"slot": "Off Hand", "item": "Hand of the Deceiver", "wowhead": 34331, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Dancing Steel", "enchsp": 104434, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"}
     ],
     herald:[
       {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
@@ -1503,7 +1501,6 @@ function gemLinks(e){
 
 function hmBadge(e){
   if(e.hm === "only")  return '<span class="hm only" title="Hard mode exclusive \u2014 does not drop on normal">HM only</span>';
-  if(e.hm === "ilvl")  return '<span class="hm ilvl" title="Drops on normal too; hard mode gives the higher item level">HM ilvl</span>';
   if(e.hm === "socket") return '<span class="hm socket" title="Only the socket-proc roll of this item is worth using">Socket Proc</span>';
   return "";
 }
@@ -1616,9 +1613,7 @@ function renderMain(){
   $("ledger").innerHTML = head + mergedList(cls, state.list).map((e, i) => {
     let ilvlTxt = "";
     if (e.ilvl != null){
-      ilvlTxt = (e.hm === "ilvl" && e.ilvlNormal != null)
-        ? "ilvl "+esc(e.ilvlNormal)+" \u2192 "+esc(e.ilvl)+" HM"
-        : "ilvl "+esc(e.ilvl);
+      ilvlTxt = "ilvl "+esc(e.ilvl);
     }
     const sub = [ilvlTxt, e.source?esc(e.source):""].filter(Boolean).join(" · ");
     return '<div class="row" style="--i:'+i+'">'
@@ -1681,7 +1676,7 @@ function asText(){
     const gtxt = e.gems ? e.gems.map(g=>g.name+(g.n>1?" \u00d7"+g.n:"")).join(", ") : "";
     const hm = e.hm==="only" ? "HM only" : (e.hm==="ilvl" ? "HM ilvl" : (e.hm==="socket" ? "Socket Proc" : ""));
     const iv = e.ilvl==null ? "" :
-      ((e.hm==="ilvl" && e.ilvlNormal!=null) ? "ilvl "+e.ilvlNormal+"\u2192"+e.ilvl+" HM" : "ilvl "+e.ilvl);
+      "ilvl "+e.ilvl;
     const bits = [iv, hm, e.source||"", e.ench||"", gtxt].filter(Boolean).join(" · ");
     const vt = variantOf(e);
     lines.push("- "+e.slot+": ["+e.item+"]"+(vt?" ("+vt+")":"")+(bits?" — "+bits:""));
