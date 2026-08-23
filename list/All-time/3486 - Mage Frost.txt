@@ -9,7 +9,7 @@ professions=tailoring=75/engineering=1
 spec=frost
 # loot_spec=frost
 
-talents=CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA
+talents=CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA
 
 # Vengeful Gladiator's Silk Cowl (44)
 head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30

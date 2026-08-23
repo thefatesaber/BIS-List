@@ -1,7 +1,11 @@
 # All-time - Priest - Shadow
-# Void Volley: SimC live path can't cast VV on Voidform charges (PTR-gated in C++), so 3 sim casts carry ~10 real ones — coefficient inflated 1.06049×5.60 to restore VV's 10.3% logged damage share
-override.spell_data=effect.1241611.sp_coefficient=5.939
+# VV: Voidform grants 5 hardcast charges on live (verified in-game); sim reads stale effectN(3)=0 and grants none. Feed the slot the code reads. Side effect: +5% haste during VF, documented.
+override.spell_data=effect.285132.base_value=5
 override.spell_data=spell.10060.spell_level=1
+# VV hardcast: live has no cooldown beyond GCD (verified at dummy); sim data carries 15s
+override.spell_data=spell.1242173.cooldown=0
+# VV per-bolt: sim undershoots live by ~47% (log 3703.7 vs sim 3518, all residual in VV — casts charge-capped at parity). Coefficient rescaled 0.9544→1.400 to match logged DPS; linear, one-pass. Recalibrate on simc VV changes.
+override.spell_data=effect.1241611.sp_coefficient=1.400
 
 priest="Fateprayer"
 level=30
@@ -13,7 +17,7 @@ professions=tailoring=1/
 spec=shadow
 # loot_spec=holy
 
-talents=CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA
+talents=CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA
 
 # Saved Loadout: dummy 5 min
 # talents=CIQA4VPTJ8eQb8/qEm8PyGu4yADAAAAAAAAAAAAAYgxwMLGMA4BYAYGYwAGAAAAAAgBAzA2YAAAA

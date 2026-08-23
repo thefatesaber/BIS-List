@@ -29,7 +29,7 @@ role=attack
 default_item_group_cooldown=0
 professions=alchemy=4/engineering=100
 spec=restoration
-talents=CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMW2YGwAMMAAQAIAYGwsMgADMwmh5BAAAAAAAAAA
+talents=CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA
 # Helm of Desolation 33
 head=,ilevel=33,id=28192,gem_id=76885/213743/32196,bonus_id=7202,drop_level=30
 # Tuskarr Bone Necklace 33
