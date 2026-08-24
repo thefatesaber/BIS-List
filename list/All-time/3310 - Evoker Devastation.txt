@@ -13,11 +13,11 @@ talents=CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA
 
 ### Combo 1
 # Helm of Desolation 33
-head=,id=28192,ilevel=44,gem_id=25893/213746/32196,bonus_id=7202,drop_level=30,enchant=12crit
+head=,id=28192,ilevel=33,gem_id=25893/213746/32196,bonus_id=7202,drop_level=30,enchant=12crit
 # Tuskarr Bone Necklace 135
 neck=,id=193666,ilevel=33,enchant_id=5437,gem_id=32196/32196/32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Pauldrons of Desolation 33
-shoulder=,id=27713,ilevel=43,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
+shoulder=,id=27713,ilevel=33,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Drape of the Messenger 43
 back=,id=46042,ilevel=43,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=30
 # Embrace of the Phoenix 44
@@ -42,7 +42,6 @@ trinket1=solace_of_the_fallen,ilevel=45,id=47271,bonus_id=9047
 trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Abracadaver 47 
 main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
-
 
 # Consumables
 # potion=golemblood_potion

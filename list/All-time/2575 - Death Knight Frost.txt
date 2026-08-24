@@ -44,8 +44,6 @@ head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30,content
 #finger1=,ilevel=33,id=178870,enchant_id=6108,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 #finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 
-name=Asimiir
-
 # Consumables
 # potion=golemblood_potion
 # flask=flask_of_titanic_strength
