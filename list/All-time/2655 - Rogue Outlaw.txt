@@ -1,4 +1,18 @@
 # All-time - Rogue - Outlaw
+# --- Log-anchored ability tuning: game log vs 2432 armor-credited sim (this file) ---
+# new coeff = branch coeff x (game/sim) per ability. Refresh after any engine/data update.
+# Sinister Strike   1.223  x1.285
+override.spell_data=effect.283619.ap_coefficient=1.5716   
+# Dispatch          0.6116 x1.460
+override.spell_data=effect.622.ap_coefficient=0.8929      
+# Between the Eyes  0.751  x1.514
+override.spell_data=effect.799020.ap_coefficient=1.1370   
+# Pistol Shot       0.834  x1.331
+override.spell_data=effect.269972.ap_coefficient=1.1101   
+# Blade Rush        3.753  x1.411
+override.spell_data=effect.722357.ap_coefficient=5.2955   
+# Instant Poison    0.074  x1.111
+override.spell_data=effect.799408.ap_coefficient=0.0822   
 # Base Actor
 rogue="Fatesneak"
 level=30
@@ -46,7 +60,7 @@ main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quali
 # Vibroblade (33)
 off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
 #effective DPS = D0 × (1 + A × P × U)
-#D0 = naked sim DPS (1991 — the sim with the proc counting for zero)
+#D0 = naked sim DPS (2381 — the sim with the proc counting for zero)
 #A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
 #P = proportion affected = physical share = 0.969
 #U = measured uptime
@@ -58,7 +72,7 @@ off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=3
 #u=((59.68+45.9+65.25)/3) = 56.94
 
 
-#effective DPS = 2181 × (1 + 0.2083 × 0.969 × 0.5694) = 2432
+#effective DPS = 2381 × (1 + 0.2083 × 0.969 × 0.5694) = 2655
 
 # Consumables
 # potion=golemblood_potion
