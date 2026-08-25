@@ -1,4 +1,4 @@
-# All-time - Hunter - Marksmenship
+# All-time - Hunter - Marksmanship
 # Base Actor
 hunter="Legacythirty"
 level=30
