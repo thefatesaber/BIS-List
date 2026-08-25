@@ -58,7 +58,7 @@ off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=3
 #u=((59.68+45.9+65.25)/3) = 56.94
 
 
-#effective DPS = 1991 × (1 + 0.2083 × 0.969 × 0.5694) = 2220
+#effective DPS = 2181 × (1 + 0.2083 × 0.969 × 0.5694) = 2432
 
 # Consumables
 # potion=golemblood_potion
