@@ -1,0 +1,120 @@
+# Obtainable - Demon Hunter - Devour
+# Base Actor
+demonhunter="Fateberserkr"
+level=30
+race=blood_elf
+region=us
+server=thrall
+role=spell
+professions=engineering=100/skinning=100
+spec=devourer
+# loot_spec=havoc
+
+talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA
+
+### Combo 1
+# wastewalker_helm (33)
+head=,id=28224,ilevel=33,gem_id=76885/213743/71854,bonus_id=7202,drop_level=30
+# Ukhel Ancestry Beads (135)
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71854,drop_level=30
+# mantle_of_perenolde (33)
+shoulder=,id=27434,ilevel=33,enchant_id=3838,gem_id=71854/71854,bonus_id=7202,drop_level=30
+# Drape of the Messenger (43)
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
+# Harness of Carnal Instinct (44)
+chest=,id=34211,ilevel=44,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
+#shirt=soul_fragment_aura,ilevel=30,use=1000vers_25dur_115cd
+# Umbrage Armbands (47)
+wrist=,id=54580,ilevel=47,enchant_id=2332,gem_id=71854,bonus_id=9051,drop_level=30
+# Gloves of the Endless Dark (43)
+hands=,id=46043,ilevel=43,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
+# Soul-Devouring Cinch (43)
+waist=,id=46095,ilevel=43,gem_id=71854/71854/71854,bonus_id=9043,drop_level=30
+# Plague-Soaked Leather Leggings (47)
+legs=,id=51889,ilevel=47,enchant_id=6539,gem_id=71854/71854/71854,bonus_id=9051,drop_level=30
+# Footpads of Silence (42)
+feet=,id=45564,ilevel=42,enchant_id=4429,gem_id=71854/71854,bonus_id=9042,drop_level=30
+# signet_of_the_false_accuser (33)
+finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
+# Arch-Druid's Tainted Seal (33)
+finger2=,ilevel=33,id=134487,enchant_id=6110,gem_id=71854,drop_level=30
+# talisman_of_ephemeral_power (38)
+trinket1=talisman_of_ephemeral_power,id=18820,ilevel=38
+# Armored Elekk Tusk (32)
+trinket2=,id=108902,ilevel=33,bonus_id=6691/6703,drop_level=30
+# Bloodsurge, Kel'Thuzad's Blade of Agony (47)
+main_hand=bloodsurge_kelthuzads_blade_of_agony,id=50732,ilevel=47,bonus_id=905130,gem_id=71854,enchant=13sp
+# Rigormortis (47)
+off_hand=Rigormortis,id=50704,ilevel=47,bonus_id=905130,gem_id=71854,enchant=13sp
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+external_buffs.pool=power_infusion:120
+# Custom APL
+actions.precombat=snapshot_stats
+actions.precombat+=/arcane_torrent
+actions.precombat+=/consume
+
+actions=call_action_list,name=cooldowns
+actions+=/void_ray,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks,line_cd=120
+actions+=/metamorphosis,if=prev_gcd.1.void_ray|cooldown.void_ray.remains>15
+# Exit combo, corrected: beam right AFTER a Cull once drain has ramped and Fury
+# is dry — the channel covers the shared CD, the reaps call cashes the exit Cull
+actions+=/void_ray,if=buff.metamorphosis.up&prev_gcd.1.cull&fury<40&void_metamorphosis_base_drain_ps>25,line_cd=30
+actions+=/call_action_list,name=reaps
+actions+=/soul_immolation,if=active_dot.soul_immolation=0&!buff.metamorphosis.up
+actions+=/devour,if=buff.metamorphosis.up
+actions+=/consume,if=!buff.metamorphosis.up
+# Deadlock guard — do not remove
+actions+=/consume
+
+actions.cooldowns=use_item,use_off_gcd=1,slot=trinket1,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks|fight_remains<=20
+actions.cooldowns+=/use_item,use_off_gcd=1,slot=trinket2,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks|fight_remains<=20
+
+actions.reaps=eradicate
+actions.reaps+=/cull
+actions.reaps+=/reap
+
+# Simulation Options
+iterations=10000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+#html=Fury_toolTEST_Results.html
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1

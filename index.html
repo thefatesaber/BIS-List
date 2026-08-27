@@ -497,8 +497,8 @@ const LIST_TYPES = [
 ];
 
 const CLASSES = [
-{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3932, dpsByList:{"alltime": 3932, "obtainable": 3018, "herald": 2870},
-  talents:{"alltime": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "obtainable": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA", "herald": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA"},
+{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3932, dpsByList:{"alltime": 3932, "obtainable": 3200, "herald": 2870},
+  talents:{"alltime": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "obtainable": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "herald": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA"},
   consumables:{"alltime": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}, "herald": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}},
   stats:{"alltime": {"main": 212, "stam": 1036, "crit": [23.45, 92], "mastery": [50.24, 139], "haste": [15.52, 74], "vers": [6.66, 39]},
          "obtainable": {"main": 239, "stam": 1042, "crit": [19.64, 73], "mastery": [22.71, 41], "haste": [31.31, 150], "vers": [3.76, 22]},
@@ -686,14 +686,14 @@ const CLASSES = [
     ]
   }
 },
-{ id:"hunter", name:"Hunter", spec:{"alltime": "Marksmanship", "obtainable": "Survival", "herald": "Survival"}, color:"#AAD372", dps:3582, dpsByList:{"alltime": 3582, "obtainable": 2303, "herald": 2077},
-  talents:{"alltime": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA", "obtainable": "C8PApei1JmYNvFfEFaN5bWuGKAAAAAAwYmhBDAAAAAAmxAY8AmBABAAAAAAAYMGMAAAwADAA", "herald": "C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA"},
+{ id:"hunter", name:"Hunter", spec:{"alltime": "Marksmanship", "obtainable": "Marksmanship", "herald": "Survival"}, color:"#AAD372", dps:3582, dpsByList:{"alltime": 3582, "obtainable": 3345, "herald": 2077},
+  talents:{"alltime": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA", "obtainable": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA", "herald": "C8PAAAAAAAAAAAAAAAAAAAAAAMAAQAACYMzwgBAAAAAAzYYsYADACAAAAAAAwYMYAAAgBGAA"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"item": "Superior Mana Oil", "wowhead": 22521, "hands": "MH"}},
                "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}},
                "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
-  stats:{"alltime": {"main": 248, "stam": 1059, "crit": [47.30, 190], "mastery": [10.64, 45], "haste": [16.04, 71], "vers": [0.85, 5]},
-         "obtainable": {"main": 261, "stam": 1057, "crit": [33.67, 118], "mastery": [25.73, 111], "haste": [17.71, 68], "vers": [2.73, 16]},
-         "herald": {"main": 240, "stam": 1058, "crit": [27.45, 87], "mastery": [25.90, 112], "haste": [21.12, 95], "vers": [0.85, 5]}},
+  stats:{"alltime": {"main": 248, "stam": 1059, "crit": [47.3, 190], "mastery": [10.64, 45], "haste": [16.04, 71], "vers": [0.85, 5]},
+         "obtainable": {"main": 240, "stam": 1059, "crit": [45.86, 182], "mastery": [10.64, 45], "haste": [16.04, 71], "vers": [0.85, 5]},
+         "herald": {"main": 240, "stam": 1058, "crit": [27.45, 87], "mastery": [25.9, 112], "haste": [21.12, 95], "vers": [0.85, 5]}},
   notes:["Dragonspine at ≈1 PPM effective on SV's sparse attack stream — KC/WFB are spells, don't roll attack procs.", "Per-ability diff vs a logged Details! parse pending (merge pet rows)."],
   credits:{},
   lists:{
@@ -715,21 +715,21 @@ const CLASSES = [
       {"slot": "Main Hand", "item": "Fal'inrush, Defender of Quel'Thalas", "wowhead": 50733, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Gale-Force Striking", "enchsp": 255141, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 1, "q": 4}], "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Helm of Desolation", "wowhead": 28192, "q": 3, "ilvl": 33, "source": "The Black Morass — Aeonus", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Neck", "item": "Chain of the Green Flight", "wowhead": 137311, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Dresaron", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
-      {"slot": "Shoulders", "item": "Pauldrons of Desolation", "wowhead": 27713, "q": 3, "ilvl": 33, "source": "The Slave Pens — Quagmirran", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
-      {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "only"},
-      {"slot": "Chest", "item": "Embrace of the Phoenix", "wowhead": 34373, "ilvl": 44, "source": "Crafted — Leatherworking", "ench": "Waking Stats", "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"},
-      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Agility", "enchsp": 104391, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "socket"},
-      {"slot": "Hands", "item": "Thalassian Ranger Gauntlets", "wowhead": 34343, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Major Agility", "enchsp": 44529, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
-      {"slot": "Waist", "item": "Belt of Dragons", "wowhead": 45553, "ilvl": 43, "source": "Crafted — Leatherworking", "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"},
-      {"slot": "Legs", "item": "Wyrmscale Greaves", "wowhead": 30534, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Primal Leg Reinforcements", "enchsp": 124559, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"},
-      {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Greater Agility", "enchsp": 20012, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
-      {"slot": "Ring 1", "item": "Signet of the Highborne Magi", "wowhead": 134537, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Shade of Xavius", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Head", "item": "Helm of Desolation", "wowhead": 28192, "q": 3, "ilvl": 33, "source": "The Black Morass — Aeonus", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 32222, "name": "Deadly Pyrestone", "n": 1, "q": 4}], "status": "sim", "hm": "socket"},
+      {"slot": "Neck", "item": "Phoenix Feather Pendant", "wowhead": 200284, "q": 3, "ilvl": 33, "source": "Thaldraszus — Eldoren the Reborn (rare)", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213464, "name": "Deadly Ruby", "n": 1, "q": 3}], "status": "sim"},
+      {"slot": "Shoulders", "item": "Pauldrons of Desolation", "wowhead": 27713, "q": 3, "ilvl": 33, "source": "The Slave Pens — Quagmirran", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 2, "q": 4}], "status": "sim"},
+      {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 2, "q": 4}], "status": "sim", "hm": "only"},
+      {"slot": "Chest", "item": "Embrace of the Phoenix", "wowhead": 34373, "ilvl": 44, "source": "Crafted — Leatherworking", "ench": "Waking Stats", "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 3, "q": 4}], "status": "sim"},
+      {"slot": "Wrist", "item": "Bracers of the Forest Stalker", "wowhead": 34698, "q": 3, "ilvl": 33, "source": "Magisters' Terrace — Selin Fireheart", "ench": "Greater Agility", "enchsp": 104391, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 2, "q": 4}], "status": "sim", "hm": "socket"},
+      {"slot": "Hands", "item": "Thalassian Ranger Gauntlets", "wowhead": 34343, "ilvl": 44, "source": "Sunwell Plateau — Kil'jaeden", "ench": "Major Agility", "enchsp": 44529, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 2, "q": 4}], "status": "sim"},
+      {"slot": "Waist", "item": "Belt of Dragons", "wowhead": 45553, "ilvl": 43, "source": "Crafted — Leatherworking", "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 3, "q": 4}], "status": "sim"},
+      {"slot": "Legs", "item": "Wyrmscale Greaves", "wowhead": 30534, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Primal Leg Reinforcements", "enchsp": 124559, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 3, "q": 4}], "status": "sim"},
+      {"slot": "Feet", "item": "Star-Strider Boots", "wowhead": 29951, "ilvl": 40, "source": "Tempest Keep — High Astromancer Solarian", "ench": "Greater Agility", "enchsp": 20012, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 2, "q": 4}], "status": "sim"},
+      {"slot": "Ring 1", "item": "Seal of the City Watch", "wowhead": 162542, "q": 3, "ilvl": 33, "source": "Siege of Boralus — Sergeant Bainbridge", "ench": "Accord of Critical Strike", "enchsp": 298009, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 1, "q": 4}], "status": "sim", "hm": "socket"},
+      {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Critical Strike", "enchsp": 298009, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 1, "q": 4}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul", "status": "sim"},
-      {"slot": "Trinket 2", "item": "Armored Elekk Tusk", "wowhead": 108902, "q": 3, "ilvl": 32, "source": "Shadowmoon Valley (WoD) — treasure", "status": "sim"},
-      {"slot": "Main Hand", "item": "Distant Land", "wowhead": 50695, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Mighty Agility", "enchsp": 95471, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"}
+      {"slot": "Trinket 2", "item": "Herkuml War Token", "wowhead": 50355, "ilvl": 15, "source": "Dalaran — Emblem of Frost vendor", "status": "sim"},
+      {"slot": "Main Hand", "item": "Fal'inrush, Defender of Quel'Thalas", "wowhead": 50733, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Gale-Force Striking", "enchsp": 255141, "gems": [{"id": 32222, "name": "Deadly Pyrestone", "n": 1, "q": 4}], "status": "sim"}
     ],
     herald:[
       {"slot": "Head", "item": "Helm of Desolation", "wowhead": 28192, "q": 3, "ilvl": 33, "source": "The Black Morass — Aeonus", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 32194, "name": "Delicate Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
@@ -750,8 +750,8 @@ const CLASSES = [
     ]
   }
 },
-{ id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3486, dpsByList:{"alltime": 3486, "obtainable": 3116, "herald": 2721},
-  talents:{"alltime": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA", "obtainable": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA", "herald": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA"},
+{ id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3486, dpsByList:{"alltime": 3486, "obtainable": 3283, "herald": 2721},
+  talents:{"alltime": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA", "obtainable": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA", "herald": "CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
   stats:{"alltime": {"main": 277, "stam": 1052, "crit": [23.65, 83], "mastery": [49.71, 115], "haste": [13.84, 66], "vers": [7.52, 44]},
          "obtainable": {"main": 270, "stam": 1052, "crit": [24.85, 89], "mastery": [46.18, 104], "haste": [12.37, 59], "vers": [7.52, 44]},
@@ -790,7 +790,7 @@ const CLASSES = [
       {"slot": "Ring 1", "item": "Signet of the Highborne Magi", "wowhead": 134537, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Shade of Xavius", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
-      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
@@ -875,8 +875,8 @@ const CLASSES = [
     ]
   }
 },
-{ id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:3819, dpsByList:{"alltime": 4431, "obtainable": 3564, "herald": 3213},
-  talents:{"alltime": "CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMW2YGwAMMAAQAIAYGwsMgADMwmh5BAAAAAAAAAA", "obtainable": "CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA", "herald": "CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA"},
+{ id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:3819, dpsByList:{"alltime": 4431, "obtainable": 4182, "herald": 3213},
+  talents:{"alltime": "CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMW2YGwAMMAAQAIAYGwsMgADMwmh5BAAAAAAAAAA", "obtainable": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA", "herald": "CgQARUG2fGwHkLP0T7/MoTNl/AAAAAAAAAYmZMLLbMDAAAAAAAAAgFD0swMwAbGzAAAAAAAAAA"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
   stats:{"alltime": {"main": 276, "stam": 1152, "crit": [21.25, 81], "mastery": [24.00, 0], "haste": [26.00, 124], "vers": [14.35, 84]},
          "obtainable": {"main": 273, "stam": 1063, "crit": [22.65, 88], "mastery": [24.00, 0], "haste": [26.00, 124], "vers": [9.74, 57]},
@@ -939,11 +939,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3286, dpsByList:{"alltime": 3286, "obtainable": 2406, "herald": 2089},
-  talents:{"alltime": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "obtainable": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZDAAAAAAAAA", "herald": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZBAAAAAAAAA"},
+{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3286, dpsByList:{"alltime": 3286, "obtainable": 2738, "herald": 2089},
+  talents:{"alltime": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "obtainable": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "herald": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZBAAAAAAAAA"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH/OH"}},
-  stats:{"alltime": {"main": 295, "stam": 1062, "crit": [19.64, 68], "mastery": [29.46, 107], "haste": [19.92, 95], "vers": [0.00, 0]},
-         "obtainable": {"main": 238, "stam": 1066, "crit": [18.64, 63], "mastery": [34.08, 130], "haste": [29.57, 141], "vers": [4.10, 24]},
+  stats:{"alltime": {"main": 295, "stam": 1062, "crit": [19.64, 68], "mastery": [29.46, 107], "haste": [19.92, 95], "vers": [0.0, 0]},
+         "obtainable": {"main": 267, "stam": 1066, "crit": [18.64, 63], "mastery": [29.26, 106], "haste": [20.13, 96], "vers": [1.88, 11]},
          "herald": {"main": 210, "stam": 1056, "crit": [19.04, 65], "mastery": [36.89, 144], "haste": [16.36, 78], "vers": [3.25, 19]}},
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
   credits:{},
@@ -967,22 +967,22 @@ const CLASSES = [
       {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 213488, "name": "Quick Emerald", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
-      {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
-      {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 2, "q": 3}], "status": "sim"},
-      {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 1, "q": 3}], "status": "sim", "hm": "only"},
-      {"slot": "Chest", "item": "Harness of Carnal Instinct", "wowhead": 34211, "ilvl": 44, "source": "Sunwell Plateau — trash", "ench": "Waking Stats", "gems": [{"id": 213488, "name": "Quick Emerald", "n": 3, "q": 3}], "status": "sim"},
-      {"slot": "Wrist", "item": "Umbrage Armbands", "wowhead": 54580, "ilvl": 47, "source": "Ruby Sanctum — Halion", "ench": "Superior Spellpower", "enchsp": 60767, "gems": [{"id": 213488, "name": "Quick Emerald", "n": 1, "q": 3}], "status": "sim"},
-      {"slot": "Hands", "item": "Gloves of the Endless Dark", "wowhead": 46043, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim", "hm": "only"},
-      {"slot": "Waist", "item": "Soul-Devouring Cinch", "wowhead": 46095, "ilvl": 43, "source": "Ulduar — Yogg-Saron", "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim", "hm": "only"},
-      {"slot": "Legs", "item": "Plague-Soaked Leather Leggings", "wowhead": 51889, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Frozen Spellthread", "enchsp": 387291, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
-      {"slot": "Feet", "item": "Footpads of Silence", "wowhead": 45564, "ilvl": 42, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
-      {"slot": "Ring 1", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
-      {"slot": "Ring 2", "item": "Arch-Druid's Tainted Seal", "wowhead": 134487, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Archdruid Glaidalis", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
-      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
-      {"slot": "Main Hand", "item": "Bloodsurge, Kel'Thuzad's Blade of Agony", "wowhead": 50732, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"},
-      {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"}
+      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
+      {"slot": "Chest", "item": "Harness of Carnal Instinct", "wowhead": 34211, "ilvl": 44, "source": "Sunwell Plateau — trash", "ench": "Waking Stats", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
+      {"slot": "Wrist", "item": "Umbrage Armbands", "wowhead": 54580, "ilvl": 47, "source": "Ruby Sanctum — Halion", "ench": "Superior Spellpower", "enchsp": 60767, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
+      {"slot": "Hands", "item": "Gloves of the Endless Dark", "wowhead": 46043, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim", "hm": "only"},
+      {"slot": "Waist", "item": "Soul-Devouring Cinch", "wowhead": 46095, "ilvl": 43, "source": "Ulduar — Yogg-Saron", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "hm": "only"},
+      {"slot": "Legs", "item": "Plague-Soaked Leather Leggings", "wowhead": 51889, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Frozen Spellthread", "enchsp": 387291, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
+      {"slot": "Feet", "item": "Footpads of Silence", "wowhead": 45564, "ilvl": 42, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Ring 1", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Ring 2", "item": "Arch-Druid's Tainted Seal", "wowhead": 134487, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Archdruid Glaidalis", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Trinket 1", "item": "Talisman of Ephemeral Power", "wowhead": 18820, "ilvl": 38, "source": "Molten Core — trash", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Armored Elekk Tusk", "wowhead": 108902, "ilvl": 32, "source": "Shadowmoon Valley (WoD) — treasure", "status": "sim", "q": 3},
+      {"slot": "Main Hand", "item": "Bloodsurge, Kel'Thuzad's Blade of Agony", "wowhead": 50732, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
+      {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"}
     ],
     herald:[
       {"slot": "Head", "item": "Frayed Scoundrel's Cap", "wowhead": 50206, "ilvl": 33, "source": "The Forge of Souls — Devourer of Souls", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
@@ -1004,8 +1004,8 @@ const CLASSES = [
     ]
   }
 },
-{ id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3704, dpsByList:{"alltime": 3704, "obtainable": 3016, "herald": 2679},
-  talents:{"alltime": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "obtainable": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA", "herald": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA"},
+{ id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3704, dpsByList:{"alltime": 3704, "obtainable": 3282, "herald": 2679},
+  talents:{"alltime": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "obtainable": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "herald": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
   stats:{"alltime": {"main": 271, "stam": 1114, "crit": [20.85, 79], "mastery": [15.33, 113], "haste": [26.98, 111], "vers": [1.88, 11]},
          "obtainable": {"main": 271, "stam": 1114, "crit": [20.85, 79], "mastery": [12.83, 88], "haste": [27.62, 114], "vers": [1.88, 11]},
