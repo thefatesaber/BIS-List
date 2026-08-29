@@ -1,4 +1,4 @@
-# Obtainable - Warlock - Affliction
+# All-time - Warlock - Affliction
 warlock="Fatecastr"
 level=30
 race=troll
@@ -9,20 +9,20 @@ professions=tailoring=75/inscription=75
 spec=affliction
 # loot_spec=affliction
 
-talents=CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZW8AAAAAAAAAAAAAAAAgBDAYmBYwAAAA
+talents=CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA
 
 # Merciless Gladiator's Felweave Cowl 45
 head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659
-# Splintered Obsidian Shard 135
-neck=,ilevel=33,id=151399,enchant_id=5437,gem_id=32218,drop_level=30
+# Tuskarr Bone Necklace 135
+neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=213488/40155/40155,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Hatefury Mantle 42
-shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=32218/32218,bonus_id=9036,drop_level=30
+shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=32218/40155,bonus_id=9036,drop_level=30
 # Drape of the Messenger 43
-back=,ilevel=43,id=46042,enchant_id=3243,gem_id=32218,bonus_id=9043,drop_level=30
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=40155,bonus_id=9043,drop_level=30
 # Merciless Gladiator's Felweave Raiment 45
-chest=,ilevel=45,id=31982,enchant_id=6625,gem_id=32218/32218/32218,bonus_id=9357,drop_level=30,content_tuning=2659
+chest=,ilevel=45,id=31982,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9357,drop_level=30,content_tuning=2659
 # Bracers of the Malefic 44
-wrist=,ilevel=44,id=34436,enchant_id=2332,gem_id=32218,bonus_id=9037,drop_level=30
+wrist=,ilevel=44,id=34436,enchant_id=2332,gem_id=40155,bonus_id=9037,drop_level=30,enchant=1sp
 # Pharos Gloves 43
 hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=40155/40155,bonus_id=9043,drop_level=30
 # Belt of Blasting 40
@@ -31,11 +31,11 @@ waist=,ilevel=40,id=30038,gem_id=40155/40155/40155,bonus_id=9035,drop_level=30
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=40155/40155/40155,bonus_id=9037,drop_level=30
 # Boots of Fiery Resolution 43
 feet=,ilevel=43,id=45537,enchant_id=4092,gem_id=40155/40155,bonus_id=9043,drop_level=30
-# Stitchflesh's Misplaced Signet 33
-finger1=,ilevel=33,id=178736,enchant_id=6109,gem_id=40155,drop_level=30
-# Bottle-Popper Ring 33
-finger2=,ilevel=33,id=151410,enchant_id=6108,gem_id=40155,drop_level=30
-# Meteorite Crystal 43
+# Bloodoath Signet 33
+finger1=,id=178871,ilevel=33,enchant_id=6108,gem_id=40155/40155,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Band of the Ancient Dredger 33
+finger2=,ilevel=33,id=159461,enchant_id=6108,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Pendant of the Violet Eye 38
 trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Gale of Shadows 33
 trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
@@ -59,11 +59,10 @@ midnight.crucible_of_erratic_energies_sustenance=0
 midnight.crucible_of_erratic_energies_predation=0
 
 # Custom APL
-# this default action priority list is automatically created based on your character.
-# it is a attempt to provide you with a action list that is both simple and practicable,
-# while resulting in a meaningful and good simulation. it may not result in the absolutely highest possible dps.
-# feel free to edit, adapt and improve it to your own needs.
-# simulationcraft is always looking for updates and improvements to the default action lists.
+# Affliction APL — updated for SimC 1210-01 / WoW 12.1.0
+# Changes vs the 12.0.5 export: removed talent.nocturnal_yield (cut in 12.1.0) and
+# stripped talent.patient_zero (also cut) from sh_cleave and end_of_fight. Everything
+# else verified present in the current source.
 
 # executed before combat begins. accepts non-harmful actions only.
 actions.precombat=summon_pet
@@ -84,7 +83,6 @@ actions+=/call_action_list,name=end_of_fight
 actions+=/call_action_list,name=ogcd
 actions+=/call_action_list,name=items
 actions+=/call_action_list,name=soul_harvester
-actions+=/seed_of_corruption,if=talent.nocturnal_yield&active_enemies>1&buff.nightfall.react&(buff.nightfall.react=buff.nightfall.max_stack|buff.nightfall.remains<execute_time*buff.nightfall.max_stack)
 actions+=/malefic_grasp,chain=1,early_chain_if=buff.nightfall.react,if=pet.darkglare.active
 actions+=/drain_soul,chain=1,early_chain_if=buff.nightfall.react,interrupt_if=tick_time>0.5
 actions+=/shadow_bolt
@@ -110,8 +108,8 @@ actions.sh_cleave+=/summon_darkglare
 actions.sh_cleave+=/malefic_grasp,if=buff.nightfall.react>1|pet.darkglare.remains<gcd
 actions.sh_cleave+=/drain_soul,if=buff.nightfall.react>1
 actions.sh_cleave+=/shadow_bolt,if=buff.nightfall.react>1
-actions.sh_cleave+=/unstable_affliction,if=!talent.patient_zero&!talent.sow_the_seeds&(soul_shard|buff.shard_instability.react)
-actions.sh_cleave+=/seed_of_corruption,if=talent.patient_zero&talent.sow_the_seeds
+actions.sh_cleave+=/unstable_affliction,if=!talent.sow_the_seeds&(soul_shard|buff.shard_instability.react)
+actions.sh_cleave+=/seed_of_corruption,if=talent.sow_the_seeds
 
 # haunt on cd for apex, regardless of nightfall stacks
 actions.sh_st=haunt
@@ -127,8 +125,8 @@ actions.sh_st+=/shadow_bolt,if=buff.nightfall.react>1
 # sh does not care about saving shards in pure patchwerk. in reality it's good to save 1 shard for cascading calamity
 actions.sh_st+=/unstable_affliction,if=soul_shard|buff.shard_instability.react
 
-actions.end_of_fight=unstable_affliction,if=soul_shard&fight_remains<8&(!talent.patient_zero&!talent.sow_the_seeds)
-actions.end_of_fight+=/seed_of_corruption,if=soul_shard&fight_remains<8&(talent.patient_zero&talent.sow_the_seeds)
+actions.end_of_fight=unstable_affliction,if=soul_shard&fight_remains<8&(!talent.sow_the_seeds)
+actions.end_of_fight+=/seed_of_corruption,if=soul_shard&fight_remains<8&(talent.sow_the_seeds)
 actions.end_of_fight+=/drain_soul,if=buff.nightfall.react&fight_remains<5
 actions.end_of_fight+=/shadow_bolt,if=buff.nightfall.react&fight_remains<5
 
@@ -155,8 +153,6 @@ actions.variables+=/variable,name=trinket_2_will_lose_cast,value=((floor((fight_
 warlock.soul_shards=0
 warlock.default_pet=sayaad
 
-
-name=Warlock
 
 # Simulation Options
 iterations=10000

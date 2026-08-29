@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fate — L30 BiS Compendium</title>
-<meta name="description" content="Sim-validated best-in-slot gear lists for all 13 specs at level 30 (patch 12.0.5, Midnight). All-Time, Obtainable, and Herald of the Titans variants with talents, consumables, and stat panels.">
+<meta name="description" content="Sim-validated best-in-slot gear lists for all 13 specs at level 30 (patch 12.1.0, Midnight). All-Time, Obtainable, and Herald of the Titans variants with talents, consumables, and stat panels.">
 <meta name="theme-color" content="#0b0d12">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fate BiS Compendium">
@@ -469,10 +469,10 @@ footer{
 
 const CONFIG = {
   guild: "Fate — NA-Thrall",
-  patch: "12.0.5 (Midnight)",
+  patch: "12.1.0 (Midnight)",
   bracket: "Level 30",
   // Bump on every data change — a sim-derived list with no date can't be trusted.
-  updated: "2026-08-09",
+  updated: "2026-08-29",
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks and rings, every piece must come from Classic, TBC or WotLK."
 };
@@ -562,8 +562,8 @@ const CLASSES = [
     ]
   }
 },
-{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2891, dpsByList:{"alltime": 2891, "obtainable": 2186, "herald": 2075},
-  talents:{"alltime": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA", "obtainable": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA", "herald": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA"},
+{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2891, dpsByList:{"alltime": 2891, "obtainable": 2701, "herald": 2075},
+  talents:{"alltime": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA", "obtainable": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA", "herald": "CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA"},
   consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Hissing Rune", "wowhead": 204973, "token": "hissing_rune_3", "hands": "MH"}},
   stats:{"alltime": {"main": 186, "stam": 1088, "crit": [22.45, 82], "mastery": [54.58, 163], "haste": [16.99, 81], "vers": [2.39, 14]},
          "obtainable": {"main": 184, "stam": 1089, "crit": [19.04, 65], "mastery": [50.61, 147], "haste": [18.45, 88], "vers": [4.27, 25]},
@@ -624,11 +624,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2575, dpsByList:{"alltime": 2575, "obtainable": 2588, "herald": 2348},
+{ id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2858, dpsByList:{"alltime": 2858, "obtainable": 2678, "herald": 2348},
   talents:{"alltime": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "obtainable": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "herald": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA"},
   consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH"}},
   stats:{"alltime": {"main": 235, "stam": 1039, "crit": [21.65, 83], "mastery": [58.12, 105], "haste": [20.58, 76], "vers": [3.76, 22]},
-         "obtainable": {"main": 228, "stam": 1039, "crit": [21.65, 83], "mastery": [53.71, 94], "haste": [20.58, 76], "vers": [3.76, 22]},
+         "obtainable": {"main": 228, "stam": 1039, "crit": [19.44, 72], "mastery": [53.71, 94], "haste": [22.97, 87], "vers": [3.76, 22]},
          "herald": {"main": 222, "stam": 1046, "crit": [18.84, 69], "mastery": [56.52, 101], "haste": [18.18, 65], "vers": [2.05, 12]}},
   notes:["Bonereaver's Edge modeled 11% flat per attack — log-validated ≈89.6% uptime / ≈11.35 procs/min."],
   credits:{},
@@ -663,7 +663,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Dreadboots of the Legion", "wowhead": 32345, "ilvl": 42, "source": "Black Temple — Reliquary of Souls", "ench": "Greater Assault", "enchsp": 60763, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Footbomb Championship Ring", "wowhead": 159462, "q": 3, "ilvl": 33, "source": "The MOTHERLODE!! — Coin-Operated Crowd Pummeler", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Heart of Roccor", "wowhead": 231456, "ilvl": 36, "source": "Blackrock Depths (Anniversary) — Lord Roccor", "status": "sim"},
+      {"slot": "Trinket 1", "item": "Chaos Talisman", "wowhead": 137459, "q": 3, "ilvl": 33, "source": "Assault on Violet Hold — Fel Lord Betrug", "status": "sim"},
       {"slot": "Trinket 2", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul", "status": "sim"},
       {"slot": "Main Hand", "item": "Bonereaver's Edge", "wowhead": 17076, "ilvl": 38, "source": "Molten Core — Ragnaros", "ench": "Rune of the Fallen Crusader", "enchsp": 53344, "status": "sim"}
     ],
@@ -813,8 +813,8 @@ const CLASSES = [
     ]
   }
 },
-{ id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2493, dpsByList:{"alltime": 2493, "obtainable": 2273, "herald": 2052},
-  talents:{"alltime": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA", "obtainable": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA", "herald": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA"},
+{ id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2493, dpsByList:{"alltime": 2493, "obtainable": 2308, "herald": 2052},
+  talents:{"alltime": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA", "obtainable": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA", "herald": "CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
   stats:{"alltime": {"main": 294, "stam": 1097, "crit": [27.85, 89], "mastery": [16.00, 0], "haste": [30.18, 144], "vers": [4.54, 9]},
          "obtainable": {"main": 286, "stam": 1100, "crit": [24.24, 71], "mastery": [16.00, 0], "haste": [28.10, 134], "vers": [3.59, 21]},
@@ -939,11 +939,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3286, dpsByList:{"alltime": 3286, "obtainable": 2738, "herald": 2089},
+{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3286, dpsByList:{"alltime": 3286, "obtainable": 2748, "herald": 2089},
   talents:{"alltime": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "obtainable": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "herald": "CgcBG5bbocFKcv+yIq8fPd6ORBAgZgZMDGDAAAAAAAGAAAAAAAAAwAGGzMMzgBAaZBAAAAAAAAA"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH/OH"}},
   stats:{"alltime": {"main": 295, "stam": 1062, "crit": [19.64, 68], "mastery": [29.46, 107], "haste": [19.92, 95], "vers": [0.0, 0]},
-         "obtainable": {"main": 267, "stam": 1066, "crit": [18.64, 63], "mastery": [29.26, 106], "haste": [20.13, 96], "vers": [1.88, 11]},
+         "obtainable": {"main": 266, "stam": 1061, "crit": [18.44, 62], "mastery": [28.86, 104], "haste": [21.18, 101], "vers": [1.88, 11]},
          "herald": {"main": 210, "stam": 1056, "crit": [19.04, 65], "mastery": [36.89, 144], "haste": [16.36, 78], "vers": [3.25, 19]}},
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
   credits:{},
@@ -967,7 +967,7 @@ const CLASSES = [
       {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Head", "item": "Frayed Scoundrel's Cap", "wowhead": 50206, "q": 4, "ilvl": 33, "source": "The Forge of Souls — Devourer of Souls", "alts": [{"item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "delta": null}], "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "why": "Wastewalker Helm is a fine stand-in until this drops: same item level, and it held this slot in the previous build. The two were never compared in isolation, so treat them as close rather than equal.", "hm": "socket"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
@@ -976,7 +976,7 @@ const CLASSES = [
       {"slot": "Hands", "item": "Gloves of the Endless Dark", "wowhead": 46043, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Major Spellpower", "enchsp": 33997, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim", "hm": "only"},
       {"slot": "Waist", "item": "Soul-Devouring Cinch", "wowhead": 46095, "ilvl": 43, "source": "Ulduar — Yogg-Saron", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim", "hm": "only"},
       {"slot": "Legs", "item": "Plague-Soaked Leather Leggings", "wowhead": 51889, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Frozen Spellthread", "enchsp": 387291, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
-      {"slot": "Feet", "item": "Footpads of Silence", "wowhead": 45564, "ilvl": 42, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
+      {"slot": "Feet", "item": "Footpads of Impending Death", "wowhead": 49895, "ilvl": 47, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Arch-Druid's Tainted Seal", "wowhead": 134487, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Archdruid Glaidalis", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Talisman of Ephemeral Power", "wowhead": 18820, "ilvl": 38, "source": "Molten Core — trash", "status": "sim"},
@@ -1067,8 +1067,8 @@ const CLASSES = [
     ]
   }
 },
-{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:2922, dpsByList:{"alltime": 2922, "obtainable": 2600, "herald": 2351},
-  talents:{"alltime": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "obtainable": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZW8AAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "herald": "CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA"},
+{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:3395, dpsByList:{"alltime": 3395, "obtainable": 3245, "herald": 2351},
+  talents:{"alltime": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "obtainable": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "herald": "CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
   stats:{"alltime": {"main": 272, "stam": 1157, "crit": [29.87, 114], "mastery": [20.00, 0], "haste": [28.94, 138], "vers": [10.08, 59]},
          "obtainable": {"main": 263, "stam": 1157, "crit": [28.06, 105], "mastery": [20.00, 0], "haste": [26.84, 128], "vers": [12.13, 71]},
@@ -1130,7 +1130,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2726, dpsByList:{"alltime": 2726, "obtainable": 2049, "herald": 1857},
+{ id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2726, dpsByList:{"alltime": 2726, "obtainable": 2524, "herald": 1857},
   talents:{"alltime": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "obtainable": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "herald": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
   stats:{"alltime": {"main": 244, "stam": 1046, "crit": [22.64, 63], "mastery": [29.26, 106], "haste": [23.88, 108], "vers": [0.00, 0]},
@@ -1195,7 +1195,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2794, dpsByList:{"alltime": 2794, "obtainable": 1998, "herald": 1987},
+{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2794, dpsByList:{"alltime": 2794, "obtainable": 2683, "herald": 1987},
   talents:{"alltime": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "obtainable": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "herald": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
   stats:{"alltime": {"main": 247, "stam": 1107, "crit": [26.65, 83], "mastery": [71.88, 114], "haste": [16.57, 79], "vers": [0.00, 0]},
@@ -1260,7 +1260,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:3310, dpsByList:{"alltime": 3310, "obtainable": 2335, "herald": 2092},
+{ id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:3310, dpsByList:{"alltime": 3310, "obtainable": 3208, "herald": 2092},
   talents:{"alltime": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "obtainable": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "herald": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
   stats:{"alltime": {"main": 296, "stam": 1056, "crit": [26.46, 107], "mastery": [13.50, 0], "haste": [22.44, 107], "vers": [7.18, 42]},
@@ -1300,7 +1300,7 @@ const CLASSES = [
       {"slot": "Ring 1", "item": "Bottle-Popper Ring", "wowhead": 151410, "q": 3, "ilvl": 33, "source": "Blackrock Depths — Plugger Spazzring", "ench": "Accord of Versatility", "enchsp": 297991, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Stitchflesh's Misplaced Signet", "wowhead": 178736, "q": 3, "ilvl": 33, "source": "The Necrotic Wake — Surgeon Stitchflesh", "ench": "Accord of Versatility", "enchsp": 297991, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Gale of Shadows", "wowhead": 56462, "q": 3, "ilvl": 33, "source": "Grim Batol — Erudax", "status": "sim", "why": "Spec-dependent: the on-use pair, Pendant of the Violet Eye + Meteorite Crystal, has the higher ceiling and should sim ahead once both fire in the same window. Gale of Shadows and Solace of the Fallen trade that ceiling for consistency."},
-      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47271, "ilvl": 44, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
+      {"slot": "Trinket 2", "item": "Solace of the Fallen", "wowhead": 47432, "ilvl": 45, "source": "Trial of the Crusader — Lord Jaraxxus", "status": "sim"},
       {"slot": "Main Hand", "item": "Abracadaver", "wowhead": 51887, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 3}], "status": "sim", "why": "Higher ceiling: Nibelung out-damages this on a good night, but its Val'kyr summons are pure RNG. The pick above is the consistent choice."}
     ],
     herald:[
@@ -1441,20 +1441,31 @@ function enchLink(e){
     : "https://www.wowhead.com/search?q=" + encodeURIComponent(e.ench);
   return '<a href="'+url+'" target="_blank" rel="noopener">'+esc(e.ench)+'</a>';
 }
-const WHY_ITEMS = {
-  "Nibelung": 50648, "Abracadaver": 51887,
-  "Pendant of the Violet Eye": 28727, "Meteorite Crystal": 46051,
-  "Gale of Shadows": 56462, "Solace of the Fallen": 47432,
-  "Vibroblade": 9485
-};
+// Items a why note may name. Built from the data so any item already in a list or
+// an alts entry links itself; the literals below only cover names that appear in
+// notes without appearing in any list.
+const WHY_ITEMS = (() => {
+  const m = { "Nibelung": 50648 };
+  for(const c of CLASSES)
+    for(const L of Object.keys(c.lists || {}))
+      for(const r of (c.lists[L] || [])){
+        if(r.item && r.wowhead && !(r.item in m)) m[r.item] = r.wowhead;
+        for(const a of (r.alts || []))
+          if(a.item && a.wowhead && !(a.item in m)) m[a.item] = a.wowhead;
+      }
+  return m;
+})();
 function whyHtml(text){
-  let out = esc(text);
+  // Bold the lead-in first, while the string is still plain text. Doing it after
+  // linkification let the regex run into the "https:" of a generated href when a
+  // note opened with an item name.
+  let out = esc(text).replace(/^([^:]{3,40}:)/, "<b>$1</b>");
   const names = Object.keys(WHY_ITEMS).sort((a,b) => b.length - a.length);
   for(const n of names){
     const re = new RegExp("(?![^<]*>)" + n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g");
     out = out.replace(re, '<a href="https://www.wowhead.com/item='+WHY_ITEMS[n]+'" target="_blank" rel="noopener">'+n+'</a>');
   }
-  return out.replace(/^([^:]{3,40}:)/, '<b>$1</b>');
+  return out;
 }
 const PRIMARY = {warrior:"Strength", paladin:"Strength", deathknight:"Strength",
   hunter:"Agility", druid:"Agility", rogue:"Agility", monk:"Agility",

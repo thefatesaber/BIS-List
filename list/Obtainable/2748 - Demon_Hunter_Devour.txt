@@ -13,8 +13,8 @@ spec=devourer
 talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA
 
 ### Combo 1
-# wastewalker_helm (33)
-head=,id=28224,ilevel=33,gem_id=76885/213743/71854,bonus_id=7202,drop_level=30
+# Frayed Scoundrel's Cap (33)
+head=,id=50206,ilevel=33,gem_id=76884/213743/32196,bonus_id=4196,drop_level=30
 # Ukhel Ancestry Beads (135)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71854,drop_level=30
 # mantle_of_perenolde (33)
@@ -32,8 +32,8 @@ hands=,id=46043,ilevel=43,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_
 waist=,id=46095,ilevel=43,gem_id=71854/71854/71854,bonus_id=9043,drop_level=30
 # Plague-Soaked Leather Leggings (47)
 legs=,id=51889,ilevel=47,enchant_id=6539,gem_id=71854/71854/71854,bonus_id=9051,drop_level=30
-# Footpads of Silence (42)
-feet=,id=45564,ilevel=42,enchant_id=4429,gem_id=71854/71854,bonus_id=9042,drop_level=30
+# footpads_of_impending_death (47)
+feet=footpads_of_impending_death,id=49895,ilevel=47,enchant_id=4429,gem_id=71854/71854,bonus_id=9051
 # signet_of_the_false_accuser (33)
 finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
 # Arch-Druid's Tainted Seal (33)

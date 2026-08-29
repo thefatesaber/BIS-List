@@ -31,8 +31,8 @@ feet=,ilevel=42,id=32345,enchant_id=1597,gem_id=71856/71856,bonus_id=9036,drop_l
 finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71856,drop_level=30
 # Signet of the False Accuser 33
 finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71856,drop_level=30
-# Heart of Roccor (155)
-trinket1=,id=231456,bonus_id=12378/7756,drop_level=30
+# Chaos Talisman (33)
+trinket1=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Dragonspine Trophy 38
 trinket2=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
 # Bonereavers_Edge 38
@@ -43,8 +43,6 @@ head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30,content
 
 #finger1=,ilevel=33,id=178870,enchant_id=6108,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 #finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-
-name=Asimiir
 
 # Consumables
 # potion=golemblood_potion
