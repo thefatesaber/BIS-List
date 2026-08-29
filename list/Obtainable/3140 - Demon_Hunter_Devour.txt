@@ -38,10 +38,11 @@ feet=footpads_of_impending_death,id=49895,ilevel=47,enchant_id=4429,gem_id=71854
 finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
 # Arch-Druid's Tainted Seal (33)
 finger2=,ilevel=33,id=134487,enchant_id=6110,gem_id=71854,drop_level=30
-# talisman_of_ephemeral_power (38)
-trinket1=talisman_of_ephemeral_power,id=18820,ilevel=38
-# Armored Elekk Tusk (32)
-trinket2=,id=108902,ilevel=33,bonus_id=6691/6703,drop_level=30
+# Pendant of the Violet Eye (38) — macro-stacked; use= carries BOTH trinkets'
+# stacks (380 + 320 = 700 vers) since the in-game macro pops them as one press
+trinket1=Pendant_and_Meteorite_Macro,ilevel=38,stats=8int,use=700vers_20dur_120cd
+# Meteorite Crystal (41) — passive contribution only; its use window lives on trinket1
+trinket2=Meteorite_Crystal_Macro,ilevel=41,stats=8int
 # Bloodsurge, Kel'Thuzad's Blade of Agony (47)
 main_hand=bloodsurge_kelthuzads_blade_of_agony,id=50732,ilevel=47,bonus_id=905130,gem_id=71854,enchant=13sp
 # Rigormortis (47)

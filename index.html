@@ -937,11 +937,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3286, dpsByList:{"alltime": 3286, "obtainable": 2748, "herald": 2400},
+{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3286, dpsByList:{"alltime": 3286, "obtainable": 3140, "herald": 2400},
   talents:{"alltime": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "obtainable": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "herald": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH/OH"}},
   stats:{"alltime": {"main": 295, "stam": 1062, "crit": [19.64, 68], "mastery": [29.46, 107], "haste": [19.92, 95], "vers": [0.0, 0]},
-         "obtainable": {"main": 266, "stam": 1061, "crit": [18.44, 62], "mastery": [28.86, 104], "haste": [21.18, 101], "vers": [1.88, 11]},
+         "obtainable": {"main": 283, "stam": 1061, "crit": [18.44, 62], "mastery": [28.86, 104], "haste": [21.18, 101], "vers": [0.0, 0]},
          "herald": {"main": 244, "stam": 1056, "crit": [19.04, 65], "mastery": [20.84, 64], "haste": [19.5, 93], "vers": [5.13, 30]}},
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
   credits:{},
@@ -977,8 +977,8 @@ const CLASSES = [
       {"slot": "Feet", "item": "Footpads of Impending Death", "wowhead": 49895, "ilvl": 47, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Ring 2", "item": "Arch-Druid's Tainted Seal", "wowhead": 134487, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Archdruid Glaidalis", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Trinket 1", "item": "Talisman of Ephemeral Power", "wowhead": 18820, "ilvl": 38, "source": "Molten Core — trash", "status": "sim"},
-      {"slot": "Trinket 2", "item": "Armored Elekk Tusk", "wowhead": 108902, "ilvl": 32, "source": "Shadowmoon Valley (WoD) — treasure", "status": "sim", "q": 3},
+      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "status": "sim", "why": "Not a close call: Gale of Shadows and Solace of the Fallen both build their stacks off periodic damage, which Devour's ability set does not generate, so neither ever ramps on this spec. Pendant of the Violet Eye and Meteorite Crystal are on-use and macro-stacked to fire on one keypress, landing both stacks in the same window."},
+      {"slot": "Trinket 2", "item": "Meteorite Crystal", "wowhead": 46051, "q": 4, "ilvl": 43, "source": "Ulduar", "status": "sim", "hm": "only"},
       {"slot": "Main Hand", "item": "Bloodsurge, Kel'Thuzad's Blade of Agony", "wowhead": 50732, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"}
     ],
