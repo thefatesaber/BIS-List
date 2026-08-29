@@ -14,7 +14,7 @@ talents=CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA
 # Vengeful Gladiator's Silk Cowl (44)
 head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
 # Chain of the Green Flight (135)
-neck=,ilevel=33,id=137311,enchant_id=5890,gem_id=71854,drop_level=30
+neck=,ilevel=33,id=137311,enchant_id=5890,gem_id=213500,drop_level=30
 # vengeful_gladiators_silk_amice (44)
 shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=71854/71854,bonus_id=9357,drop_level=30
 # Drape of the Messenger (43)

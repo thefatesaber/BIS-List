@@ -5,7 +5,7 @@ race=maghar_orc
 level=30
 spec=fury
 role=attack
-talents=CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDGmhlBjBAYMjFMYGYMDAAEAAQAIAAAgBAAAAAA
+talents=CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA
 ### Combo 1
 # Helm of the Corrupted Mind (39)
 head=helm_of_the_corrupted_mind,ilevel=39,id=39260,gem_id=76886/213743,bonus_id=9039

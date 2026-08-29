@@ -9,7 +9,7 @@ professions=tailoring=75/engineering=1
 spec=frost
 # loot_spec=frost
 
-talents=CAEAMhlVtghLZL4RZzExaQoBYBAAmRMDDmxgZmBAAAAAAAAALAAAAAYbDMDAALAAAAgBAAA
+talents=CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA
 
 # forgotten_shadow_hood 33
 head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30

@@ -8,7 +8,7 @@ role=attack
 professions=engineering=1/
 spec=feral
 
-talents=CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA
+talents=CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA
 
 ### Combo 1
 # Frayed Scoundrel's Cap (33)

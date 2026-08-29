@@ -1,4 +1,18 @@
 # Herald - Paladin - Retribution
+# HoW damage calibration — game/sim = 1.3503  (place BEFORE the actor line; local build only, Raidbots strips these)
+override.spell_data=effect.14488.ap_coefficient=2.91414
+override.spell_data=effect.1259264.ap_coefficient=2.18553
+override.spell_data=effect.1291900.ap_coefficient=2.91414
+# Per-spell calibration to Exhibiting's naked 5:00 log — local build only, BEFORE the actor line
+# Final Verdict 383328: 4.65069 × 1.089
+override.spell_data=effect.1015174.ap_coefficient=5.06460
+# Highlord's Judgment 383921: 3.90000 × 1.162
+override.spell_data=effect.1016127.ap_coefficient=4.53180
+# Blade of Justice 184575: 1.92877 × 1.321
+override.spell_data=effect.267535.ap_coefficient=2.54791
+# (keep the three HoW overrides from before; HoW merged now reads 0.966 —
+#  if you want it exact, retune 2.91414 → 2.81 on 14488/1291900, i.e. ×1.304 instead of ×1.35)
+
 paladin="Exhibiting"
 level=30
 race=blood_elf
@@ -9,7 +23,7 @@ professions=blacksmithing=75/engineering=1
 spec=retribution
 # loot_spec=holy
 
-talents=CYEAVg1HmQqr1Dwlv86ljju8vCAAAAAMyymZmtBGAAAAAAGlBAgtBzG4BAwCLAAAAAAAAAwAAMAAAgBA
+talents=CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA
 
 # Helm of the Corrupted Mind (39)
 head=helm_of_the_corrupted_mind,ilevel=39,id=39260,gem_id=76886/213743,bonus_id=9039

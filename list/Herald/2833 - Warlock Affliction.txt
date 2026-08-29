@@ -1,4 +1,4 @@
-# All-time - Warlock - Affliction
+# Herald - Warlock - Affliction
 warlock="Fatecastr"
 level=30
 race=troll
@@ -9,7 +9,7 @@ professions=tailoring=75/inscription=75
 spec=affliction
 # loot_spec=affliction
 
-talents=CkQAAAAAAAAAAAAAAAAAAAAAAgBDBDMDAAAMwiZmlBAAAAAAAAAAAAAAAYwAAmZAGMAAAA
+talents=CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA
 
 # forgotten_shadow_hood 33
 head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30
@@ -88,7 +88,6 @@ actions+=/call_action_list,name=end_of_fight
 actions+=/call_action_list,name=ogcd
 actions+=/call_action_list,name=items
 actions+=/call_action_list,name=soul_harvester
-actions+=/seed_of_corruption,if=talent.nocturnal_yield&active_enemies>1&buff.nightfall.react&(buff.nightfall.react=buff.nightfall.max_stack|buff.nightfall.remains<execute_time*buff.nightfall.max_stack)
 actions+=/malefic_grasp,chain=1,early_chain_if=buff.nightfall.react,if=pet.darkglare.active
 actions+=/drain_soul,chain=1,early_chain_if=buff.nightfall.react,interrupt_if=tick_time>0.5
 actions+=/shadow_bolt
@@ -114,8 +113,8 @@ actions.sh_cleave+=/summon_darkglare
 actions.sh_cleave+=/malefic_grasp,if=buff.nightfall.react>1|pet.darkglare.remains<gcd
 actions.sh_cleave+=/drain_soul,if=buff.nightfall.react>1
 actions.sh_cleave+=/shadow_bolt,if=buff.nightfall.react>1
-actions.sh_cleave+=/unstable_affliction,if=!talent.patient_zero&!talent.sow_the_seeds&(soul_shard|buff.shard_instability.react)
-actions.sh_cleave+=/seed_of_corruption,if=talent.patient_zero&talent.sow_the_seeds
+actions.sh_cleave+=/unstable_affliction,if=!talent.sow_the_seeds&(soul_shard|buff.shard_instability.react)
+actions.sh_cleave+=/seed_of_corruption,if=talent.sow_the_seeds
 
 # haunt on cd for apex, regardless of nightfall stacks
 actions.sh_st=haunt
@@ -131,8 +130,8 @@ actions.sh_st+=/shadow_bolt,if=buff.nightfall.react>1
 # sh does not care about saving shards in pure patchwerk. in reality it's good to save 1 shard for cascading calamity
 actions.sh_st+=/unstable_affliction,if=soul_shard|buff.shard_instability.react
 
-actions.end_of_fight=unstable_affliction,if=soul_shard&fight_remains<8&(!talent.patient_zero&!talent.sow_the_seeds)
-actions.end_of_fight+=/seed_of_corruption,if=soul_shard&fight_remains<8&(talent.patient_zero&talent.sow_the_seeds)
+actions.end_of_fight=unstable_affliction,if=soul_shard&fight_remains<8&(!talent.sow_the_seeds)
+actions.end_of_fight+=/seed_of_corruption,if=soul_shard&fight_remains<8&(talent.sow_the_seeds)
 actions.end_of_fight+=/drain_soul,if=buff.nightfall.react&fight_remains<5
 actions.end_of_fight+=/shadow_bolt,if=buff.nightfall.react&fight_remains<5
 

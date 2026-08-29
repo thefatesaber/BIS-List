@@ -43,7 +43,7 @@ main_hand=eskhandars_right_claw,weapon=fist_2.60speed_9min_14max,ilevel=38,quali
 # Vibroblade (33)
 off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=4444,bonus_id=6710,drop_level=30
 #effective DPS = D0 × (1 + A × P × U)
-#D0 = naked sim DPS (1782 — the sim with the proc counting for zero)
+#D0 = naked sim DPS (2397 — the sim with the proc counting for zero)
 #A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
 #P = proportion affected = physical share = 0.969
 #U = measured uptime
@@ -55,7 +55,7 @@ off_hand=Vibroblade,ilevel=33,id=9485,enchant_id=4444,bonus_id=6710,drop_level=3
 #u=((59.68+45.9+65.25)/3) = 56.94
 
 
-#effective DPS = 1782 × (1 + 0.2083 × 0.969 × 0.5694) = 1987
+#effective DPS = 2397 × (1 + 0.2083 × 0.969 × 0.5694) = 2672
 
 #finger1=,id=159462,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Consumables
