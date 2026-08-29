@@ -8,13 +8,13 @@ role=attack
 professions=engineering=1/
 spec=feral
 
-talents=CcGA8cL7tpvige+kkmGM9zUPWDAAAAAAAMDjBAAzMzAAAAwWAgZmRNDAGDAAAAAAAAAAAAAAAAAAAMAAAAA
+talents=CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA
 
 ### Combo 1
 # Frayed Scoundrel's Cap (33)
-head=,id=50206,ilevel=33,gem_id=76884/213743/32194,bonus_id=4196,drop_level=30
+head=,id=50206,ilevel=33,gem_id=76884/213743/40150,bonus_id=4196,drop_level=30
 # Amnesia (135)
-neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/40150/40150,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32194/32194,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
@@ -235,8 +235,6 @@ actions.finisher=rip,if=combo_points>=5&refreshable&(buff.tigers_fury.up|dot.rip
 actions.finisher+=/pool_resource,for_next=1
 actions.finisher+=/ferocious_bite,max_energy=1,if=combo_points>=5
 
-name=Druid
-
 # Simulation Options
 iterations=10000
 desired_targets=1
@@ -259,7 +257,7 @@ override.battle_shout=0
 override.mystic_touch=0
 override.chaos_brand=0
 #override.windfury_totem=1
-override.mark_of_the_wild=0
+override.mark_of_the_wild=1
 override.hunters_mark=0
 override.bleeding=0
 report_details=1
