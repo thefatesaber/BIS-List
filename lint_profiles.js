@@ -195,7 +195,8 @@ for (const dir of DIRS) {
       for (const g of (kv.gem_id || "").split("/").filter(Boolean)) {
         if (g === "25899" && slot !== "main_hand" && slot !== "off_hand")
           E(`line ${ln}: Brutal Earthstorm Diamond (25899) off-weapon — segfaults enchants.cpp:168; use 32409`);
-        if (g === "76885") E(`line ${ln}: meta 76885 — ruling is Mystical Skyfire Diamond 25893`);
+        if (g === "76885" && c.id === "shaman")
+          E(`line ${ln}: meta 76885 in a shaman export — ruling is Mystical Skyfire Diamond 25893`);
       }
 
       // bonus ids

@@ -127,6 +127,9 @@ a same-character MM comparator.
 - Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
   a single paladin log (buff applications ÷ minutes) hardens them.
 - Monk Herald anomaly; DH Herald trinket; DK Roccor-vs-Chaos alt sweep.
+- Burning Primal Diamond (76885) proven BiS on the DH head over the agi
+  meta; sweep candidate against Mystical Skyfire (25893) on the other
+  int-caster heads. The 76885 ban is shaman-scoped, as originally ruled.
 
 Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
 convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
