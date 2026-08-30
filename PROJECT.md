@@ -37,12 +37,16 @@ it. Never enable it unprompted; a health-timeline standard is an open ruling.
 (the level-3-boss bug that inflated an entire prior rail archive). The only
 correct form is `target_level+=3`.
 
-**hunters_mark: cast the ability, never force the override.**
-`override.hunters_mark=1` forces the debuff at 100% uptime regardless of
-the spell's real rules and is valid only in reconciliation copies (Dummy
-mode, WCL comparisons) — it overstates MM by ~3%. The benchmark encoding of
-the ability itself is a cast in the APL (precombat on patchwerk), where the
-engine applies whatever conditions the live spell carries.
+**hunters_mark: the override is the cast.** Hunter's Mark is known at 30
+(verified in-game 2026-08-30): spell 257284, 3% damage taken, no
+conditions, single target, permanent. simc 1210-01 carries no
+hunters_mark action, so `override.hunters_mark=1` is the sanctioned
+stand-in for the hunter's own precombat cast on hunter benchmark
+profiles — exact on patchwerk, and the value matches live (the 2.9%
+measured removal delta against the 3% tooltip). On non-hunter profiles
+it assumes an actor the rail excludes and stays banned. If the engine
+gains the action, or the spell regains conditional rules, the cast
+replaces the override and this ruling is re-derived.
 
 **Synthetics are lowercase and end in `_proxy`.** A synthetic item or buff
 sharing a name with a real DBC entry is dropped silently, with no error.

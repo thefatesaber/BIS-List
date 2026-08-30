@@ -140,8 +140,8 @@ for (const dir of DIRS) {
       E(`line ${n}: target_level=+N parses as absolute level N — use target_level+=N`);
     for (const n of where(/^target_level=(\d|1[0-9])$/))
       E(`line ${n}: absolute target_level below 20 — level-3-boss bug`);
-    if (has(/^override\.hunters_mark=1/))
-      E(`hunters_mark=1 — reconciliation-only, never in a benchmark profile`);
+    if (c.id !== "hunter" && has(/^override\.hunters_mark=1/))
+      E(`hunters_mark=1 — the hunter's own permanent debuff; on a non-hunter it assumes an actor the rail excludes`);
     if (!has(/^temporary_enchant=disabled/)) E(`temporary_enchant=disabled missing`);
     for (const n of where(/^temporary_enchant=\s*$/))
       E(`line ${n}: blank temporary_enchant= — triggers the fallback; delete the line`);
