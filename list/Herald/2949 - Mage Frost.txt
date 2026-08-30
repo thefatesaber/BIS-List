@@ -1,4 +1,4 @@
-# All-time - Mage - Frost
+# Herald - Mage - Frost
 mage="Fateccaster"
 level=30
 race=nightborne
@@ -11,36 +11,40 @@ spec=frost
 
 talents=CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA
 
-# Vengeful Gladiator's Silk Cowl (44)
-head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
-# Ukhel Ancestry Beads (135)
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/71854/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
-# vengeful_gladiators_silk_amice (44)
-shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=71854/71854,bonus_id=9357,drop_level=30
-# Drape of the Messenger (43)
-back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
-# Sunfire Robe (44)
-chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
-# Bracers of the Tempest (44)
-wrist=,ilevel=44,id=34447,enchant_id=4414,gem_id=71854,bonus_id=9037,drop_level=30
-# Handguards of Defiled Worlds (44)
-hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
-# Belt of Blasting (40)
+# forgotten_shadow_hood 33
+head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30
+# Chain of the Green Flight (33)
+neck=,ilevel=33,id=137311,enchant_id=5890,gem_id=71854,drop_level=30
+# wings_of_the_avatar 40
+shoulder=,ilevel=40,id=30163,enchant_id=3838,gem_id=71854/71854,bonus_id=9035,drop_level=30
+# pennant_cloak 40
+back=,ilevel=39,id=44005,enchant_id=3243,gem_id=71854,bonus_id=9039,drop_level=30
+# vestments_of_the_seawitch 40
+chest=,ilevel=40,id=30107,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
+# bindings_of_raging_fire 33
+wrist=,ilevel=33,id=34697,enchant_id=2332,gem_id=71854,bonus_id=7202,drop_level=30
+# manaspark_gloves 33
+hands=,ilevel=33,id=24450,enchant_id=2937,gem_id=71854/71854,bonus_id=7202,drop_level=30
+# Belt of Blasting 40
 waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
-# Leggings of Calamity (44)
-legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
-# Slippers of the Seacaller (42)
-feet=,ilevel=42,id=32239,enchant_id=4429,gem_id=71854/71854,bonus_id=9036,drop_level=30
-# signet_of_the_false_accuser (33)
-finger1=,ilevel=33,id=162542,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# breeches_of_the_occultist 33
+legs=,ilevel=33,id=30531,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,drop_level=30
+# saviors_slippers 41
+feet=,ilevel=41,id=45567,enchant_id=4429,gem_id=71854/71854,bonus_id=9043,drop_level=30
+# Scalebane Signet (33)
+finger1=,ilevel=33,id=193768,enchant_id=6110,gem_id=71854,drop_level=30
 # Fleshfused Circle (33)
-finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Pendant of the Violet Eye (38)
-trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
-# Solace of the Fallen 45
-trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
-# Abracadaver 47 
-main_hand=,ilevel=47,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
+finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854,drop_level=30
+# Gale of Shadows 33
+#trinket1=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+# Pendant of the Violet Eye 38 
+trinket2=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+# Armored Elekk Tusk (32)
+trinket1=,id=108902,ilevel=32,bonus_id=6691,drop_level=29
+# torch_of_holy_fire 39
+main_hand=,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
+# surplus_limb 39
+off_hand=,id=40273,ilevel=39,bonus_id=9039,enchant_id=4434
 
 
 

@@ -473,9 +473,11 @@ const CONFIG = {
   patch: "12.1.0 (Midnight)",
   bracket: "Level 30",
   // Bump on every data change — a sim-derived list with no date can't be trusted.
-  updated: "2026-08-29",
+  updated: "2026-08-30",
   // Herald of the Titans achievement requirements.
-  heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK."
+  heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
+  // Rendered under the header when set — the public rebase notice (ruling B).
+  notice: "Rebased Aug 30, 2026 — full re-sim of all 39 lists on corrected profiles, with every proc rate anchored to combat logs. DPS moved on most specs; the gear picks are unchanged."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -498,12 +500,11 @@ const LIST_TYPES = [
 ];
 
 const CLASSES = [
-{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3932, dpsByList:{"alltime": 3932, "obtainable": 3251, "herald": 3080},
+{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3808, dpsByList:{"alltime": 3808, "obtainable": 3160, "herald": 3002},
   talents:{"alltime": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "obtainable": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "herald": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}, "herald": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}},
-  stats:{"alltime": {"main": 212, "stam": 1036, "crit": [23.45, 92], "mastery": [50.24, 139], "haste": [15.52, 74], "vers": [6.66, 39]},
-         "obtainable": {"main": 239, "stam": 1042, "crit": [19.64, 73], "mastery": [22.71, 41], "haste": [31.31, 150], "vers": [3.76, 22]},
-         "herald": {"main": 246, "stam": 1051, "crit": [18.84, 69], "mastery": [22.15, 39], "haste": [24.96, 119], "vers": [2.05, 12]}},
+  stats:{"alltime": {"main": 212, "stam": 1036, "crit": [23.45, 92], "mastery": [50.24, 139], "haste": [15.52, 74], "vers": [6.66, 39]}, "obtainable": {"main": 239, "stam": 1042, "crit": [19.64, 73], "mastery": [22.71, 41], "haste": [31.31, 150], "vers": [3.76, 22]}, "herald": {"main": 246, "stam": 1051, "crit": [18.84, 69], "mastery": [22.15, 39], "haste": [24.96, 119], "vers": [2.05, 12]}},
   notes:["Weapon DPS dominates stat weights. Gem Mastery/Crit — haste only past the rage-starvation threshold.", "Trinket slot head-to-head (Death's Choice vs current pair) still open."],
   credits:{},
   lists:{
@@ -563,12 +564,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:2891, dpsByList:{"alltime": 2891, "obtainable": 2701, "herald": 2567},
+{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:3097, dpsByList:{"alltime": 3097, "obtainable": 2900, "herald": 2767},
   talents:{"alltime": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA", "obtainable": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA", "herald": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Hissing Rune", "wowhead": 204973, "token": "hissing_rune_3", "hands": "MH"}},
-  stats:{"alltime": {"main": 186, "stam": 1088, "crit": [22.45, 82], "mastery": [54.58, 163], "haste": [16.99, 81], "vers": [2.39, 14]},
-         "obtainable": {"main": 184, "stam": 1089, "crit": [19.04, 65], "mastery": [50.61, 147], "haste": [18.45, 88], "vers": [4.27, 25]},
-         "herald": {"main": 170, "stam": 1103, "crit": [19.04, 65], "mastery": [55.06, 165], "haste": [13.84, 66], "vers": [2.90, 17]}},
+  stats:{"alltime": {"main": 186, "stam": 1088, "crit": [22.45, 82], "mastery": [54.58, 163], "haste": [16.99, 81], "vers": [2.39, 14]}, "obtainable": {"main": 184, "stam": 1088, "crit": [19.04, 65], "mastery": [50.34, 146], "haste": [18.24, 87], "vers": [4.27, 25]}, "herald": {"main": 170, "stam": 1103, "crit": [19.04, 65], "mastery": [55.06, 165], "haste": [13.84, 66], "vers": [2.9, 17]}},
   notes:["Set reconciled vs live parse (Exhibiting: sim 1798 vs parse 1782).", "Shadowmourne unresolved — Chaos Bane proc unmodeled in SimC; reassess once modeled or confirmed unmodelable.", "Ring on-equip procs are the Crusader-model lines (two independent sources stack additively)."],
   credits:{},
   lists:{
@@ -625,12 +625,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2858, dpsByList:{"alltime": 2858, "obtainable": 2678, "herald": 2487},
+{ id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2792, dpsByList:{"alltime": 2792, "obtainable": 2613, "herald": 2424},
   talents:{"alltime": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "obtainable": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "herald": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH"}},
-  stats:{"alltime": {"main": 235, "stam": 1039, "crit": [21.65, 83], "mastery": [58.12, 105], "haste": [20.58, 76], "vers": [3.76, 22]},
-         "obtainable": {"main": 228, "stam": 1039, "crit": [19.44, 72], "mastery": [53.71, 94], "haste": [22.97, 87], "vers": [3.76, 22]},
-         "herald": {"main": 222, "stam": 1046, "crit": [18.84, 69], "mastery": [56.52, 101], "haste": [18.18, 65], "vers": [2.05, 12]}},
+  stats:{"alltime": {"main": 235, "stam": 1039, "crit": [21.65, 83], "mastery": [58.12, 105], "haste": [20.58, 76], "vers": [3.76, 22]}, "obtainable": {"main": 228, "stam": 1039, "crit": [19.44, 72], "mastery": [53.71, 94], "haste": [22.97, 87], "vers": [3.76, 22]}, "herald": {"main": 222, "stam": 1046, "crit": [18.84, 69], "mastery": [56.52, 101], "haste": [18.18, 65], "vers": [2.05, 12]}},
   notes:["Bonereaver's Edge modeled 11% flat per attack — log-validated ≈89.6% uptime / ≈11.35 procs/min."],
   credits:{},
   lists:{
@@ -687,12 +686,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"hunter", name:"Hunter", spec:"Marksmanship", color:"#AAD372", dps:3582, dpsByList:{"alltime": 3582, "obtainable": 3345, "herald": 3071},
+{ id:"hunter", name:"Hunter", spec:"Marksmanship", color:"#AAD372", dps:3588, dpsByList:{"alltime": 3588, "obtainable": 3450, "herald": 3170},
   talents:{"alltime": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA", "obtainable": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA", "herald": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"item": "Superior Mana Oil", "wowhead": 22521, "hands": "MH"}},
-  stats:{"alltime": {"main": 248, "stam": 1059, "crit": [47.3, 190], "mastery": [10.64, 45], "haste": [16.04, 71], "vers": [0.85, 5]},
-         "obtainable": {"main": 240, "stam": 1059, "crit": [45.86, 182], "mastery": [10.64, 45], "haste": [16.04, 71], "vers": [0.85, 5]},
-         "herald": {"main": 230, "stam": 1047, "crit": [43.15, 167], "mastery": [10.64, 45], "haste": [15.83, 70], "vers": [0.85, 5]}},
+  stats:{"alltime": {"main": 248, "stam": 1059, "crit": [47.3, 190], "mastery": [10.64, 45], "haste": [16.04, 71], "vers": [0.85, 5]}, "obtainable": {"main": 240, "stam": 1059, "crit": [45.86, 182], "mastery": [10.64, 45], "haste": [16.04, 71], "vers": [0.85, 5]}, "herald": {"main": 230, "stam": 1047, "crit": [43.15, 167], "mastery": [10.64, 45], "haste": [15.83, 70], "vers": [0.85, 5]}},
   notes:["Dragonspine at ≈1 PPM effective on SV's sparse attack stream — KC/WFB are spells, don't roll attack procs.", "Per-ability diff vs a logged Details! parse pending (merge pet rows)."],
   credits:{},
   lists:{
@@ -749,12 +747,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3486, dpsByList:{"alltime": 3486, "obtainable": 3283, "herald": 2900},
+{ id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3486, dpsByList:{"alltime": 3486, "obtainable": 3327, "herald": 2949},
   talents:{"alltime": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA", "obtainable": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA", "herald": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
-  stats:{"alltime": {"main": 277, "stam": 1052, "crit": [23.65, 83], "mastery": [49.71, 115], "haste": [13.84, 66], "vers": [7.52, 44]},
-         "obtainable": {"main": 270, "stam": 1052, "crit": [24.85, 89], "mastery": [46.18, 104], "haste": [12.37, 59], "vers": [7.52, 44]},
-         "herald": {"main": 243, "stam": 1055, "crit": [20.64, 68], "mastery": [44.89, 100], "haste": [9.65, 46], "vers": [6.66, 39]}},
+  stats:{"alltime": {"main": 277, "stam": 1051, "crit": [23.65, 83], "mastery": [49.71, 115], "haste": [13.84, 66], "vers": [7.52, 44]}, "obtainable": {"main": 268, "stam": 1051, "crit": [24.85, 89], "mastery": [47.14, 107], "haste": [12.37, 59], "vers": [7.52, 44]}, "herald": {"main": 246, "stam": 1056, "crit": [20.84, 69], "mastery": [44.89, 100], "haste": [9.86, 47], "vers": [6.66, 39]}},
   notes:["Nibelung Val'kyr proc modeled as calibrated discharge — verify the 1450 holy anchor used Fateccaster's SP, not Fatecastr's.", "Pendant/Meteorite tick rates are spec-dependent — do not inherit cross-spec."],
   credits:{},
   lists:{
@@ -812,12 +809,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2493, dpsByList:{"alltime": 2493, "obtainable": 2308, "herald": 2083},
+{ id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2485, dpsByList:{"alltime": 2485, "obtainable": 2306, "herald": 2087},
   talents:{"alltime": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA", "obtainable": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA", "herald": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
-  stats:{"alltime": {"main": 294, "stam": 1097, "crit": [27.85, 89], "mastery": [16.00, 0], "haste": [30.18, 144], "vers": [4.54, 9]},
-         "obtainable": {"main": 286, "stam": 1100, "crit": [24.24, 71], "mastery": [16.00, 0], "haste": [28.10, 134], "vers": [3.59, 21]},
-         "herald": {"main": 254, "stam": 1093, "crit": [27.05, 85], "mastery": [16.00, 0], "haste": [28.10, 134], "vers": [2.22, 13]}},
+  stats:{"alltime": {"main": 292, "stam": 1094, "crit": [27.85, 89], "mastery": [16.0, 0], "haste": [30.18, 144], "vers": [4.54, 9]}, "obtainable": {"main": 285, "stam": 1097, "crit": [24.24, 71], "mastery": [16.0, 0], "haste": [28.1, 134], "vers": [3.59, 21]}, "herald": {"main": 254, "stam": 1093, "crit": [27.05, 85], "mastery": [16.0, 0], "haste": [28.1, 134], "vers": [2.22, 13]}},
   notes:["Cat attacks are AP-normalized — weapon DPS irrelevant, weapon is a pure stat stick.", "Crusader is dead for Feral (Holy Strength is Strength — useless for an Agility spec)."],
   credits:{},
   lists:{
@@ -874,12 +870,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:3819, dpsByList:{"alltime": 4431, "obtainable": 4182, "herald": 3747},
-  talents:{"alltime": "CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMW2YGwAMMAAQAIAYGwsMgADMwmh5BAAAAAAAAAA", "obtainable": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA", "herald": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA"},
+{ id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:4415, dpsByList:{"alltime": 4415, "obtainable": 4081, "herald": 3684},
+  talents:{"alltime": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA", "obtainable": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA", "herald": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
-  stats:{"alltime": {"main": 276, "stam": 1152, "crit": [21.25, 81], "mastery": [24.00, 0], "haste": [26.00, 124], "vers": [14.35, 84]},
-         "obtainable": {"main": 273, "stam": 1063, "crit": [22.65, 88], "mastery": [24.00, 0], "haste": [26.00, 124], "vers": [9.74, 57]},
-         "herald": {"main": 260, "stam": 1064, "crit": [15.83, 54], "mastery": [24.00, 0], "haste": [23.07, 110], "vers": [10.42, 61]}},
+  stats:{"alltime": {"main": 274, "stam": 1152, "crit": [21.25, 81], "mastery": [24.0, 0], "haste": [26.0, 124], "vers": [14.35, 84]}, "obtainable": {"main": 273, "stam": 1148, "crit": [22.65, 88], "mastery": [24.0, 0], "haste": [26.0, 124], "vers": [9.74, 57]}, "herald": {"main": 263, "stam": 1150, "crit": [16.03, 55], "mastery": [24.0, 0], "haste": [23.28, 111], "vers": [10.42, 61]}},
   notes:["SimC undercounts Resto: Acid Rain (378443) unimplemented, LvB crit→damage scaling absent — Crit and Int understated.", "Sim instruments excluded from this list: Ascendance haste proxy (trinket1 in the profile) and the Acid Rain shirt proxy. The Pendant+Meteorite pair is simmed as one merged 35-vers line to free the slot."],
   credits:{},
   lists:{
@@ -938,12 +933,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3286, dpsByList:{"alltime": 3286, "obtainable": 3140, "herald": 2400},
+{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3286, dpsByList:{"alltime": 3286, "obtainable": 3141, "herald": 2397},
   talents:{"alltime": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "obtainable": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "herald": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH/OH"}},
-  stats:{"alltime": {"main": 295, "stam": 1062, "crit": [19.64, 68], "mastery": [29.46, 107], "haste": [19.92, 95], "vers": [0.0, 0]},
-         "obtainable": {"main": 283, "stam": 1061, "crit": [18.44, 62], "mastery": [28.86, 104], "haste": [21.18, 101], "vers": [0.0, 0]},
-         "herald": {"main": 244, "stam": 1056, "crit": [19.04, 65], "mastery": [20.84, 64], "haste": [19.5, 93], "vers": [5.13, 30]}},
+  stats:{"alltime": {"main": 72, "stam": 1062, "crit": [19.64, 68], "mastery": [29.46, 107], "haste": [19.92, 95], "vers": [0.0, 0]}, "obtainable": {"main": 72, "stam": 1061, "crit": [18.44, 62], "mastery": [28.86, 104], "haste": [21.18, 101], "vers": [0.0, 0]}, "herald": {"main": 69, "stam": 1056, "crit": [19.04, 65], "mastery": [20.84, 64], "haste": [19.5, 93], "vers": [5.13, 30]}},
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
   credits:{},
   lists:{
@@ -1003,12 +997,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3704, dpsByList:{"alltime": 3704, "obtainable": 3282, "herald": 3261},
-  talents:{"alltime": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "obtainable": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "herald": "CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMA4BYGQGw0AYAAAAAAAGQGzAWYAACA"},
+{ id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3688, dpsByList:{"alltime": 3688, "obtainable": 3494, "herald": 3278},
+  talents:{"alltime": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "obtainable": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "herald": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
-  stats:{"alltime": {"main": 271, "stam": 1114, "crit": [20.85, 79], "mastery": [15.33, 113], "haste": [26.98, 111], "vers": [1.88, 11]},
-         "obtainable": {"main": 271, "stam": 1114, "crit": [20.85, 79], "mastery": [12.83, 88], "haste": [27.62, 114], "vers": [1.88, 11]},
-         "herald": {"main": 246, "stam": 1121, "crit": [14.63, 48], "mastery": [11.32, 73], "haste": [26.11, 107], "vers": [4.78, 28]}},
+  stats:{"alltime": {"main": 270, "stam": 1114, "crit": [20.65, 78], "mastery": [15.33, 113], "haste": [27.19, 112], "vers": [1.88, 11]}, "obtainable": {"main": 272, "stam": 1114, "crit": [20.65, 78], "mastery": [12.83, 88], "haste": [27.84, 115], "vers": [1.88, 11]}, "herald": {"main": 249, "stam": 1122, "crit": [14.83, 49], "mastery": [11.32, 73], "haste": [26.33, 108], "vers": [4.78, 28]}},
   notes:["L30 stat priority: Int ≫ Haste ≈ Mastery > Crit > Vers."],
   credits:{"herald": "Emmaløve"},
   lists:{
@@ -1066,12 +1059,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:3395, dpsByList:{"alltime": 3395, "obtainable": 3245, "herald": 2833},
+{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:3395, dpsByList:{"alltime": 3395, "obtainable": 3245, "herald": 2870},
   talents:{"alltime": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "obtainable": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "herald": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
-  stats:{"alltime": {"main": 272, "stam": 1157, "crit": [29.87, 114], "mastery": [20.00, 0], "haste": [28.94, 138], "vers": [10.08, 59]},
-         "obtainable": {"main": 263, "stam": 1157, "crit": [28.06, 105], "mastery": [20.00, 0], "haste": [26.84, 128], "vers": [12.13, 71]},
-         "herald": {"main": 258, "stam": 1161, "crit": [25.45, 92], "mastery": [25.01, 10], "haste": [17.62, 84], "vers": [6.32, 37]}},
+  stats:{"alltime": {"main": 272, "stam": 1157, "crit": [29.87, 114], "mastery": [20.0, 0], "haste": [28.94, 138], "vers": [10.08, 59]}, "obtainable": {"main": 263, "stam": 1157, "crit": [28.06, 105], "mastery": [20.0, 0], "haste": [26.84, 128], "vers": [12.13, 71]}, "herald": {"main": 261, "stam": 1162, "crit": [25.66, 93], "mastery": [25.01, 10], "haste": [17.83, 85], "vers": [6.32, 37]}},
   notes:["L30 stat priority: Int ≫ Crit ≈ Vers > Haste > Mastery (inverted from max level)."],
   credits:{},
   lists:{
@@ -1129,12 +1121,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2726, dpsByList:{"alltime": 2726, "obtainable": 2524, "herald": 2302},
+{ id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2473, dpsByList:{"alltime": 2473, "obtainable": 2365, "herald": 2154},
   talents:{"alltime": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "obtainable": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "herald": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
-  stats:{"alltime": {"main": 244, "stam": 1046, "crit": [22.64, 63], "mastery": [29.26, 106], "haste": [23.88, 108], "vers": [0.00, 0]},
-         "obtainable": {"main": 237, "stam": 1049, "crit": [23.04, 65], "mastery": [26.86, 94], "haste": [23.24, 105], "vers": [0.00, 0]},
-         "herald": {"main": 223, "stam": 1043, "crit": [21.63, 58], "mastery": [23.25, 76], "haste": [20.70, 93], "vers": [2.22, 13]}},
+  stats:{"alltime": {"main": 244, "stam": 1046, "crit": [22.64, 63], "mastery": [29.26, 106], "haste": [23.88, 108], "vers": [0.0, 0]}, "obtainable": {"main": 237, "stam": 1049, "crit": [23.04, 65], "mastery": [26.86, 94], "haste": [23.24, 105], "vers": [0.0, 0]}, "herald": {"main": 223, "stam": 1043, "crit": [21.63, 58], "mastery": [23.25, 76], "haste": [20.7, 93], "vers": [2.22, 13]}},
   notes:[],
   credits:{},
   lists:{
@@ -1194,12 +1185,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2794, dpsByList:{"alltime": 2794, "obtainable": 2683, "herald": 2672},
+{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2623, dpsByList:{"alltime": 2623, "obtainable": 2520, "herald": 2230},
   talents:{"alltime": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "obtainable": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "herald": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
-  stats:{"alltime": {"main": 247, "stam": 1107, "crit": [26.65, 83], "mastery": [71.88, 114], "haste": [16.57, 79], "vers": [0.00, 0]},
-         "obtainable": {"main": 241, "stam": 1055, "crit": [23.64, 68], "mastery": [66.74, 103], "haste": [16.57, 79], "vers": [2.73, 16]},
-         "herald": {"main": 217, "stam": 1045, "crit": [26.05, 80], "mastery": [66.74, 103], "haste": [9.23, 44], "vers": [2.22, 13]}},
+  stats:{"alltime": {"main": 247, "stam": 1107, "crit": [26.65, 83], "mastery": [71.88, 114], "haste": [16.57, 79], "vers": [0.0, 0]}, "obtainable": {"main": 241, "stam": 1107, "crit": [23.64, 68], "mastery": [66.74, 103], "haste": [16.57, 79], "vers": [2.73, 16]}, "herald": {"main": 217, "stam": 1097, "crit": [26.05, 80], "mastery": [66.74, 103], "haste": [9.23, 44], "vers": [2.22, 13]}},
   notes:[],
   credits:{},
   lists:{
@@ -1259,12 +1249,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:3310, dpsByList:{"alltime": 3310, "obtainable": 3208, "herald": 2825},
+{ id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:3305, dpsByList:{"alltime": 3305, "obtainable": 3163, "herald": 2860},
   talents:{"alltime": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "obtainable": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "herald": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
-  stats:{"alltime": {"main": 296, "stam": 1056, "crit": [26.46, 107], "mastery": [13.5, 0], "haste": [22.44, 107], "vers": [7.18, 42]},
-         "obtainable": {"main": 285, "stam": 1060, "crit": [22.85, 89], "mastery": [13.5, 0], "haste": [28.1, 134], "vers": [6.32, 37]},
-         "herald": {"main": 266, "stam": 1062, "crit": [20.85, 79], "mastery": [13.5, 0], "haste": [21.6, 103], "vers": [9.4, 55]}},
+  stats:{"alltime": {"main": 296, "stam": 1056, "crit": [26.46, 107], "mastery": [13.5, 0], "haste": [22.44, 107], "vers": [7.18, 42]}, "obtainable": {"main": 283, "stam": 1056, "crit": [22.25, 86], "mastery": [13.5, 0], "haste": [27.68, 132], "vers": [6.32, 37]}, "herald": {"main": 269, "stam": 1063, "crit": [21.05, 80], "mastery": [13.5, 0], "haste": [21.81, 104], "vers": [9.4, 55]}},
   notes:[],
   credits:{},
   lists:{

@@ -10,5 +10,5 @@ jobs:
           node-version: 20
       - name: page dataset (blocking)
         run: node validate.js index.html
-      - name: profile linter (advisory until the waves land, then drop --advisory)
-        run: node lint_profiles.js --advisory --page index.html "list/All-time" "list/Obtainable" "list/Herald"
+      - name: profile linter (gating)
+        run: node lint_profiles.js --page index.html "list/All-time" "list/Obtainable" "list/Herald"

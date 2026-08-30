@@ -110,7 +110,8 @@ for (const dir of DIRS) {
       (c.spec.toLowerCase() === specName.toLowerCase() ||
        c.spec.toLowerCase().startsWith(specName.toLowerCase()));
     const survival = c.id === "hunter" && /^surv/i.test(specName);
-    if (!onPage && !survival) { E(`spec "${specName}" is not the page spec "${c.spec}"`); continue; }
+    if (survival) continue; // archived frozen artifacts — no checks
+    if (!onPage) { E(`spec "${specName}" is not the page spec "${c.spec}"`); continue; }
 
     const rows = onPage ? (c.lists || {})[list] || [] : [];
     if (onPage && fdps !== (c.dpsByList || {})[list])

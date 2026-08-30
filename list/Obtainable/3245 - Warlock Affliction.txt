@@ -36,11 +36,11 @@ finger1=,ilevel=33,id=178736,enchant_id=6109,gem_id=40155,drop_level=30
 # Bottle-Popper Ring 33
 finger2=,ilevel=33,id=151410,enchant_id=6108,gem_id=40155,drop_level=30
 # Meteorite Crystal 43
-trinket1=Pendant_of_the_Violet_Eye,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Gale of Shadows 33
-trinket2=gale_of_shadows,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Abracadaver 47 
-main_hand=abracadaver,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
+main_hand=,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
 # Consumables
 # potion=golemblood_potion
@@ -158,7 +158,7 @@ warlock.default_pet=sayaad
 name=Warlock
 
 # Simulation Options
-iterations=10000
+iterations=50000
 desired_targets=1
 max_time=300
 fixed_time=1

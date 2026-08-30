@@ -1,4 +1,4 @@
-# All-time - Demon Hunter - Devour
+# Herald - Demon Hunter - Devour
 # Base Actor
 demonhunter="Fateberserkr"
 level=30
@@ -14,39 +14,38 @@ talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAA
 
 ### Combo 1
 # Frayed Scoundrel's Cap (33)
-head=,id=50206,ilevel=33,gem_id=76884/213743/32196,bonus_id=4196,drop_level=30
+head=,id=50206,ilevel=33,gem_id=76884/213743/213488,bonus_id=4196,drop_level=30
 # Ukhel Ancestry Beads (135)
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/32196/32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213488,drop_level=30
 # mantle_of_perenolde (33)
-shoulder=,id=27434,ilevel=33,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
-# Drape of the Messenger (43)
-back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
-# Harness of Carnal Instinct (44)
-chest=,id=34211,ilevel=44,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
+shoulder=,id=27434,ilevel=33,enchant_id=3838,gem_id=213488/213488,bonus_id=7202,drop_level=30
+# Reanimator's Cloak 33
+back=,ilevel=33,id=37799,enchant_id=3243,gem_id=213488,bonus_id=4196,drop_level=30
+# Bloodsea Brigand's Vest 40
+chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
 #shirt=soul_fragment_aura,ilevel=30,use=1000vers_25dur_115cd
-# Umbrage Armbands (47)
-wrist=,id=54580,ilevel=47,enchant_id=2332,gem_id=71854,bonus_id=9051,drop_level=30
-# Gloves of the Endless Dark (43)
-hands=,id=46043,ilevel=43,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
-# Soul-Devouring Cinch (43)
-waist=,id=46095,ilevel=43,gem_id=71854/71854/71854,bonus_id=9043,drop_level=30
-# Plague-Soaked Leather Leggings (47)
-legs=,id=51889,ilevel=47,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9051,drop_level=30
-# footpads_of_impending_death (47)
-feet=,id=49895,ilevel=47,enchant_id=4429,gem_id=71854/71854,bonus_id=9051
+# Eversong Cuffs 33
+wrist=,id=34602,ilevel=33,enchant_id=2332,gem_id=32196/32196,bonus_id=7202,drop_level=30
+# Liar's Tongue Gloves 38
+hands=,id=28776,ilevel=38,enchant_id=2937,gem_id=32196/32196,bonus_id=9034,drop_level=30
+# Belt of One-Hundred Deaths 40
+waist=,id=30106,ilevel=40,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
+# Moonchild Leggings 33
+legs=,id=27492,ilevel=33,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,drop_level=30
+# Footwraps of Vile Deceit 39
+feet=,id=40243,ilevel=39,enchant_id=4429,gem_id=71854,bonus_id=9039,drop_level=30
 # signet_of_the_false_accuser (33)
-finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger1=,ilevel=33,id=178824,enchant_id=6109,gem_id=71854,drop_level=30
 # Fleshfused Circle (33)
-finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Pendant of the Violet Eye (38) — macro-stacked; use= carries BOTH trinkets'
-# stacks (380 + 320 = 700 vers) since the in-game macro pops them as one press
-trinket1=pendant_and_meteorite_macro_proxy,ilevel=38,stats=8int,use=700vers_20dur_120cd
-# Meteorite Crystal (41) — passive contribution only; its use window lives on trinket1
-trinket2=meteorite_crystal_macro_proxy,ilevel=41,stats=8int
-# Bloodsurge, Kel'Thuzad's Blade of Agony (47)
-main_hand=,id=50732,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
-# Bloodsurge, Kel'Thuzad's Blade of Agony (47)
-off_hand=,id=50704,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
+finger2=,ilevel=33,id=178869,enchant_id=6109,gem_id=71854,drop_level=30
+# talisman_of_ephemeral_power (38)
+trinket1=,id=18820,ilevel=38
+# Armored Elekk Tusk (32)
+trinket2=,id=108902,ilevel=32,bonus_id=6691/6703,drop_level=30
+# The Turning Tide 39
+main_hand=,ilevel=39,id=40396,bonus_id=9039,enchant_id=2669
+# Wraith Strike 39
+off_hand=,ilevel=39,id=39763,bonus_id=9039,enchant_id=2669
 
 # Consumables
 # potion=golemblood_potion
@@ -82,7 +81,8 @@ actions+=/consume,if=!buff.metamorphosis.up
 # Deadlock guard — do not remove
 actions+=/consume
 
-actions.cooldowns=use_item,use_off_gcd=1,slot=trinket1,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks&cooldown.void_ray.up|fight_remains<=20
+actions.cooldowns=use_item,use_off_gcd=1,slot=trinket1,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks|fight_remains<=20
+actions.cooldowns+=/use_item,use_off_gcd=1,slot=trinket2,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks|fight_remains<=20
 
 actions.reaps=eradicate
 actions.reaps+=/cull

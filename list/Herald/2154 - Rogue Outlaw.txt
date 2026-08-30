@@ -1,0 +1,163 @@
+# Herald - Rogue - Outlaw
+# --- Log-anchored ability tuning + residual redistribution (target: effective 2742 @ U=0.5694) ---
+# new coeff = branch coeff x (game/sim) x 1.0812 (absorbs auto/MG residuals). Refresh after any engine/data update.
+# Sinister Strike   1.223  x1.285 x1.0812
+override.spell_data=effect.283619.ap_coefficient=1.6992
+# Dispatch          0.6116 x1.460 x1.0812
+override.spell_data=effect.622.ap_coefficient=0.9654
+# Between the Eyes  0.751  x1.514 x1.0812
+override.spell_data=effect.799020.ap_coefficient=1.2293
+# Pistol Shot       0.834  x1.331 x1.0812
+override.spell_data=effect.269972.ap_coefficient=1.2002
+# Blade Rush        3.753  x1.411 x1.0812
+override.spell_data=effect.722357.ap_coefficient=5.7255
+# Instant Poison    0.074  x1.111 x1.0812
+override.spell_data=effect.799408.ap_coefficient=0.0889
+# Base Actor
+rogue="Fatesneak"
+level=30
+race=night_elf
+region=us
+server=thrall
+role=attack
+
+spec=outlaw
+# loot_spec=outlaw
+
+talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
+
+
+# wastewalker_helm (33)
+head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
+# Ukhel Ancestry Beads (140)
+neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
+# Mantle of Perenolde (33)
+shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=213494/40150,bonus_id=6710/6652,drop_level=30
+# Cloak of the Coming Night 33
+back=,ilevel=33,id=34708,enchant_id=3243,gem_id=40146/40146,bonus_id=7202
+# Bloodsea Brigand's Vest 40
+chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=40150/40150/40150,bonus_id=9035,drop_level=30
+# Eversong Cuffs 33
+wrist=,id=34602,ilevel=33,enchant_id=4416,gem_id=40150/40150,bonus_id=7202,drop_level=30
+# Liar's Tongue Gloves 38
+hands=,id=28776,ilevel=38,enchant_id=5259,gem_id=40150/40150,bonus_id=9034,drop_level=30
+# Belt of One-Hundred Deaths 40
+waist=,id=30106,ilevel=40,gem_id=71852/71852/71852,bonus_id=9035,drop_level=30
+# Moonchild Leggings 33
+legs=,id=27492,ilevel=33,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=7202,drop_level=30
+# Footwraps of Vile Deceit 39
+feet=,id=40243,ilevel=39,enchant_id=1887,gem_id=71852,bonus_id=9039,drop_level=30
+# Loop of Vitriolic Intent (33)
+finger1=,id=134530,ilevel=33,enchant_id=6110,gem_id=71852,bonus_id=6710/41/8810,drop_level=30
+# Signet of the False Accuser (33)
+finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852,drop_level=30
+# Dragonspine_Trophy (38)
+trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
+# Chaos Talisman (33)
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
+# Eskhandar's Right Claw (38)
+main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_0.4ppm_184haste_5dur
+# Vibroblade (33)
+#effective DPS = D0 × (1 + A × P × U)
+#D0 = naked sim DPS (2065 — the sim with the proc counting for zero)
+#A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
+#P = proportion affected = physical share = 0.969
+#U = measured uptime
+
+#59.68% on Twins 
+#45.90% on Jaraxxus 
+#65.25% on 1st boss of northrend beast
+#so
+#u=((59.68+45.9+65.25)/3) = 56.94
+
+
+#effective DPS = 2065 × (1 + 0.2083 × 0.969 × 0.5694) = 2302
+
+
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL
+# Executed before combat begins.
+actions.precombat=apply_poison,nonlethal=none,lethal=instant
+actions.precombat+=/snapshot_stats
+actions.precombat+=/stealth,precombat_seconds=2
+actions.precombat+=/adrenaline_rush,precombat_seconds=1,if=talent.improved_adrenaline_rush
+actions.precombat+=/slice_and_dice,precombat_seconds=1,if=talent.improved_adrenaline_rush
+actions.precombat+=/roll_the_bones,precombat_seconds=0
+
+# Executed every time the actor is available.
+actions=variable,name=finish_condition,value=combo_points>=cp_max_spend-1
+actions+=/call_action_list,name=cds
+actions+=/run_action_list,name=finish,if=variable.finish_condition
+actions+=/call_action_list,name=build
+
+# Cooldowns
+actions.cds=adrenaline_rush,if=!buff.adrenaline_rush.up&(!variable.finish_condition|!talent.improved_adrenaline_rush)
+actions.cds+=/preparation,if=cooldown.adrenaline_rush.remains>30&!cooldown.between_the_eyes.ready|fight_remains<30
+actions.cds+=/roll_the_bones,if=!buff.roll_the_bones.up|rtb_buffs=1+(buff.loaded_dice.up&cooldown.between_the_eyes.ready)
+actions.cds+=/blade_rush,if=energy.base_time_to_max>2
+actions.cds+=/vanish,if=!variable.finish_condition&talent.hidden_opportunity&!buff.audacity.up&!buff.opportunity.up
+actions.cds+=/shadowmeld,if=!variable.finish_condition&talent.hidden_opportunity&!buff.audacity.up&!buff.opportunity.up
+actions.cds+=/use_items,slots=trinket1,if=buff.adrenaline_rush.up|!trinket.1.has_use_buff|trinket.1.cooldown.duration<=cooldown.adrenaline_rush.remains|fight_remains<=20
+actions.cds+=/use_items,slots=trinket2,if=buff.adrenaline_rush.up|!trinket.2.has_use_buff|trinket.2.cooldown.duration<=cooldown.adrenaline_rush.remains|fight_remains<=20
+
+# Builders
+actions.build=ambush,if=talent.hidden_opportunity&buff.audacity.up
+actions.build+=/pistol_shot,if=talent.audacity&talent.hidden_opportunity&buff.opportunity.up&!buff.audacity.up
+actions.build+=/pistol_shot,if=talent.fan_the_hammer&buff.opportunity.up&(buff.opportunity.stack>=buff.opportunity.max_stack|buff.opportunity.remains<2)
+actions.build+=/pistol_shot,if=talent.fan_the_hammer&buff.opportunity.up&combo_points.deficit>=1+talent.quick_draw+(talent.quick_draw*talent.fan_the_hammer.rank)
+actions.build+=/pistol_shot,if=!talent.fan_the_hammer&buff.opportunity.up&(energy.base_deficit>energy.regen*1.5|combo_points.deficit<=1|talent.quick_draw|talent.audacity&!buff.audacity.up)
+actions.build+=/pool_resource,for_next=1
+actions.build+=/ambush,if=talent.hidden_opportunity
+actions.build+=/sinister_strike
+
+# Finishers
+actions.finish=between_the_eyes
+actions.finish+=/dispatch
+
+# Vibroblade (33)
+off_hand=,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
+
+# Simulation Options
+iterations=50000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1

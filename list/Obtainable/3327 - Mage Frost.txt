@@ -1,4 +1,4 @@
-# All-time - Mage - Frost
+# Obtainable - Mage - Frost
 mage="Fateccaster"
 level=30
 race=nightborne
@@ -13,8 +13,8 @@ talents=CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA
 
 # Vengeful Gladiator's Silk Cowl (44)
 head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
-# Ukhel Ancestry Beads (135)
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/71854/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Chain of the Green Flight (135)
+neck=,ilevel=33,id=137311,enchant_id=5890,gem_id=213500,drop_level=30
 # vengeful_gladiators_silk_amice (44)
 shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=71854/71854,bonus_id=9357,drop_level=30
 # Drape of the Messenger (43)
@@ -31,10 +31,10 @@ waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
 # Slippers of the Seacaller (42)
 feet=,ilevel=42,id=32239,enchant_id=4429,gem_id=71854/71854,bonus_id=9036,drop_level=30
-# signet_of_the_false_accuser (33)
-finger1=,ilevel=33,id=162542,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Signet of the Highborne Magi (33)
+finger1=,ilevel=33,id=134537,enchant_id=6110,gem_id=71854,drop_level=30
 # Fleshfused Circle (33)
-finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854,drop_level=30
 # Pendant of the Violet Eye (38)
 trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Solace of the Fallen 45
