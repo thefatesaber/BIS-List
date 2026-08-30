@@ -170,8 +170,12 @@ for (const dir of DIRS) {
       const kv = {};
       for (const p of parts) { const j = p.indexOf("="); if (j > 0) kv[p.slice(0, j)] = p.slice(j + 1); }
 
-      // synthetic naming
-      if (named && (/[A-Z]/.test(named) || !/_proxy$/.test(named)))
+      // naming: id lines take no name token; nameless-id items are the house
+      // style, and a name mismatching the DBC entry only warns and confuses.
+      // True synthetics (no id=) are lowercase with the _proxy suffix.
+      if (named && kv.id)
+        E(`line ${ln}: name token "${named}" on an id= line — drop it (SimC resolves the item from the id)`);
+      else if (named && (/[A-Z]/.test(named) || !/_proxy$/.test(named)))
         E(`line ${ln}: synthetic "${named}" — rename to "${named.toLowerCase().replace(/_proxy$/, "")}_proxy" (lowercase + _proxy; DBC name collisions drop silently)`);
 
       // enchant rules
@@ -258,6 +262,8 @@ for (const dir of DIRS) {
       const gids = got.filter(g => g.id).map(g => g.id).sort();
       if (gids.length === pids.length && gids.length && gids.join() !== pids.join())
         E(`${key} pair ids [${gids}] differ from page [${pids}] (${prows.map(r => r.item).join(" / ")})`);
+      for (const g of got) if (g.id && !pids.includes(g.id))
+        E(`line ${g.ln}: ${g.slot} id=${g.id} is not a page ${key} id [${pids}] (${prows.map(r => r.item).join(" / ")})`);
       for (const g of got) if (g.ilvl) {
         const rowMatch = prows.find(r => String(r.wowhead) === g.id) ||
           (got.filter(x => x.ilvl).length === prows.length ? null : null);
