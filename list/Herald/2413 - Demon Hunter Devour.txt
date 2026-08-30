@@ -14,7 +14,7 @@ talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAA
 
 ### Combo 1
 # Frayed Scoundrel's Cap (33)
-head=,id=50206,ilevel=33,gem_id=76884/213743/213488,bonus_id=4196,drop_level=30
+head=,id=50206,ilevel=33,gem_id=76885/213743/213488,bonus_id=4196,drop_level=30
 # Ukhel Ancestry Beads (135)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213488,drop_level=30
 # mantle_of_perenolde (33)
