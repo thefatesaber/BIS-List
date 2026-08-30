@@ -14,13 +14,20 @@ SimC branch: midnight (d0d2db1). DBC references come from
 
 ## Standing rulings
 
-**Self-buffed rail.** Benchmark profiles carry no external buffs: no
-`external_buffs.pool=power_infusion`, no `invoke_external_buff` for it, no
-direct `power_infusion` cast. The page's numbers are self-buffed only.
+**Self-buffed rail: own kit in, other actors out.** Benchmark profiles
+carry no external buffs — no `external_buffs.pool` of any kind and no
+`invoke_external_buff` of any kind. Abilities the actor legitimately has at
+30 are in, which sanctions the priest's PI self-cast and rules out PI
+appearing anywhere else.
 
-**Spell 10060 is gone.** `override.spell_data=spell.10060.*` segfaults —
-the spell was removed from 12.0.5 client data. If PI ever needs a level
-override again, locate its current id via `spell_query` first.
+**Power Infusion is priest kit.** PI (spell 10060) is the priest class
+tree's row-3 talent and the benchmark build takes it, so the benchmark
+priest self-casts it. Spell data still carries a vestigial Spell Level 58;
+the sanctioned workaround is `override.spell_data=spell.10060.spell_level=1`
+before the actor, priest profiles only. An earlier ruling that the spell
+was removed from client data and segfaulted was true of the d0d2db1 data
+snapshot and is superseded on a9a6985 — verify build-specific data claims
+with `spell_query` before acting on them.
 
 **Health timeline is standby only.** `#enemy_custom_health_timeline=20:0.2`
 stays commented in every benchmark profile. All page DPS is simmed without
@@ -30,9 +37,12 @@ it. Never enable it unprompted; a health-timeline standard is an open ruling.
 (the level-3-boss bug that inflated an entire prior rail archive). The only
 correct form is `target_level+=3`.
 
-**hunters_mark is reconciliation-only.** `override.hunters_mark=1` is valid
-in reconciliation copies (Dummy mode, WCL comparisons) and never in a
-benchmark profile — it overstates MM by ~3%.
+**hunters_mark: cast the ability, never force the override.**
+`override.hunters_mark=1` forces the debuff at 100% uptime regardless of
+the spell's real rules and is valid only in reconciliation copies (Dummy
+mode, WCL comparisons) — it overstates MM by ~3%. The benchmark encoding of
+the ability itself is a cast in the APL (precombat on patchwerk), where the
+engine applies whatever conditions the live spell carries.
 
 **Synthetics are lowercase and end in `_proxy`.** A synthetic item or buff
 sharing a name with a real DBC entry is dropped silently, with no error.

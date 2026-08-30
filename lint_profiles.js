@@ -52,7 +52,7 @@ const LIST_OF_DIR = d => {
 };
 
 const SLOTS = ["head","neck","shoulder","back","chest","wrist","hands","waist","legs","feet",
-               "finger1","finger2","trinket1","trinket2","main_hand","off_hand","shirt"];
+               "finger1","finger2","trinket1","trinket2","main_hand","off_hand","shirt","tabard"];
 const PAGE_SLOT = { head:"Head", neck:"Neck", shoulder:["Shoulder","Shoulders"], back:"Back", chest:"Chest",
   wrist:"Wrist", hands:"Hands", waist:"Waist", legs:"Legs", feet:"Feet",
   main_hand:"Main Hand", off_hand:"Off Hand" };
@@ -122,14 +122,16 @@ for (const dir of DIRS) {
     const has = re => lines.some(l => re.test(l));
     const where = re => lines.map((l, i) => re.test(l) ? i + 1 : 0).filter(Boolean);
 
-    for (const n of where(/^external_buffs\.pool=power_infusion/))
-      E(`line ${n}: power_infusion pool — self-buffed rail, remove`);
-    for (const n of where(/^actions.*invoke_external_buff,name=power_infusion/))
-      E(`line ${n}: power_infusion invoke — self-buffed rail, remove`);
-    for (const n of where(/^actions[^#]*\/power_infusion\b(?!_)/))
-      E(`line ${n}: power_infusion self-cast — self-buffed rail, remove`);
+    for (const n of where(/^external_buffs\.pool=/))
+      E(`line ${n}: external_buffs pool — external buffs are out; the rail is self-buffed`);
+    for (const n of where(/^actions[^#]*invoke_external_buff/))
+      E(`line ${n}: invoke_external_buff — external buffs are out; the rail is self-buffed`);
+    if (c.id !== "priest")
+      for (const n of where(/^actions[^#]*\/power_infusion\b(?!_)/))
+        E(`line ${n}: power_infusion cast on a non-priest — not their kit; the rail is own-kit-only`);
     for (const n of where(/^override\.spell_data=spell\.10060\./))
-      E(`line ${n}: spell 10060 override — spell removed from client data, segfaults; delete`);
+      if (c.id !== "priest" || lines[n - 1].trim() !== "override.spell_data=spell.10060.spell_level=1")
+        E(`line ${n}: spell 10060 override — the PI level-gate relaxation is sanctioned on priest profiles only, and only as spell_level=1`);
     for (const n of where(/^enemy_custom_health_timeline/))
       E(`line ${n}: health timeline enabled — standby only, keep commented`);
     if (!has(/^#\s*enemy_custom_health_timeline/) && !has(/^enemy_custom_health_timeline/))
@@ -207,11 +209,11 @@ for (const dir of DIRS) {
         E(`line ${ln}: rankless howling_rune fails — use howling_rune_<rank>`);
 
       // ilevel presence
-      if (kv.id && !kv.ilevel && slot !== "shirt")
+      if (kv.id && !kv.ilevel && slot !== "shirt" && slot !== "tabard")
         E(`line ${ln}: id=${kv.id} has no ilevel= — drop_level alone is insufficient`);
 
       // page agreement
-      if (onPage && slot !== "shirt") {
+      if (onPage && slot !== "shirt" && slot !== "tabard") {
         if (PAIRS[slot]) {
           const key = slot.replace(/[12]$/, "");
           (pairIds[key] = pairIds[key] || []).push({ id: kv.id, ilvl: kv.ilevel, named, ln, slot });
