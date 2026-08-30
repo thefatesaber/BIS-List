@@ -60,18 +60,29 @@ are never deleted, and they never share a line with a real `enchant_id` —
 the later param overrides the earlier one (the warlock wrist `1sp` case).
 Real enchants use `enchant_id` only, everywhere.
 
-**Proc calibrations are per-spec.** `procby/attack` flat percentages fire
-per attack event, so the same effective ppm encodes as a different % on each
-spec's event density. Untamed Blade at Fury 4% and Ret 14% are the same
-proc; never harmonize flat rates across specs. Calibration workflow: anchor
-procs/min from logs, validate against sim proc-detail procs/min at a single
-run, rescale linearly. Of record: Dragonspine 2.7% (warrior All-time 3.5%
-pending ruling A), Untamed warrior 4 / paladin 14, Bonereaver DK 11
-(warrior 4 pending ruling A), Jackhammer warrior 2%, Eskhandar monk 2.5 ppm
-(rogue carries a 1.2 vs 0.9 spread — open), Crusader ring encoding warrior
-1.3% / paladin 5.3%. `ppm` fires per qualifying attack, `rppm` is
-time-based with bad-luck protection; chance-on-hit weapons usually want
-flat % per attack.
+**Proc calibrations: log anchors, per-spec encodings.** Every calibrated
+proc has a live anchor in procs/min, measured from WCL buff tables
+(applications ÷ fight minutes). The engine encodings are then solved by
+running the profile, reading sim procs/min from the buff table, and
+rescaling linearly — twice, because haste procs feed the attack-event
+stream and the first pass lands ~5–12% under anchor in the corrected
+environment. Anchors of record: Dragonspine warrior 2.47/min + DK
+1.8/min (the two independently solve to the same per-event chance, so
+the trinket is universal: 103 haste payload per tooltip, 3.2% on every
+spec); Untamed warrior 12.4/min; Jackhammer warrior 4.5/min; Bonereaver
+warrior 27.6/min + DK 11.0/min; Eskhandar 2.47/min; Crusader ring
+encoding warrior 20.4/min combined; Destiny 13/min. Frozen encodings:
+DST 3.2 everywhere, Untamed warrior 3.7 / paladin 19.6, Jackhammer 1.3,
+Bonereaver warrior 9.8 / DK 8.6, Eskhandar monk 0.88 / rogue 0.4 ppm,
+Crusader warrior 3.0 per ring / paladin 16.2. The paladin values are
+warrior-derived (same 2H swing rate); one paladin log hardens or
+corrects them. Weapon chance-on-hit rates stay per-spec — sim
+"attack events" are all damaging impacts, so identical per-swing items
+need different per-impact encodings per rotation. The `ppm` token also
+fires per event, not per minute; only the buff table's realized
+procs/min is truth. Local verification runs on the container build
+(midnight HEAD) reproduce every wave DPS within noise, so engine parity
+holds and sim-side rates from either build are interchangeable.
 
 **Items are explicit.** Every `id=` line carries `ilevel=` pinned to the
 page — `drop_level=30` alone is insufficient on scaling gear. Item strings
@@ -112,15 +123,14 @@ a same-character MM comparator.
 
 ## Open rulings
 
-- **A** — do per-spec flat rates extend to Dragonspine and Bonereaver? If
-  yes, warrior All-time Dragonspine reverts to 3.5 before the warrior sim
-  and warrior Bonereaver 4 vs DK 11 stands as-is.
-- **B** — does a rebase notice go public on the page, or does the rebase
-  land silently? Gates the provenance rendering.
 - Health-timeline standard (which curve, if any, ever becomes benchmark).
-- Rogue Eskhandar 1.2 (All-time) vs 0.9 (Obtainable/Herald) — one spec,
-  one calibration; which is anchored.
+- Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
+  a single paladin log (buff applications ÷ minutes) hardens them.
 - Monk Herald anomaly; DH Herald trinket; DK Roccor-vs-Chaos alt sweep.
+
+Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
+convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
+Eskhandar spread (both tiers rescale to the one 2.47/min item anchor).
 
 ## Data shape
 

@@ -64,14 +64,12 @@ const PAIRS = { finger1:["Ring 1","Ring 2"], finger2:["Ring 1","Ring 2"],
 // spreads awaiting the Dragonspine/Bonereaver per-spec ruling — warned, not
 // failed, so the ruling (not the linter) settles them.
 const CALIBRATIONS = {
-  "108haste_10dur_20cd": { label: "Dragonspine Trophy", rates: { "*": 2.7 },
-    pending: [{ cls: "warrior", rate: 3.5, note: "per-spec ruling A open" }] },
-  "97str_8dur":          { label: "The Untamed Blade", rates: { warrior: 4, paladin: 14 } },
-  "51crit_10dur_3stack": { label: "Bonereaver's Edge", rates: { deathknight: 11 },
-    pending: [{ cls: "warrior", rate: 4, note: "per-spec ruling A open" }] },
-  "281haste_10dur":      { label: "The Jackhammer", rates: { warrior: 2 } },
-  "184haste_5dur":       { label: "Eskhandar's Right Claw", ppm: { monk: 2.5, rogue: 1.2 } },
-  "37str_15dur":         { label: "Crusader (ring encoding)", rates: { warrior: 1.3, paladin: 5.3 } },
+  "103haste_10dur_20cd": { label: "Dragonspine Trophy", rates: { "*": 3.2 } },
+  "97str_8dur":          { label: "The Untamed Blade", rates: { warrior: 3.7, paladin: 19.6 } },
+  "51crit_10dur_3stack": { label: "Bonereaver's Edge", rates: { deathknight: 8.6, warrior: 9.8 } },
+  "281haste_10dur":      { label: "The Jackhammer", rates: { warrior: 1.3 } },
+  "184haste_5dur":       { label: "Eskhandar's Right Claw", ppm: { monk: 0.88, rogue: 0.4 } },
+  "37str_15dur":         { label: "Crusader (ring encoding)", rates: { warrior: 3.0, paladin: 16.2 } },
 };
 
 const errs = [], warns = [];
@@ -205,6 +203,8 @@ for (const dir of DIRS) {
 
       if (kv.id === "50040")
         E(`line ${ln}: Distant Land 50040 is the 2-socket variant — page mandates 50695 (3-socket)`);
+      if (rest.includes("108haste_10dur_20cd"))
+        E(`line ${ln}: Dragonspine payload 108 — the tooltip is 103; use 103haste_10dur_20cd_3.2%`);
       if (/howling_rune(?!_\d)/.test(rest))
         E(`line ${ln}: rankless howling_rune fails — use howling_rune_<rank>`);
 
