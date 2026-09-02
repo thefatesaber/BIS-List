@@ -193,5 +193,8 @@ gated on `validate.js` monotonicity against the untouched lists.
 - Planned: `gen_profiles.js`, page-to-profile generation, druid pilot
   first.
 
+Every commit that modifies index.html also adds a dated CHANGELOG.md
+entry stating what changed — the page-facing record of ruling B.
+
 Commit messages are prose paragraphs — what changed and why, with
 flagged-but-not-applied items listed separately.
