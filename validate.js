@@ -68,7 +68,10 @@ for (const c of CLASSES) {
   for (const L of LISTS) {
     const rows = (c.lists && c.lists[L]) || [];
     const at = `${c.id}/${L}`;
-    if (!rows.length) { err(`${at}: list is empty`); continue; }
+    if (!rows.length) {
+      if (c.primary) err(`${at}: list is empty`);
+      continue;
+    }
 
     const slots = new Set(rows.map((r) => r.slot));
     for (const slot of DEFAULT_SLOTS)
@@ -113,12 +116,14 @@ for (const c of CLASSES) {
   // Herald constrains a subset of Obtainable, which constrains a subset of
   // All-Time, so DPS can only fall in that direction.
   const d = c.dpsByList || {};
-  if (!(d.herald <= d.obtainable && d.obtainable <= d.alltime))
-    err(`${c.id}: DPS not monotonic — alltime ${d.alltime}, obtainable ${d.obtainable}, herald ${d.herald}`);
+  const seq = ["herald", "obtainable", "alltime"].filter((k) => d[k] != null);
+  for (let i = 1; i < seq.length; i++)
+    if (!(d[seq[i - 1]] <= d[seq[i]]))
+      err(`${c.id}: DPS not monotonic — alltime ${d.alltime}, obtainable ${d.obtainable}, herald ${d.herald}`);
 
   for (const L of LISTS) {
     const s = (c.stats || {})[L];
-    if (!s) { warn(`${c.id}/${L}: no stats entry`); continue; }
+    if (!s) { if ((c.lists || {})[L] && (c.lists || {})[L].length) warn(`${c.id}/${L}: no stats entry`); continue; }
     for (const k of ["main", "stam"])
       if (s[k] == null) err(`${c.id}/${L}: stats.${k} missing`);
     for (const k of ["crit", "mastery", "haste", "vers"])

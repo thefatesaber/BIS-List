@@ -28,7 +28,7 @@ wrist=,id=34698,ilevel=33,enchant_id=4416,gem_id=71852/71852,bonus_id=6710/6652/
 # Thalassian Ranger Gauntlets (44)
 hands=,id=34343,ilevel=44,enchant_id=5259,gem_id=71852/71852,bonus_id=9037,drop_level=30
 # Belt of Dragons (43)
-waist=,id=45553,ilevel=43,gem_id=71852/71852/71852,bonus_id=90343,bonus_id=9035,drop_level=30
+waist=,id=45553,ilevel=43,gem_id=71852/71852/71852,bonus_id=9035,drop_level=30
 # Wyrmscale Greaves (33)
 legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=6710/6652,drop_level=30
 # Star-Strider Boots (40)
@@ -38,7 +38,7 @@ finger1=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10
 # Fleshfused Circle (33)
 finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy (38)
-trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
+trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Distand Land (47)
@@ -100,7 +100,10 @@ override.mystic_touch=0
 override.chaos_brand=0
 #override.windfury_totem=1
 override.mark_of_the_wild=0
-override.hunters_mark=0
+# Hunter's Mark: known at 30 (spell 257284 — 3% damage taken, unconditional, permanent).
+# simc has no hunters_mark action, so the override stands in for the hunter's own
+# precombat cast — exact on patchwerk. Hunter profiles only.
+override.hunters_mark=1
 override.bleeding=0
 report_details=1
 single_actor_batch=1

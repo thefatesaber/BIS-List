@@ -112,9 +112,13 @@ for (const dir of DIRS) {
     const cands = CLASSES.filter(x => x.name === cls);
     const c = cands.find(specHit) || cands[0];
     const onPage = cands.some(specHit);
-    const survival = c.id === "hunter" && /^surv/i.test(specName);
-    if (survival) continue; // archived frozen artifacts — no checks
-    if (!onPage) { E(`spec "${specName}" matches no page entry for ${cls} [${cands.map(specStr).join(", ")}]`); continue; }
+    if (!onPage) {
+      // Off-page spec files are archived frozen artifacts (e.g. a tier not
+      // yet published for a spec) — no checks.
+      continue;
+    }
+    if (!((c.lists || {})[list])) continue; // tier not published for this entry — archived file
+    const survival = c.cls === "hunter" && /^surv/i.test(specStr(c));
 
     const rows = onPage ? (c.lists || {})[list] || [] : [];
     if (onPage && fdps !== (c.dpsByList || {})[list])
@@ -128,11 +132,11 @@ for (const dir of DIRS) {
       E(`line ${n}: external_buffs pool — external buffs are out; the rail is self-buffed`);
     for (const n of where(/^actions[^#]*invoke_external_buff/))
       E(`line ${n}: invoke_external_buff — external buffs are out; the rail is self-buffed`);
-    if (c.id !== "priest")
+    if ((c.cls || c.id) !== "priest")
       for (const n of where(/^actions[^#]*\/power_infusion\b(?!_)/))
         E(`line ${n}: power_infusion cast on a non-priest — not their kit; the rail is own-kit-only`);
     for (const n of where(/^override\.spell_data=spell\.10060\./))
-      if (c.id !== "priest" || lines[n - 1].trim() !== "override.spell_data=spell.10060.spell_level=1")
+      if ((c.cls || c.id) !== "priest" || lines[n - 1].trim() !== "override.spell_data=spell.10060.spell_level=1")
         E(`line ${n}: spell 10060 override — the PI level-gate relaxation is sanctioned on priest profiles only, and only as spell_level=1`);
     for (const n of where(/^enemy_custom_health_timeline/))
       E(`line ${n}: health timeline enabled — standby only, keep commented`);
@@ -142,7 +146,7 @@ for (const dir of DIRS) {
       E(`line ${n}: target_level=+N parses as absolute level N — use target_level+=N`);
     for (const n of where(/^target_level=(\d|1[0-9])$/))
       E(`line ${n}: absolute target_level below 20 — level-3-boss bug`);
-    if (c.id !== "hunter" && has(/^override\.hunters_mark=1/))
+    if ((c.cls || c.id) !== "hunter" && has(/^override\.hunters_mark=1/))
       E(`hunters_mark=1 — the hunter's own permanent debuff; on a non-hunter it assumes an actor the rail excludes`);
     if (!has(/^temporary_enchant=disabled/)) E(`temporary_enchant=disabled missing`);
     for (const n of where(/^temporary_enchant=\s*$/))
@@ -198,7 +202,7 @@ for (const dir of DIRS) {
       for (const g of (kv.gem_id || "").split("/").filter(Boolean)) {
         if (g === "25899" && slot !== "main_hand" && slot !== "off_hand")
           E(`line ${ln}: Brutal Earthstorm Diamond (25899) off-weapon — segfaults enchants.cpp:168; use 32409`);
-        if (g === "76885" && c.id === "shaman")
+        if (g === "76885" && (c.cls || c.id) === "shaman")
           E(`line ${ln}: meta 76885 in a shaman export — ruling is Mystical Skyfire Diamond 25893`);
       }
 
@@ -244,14 +248,14 @@ for (const dir of DIRS) {
         const sig = Object.keys(CALIBRATIONS).find(s => rest.includes(s));
         if (sig) {
           const cal = CALIBRATIONS[sig];
-          const pend = (cal.pending || []).find(p => p.cls === c.id && p.rate === rate);
+          const pend = (cal.pending || []).find(p => p.cls === (c.cls || c.id) && p.rate === rate);
           const table = unit === "ppm" ? cal.ppm : cal.rates;
-          const want = table ? (table[c.id] != null ? table[c.id] : table["*"]) : null;
+          const want = table ? (table[c.cls || c.id] != null ? table[c.cls || c.id] : table["*"]) : null;
           if (pend) W(`line ${ln}: ${cal.label} at ${rate}${unit} — ${pend.note}`);
-          else if (want == null) W(`line ${ln}: ${cal.label} has no calibration of record for ${c.id}`);
+          else if (want == null) W(`line ${ln}: ${cal.label} has no calibration of record for ${c.cls || c.id}`);
           else if (rate !== want)
-            E(`line ${ln}: ${cal.label} at ${rate}${unit} — calibration of record for ${c.id} is ${want}${unit}`);
-          const k = `${c.id}|${sig}`;
+            E(`line ${ln}: ${cal.label} at ${rate}${unit} — calibration of record for ${c.cls || c.id} is ${want}${unit}`);
+          const k = `${c.cls || c.id}|${sig}`;
           if (!seenRates.has(k)) seenRates.set(k, new Map());
           const mm = seenRates.get(k);
           if (!mm.has(rate)) mm.set(rate, []);

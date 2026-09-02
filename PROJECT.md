@@ -149,8 +149,12 @@ profiles simmed at 50k, one page entry with `primary:false` (or a
 primary flip if the per-class ruling changes), stats and talents from
 reports, prov stamped, filenames carrying the simmed DPS. The linter
 resolves profiles to entries by class name plus spec prefix, so
-multiple specs per class lint without special-casing. Survival enters
-through its gate as hunter's second entry when it does. Augmentation
+multiple specs per class lint without special-casing. Survival entered
+through its gate on 2026-09-02: clean rebuild at current calibrations
+(DST 103/3.2, hunters_mark restored, waist typo fixed), same-character
+comparator inherent (both hunter profiles are Legacythirty), landing at
+2626 vs MM's 3588 — MM's primacy untouched, SV published as hunter's
+non-primary All-time entry. Augmentation
 is the one roster spec the self-buffed rail cannot honestly number —
 its kit buffs other actors — and needs its own ruling before it gets
 an entry.
