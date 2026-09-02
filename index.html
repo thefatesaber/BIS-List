@@ -127,6 +127,11 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .tab.on{color:var(--void); background:var(--parchment); border-color:var(--parchment); font-weight:600}
 .constraint{color:var(--dim); font-size:11.5px; margin:0 0 16px; font-style:italic}
 .meta .updated{color:var(--dim)}
+.viewtoggle{display:flex; gap:0; margin:0 0 8px}
+.viewtoggle button{flex:1; padding:4px 8px; font-size:12px; background:none; border:1px solid var(--line); color:var(--dim); cursor:pointer}
+.viewtoggle button:first-child{border-radius:6px 0 0 6px}
+.viewtoggle button:last-child{border-radius:0 6px 6px 0; border-left:none}
+.viewtoggle button.on{color:var(--fg); background:rgba(255,255,255,.06)}
 .notice{color:var(--dim); font-size:12.5px; margin-top:4px; max-width:78ch}
 
 /* ---------- slot ledger ---------- */
@@ -380,6 +385,7 @@ footer{
 
 <div class="layout">
   <aside class="side">
+  <div class="viewtoggle" id="viewtoggle" role="group" aria-label="Spec view"><button data-view="best" class="on">Best per class</button><button data-view="all">All specs</button></div>
   <div class="sortrow">
     <label class="sortlabel" for="sortsel">Order</label>
     <select id="sortsel" aria-label="Class order">
@@ -500,7 +506,7 @@ const LIST_TYPES = [
 ];
 
 const CLASSES = [
-{ id:"warrior", name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3808, dpsByList:{"alltime": 3808, "obtainable": 3160, "herald": 3002},
+{ id:"warrior", cls:"warrior", primary:true, name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3808, dpsByList:{"alltime": 3808, "obtainable": 3160, "herald": 3002},
   talents:{"alltime": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "obtainable": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "herald": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}, "herald": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}},
@@ -564,7 +570,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"paladin", name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:3097, dpsByList:{"alltime": 3097, "obtainable": 2900, "herald": 2767},
+{ id:"paladin", cls:"paladin", primary:true, name:"Paladin", spec:"Retribution", color:"#F48CBA", dps:3097, dpsByList:{"alltime": 3097, "obtainable": 2900, "herald": 2767},
   talents:{"alltime": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA", "obtainable": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA", "herald": "CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Hissing Rune", "wowhead": 204973, "token": "hissing_rune_3", "hands": "MH"}},
@@ -625,7 +631,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"deathknight", name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2792, dpsByList:{"alltime": 2792, "obtainable": 2613, "herald": 2424},
+{ id:"deathknight", cls:"deathknight", primary:true, name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:2792, dpsByList:{"alltime": 2792, "obtainable": 2613, "herald": 2424},
   talents:{"alltime": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "obtainable": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "herald": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH"}},
@@ -686,7 +692,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"hunter", name:"Hunter", spec:"Marksmanship", color:"#AAD372", dps:3588, dpsByList:{"alltime": 3588, "obtainable": 3450, "herald": 3170},
+{ id:"hunter", cls:"hunter", primary:true, name:"Hunter", spec:"Marksmanship", color:"#AAD372", dps:3588, dpsByList:{"alltime": 3588, "obtainable": 3450, "herald": 3170},
   talents:{"alltime": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA", "obtainable": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA", "herald": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"item": "Superior Mana Oil", "wowhead": 22521, "hands": "MH"}},
@@ -747,7 +753,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"mage", name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3486, dpsByList:{"alltime": 3486, "obtainable": 3327, "herald": 2949},
+{ id:"mage", cls:"mage", primary:true, name:"Mage", spec:"Frost", color:"#3FC7EB", dps:3486, dpsByList:{"alltime": 3486, "obtainable": 3327, "herald": 2949},
   talents:{"alltime": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA", "obtainable": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA", "herald": "CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
@@ -809,7 +815,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"druid", name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2485, dpsByList:{"alltime": 2485, "obtainable": 2306, "herald": 2087},
+{ id:"druid", cls:"druid", primary:true, name:"Druid", spec:"Feral", color:"#FF7C0A", dps:2485, dpsByList:{"alltime": 2485, "obtainable": 2306, "herald": 2087},
   talents:{"alltime": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA", "obtainable": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA", "herald": "CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAAAAAAAMAAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
@@ -870,7 +876,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"shaman", name:"Shaman", spec:"Restoration", color:"#0070DD", dps:4415, dpsByList:{"alltime": 4415, "obtainable": 4081, "herald": 3684},
+{ id:"shaman", cls:"shaman", primary:true, name:"Shaman", spec:"Restoration", color:"#0070DD", dps:4415, dpsByList:{"alltime": 4415, "obtainable": 4081, "herald": 3684},
   talents:{"alltime": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA", "obtainable": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA", "herald": "CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
@@ -933,7 +939,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"demonhunter", name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3305, dpsByList:{"alltime": 3305, "obtainable": 3161, "herald": 2413},
+{ id:"demonhunter", cls:"demonhunter", primary:true, name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3305, dpsByList:{"alltime": 3305, "obtainable": 3161, "herald": 2413},
   talents:{"alltime": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "obtainable": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "herald": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH/OH"}},
@@ -997,7 +1003,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"priest", name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3688, dpsByList:{"alltime": 3688, "obtainable": 3494, "herald": 3278},
+{ id:"priest", cls:"priest", primary:true, name:"Priest", spec:"Shadow", color:"#FFFFFF", dps:3688, dpsByList:{"alltime": 3688, "obtainable": 3494, "herald": 3278},
   talents:{"alltime": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "obtainable": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA", "herald": "CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
@@ -1059,7 +1065,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"warlock", name:"Warlock", spec:"Affliction", color:"#8788EE", dps:3395, dpsByList:{"alltime": 3395, "obtainable": 3245, "herald": 2870},
+{ id:"warlock", cls:"warlock", primary:true, name:"Warlock", spec:"Affliction", color:"#8788EE", dps:3395, dpsByList:{"alltime": 3395, "obtainable": 3245, "herald": 2870},
   talents:{"alltime": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "obtainable": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA", "herald": "CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
@@ -1121,7 +1127,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"rogue", name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2473, dpsByList:{"alltime": 2473, "obtainable": 2365, "herald": 2154},
+{ id:"rogue", cls:"rogue", primary:true, name:"Rogue", spec:"Outlaw", color:"#FFF468", dps:2473, dpsByList:{"alltime": 2473, "obtainable": 2365, "herald": 2154},
   talents:{"alltime": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "obtainable": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA", "herald": "CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
@@ -1185,7 +1191,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"monk", name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2623, dpsByList:{"alltime": 2623, "obtainable": 2520, "herald": 2230},
+{ id:"monk", cls:"monk", primary:true, name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2623, dpsByList:{"alltime": 2623, "obtainable": 2520, "herald": 2230},
   talents:{"alltime": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "obtainable": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "herald": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
@@ -1249,7 +1255,7 @@ const CLASSES = [
     ]
   }
 },
-{ id:"evoker", name:"Evoker", spec:"Devastation", color:"#33937F", dps:3305, dpsByList:{"alltime": 3305, "obtainable": 3163, "herald": 2860},
+{ id:"evoker", cls:"evoker", primary:true, name:"Evoker", spec:"Devastation", color:"#33937F", dps:3305, dpsByList:{"alltime": 3305, "obtainable": 3163, "herald": 2860},
   talents:{"alltime": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "obtainable": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA", "herald": "CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH"}},
@@ -1316,7 +1322,10 @@ const CLASSES = [
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let state = { cls: CLASSES[0].id, list: LIST_TYPES[0].id, sort: "dps" };
+let state = { cls: CLASSES[0].id, list: LIST_TYPES[0].id, sort: "dps", view: "best" };
+const classKey = c => c.cls || c.id;
+const visible = () => state.view === "all" ? CLASSES.slice() : CLASSES.filter(c => c.primary);
+const entryOf = id => CLASSES.find(x => x.id === id);
 
 /* ---------- URL state ----------------------------------------------------
    Shareable as #class/spec/list, e.g. #warrior/fury/herald. Class and spec are
@@ -1367,7 +1376,7 @@ function readHash(){
      || null;
   }
   let hit = false;
-  if(c){ state.cls = c.id; hit = true; }
+  if(c){ state.cls = c.id; if(!c.primary) state.view = "all"; hit = true; }
   if(l){ state.list = l.id; hit = true; }
   return hit;
 }
@@ -1380,7 +1389,7 @@ function writeHash(){
 }
 const dpsFor = (c, listId) => (c.dpsByList && c.dpsByList[listId != null ? listId : state.list]) || 0;
 function sortedClasses(){
-  const a = [...CLASSES];
+  const a = visible();
   if(state.sort === "alpha") a.sort((x,y) => x.name.localeCompare(y.name) || specOf(x).localeCompare(specOf(y)));
   else a.sort((x,y) => (dpsFor(y) - dpsFor(x)) || ((y.dps||0) - (x.dps||0)));
   return a;
@@ -1472,7 +1481,7 @@ function statPanel(cls){
     + '<span class="lbl">'+label+'</span>'
     + '<span class="val"><span class="pct">'+v+'</span></span></div>';
   const top = hasTop ? '<div class="stattop">'
-    + (s.main != null ? tcell(PRIMARY[cls.id] || "Primary", s.main) : '<span></span>')
+    + (s.main != null ? tcell(PRIMARY[cls.id] || PRIMARY[classKey(cls)] || "Primary", s.main) : '<span></span>')
     + (s.stam != null ? tcell("Stamina", s.stam, true) : '')
     + '</div>' : "";
   const K = [["crit","Critical Strike"],["mastery","Mastery"],["haste","Haste"],["vers","Versatility"]];
@@ -1774,6 +1783,18 @@ if (CONFIG.notice) {
 }
 
 // Back/forward and pasted-link navigation.
+document.getElementById("viewtoggle").addEventListener("click", e => {
+  const b = e.target.closest("button[data-view]"); if(!b) return;
+  const v = b.dataset.view; if(v === state.view) return;
+  state.view = v;
+  for(const x of document.querySelectorAll("#viewtoggle button")) x.classList.toggle("on", x.dataset.view === v);
+  const cur = entryOf(state.cls);
+  if(v === "best" && cur && !cur.primary){
+    const p = CLASSES.find(x => classKey(x) === classKey(cur) && x.primary);
+    if(p) state.cls = p.id;
+  }
+  render();
+});
 window.addEventListener("hashchange", () => { if(readHash()) render(); });
 
 readHash();

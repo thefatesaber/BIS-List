@@ -146,6 +146,21 @@ for (const [id, byIlvl] of ilvlById)
 const rows = CLASSES.reduce((n, c) =>
   n + LISTS.reduce((m, L) => m + ((c.lists && c.lists[L]) || []).length, 0), 0);
 
+// Multi-spec invariants: unique entry ids, a class key on every entry,
+// exactly one primary per class (the ruling the "Best" view renders).
+{
+  const ids = CLASSES.map((c) => c.id);
+  if (new Set(ids).size !== ids.length) err("duplicate entry ids");
+  const per = {};
+  for (const c of CLASSES) {
+    if (!c.cls) err(`${c.id}: missing cls (class key)`);
+    if (c.primary != null && typeof c.primary !== "boolean") err(`${c.id}: primary must be boolean`);
+    per[c.cls] = (per[c.cls] || 0) + (c.primary ? 1 : 0);
+  }
+  for (const k of Object.keys(per))
+    if (per[k] !== 1) err(`class ${k}: ${per[k]} primary entries (must be exactly 1)`);
+}
+
 if (warns.length) {
   console.log(`\n${warns.length} warning(s):`);
   for (const w of warns) console.log("  ~", w);

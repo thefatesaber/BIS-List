@@ -135,6 +135,26 @@ Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
 convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
 Eskhandar spread (both tiers rescale to the one 2.47/min item anchor).
 
+## Expanding to all DPS specs
+
+The page renders spec entries, not classes: each CLASSES item is one
+spec with `cls` (class key) and `primary` (the per-class ruling the
+"Best per class" view shows — exactly one per class, enforced by
+validate). The "All specs" toggle stops filtering; deep links to a
+non-primary spec flip the view automatically; the rail live-sorts by
+the selected list's DPS, so new entries place themselves.
+
+Adding a spec is the same loop as maintaining one: three benchmark
+profiles simmed at 50k, one page entry with `primary:false` (or a
+primary flip if the per-class ruling changes), stats and talents from
+reports, prov stamped, filenames carrying the simmed DPS. The linter
+resolves profiles to entries by class name plus spec prefix, so
+multiple specs per class lint without special-casing. Survival enters
+through its gate as hunter's second entry when it does. Augmentation
+is the one roster spec the self-buffed rail cannot honestly number —
+its kit buffs other actors — and needs its own ruling before it gets
+an entry.
+
 ## Data shape
 
 Rows: `slot, item, wowhead, ilvl, source, status`, optional `q, ench,

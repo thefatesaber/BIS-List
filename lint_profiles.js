@@ -99,19 +99,22 @@ for (const dir of DIRS) {
     if (!m) { E(`filename does not parse as "<dps> - <Class> <Spec>.txt"`); continue; }
     const fdps = +m[1];
     const words = m[2].replace(/_/g, " ").trim();
-    const cls = CLASSES.map(c => c.name).sort((a, b) => b.length - a.length)
+    const cls = [...new Set(CLASSES.map(c => c.name))].sort((a, b) => b.length - a.length)
       .find(n => words.toLowerCase().startsWith(n.toLowerCase()));
     if (!cls) { E(`no class matches "${words}"`); continue; }
-    const c = CLASSES.find(x => x.name === cls);
     const specName = words.slice(cls.length).trim();
-
-    // Prefix-tolerant spec match ("Devour" checks against "Devourer").
-    const onPage = specName && c.spec &&
-      (c.spec.toLowerCase() === specName.toLowerCase() ||
-       c.spec.toLowerCase().startsWith(specName.toLowerCase()));
+    // Prefix-tolerant spec match ("Devour" vs "Devourer"), resolved among
+    // every entry of the class — a class may carry several spec entries.
+    const specStr = x => typeof x.spec === "string" ? x.spec : (x.spec && (x.spec.alltime || Object.values(x.spec)[0])) || "";
+    const specHit = x => specName && specStr(x) &&
+      (specStr(x).toLowerCase() === specName.toLowerCase() ||
+       specStr(x).toLowerCase().startsWith(specName.toLowerCase()));
+    const cands = CLASSES.filter(x => x.name === cls);
+    const c = cands.find(specHit) || cands[0];
+    const onPage = cands.some(specHit);
     const survival = c.id === "hunter" && /^surv/i.test(specName);
     if (survival) continue; // archived frozen artifacts — no checks
-    if (!onPage) { E(`spec "${specName}" is not the page spec "${c.spec}"`); continue; }
+    if (!onPage) { E(`spec "${specName}" matches no page entry for ${cls} [${cands.map(specStr).join(", ")}]`); continue; }
 
     const rows = onPage ? (c.lists || {})[list] || [] : [];
     if (onPage && fdps !== (c.dpsByList || {})[list])

@@ -29,7 +29,7 @@ const ROWFIELDS = ["item", "wowhead", "ilvl", "source", "ench", "enchsp", "gems"
 for (const ca of a.CLASSES) {
   const cb = b.CLASSES.find((c) => c.id === ca.id);
   if (!cb) { say(`${ca.id}: removed`); continue; }
-  for (const f of ["dps", "spec", "name"])
+  for (const f of ["dps", "spec", "name", "cls", "primary"])
     if (ca[f] !== cb[f]) say(`${ca.id}.${f}: ${ca[f]} -> ${cb[f]}`);
   for (const L of LISTS) {
     if ((ca.dpsByList || {})[L] !== (cb.dpsByList || {})[L])
