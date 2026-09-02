@@ -5,6 +5,9 @@ newest first. Entries marked [page] modified index.html. Every future
 commit that modifies index.html must add its own dated entry here.
 
 ## 2026-09-02
+- [page] All-time DH trinket alternative corrected to the tested pair —
+  Talisman of Ephemeral Power + Armored Elekk Tusk at −15.9% — and the
+  alternates renderer learns pair-swap entries (item2/wowhead2).
 - [page] data: DH All-time trinket alternative recorded; CHANGELOG.md begins (3f11d3d)
 - [page] data: Survival Hunter enters as the first non-primary entry (d8a23de)
 - [page] feature: all-specs expansion model and the Best/All view toggle (67b87df)

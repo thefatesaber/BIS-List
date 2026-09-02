@@ -967,7 +967,7 @@ const CLASSES = [
       {"slot": "Feet", "item": "Footpads of Impending Death", "wowhead": 49895, "ilvl": 47, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
-      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "alts": [{"item": "Armored Elekk Tusk", "wowhead": 108902, "q": 3, "delta": -15.9}], "altbase": 3305, "status": "sim", "why": "Gale of Shadows builds stacks off periodic damage and healing only (for devourer = soul immolation heal only), while Solace of the Fallen stacks only off void ray (non meta void ray specifically), factoring both of these not generating stacks under standard abilities, nor ever ramping them up substantially enough to utilize them. Pendant of the Violet Eye and Meteorite Crystal are on-use and can be max stacked in 1 single void ray, allowing devourer to land both stacks in the same window. No other trinket comparison comes close to these two combined"},
+      {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "alts": [{"item": "Talisman of Ephemeral Power", "wowhead": 18820, "item2": "Armored Elekk Tusk", "wowhead2": 108902, "q2": 3, "delta": -15.9}], "altbase": 3305, "status": "sim", "why": "Gale of Shadows builds stacks off periodic damage and healing only (for devourer = soul immolation heal only), while Solace of the Fallen stacks only off void ray (non meta void ray specifically), factoring both of these not generating stacks under standard abilities, nor ever ramping them up substantially enough to utilize them. Pendant of the Violet Eye and Meteorite Crystal are on-use and can be max stacked in 1 single void ray, allowing devourer to land both stacks in the same window. No other trinket comparison comes close to these two combined"},
       {"slot": "Trinket 2", "item": "Meteorite Crystal", "wowhead": 46051, "q": 4, "ilvl": 43, "source": "Ulduar", "status": "sim", "hm": "only"},
       {"slot": "Main Hand", "item": "Bloodsurge, Kel'Thuzad's Blade of Agony", "wowhead": 50732, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
       {"slot": "Off Hand", "item": "Rigormortis", "wowhead": 50704, "ilvl": 47, "source": "Icecrown Citadel — Professor Putricide", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"}
@@ -1557,7 +1557,9 @@ function altLinks(e){
       ? '<span class="pending">sim pending</span>'
       : '<span class="delta"'+(e.altbase ? ' title="vs sweep base '+esc(String(e.altbase))+' DPS"' : '')+'>'+(a.delta>0?"+":"")+esc(a.delta.toFixed(1))+'%</span>';
     return '<a'+(a.q?' class="q'+a.q+'"':'')+' href="'+href+'" target="_blank" rel="noopener">'
-         + esc(a.item)+'</a>'+vTag(a)+' '+d;
+         + esc(a.item)+'</a>'
+         + (a.item2 ? ' + <a'+(a.q2?' class="q'+a.q2+'"':'')+' href="https://www.wowhead.com/item='+a.wowhead2+'" target="_blank" rel="noopener">'+esc(a.item2)+'</a>' : '')
+         + vTag(a)+' '+d;
   };
   const band2 = (label, list, cls) => !list.length ? "" :
     '<span class="alts'+(cls?" "+cls:"")+'"><em>'+label+':</em> '
