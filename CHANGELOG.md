@@ -5,6 +5,8 @@ newest first. Entries marked [page] modified index.html. Every future
 commit that modifies index.html must add its own dated entry here.
 
 ## 2026-09-02
+- [page] Header notice now mirrors the newest changelog entry and links
+  the full changelog on GitHub; notice text updated accordingly.
 - [page] All-time DH trinket alternative corrected to the tested pair —
   Talisman of Ephemeral Power + Armored Elekk Tusk at −15.9% — and the
   alternates renderer learns pair-swap entries (item2/wowhead2).

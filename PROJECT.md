@@ -194,7 +194,10 @@ gated on `validate.js` monotonicity against the untouched lists.
   first.
 
 Every commit that modifies index.html also adds a dated CHANGELOG.md
-entry stating what changed — the page-facing record of ruling B.
+entry stating what changed — the page-facing record of ruling B. The
+same commit sets CONFIG.notice to that newest entry's text: the header
+notice is a mirror of the changelog's top line, and it links the full
+CHANGELOG.md on GitHub.
 
 Commit messages are prose paragraphs — what changed and why, with
 flagged-but-not-applied items listed separately.
