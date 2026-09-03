@@ -5,6 +5,9 @@ newest first. Entries marked [page] modified index.html. Every future
 commit that modifies index.html must add its own dated entry here.
 
 ## 2026-09-02
+- [page] DH trinket pair fallback moved to the Obtainable list with its
+  own sweep (Talisman + Elekk Tusk, −15.2% vs base 3160); removed from
+  All-time.
 - [page] Header notice now mirrors the newest changelog entry and links
   the full changelog on GitHub; notice text updated accordingly.
 - [page] All-time DH trinket alternative corrected to the tested pair —
