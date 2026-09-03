@@ -105,7 +105,7 @@ for (const c of CLASSES) {
         err(`${at}: ${item} is from Ulduar with no hm flag`);
 
       // hm:"ilvl" was retired; "only" and "socket" are the surviving badges.
-      if (r.hm && !["only", "socket"].includes(r.hm))
+      if (r.hm && !["only", "socket", "none"].includes(r.hm))
         err(`${at}: ${item} has unknown hm value "${r.hm}"`);
 
       if (r.alts && r.alts.length && !r.why)

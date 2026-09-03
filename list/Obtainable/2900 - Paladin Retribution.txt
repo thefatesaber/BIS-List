@@ -25,7 +25,7 @@ spec=retribution
 talents=CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA
 
 # Helm of the Faceless (42)
-head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30
+head=,ilevel=42,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30
 # Ukhel Ancestry Beads (140)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,drop_level=30
 # Lightbringer Shoulderbraces (42)

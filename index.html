@@ -463,7 +463,7 @@ footer{
      credits  optional {listId: name} — renders a thanks line under that list
      why      optional per-row one-liner explaining the pick
      gems     [{id, name, n}] socketed gems — n renders as n separate socket icons
-     hm       "only" -> hard-mode exclusive drop (badge)
+     hm       "only" -> hard-mode exclusive drop (badge); "none" -> decided normal loot, no badge
               "ilvl" -> drops on normal too, hard mode gives higher ilvl (badge)
                  `ilvl` should always be the value you actually simmed.
      alts     [{item, wowhead, q, delta}] alternates, split on render at
@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "Obtainable Druid updated to 2566 on Raidbots (Quick Emerald neck); columns mid-engine-migration may briefly invert \u2014 flagged, not failed."
+  notice: "Helm of the Faceless corrected to ilvl 42, normal loot \u2014 the HM-only tag comes off on warrior, paladin and DK, both tiers."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -517,7 +517,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 42, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "none"},
       {"slot": "Neck", "item": "Crystalized Sigil", "wowhead": 200446, "q": 3, "ilvl": 33, "source": "Ohn'ahran Plains — Liskheszaera (rare)", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 3, "q": 3}], "status": "sim"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Master's Inscription of the Axe", "enchsp": 61117, "gems": [{"id": 213458, "name": "Masterful Ruby", "n": 1, "q": 3}, {"id": 213491, "name": "Deadly Onyx", "n": 1, "q": 3}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213491, "name": "Deadly Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "only"},
@@ -535,7 +535,7 @@ const CLASSES = [
       {"slot": "Off Hand", "item": "The Jackhammer", "wowhead": 9423, "q": 3, "ilvl": 33, "source": "Uldaman — trash", "ench": "Crusader", "enchsp": 20034, "why": "BiS through its haste proc, not its stat budget: it fires often enough that the uptime is worth more than the item levels it gives up. The ilvl 33 is expected rather than a mistake — it is dungeon loot, and the proc is what you are equipping it for.", "status": "confirmed"}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 42, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "none"},
       {"slot": "Neck", "item": "Hatecoil Commander's Amulet", "wowhead": 134492, "q": 3, "ilvl": 33, "source": "Eye of Azshara — Warlord Parjesh", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Master's Inscription of the Axe", "enchsp": 61117, "gems": [{"id": 213494, "name": "Quick Onyx", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim", "hm": "only"},
@@ -581,7 +581,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 42, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "none"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}, {"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Shoulders", "item": "Lightbringer Shoulderbraces", "wowhead": 30997, "ilvl": 42, "source": "Black Temple — Mother Shahraz (token)", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
@@ -598,7 +598,7 @@ const CLASSES = [
       {"slot": "Main Hand", "item": "The Untamed Blade", "wowhead": 19334, "ilvl": 40, "source": "Blackwing Lair — Razorgore the Untamed", "alts": [{"item": "Shadowmourne", "wowhead": 49623, "q": 5, "delta": -7.5}, {"item": "The Jackhammer", "wowhead": 9423, "q": 3, "delta": -16.9}, {"item": "Bonereaver's Edge", "wowhead": 17076, "q": 4, "delta": -17.5}, {"item": "Singing Crystal Axe", "wowhead": 31318, "q": 4, "delta": -20.4}], "ench": "Crusader", "enchsp": 20034, "status": "sim", "why": "Alternates below are the All-time sweep; the note for this slot lives on the Obtainable list."}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 42, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "none"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Lightbringer Shoulderbraces", "wowhead": 30997, "ilvl": 42, "source": "Black Temple — Mother Shahraz (token)", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 2, "q": 3}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "only"},
@@ -642,7 +642,7 @@ const CLASSES = [
   credits:{},
   lists:{
     alltime:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 42, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "none"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}, {"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Lionsmane Inscription", "enchsp": 86401, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
@@ -659,7 +659,7 @@ const CLASSES = [
       {"slot": "Main Hand", "item": "Bonereaver's Edge", "wowhead": 17076, "ilvl": 38, "source": "Molten Core — Ragnaros", "alts": [{"item": "Shadowmourne", "wowhead": 49623, "q": 5, "delta": -7.0}, {"item": "The Untamed Blade", "wowhead": 19334, "q": 4, "delta": -7.2}, {"item": "The Jackhammer", "wowhead": 9423, "q": 3, "delta": -13.2}, {"item": "Singing Crystal Axe", "wowhead": 31318, "q": 4, "delta": -18.2}], "ench": "Rune of the Fallen Crusader", "enchsp": 53344, "status": "sim", "why": "Alternates below are the All-time sweep; the note for this slot lives on the Obtainable list."}
     ],
     obtainable:[
-      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
+      {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 42, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "none"},
       {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Lionsmane Inscription", "enchsp": 86401, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
