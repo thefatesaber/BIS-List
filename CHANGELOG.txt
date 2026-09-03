@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-03
+- [page] Obtainable Warrior updated to 3159 on Raidbots; feet and ring
+  gems swapped (Fierce Ametrine / Quick Onyx) for socket bonuses.
 - [page] Obtainable DK updated to 2939 on Raidbots (Masterful Onyx
   neck); both upper DK tiers now on the engine of record, ordered.
 - [page] All-time DK updated to 3137 on Raidbots — gear unchanged,

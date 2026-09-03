@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "Obtainable DK updated to 2939 on Raidbots (Masterful Onyx neck); the DK column\u2019s upper tiers are both on the new engine and ordered."
+  notice: "Obtainable Warrior updated to 3159 on Raidbots \u2014 feet and ring gems swapped for socket bonuses."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -508,9 +508,9 @@ const LIST_TYPES = [
 ];
 
 const CLASSES = [
-{ id:"warrior", cls:"warrior", primary:true, name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3808, dpsByList:{"alltime": 3808, "obtainable": 3160, "herald": 3002},
+{ id:"warrior", cls:"warrior", primary:true, name:"Warrior", spec:"Fury", color:"#C69B6D", dps:3808, dpsByList:{"alltime": 3808, "obtainable": 3159, "herald": 3002},
   talents:{"alltime": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "obtainable": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA", "herald": "CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA"},
-  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-09-03 \u00b7 Raidbots Advanced", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"mh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}, "herald": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH/OH"}}},
   stats:{"alltime": {"main": 212, "stam": 1036, "crit": [23.45, 92], "mastery": [50.24, 139], "haste": [15.52, 74], "vers": [6.66, 39]}, "obtainable": {"main": 239, "stam": 1042, "crit": [19.64, 73], "mastery": [22.71, 41], "haste": [31.31, 150], "vers": [3.76, 22]}, "herald": {"main": 246, "stam": 1051, "crit": [18.84, 69], "mastery": [22.15, 39], "haste": [24.96, 119], "vers": [2.05, 12]}},
   notes:["Weapon DPS dominates stat weights. Gem Mastery/Crit — haste only past the rage-starvation threshold.", "Trinket slot head-to-head (Death's Choice vs current pair) still open."],
@@ -544,9 +544,9 @@ const CLASSES = [
       {"slot": "Hands", "item": "Hard Khorium Battlefists", "wowhead": 34378, "ilvl": 44, "source": "Crafted — Blacksmithing", "ench": "Super Strength", "enchsp": 104419, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 2}], "status": "sim"},
       {"slot": "Waist", "item": "Red Belt of Battle", "wowhead": 30032, "ilvl": 40, "source": "Crafted — Blacksmithing", "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 3}], "status": "sim"},
       {"slot": "Legs", "item": "Felfury Legplates", "wowhead": 34180, "ilvl": 44, "source": "Sunwell Plateau — Brutallus", "ench": "Icescale Leg Armor", "enchsp": 60582, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 3}], "status": "sim"},
-      {"slot": "Feet", "item": "Onslaught Treads", "wowhead": 34569, "ilvl": 44, "source": "Sunwell Plateau — Felmyst (token)", "ench": "Greater Assault", "enchsp": 60763, "gems": [{"id": 213494, "name": "Quick Onyx", "n": 1, "q": 3}], "status": "sim"},
+      {"slot": "Feet", "item": "Onslaught Treads", "wowhead": 34569, "ilvl": 44, "source": "Sunwell Plateau — Felmyst (token)", "ench": "Greater Assault", "enchsp": 60763, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim"},
       {"slot": "Ring 1", "item": "Loop of Vitriolic Intent", "wowhead": 134530, "q": 3, "ilvl": 33, "source": "Neltharion's Lair — Ularogg Cragshaper", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Ring 2", "item": "Loop of Pulsing Veins", "wowhead": 159463, "q": 3, "ilvl": 33, "source": "The Underrot — Elder Leaxa", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 40146, "name": "Fierce Ametrine", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Ring 2", "item": "Loop of Pulsing Veins", "wowhead": 159463, "q": 3, "ilvl": 33, "source": "The Underrot — Elder Leaxa", "ench": "Accord of Haste", "enchsp": 297989, "gems": [{"id": 213494, "name": "Quick Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul", "status": "sim"},
       {"slot": "Trinket 2", "item": "Chaos Talisman", "wowhead": 137459, "q": 3, "ilvl": 33, "source": "Assault on Violet Hold — Fel Lord Betrug", "status": "sim", "why": "A very flat field: Chaos Talisman and Pendant of the Violet Eye both sit inside the noise band, so run whichever drops first. Meteorite Crystal and Herkuml War Token fall outside it — Meteorite only just, Herkuml a little further back."},
       {"slot": "Main Hand", "item": "The Untamed Blade", "wowhead": 19334, "ilvl": 40, "source": "Blackwing Lair — Razorgore the Untamed", "ench": "Crusader", "enchsp": 20034, "status": "confirmed"},
