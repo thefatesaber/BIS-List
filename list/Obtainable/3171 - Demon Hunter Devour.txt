@@ -14,7 +14,7 @@ talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAA
 
 ### Combo 1
 # Frayed Scoundrel's Cap (33)
-head=,id=50206,ilevel=33,gem_id=76885/213743/32196,bonus_id=4196,drop_level=30
+head=,id=50206,ilevel=33,gem_id=76885/213743/213500,bonus_id=4196,drop_level=30
 # Ukhel Ancestry Beads (135)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71854,drop_level=30
 # mantle_of_perenolde (33)
@@ -36,8 +36,8 @@ legs=,id=51889,ilevel=47,enchant_id=6539,gem_id=71854/71854/71854,bonus_id=9051,
 feet=,id=49895,ilevel=47,enchant_id=4429,gem_id=71854/71854,bonus_id=9051
 # signet_of_the_false_accuser (33)
 finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
-# Arch-Druid's Tainted Seal (33)
-finger2=,ilevel=33,id=134487,enchant_id=6110,gem_id=71854,drop_level=30
+# Fleshfused Circle (33)
+finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854,drop_level=30
 # Pendant of the Violet Eye (38) — macro-stacked; use= carries BOTH trinkets'
 # stacks (380 + 320 = 700 vers) since the in-game macro pops them as one press
 trinket1=pendant_and_meteorite_macro_proxy,ilevel=38,stats=8int,use=700vers_20dur_120cd

@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "Changelog is now a single CHANGELOG.txt served by the site itself; the header link points there."
+  notice: "Obtainable DH updated to 3171: a ring swaps to Fleshfused Circle and the head takes Masterful Onyx."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -948,17 +948,17 @@ const CLASSES = [
     ]
   }
 },
-{ id:"demonhunter", cls:"demonhunter", primary:true, name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3305, dpsByList:{"alltime": 3305, "obtainable": 3161, "herald": 2413},
+{ id:"demonhunter", cls:"demonhunter", primary:true, name:"Demon Hunter", spec:"Devourer", color:"#A330C9", dps:3305, dpsByList:{"alltime": 3305, "obtainable": 3171, "herald": 2413},
   talents:{"alltime": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "obtainable": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA", "herald": "CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA"},
   prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Volcanic Potion", "wowhead": 58091}, "flask": {"item": "Flask of Distilled Wisdom", "wowhead": 13511}, "food": {"item": "Severed Sagefish Head", "wowhead": 62671}, "oil": {"item": "Superior Wizard Oil", "wowhead": 22522, "hands": "MH/OH"}},
-  stats:{"alltime": {"main": 297, "stam": 1062, "crit": [19.64, 68], "mastery": [29.46, 107], "haste": [19.92, 95], "vers": [0.0, 0]}, "obtainable": {"main": 285, "stam": 1061, "crit": [18.44, 62], "mastery": [28.86, 104], "haste": [21.18, 101], "vers": [0.0, 0]}, "herald": {"main": 246, "stam": 1056, "crit": [19.04, 65], "mastery": [20.84, 64], "haste": [19.5, 93], "vers": [5.13, 30]}},
+  stats:{"alltime": {"main": 297, "stam": 1062, "crit": [19.64, 68], "mastery": [29.46, 107], "haste": [19.92, 95], "vers": [0.0, 0]}, "obtainable": {"main": 282, "stam": 1061, "crit": [19.64, 68], "mastery": [29.86, 109], "haste": [19.92, 95], "vers": [0.0, 0]}, "herald": {"main": 246, "stam": 1056, "crit": [19.04, 65], "mastery": [20.84, 64], "haste": [19.5, 93], "vers": [5.13, 30]}},
   notes:["Set reconciled to ground truth (2,320 vs 2,322 DPS) — shirt-slot fragment-aura instrument (excluded here), ×1.19 composite correction.", "Trinkets run the macro-stacked flat-vers variants, fired together at Meta open."],
   credits:{},
   lists:{
     alltime:[
       {"slot": "Head", "item": "Frayed Scoundrel's Cap", "wowhead": 50206, "ilvl": 33, "source": "The Forge of Souls — Devourer of Souls", "gems": [{"id": 76885, "name": "Burning Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 32196, "name": "Brilliant Crimson Spinel", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}, {"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
+      {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}, {"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Master's Inscription of the Storm", "enchsp": 61120, "gems": [{"id": 32196, "name": "Brilliant Crimson Spinel", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Messenger", "wowhead": 46042, "ilvl": 43, "source": "Ulduar — Algalon the Observer", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Chest", "item": "Harness of Carnal Instinct", "wowhead": 34211, "ilvl": 44, "source": "Sunwell Plateau — trash", "ench": "Waking Stats", "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
@@ -986,7 +986,7 @@ const CLASSES = [
       {"slot": "Legs", "item": "Plague-Soaked Leather Leggings", "wowhead": 51889, "ilvl": 47, "source": "Icecrown Citadel — Festergut", "ench": "Frozen Spellthread", "enchsp": 387291, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 3}], "status": "sim"},
       {"slot": "Feet", "item": "Footpads of Impending Death", "wowhead": 49895, "ilvl": 47, "source": "Crafted — Leatherworking", "ench": "Pandaren's Step", "enchsp": 104414, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Ring 1", "item": "Signet of the False Accuser", "wowhead": 178824, "q": 3, "ilvl": 33, "source": "Halls of Atonement — Lord Chamberlain", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Ring 2", "item": "Arch-Druid's Tainted Seal", "wowhead": 134487, "q": 3, "ilvl": 33, "source": "Darkheart Thicket — Archdruid Glaidalis", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Ring 2", "item": "Fleshfused Circle", "wowhead": 178869, "q": 3, "ilvl": 33, "source": "Theater of Pain — Gorechop", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
       {"slot": "Trinket 1", "item": "Pendant of the Violet Eye", "wowhead": 28727, "ilvl": 38, "source": "Karazhan — Shade of Aran", "alts": [{"item": "Talisman of Ephemeral Power", "wowhead": 18820, "item2": "Armored Elekk Tusk", "wowhead2": 108902, "q2": 3, "delta": -15.2}], "altbase": 3160, "status": "sim", "why": "Gale of Shadows builds stacks off periodic damage and healing only (for devourer = soul immolation heal only), while Solace of the Fallen stacks only off void ray (non meta void ray specifically), factoring both of these not generating stacks under standard abilities, nor ever ramping them up substantially enough to utilize them. Pendant of the Violet Eye and Meteorite Crystal are on-use and can be max stacked in 1 single void ray, allowing devourer to land both stacks in the same window. No other trinket comparison comes close to these two combined"},
       {"slot": "Trinket 2", "item": "Meteorite Crystal", "wowhead": 46051, "q": 4, "ilvl": 43, "source": "Ulduar", "status": "sim", "hm": "only"},
       {"slot": "Main Hand", "item": "Bloodsurge, Kel'Thuzad's Blade of Agony", "wowhead": 50732, "ilvl": 47, "source": "Icecrown Citadel — The Lich King", "ench": "Major Spellpower", "enchsp": 27975, "gems": [{"id": 71854, "name": "Artful Lava Coral", "n": 1}], "status": "sim"},
