@@ -236,6 +236,15 @@ for (const dir of DIRS) {
               E(`line ${ln}: ${slot} ilevel=${kv.ilevel} but page pins ${row.ilvl} for ${row.item}`);
             if (named && row.ilvl != null && kv.ilevel && +kv.ilevel !== row.ilvl)
               E(`line ${ln}: synthetic ${slot} ilevel=${kv.ilevel} but page pins ${row.ilvl}`);
+            // Gems: when the page row displays a gems array, its multiset
+            // must match the profile's gem_id string — the audit rule that
+            // caught the 0021-era strays, now permanent.
+            if (kv.gem_id && row.gems && row.gems.length) {
+              const prof = kv.gem_id.split("/").sort().join("/");
+              const page = row.gems.flatMap(g => Array(g.n || 1).fill(String(g.id))).sort().join("/");
+              if (prof !== page)
+                E(`line ${ln}: ${slot} gems ${kv.gem_id} disagree with the page row [${page}]`);
+            }
           }
         }
       }

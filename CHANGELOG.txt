@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-03
+- [page] Gem integrity becomes a linter rule (profile gem_id must match
+  any displayed gems array); the audit corrected eight latent row
+  mismatches across DH, druid and mage.
 - [page] Obtainable DH updated to 3172; gem audit caught the head row
   still carrying the pre-0021 third gem — Masterful Onyx corrected in.
 - [page] Obtainable Warrior updated to 3159 on Raidbots; feet and ring
