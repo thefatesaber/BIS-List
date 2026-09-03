@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-02
+- [page] Correction: the ilvl-42 normal-loot fix belongs to Cowl of Icy
+  Breaths (priest, All-time and Obtainable); Helm of the Faceless and
+  its six profiles restored to 43 HM-only.
 - [page] Helm of the Faceless corrected to ilvl 42 with the HM-only tag
   removed (regular Vezax chest loot) across warrior, paladin and DK on
   All-time and Obtainable; profiles repinned to 42.

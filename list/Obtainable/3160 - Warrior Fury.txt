@@ -8,7 +8,7 @@ role=attack
 talents=CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA
 ### Combo 1
 # Helm of the Faceless 43
-head=,ilevel=42,id=45502,gem_id=76886/213743,bonus_id=9042,drop_level=30
+head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9042,drop_level=30
 # Hatecoil Commander's Amulet (33)
 neck=,id=134492,ilevel=33,enchant_id=5890,gem_id=40146,bonus_id=6710/6652/8810,drop_level=30
 # Spaulders of the Thalassian Savior (44)

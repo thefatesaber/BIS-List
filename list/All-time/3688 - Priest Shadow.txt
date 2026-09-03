@@ -25,7 +25,7 @@ talents=CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWY
 # talents=CIQA4VPTJ8eQb8/qEm8PyGu4yADAAAAAAAAAAAAAYgxwMLGMA4BYAYGYwAGAAAAAAgBAzA2YAAAA
 
 # cowl_of_icy_breaths 42
-head=,ilevel=43,id=45464,gem_id=25893/213743,bonus_id=9041,drop_level=30
+head=,ilevel=42,id=45464,gem_id=25893/213743,bonus_id=9041,drop_level=30
 # Ukhel Ancestry Beads 135
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213482/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Hatefury Mantle 42
