@@ -14,7 +14,7 @@ talents=CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAA
 # Frayed Scoundrel's Cap (33)
 head=,id=50206,ilevel=33,gem_id=76884/213743/40150,bonus_id=4196,drop_level=30
 # Amnesia (135)
-neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/40150/40150,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213479/40150/40150,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32194/32194,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
@@ -30,11 +30,11 @@ waist=,id=46095,ilevel=43,gem_id=32194/32194/32194,bonus_id=9043,drop_level=30
 # Plague-Soaked Leather Leggings (47)
 legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=32194/32194/32194,bonus_id=9051,drop_level=30
 # Footpads of Impending Death (47)
-feet=,id=49895,ilevel=47,enchant_id=1887,gem_id=32194/32194,bonus_id=9051,drop_level=30
+feet=,id=49895,ilevel=47,enchant_id=1887,gem_id=32194/32222,bonus_id=9051,drop_level=30
 # Bloodoath Signet (33)
-finger1=,id=178871,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger1=,id=178871,ilevel=33,enchant_id=6109,gem_id=32222/32222,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Band of the Ancient Dredger (33)
-finger2=,id=159461,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,id=159461,ilevel=33,enchant_id=6109,gem_id=32222/32222,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Chaos Talisman (33)
@@ -234,7 +234,7 @@ actions.finisher+=/pool_resource,for_next=1
 actions.finisher+=/ferocious_bite,max_energy=1,if=combo_points>=5
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
