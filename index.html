@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "Obtainable DH pair fallback re-swept on the new gear: Talisman + Elekk Tusk at \u221213.1% vs base 3171."
+  notice: "Obtainable Monk updated to 2614 (Masterful Onyx neck) \u2014 simmed on Raidbots Advanced, now the engine of record."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -1200,11 +1200,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"monk", cls:"monk", primary:true, name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2623, dpsByList:{"alltime": 2623, "obtainable": 2520, "herald": 2230},
+{ id:"monk", cls:"monk", primary:true, name:"Monk", spec:"Windwalker", color:"#00FF98", dps:2623, dpsByList:{"alltime": 2623, "obtainable": 2614, "herald": 2230},
   talents:{"alltime": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "obtainable": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA", "herald": "C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA"},
-  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
+  prov:{"alltime": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "obtainable": "simmed 2026-09-02 \u00b7 Raidbots Advanced", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"alltime": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "obtainable": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Weightstone", "wowhead": 28421}}}, "herald": {"potion": {"item": "Potion of the Tol'vir", "wowhead": 58145}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Skewered Eel", "wowhead": 62669}, "oil": {"mh": {"item": "Adamantite Weightstone", "wowhead": 28421}, "oh": {"item": "Adamantite Sharpening Stone", "wowhead": 23529}}}},
-  stats:{"alltime": {"main": 247, "stam": 1107, "crit": [26.65, 83], "mastery": [71.88, 114], "haste": [16.57, 79], "vers": [0.0, 0]}, "obtainable": {"main": 241, "stam": 1107, "crit": [23.64, 68], "mastery": [66.74, 103], "haste": [16.57, 79], "vers": [2.73, 16]}, "herald": {"main": 217, "stam": 1097, "crit": [26.05, 80], "mastery": [66.74, 103], "haste": [9.23, 44], "vers": [2.22, 13]}},
+  stats:{"alltime": {"main": 247, "stam": 1107, "crit": [26.65, 83], "mastery": [71.88, 114], "haste": [16.57, 79], "vers": [0.0, 0]}, "obtainable": {"main": 239, "stam": 1107, "crit": [23.64, 68], "mastery": [68.15, 106], "haste": [16.57, 79], "vers": [2.73, 16]}, "herald": {"main": 217, "stam": 1097, "crit": [26.05, 80], "mastery": [66.74, 103], "haste": [9.23, 44], "vers": [2.22, 13]}},
   notes:[],
   credits:{},
   lists:{
@@ -1228,7 +1228,7 @@ const CLASSES = [
     ],
     obtainable:[
       {"slot": "Head", "item": "Wastewalker Helm", "wowhead": 28224, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "gems": [{"id": 76884, "name": "Agile Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}, {"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
-      {"slot": "Neck", "item": "Brysngamen, Torc of Helheim", "wowhead": 133636, "q": 3, "ilvl": 33, "source": "Maw of Souls — Helya", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Neck", "item": "Brysngamen, Torc of Helheim", "wowhead": 133636, "q": 3, "ilvl": 33, "source": "Maw of Souls — Helya", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Mantle of Perenolde", "wowhead": 27434, "q": 3, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Greater Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Drape of the Faceless General", "wowhead": 46032, "ilvl": 43, "source": "Ulduar — General Vezax", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 2}], "status": "sim", "hm": "only"},
       {"slot": "Chest", "item": "Harness of Carnal Instinct", "wowhead": 34211, "ilvl": 44, "source": "Sunwell Plateau — trash", "ench": "Waking Stats", "gems": [{"id": 71852, "name": "Adept Lava Coral", "n": 3}], "status": "sim"},

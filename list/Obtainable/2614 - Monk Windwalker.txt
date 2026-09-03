@@ -13,7 +13,7 @@ talents=C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAA
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
 # Brysngamen, Torc of Helheim (135)
-neck=,id=133636,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
+neck=,id=133636,ilevel=33,enchant_id=5890,gem_id=213500,drop_level=30
 # mantle_of_perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=7202,drop_level=30
 # Drape of the Faceless General (43)

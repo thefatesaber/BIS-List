@@ -168,6 +168,16 @@ were computed against (stamped when the sweep runs, so deltas stay
 interpretable after a rebase); `prov` — a provenance stamp (sim date and
 build) whose rendering is gated on ruling B.
 
+## Engine of record
+
+Ruled 2026-09-02: numbers of record come from Raidbots Advanced —
+Fate's platform throughout the project and the one any reader can
+reproduce. The local/parity midnight builds remain the calibration and
+verification instruments (proc-rate rescaling, three-checks, stats
+extraction; gear-derived stats are engine-identical). Cross-engine
+deltas of a few percent are expected and are not drift; prov stamps
+name the engine per number.
+
 ## Wave workflow
 
 Fix set is cut per list directory and linted to zero. Sims run at 50k
