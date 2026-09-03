@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-02
+- [page] Six notes moved from All-time to Obtainable rows (paladin, DK,
+  druid, rogue, shaman, DH, plus the warrior trinket farming note
+  reworded onto Chaos Talisman); All-time rows with alternate sweeps
+  keep a one-line pointer stub.
 - [page] Obtainable Monk updated to 2614 (Masterful Onyx neck), simmed
   on Raidbots Advanced — recorded as the engine of record.
 - [page] Obtainable DH pair fallback re-swept on the new gear: Talisman
