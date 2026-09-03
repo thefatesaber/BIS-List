@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-03
+- [page] Survival All-time rows gain their gems and enchants, populated
+  from the profile and verified by the gem-integrity rule.
 - [page] Obtainable DH updated to 3203: Mystical Skyfire Diamond
   retakes the head meta on current data and Frozen Spellthread goes
   rank 3 on the legs.
