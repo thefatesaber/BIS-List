@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "All-time DK updated to 3137 on Raidbots \u2014 same gear, current game; the column stays ordered."
+  notice: "Obtainable DK updated to 2939 on Raidbots (Masterful Onyx neck); the DK column\u2019s upper tiers are both on the new engine and ordered."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -633,11 +633,11 @@ const CLASSES = [
     ]
   }
 },
-{ id:"deathknight", cls:"deathknight", primary:true, name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:3137, dpsByList:{"alltime": 3137, "obtainable": 2613, "herald": 2424},
+{ id:"deathknight", cls:"deathknight", primary:true, name:"Death Knight", spec:"Frost", color:"#C41E3A", dps:3137, dpsByList:{"alltime": 3137, "obtainable": 2939, "herald": 2424},
   talents:{"alltime": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "obtainable": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA", "herald": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgBeAAmZmBAAAAAAAAAAAAAAAwYAAAGAAA"},
-  prov:{"alltime": "simmed 2026-09-03 \u00b7 Raidbots Advanced", "obtainable": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
+  prov:{"alltime": "simmed 2026-09-03 \u00b7 Raidbots Advanced", "obtainable": "simmed 2026-09-03 \u00b7 Raidbots Advanced", "herald": "simmed 2026-08-30 \u00b7 simc 1210-01 (a0d9bbb)"},
   consumables:{"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "flask": {"item": "Flask of Endless Rage", "wowhead": 46377}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH"}},
-  stats:{"alltime": {"main": 235, "stam": 1039, "crit": [21.65, 83], "mastery": [58.12, 105], "haste": [20.58, 76], "vers": [3.76, 22]}, "obtainable": {"main": 228, "stam": 1039, "crit": [19.44, 72], "mastery": [53.71, 94], "haste": [22.97, 87], "vers": [3.76, 22]}, "herald": {"main": 222, "stam": 1046, "crit": [18.84, 69], "mastery": [56.52, 101], "haste": [18.18, 65], "vers": [2.05, 12]}},
+  stats:{"alltime": {"main": 235, "stam": 1039, "crit": [21.65, 83], "mastery": [58.12, 105], "haste": [20.58, 76], "vers": [3.76, 22]}, "obtainable": {"main": 226, "stam": 1039, "crit": [19.44, 72], "mastery": [54.92, 97], "haste": [22.97, 87], "vers": [3.76, 22]}, "herald": {"main": 222, "stam": 1046, "crit": [18.84, 69], "mastery": [56.52, 101], "haste": [18.18, 65], "vers": [2.05, 12]}},
   notes:["Bonereaver's Edge modeled 11% flat per attack — log-validated ≈89.6% uptime / ≈11.35 procs/min."],
   credits:{},
   lists:{
@@ -660,7 +660,7 @@ const CLASSES = [
     ],
     obtainable:[
       {"slot": "Head", "item": "Helm of the Faceless", "wowhead": 45502, "ilvl": 43, "source": "Ulduar — General Vezax", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 213743, "name": "Culminating Blasphemite", "n": 1}], "status": "sim", "hm": "only"},
-      {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "socket"},
+      {"slot": "Neck", "item": "Ukhel Ancestry Beads", "wowhead": 193676, "q": 3, "ilvl": 33, "source": "The Nokhud Offensive — Teera and Maruuk", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 213500, "name": "Masterful Onyx", "n": 1, "q": 3}], "status": "sim", "hm": "socket"},
       {"slot": "Shoulders", "item": "Spaulders of the Thalassian Savior", "wowhead": 34193, "ilvl": 44, "source": "Sunwell Plateau — The Eredar Twins", "ench": "Lionsmane Inscription", "enchsp": 86401, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}], "status": "sim"},
       {"slot": "Back", "item": "Titanskin Cloak", "wowhead": 45496, "ilvl": 43, "source": "Ulduar — Mimiron (Cache of Innovation)", "ench": "Minor Power", "enchsp": 44582, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "status": "sim", "hm": "only"},
       {"slot": "Chest", "item": "Hard Khorium Battleplate", "wowhead": 34377, "ilvl": 44, "source": "Crafted — Blacksmithing", "ench": "Waking Stats", "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 3}], "status": "sim"},
