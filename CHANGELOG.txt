@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-02
+- [page] Stub note removed from the warrior All-time Trinket 2 row; the
+  alternate sweep stands without an annotation.
 - [page] Six notes moved from All-time to Obtainable rows (paladin, DK,
   druid, rogue, shaman, DH, plus the warrior trinket farming note
   reworded onto Chaos Talisman); All-time rows with alternate sweeps
