@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-02
+- [page] Obtainable DH pair fallback re-swept on the new gear: Talisman
+  + Elekk Tusk now −13.1% vs base 3171.
 - [page] Obtainable DH updated to 3171: Ring 2 swaps to Fleshfused
   Circle (Theater of Pain) over Arch-Druid's Tainted Seal, and the head
   takes Masterful Onyx over the old third gem.
