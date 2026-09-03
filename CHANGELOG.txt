@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-03
+- [page] All-time Survival updated to 2802 on Raidbots — gear
+  unchanged, current game re-simmed; MM primacy untouched.
 - [page] Gem integrity becomes a linter rule (profile gem_id must match
   any displayed gems array); the audit corrected eight latent row
   mismatches across DH, druid and mage.
