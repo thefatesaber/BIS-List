@@ -193,11 +193,12 @@ gated on `validate.js` monotonicity against the untouched lists.
 - Planned: `gen_profiles.js`, page-to-profile generation, druid pilot
   first.
 
-Every commit that modifies index.html also adds a dated CHANGELOG.md
-entry stating what changed — the page-facing record of ruling B. The
+Every commit that modifies index.html also adds a dated CHANGELOG.txt
+entry stating what changed — the page-facing record of ruling B.
+CHANGELOG.txt is the single canonical file, served by the site and
+linked relatively from the header. The
 same commit sets CONFIG.notice to that newest entry's text: the header
-notice is a mirror of the changelog's top line, and it links the full
-CHANGELOG.md on GitHub.
+notice is a mirror of the changelog's top line, and it links CHANGELOG.txt on the site.
 
 Commit messages are prose paragraphs — what changed and why, with
 flagged-but-not-applied items listed separately.

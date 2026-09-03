@@ -1,10 +1,14 @@
 # Changelog
 
-Generated from the full repository history; one entry per commit,
-newest first. Entries marked [page] modified index.html. Every future
-commit that modifies index.html must add its own dated entry here.
+One entry per commit, newest first, generated from the full repository
+history and extended by hand since. Entries marked [page] modified
+index.html. Every commit that modifies index.html adds its own dated
+entry to this file — CHANGELOG.txt is the single canonical changelog,
+served by the site and linked from the header.
 
 ## 2026-09-02
+- [page] Changelog converted to a single CHANGELOG.txt served by the
+  site; the header link now points at it relatively instead of GitHub.
 - [page] DH trinket pair fallback moved to the Obtainable list with its
   own sweep (Talisman + Elekk Tusk, −15.2% vs base 3160); removed from
   All-time.

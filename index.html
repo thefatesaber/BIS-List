@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "DH trinket pair fallback moved to the Obtainable list with its own sweep \u2014 Talisman + Elekk Tusk at \u221215.2% vs base 3160; removed from All-time."
+  notice: "Changelog is now a single CHANGELOG.txt served by the site itself; the header link points there."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -1796,7 +1796,7 @@ if (CONFIG.notice) {
   const n = document.createElement("div");
   n.className = "notice";
   n.innerHTML = esc(CONFIG.notice)
-    + ' <span class="sep">\u00b7</span> <a href="https://github.com/thefatesaber/BIS-List/blob/main/CHANGELOG.md" target="_blank" rel="noopener">full changelog</a>';
+    + ' <span class="sep">\u00b7</span> <a href="CHANGELOG.txt" target="_blank" rel="noopener">full changelog</a>';
   $("metaline").insertAdjacentElement("afterend", n);
 }
 
