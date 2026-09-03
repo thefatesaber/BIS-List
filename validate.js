@@ -117,9 +117,16 @@ for (const c of CLASSES) {
   // All-Time, so DPS can only fall in that direction.
   const d = c.dpsByList || {};
   const seq = ["herald", "obtainable", "alltime"].filter((k) => d[k] != null);
+  const eng = (k) => /Raidbots/i.test(((c.prov || {})[k]) || "") ? "raidbots" : "local";
   for (let i = 1; i < seq.length; i++)
-    if (!(d[seq[i - 1]] <= d[seq[i]]))
-      err(`${c.id}: DPS not monotonic — alltime ${d.alltime}, obtainable ${d.obtainable}, herald ${d.herald}`);
+    if (!(d[seq[i - 1]] <= d[seq[i]])) {
+      // A column mid-migration between engines may legitimately invert;
+      // adjacent tiers on the same engine must still be monotonic.
+      if (eng(seq[i - 1]) === eng(seq[i]))
+        err(`${c.id}: DPS not monotonic — alltime ${d.alltime}, obtainable ${d.obtainable}, herald ${d.herald}`);
+      else
+        warn(`${c.id}: ${seq[i - 1]} ${d[seq[i - 1]]} > ${seq[i]} ${d[seq[i]]} across engines — column mid-migration`);
+    }
 
   for (const L of LISTS) {
     const s = (c.stats || {})[L];

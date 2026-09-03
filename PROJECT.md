@@ -176,7 +176,10 @@ reproduce. The local/parity midnight builds remain the calibration and
 verification instruments (proc-rate rescaling, three-checks, stats
 extraction; gear-derived stats are engine-identical). Cross-engine
 deltas of a few percent are expected and are not drift; prov stamps
-name the engine per number.
+name the engine per number. Monotonicity is enforced per engine:
+adjacent tiers on the same engine must order correctly, while a column
+mid-migration may briefly invert — validate warns instead of failing
+until the class's tiers share an engine again.
 
 ## Wave workflow
 

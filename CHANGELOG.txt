@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-02
+- [page] Obtainable Druid updated to 2566 on Raidbots (Quick Emerald
+  neck); monotonicity becomes per-engine so mid-migration columns warn
+  instead of failing.
 - [page] Stub note removed from the warrior All-time Trinket 2 row; the
   alternate sweep stands without an annotation.
 - [page] Six notes moved from All-time to Obtainable rows (paladin, DK,

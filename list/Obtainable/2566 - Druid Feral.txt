@@ -14,7 +14,7 @@ talents=CcGADBD3hSPCL9Y9gz68WcKvMAAAAAAwAAYGAAmxMzAAAAwSAAmZqZAAjZAAAAAAAAAAAAAA
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/32194/32194,bonus_id=7202,drop_level=30
 # Hook Charm Necklace (135)
-neck=,id=151437,ilevel=33,enchant_id=5437,gem_id=32194,drop_level=30
+neck=,id=151437,ilevel=33,enchant_id=5437,gem_id=213488,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32194/32194,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
@@ -236,7 +236,7 @@ actions.finisher+=/ferocious_bite,max_energy=1,if=combo_points>=5
 name=Druid
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
