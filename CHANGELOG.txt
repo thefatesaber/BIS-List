@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-05
+- [page] All-time Fire Mage updated to 2883: Boots of Fiery Resolution
+  replace the Slippers, trading crit for haste.
 - [page] Fire Mage joins as the second expansion entry: All-time 2876
   on Raidbots, full gear table with gems and enchants; Frost remains
   the mage primary. An inert external-PI line was stripped from the

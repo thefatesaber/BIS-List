@@ -29,8 +29,8 @@ hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=32196/32196,bonus_id=9043,drop_
 waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
 # Leggings of Calamity (44)
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
-# Slippers of the Seacaller (42)
-feet=,ilevel=42,id=32239,enchant_id=4429,gem_id=32196/32196,bonus_id=9036,drop_level=30
+# boots_of_fiery_resolution (42)
+feet=,id=45135,bonus_id=9043,ilevel=43,gem_id=32196/32196,enchant_id=4069
 # Stitchflesh's Misplaced Signet 33
 finger1=,id=178736,ilevel=33,enchant_id=6108,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Ritual Commander's Ring 33
@@ -41,9 +41,6 @@ trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_1
 trinket1=,ilevel=44,id=47271,bonus_id=9047
 # maghari_chieftains_staff 45
 main_hand=,id=51898,bonus_id=9049,ilevel=45,gem_id=32196/32196/32196,enchant_id=2669
-
-
-
 
 # Consumables
 # potion=golemblood_potion
