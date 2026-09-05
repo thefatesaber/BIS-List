@@ -9,38 +9,36 @@ professions=enchanting=60/inscription=25
 spec=fire
 talents=C8DAche08tHz49KSVf7iKFnyuBgxAmZkBAAAAAAAAAwMDYMDAAAAAwGYGAAAAGDLAAAAMAA
 
-
 # Vengeful Gladiator's Silk Cowl (44)
-head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
-# Tuskarr Bone Necklace 33
-neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=32196/32196/32196,bonus_id=9156/6652/9477/8782,drop_level=30
+head=,ilevel=44,id=33758,gem_id=68780/213743,bonus_id=9357,drop_level=30
+# Bromach's Disentombed Locket (33)
+neck=,ilevel=33,id=193809,enchant_id=5890,gem_id=213488/32196/32196,bonus_id=9156/6652/9477/8782,drop_level=30
 # vengeful_gladiators_silk_amice (44)
 shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=32196/32196,bonus_id=9357,drop_level=30
 # Drape of the Messenger 43
 back=,ilevel=43,id=46042,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=30
-# Sunfire Robe (44)
-chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
+# Robe of Eternal Light (44)
+chest=,ilevel=44,id=34365,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
 # Bracers of the Tempest (44)
-wrist=,ilevel=44,id=34447,enchant_id=4414,gem_id=32196,bonus_id=9037,drop_level=30
-# Handguards of Defiled Worlds (44)
-hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=32196/32196,bonus_id=9043,drop_level=30
-# Belt of Blasting 40
+wrist=,ilevel=44,id=34447,enchant_id=2326,gem_id=32196,bonus_id=9037,drop_level=30
+# Handguards of the Dawn (44)
+hands=,ilevel=44,id=34342,enchant_id=2322,gem_id=32196/32196,bonus_id=9037,drop_level=30
+# Belt of Blasting (40)
 waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
 # Leggings of Calamity (44)
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
-# boots_of_fiery_resolution (42)
-feet=,id=45135,bonus_id=9043,ilevel=43,gem_id=32196/32196,enchant_id=4069
-# Emperor's Seal 33
-finger1=,ilevel=33,id=231437,enchant_id=6109,gem_id=32196/32196,drop_level=30
-# Ritual Commander's Ring 33
-finger2=,id=178781,ilevel=33,enchant_id=6109,gem_id=32196/32196,bonus_id=6710/10386/6652/10394/10879,drop_level=30
-# Gale of Shadows 33
-trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
-# Solace of the Fallen 45
-trinket1=,ilevel=44,id=47271,bonus_id=9047
-# maghari_chieftains_staff 45
-main_hand=,id=51898,bonus_id=9049,ilevel=45,gem_id=32196/32196/32196,enchant_id=2669
-
+# Boots of Fiery Resolution (43)
+feet=,ilevel=43,id=45135,enchant_id=4069,gem_id=32196/32196,bonus_id=9043,drop_level=30
+# Signet of the False Accuser (33)
+finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Stitchflesh's Misplaced Signet (33)
+finger2=,ilevel=33,id=178736,enchant_id=6109,gem_id=32196/32196,drop_level=30
+# Gale of Shadows (33)
+trinket1=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+# Solace of the Fallen (45)
+trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
+# Mag'hari Chieftain's Staff (45)
+main_hand=,ilevel=45,id=51898,enchant_id=2669,gem_id=32196/32196/32196,bonus_id=9049,drop_level=30
 
 
 # Custom APL
@@ -97,13 +95,13 @@ override.player.spell_data=effect.856.base_value=15
 override.player.spell_data=spell.10060.spell_level=1
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
 enemy=Fluffy_Pillow
 target_level+=3
-#enemy_custom_health_timeline=90:0.05/30:0.85
+#enemy_custom_health_timeline=90:0.05/30:0.80
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
 override.allow_flasks=0

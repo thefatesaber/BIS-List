@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-05
+- [page] All-time Fire Mage rebuilt at 3363 per ruling, superseding
+  3396: the haste build lands with a full fifteen-row refresh (Cowl of
+  the Illidari High Lord head, Sunwell pieces, Bromach's locket).
 - [page] All-time Fire Mage 3396 on a clean benchmark run — the
   execute-timeline flag clears; Emperor's Seal replaces Stitchflesh on
   Ring 1 and both rings take Accord of Haste.
