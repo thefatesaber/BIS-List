@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-05
+- [page] All-time Fire Mage adopts the mechagnome build at 3365 —
+  simmed with a custom execute timeline (90:0.05/30:0.85) active,
+  flagged as a non-benchmark condition; the committed profile keeps the
+  line commented, so a clean re-run replaces this number when run.
 - [page] All-time Fire Mage updated to 2883: Boots of Fiery Resolution
   replace the Slippers, trading crit for haste.
 - [page] Fire Mage joins as the second expansion entry: All-time 2876

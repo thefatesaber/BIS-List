@@ -1,15 +1,14 @@
-# All-time - Mage - Frost
+# All-time - Mage - Fire
 mage="Fateccaster"
 level=30
 race=nightborne
 region=us
 server=thrall
 role=spell
-professions=tailoring=75/engineering=1
+professions=enchanting=60/inscription=25
 spec=fire
-# loot_spec=frost
-
 talents=C8DAche08tHz49KSVf7iKFnyuBgxAmZkBAAAAAAAAAwMDYMDAAAAAwGYGAAAAGDLAAAAMAA
+
 
 # Vengeful Gladiator's Silk Cowl (44)
 head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
@@ -42,22 +41,7 @@ trinket1=,ilevel=44,id=47271,bonus_id=9047
 # maghari_chieftains_staff 45
 main_hand=,id=51898,bonus_id=9049,ilevel=45,gem_id=32196/32196/32196,enchant_id=2669
 
-# Consumables
-# potion=golemblood_potion
-# flask=flask_of_titanic_strength
-# food=BeerBasted_Crocolisk
-# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
-temporary_enchant=disabled
-potion=disabled
-flask=disabled
-food=disabled
-augmentation=disabled
 
-# Expansion Options
-# Expansion Options
-midnight.crucible_of_erratic_energies_violence=0
-midnight.crucible_of_erratic_energies_sustenance=0
-midnight.crucible_of_erratic_energies_predation=0
 
 # Custom APL
 actions.precombat=/
@@ -95,14 +79,31 @@ actions+=/flamestrike,if=((((target.health.pct<30&(talent.scorch.enabled|talent.
 actions+=/scorch,if=target.health.pct<30|buff.heat_shimmer.up
 actions+=/fireball
 
+#shirt=flame_cap,use=21spi_60dur_180cd
+#potion=volcanic_potion
+#food=severed_sagefish_head
+#flask=flask_of_distilled_wisdom
+#temporary_enchant=main_hand:superior_wizard_oil
+
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+override.spell_data=spell.108853.spell_level=30
+override.player.spell_data=spell.2825.spell_level=1
+override.player.spell_data=effect.856.base_value=15
+override.player.spell_data=spell.10060.spell_level=1
+
 # Simulation Options
 iterations=50000
 desired_targets=1
 max_time=300
 fixed_time=1
-enemy=Fluffy_Pillow_Custom
+enemy=Fluffy_Pillow
 target_level+=3
-#enemy_custom_health_timeline=20:0.2
+#enemy_custom_health_timeline=90:0.05/30:0.85
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
 override.allow_flasks=0
