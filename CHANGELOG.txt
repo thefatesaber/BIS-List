@@ -6,6 +6,12 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-05
+- [page] Fire Mage joins as the second expansion entry: All-time 2876
+  on Raidbots, full gear table with gems and enchants; Frost remains
+  the mage primary. An inert external-PI line was stripped from the
+  export per the rail doctrine.
+
 ## 2026-09-03
 - [page] Survival All-time rows gain their gems and enchants, populated
   from the profile and verified by the gem-integrity rule.

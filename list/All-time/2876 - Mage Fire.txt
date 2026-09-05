@@ -1,0 +1,129 @@
+# All-time - Mage - Frost
+mage="Fateccaster"
+level=30
+race=nightborne
+region=us
+server=thrall
+role=spell
+professions=tailoring=75/engineering=1
+spec=fire
+# loot_spec=frost
+
+talents=C8DAche08tHz49KSVf7iKFnyuBgxAmZkBAAAAAAAAAwMDYMDAAAAAwGYGAAAAGDLAAAAMAA
+
+# Vengeful Gladiator's Silk Cowl (44)
+head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
+# Tuskarr Bone Necklace 33
+neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=32196/32196/32196,bonus_id=9156/6652/9477/8782,drop_level=30
+# vengeful_gladiators_silk_amice (44)
+shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=32196/32196,bonus_id=9357,drop_level=30
+# Drape of the Messenger 43
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=30
+# Sunfire Robe (44)
+chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
+# Bracers of the Tempest (44)
+wrist=,ilevel=44,id=34447,enchant_id=4414,gem_id=32196,bonus_id=9037,drop_level=30
+# Handguards of Defiled Worlds (44)
+hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=32196/32196,bonus_id=9043,drop_level=30
+# Belt of Blasting 40
+waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
+# Leggings of Calamity (44)
+legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
+# Slippers of the Seacaller (42)
+feet=,ilevel=42,id=32239,enchant_id=4429,gem_id=32196/32196,bonus_id=9036,drop_level=30
+# Stitchflesh's Misplaced Signet 33
+finger1=,id=178736,ilevel=33,enchant_id=6108,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Ritual Commander's Ring 33
+finger2=,id=178781,ilevel=33,enchant_id=6111,gem_id=32196/32196,bonus_id=6710/10386/6652/10394/10879,drop_level=30
+# Gale of Shadows 33
+trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+# Solace of the Fallen 45
+trinket1=,ilevel=44,id=47271,bonus_id=9047
+# maghari_chieftains_staff 45
+main_hand=,id=51898,bonus_id=9049,ilevel=45,gem_id=32196/32196/32196,enchant_id=2669
+
+
+
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL
+actions.precombat=/
+actions.precombat+=/arcane_intellect
+actions.precombat+=/variable,name=hardcast_aoe_threshold,value=4
+actions.precombat+=/variable,name=hardcast_aoe_threshold_low,value=11
+actions.precombat+=/variable,name=hot_streak_aoe_threshold,value=3
+# Timing alignment variables (in seconds)
+actions.precombat+=/variable,name=combustion_meteor_delay,value=1
+actions.precombat+=/variable,name=meteor_combustion_delay,value=25
+actions.precombat+=/snapshot_stats
+actions.precombat+=/pyroblast
+actions=/
+actions+=/variable,name=hold_hot_streak,value=10-(((fight_remains-10-cooldown.combustion.remains)%%62)%floor(fight_remains-10-cooldown.combustion.remains)%62)
+#Flame Cap consumable, requires "shirt=flame_cap,use=21intellect_60dur_180cd" in profile
+actions+=/use_item,name=flame_cap,if=cooldown.combustion.remains<40,use_off_gcd=1
+actions+=/potion,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled)|target.time_to_die<25,use_off_gcd=1
+actions+=/combustion,if=buff.hot_streak.up&(!buff.combustion.up)&target.health.pct<=90&(!talent.meteor.enabled|(action.meteor.in_flight_remains<0.1&action.meteor.in_flight_remains>0)|(cooldown.meteor.remains>variable.combustion_meteor_delay&action.meteor.in_flight_remains=0)),use_off_gcd=1,use_while_casting=1
+actions+=/use_items,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+# --- RACIAL ABILITIES ---
+actions+=/blood_fury,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/berserking,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/fireblood,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/ancestral_call,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/use_item,name=pendant_of_the_violet_eye,if=cooldown.combustion.remains<8,use_off_gcd=1,use_while_casting=1
+actions+=/use_item,name=meteorite_crystal,if=cooldown.combuastion.remains<4,use_off_gcd=1,use_while_casting=1
+
+# ------------------------
+actions+=/meteor,if=cooldown.meteor.ready&(((buff.combustion.up&buff.combustion.remains>2))|cooldown.combustion.remains>variable.meteor_combustion_delay|(cooldown.combustion.remains<2&buff.hot_streak.up&!(target.health.pct>90&talent.firestarter.enabled)))
+actions+=/flamestrike,if=buff.hot_streak.up&active_enemies>=variable.hot_streak_aoe_threshold&!(cooldown.combustion.remains<variable.hold_hot_streak&!(target.health.pct>90&talent.firestarter.enabled))
+actions+=/pyroblast,if=buff.hot_streak.up&!(cooldown.combustion.remains<variable.hold_hot_streak&!(target.health.pct>90&talent.firestarter.enabled))
+actions+=/fire_blast,if=cooldown.fire_blast.charges>=2,use_off_gcd=1,use_while_casting=1
+actions+=/fire_blast,if=buff.heating_up.up&!buff.hot_streak.up&!(action.scorch.executing&buff.heating_up.up),use_off_gcd=1,use_while_casting=1
+actions+=/flamestrike,if=((((target.health.pct<30&(talent.scorch.enabled|talent.scald.enabled))|buff.heat_shimmer.up)&!buff.heating_up.up&active_enemies>=variable.hardcast_aoe_threshold_low)|(!((target.health.pct<30&(talent.scorch.enabled|talent.scald.enabled))|buff.heat_shimmer.up)&active_enemies>=variable.hardcast_aoe_threshold))
+actions+=/scorch,if=target.health.pct<30|buff.heat_shimmer.up
+actions+=/fireball
+
+# Simulation Options
+iterations=50000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+calculate_scale_factors=1
+optimize_expressions=1
