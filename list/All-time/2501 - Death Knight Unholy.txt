@@ -1,0 +1,153 @@
+# All-time - Death Knight - Frost
+# Base Actor
+deathknight=Asimiir
+race=orc
+level=30
+spec=Unholy
+role=attack
+
+#talents=CwPAkXBWxkyfx9CbGaHonEAhLBwADADDjGGMMAAAAAAAAAAAAMziZGMAAAAAAAAAMGAAYA
+talents=CwPAkXBWxkyfx9CbGaHonEAhLBwADADDjGGMMAAAAAAAAAYMAAYWMzYAAAAAAAAAgxAAAA
+spec_talents+=army_of_the_dead:1
+# --- Level-30 enablement overrides ---
+# Dark Transformation talent spell is DBC-stamped level 32; drop to 1 so find_talent_spell resolves it at 30
+override.player.spell_data=spell.1233448.spell_level=1
+# DT's separate player-buff spell is also stamped 32; without this DT casts but the buff window never opens
+override.player.spell_data=spell.1235391.spell_level=1
+
+# Virulent Plague tick: DBC 0.253568 x 2.69 (parse: 0.5833) — VP was undersimming 2.3x
+override.player.spell_data=effect.281049.ap_coefficient=0.6832064
+# Dread Plague tick: DBC 0.548887 x 1.07 (parse: 0.4868) — DP was oversimming
+override.player.spell_data=effect.1239728.ap_coefficient=0.58850943
+# Shared plague-erupt % on SS effect 2: 35 -> 28.1 (parse: 24.1) — one knob feeds both erupts, +-7 dps split
+override.player.spell_data=effect.48019.base_value=28.1
+# Coil of Devastation cod_mod %: stock ~30 = 150 phantom dps absent from the log; kept at 10 (parse: 0)
+# Some suppression here is necessary; 10 is an unanchored middle
+override.player.spell_data=effect.1026970.base_value=10
+# Festering Scythe hit: DBC 1.0125 x 1.80 (parse: 1.515) — was undersimming 50% per proc
+override.player.spell_data=effect.1163908.ap_coefficient=1.81875
+# Putrefy single-target: DBC 1.9967 x 1.98 (parse: 3.121)
+override.player.spell_data=effect.1289139.ap_coefficient=3.94852
+# Putrefy AoE: DBC 1.3942 x 3.50 (parse: 2.885)
+override.player.spell_data=effect.1026875.ap_coefficient=4.885994
+# Permanent ghoul Sweeping Claws: DBC 0.5216 x 1.83
+override.player.spell_data=effect.341774.ap_coefficient=0.952896
+
+
+# Helm of the Faceless (43) 
+head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30
+# Crystalized Sigil 135
+neck=,ilevel=33,id=200446,enchant_id=5890,gem_id=213500/71856/71856,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Spaulders of the Thalassian Savior 44
+shoulder=,ilevel=44,id=34193,enchant_id=4194,gem_id=71856/71856,bonus_id=9037,drop_level=30
+# Titanskin Cloak 43
+back=,ilevel=43,id=45496,enchant_id=3243,gem_id=71856,bonus_id=9043,drop_level=30
+# Hard Khorium Battleplate 44
+chest=,ilevel=44,id=34377,enchant_id=6625,gem_id=71856/71856/71856,bonus_id=9037,drop_level=30
+# Bracers of Eradication 40
+wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=71856,bonus_id=9035,drop_level=30
+# Hard Khorium Battlefists 44
+hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=71856/71856,bonus_id=9037,drop_level=30
+# Red Belt of Battle 40 
+waist=,ilevel=40,id=30032,gem_id=71856/71856/71856,bonus_id=9035,drop_level=30
+# Felfury Legplates 44
+legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=71856/71856/71856,bonus_id=9037,drop_level=30
+# Dreadboots of the Legion 42
+feet=,ilevel=42,id=32345,enchant_id=1597,gem_id=71856/71856,bonus_id=9036,drop_level=30
+# Signet of the False Accuser 33
+finger1=,ilevel=33,id=178824,enchant_id=6110,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30,content_tuning=2574
+# Fleshfused Circle 33
+finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30,content_tuning=500
+# Heart of Roccor (155)
+trinket1=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30,content_tuning=181
+# Dragonspine Trophy 38
+trinket2=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
+# Bonereavers_Edge 38
+main_hand=bonereavers_edge_frostdk_proxy,ilevel=38,enchant_id=3368,weapon=sword2h_3.6speed_16min_28max,stats=5sta_6crit,equip=procby/attack_51crit_10dur_3stack_8.6%
+
+
+
+#finger1=,ilevel=33,id=178870,enchant_id=6108,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+#finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+augmentation=disabled
+potion=disabled
+flask=disabled
+food=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL
+# Unholy DK — level 30 bracket (Midnight 12.1)
+# Stripped: San'layn hero routing, 20-gate talents (Blightburst, Blightfall,
+# Lord of the Dead, Forbidden Knowledge), external PI, AoE/raid_event machinery.
+# Army of the Dead is ghost-granted in the profile (spec_talents+=) to resolve
+# lesser-ghoul claws — intentionally never cast. DT requires the two
+# spell_level overrides (1233448 / 1235391) to function at level 30.
+actions.precombat=snapshot_stats
+actions.precombat+=/raise_dead
+actions=auto_attack
+# racials — own kit; wrong-race lines are skipped
+actions+=/blood_fury,if=buff.dark_transformation.up
+actions+=/berserking,if=buff.dark_transformation.up
+actions+=/fireblood,if=buff.dark_transformation.up
+actions+=/ancestral_call,if=buff.dark_transformation.up
+actions+=/arcane_torrent,if=runic_power<20&rune<2
+actions+=/lights_judgment,if=runic_power<20&rune<2
+actions+=/bag_of_tricks,if=runic_power<20&rune<2
+actions+=/arcane_pulse,if=runic_power<20&rune<2
+# trinkets
+actions+=/use_item,slot=trinket1,if=buff.dark_transformation.up|fight_remains<=20
+actions+=/use_item,slot=trinket2,if=buff.dark_transformation.up|fight_remains<=20
+# cooldowns
+actions+=/outbreak,if=dot.virulent_plague.remains<3
+actions+=/dark_transformation
+# single target
+actions+=/festering_strike,if=talent.festering_scythe&fight_remains>10&(buff.festering_scythe.up&(buff.festering_scythe.remains<=3|buff.festering_scythe_tt.remains<3)|!buff.festering_scythe.up&buff.festering_scythe_tt.remains<3)
+actions+=/putrefy,if=buff.dark_transformation.up&runic_power.deficit>10
+actions+=/death_coil,if=buff.sudden_doom.react
+actions+=/putrefy,if=buff.dark_transformation.up
+actions+=/soul_reaper,if=talent.soul_reaper&target.health.pct<35
+actions+=/death_coil,if=buff.dark_transformation.up
+actions+=/death_coil,if=runic_power.deficit<50
+actions+=/scourge_strike,if=buff.lesser_ghoul_ready.stack>=1
+actions+=/festering_strike
+
+
+# Simulation Options
+iterations=50000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
