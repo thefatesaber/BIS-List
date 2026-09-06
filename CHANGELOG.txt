@@ -6,6 +6,10 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-06
+- [page] All-time Fire Mage 3391: Amnesia neck with a Quick Sapphire,
+  Emperor's Seal back on Ring 1; vers-stacked sheet.
+
 ## 2026-09-05
 - [page] All-time Fire Mage rebuilt at 3363 per ruling, superseding
   3396: the haste build lands with a full fifteen-row refresh (Cowl of
