@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-06
+- [page] Beast Mastery Hunter joins as the fourth expansion entry:
+  All-time 2126 on Raidbots; hunter becomes the first three-spec class,
+  MM primary untouched.
 - [page] Demonology Warlock joins as the third expansion entry:
   All-time 2780 on Raidbots, full table with gems and enchants, the
   normal-plus-heroic Solace trinket pair; Affliction stays primary.
