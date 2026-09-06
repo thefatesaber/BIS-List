@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-06
+- [page] Unholy refined at 2501: Ukhel Ancestry Beads and Seal of the
+  City Watch swap in; sheet trades toward crit.
 - [page] Unholy DK joins as the fifth expansion entry: All-time 2501 on
   Raidbots; Frost stays the DK primary.
 - [page] BM refined at 2139: Tuskarr Bone Necklace and Bloodoath
