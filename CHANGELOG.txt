@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-06
+- [page] All-time DH 3375: Mystical Skyfire takes the head on this tier
+  too, and Soul Immolation moves to a precombat cast.
 - [page] All-time Fire Mage 3391: Amnesia neck with a Quick Sapphire,
   Emperor's Seal back on Ring 1; vers-stacked sheet.
 

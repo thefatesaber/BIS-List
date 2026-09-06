@@ -14,7 +14,7 @@ talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAA
 
 ### Combo 1
 # Frayed Scoundrel's Cap (33)
-head=,id=50206,ilevel=33,gem_id=76885/213743/32196,bonus_id=4196,drop_level=30
+head=,id=50206,ilevel=33,gem_id=25893/213743/32196,bonus_id=4196,drop_level=30
 # Ukhel Ancestry Beads (135)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/32196/32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # mantle_of_perenolde (33)
@@ -66,6 +66,7 @@ midnight.crucible_of_erratic_energies_predation=0
 
 # Custom APL
 actions.precombat=snapshot_stats
+actions.precombat+=/soul_immolation
 actions.precombat+=/arcane_torrent
 actions.precombat+=/consume
 
@@ -76,7 +77,6 @@ actions+=/metamorphosis,if=prev_gcd.1.void_ray|cooldown.void_ray.remains>15
 # is dry — the channel covers the shared CD, the reaps call cashes the exit Cull
 actions+=/void_ray,if=buff.metamorphosis.up&prev_gcd.1.cull&fury<40&void_metamorphosis_base_drain_ps>25,line_cd=30
 actions+=/call_action_list,name=reaps
-actions+=/soul_immolation,if=active_dot.soul_immolation=0&!buff.metamorphosis.up
 actions+=/devour,if=buff.metamorphosis.up
 actions+=/consume,if=!buff.metamorphosis.up
 # Deadlock guard — do not remove
@@ -89,7 +89,7 @@ actions.reaps+=/cull
 actions.reaps+=/reap
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
