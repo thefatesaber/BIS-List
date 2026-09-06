@@ -13,8 +13,8 @@ talents=C0PAD57yiELKEty14ekTDtZEqAAAAAAAAAADzghBgBMmZGDgxDYGAEAAAAAAAAgBAAAzCAAA
 
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/32194,bonus_id=7202,drop_level=30,enchant=12crit
-# Phoenix Feather Pendant (135)
-neck=,id=200284,ilevel=33,enchant_id=5890,gem_id=32194/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Tuskarr Bone Necklace (135)
+neck=,id=193666,ilevel=33,enchant_id=5437,gem_id=32222/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3808,gem_id=32194/32194,bonus_id=7202,drop_level=30
 # Drape of the Faceless General (43)
@@ -33,8 +33,8 @@ legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=32194/32194/32194,bonus_id=6710/
 feet=,id=29951,ilevel=40,enchant_id=1887,gem_id=32194/32194,bonus_id=9035,drop_level=30
 # Seal of the City Watch (33)
 finger1=,id=162542,ilevel=33,enchant_id=6108,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Fleshfused Circle (33)
-finger2=,ilevel=33,id=178869,enchant_id=6108,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Bloodoath Signet (33)
+finger2=,ilevel=33,id=178871,enchant_id=6108,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Herkuml War Token (15)

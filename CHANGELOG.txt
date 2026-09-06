@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-06
+- [page] BM refined at 2139: Tuskarr Bone Necklace and Bloodoath
+  Signet swap in; the mastery drop is the gear trade.
 - [page] BM re-recorded at 2139: gear byte-identical, Raidbots data
   refreshed between runs and the sheet moved with it.
 - [page] Beast Mastery Hunter joins as the fourth expansion entry:
