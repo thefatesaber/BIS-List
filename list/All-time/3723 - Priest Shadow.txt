@@ -29,7 +29,7 @@ head=,ilevel=42,id=45464,gem_id=25893/213743,bonus_id=9041,drop_level=30
 # Ukhel Ancestry Beads 135
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213482/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Hatefury Mantle 42
-shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=213500/71854,bonus_id=9036,drop_level=30
+shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=71854/71854,bonus_id=9036,drop_level=30
 # Drape of the Messenger 43
 back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
 # Sunfire Robe 44
@@ -43,7 +43,7 @@ waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
 # Leggings of Calamity 44
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
 # Slippers of the seacaller 42
-feet=,ilevel=42,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_level=30
+feet=,ilevel=43,id=45537,enchant_id=4429,gem_id=71854/71854,drop_level=30
 # Footbomb Championship Ring 33
 finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Fleshfused Circle 33
@@ -55,9 +55,18 @@ trinket2=,ilevel=44,id=47271,bonus_id=9047
 # Abracadaver 47 
 main_hand=,ilevel=47,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
 
+#mast
+#4429
+#haste
+#4069
+
 #finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+#BT
+#feet=,ilevel=42,id=32239,enchant_id=4429,gem_id=71854/71854,bonus_id=9036,drop_level=30
+#idk
 #feet=,ilevel=43,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_level=30
-#feet=,ilevel=43,id=45537,enchant_id=4069,gem_id=71854/71854,bonus_id=,drop_level=30
+#Oracle
+#feet=,ilevel=43,id=45537,enchant_id=4069,gem_id=71854/71854,drop_level=30
 
 
 # Consumables
@@ -130,22 +139,25 @@ actions.cds+=/desperate_prayer,if=health.pct<=75
 actions.heal_for_tof=holy_nova,if=talent.lightburst
 
 actions.main=variable,name=dots_up,op=set,value=active_dot.vampiric_touch=active_enemies&active_dot.shadow_word_pain>=active_dot.vampiric_touch,if=active_enemies<3
-actions.main+=/void_volley
-actions.main+=/call_action_list,name=cds,if=fight_remains<30|target.time_to_die>15&(!variable.holding_tentacle_slam|active_enemies>2)&variable.dots_up
+# Force SW:P on pull to match desired opener
+actions.main+=/shadow_word_pain,if=!ticking&time<5
+actions.main+=/call_action_list,name=cds,if=fight_remains<30|target.time_to_die>15&(!variable.holding_tentacle_slam|active_enemies>2)&(variable.dots_up|time<5)
 # High Priority Shadow Word: Death when Devour Matter is active (target shielded or forced)
 actions.main+=/shadow_word_death,target_if=max:(target.health.pct<=20)*100+dot.shadow_word_madness.ticking,if=(priest.force_devour_matter|target.has_absorb)&talent.devour_matter
 # Do not overcap on insanity
 actions.main+=/shadow_word_madness,target_if=max:target.time_to_die*(dot.shadow_word_madness.remains<=gcd.max|variable.dr_force_prio|!talent.distorted_reality&variable.me_force_prio),if=active_dot.shadow_word_madness<=1&dot.shadow_word_madness.remains<=gcd.max|insanity.deficit<=35|buff.mind_devourer.react|!raid_event.adds.exists&target.time_to_die<=10|buff.entropic_rift.up&action.shadow_word_madness.cost>0
 # Blast more burst :wicked:
 actions.main+=/void_blast,target_if=max:(dot.shadow_word_madness.remains*1000+target.time_to_die)
-# Use Tentacle Slam to prevent capping charges or to refresh Vampiric Touch
-actions.main+=/tentacle_slam,target_if=min:dot.vampiric_touch.remains,if=dot.vampiric_touch.refreshable|cooldown.tentacle_slam.full_recharge_time<=gcd.max*2
+# Use Tentacle Slam to prevent capping charges or to refresh Vampiric Touch (Delayed to prevent double-cast on pull)
+actions.main+=/tentacle_slam,target_if=min:dot.vampiric_touch.remains,if=(dot.vampiric_touch.refreshable|cooldown.tentacle_slam.full_recharge_time<=gcd.max*2)&time>2
 # Use Void Torrent if it will get near full Mastery Value
 actions.main+=/void_torrent,target_if=max:(dot.shadow_word_madness.remains*1000+target.time_to_die),if=!variable.holding_tentacle_slam&variable.dots_up
 # Put out Shadow Word: Pain on enemies that will live at least 12s as a filler when talented into Invoked Nightmare.
 actions.main+=/shadow_word_pain,target_if=max:(refreshable*100000+target.time_to_die+dot.vampiric_touch.ticking*10000),if=talent.invoked_nightmare&refreshable&target.time_to_die>12&dot.vampiric_touch.ticking
 # Use all charges of Mind Blast if Vampiric Touch and Shadow Word: Pain are active and Mind Devourer is not active or you are prepping Void Eruption
 actions.main+=/mind_blast,target_if=max:dot.shadow_word_madness.remains,if=(!buff.mind_devourer.react|!talent.mind_devourer)
+# Moved Void Volley down below Mind Blast so it triggers later in the priority
+actions.main+=/void_volley
 # MFI is a good button
 actions.main+=/mind_flay_insanity,target_if=max:dot.shadow_word_madness.remains
 # Use Tentacle Slam for Void Apparitions or Maddening Tentacles value, holding for adds if needed

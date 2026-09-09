@@ -6,6 +6,11 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-09
+- [page] All-time Priest 3723 on Raidbots: Treads of the False Oracle
+  replace the Slippers, shoulder gems double to Lava Coral, void_volley
+  drops from the rotation.
+
 ## 2026-09-06
 - [page] Bonereaver’s Edge quality flag corrected on the Unholy row
   (epic purple, not legendary orange).
