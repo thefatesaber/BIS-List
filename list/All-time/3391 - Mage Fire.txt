@@ -38,7 +38,7 @@ trinket1=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_1
 # Solace of the Fallen (45)
 trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
 # Mag'hari Chieftain's Staff (45)
-main_hand=,ilevel=45,id=51898,enchant_id=2669,gem_id=32196/32196/32196,bonus_id=9049,drop_level=30
+main_hand=,ilevel=47,id=51898,enchant_id=2669,gem_id=32196/32196/32196,bonus_id=9049,drop_level=30
 
 
 # Custom APL

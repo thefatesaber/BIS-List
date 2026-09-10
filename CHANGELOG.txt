@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] ICC staff ilvls per ruling: 25-heroic at 47, 10-heroic at 45.
+  Mag’hari Chieftain’s Staff rises to 47; Distant Land drops to 45 on
+  druid (both tiers) and Survival; four profiles repinned.
 - [page] Obtainable Priest 3600 on Raidbots: Gale of Shadows takes
   Trinket 1 over Solace of the Defeated, chest and wrist regem to Lava
   Corals, and the opener is reworked (forced SW:P, delayed Tentacle
