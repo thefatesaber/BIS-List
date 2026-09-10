@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] Obtainable Frost 3506: the second Abracadaver carrier
+  resimmed at 45; mage column whole on the engine of record.
 - [page] Abracadaver reclassified as the 10-heroic per the staff ruling
   — 45 on all ten rows, nine carrier profiles repinned; Frost mage
   leads the resims at 3664.
