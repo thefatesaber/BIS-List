@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] All item links carry pinned ilvls where knowable: a runtime
+  pin map from the rows feeds alternates, pair links and note mentions;
+  fourteen of twenty-two alt links inherit unique pins.
 - [page] Item tooltips carry the row’s pinned ilvl in the Wowhead
   query, so hovers match the page instead of Wowhead’s default.
 - [page] Mag’hari Chieftain’s Staff corrected to the 10-heroic 45 per
