@@ -40,7 +40,7 @@ trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack
 # Gale of Shadows 33
 trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Abracadaver 47 
-main_hand=,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
+main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
 # Consumables
 # potion=golemblood_potion
