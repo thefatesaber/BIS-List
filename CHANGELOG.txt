@@ -7,6 +7,7 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] Demonology resettles at 2760; seventh carrier clear.
 - [page] Obtainable Affliction resettles at 3219; Affliction clear on
   both tiers.
 - [page] All-time Affliction resettles at 3369; fifth carrier clear.
