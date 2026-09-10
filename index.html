@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "Mag\u2019hari is the 10-heroic \u2014 45 restored per Fate; 3486 stands as the 45 number. Staff episode final: Abracadaver 45, Distant Land 47, Mag\u2019hari 45."
+  notice: "Tooltips now carry each row\u2019s pinned ilvl \u2014 Wowhead hovers match the page instead of showing their default."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -1445,7 +1445,7 @@ const filled = (cls, listId) =>
 
 function whLink(e){
   const url = e.wowhead
-    ? "https://www.wowhead.com/item=" + e.wowhead
+    ? "https://www.wowhead.com/item=" + e.wowhead + (e.ilvl ? "?ilvl=" + e.ilvl : "")
     : "https://www.wowhead.com/search?q=" + encodeURIComponent(e.item);
   return '<a'+(e.q?' class="q'+e.q+'"':'')+' href="'+url+'" target="_blank" rel="noopener">['+esc(e.item)+']</a>';
 }
