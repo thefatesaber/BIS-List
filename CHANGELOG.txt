@@ -7,6 +7,7 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] All-time Affliction resettles at 3369; fifth carrier clear.
 - [page] Obtainable Priest resettles at 3570; the priest column clears
   the reclassification.
 - [page] All-time Priest resettles at 3694 with Abracadaver at 45; the
