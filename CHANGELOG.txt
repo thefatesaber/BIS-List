@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] Obtainable Evoker resettles at 3139 — all ten Abracadaver
+  carriers clear; the staff reclassification is fully absorbed.
 - [page] All-time Evoker resettles at 3281; ninth carrier clear.
 - [page] Obtainable Shaman resettles at 4036; eighth carrier clear.
 - [page] Demonology resettles at 2760; seventh carrier clear.

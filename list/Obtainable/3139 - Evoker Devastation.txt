@@ -39,7 +39,7 @@ finger2=,id=178736,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
 trinket1=,ilevel=33,id=56462,bonus_id=8998
 # Solace of the Fallen (45)
 trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
-# Abracadaver 47 
+# Abracadaver 45
 main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
 #trinket1=,ilevel=47,id=50365,bonus_id=9051,drop_level=30
@@ -179,7 +179,7 @@ actions.trinkets+=/use_item,slot=trinket1,if=!variable.trinket_1_buffs&!variable
 actions.trinkets+=/use_item,slot=trinket2,if=!variable.trinket_2_buffs&!variable.trinket_2_manual&(variable.damage_trinket_priority=2|trinket.1.cooldown.remains|trinket.1.is.spymasters_web|trinket.1.cooldown.duration=0)&(!variable.trinket_2_ogcd_cast)&(variable.next_dragonrage>20|!talent.dragonrage|!variable.trinket_1_buffs|trinket.1.is.spymasters_web&(buff.spymasters_report.stack<5|fight_remains>=130+variable.next_dragonrage))
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
