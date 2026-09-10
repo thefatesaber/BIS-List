@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] Mag’hari Chieftain’s Staff corrected to the 10-heroic 45 per
+  Fate — the 0070 intake repin reverted; 3486 stands as the 45 number.
+  Staff episode final: Abracadaver 45, Distant Land 47, Mag’hari 45.
 - [page] Fire mage resettles at 3486 on the 25-heroic staff pin; the
   last staff carrier clears.
 - [page] Survival confirmed at 2802 on the restored pin; the staff
