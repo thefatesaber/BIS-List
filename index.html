@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "Every item link now carries a pinned ilvl where one is knowable \u2014 rows, alternates, pair links and note mentions all resolve through one pin map."
+  notice: "Tooltip pins move into the data-wowhead attribute \u2014 the mechanism Wowhead\u2019s script actually reads; hovers should now match rows."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -1453,11 +1453,15 @@ const PIN = (() => {
   return m;
 })();
 const pinQ = (id) => PIN[id] ? "?ilvl=" + PIN[id] : "";
+const whAttr = (id, ilvl) => {
+  const v = ilvl != null ? ilvl : PIN[id];
+  return v ? ' data-wowhead="item=' + id + '&ilvl=' + v + '"' : "";
+};
 function whLink(e){
   const url = e.wowhead
     ? "https://www.wowhead.com/item=" + e.wowhead + (e.ilvl ? "?ilvl=" + e.ilvl : "")
     : "https://www.wowhead.com/search?q=" + encodeURIComponent(e.item);
-  return '<a'+(e.q?' class="q'+e.q+'"':'')+' href="'+url+'" target="_blank" rel="noopener">['+esc(e.item)+']</a>';
+  return '<a'+(e.q?' class="q'+e.q+'"':'')+(e.wowhead?whAttr(e.wowhead, e.ilvl):'')+' href="'+url+'" target="_blank" rel="noopener">['+esc(e.item)+']</a>';
 }
 
 function renderRail(){
@@ -1507,7 +1511,7 @@ function whyHtml(text){
   const names = Object.keys(WHY_ITEMS).sort((a,b) => b.length - a.length);
   for(const n of names){
     const re = new RegExp("(?![^<]*>)" + n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g");
-    out = out.replace(re, '<a href="https://www.wowhead.com/item='+WHY_ITEMS[n]+pinQ(WHY_ITEMS[n])+'" target="_blank" rel="noopener">'+n+'</a>');
+    out = out.replace(re, '<a'+whAttr(WHY_ITEMS[n])+' href="https://www.wowhead.com/item='+WHY_ITEMS[n]+pinQ(WHY_ITEMS[n])+'" target="_blank" rel="noopener">'+n+'</a>');
   }
   return out;
 }
@@ -1596,9 +1600,9 @@ function altLinks(e){
     const d = (a.delta == null)
       ? '<span class="pending">sim pending</span>'
       : '<span class="delta"'+(e.altbase ? ' title="vs sweep base '+esc(String(e.altbase))+' DPS"' : '')+'>'+(a.delta>0?"+":"")+esc(a.delta.toFixed(1))+'%</span>';
-    return '<a'+(a.q?' class="q'+a.q+'"':'')+' href="'+href+'" target="_blank" rel="noopener">'
+    return '<a'+(a.q?' class="q'+a.q+'"':'')+(a.wowhead?whAttr(a.wowhead, a.ilvl):'')+' href="'+href+'" target="_blank" rel="noopener">'
          + esc(a.item)+'</a>'
-         + (a.item2 ? ' + <a'+(a.q2?' class="q'+a.q2+'"':'')+' href="https://www.wowhead.com/item='+a.wowhead2+pinQ(a.wowhead2)+'" target="_blank" rel="noopener">'+esc(a.item2)+'</a>' : '')
+         + (a.item2 ? ' + <a'+(a.q2?' class="q'+a.q2+'"':'')+' href="https://www.wowhead.com/item='+a.wowhead2+pinQ(a.wowhead2)+'"'+whAttr(a.wowhead2)+'  target="_blank" rel="noopener">'+esc(a.item2)+'</a>' : '')
          + vTag(a)+' '+d;
   };
   const band2 = (label, list, cls) => !list.length ? "" :

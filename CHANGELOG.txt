@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] Tooltip ilvl pins move into the data-wowhead attribute across
+  all four link builders — the URL param was not read by the tooltip
+  script.
 - [page] All item links carry pinned ilvls where knowable: a runtime
   pin map from the rows feeds alternates, pair links and note mentions;
   fourteen of twenty-two alt links inherit unique pins.
