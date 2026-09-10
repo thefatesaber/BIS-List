@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] Distant Land reclassified as the 25-heroic per Fate’s resim:
+  47 restored on druid (both tiers) and Survival; feral confirmed at
+  2770 and the other two carriers un-stale.
 - [page] Obtainable Evoker resettles at 3139 — all ten Abracadaver
   carriers clear; the staff reclassification is fully absorbed.
 - [page] All-time Evoker resettles at 3281; ninth carrier clear.

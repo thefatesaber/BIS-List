@@ -42,7 +42,7 @@ trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Distand Land (47)
-main_hand=,id=50695,ilevel=45,enchant_id=4227,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
+main_hand=,id=50695,ilevel=47,enchant_id=4227,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
 
 # Consumables
 # potion=golemblood_potion
