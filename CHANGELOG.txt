@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-09
+- [page] Survival confirmed at 2802 on the restored pin; the staff
+  episode closes with every number resimmed or confirmed.
 - [page] Obtainable feral confirmed at 2566 on the restored 47 pin.
 - [page] Distant Land reclassified as the 25-heroic per Fate’s resim:
   47 restored on druid (both tiers) and Survival; feral confirmed at
