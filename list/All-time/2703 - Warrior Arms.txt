@@ -1,0 +1,100 @@
+# All-time - Warrior - Arms
+# Base Actor
+warrior=Kleaveland
+race=maghar_orc
+level=30
+spec=arms
+role=attack
+
+talents=CcEASWsDSHNyPDXnbxuIhH3ZdDzMzsMzwAAAAAMNYYGWGMGAAAAAAAACAAAAAAAAYAAAAAAA
+
+### Combo 1
+# Helm of the Faceless 43
+head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9042,drop_level=30
+# Crystalized Sigil 140
+neck=,ilevel=33,id=200446,enchant_id=5890,gem_id=213500/213500/213500,bonus_id=9156/6652/9477/8782,drop_level=30
+# Spaulders of the Thalassian Savior 44
+shoulder=,ilevel=44,id=34193,enchant_id=3835,gem_id=71856/71856,bonus_id=9037,drop_level=30
+# Titanskin Cloak 43
+back=,ilevel=43,id=45496,enchant_id=3243,gem_id=213500,bonus_id=9043,drop_level=30
+# Hard Khorium Battleplate 44
+chest=,ilevel=44,id=34377,enchant_id=6625,gem_id=71856/71856/71856,bonus_id=9037,drop_level=30
+# bracers_of_eradication 44
+wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=71856,bonus_id=9035,drop_level=30
+# Hard Khorium Battlefists 44
+hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=71856/71856,bonus_id=9037,drop_level=30
+# Red Belt of Battle 40
+waist=,ilevel=40,id=30032,gem_id=71856/71856/71856,bonus_id=9035,drop_level=30
+# Felfury Legplates 44
+legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=32217/32217/213464,bonus_id=9037,drop_level=30
+# Onslaught Treads 44
+feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=32217,bonus_id=9037,drop_level=30
+# Fleshfused Circle 33 — CRUSADER MODEL, ONE RING ONLY (one weapon).
+# 3.0% ~ doubled from Fury's 1.3% for Arms' halved event rate. Target ~0.85-0.9 procs/min; tune after first run.
+finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=32217/32217,bonus_id=6710/10386/6652/10879/10396,drop_level=30,equip=procby/attack_37str_15dur_3.0%
+# Stitchflesh's Misplaced Signet 33 — NO proc (second Crusader would double-dip on a one-weapon spec)
+finger2=,ilevel=33,id=178736,enchant_id=6110,gem_id=32217/32217,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Dragonspine Trophy 38 — canonical payload (108 haste). Same per-event rate as Fury; lower uptime on Arms is expected and correct. Verify vs an Arms log.
+trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
+# Heart of Roccor (155)
+trinket2=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30
+# The Untamed Blade 40 — canonical ppm, no weapon Crusader (ring carries it)
+main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=97str_8dur_procby/attack_3.7ppm
+
+# Consumables
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL — level 30, single target.
+# Delete any line whose talent this build doesn't take (rend, colossus_smash,
+# overpower, execute are the usual suspects) — untalented actions throw at init.
+actions.precombat=snapshot_stats
+actions.precombat+=/battle_shout
+actions.precombat+=/battle_stance,toggle=on
+
+actions=auto_attack
+actions+=/charge,if=time<=0.5
+actions+=/ancestral_call
+actions+=/use_item,slot=trinket2
+actions+=/rend,if=dot.rend_dot.remains<=gcd
+actions+=/colossus_smash
+actions+=/mortal_strike
+actions+=/overpower
+actions+=/execute
+actions+=/slam
+
+# Simulation Options
+iterations=100000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
