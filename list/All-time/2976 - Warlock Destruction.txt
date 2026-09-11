@@ -1,0 +1,166 @@
+# All-time - Warlock - Destruction
+warlock="Fatecastr"
+level=30
+race=troll
+region=us
+server=zuljin
+role=spell
+professions=tailoring=75/inscription=75
+spec=destruction
+
+talents=CsQAMrNP5kak+EBqLfUa3dMm+iBDBwMDAgZAAAwAjZ2AAAAAAAAAAzAAAAGMAAAMYAAgB
+
+# Merciless Gladiator's Felweave Cowl 45
+head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659,enchant=1sp
+# Ukhel Ancestry Beads 135
+neck=,ilevel=33,id=193676,enchant_id=5437,gem_id=213488/71854/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Hatefury Mantle 42
+shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=32218/71854,bonus_id=9036,drop_level=30
+# Drape of the Messenger 43
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
+# Merciless Gladiator's Felweave Raiment 45
+chest=,ilevel=45,id=31982,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9357,drop_level=30,content_tuning=2659
+# Bracers of the Malefic 44
+wrist=,ilevel=44,id=34436,enchant_id=2332,gem_id=71854,bonus_id=9037,drop_level=30
+# Pharos Gloves 43
+hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
+# Belt of Blasting 40
+waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
+# Leggings of Calamity 44
+legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
+# Boots of Fiery Resolution 43
+feet=,ilevel=43,id=45537,enchant_id=4092,gem_id=71854/71854,bonus_id=9043,drop_level=30
+# Fleshfused Circle 33
+finger1=,id=178869,ilevel=33,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Signet of the False Accuser 33
+finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Pendant of the Violet Eye 38
+trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+# Gale of Shadows 33
+trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+# Abracadaver 45
+main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+# Custom APL - "best" level-30 Destruction, de-hero'd from the 12.1.0 SimC source
+# Faithful de-hero of SimulationCraft's current Destruction priority. Kept the tuned core:
+# Immolate pandemic timing (coordinated with Soul Fire / Cataclysm), Backdraft-weaved Chaos
+# Bolt, Conflagrate charge management, and the trinket<->Summon Infernal sync. Removed every
+# hero-tree line (diabolic_ritual / wither / demonic_art / ritual_length and the abilities
+# wither, malevolence, ruination, infernal_bolt) since none exist at level 30, and fixed the
+# execute gap: Chaos Bolt now spends in all phases; Shadowburn takes over below 20% only when
+# talented. Talent-gated abilities are left ungated so SimC skips them if untalented.
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=summon_pet
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.summon_infernal.duration=0|cooldown.summon_infernal.duration%%trinket.1.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&(trinket.2.cooldown.duration%%cooldown.summon_infernal.duration=0|cooldown.summon_infernal.duration%%trinket.2.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_1_buff_duration,value=trinket.1.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_2_buff_duration,value=trinket.2.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs|variable.trinket_2_buffs&((trinket.2.cooldown.duration%variable.trinket_2_buff_duration)*(1+0.5*trinket.2.has_buff.intellect)*(variable.trinket_2_sync))>((trinket.1.cooldown.duration%variable.trinket_1_buff_duration)*(1+0.5*trinket.1.has_buff.intellect)*(variable.trinket_1_sync))
+actions.precombat+=/grimoire_of_sacrifice,if=talent.grimoire_of_sacrifice
+actions.precombat+=/snapshot_stats
+actions.precombat+=/soul_fire
+actions.precombat+=/cataclysm
+actions.precombat+=/incinerate
+
+# Executed every time the actor is available.
+actions=call_action_list,name=variables
+actions+=/call_action_list,name=ogcd
+actions+=/call_action_list,name=items
+actions+=/call_action_list,name=aoe,if=active_enemies>=2
+# Soul Fire on cd as a generator, leaving room for the shard
+actions+=/soul_fire,if=soul_shard<=4
+# never cap Conflagrate charges
+actions+=/conflagrate,if=action.conflagrate.charges>=2
+# execute takes priority below 20% (skipped if untalented -> falls through to Chaos Bolt)
+actions+=/shadowburn,if=target.health.pct<=20
+# main spender: weave under Backdraft, but dump at high shards and always spend without Backdraft;
+# fires in every phase so shards never idle in execute
+actions+=/chaos_bolt,if=soul_shard>=2&(buff.backdraft.up|!talent.backdraft|soul_shard>=4)&target.time_to_die>action.chaos_bolt.cast_time
+# build Backdraft for the next spender when it's down
+actions+=/conflagrate,if=soul_shard<=4.2&buff.backdraft.stack<1
+actions+=/summon_infernal
+# Immolate maintenance, deferred when Soul Fire / Cataclysm will reapply it
+actions+=/immolate,if=(((dot.immolate.remains-5*(action.chaos_bolt.in_flight&talent.internal_combustion))<dot.immolate.duration*0.3)|refreshable|(dot.immolate.remains-action.chaos_bolt.execute_time)<5&talent.internal_combustion&action.chaos_bolt.usable)&(!talent.soul_fire|cooldown.soul_fire.remains+action.soul_fire.cast_time>(dot.immolate.remains-5*talent.internal_combustion))&(!talent.cataclysm|cooldown.cataclysm.remains>dot.immolate.remains)&target.time_to_die>8
+actions+=/conflagrate,if=soul_shard<=4.4&buff.backdraft.stack<1
+actions+=/cataclysm,if=talent.lake_of_fire
+actions+=/incinerate
+
+# Basic multi-target list (your benchmark is single-target, so this is a functional fallback,
+# not a tuned AoE rotation).
+actions.aoe=summon_infernal
+actions.aoe+=/havoc,if=active_enemies=2&target.time_to_die>8
+actions.aoe+=/immolate,target_if=min:dot.immolate.remains,if=dot.immolate.refreshable&active_dot.immolate<active_enemies&target.time_to_die>8
+actions.aoe+=/cataclysm
+actions.aoe+=/rain_of_fire,if=soul_shard>=3
+actions.aoe+=/shadowburn,if=target.health.pct<=20
+actions.aoe+=/chaos_bolt,if=active_enemies=2&soul_shard>=2
+actions.aoe+=/incinerate,if=talent.fire_and_brimstone&buff.backdraft.up
+actions.aoe+=/conflagrate,if=buff.backdraft.stack<2|!talent.backdraft
+actions.aoe+=/incinerate
+
+actions.ogcd=potion,if=variable.infernal_active|!talent.summon_infernal
+actions.ogcd+=/berserking,if=variable.infernal_active|!talent.summon_infernal|fight_remains<cooldown.summon_infernal.remains_expected
+actions.ogcd+=/blood_fury,if=variable.infernal_active|!talent.summon_infernal|fight_remains<cooldown.summon_infernal.remains
+actions.ogcd+=/fireblood,if=variable.infernal_active|!talent.summon_infernal|fight_remains<cooldown.summon_infernal.remains_expected
+actions.ogcd+=/ancestral_call,if=variable.infernal_active|!talent.summon_infernal|fight_remains<cooldown.summon_infernal.remains_expected
+
+actions.items=use_item,slot=trinket1,if=(variable.infernal_active|!talent.summon_infernal|variable.trinket_1_will_lose_cast)&(variable.trinket_priority=1|!trinket.2.has_cooldown|(trinket.2.cooldown.remains|variable.trinket_priority=2&cooldown.summon_infernal.remains>20&!variable.infernal_active&trinket.2.cooldown.remains<cooldown.summon_infernal.remains))&variable.trinket_1_buffs|(variable.trinket_1_buff_duration+1>=fight_remains)
+actions.items+=/use_item,slot=trinket2,if=(variable.infernal_active|!talent.summon_infernal|variable.trinket_2_will_lose_cast)&(variable.trinket_priority=2|!trinket.1.has_cooldown|(trinket.1.cooldown.remains|variable.trinket_priority=1&cooldown.summon_infernal.remains>20&!variable.infernal_active&trinket.1.cooldown.remains<cooldown.summon_infernal.remains))&variable.trinket_2_buffs|(variable.trinket_2_buff_duration+1>=fight_remains)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket1,if=!variable.trinket_1_buffs&(!variable.trinket_1_buffs&(trinket.2.cooldown.remains|!variable.trinket_2_buffs)|talent.summon_infernal&cooldown.summon_infernal.remains_expected>20&!prev_gcd.1.summon_infernal|!talent.summon_infernal)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket2,if=!variable.trinket_2_buffs&(!variable.trinket_2_buffs&(trinket.1.cooldown.remains|!variable.trinket_1_buffs)|talent.summon_infernal&cooldown.summon_infernal.remains_expected>20&!prev_gcd.1.summon_infernal|!talent.summon_infernal)
+actions.items+=/use_item,use_off_gcd=1,slot=main_hand
+
+actions.variables=variable,name=infernal_active,op=set,value=pet.infernal.active|(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains)<20
+actions.variables+=/variable,name=trinket_1_will_lose_cast,value=((floor((fight_remains%trinket.1.cooldown.duration)+1)!=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(floor((fight_remains%trinket.1.cooldown.duration)+1))!=(floor(((fight_remains-cooldown.summon_infernal.remains)%trinket.1.cooldown.duration)+1))|((floor((fight_remains%trinket.1.cooldown.duration)+1)=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(((fight_remains-cooldown.summon_infernal.remains%%trinket.1.cooldown.duration)-cooldown.summon_infernal.remains-variable.trinket_1_buff_duration)>0)))&cooldown.summon_infernal.remains>20
+actions.variables+=/variable,name=trinket_2_will_lose_cast,value=((floor((fight_remains%trinket.2.cooldown.duration)+1)!=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(floor((fight_remains%trinket.2.cooldown.duration)+1))!=(floor(((fight_remains-cooldown.summon_infernal.remains)%trinket.2.cooldown.duration)+1))|((floor((fight_remains%trinket.2.cooldown.duration)+1)=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(((fight_remains-cooldown.summon_infernal.remains%%trinket.2.cooldown.duration)-cooldown.summon_infernal.remains-variable.trinket_2_buff_duration)>0)))&cooldown.summon_infernal.remains>20
+
+warlock.soul_shards=0
+warlock.default_pet=sayaad
+
+
+# Simulation Options
+iterations=100000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
