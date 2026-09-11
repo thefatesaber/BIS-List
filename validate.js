@@ -40,6 +40,18 @@ const eraOk = (src) => ERA_OK.some((k) => (src || "").includes(k));
 let CLASSES, DEFAULT_SLOTS, CONFIG;
 try {
   const html = fs.readFileSync(FILE, "utf8");
+  // Header date must match the newest changelog section: any commit that
+  // extends the changelog without touching CONFIG.updated fails.
+  {
+    const um = html.match(/updated: "(\d{4}-\d{2}-\d{2})"/);
+    let clTop = null;
+    try {
+      const cm = fs.readFileSync(require("path").join(__dirname, "CHANGELOG.txt"), "utf8").match(/^## (\d{4}-\d{2}-\d{2})/m);
+      if (cm) clTop = cm[1];
+    } catch (e) {}
+    if (um && clTop && um[1] !== clTop)
+      err(`CONFIG.updated ${um[1]} lags the newest changelog section ${clTop} — the header date updates with every modification`);
+  }
   const blocks = html.match(/<script>([\s\S]*?)<\/script>/g) || [];
   if (!blocks.length) throw new Error("no inline <script> found");
   const code = blocks.sort((a, b) => b.length - a.length)[0]

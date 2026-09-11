@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-10
+- [page] Header date corrected to the tenth and now enforced: validate
+  fails any commit whose changelog outruns CONFIG.updated.
 - [page] Arcane resettles at 2380: the staff bias clears on the 45 pin
   the working copy now carries; double Onyx returns to the shoulder.
 - [page] Arcane refined at 2403: wholesale regem to Artful Lava Corals
