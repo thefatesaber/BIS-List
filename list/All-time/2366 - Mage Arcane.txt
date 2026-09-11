@@ -1,0 +1,142 @@
+# All-time - Mage - Arcane
+
+override.spell_data=effect.212926.sp_coefficient=3.2122
+override.spell_data=effect.906196.sp_coefficient=5.952
+override.spell_data=effect.2716.sp_coefficient=1.1535
+override.spell_data=effect.1243492.sp_coefficient=0.5767
+override.spell_data=effect.20028.sp_coefficient=1.5614
+
+mage="Fateccaster"
+level=30
+race=nightborne
+region=us
+server=thrall
+role=spell
+professions=enchanting=60/inscription=25
+spec=arcane
+
+talents=C4DAche08tHz49KSVf7iKFnyuBgBwDMoZGAAAAAAAAAAAALwYAmZMADmBbgZAAAAAAAAAAAG
+
+# Vengeful Gladiator's Silk Cowl (44) - promoted 2026-09-09 slot race, +1.1%
+# 2pc check pending: if the Gladiator 2pc grants a non-resilience bonus in-game,
+# encode it as a head-enchant proxy per house rule; if resilience/absent, ignore.
+head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
+# Ukhel Ancestry Beads 135
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213500/213500,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Vengeful Gladiator's Silk Amice (44) - promoted 2026-09-09 slot race, +0.7%
+shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=213500/213500,bonus_id=9357,drop_level=30
+# Drape of the Messenger 43
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=213500,bonus_id=9043,drop_level=30
+# Sunfire Robe 44
+chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=213500/213500/213500,bonus_id=9037,drop_level=30
+# Bracers of the Tempest (44)
+wrist=,ilevel=44,id=34447,enchant_id=2326,gem_id=213500,bonus_id=9037,drop_level=30
+# Handguards of Defiled Worlds 44
+hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=213500/213500,bonus_id=9043,drop_level=30
+# Belt of Blasting (40)
+waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
+# Leggings of Calamity (44)
+legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
+# Boots of Fiery Resolution (43)
+feet=,ilevel=43,id=45135,enchant_id=4429,gem_id=32196/32196,bonus_id=9043,drop_level=30
+# Fleshfused Circle (33)
+finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Signet of the False Accuser (33)
+finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Pendant of the Violet Eye (38) - PROVISIONAL slot winner (+6 over Solace_N,
+# inside noise). Two audits outstanding: buff avg-stacks read (~5.5 honest /
+# ~6.5 front-loaded -> tick becomes 1.818 and likely flips the slot), and
+# Solace_N's real tooltip values below.
+trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_1.667tick_20dur_120cd
+# Solace of the Fallen (44, normal) - bench; provisional heroic-copied values,
+# replace from tooltip when measured
+#trinket1=Solace_of_the_Fallen_N,ilevel=44,stats=9int,equip=3vers_100%_8stack_10dur_procby/spell
+# Solace of the Fallen (45, heroic) - modernized proc, verified in-game 2026-09-09
+trinket2=solace_of_the_fallen_heroic_proxy,ilevel=45,stats=9int,equip=3vers_100%_8stack_10dur_procby/spell
+# Abracadaver (47)
+main_hand=,ilevel=45,id=51887,enchant_id=2669,gem_id=32196/32196/32196,bonus_id=9051,drop_level=30
+
+
+# Level-30 Arcane APL.
+# - No hero routing / set bonuses / max-level trinket catalog (stock relics).
+# - Evocation removed: talent node on midnight, unreachable at 30. The old
+#   lines were silently dead (module builds it from find_talent_spell).
+# - Missiles unclipped: interrupt tokens cost ~2/3 of every channel at 30.
+# - Surge fires unconditionally at 4 charges. A mana gate deadlocks the kit:
+#   Surge empties the pool, pct>X never recovers, ready-but-locked means
+#   remains=0 forever, which freezes every remains>N condition (ToTM, dumps).
+# - Pooling is behavioral: no conserve dumps in the 8s Surge approach
+#   (sweep-validated 2026-09-09: 8s beat the 15s guard by 1.3%, floor25 held).
+
+actions.precombat=arcane_intellect
+actions.precombat+=/snapshot_stats
+# images on both sides per the improvement plan - macro it into the opener in-game
+actions.precombat+=/mirror_image
+actions.precombat+=/arcane_blast
+
+actions=call_action_list,name=cds
+actions+=/arcane_barrage,if=fight_remains<gcd.max*2&buff.arcane_charge.stack=4
+actions+=/run_action_list,name=st
+
+actions.cds=potion,if=cooldown.arcane_surge.ready|fight_remains<35
+actions.cds+=/use_items,if=buff.arcane_surge.up|fight_remains<20
+actions.cds+=/blood_fury,if=buff.arcane_surge.up|fight_remains<15
+actions.cds+=/berserking,if=buff.arcane_surge.up|fight_remains<15
+actions.cds+=/fireblood,if=buff.arcane_surge.up|fight_remains<15
+actions.cds+=/ancestral_call,if=buff.arcane_surge.up|fight_remains<15
+actions.cds+=/arcane_surge,if=buff.arcane_charge.stack=4
+actions.cds+=/touch_of_the_magi,use_off_gcd=1,if=prev_gcd.1.arcane_barrage&(buff.arcane_surge.up|cooldown.arcane_surge.remains>30)
+actions.cds+=/presence_of_mind,use_off_gcd=1,if=buff.arcane_surge.up
+actions.cds+=/use_item,slot=trinket1,if=cooldown.arcane_surge.remains<10|fight_remains<25
+actions.cds+=/use_item,slot=trinket2,if=cooldown.arcane_surge.remains<10|fight_remains<25
+
+actions.st=arcane_barrage,if=buff.arcane_charge.stack=4&cooldown.touch_of_the_magi.ready&(buff.arcane_surge.up|cooldown.arcane_surge.remains>30)
+actions.st+=/arcane_missiles,if=buff.clearcasting.react
+actions.st+=/arcane_barrage,if=buff.arcane_charge.stack=4&mana.pct<25&buff.arcane_surge.down&cooldown.arcane_surge.remains>8
+actions.st+=/arcane_orb,if=buff.arcane_charge.stack<3
+actions.st+=/arcane_blast
+
+# Cut from stock, re-add only if actually in the build: prismatic_bolt (filler
+# above arcane_blast in both hero lists - likely hero-granted, unknown at 30).
+
+
+#shirt=flame_cap,use=21spi_60dur_180cd
+#potion=volcanic_potion
+#food=severed_sagefish_head
+#flask=flask_of_distilled_wisdom
+#temporary_enchant=main_hand:superior_wizard_oil
+
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Simulation Options
+iterations=100000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow
+target_level+=3
+#enemy_custom_health_timeline=90:0.05/30:0.80
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
