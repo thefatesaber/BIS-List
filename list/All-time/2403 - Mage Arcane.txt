@@ -1,5 +1,6 @@
 # All-time - Mage - Arcane
 
+
 override.spell_data=effect.212926.sp_coefficient=3.2122
 override.spell_data=effect.906196.sp_coefficient=5.952
 override.spell_data=effect.2716.sp_coefficient=1.1535
@@ -24,25 +25,25 @@ head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
 # Ukhel Ancestry Beads 135
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213500/213500,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Vengeful Gladiator's Silk Amice (44) - promoted 2026-09-09 slot race, +0.7%
-shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=213500/213500,bonus_id=9357,drop_level=30
+shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=213500/71854,bonus_id=9357,drop_level=30
 # Drape of the Messenger 43
-back=,ilevel=43,id=46042,enchant_id=3243,gem_id=213500,bonus_id=9043,drop_level=30
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
 # Sunfire Robe 44
-chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=213500/213500/213500,bonus_id=9037,drop_level=30
+chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
 # Bracers of the Tempest (44)
-wrist=,ilevel=44,id=34447,enchant_id=2326,gem_id=213500,bonus_id=9037,drop_level=30
+wrist=,ilevel=44,id=34447,enchant_id=2326,gem_id=71854,bonus_id=9037,drop_level=30
 # Handguards of Defiled Worlds 44
-hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=213500/213500,bonus_id=9043,drop_level=30
+hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
 # Belt of Blasting (40)
-waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
+waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
 # Leggings of Calamity (44)
-legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
+legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
 # Boots of Fiery Resolution (43)
-feet=,ilevel=43,id=45135,enchant_id=4429,gem_id=32196/32196,bonus_id=9043,drop_level=30
+feet=,ilevel=43,id=45135,enchant_id=4429,gem_id=71854/71854,bonus_id=9043,drop_level=30
 # Fleshfused Circle (33)
-finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Signet of the False Accuser (33)
-finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Pendant of the Violet Eye (38) - PROVISIONAL slot winner (+6 over Solace_N,
 # inside noise). Two audits outstanding: buff avg-stacks read (~5.5 honest /
 # ~6.5 front-loaded -> tick becomes 1.818 and likely flips the slot), and
@@ -54,7 +55,7 @@ trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack
 # Solace of the Fallen (45, heroic) - modernized proc, verified in-game 2026-09-09
 trinket2=solace_of_the_fallen_heroic_proxy,ilevel=45,stats=9int,equip=3vers_100%_8stack_10dur_procby/spell
 # Abracadaver (47)
-main_hand=,ilevel=45,id=51887,enchant_id=2669,gem_id=32196/32196/32196,bonus_id=9051,drop_level=30
+main_hand=,ilevel=45,id=51887,enchant_id=2669,gem_id=71854/71854/71854,bonus_id=9051,drop_level=30
 
 
 # Level-30 Arcane APL.
