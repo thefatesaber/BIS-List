@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-11
+- [page] Destruction refined at 2983: neck and shoulder gems trade
+  toward mastery.
 - [page] Destruction Warlock joins as the seventh expansion entry:
   All-time 2976 on Raidbots; warlock becomes the third three-spec
   class, Affliction primary untouched.
