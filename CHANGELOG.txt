@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-12
+- [page] The Havoc main hand displays its Landslide enchant — dropped
+  by the synthetic-row assembly on entry; all twelve profile enchants
+  now render.
 - [page] Eskhandar’s Right Claw sources to Molten Core — Magmadar,
   per the Wowhead page.
 - [page] Havoc DH joins as the ninth expansion entry: All-time 2013 on
