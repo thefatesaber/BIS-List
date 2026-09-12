@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-12
+- [page] Havoc’s weapon consumable set to Superior Mana Oil per
+  ruling, replacing the inherited Wizard Oil.
 - [page] The Havoc main hand displays its Landslide enchant — dropped
   by the synthetic-row assembly on entry; all twelve profile enchants
   now render.
