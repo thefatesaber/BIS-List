@@ -1,0 +1,148 @@
+# All-time - Demon Hunter - Havoc
+# Base Actor
+demonhunter="Fateberserkr"
+level=30
+race=blood_elf
+region=us
+server=thrall
+role=attack
+professions=engineering=100/skinning=100
+spec=havoc
+# loot_spec=havoc
+
+talents=CEkAAAAAAAAAAAAAAAAAAAAAAwAmZgZghJMGAAAAAAwsxAwAzAYGAzCAAQCMAAAAAAAAAAAAAAA
+### Combo 1
+# wastewalker_helm (33)
+head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
+# Phoenix Feather Pendant (135)
+neck=,id=200284,ilevel=33,enchant_id=5890,gem_id=71852/71852/71852,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# mantle_of_perenolde (33)
+shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32222/32222,bonus_id=7202,drop_level=30
+# Drape of the Faceless General (43)
+back=,id=46032,ilevel=43,enchant_id=3243,gem_id=32222/32222,bonus_id=9043,drop_level=30
+# Harness of Carnal Instinct (44)
+chest=,id=34211,ilevel=44,enchant_id=6625,gem_id=32222/32222/32222,bonus_id=9037,drop_level=30
+# Umbrage Armbands (47)
+wrist=,id=54580,ilevel=47,enchant_id=4416,gem_id=32222,bonus_id=9051,drop_level=30
+# Gloves of the Endless Dark (43)
+hands=,id=46043,ilevel=43,enchant_id=5259,gem_id=32222/32222,bonus_id=9043,drop_level=30
+# Soul-Devouring Cinch (43)
+waist=,id=46095,ilevel=43,gem_id=32222/32222/32222,bonus_id=9043,drop_level=30
+# Plague-Soaked Leather Leggings (47)
+legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
+# Footpads of Impending Death (47)
+feet=,id=49895,ilevel=47,enchant_id=1887,gem_id=71852/71852,bonus_id=9051,drop_level=30
+# Footbomb Championship Ring (33)
+finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Seal of the City Watch (33)
+finger2=,id=162542,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Dragonspine Trophy (38)
+#trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
+trinket1=,id=50355,bonus_id=9051,ilevel=15
+# Chaos Talisman (33)
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
+# Eskhandar's Right Claw (38)
+main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur,enchant_id=4099
+# Hand of the Deceiver (44)
+off_hand=,id=34331,ilevel=44,gem_id=71852/71852,bonus_id=9037,drop_level=30,enchant_id=5950
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL
+# This default action priority list is automatically created based on your character.
+# It is a attempt to provide you with a action list that is both simple and practicable,
+# while resulting in a meaningful and good simulation. It may not result in the absolutely highest possible dps.
+# Feel free to edit, adapt and improve it to your own needs.
+# SimulationCraft is always looking for updates and improvements to the default action lists.
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=snapshot_stats
+actions.precombat+=/variable,name=tab_target_burning_wound,op=reset,default=1
+actions.precombat+=/variable,name=rg_ds,default=0,op=reset
+actions.precombat+=/variable,name=trinket1_special,value=trinket.1.is.algethar_puzzle_box
+actions.precombat+=/variable,name=trinket2_special,value=trinket.2.is.algethar_puzzle_box
+actions.precombat+=/variable,name=trinket1_crit,value=!variable.trinket1_special&trinket.1.has_cooldown&trinket.1.has_use_damage
+actions.precombat+=/variable,name=trinket2_crit,value=!variable.trinket2_special&trinket.2.has_cooldown&trinket.2.has_use_damage
+actions.precombat+=/variable,name=trinket1_steroids,value=!variable.trinket1_special&trinket.1.has_cooldown&trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket2_steroids,value=!variable.trinket2_special&trinket.2.has_cooldown&trinket.2.has_use_buff
+actions.precombat+=/immolation_aura
+
+# Executed every time the actor is available.
+actions=auto_attack
+# Force Felblade first to generate Fury for Eye Beam and close the gap
+actions+=/felblade,if=time<2
+
+# Force Eye Beam immediately after Felblade in the opener to trigger Demonic
+actions+=/eye_beam,if=time<5
+
+actions+=/immolation_aura,if=talent.violent_transformation&talent.a_fire_inside&cooldown.metamorphosis.remains<gcd.max*3
+
+# Require you to NOT be in demon form AND Eye Beam to be on cooldown before casting Meta
+actions+=/metamorphosis,if=!buff.metamorphosis.up&!cooldown.eye_beam.up&!action.death_sweep.demonsurge_available&!action.annihilation.demonsurge_available
+
+actions+=/the_hunt,if=(!talent.eternal_hunt|cooldown.eye_beam.remains<10&cooldown.metamorphosis.remains>15|!cooldown.eye_beam.up&cooldown.metamorphosis.up|!hero_tree.felscarred)&!buff.reavers_glaive.up
+actions+=/potion,if=cooldown.metamorphosis.up&(cooldown.eye_beam.up|!talent.chaotic_transformation)|fight_remains<=30
+actions+=/use_items,if=cooldown.metamorphosis.up|cooldown.eye_beam.up|fight_remains<=20
+actions+=/pick_up_fragment,type=all,use_off_gcd=1,if=fury<=40
+actions+=/reavers_glaive,if=buff.rending_strike.down&buff.glaive_flurry.down
+actions+=/annihilation,if=buff.rending_strike.up&buff.glaive_flurry.down&debuff.reavers_mark.stack<2|buff.rending_strike.up&active_enemies>=2
+actions+=/essence_break,if=action.death_sweep.demonsurge_available|action.annihilation.demonsurge_available
+actions+=/death_sweep,if=debuff.essence_break.up|action.death_sweep.demonsurge_available
+actions+=/annihilation,if=debuff.essence_break.up|action.annihilation.demonsurge_available
+actions+=/immolation_aura,if=talent.a_fire_inside&talent.burning_wound&(charges=2|full_recharge_time<gcd.max*2)
+# Mid-fight Eye Beam priority stays here
+actions+=/eye_beam
+actions+=/immolation_aura,if=action.immolation_aura.demonsurge_available&buff.demonsurge.remains<gcd.max
+actions+=/felblade,if=buff.inertia_trigger.up
+actions+=/essence_break,if=cooldown.eye_beam.remains>4
+actions+=/death_sweep
+actions+=/blade_dance
+actions+=/immolation_aura,if=active_enemies>1&(talent.a_fire_inside|talent.burning_wound)
+actions+=/annihilation
+actions+=/felblade,if=hero_tree.felscarred&fury<=100
+actions+=/chaos_strike
+actions+=/felblade
+actions+=/immolation_aura
+
+# Simulation Options
+iterations=100000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+#html=Fury_toolTEST_Results.html
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
