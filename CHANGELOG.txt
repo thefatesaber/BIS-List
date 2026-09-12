@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-11
+- [page] All-time Monk rises to 2721 on Raidbots — gear byte-identical,
+  the patch buffed Windwalker.
 - [page] The stray 1sp head enchant comes off all three warlock
   All-time benchmarks per Fate’s sweep: Affliction 3358, Destruction
   2972, Demonology 2751 — about ten each.
