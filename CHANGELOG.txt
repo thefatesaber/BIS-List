@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-12
+- [page] Elemental refined at 2355: talent rework, Burning Primal
+  retakes the meta, Mark of the Trained Soldier on the neck, Seal of
+  the City Watch on Ring 2.
 - [page] Elemental Shaman joins as the tenth expansion entry: All-time
   2258 on Raidbots — the hunter mail set with caster trinkets; Resto
   primary untouched.

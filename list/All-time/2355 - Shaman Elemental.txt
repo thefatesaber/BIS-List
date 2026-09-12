@@ -9,12 +9,12 @@ role=attack
 professions=alchemy=4/engineering=100
 spec=elemental
 
-talents=CYQALMl7AwW51MWzGneuHE3tPCAAAAmZbZMgx2GAAAAAAAAAAAAAYxADIYgNDzDAYAgBAAGAAGA
+talents=CYQAAAAAAAAAAAAAAAAAAAAAAAAAAAmZZZMgx2GAAAAAAAAAAECAglZAggB2MMPAgBAGAAAAADA
 
 # Helm of Desolation 33
-head=,ilevel=33,id=28192,gem_id=25893/213743/213500,bonus_id=7202,drop_level=30,enchant=13crit
+head=,ilevel=33,id=28192,gem_id=76885/213743/213500,bonus_id=7202,drop_level=30,enchant=13crit
 # Phoenix Feather Pendant 33
-neck=,ilevel=33,id=200284,enchant_id=5437,gem_id=213464/32218/32218,bonus_id=9156/6652/9477/8782,drop_level=30
+neck=,ilevel=33,id=200284,enchant_id=5890,gem_id=213464/32218/32218,bonus_id=9156/6652/9477/8782,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,ilevel=33,id=27713,enchant_id=3838,gem_id=32218/32218,bonus_id=7202,drop_level=30
 # Drape of the Messenger 43
@@ -33,8 +33,8 @@ legs=,ilevel=33,id=30534,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,
 feet=,id=29951,ilevel=40,enchant_id=4092,gem_id=71854/71854,bonus_id=9035,drop_level=30
 # Fleshfused Circle 33
 finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,drop_level=30
-# Signet of the False Accuser 33
-finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,drop_level=30
+# Seal of the City Watch 33
+finger2=,ilevel=33,id=162542,enchant_id=6110,gem_id=71854/71854,drop_level=30
 # Solace of the Fallen 45
 trinket1=,ilevel=45,id=47432,bonus_id=9047
 # Gale of Shadows 33
