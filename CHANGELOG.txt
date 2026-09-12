@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-12
+- [page] Elemental Shaman joins as the tenth expansion entry: All-time
+  2258 on Raidbots — the hunter mail set with caster trinkets; Resto
+  primary untouched.
 - [page] Havoc’s remaining consumables ruled: Potion of the Tol’vir,
   Flask of Endless Rage, Skewered Eel — the agility kit replacing the
   inherited caster set.
