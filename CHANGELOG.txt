@@ -7,8 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-12
-- [page] Eskhandar’s Right Claw sourced to Onyxia’s Lair — the Left
-  Claw is the Azuregos drop.
+- [page] Eskhandar’s Right Claw sources to Molten Core — Magmadar,
+  per the Wowhead page.
 - [page] Havoc DH joins as the ninth expansion entry: All-time 2013 on
   Raidbots, the first dual-wield sixteen-row table; Devourer keeps the
   DH primary.
