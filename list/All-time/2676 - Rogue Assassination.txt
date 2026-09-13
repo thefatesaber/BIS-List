@@ -1,0 +1,135 @@
+# Invigoration income calibration (Heartpierce). Engine hardcodes driver at ppm_=1.0 ->
+# ~272 ticks/iter on this stream (11x the real rate); rate is C++, tick value is data.
+# Tick set so ticks x value = log income: 546.6 energy/300s (91.11% uptime x 2 eps).
+# NOT the tooltip's 4 - intentional. Recheck Invigoration Total (~547) after major
+# haste/gear changes; the 272 encodes this loadout's attack density.
+override.spell_data=effect.65604.base_value=2.01
+
+# Base Actor
+rogue="Fatesneak"
+level=30
+race=night_elf
+region=us
+server=thrall
+role=attack
+
+spec=assassination
+# loot_spec=assassination
+
+talents=CMQA5HmDzx68KWyrW/8Y781L7zYMbAAAAAAglBMAAAAAgsNMDMwAGMAMDGwAAAAAAAAAAMDA
+
+
+# wastewalker_helm (33)
+head=,id=50206,ilevel=33,gem_id=76884/213743/213488,bonus_id=6710,drop_level=30
+# Amnesia (140)
+neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/213488/40150,bonus_id=9156/6652/9477/8782,drop_level=30
+# Mantle of Perenolde (33)
+shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32222/32222,bonus_id=6710/6652,drop_level=30
+# Drape of the Faceless General (43)
+back=,id=46032,ilevel=43,enchant_id=3243,gem_id=32222/32222,bonus_id=9043,drop_level=30
+# Harness of Carnal Instinct (44)
+chest=,id=34211,ilevel=44,enchant_id=6625,gem_id=32222/40150/40150,bonus_id=9037,drop_level=30
+# Umbrage Armbands (47)
+wrist=,id=54580,ilevel=47,enchant_id=4416,gem_id=40150,bonus_id=9051,drop_level=30
+# Gloves of the Endless Dark (43)
+hands=,id=46043,ilevel=43,enchant_id=5259,gem_id=40150/40150,bonus_id=9043,drop_level=30
+# Soul-Devouring Cinch (43)
+waist=,id=46095,ilevel=43,gem_id=40150/40150/40150,bonus_id=9043,drop_level=30
+# Plague-Soaked Leather Leggings (47)
+legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=40150/40150/40150,bonus_id=9051,drop_level=30
+# Slayer's Boots (44)
+feet=,id=34575,ilevel=44,enchant_id=1887,gem_id=40150,bonus_id=9043,drop_level=30
+# Stitchflesh's Misplaced Signet (33)
+finger1=,id=178736,ilevel=33,enchant_id=6108,gem_id=40150/40150,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Bloodoath Signet (33)
+finger2=,id=178871,ilevel=33,enchant_id=6108,gem_id=40150/40150,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Dragonspine_Trophy (38)
+trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
+# Chaos Talisman (33)
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
+# main arrangement — OH anchor, lean economy
+off_hand=heartrazor_proxy,weapon=dagger_1.80speed_6min_11max,ilevel=40,quality=epic,stats=4agi_6sta,enchant_id=5950,equip=procby/attack_procon/hit_1.25ppm_27agi_10dur
+# swap arrangement — MH anchor
+main_hand=heartrazor_proxy,weapon=dagger_1.80speed_6min_11max,ilevel=40,quality=epic,stats=4agi_6sta,enchant_id=5950,equip=procby/attack_procon/hit_1.33ppm_27agi_10dur
+
+
+# Consumables
+#potion=potion_of_the_tolvir
+#flask=flask_of_endless_rage
+#food=skewered_eel
+#temporary_enchant=main_hand:adamantite_weightstone/off_hand:adamantite_sharpening_stone
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL
+# Executed before combat begins.
+actions.precombat=apply_poison
+actions.precombat+=/snapshot_stats
+actions.precombat+=/stealth
+actions.precombat+=/slice_and_dice,precombat_seconds=1
+
+# Executed every time the actor is available.
+actions=thistle_tea,if=energy.pct<30|fight_remains<10
+actions+=/ambush,if=stealthed.rogue&talent.blindside&talent.improved_ambush&!talent.shrouded_suffocation
+actions+=/call_action_list,name=cds
+actions+=/call_action_list,name=core_dot
+actions+=/call_action_list,name=generate,if=combo_points<5
+actions+=/call_action_list,name=spend,if=combo_points>=5
+
+# Cooldowns
+actions.cds=deathmark,if=dot.garrote.ticking&dot.rupture.ticking&(!talent.kingsbane|cooldown.kingsbane.remains<=2)&buff.envenom.remains>2
+actions.cds+=/kingsbane,if=dot.garrote.ticking&dot.rupture.ticking&(!talent.deathmark|dot.deathmark.ticking|cooldown.deathmark.remains>52)&buff.envenom.up
+actions.cds+=/use_items,slots=trinket1,if=debuff.deathmark.up|!talent.deathmark|!trinket.1.has_use_buff|fight_remains<=20
+actions.cds+=/use_items,slots=trinket2,if=debuff.deathmark.up|!talent.deathmark|!trinket.2.has_use_buff|fight_remains<=20
+actions.cds+=/vanish,if=!stealthed.rogue&talent.improved_garrote&dot.garrote.pmultiplier<=1&(!talent.deathmark|dot.deathmark.ticking|cooldown.deathmark.remains>target.time_to_die-10)
+actions.cds+=/shadowmeld,if=!stealthed.rogue&talent.improved_garrote&dot.garrote.pmultiplier<=1&(!talent.deathmark|dot.deathmark.ticking|cooldown.deathmark.remains>target.time_to_die-10)
+
+# DoTs
+actions.core_dot=garrote,if=(buff.improved_garrote.up|stealthed.rogue)&(pmultiplier<=1|remains<=14+6*talent.razor_wire)
+actions.core_dot+=/garrote,if=combo_points.deficit>=1&pmultiplier<=1&refreshable&target.time_to_die-remains>12
+actions.core_dot+=/rupture,if=combo_points>=5&refreshable&target.time_to_die-remains>12
+
+# Builders
+actions.generate=ambush
+actions.generate+=/mutilate
+
+# Spenders
+actions.spend=envenom,if=buff.envenom.remains<=1|debuff.deathmark.up
+actions.spend+=/envenom,if=energy.pct>70|fight_remains<15
+
+# Simulation Options
+iterations=50000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1

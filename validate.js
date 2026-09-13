@@ -90,9 +90,19 @@ for (const c of CLASSES) {
       if (slot !== "Off Hand" && !slots.has(slot)) err(`${at}: missing ${slot}`);
 
     const ids = rows.map((r) => r.wowhead);
-    for (const id of new Set(ids))
-      if (id != null && ids.filter((x) => x === id).length > 1)
-        err(`${at}: ${(rows.find((r) => r.wowhead === id) || {}).item} (${id}) appears twice`);
+    for (const id of new Set(ids)) {
+      if (id == null) continue;
+      const holders = rows.filter((r) => r.wowhead === id);
+      if (holders.length < 2) continue;
+      // A dual-wield twin pair — the same non-unique weapon in exactly the
+      // Main Hand and Off Hand of one list — is legitimate; anything else
+      // duplicated is not.
+      const twin = holders.length === 2 &&
+        new Set(holders.map((r) => r.slot)).size === 2 &&
+        holders.every((r) => r.slot === "Main Hand" || r.slot === "Off Hand");
+      if (!twin)
+        err(`${at}: ${holders[0].item} (${id}) appears twice`);
+    }
 
     for (const r of rows) {
       const item = `${r.item} (${r.wowhead})`;
