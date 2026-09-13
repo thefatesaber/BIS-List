@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-13
+- [page] The Best view computes its members: per class and per list,
+  the highest number shows automatically, primary serving only as the
+  tiebreak and the completeness anchor — Assassination takes rogue’s
+  All-time slot.
 - [page] Assassination Rogue joins as the eleventh expansion entry:
   All-time 2676 on Raidbots, dual Heartrazor daggers; rogue becomes a
   two-spec class.

@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "Assassination joins at 2676 \u2014 dual Heartrazors from The Eye; rogue is a two-spec class."
+  notice: "The Best view now computes itself: per class, per list, the top number shows \u2014 Assassination takes rogue\u2019s All-time slot automatically."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -1403,7 +1403,17 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 let state = { cls: CLASSES[0].id, list: LIST_TYPES[0].id, sort: "dps", view: "best" };
 const classKey = c => c.cls || c.id;
-const visible = () => CLASSES.filter(c => (state.view === "all" || c.primary) && (c.dpsByList || {})[state.list]);
+const bestOf = (ck, list) => {
+  let best = null;
+  for (const x of CLASSES) {
+    if (classKey(x) !== ck || !((x.dpsByList || {})[list])) continue;
+    if (!best || x.dpsByList[list] > best.dpsByList[list] ||
+        (x.dpsByList[list] === best.dpsByList[list] && x.primary)) best = x;
+  }
+  return best;
+};
+const isBest = (c, list) => bestOf(classKey(c), list ?? state.list) === c;
+const visible = () => CLASSES.filter(c => (state.view === "all" || isBest(c)) && (c.dpsByList || {})[state.list]);
 const entryOf = id => CLASSES.find(x => x.id === id);
 
 /* ---------- URL state ----------------------------------------------------
@@ -1455,7 +1465,7 @@ function readHash(){
      || null;
   }
   let hit = false;
-  if(c){ state.cls = c.id; if(!c.primary) state.view = "all"; hit = true; }
+  if(c){ state.cls = c.id; if(!isBest(c, (l && l.id) || state.list)) state.view = "all"; hit = true; }
   if(l){ state.list = l.id; hit = true; }
   return hit;
 }
@@ -1791,7 +1801,7 @@ function countView(){
 function render(){
   const cur = entryOf(state.cls);
   if(cur && !((cur.dpsByList || {})[state.list])){
-    const p = CLASSES.find(x => classKey(x) === classKey(cur) && x.primary);
+    const p = bestOf(classKey(cur), state.list) || CLASSES.find(x => classKey(x) === classKey(cur) && x.primary);
     if(p) state.cls = p.id;
   }
   renderRail(); renderMain(); whRefresh(); writeHash(); countView(); }
@@ -1891,8 +1901,8 @@ document.getElementById("viewtoggle").addEventListener("click", e => {
   state.view = v;
   for(const x of document.querySelectorAll("#viewtoggle button")) x.classList.toggle("on", x.dataset.view === v);
   const cur = entryOf(state.cls);
-  if(v === "best" && cur && !cur.primary){
-    const p = CLASSES.find(x => classKey(x) === classKey(cur) && x.primary);
+  if(v === "best" && cur && !isBest(cur)){
+    const p = bestOf(classKey(cur), state.list);
     if(p) state.cls = p.id;
   }
   render();
