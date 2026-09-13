@@ -30,7 +30,7 @@ talents=CUQA5HmDzx68KWyrW/8Y781L7DgBAAAAAALjBxstBGAgZWwCMjthZgBAGAAAAAAAAAAAAAgB
 
 
 # wastewalker_helm (33) — NOTE: cap has 2 sockets (meta+prismatic); third gem is inert
-head=,id=50206,ilevel=33,gem_id=76884/213743/213464,bonus_id=6710,drop_level=30
+head=,id=50206,ilevel=33,gem_id=76884/213743/32222,bonus_id=6710,drop_level=30
 # Amnesia (140)
 neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213464/32222/32222,bonus_id=9156/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
@@ -118,7 +118,7 @@ actions.finish=slice_and_dice,if=!buff.slice_and_dice.up
 actions.finish+=/eviscerate
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1

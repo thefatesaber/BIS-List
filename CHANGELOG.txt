@@ -7,6 +7,7 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-13
+- [page] Subtlety 1609: the head’s third gem goes Deadly Pyrestone.
 - [page] Subtlety Rogue joins as the twelfth expansion entry: All-time
   1608 on Raidbots — rogue complete, the fourth three-spec class.
 - [page] Assassination 2774: head and neck each trade a Quick Emerald
