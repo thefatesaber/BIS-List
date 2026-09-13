@@ -13,9 +13,9 @@ talents=CMQA5HmDzx68KWyrW/8Y781L7zYMbAAAAAAglBMAAAAAgsNMDMwAGMAMDGwAAAAAAAAAAMDA
 
 
 # wastewalker_helm (33) — NOTE: cap has 2 sockets (meta+prismatic); third gem is inert
-head=,id=50206,ilevel=33,gem_id=76884/213743/213488,bonus_id=6710,drop_level=30
+head=,id=50206,ilevel=33,gem_id=76884/213743/40150,bonus_id=6710,drop_level=30
 # Amnesia (140)
-neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/213488/40150,bonus_id=9156/6652/9477/8782,drop_level=30
+neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/40150/40150,bonus_id=9156/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32222/32222,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
@@ -42,15 +42,12 @@ trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Heartrazor (40) — 6-11 dmg 1.80, +4agi/+6sta; proc +27 AP 10s as agi.
 # 0.90ppm = MH anchor to 60% uptime (5.50 procs/min target; stream response 6.14/min per ppm, measured this run)
-# Enchant LS per matrix result. Anchors were measured with GF on this hand — stream now ~2% leaner;
-# verify Heartrazor ~60% / Invigoration Total ~547 next run, linear nudge only if drifted.
 main_hand=heartrazor_proxy,weapon=dagger_1.80speed_6min_11max,ilevel=40,quality=epic,stats=4agi_6sta,enchant_id=4099,equip=procby/attack_procon/hit_0.90ppm_27agi_10dur
 # Heartpierce (46) — 7-12 dmg 1.80, +3agi/+5sta; fully hand-built, id dropped: driver 71880 never loads, Blessing of Light extinct.
 # Proc payload = spell 71882 (Invigoration) via trigger token: 4 energy/2s/10s from data.
 # 2.55ppm = income anchor (546.6 energy/300s ≡ 91.11% uptime x 2 eps; 14.52/min needed memoryless / 5.68 per ppm-unit measured).
 # Whole-stream Equip proc -> slot-indifferent; anchor valid in either hand. Correction rule: ppm x 546.6 / observed Invigoration Total.
 off_hand=heartpierce_proxy,weapon=dagger_1.80speed_7min_12max,ilevel=46,quality=epic,stats=3agi_5sta,enchant_id=5950,equip=procby/attack_procon/hit_2.55ppm_71882trigger
-
 
 
 # Consumables

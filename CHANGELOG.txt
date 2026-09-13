@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-13
+- [page] Assassination 2774: head and neck each trade a Quick Emerald
+  for a Delicate Ametrine.
 - [page] Assassination refined at 2770: Heartpierce replaces the
   off-hand Heartrazor as a trigger-token synthetic carrying
   Invigoration at the measured income anchor, retiring the spell-data
