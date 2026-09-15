@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-15
+- [page] Enhancement 2475: Tuskarr Bone Necklace replaces Amnesia and
+  both rings take the haste accord; the hunter’s-mark override is
+  stripped again on intake, so the number stays flagged high.
 - [page] Enhancement takes the full agility consumable kit — Potion of
   the Tol’vir, Flask of Endless Rage, Skewered Eel, Superior Mana Oil
   — replacing the Resto caster set it inherited on entry.
