@@ -39,7 +39,7 @@ trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_
 # Heart of Roccor (155)
 trinket2=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30
 # The Untamed Blade 40 — canonical ppm, no weapon Crusader (ring carries it)
-main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=97str_8dur_procby/attack_3.7ppm
+main_hand=the_untamed_blade_proxy,enchant_id=1900,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=97str_8dur_procby/attack_3.7ppm
 
 # Consumables
 temporary_enchant=disabled
