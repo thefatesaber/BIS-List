@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-15
+- [page] Balance Druid joins as the fifteenth expansion entry: All-time
+  2819 on Raidbots — every DPS spec in the game is now represented.
+  Balance takes the druid best on the computed rule; the entry ships
+  with the caster consumable kit rather than inheriting Feral’s.
 - [page] Enhancement’s 2475 settles on the Tuskarr build with Accord of
   Haste rings — comment and id agree in this export. The mark override
   returned and is stripped again on intake, so the number is flagged
