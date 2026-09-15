@@ -6,6 +6,14 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-15
+- [page] Enhancement Shaman joins as the thirteenth expansion entry:
+  All-time 2471 on Raidbots — shaman complete, the fifth three-spec
+  class. The export's hunters_mark override is removed on intake per
+  the hunter ruling the linter enforces, so 2471 is flagged high
+  pending a rerun; override.skyfury rides as sent, flagged for ruling
+  since no other profile carries it.
+
 ## 2026-09-13
 - [page] Subtlety 1609: the head’s third gem goes Deadly Pyrestone.
 - [page] Subtlety Rogue joins as the twelfth expansion entry: All-time
