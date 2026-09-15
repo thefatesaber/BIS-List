@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-15
+- [page] Enhancement’s 2475 gear corrected to the right file: Amnesia
+  on the neck (the export’s comment says Tuskarr, the id says Amnesia —
+  the id is what simmed) and both rings back on the versatility accord.
+  The working copy is clean of the mark override; the flag clears.
 - [page] Enhancement 2475: Tuskarr Bone Necklace replaces Amnesia and
   both rings take the haste accord; the hunter’s-mark override is
   stripped again on intake, so the number stays flagged high.

@@ -14,8 +14,8 @@ talents=CcQAAAAAAAAAAAAAAAAAAAAAAYmZYAGGwYAAAAAAAAAAAAEAgAAwDMGAAzgNjZAAAgBAoBAg
 
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/213464,bonus_id=7202,drop_level=30,enchant=12crit
-# Amnesia (135)
-neck=,id=193666,ilevel=33,enchant_id=5890,gem_id=213500/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Tuskarr Bone Necklace (135)
+neck=,id=200210,ilevel=33,enchant_id=5890,gem_id=213500/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3808,gem_id=32194/32194,bonus_id=7202,drop_level=30
 # Drape of the Faceless General (43)
@@ -33,9 +33,9 @@ legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=32194/32194/32194,bonus_id=6710/
 # Star-Strider Boots (40)
 feet=,id=29951,ilevel=40,enchant_id=1887,gem_id=32194/32194,bonus_id=9035,drop_level=30
 # Bloodoath Signet (33)
-finger1=,id=178871,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger1=,id=178871,ilevel=33,enchant_id=6110,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Band of the Ancient Dredger (33)
-finger2=,ilevel=33,id=159461,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,ilevel=33,id=159461,enchant_id=6110,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Chaos Talisman (33)
@@ -46,10 +46,10 @@ main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38
 off_hand=,id=34331,ilevel=44,gem_id=32194/32194,bonus_id=9037,drop_level=30,enchant_id=5950
 
 # Consumables
-#potion=potion_of_the_tolvir
-#flask=flask_of_endless_rage
-#food=skewered_eel
-#temporary_enchant=main_hand:superior_mana_oil
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
 temporary_enchant=disabled
 potion=disabled
 flask=disabled
@@ -195,7 +195,7 @@ actions.single_totemic+=/flame_shock
 
 
 # Simulation Options
-iterations=100000
+iterations=50000
 desired_targets=1
 max_time=300
 fixed_time=1
