@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-15
+- [page] Balance 2826: talent rework and the neck trades its mark for
+  the Trained Soldier; stats unchanged.
 - [page] Balance Druid joins as the fifteenth expansion entry: All-time
   2819 on Raidbots — every DPS spec in the game is now represented.
   Balance takes the druid best on the computed rule; the entry ships
