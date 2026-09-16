@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-15
+- [page] Balefire Branch sources to Waycrest Manor — Soulbound Goliath,
+  confirmed against Wowhead and the Warcraft wiki rather than recalled.
 - [page] Augmentation Evoker gets a page but no rail entry: hidden
   entries are excluded from both views and from the computed best,
   reachable only by deep link. The committed profile is the evoker
