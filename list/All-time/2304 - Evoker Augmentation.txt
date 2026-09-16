@@ -1,0 +1,211 @@
+# All-time - Evoker - Augmentation 
+# =====================================================================
+# Augmentation group sim — Fatedefile + top-4 All-time cohort
+# Cohort (All-time page DPS): Resto Shaman 4415, Fury Warrior 3808,
+#   Shadow Priest 3694, Frost Mage 3664
+# Metric: RAID DPS. Cohort stays byte-frozen across all aug gear combos.
+# THIS VARIANT: SUPPORT BUILD — objective is ALLY UPLIFT, not raid DPS. Metric:
+#   the four allies' summed DPS vs 16,449 (engraved baseline). Aug personal drops
+#   by design. All swaps are canon-legal by revealed preference (enchant IDs
+#   resolved against simc spell_item_enchantment data):
+#     neck 5437 Mark of the Claw -> 5890 Mark of the Trained Soldier (mastery proc)
+#     wrist 2326 Spell Power -> 4414 Intellect (feeds the EM share)
+#     feet 851 -> 4429 Mastery & Minor Speed
+#     rings 6111 Vers / 6109 Haste -> 6110 Mastery x2
+#     trinkets -> Elekk Tusk + Balefire Branch (flat int + an EM-synced int on-use
+#       feeding the multiplied share)
+#     rings -> Fleshfused Circle + Signet of the False Accuser (Fate's picks)
+#     gems -> Artful Lava Coral 71854 (+2int/+2mast) in every socket, per Fate
+#   PENDING: mastery-bearing mail pieces, any int/mastery head arcanum (pool has crit only).
+# #5 All-time (Marksmanship 3588) is the swap-in body replacing the aug
+#   block for the worth-a-slot baseline comparison.
+# =====================================================================
+
+# --- Sim-wide spell-data overrides (parse scope requires these before any actor) ---
+override.spell_data=spell.77756.proc_chance=20
+#   ^ hoisted from Shaman Restoration 4415 (sim-wide: must precede all actors)
+override.spell_data=effect.68166.base_value=0
+#   ^ hoisted from Shaman Restoration 4415 (sim-wide: must precede all actors)
+override.spell_data=effect.747255.sp_coefficient=1.6184
+#   ^ hoisted from Shaman Restoration 4415 (sim-wide: must precede all actors)
+override.spell_data=effect.285132.base_value=5
+#   ^ hoisted from Priest Shadow 3694 (sim-wide: must precede all actors)
+#   ^ hoisted from Priest Shadow 3694 (sim-wide: must precede all actors)
+override.spell_data=spell.1242173.cooldown=0
+#   ^ hoisted from Priest Shadow 3694 (sim-wide: must precede all actors)
+override.spell_data=effect.1241611.sp_coefficient=1.400
+#   ^ hoisted from Priest Shadow 3694 (sim-wide: must precede all actors)
+
+# Base Actor
+evoker="Fatedefile"
+level=30
+race=dracthyr
+region=us
+server=thrall
+role=spell
+professions=leatherworking=75/engineering=1
+spec=augmentation
+talents=CEcBAAAAAAAAAAAAAAAAAAAAAgxYbwAwMGAGAAAAAAAAAwAmawMDAAAAMAMAgBAAAAgIAAAA
+
+### Gear — canon Dev All-time set (repo 3281) ported wholesale; secondary re-ranking waits on the raid mastery weight
+# Helm of Desolation 33
+head=,id=28192,ilevel=33,gem_id=25893/213746/71854,bonus_id=7202,drop_level=30,enchant=12crit
+# Tuskarr Bone Necklace 135
+neck=,id=193666,ilevel=33,enchant_id=5890,gem_id=71854/71854/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# Pauldrons of Desolation 33
+shoulder=,id=27713,ilevel=33,enchant_id=3838,gem_id=71854/71854,bonus_id=7202,drop_level=30
+# Drape of the Messenger 43
+back=,id=46042,ilevel=43,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
+# Embrace of the Phoenix 44
+chest=,id=34373,ilevel=44,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
+# Bracers of the Forest Stalker 33
+wrist=,id=34698,ilevel=33,enchant_id=4414,gem_id=71854/71854,bonus_id=7202,drop_level=30
+# Thalassian Ranger Gauntlets 44
+hands=,id=34343,ilevel=44,enchant_id=2937,gem_id=71854/71854,bonus_id=9037,drop_level=30
+# Terror Pit Girdle 38
+waist=,id=28778,ilevel=38,enchant_id=6906,gem_id=71854/71854/71854,bonus_id=9034,drop_level=30
+# Wyrmscale Greaves 33
+legs=,id=30534,ilevel=33,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202/6652,drop_level=30
+# Star-Strider Boots 40
+feet=,id=29951,ilevel=40,enchant_id=4429,gem_id=71854/71854,bonus_id=9035,drop_level=30
+# Fleshfused Circle 33 — 2 sockets per Fate; bonus string = the four elements shared by
+# both old rings (item-agnostic), per-item fifth dropped. Verify 2x +3int gems in the report gear panel.
+finger1=,id=178869,ilevel=33,drop_level=30,gem_id=71854/71854,bonus_id=6710/10386/6652/10879,enchant_id=6110
+# Signet of the False Accuser 33 — same treatment
+finger2=,id=178824,ilevel=33,drop_level=30,gem_id=71854/71854,bonus_id=6710/10386/6652/10879,enchant_id=6110
+# Trinkets, SUPPORT: max flat int — every point feeds the 8% EM share; the Pendant's
+# vers windows buff only the aug and are worth zero to allies.
+# Armored Elekk Tusk (32) — canon line from Herald 2949
+trinket1=,id=108902,ilevel=32,bonus_id=6691,drop_level=29
+# Balefire Branch 33 (BfA Waycrest version, id 159630) — int ON-USE: the actions.items
+# EM-sync lines drive this slot again, so the int windows land inside Ebon Might and feed
+# the clutchmates-multiplied share. Verify in the report: balefire int buff windows on the aug.
+trinket2=,id=159630,ilevel=33,drop_level=30
+# previous arm:
+#trinket2=,id=118877,ilevel=33
+# replaced: Solace of the Fallen heroic
+#trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
+# Raid-DPS build reference (the engraved pair):
+#trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+# Abracadaver 45
+main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
+
+# Consumables
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Augmentation group settings — real cohort below; Ebon Might caps at 4 allies
+# force required: auto-detect wrongly disables clutchmates for a party of 4 DPS allies
+evoker.force_clutchmates=yes
+
+# Custom APL
+# Transcribed from augmentation_12_0_5 in the branch source. Deviations from stock:
+# external PI stripped, trinket block replaced with EM-synced pair, orphaned trinket/opener
+# variables pruned, named max-level item lines (aberrant_spellforge/vaelgors/bestinslots) dropped.
+# Everything else byte-identical to stock.
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=snapshot_stats
+actions.precombat+=/variable,name=spam_heal,default=0,op=reset
+actions.precombat+=/variable,name=ebon_might_pandemic_threshold,op=reset,default=0.4
+actions.precombat+=/variable,name=enforce_timings,op=reset,default=0
+actions.precombat+=/variable,name=azure_st_filler,op=reset,default=1
+actions.precombat+=/variable,name=bombardments_pooling,op=reset,default=1
+actions.precombat+=/variable,name=crit_fish,op=reset,default=0
+actions.precombat+=/blistering_scales,target_if=target.role.tank
+actions.precombat+=/living_flame
+
+# Executed every time the actor is available.
+actions=variable,name=eons_remains,op=setif,value=cooldown.allied_virtual_cd_time.remains,value_else=cooldown.breath_of_eons.remains,condition=variable.enforce_timings,if=talent.breath_of_eons
+actions+=/cancel_buff,name=tip_the_scales,if=cooldown.fire_breath.remains>0&talent.temporal_burst&talent.time_skip&!talent.interwoven_threads
+actions+=/hover,use_off_gcd=1,if=gcd.remains>=0.5&(!raid_event.movement.exists|raid_event.movement.in<=6)
+actions+=/potion,if=consumable.potion_of_recklessness&talent.doubletime
+actions+=/ebon_might,if=((buff.ebon_might_self.remains-cast_time)<=buff.ebon_might_self.duration*variable.ebon_might_pandemic_threshold)&(active_enemies>0|raid_event.adds.in<=3)&(buff.ebon_might_self.value<=0.05|variable.crit_fish<1)|buff.ebon_might_self.value<=0.05&talent.doubletime&variable.crit_fish>=1
+actions+=/prescience,target_if=min:(debuff.prescience.remains-200*(target.role.attack|target.role.spell|target.role.dps)+50*target.spec.augmentation),if=debuff.prescience.remains<gcd.max*2&time<=8
+actions+=/potion,if=variable.eons_remains<=0|cooldown.breath_of_eons.remains>=90|fight_remains<=30&!fight_style.dungeonroute
+actions+=/call_action_list,name=items
+actions+=/fury_of_the_aspects,if=talent.time_convergence&!buff.time_convergence_intellect.up&(essence>=2|buff.essence_burst.react)&variable.eons_remains>=8
+actions+=/tip_the_scales,if=!cooldown.breath_of_eons.up&(cooldown.fire_breath.up|talent.temporal_burst&cooldown.fire_breath.remains>gcd.max*2)
+actions+=/deep_breath,cancel_if=gcd.remains<=0
+actions+=/breath_of_eons,if=target.time_to_die>=20&!variable.enforce_timings|variable.enforce_timings&(evoker.allied_cds_up>0|cooldown.allied_virtual_cd_time.up),cancel_if=gcd.remains<=0
+actions+=/fire_breath,target_if=target.time_to_die>duration+0.2,empower_to=4,if=buff.ebon_might_self.up&talent.leaping_flames
+actions+=/fire_breath,target_if=target.time_to_die>duration+0.2,empower_to=1,if=buff.ebon_might_self.up&!talent.leaping_flames
+actions+=/upheaval,target_if=target.time_to_die>duration+0.2,empower_to=1,if=buff.ebon_might_self.up
+actions+=/prescience,target_if=min:(debuff.prescience.remains-200*(target.role.attack|target.role.spell|target.role.dps)+50*target.spec.augmentation),if=debuff.prescience.remains<gcd.max*2&(!talent.anachronism|buff.essence_burst.stack<buff.essence_burst.max_stack)|cooldown.time_skip.up&talent.time_skip
+actions+=/time_skip,if=!talent.chronoboon&cooldown.breath_of_eons.remains>=15|cooldown.tip_the_scales.remains>=6&!buff.tip_the_scales.up
+actions+=/emerald_blossom,if=talent.dream_of_spring&buff.essence_burst.react&(variable.spam_heal=2|variable.spam_heal=1&!buff.ancient_flame.up&talent.ancient_flame)&(buff.ebon_might_self.up|essence.deficit=0|buff.essence_burst.stack=buff.essence_burst.max_stack&cooldown.ebon_might.remains>4)
+actions+=/run_action_list,name=filler,if=(cooldown.fire_breath.remains<=gcd.max*4|cooldown.upheaval.remains<=gcd.max*4)&talent.extended_battle&buff.essence_burst.react<2&variable.bombardments_pooling
+actions+=/eruption,target_if=min:debuff.bombardments.remains+100*(target.time_to_die<=8),if=buff.mass_eruption_stacks.up
+actions+=/eruption,target_if=max:debuff.bombardments.remains,if=debuff.bombardments.remains>execute_time|buff.ebon_might_self.remains>execute_time&(buff.essence_burst.react>1|!talent.bombardments|!variable.bombardments_pooling)
+actions+=/run_action_list,name=filler
+
+# Filler — azure_st_filler=1 means Azure Strike filler; flip to 0 to A/B a Living Flame lean
+actions.filler=living_flame,if=(buff.ancient_flame.up|mana>=200000|!talent.dream_of_spring|variable.spam_heal=0)&(talent.pupil_of_alexstrasza&active_enemies>1|!talent.echoing_strike&!variable.azure_st_filler|talent.chrono_flame&variable.azure_st_filler<2)|buff.leaping_flames.up
+actions.filler+=/azure_strike
+
+# Trinkets: both 120cd ramps synced to Ebon Might windows
+actions.items=use_item,slot=trinket1,if=buff.ebon_might_self.up|fight_remains<=25
+actions.items+=/use_item,slot=trinket2,if=buff.ebon_might_self.up|fight_remains<=25
+
+# ============================= ALLY: Shaman Restoration 4415 =============================
+# All-time - Shaman - Restoration
+# SimC Expert Mode: Header
+# Base Actor — Nibelung DPS set, 32196 gems
+# WoW 12.0.5.67823, TOC 120005
+#
+# === CUSTOM MODELING (lvl 30 workarounds) ===
+# 1. LAVA SURGE: over-procs; throttled via line_cd=5 on lava_burst.
+# 2. ACID RAIN: on-use DAMAGE proxy on the SHIRT. cd=20 holds ~90% uptime to match the log now that
+#    the shared item cooldown is off (at cd=18 with no shared lock it would run ~100% and over-credit).
+# 3. ASCENDANCE: synthetic on-use HASTE on trinket1 (use=170haste_20dur_180cd). Fires clean because:
+#      a) default_item_group_cooldown=0 removes the 20s shared lock that was starving it (proven: the
+#         vers trinket went from Start ~1.0-1.4 to a clean 3.0 once this was set).
+#      b) NO line_cd on its use line. The item is already 180cd, so line_cd is redundant -- and on an
+#         off-GCD use_item it blocks the line entirely (that was the "buff never appeared" bug).
+#    The item's own 180cd gives 2 uses (Start ~2.0). 170 haste ~= +25% multiplicative
+#    (21.39% -> ~51.7% effective). Tune the 170 to your in-game Ascendance char-sheet haste.
+# LvB damage fix: resto drops Lava Burst's crit-chance scaling; +16.4% coef bump (1.38996->1.6184) to match log's 6.1k Avg Hit @24.86% crit. Fixed for this crit level, doesn't scale.
+
+# Simulation Options — ONE footer for the whole group
+# single_actor_batch must stay absent: it sims each actor alone,
+# severing the aug from its allies.
+# =====================================================================
+iterations=25000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+# WEIGHTS RUN: 5 stats x 2 deltas + baseline = 11 full group sims at 25k.
+# Read the full SimC report panel headed "Raid Damage per Second" — NOT the
+# Raidbots Stat Weights card, which always renders the personal metric.
+calculate_scale_factors=1
+scale_over=raid_dps
+scale_only=intellect,crit,mastery,vers,haste
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+optimize_expressions=1
+#html=Aug_Group_SupportWeights.html

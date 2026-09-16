@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-15
+- [page] Augmentation Evoker gets a page but no rail entry: hidden
+  entries are excluded from both views and from the computed best,
+  reachable only by deep link. The committed profile is the evoker
+  actor extracted from a five-actor group sim; 2304 is its number in
+  that group, not a solo benchmark.
 - [page] Balance 2826: talent rework and the neck trades its mark for
   the Trained Soldier; stats unchanged.
 - [page] Balance Druid joins as the fifteenth expansion entry: All-time
