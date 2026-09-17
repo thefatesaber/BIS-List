@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-15
+- [page] Augmentation’s stat panel updated for the Frost-pair build:
+  302 intellect against the old 257, mastery collapsing from 8.67 to
+  2.45 as the gem set changes.
 - [page] Augmentation adopts the Frost trinket-pair build: Pendant proxy
   and heroic Solace replace the Elekk Tusk and Balefire Branch, gems go
   Runed Crimson Spinel throughout, talents and enchants follow. The
