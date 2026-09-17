@@ -121,7 +121,7 @@ actions.items=use_item,slot=trinket1,if=buff.ebon_might_self.up|fight_remains<=2
 actions.items+=/use_item,slot=trinket2,if=buff.ebon_might_self.up|fight_remains<=25
 
 # Simulation Options
-iterations=25000
+iterations=50000
 desired_targets=1
 max_time=300
 fixed_time=1
