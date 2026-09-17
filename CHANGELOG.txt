@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-15
+- [page] Augmentation adopts the Frost trinket-pair build: Pendant proxy
+  and heroic Solace replace the Elekk Tusk and Balefire Branch, gems go
+  Runed Crimson Spinel throughout, talents and enchants follow. The
+  recorded 2304 belongs to the previous gear and is held pending the
+  number for this run.
 - [page] The Augmentation page gets its stat panel from the group sim
   sheet; Raid-Buffed and Unbuffed agree on that actor, so the numbers
   are its own gear either way.

@@ -1,40 +1,10 @@
-# All-time - Evoker - Augmentation 
-# =====================================================================
-# Augmentation group sim — Fatedefile + top-4 All-time cohort
-# Cohort (All-time page DPS): Resto Shaman 4415, Fury Warrior 3808,
-#   Shadow Priest 3694, Frost Mage 3664
-# Metric: RAID DPS. Cohort stays byte-frozen across all aug gear combos.
-# THIS VARIANT: SUPPORT BUILD — objective is ALLY UPLIFT, not raid DPS. Metric:
-#   the four allies' summed DPS vs 16,449 (engraved baseline). Aug personal drops
-#   by design. All swaps are canon-legal by revealed preference (enchant IDs
-#   resolved against simc spell_item_enchantment data):
-#     neck 5437 Mark of the Claw -> 5890 Mark of the Trained Soldier (mastery proc)
-#     wrist 2326 Spell Power -> 4414 Intellect (feeds the EM share)
-#     feet 851 -> 4429 Mastery & Minor Speed
-#     rings 6111 Vers / 6109 Haste -> 6110 Mastery x2
-#     trinkets -> Elekk Tusk + Balefire Branch (flat int + an EM-synced int on-use
-#       feeding the multiplied share)
-#     rings -> Fleshfused Circle + Signet of the False Accuser (Fate's picks)
-#     gems -> Artful Lava Coral 71854 (+2int/+2mast) in every socket, per Fate
-#   PENDING: mastery-bearing mail pieces, any int/mastery head arcanum (pool has crit only).
-# #5 All-time (Marksmanship 3588) is the swap-in body replacing the aug
-#   block for the worth-a-slot baseline comparison.
-# =====================================================================
-
-# --- Sim-wide spell-data overrides (parse scope requires these before any actor) ---
-override.spell_data=spell.77756.proc_chance=20
-#   ^ hoisted from Shaman Restoration 4415 (sim-wide: must precede all actors)
-override.spell_data=effect.68166.base_value=0
-#   ^ hoisted from Shaman Restoration 4415 (sim-wide: must precede all actors)
-override.spell_data=effect.747255.sp_coefficient=1.6184
-#   ^ hoisted from Shaman Restoration 4415 (sim-wide: must precede all actors)
-override.spell_data=effect.285132.base_value=5
-#   ^ hoisted from Priest Shadow 3694 (sim-wide: must precede all actors)
-#   ^ hoisted from Priest Shadow 3694 (sim-wide: must precede all actors)
-override.spell_data=spell.1242173.cooldown=0
-#   ^ hoisted from Priest Shadow 3694 (sim-wide: must precede all actors)
-override.spell_data=effect.1241611.sp_coefficient=1.400
-#   ^ hoisted from Priest Shadow 3694 (sim-wide: must precede all actors)
+# All-time - Evoker - Augmentation
+# Extracted from the augmentation group sim (Fatedefile + top-4 All-time cohort).
+# THIS VARIANT: canon 3281 base + aug trinkets flipped to Frost's canon pair
+#   (Pendant proxy + Solace heroic) — Gale starves on aug's thin dot stream.
+# The four ally actors and the spell-data overrides hoisted from them
+# (shaman 77756/68166/747255, priest 285132/10060/1242173/1241611) are not
+# part of this actor and stay out of the committed profile.
 
 # Base Actor
 evoker="Fatedefile"
@@ -49,46 +19,41 @@ talents=CEcBAAAAAAAAAAAAAAAAAAAAAgxYbwAwMGAGAAAAAAAAAwAmawMDAAAAMAMAgBAAAAgIAAAA
 
 ### Gear — canon Dev All-time set (repo 3281) ported wholesale; secondary re-ranking waits on the raid mastery weight
 # Helm of Desolation 33
-head=,id=28192,ilevel=33,gem_id=25893/213746/71854,bonus_id=7202,drop_level=30,enchant=12crit
+head=,id=28192,ilevel=33,gem_id=25893/213746/32196,bonus_id=7202,drop_level=30,enchant=12crit
 # Tuskarr Bone Necklace 135
-neck=,id=193666,ilevel=33,enchant_id=5890,gem_id=71854/71854/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,id=193666,ilevel=33,enchant_id=5437,gem_id=32196/32196/32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Pauldrons of Desolation 33
-shoulder=,id=27713,ilevel=33,enchant_id=3838,gem_id=71854/71854,bonus_id=7202,drop_level=30
+shoulder=,id=27713,ilevel=33,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Drape of the Messenger 43
-back=,id=46042,ilevel=43,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
+back=,id=46042,ilevel=43,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=30
 # Embrace of the Phoenix 44
-chest=,id=34373,ilevel=44,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
+chest=,id=34373,ilevel=44,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
 # Bracers of the Forest Stalker 33
-wrist=,id=34698,ilevel=33,enchant_id=4414,gem_id=71854/71854,bonus_id=7202,drop_level=30
+wrist=,id=34698,ilevel=33,enchant_id=2326,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Thalassian Ranger Gauntlets 44
-hands=,id=34343,ilevel=44,enchant_id=2937,gem_id=71854/71854,bonus_id=9037,drop_level=30
+hands=,id=34343,ilevel=44,enchant_id=2937,gem_id=32196/32196,bonus_id=9037,drop_level=30
 # Terror Pit Girdle 38
-waist=,id=28778,ilevel=38,enchant_id=6906,gem_id=71854/71854/71854,bonus_id=9034,drop_level=30
+waist=,id=28778,ilevel=38,enchant_id=6906,gem_id=32196/32196/32196,bonus_id=9034,drop_level=30
 # Wyrmscale Greaves 33
-legs=,id=30534,ilevel=33,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202/6652,drop_level=30
+legs=,id=30534,ilevel=33,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=7202/6652,drop_level=30
 # Star-Strider Boots 40
-feet=,id=29951,ilevel=40,enchant_id=4429,gem_id=71854/71854,bonus_id=9035,drop_level=30
-# Fleshfused Circle 33 — 2 sockets per Fate; bonus string = the four elements shared by
-# both old rings (item-agnostic), per-item fifth dropped. Verify 2x +3int gems in the report gear panel.
-finger1=,id=178869,ilevel=33,drop_level=30,gem_id=71854/71854,bonus_id=6710/10386/6652/10879,enchant_id=6110
-# Signet of the False Accuser 33 — same treatment
-finger2=,id=178824,ilevel=33,drop_level=30,gem_id=71854/71854,bonus_id=6710/10386/6652/10879,enchant_id=6110
-# Trinkets, SUPPORT: max flat int — every point feeds the 8% EM share; the Pendant's
-# vers windows buff only the aug and are worth zero to allies.
-# Armored Elekk Tusk (32) — canon line from Herald 2949
-trinket1=,id=108902,ilevel=32,bonus_id=6691,drop_level=29
-# Balefire Branch 33 (BfA Waycrest version, id 159630) — int ON-USE: the actions.items
-# EM-sync lines drive this slot again, so the int windows land inside Ebon Might and feed
-# the clutchmates-multiplied share. Verify in the report: balefire int buff windows on the aug.
-trinket2=,id=159630,ilevel=33,drop_level=30
-# previous arm:
-#trinket2=,id=118877,ilevel=33
-# replaced: Solace of the Fallen heroic
-#trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
-# Raid-DPS build reference (the engraved pair):
-#trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_level=30
+# Ritual Commander's Ring 33
+finger1=,id=178781,ilevel=33,enchant_id=6111,gem_id=32196/32196,bonus_id=6710/10386/6652/10394/10879,drop_level=30
+# Stitchflesh's Misplaced Signet 33
+finger2=,id=178736,ilevel=33,enchant_id=6109,gem_id=32196/32196,bonus_id=6710/10386/6652/10395/10879,drop_level=30
+# Trinkets — bracket caster meta per canon: Pendant proxy is the standard on-use;
+# T2 = Gale for dot specs (Affli, Dev), Solace heroic for dot-thin kits (Frost).
+# Aug is dot-thin -> Frost's pair, both lines verbatim from canon 3664.
+# Pendant of the Violet Eye (38)
+trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+# Solace of the Fallen 45
+trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
+# A/B arm — canon Dev pair (Solace normal + Gale) this replaces:
+#trinket1=,ilevel=44,id=47271,bonus_id=9047
+#trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Abracadaver 45
-main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
+main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
 
 # Consumables
 temporary_enchant=disabled
@@ -102,7 +67,7 @@ midnight.crucible_of_erratic_energies_violence=0
 midnight.crucible_of_erratic_energies_sustenance=0
 midnight.crucible_of_erratic_energies_predation=0
 
-# Augmentation group settings — real cohort below; Ebon Might caps at 4 allies
+# Augmentation group settings — real cohort in the group file; Ebon Might caps at 4 allies
 # force required: auto-detect wrongly disables clutchmates for a party of 4 DPS allies
 evoker.force_clutchmates=yes
 
@@ -155,29 +120,7 @@ actions.filler+=/azure_strike
 actions.items=use_item,slot=trinket1,if=buff.ebon_might_self.up|fight_remains<=25
 actions.items+=/use_item,slot=trinket2,if=buff.ebon_might_self.up|fight_remains<=25
 
-# ============================= ALLY: Shaman Restoration 4415 =============================
-# All-time - Shaman - Restoration
-# SimC Expert Mode: Header
-# Base Actor — Nibelung DPS set, 32196 gems
-# WoW 12.0.5.67823, TOC 120005
-#
-# === CUSTOM MODELING (lvl 30 workarounds) ===
-# 1. LAVA SURGE: over-procs; throttled via line_cd=5 on lava_burst.
-# 2. ACID RAIN: on-use DAMAGE proxy on the SHIRT. cd=20 holds ~90% uptime to match the log now that
-#    the shared item cooldown is off (at cd=18 with no shared lock it would run ~100% and over-credit).
-# 3. ASCENDANCE: synthetic on-use HASTE on trinket1 (use=170haste_20dur_180cd). Fires clean because:
-#      a) default_item_group_cooldown=0 removes the 20s shared lock that was starving it (proven: the
-#         vers trinket went from Start ~1.0-1.4 to a clean 3.0 once this was set).
-#      b) NO line_cd on its use line. The item is already 180cd, so line_cd is redundant -- and on an
-#         off-GCD use_item it blocks the line entirely (that was the "buff never appeared" bug).
-#    The item's own 180cd gives 2 uses (Start ~2.0). 170 haste ~= +25% multiplicative
-#    (21.39% -> ~51.7% effective). Tune the 170 to your in-game Ascendance char-sheet haste.
-# LvB damage fix: resto drops Lava Burst's crit-chance scaling; +16.4% coef bump (1.38996->1.6184) to match log's 6.1k Avg Hit @24.86% crit. Fixed for this crit level, doesn't scale.
-
-# Simulation Options — ONE footer for the whole group
-# single_actor_batch must stay absent: it sims each actor alone,
-# severing the aug from its allies.
-# =====================================================================
+# Simulation Options
 iterations=25000
 desired_targets=1
 max_time=300
@@ -185,11 +128,7 @@ fixed_time=1
 enemy=Fluffy_Pillow_Custom
 target_level+=3
 #enemy_custom_health_timeline=20:0.2
-# WEIGHTS RUN: 5 stats x 2 deltas + baseline = 11 full group sims at 25k.
-# Read the full SimC report panel headed "Raid Damage per Second" — NOT the
-# Raidbots Stat Weights card, which always renders the personal metric.
-calculate_scale_factors=1
-scale_over=raid_dps
+calculate_scale_factors=0
 scale_only=intellect,crit,mastery,vers,haste
 override.allow_flasks=0
 override.allow_food=0
@@ -208,4 +147,3 @@ override.hunters_mark=0
 override.bleeding=0
 report_details=1
 optimize_expressions=1
-#html=Aug_Group_SupportWeights.html
