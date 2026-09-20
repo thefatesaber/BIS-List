@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-20
+- [page] Obtainable Warrior, Main Hand: the weapon sweep against base
+  3383 is recorded. The Untamed Blade holds it comfortably — Destiny
+  -2.5%, Shadowmourne -8.1%, dual Bonereaver's Edge -11.8%, Apolyon
+  -12.8%, Singing Crystal Axe -13.6%. Every one is a fallback; the
+  dual-Bonereaver's result settles that the second copy stays in the
+  off hand.
 - [page] Obtainable Warrior trinket sweep re-run on the finished build
   and re-based from 3357 to 3384. The haste regem reorders the field:
   into the Dragonspine slot Pendant of the Violet Eye is now -1.1% and
