@@ -1,4 +1,5 @@
-# Obtainable - Warrior - Fury
+# Obtainable - Warrior - Fury — ENGRAVED: 3x Quick Emerald, DC id-less
+# One profileset: full haste regem of the remaining 15 sockets.
 # Base Actor
 warrior=Kleaveland
 race=maghar_orc
@@ -25,16 +26,16 @@ hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=40146/40146,bonus_id=9037,drop_
 waist=,ilevel=40,id=30032,gem_id=40146/40146/40146,bonus_id=9035,drop_level=30
 # Felfury Legplates (44)
 legs=,id=34180,ilevel=44,enchant_id=3823,gem_id=40146/40146/40146,bonus_id=9037
-# Onslaught Treads 44
-feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=40146,bonus_id=9037,drop_level=30
-# Loop of Vitriolic Intent (33)
-finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=40146,bonus_id=6710/41/8810,drop_level=30
-# Loop of Pulsing Veins (33)
-finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=213494,bonus_id=6710/6652/8810,drop_level=30
+# Onslaught Treads 44 — Quick Emerald (engraved from the socket sweep)
+feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=213488,bonus_id=9037,drop_level=30
+# Loop of Vitriolic Intent (33) — Quick Emerald
+finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/41/8810,drop_level=30
+# Loop of Pulsing Veins (33) — Quick Emerald
+finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/6652/8810,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
-# Chaos Talisman (33)
-trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
+# Death's Choice (45) — id= permanently off (id run measured +20 = native Paragon double-proc)
+trinket2=deaths_choice_proxy,ilevel=45,stats=9str_9agi,equip=procby/attack_51str_15dur_2%
 # The untamed Blade (40)
 main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_3.7%
 # Bonereaver's Edge (38)
@@ -42,10 +43,6 @@ off_hand=bonereavers_edge_proxy,ilevel=38,weapon=sword2h_3.6speed_16min_28max,st
 
 
 # Consumables
-# potion=golemblood_potion
-# flask=flask_of_titanic_strength
-# food=BeerBasted_Crocolisk
-# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
 temporary_enchant=disabled
 potion=disabled
 flask=disabled
@@ -58,15 +55,7 @@ midnight.crucible_of_erratic_energies_sustenance=0
 midnight.crucible_of_erratic_energies_predation=0
 
 # Custom APL
-# Custom APL
-# This default action priority list is automatically created based on your character.
-# It is a attempt to provide you with a action list that is both simple and practicable,
-# while resulting in a meaningful and good simulation. It may not result in the absolutely highest possible dps.
-# Feel free to edit, adapt and improve it to your own needs.
-# SimulationCraft is always looking for updates and improvements to the default action lists.
-
 # Executed before combat begins. Accepts non-harmful actions only.
-# Snapshot raid buffed stats before combat begins and pre-potting is done.
 actions.precombat=snapshot_stats
 actions.precombat+=/battle_shout
 actions.precombat+=/berserker_stance,toggle=on
@@ -111,7 +100,7 @@ actions.slayer+=/bloodthirst
 #actions.slayer+=/rampage
 actions.slayer+=/wrecking_throw
 #actions.slayer+=/rend,if=dot.rend.duration<6
-#actions.slayer+=/raging_blow
+actions.slayer+=/raging_blow
 actions.slayer+=/whirlwind
 actions.slayer+=/storm_bolt,if=buff.bladestorm.up
 

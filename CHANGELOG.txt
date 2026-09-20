@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-20
+- [page] Obtainable Warrior rebuilt at 3383: Trinket 2 becomes Death's
+  Choice (ilvl 45) over Chaos Talisman, and the feet and both rings
+  regem to Quick Emerald. Stat panel refreshed (str 244, mastery
+  21.59%/37, haste 31.12%/149).
+- [page] Obtainable Warrior, both trinket slots carry the sweep against
+  base 3357. Into the Dragonspine slot: Chaos Talisman -1.1%, Pendant of
+  the Violet Eye -2.0%, Herkuml War Token -3.6%, Meteorite Crystal
+  -5.0%. Into the Death's Choice slot: Chaos Talisman -4.5%, Pendant
+  -4.7%, Herkuml -6.0%. Only the first is inside the noise band, so the
+  "very flat field" note is retired along with the open entry note on
+  the Death's Choice head-to-head. Death's Choice is modelled by proxy,
+  not by item id: the id run measured +20 DPS from a native Paragon
+  double-proc.
 - [page] Obtainable Shaman, Legs: the leg sweep is recorded against the
   same 4036 base — Starstalker Legguards (-0.5%) and Chain Links of the
   Tumultuous Storm (-0.6%) land inside the noise band, Skyshatter
