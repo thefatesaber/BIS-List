@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-20
+- [page] Obtainable Shaman, Legs: the leg sweep is recorded against the
+  same 4036 base — Starstalker Legguards (-0.5%) and Chain Links of the
+  Tumultuous Storm (-0.6%) land inside the noise band, Skyshatter
+  Legguards (-2.7%) does not and is labelled a fallback.
 - [page] Obtainable Shaman, Chest: the three swept alternates are
   recorded against the 4036 base — Garments of Serene Shores (-0.2%),
   Skyshatter Breastplate (-0.4%) and Vicious Hawkstrider Hauberk
