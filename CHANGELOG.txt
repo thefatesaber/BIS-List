@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-20
+- [page] Why-note auto-linking fixed for item names carrying an
+  apostrophe or ampersand. whyHtml() escapes the note before scanning
+  it, so "Bonereaver's Edge" was already "Bonereaver&#39;s Edge" by the
+  time the matcher looked for it and could never link. The matcher now
+  runs against the escaped name. 25 of the 169 linkable item names were
+  affected; one is named in a note today, so only the warrior weapon
+  caveat changes on screen.
 - [page] Obtainable Warrior weapon notes replaced with the caveat that
   matters: the swept deltas assume this build's gems and enchants, which
   are tuned around The Untamed Blade and Bonereaver's Edge. Running any

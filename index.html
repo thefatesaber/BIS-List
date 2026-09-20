@@ -485,7 +485,7 @@ const CONFIG = {
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "Obtainable Warrior's weapon deltas now say what they assume — a different weapon needs a different gem and enchant set entirely."
+  notice: "Item names with an apostrophe now link inside why notes — they were silently skipped by the matcher."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -1589,10 +1589,14 @@ function whyHtml(text){
   // linkification let the regex run into the "https:" of a generated href when a
   // note opened with an item name.
   let out = esc(text).replace(/^([^:]{3,40}:)/, "<b>$1</b>");
-  const names = Object.keys(WHY_ITEMS).sort((a,b) => b.length - a.length);
+  // Match against the ESCAPED name: `out` has already been through esc(), so a
+  // name carrying an apostrophe or ampersand ("Bonereaver's Edge") no longer
+  // appears in it verbatim and would never link.
+  const names = Object.keys(WHY_ITEMS).sort((a,b) => esc(b).length - esc(a).length);
   for(const n of names){
-    const re = new RegExp("(?![^<]*>)" + n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g");
-    out = out.replace(re, '<a'+whAttr(WHY_ITEMS[n])+' href="https://www.wowhead.com/item='+WHY_ITEMS[n]+pinQ(WHY_ITEMS[n])+'" target="_blank" rel="noopener">'+n+'</a>');
+    const en = esc(n);
+    const re = new RegExp("(?![^<]*>)" + en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g");
+    out = out.replace(re, '<a'+whAttr(WHY_ITEMS[n])+' href="https://www.wowhead.com/item='+WHY_ITEMS[n]+pinQ(WHY_ITEMS[n])+'" target="_blank" rel="noopener">'+en+'</a>');
   }
   return out;
 }
