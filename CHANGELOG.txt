@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-20
+- [page] Obtainable Warrior, Main Hand: the main-hand-only sweep is
+  replaced by the full pairwise one against base 3384. Every two-weapon
+  combination of The Untamed Blade, Bonereaver's Edge, Shadowmourne,
+  Destiny, Apolyon and Singing Crystal Axe was run, and the equipped
+  pair beats all fourteen — nearest is Bonereaver's Edge + Destiny at
+  -2.0%, worst is Apolyon + Singing Crystal Axe at -23.9%. Nothing is
+  inside the noise band. The dual-Bonereaver's entry (-11.8%) is kept
+  from the earlier 3383 run, which the pairwise sweep reproduces to
+  within 1 DPS on Shadowmourne + Bonereaver's Edge and exactly on
+  Apolyon + Bonereaver's Edge. The intermediate sweep based at 3385,
+  which listed the equipped pair as a -5.7% loss to itself, is
+  discarded as incoherent and was never recorded.
 - [page] Obtainable Warrior, both trinket rows drop their why notes —
   the slots show the alternates line alone. The Death's Choice modelling
   ruling (proxy rather than item id; the id run measured +20 DPS off a
