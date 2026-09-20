@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-20
+- [page] Obtainable Warrior, both trinket rows drop their why notes —
+  the slots show the alternates line alone. The Death's Choice modelling
+  ruling (proxy rather than item id; the id run measured +20 DPS off a
+  native Paragon double-proc) moves up to the entry notes so it is not
+  lost with the row text.
 - [page] Obtainable Warrior, Main Hand: the weapon sweep against base
   3383 is recorded. The Untamed Blade holds it comfortably — Destiny
   -2.5%, Shadowmourne -8.1%, dual Bonereaver's Edge -11.8%, Apolyon
