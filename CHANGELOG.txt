@@ -6,6 +6,13 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-20
+- [page] Obtainable Shaman, Chest: the three swept alternates are
+  recorded against the 4036 base — Garments of Serene Shores (-0.2%),
+  Skyshatter Breastplate (-0.4%) and Vicious Hawkstrider Hauberk
+  (-0.5%). All three sit inside the noise band, so the slot is a
+  practical tie rather than a hard requirement.
+
 ## 2026-09-15
 - [page] The Augmentation profile records 50000 iterations, matching
   the run its gear and stat panel come from.
