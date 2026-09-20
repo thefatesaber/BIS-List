@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-20
+- [page] Obtainable Warrior weapon notes replaced with the caveat that
+  matters: the swept deltas assume this build's gems and enchants, which
+  are tuned around The Untamed Blade and Bonereaver's Edge. Running any
+  alternative would mean regemming and re-enchanting from scratch, so
+  the numbers are the cost of a straight swap, not of the swap done
+  properly. The caveat sits on the Main Hand row and covers both weapon
+  rows; the Off Hand row carries its alternates alone.
 - [page] Obtainable Warrior weapons re-cut per slot. Instead of one row
   carrying every pair, each weapon row now lists what it was paired
   with: The Untamed Blade takes Destiny -5.4%, Shadowmourne -9.6%,
