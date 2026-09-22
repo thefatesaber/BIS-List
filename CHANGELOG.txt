@@ -6,6 +6,15 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-22
+- [page] All-time Retribution Paladin updated to 3111. The shoulders
+  move from Lightbringer Shoulderbraces (30997, ilvl 42, Black Temple)
+  to Spaulders of the Thalassian Savior (34193, ilvl 44, Sunwell
+  Plateau — The Eredar Twins); the enchant and both Skillful Lava
+  Coral gems carry over. Stat panel refreshed: str 185, stam 1089, crit
+  22.65%/83, haste 16.15%/77, vers 3.76%/22, mastery unchanged at
+  54.58%/163. The run is 100000 iterations, up from 50000.
+
 ## 2026-09-20
 - [page] Why-note auto-linking fixed for item names carrying an
   apostrophe or ampersand. whyHtml() escapes the note before scanning

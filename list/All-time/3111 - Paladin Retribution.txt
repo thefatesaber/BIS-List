@@ -30,7 +30,7 @@ head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30
 # Ukhel Ancestry Beads (140)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/71856/71856,bonus_id=9156/6652/9477/8782,drop_level=30
 # Lightbringer Shoulderbraces (42)
-shoulder=,ilevel=42,id=30997,enchant_id=3808,gem_id=71856/71856,bonus_id=9036,drop_level=30
+shoulder=,ilevel=44,id=34193,enchant_id=3808,gem_id=71856/71856,bonus_id=9036,drop_level=30
 # Titanskin Cloak (43)
 back=,ilevel=43,id=45496,enchant_id=3243,gem_id=71856,bonus_id=9043,drop_level=30
 # Hard Khorium Battleplate (44)
@@ -121,7 +121,7 @@ actions.generators+=/arcane_torrent
 
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
