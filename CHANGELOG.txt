@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-22
+- [page] Vague why notes swept off the page. Five removed: the
+  Obtainable Shaman chest and leg notes, which only restated what the
+  alternates line already shows, and the three All-time pointer stubs
+  reading "Alternates below are the All-time sweep; the note for this
+  slot lives on the Obtainable list" (paladin, death knight, druid
+  main hands), which said nothing about the pick at all. 32 notes
+  remain, all of them naming a specific item, proc or modelling
+  decision. Ten rows now carry alternates without a note, which
+  validate still reports as a warning.
 - [page] Obtainable Shaman, Waist: Terror Pit Girdle recorded at -0.6%
   against the same 4036 base as the chest and leg sweeps. The row shows
   the alternates line alone, with no why note.
