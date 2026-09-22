@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-22
+- [page] Obtainable Shaman, Waist: Terror Pit Girdle recorded at -0.6%
+  against the same 4036 base as the chest and leg sweeps. It lands
+  inside the noise band, so the belt joins those two as a practical tie
+  rather than a hard requirement.
 - [page] All-time Retribution Paladin updated to 3111. The shoulders
   move from Lightbringer Shoulderbraces (30997, ilvl 42, Black Temple)
   to Spaulders of the Thalassian Savior (34193, ilvl 44, Sunwell
