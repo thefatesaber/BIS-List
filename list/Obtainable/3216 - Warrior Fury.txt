@@ -1,5 +1,4 @@
-# Obtainable - Warrior - Fury — ENGRAVED: 3x Quick Emerald, DC id-less
-# One profileset: full haste regem of the remaining 15 sockets.
+# Obtainable - Warrior - Fury — trinket panel vs new incumbents (DST proxy + Pendant)
 # Base Actor
 warrior=Kleaveland
 race=maghar_orc
@@ -26,7 +25,7 @@ hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=40146/40146,bonus_id=9037,drop_
 waist=,ilevel=40,id=30032,gem_id=40146/40146/40146,bonus_id=9035,drop_level=30
 # Felfury Legplates (44)
 legs=,id=34180,ilevel=44,enchant_id=3823,gem_id=40146/40146/40146,bonus_id=9037
-# Onslaught Treads 44 — Quick Emerald (engraved from the socket sweep)
+# Onslaught Treads 44 — Quick Emerald (engraved)
 feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=213488,bonus_id=9037,drop_level=30
 # Loop of Vitriolic Intent (33) — Quick Emerald
 finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/41/8810,drop_level=30
@@ -34,8 +33,8 @@ finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/41/8810
 finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/6652/8810,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
-# Death's Choice (45) — id= permanently off (id run measured +20 = native Paragon double-proc)
-trinket2=deaths_choice_proxy,ilevel=45,stats=9str_9agi,equip=procby/attack_51str_15dur_2%
+# Pendant of the Violet Eye — incumbent (+13 over Chaos, x2 reproduced; in-game 19x20 vers audit = last gate)
+trinket2=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # The untamed Blade (40)
 main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_3.7%
 # Bonereaver's Edge (38)
@@ -89,6 +88,9 @@ actions+=/blood_fury
 actions+=/fireblood
 actions+=/ancestral_call
 actions+=/use_item,slot=trinket2
+# On-use tested in the DST slot would idle otherwise (sublist gates trinket1 behind
+# Recklessness, dead at 30). Inert for passive trinkets.
+actions+=/use_item,slot=trinket1
 actions+=/run_action_list,name=slayer,if=active_enemies=1
 actions+=/run_action_list,name=slayer_aoe,if=active_enemies>1
 
@@ -138,13 +140,14 @@ actions.variables+=/variable,name=execute_phase,value=(talent.massacre.enabled&t
 actions.variables+=/variable,name=on_gcd_racials,value=buff.recklessness.down&buff.recklessness.down&rage<80&buff.sudden_death.down&!cooldown.bladestorm.ready&(!cooldown.execute.ready|!variable.execute_phase)
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
 enemy=Fluffy_Pillow_Custom
 target_level+=3
 #enemy_custom_health_timeline=20:0.2
+# Sweep config — restore calculate_scale_factors=1 for the tier/weights run.
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
 override.allow_flasks=0

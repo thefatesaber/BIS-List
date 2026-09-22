@@ -7,6 +7,22 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-22
+- [page] Obtainable Warrior rebuilt at 3216. Trinket 2 becomes Pendant
+  of the Violet Eye over Death's Choice, modelled as a proxy (8 int,
+  19 vers x20 stacks on a 120s use). The stat panel confirms the swap
+  in isolation: str 244 -> 235 and agi 66 -> 57 remove Death's Choice's
+  9/9 line, int 43 -> 51 adds Pendant's 8. The APL gains a bare
+  use_item on trinket1 so an on-use tested in the Dragonspine slot is
+  not left idling behind a Recklessness gate that never fires at 30.
+- [page] Obtainable Warrior trinket sweep re-based to 3216. Into the
+  Dragonspine slot: Chaos Talisman -1.2%, Herkuml War Token -2.2%,
+  Meteorite Crystal -5.2%. Into the Pendant slot: Chaos Talisman -0.4%,
+  Herkuml -1.2%, Meteorite -3.2%. The two Death's Choice rows from this
+  panel are deliberately NOT recorded: they read -1.7% and -2.7%, but
+  the previous panel had Death's Choice as the incumbent at 3384 with
+  Pendant 5.0% behind it. The same two configurations cannot be both
+  224 DPS apart and reversed, so the slot waits on a tiebreak rather
+  than publishing whichever run was asked last.
 - [page] Vague why notes swept off the page. Five removed: the
   Obtainable Shaman chest and leg notes, which only restated what the
   alternates line already shows, and the three All-time pointer stubs
