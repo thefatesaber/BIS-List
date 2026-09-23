@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] All-time Shadow Priest updated to 4065 from 3694, a 10.0%
+  jump, and it belongs in neither re-run bucket: this is a real build
+  change. The talent string is the single edit to the profile — gear,
+  gems, enchants, APL, overrides and the 100000-iteration count are all
+  untouched — and the stat panel is unchanged in every field (int 271,
+  stam 1117, crit 20.25%/76, mastery 15.23%/112, haste 27.41%/113, vers
+  1.03%/6), so the talents moved damage nodes rather than stat nodes.
+  Only the All-time talent string changes on the page; Obtainable and
+  Herald keep the old build, which is what their own profiles still
+  carry.
 - [page] All-time Frost Mage updated to 3715 from 3664, the same shape
   as Survival: iterations 50000 -> 100000 is the only profile edit,
   applied in place, and the stat panel is unchanged in every field (int
