@@ -7,16 +7,22 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] All-time Devourer Demon Hunter updated to 3561 from 3375, the
+  third spec in this pattern: profile identical to the committed file
+  but for a trailing newline, and a stat panel matching in every field
+  (int 295, stam 1062, crit 19.64%/68, mastery 29.46%/107, haste
+  19.92%/95, vers 0). Renamed rather than rewritten.
 - [page] All-time Windwalker Monk updated to 2901 from 2721, on an
   unchanged profile — identical to the committed file but for a
   trailing newline, so the file is renamed rather than rewritten. Its
   stat panel is unchanged in every field, main 247 / stam 1107 / crit
   26.65%/83 / mastery 71.88%/114 / haste 16.57%/79 / vers 0.
-- [page] Ruling: the Frost Death Knight and Windwalker Monk movements
-  are a WoW patch, not gear or modelling changes. Only those two
-  All-time columns have been re-run on the new build; every other
-  number on the site predates it, so cross-class comparisons are
-  mixed-engine until the rest are re-simmed. CONFIG.patch still reads
+- [page] Ruling: the Frost Death Knight, Windwalker Monk and Devourer
+  Demon Hunter movements are a WoW patch, not gear or modelling
+  changes. Only those three All-time columns have been re-run on the
+  new build; every other number on the site predates it, so
+  cross-class comparisons are mixed-engine until the rest are
+  re-simmed. CONFIG.patch still reads
   12.1.0 (Midnight) and has not been touched, since the new patch
   number has not been given.
 - [page] All-time Frost Death Knight updated to 3332 from 3137. The
