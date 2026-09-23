@@ -7,6 +7,24 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] Obtainable Restoration Shaman updated to 4162 from 4036. Two
+  substantive changes. The chest becomes Ebon Netherscale Breastplate
+  (29515, ilvl 44) over Embrace of the Phoenix, which is commented out
+  in the profile. And the APL's Ascendance line is repaired: it fired
+  use_item,name=ascendance_buff while the tabard item is named
+  ascendance_buff_proxy, so the name never bound and Ascendance never
+  went off. Every previous number for this spec was simmed with its
+  headline cooldown inert.
+- [page] UNVERIFIED: Ebon Netherscale Breastplate's source reads
+  "Source pending". The item is not otherwise on the site and its drop
+  was not attributed rather than guessed. validate only polices source
+  text on the Herald list, so this passes the gate; it still needs a
+  ruling before the row is trustworthy.
+- [page] The seven alternates on base 4036 come off across chest, legs
+  and waist. The base moved 3.1%, which is larger than every delta they
+  recorded, and the chest's three were measured against Embrace of the
+  Phoenix, which no longer holds the slot. A re-sweep on 4162 restores
+  them.
 - [page] Obtainable Devourer Demon Hunter's alternates replaced with
   the twelve from the wider sweep, on base 3423 read off the chart
   rather than inferred. Four items are new to the site: Naturewarden's

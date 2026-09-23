@@ -33,13 +33,14 @@ talents=CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAYmxYbjZAAGGAAAAAADAPwANLMDMAYeAGAAAAAA
 # Helm of Desolation 33
 head=,ilevel=33,id=28192,gem_id=25893/213743/32196,bonus_id=7202,drop_level=30
 # Tuskarr Bone Necklace 33
-neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=213485,,drop_level=30
+neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=213485,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,ilevel=33,id=27713,enchant_id=3810,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Drape of the Messenger 43
 back=,ilevel=43,id=46042,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=30
 # Embrace of the Phoenix 44
-chest=,ilevel=44,id=34373,enchant_id=2661,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
+#chest=,ilevel=44,id=34373,enchant_id=2661,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
+chest=,ilevel=44,id=29515,enchant_id=2661,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
 # >>> ACID RAIN PROXY on the SHIRT (damage on-use). cd 18->20 to preserve ~90% uptime (see note 2).
 shirt=acid_rain_proxy,use=0+160nature_maycrit_1tick_18dur_20cd
 tabard=ascendance_buff_proxy,use=170haste_20dur_180cd
@@ -83,7 +84,8 @@ actions+=/blood_fury,if=dot.flame_shock.ticking
 actions+=/berserking,if=dot.flame_shock.ticking
 actions+=/fireblood,if=dot.flame_shock.ticking
 actions+=/ancestral_call,if=dot.flame_shock.ticking
-actions+=/use_item,name=ascendance_buff,use_off_gcd=1,if=dot.flame_shock.ticking
+# L30 FIX: tabard item is named ascendance_buff_proxy — use_item name updated to match (stale name never binds, Ascendance never fires)
+actions+=/use_item,name=ascendance_buff_proxy,use_off_gcd=1,if=dot.flame_shock.ticking
 actions+=/use_item,slot=trinket2,use_off_gcd=1,if=dot.flame_shock.ticking
 actions+=/potion,if=dot.flame_shock.ticking
 # 4. Lava Burst, then Lightning Bolt filler.
@@ -91,13 +93,40 @@ actions+=/lava_burst,line_cd=6.5,if=buff.lava_surge.up|dot.flame_shock.ticking
 actions+=/lightning_bolt
 actions+=/flame_shock,moving=1,if=dot.flame_shock.refreshable
 actions+=/frost_shock,moving=1
+
+### MAIL-SLOT SWEEP — profilesets, one candidate swap per arm vs this base
+# Instrument rules:
+# - ISO-ILVL: every arm is pinned to its slot's BASE ilvl so the sim isolates item identity.
+#   Before engraving a winner, re-pin it to the ilvl its actual source is legal at in this
+#   bracket (33 dungeon / 38-40-43 Wrath / 44-45-47 raid) and re-run.
+# - GEM POLICY (source-verified, engine/item/enchants.cpp initialize_gem + item.cpp decode_gems):
+#   simc applies EVERY listed gem with NO socket check — sockets never gate gem stats.
+#   Gems/enchant are mirrored verbatim from the base slot line, so all arms carry identical gem
+#   stats and the sweep ranks pure item stat allocation.
+#   READING RULE: in-game, gems need real sockets (native + any socket-adding bonus_id). A low-socket
+#   winner is only a real upgrade if its margin over base exceeds the gems its real sockets can't hold
+#   (~one 32196-gem's worth per missing socket). Native socket counts are printed per arm.
+# - Candidates: DBC-swept int-mail (int-leading, no tank stats, shaman-usable, req<=30, rare+).
+#   OBTAINABILITY is a ruling, not data — cull VERIFY SOURCE arms before engraving.
+# - Curation: top 5/slot by weight vector Int 9.14 >> Vers 4.82 > Haste 4.09 > Crit 3.31;
+#   caps per secondary archetype: crit/haste 2, vers 2, others 1; pure-primary (single-stat DBC
+#   rows, whole budget on int) capped at 1/slot — Darkmoon replica family collapsed to best member,
+#   Dreamfused-Skull family reduced to ONE litmus arm (chest). If a pure-primary arm wins big,
+#   verify its stat allocation on a dummy before trusting a single-stat data row.
+#   Mastery-split items score themselves out (Deep Healing = 0 DPS).
+# - DESOLATION PAIR (Fate's ruling): Helm 28192 + Pauldrons 27713 are bonded by the set-660 2pc.
+#   Set 660 is ABSENT from midnight's set-bonus registry (item_set_bonus.inc starts at Shadowlands,
+#   source-verified) and this file carries no proxy for it, so the sim prices the 2pc at ZERO —
+#   in base and in every arm alike. In-game it is live. Reading rules for head/shoulder arms:
+#     * a SINGLE head or shoulder winner must beat its slot by MORE than the full in-game 2pc
+#       value — breaking the pair through either slot forfeits the whole bonus;
+#     * the real decision is pair-vs-pair — see the PAIR-BREAK arm at the bottom of the sweep.
+
 potion=disabled
 flask=disabled
 food=disabled
 augmentation=disabled
 temporary_enchant=disabled
-
-name=Shaman
 
 # Simulation Options
 iterations=50000
