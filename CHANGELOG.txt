@@ -6,6 +6,16 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-23
+- [page] All-time Frost Death Knight updated to 3332 from 3137. The
+  profile is unchanged — same gear, gems, enchants, talents and 50000
+  iterations, identical to the committed file apart from line endings —
+  so the +195 is a re-sim, not a build change, and the file is renamed
+  rather than rewritten. The stat panel moves on exactly one line too:
+  stamina 1039 -> 1163, with strength, crit, haste, versatility and
+  mastery all unchanged. Only the All-time column was re-run;
+  Obtainable and Herald still carry their older numbers.
+
 ## 2026-09-22
 - [page] Obtainable Warrior rebuilt at 3216. Trinket 2 becomes Pendant
   of the Violet Eye over Death's Choice, modelled as a proxy (8 int,
