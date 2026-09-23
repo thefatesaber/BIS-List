@@ -7,6 +7,25 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] Obtainable Devourer Demon Hunter's alternates replaced with
+  the nine swept on the Messenger build, and no others: head Wastewalker
+  Helm -4.4%, back Drape of Mortal Downfall -0.5%, chest Harness of
+  Carnal Instinct -0.2%, wrist Eversong Cuffs -0.8%, hands Liar's Tongue
+  Gloves -2.0%, waist Belt of One-Hundred Deaths -2.7%, legs Moonchild
+  Leggings -5.1%, feet Footpads of Silence -0.2% and Footwraps of Vile
+  Deceit -1.2%. Cloak of the Coming Night, Drape of the Faceless General
+  and Reanimator's Cloak drop off the back row; Eversong Cuffs, Liar's
+  Tongue Gloves and Moonchild Leggings each move a tenth.
+- [page] Note on the back row, because the two numbers look
+  contradictory. Drape of Mortal Downfall is -0.5% here, yet the build
+  that equipped it simmed 3440 against this build's 3422. Both are
+  right: the swap keeps the Messenger's single gem, while the equipped
+  version filled the cloak's second socket with another Artful Lava
+  Coral. The -0.5% is the cost of a straight swap; gemmed out it is
+  ahead.
+- [page] The sweep's base row was cropped out of the screenshot. The
+  nine deltas triangulate to roughly 3423, so altbase is recorded as the
+  stored build's 3422 rather than a figure read off the image.
 - [page] Obtainable Devourer Demon Hunter reverted to Drape of the
   Messenger and 3422. The Drape of Mortal Downfall detour is undone
   whole: back item, stat panel (int 284, stam 1050, crit 20.44%/72,
