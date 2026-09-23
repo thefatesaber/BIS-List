@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] Obtainable Devourer Demon Hunter corrected to 3423. The chest
+  is Bloodsea Brigand's Vest (30101, ilvl 40, Serpentshrine Cavern —
+  Fathom-Lord Karathress); Harness of Carnal Instinct is commented out
+  in the profile and becomes the slot's alternate at -0.2% against base
+  3432. The earlier 3416 intake carried the Harness line uncommented,
+  which is why the sweep's chest row looked like a swap to the equipped
+  item — the row was right and the profile behind it was the stale one.
+  Withholding it rather than publishing a contradiction was the correct
+  call and it now lands intact. Stat panel corrected with it: int 287 ->
+  284, stam 1062 -> 1050, crit 19.64%/68 -> 20.44%/72, haste 19.92%/95
+  -> 20.34%/97.
 - [page] Obtainable Devourer Demon Hunter records its slot sweep
   against base 3432, across seven rows. Head: Wastewalker Helm -4.5%.
   Back: Cloak of the Coming Night -0.8%, Drape of the Faceless General
