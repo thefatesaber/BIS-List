@@ -20,11 +20,12 @@ served by the site and linked from the header.
   chest line are replaced by "Ebon Netherscale Breastplate 44". Comment
   only — no gear, gem, enchant or option changes, and nothing on the
   page moves.
-- [page] UNVERIFIED: Ebon Netherscale Breastplate's source reads
-  "Source pending". The item is not otherwise on the site and its drop
-  was not attributed rather than guessed. validate only polices source
-  text on the Herald list, so this passes the gate; it still needs a
-  ruling before the row is trustworthy.
+- [page] Ebon Netherscale Breastplate's source resolved to "Crafted —
+  Leatherworking" from its Wowhead entry (Outland Leatherworking, skill
+  75), replacing the "Source pending" placeholder. It is not a drop at
+  all, which is why the id block it sits in was no guide. The string
+  matches the site's existing crafted convention, and happens to be the
+  same source the chest carried before the swap.
 - [page] The seven alternates on base 4036 come off across chest, legs
   and waist. The base moved 3.1%, which is larger than every delta they
   recorded, and the chest's three were measured against Embrace of the
