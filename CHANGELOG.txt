@@ -7,6 +7,22 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] Obtainable Devourer Demon Hunter updated to 3416 from 3203,
+  the first of the four Obtainable entries whose own All-time column had
+  already moved. Three slots regem from mastery to intellect: the head's
+  third socket (Masterful Onyx -> Brilliant Crimson Spinel), the neck
+  and both shoulder sockets (Artful Lava Coral -> Brilliant Crimson
+  Spinel). The stat panel agrees, mastery 29.86%/109 -> 27.66%/98 and
+  int 281 -> 287. The APL moves Soul Immolation into precombat, drops
+  its conditional line, gates the trinket1 use behind cooldown.void_ray
+  and drops the trinket2 use line; iterations 50000 -> 100000.
+- [page] Two stale comments in that intake were not followed. Its header
+  read "All-time" while the file is the Obtainable one, corrected on
+  storage. Its off-hand comment read "Bloodsurge, Kel'Thuzad's Blade of
+  Agony" over id 50704, which the DBC gives as Rigormortis; the row
+  follows the id and is unchanged. The ring 2 comment, by contrast, was
+  corrected in the intake (Arch-Druid's Tainted Seal -> Fleshfused
+  Circle) and now agrees with the page.
 - [page] All-time Fire Mage updated to 3565 from 3486, third file in
   the iterations-bump shape: 50000 -> 100000 is the only profile edit,
   applied in place, and the stat panel is unchanged in every field (int
