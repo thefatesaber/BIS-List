@@ -7,6 +7,25 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] Obtainable Devourer Demon Hunter reverted to Drape of the
+  Messenger and 3422. The Drape of Mortal Downfall detour is undone
+  whole: back item, stat panel (int 284, stam 1050, crit 20.44%/72,
+  mastery 27.66%/98) and the eleven alternates on base 3422 all return
+  to the state they held before it, because that sweep was measured on
+  exactly this build. Base and build now agree to 0 DPS.
+- [page] Side effect worth naming: the Mortal Downfall row had lost the
+  back slot's enchant. Drape of the Messenger's Minor Power (spell
+  44582) was dropped when the row was rebuilt for that item, even though
+  the profile carried enchant_id=3243 throughout. The revert restores
+  it. A row rebuilt field-by-field can silently shed a field the
+  original had.
+- [page] The nine alternates swept on base 3440 come off with the build
+  they belonged to. Their back entry was Drape of the Messenger, which
+  is the incumbent again, and the other eight were measured with Mortal
+  Downfall equipped. Drape of Mortal Downfall is not recorded as an
+  alternate either: it out-simmed the Messenger by 18 DPS, so its
+  absence from the Obtainable list is a availability judgement, not a
+  performance one.
 - [page] Obtainable Devourer Demon Hunter's alternates restored on base
   3440, which matches the stored build exactly. Nine rows as listed and
   no others: chest Harness of Carnal Instinct -0.1%, feet Footpads of

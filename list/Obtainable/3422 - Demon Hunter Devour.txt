@@ -19,8 +19,8 @@ head=,id=50206,ilevel=33,gem_id=25893/213743/32196,bonus_id=4196,drop_level=30
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # mantle_of_perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
-# Drape of Mortal Downfall (43)
-back=,id=45242,ilevel=43,enchant_id=3243,gem_id=71854/71854,bonus_id=9043,drop_level=30
+# Drape of the Messenger (43)
+back=,id=46042,ilevel=43,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
 # Bloodsea Brigand's Vest (40)
 chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
 #shirt=soul_fragment_aura,ilevel=30,use=1000vers_25dur_115cd
