@@ -15,6 +15,11 @@ served by the site and linked from the header.
   ascendance_buff_proxy, so the name never bound and Ascendance never
   went off. Every previous number for this spec was simmed with its
   headline cooldown inert.
+- [data] Obtainable Shaman's chest line relabelled in the profile: the
+  stale "Embrace of the Phoenix 44" comment and the dead commented-out
+  chest line are replaced by "Ebon Netherscale Breastplate 44". Comment
+  only — no gear, gem, enchant or option changes, and nothing on the
+  page moves.
 - [page] UNVERIFIED: Ebon Netherscale Breastplate's source reads
   "Source pending". The item is not otherwise on the site and its drop
   was not attributed rather than guessed. validate only polices source
