@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] All-time Frost Mage updated to 3715 from 3664, the same shape
+  as Survival: iterations 50000 -> 100000 is the only profile edit,
+  applied in place, and the stat panel is unchanged in every field (int
+  288, stam 1051, crit 23.45%/82, mastery 49.71%/115, haste 13.84%/66,
+  vers 7.52%/44).
+- [page] Observation, not a ruling: the five re-runs split cleanly by
+  whether the profile changed. The three with NO profile edit moved
+  +5.5% to +6.6% (Devourer DH, Frost DK, Windwalker Monk); the two
+  carrying an iterations bump moved -0.8% and +1.4% (Survival Hunter,
+  Frost Mage). That is consistent with the big jumps being the patch
+  and the small ones being the iteration count settling, but it is a
+  correlation across five files, not a finding, and the page claims
+  nothing from it.
 - [page] All-time Survival Hunter updated to 2780 from 2802. This one
   is not grouped with the patch re-sims: it moves DOWN 0.8% where the
   other three moved up 5.5% to 6.6%, and unlike them its profile did

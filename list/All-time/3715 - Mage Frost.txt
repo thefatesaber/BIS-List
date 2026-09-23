@@ -123,7 +123,7 @@ actions.movement+=/cone_of_cold,if=talent.cone_of_frost
 actions.movement+=/ice_lance
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
