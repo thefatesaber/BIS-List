@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] Obtainable Devourer Demon Hunter's slot sweep re-based from
+  3432 to 3422, re-run on the corrected Bloodsea Brigand's Vest build.
+  Eight of the eleven deltas are unchanged; three move by a single
+  tenth: Cloak of the Coming Night -0.8% -> -0.7%, Reanimator's Cloak
+  -2.0% -> -1.9%, Wastewalker Helm -4.5% -> -4.4%. The new base sits 1
+  DPS from the stored profile's 3423, against 9 for the run it replaces,
+  so the sweep and the build now agree to within run-to-run noise.
 - [page] Obtainable Devourer Demon Hunter corrected to 3423. The chest
   is Bloodsea Brigand's Vest (30101, ilvl 40, Serpentshrine Cavern —
   Fathom-Lord Karathress); Harness of Carnal Instinct is commented out
