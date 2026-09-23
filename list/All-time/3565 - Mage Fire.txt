@@ -95,7 +95,7 @@ override.player.spell_data=effect.856.base_value=15
 override.player.spell_data=spell.10060.spell_level=1
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
