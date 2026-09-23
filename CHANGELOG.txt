@@ -7,6 +7,26 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-23
+- [page] Obtainable Devourer Demon Hunter updated to 3440. The back
+  becomes Drape of Mortal Downfall (45242, ilvl 43, two Artful Lava
+  Coral) over Drape of the Messenger, and the commented-out Harness
+  chest line is dropped from the profile. Stat panel with it: int 284 ->
+  286, stam 1050 -> 1051, crit 20.44%/72 -> 20.24%/71, mastery 27.66%/98
+  -> 28.06%/100.
+- [page] All eleven alternates come off the page with that change. They
+  were swept against a 3422 base whose back was Drape of the Messenger;
+  the build is now 3440, so every delta understates its loss by about
+  0.5 points — five times the 0.1 precision they are printed at, and
+  enough to carry Footwraps of Vile Deceit across the noise band. The
+  three back alternates are worse off still, having been measured
+  against an incumbent that no longer holds the slot. Re-sweep on the
+  3440 build and they go straight back.
+- [page] UNVERIFIED: Drape of Mortal Downfall is recorded as hard-mode
+  only. validate requires an hm flag on every Ulduar item and the flag
+  is item-specific; "only" is the modal value among the Ulduar pieces
+  already on the site and matches the three other Ulduar slots in this
+  same list, but it has not been confirmed for this cloak. Its source
+  is likewise the bare zone, with no boss attributed.
 - [page] Obtainable Devourer Demon Hunter's slot sweep re-based from
   3432 to 3422, re-run on the corrected Bloodsea Brigand's Vest build.
   Eight of the eleven deltas are unchanged; three move by a single
