@@ -78,7 +78,7 @@ actions+=/kill_command,if=buff.tip_of_the_spear.stack<2
 actions+=/raptor_strike
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
