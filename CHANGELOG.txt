@@ -15,6 +15,34 @@ served by the site and linked from the header.
   ascendance_buff_proxy, so the name never bound and Ascendance never
   went off. Every previous number for this spec was simmed with its
   headline cooldown inert.
+- [page] Obtainable Restoration Shaman records 17 alternates on base
+  4164, across eight slots. Back: Drape of Mortal Downfall -0.4%.
+  Chest: Garments of Serene Shores -0.8%, Skyshatter Breastplate -1.1%,
+  Vicious Hawkstrider Hauberk -1.3%. Wrist: Ebon Netherscale Bracers
+  -1.0%, True Aim Stalker Bands -1.3%, Skyshatter Wristguards -1.3%.
+  Hands: Skyshatter Grips -1.0%, Marshal's Mail Gauntlets -1.4%. Waist:
+  Ebon Netherscale Belt -0.2%, Terror Pit Girdle -0.3%. Legs: Chain
+  Links of the Tumultuous Storm -1.2%, Starstalker Legguards -1.3%.
+  Feet: Skyshatter Greaves -0.6%, Skyshatter Boots -1.0%. Main hand:
+  Mag'hari Chieftain's Staff -0.1%, Grand Magister's Staff of Torrents
+  -0.4%.
+- [page] Head and shoulders deliberately carry none. They are the
+  Desolation pair (Helm 28192 + Pauldrons 27713) and set 660 is absent
+  from midnight's set-bonus registry, so the sim prices the 2pc at zero
+  while it is live in game. Any single head or shoulder alternate would
+  understate its cost by the whole bonus; the pair-break arm is the
+  honest form of that question and is not a slot alternate.
+- [page] CAVEAT on provenance, recorded because the rows themselves
+  cannot say it. Chest, legs, back and main hand come from targeted
+  runs at base 4164. Wrist, hands, waist and feet come from the
+  iso-ilvl screening sweep, where each candidate is pinned to its
+  slot's BASE item level rather than the level its own source is legal
+  at — those four slots rank stat allocation, not swap cost, and
+  should be re-pinned and re-run before anyone treats them as drop-in
+  equivalents. The set was culled to nothing worse than -2.0%, which
+  removed every Replica piece, Vest of the Dreamfused Skull, and the
+  two worst pins (RuneChain Girdle at level 13 and Windreaver Greaves
+  at level 24).
 - [data] Obtainable Shaman's chest line relabelled in the profile: the
   stale "Embrace of the Phoenix 44" comment and the dead commented-out
   chest line are replaced by "Ebon Netherscale Breastplate 44". Comment
