@@ -6,6 +6,40 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-24
+- [page] Obtainable Restoration Shaman re-sims to 4132 from 4162. One
+  gear change: the chest returns to Embrace of the Phoenix (34373,
+  ilvl 44), reverting yesterday's swap to Ebon Netherscale Breastplate
+  (29515). Everything else in the profile is byte-identical — all ten
+  enchant ids resolve to the same spells already on the page, and every
+  gem, item level and option is unchanged. Stats move with the chest:
+  Int 274 -> 270, Stamina 1142 -> 1148, Haste 25.17%/120 -> 26.00%/124;
+  crit, mastery and versatility are untouched.
+- [page] FLAGGED, not resolved: this is a 30 DPS step DOWN, and Ebon
+  Netherscale now sits 0.77% ABOVE the published pick. The sim ranked
+  Ebon Netherscale higher yesterday and still would; the reason for
+  reverting is therefore outside the sim, and no reason was given with
+  the profile. If the cause is obtainability — the Outland Leatherworking
+  recipe not being reachable in this bracket — that belongs on the row
+  or in the entry notes, because the page currently gives a reader no
+  way to see why the weaker chest is listed. Awaiting Fate's ruling.
+- [page] The chest's three alternates come off: Garments of Serene
+  Shores -0.8%, Skyshatter Breastplate -1.1% and Vicious Hawkstrider
+  Hauberk -1.3% were all swept with Ebon Netherscale holding the slot,
+  and the incumbent they were measured against is gone. This is the
+  same call made yesterday in the opposite direction, when the chest's
+  alternates came off because they had been measured against Embrace of
+  the Phoenix. The deltas were NOT rebased arithmetically onto the new
+  pick — a rebase of that kind reordered the Warrior trinkets once and
+  is not trusted here.
+- [page] The remaining 14 alternates stay, and keep altbase 4164. That
+  field records the base the sweep actually ran against, so it stays
+  truthful as written; it now sits one build behind the published 4132.
+  Back, legs and main hand came from targeted runs and are the least
+  affected. Wrist, hands, waist and feet were already carrying the
+  iso-ilvl caveat from 2026-09-23 and still need re-pinning. A re-sweep
+  on 4132 would retire both caveats at once.
+
 ## 2026-09-23
 - [page] Obtainable Restoration Shaman updated to 4162 from 4036. Two
   substantive changes. The chest becomes Ebon Netherscale Breastplate
