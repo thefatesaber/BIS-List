@@ -40,6 +40,23 @@ served by the site and linked from the header.
   iso-ilvl caveat from 2026-09-23 and still need re-pinning. A re-sweep
   on 4132 would retire both caveats at once.
 
+- [page] Four alternates come off Obtainable Restoration Shaman at
+  Fate's direction, leaving 10 across seven slots. Wrist drops Ebon
+  Netherscale Bracers (29517) -1.0% and True Aim Stalker Bands (30091)
+  -1.3%, keeping Skyshatter Wristguards -1.3%. Hands drops Marshal's
+  Mail Gauntlets (29607) -1.4%, keeping Skyshatter Grips -1.0%. Waist
+  drops Ebon Netherscale Belt (29516) -0.2%, keeping Terror Pit Girdle
+  -0.3%. No slot is left bare and altbase 4164 is unchanged on all
+  seven rows.
+- [note] Three of the four removals are Ebon Netherscale pieces
+  (bracers, belt), which together with the chest reverting off Ebon
+  Netherscale Breastplate earlier today points at the whole crafted
+  Ebon Netherscale line being unobtainable in this bracket rather than
+  at any sim result. That reading is inferred from the pattern of
+  removals, not stated, and the DPS question flagged against the chest
+  swap is unchanged: Ebon Netherscale Breastplate still sims 0.77%
+  above the listed chest.
+
 ## 2026-09-23
 - [page] Obtainable Restoration Shaman updated to 4162 from 4036. Two
   substantive changes. The chest becomes Ebon Netherscale Breastplate
