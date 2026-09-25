@@ -57,6 +57,41 @@ served by the site and linked from the header.
   swap is unchanged: Ebon Netherscale Breastplate still sims 0.77%
   above the listed chest.
 
+- [page] Eight alternates from the 4132 sweep are added to Obtainable
+  Restoration Shaman, taking it from 10 arms to 18. None were already
+  present. Chest gains Sun-Drenched Scale Chestguard (34375) -0.1% and
+  is no longer bare. Feet gains Boots of Living Scale (45562) -0.1%,
+  Ferocious Swift-Kickers (28610) -0.1% and Skyshatter Treads (34566)
+  -0.3%. Hands gains Fletcher's Gloves of the Phoenix (34374) -0.1% and
+  Gloves of Quickening (28519) -0.5%. Wrist gains Bindings of Winter
+  Gale (45460) -0.7%. Waist gains Belt of Dragons (45553) -0.8%. All
+  eight ids were verified in item_data.inc for name, slot and quality;
+  28610 is spelled "Ferocious Swift-Kickers" with a hyphen, which the
+  source label did not have.
+- [page] The sweep's base is confirmed as 4132, not 4164: every printed
+  figure reproduces from it (4128/4132 = -0.10%, 4120 = -0.29%,
+  4113 = -0.46%, 4102 = -0.73%, 4099 = -0.80%). So these arms were run
+  against the build the page now publishes.
+- [page] CONSEQUENCE, and it needs a ruling. A row carries one altbase,
+  but chest, feet, hands, wrist and waist now hold arms from two
+  different sweeps - the new ones at 4132 and the carried-over ones at
+  4164. Rather than label either set with the other's base, altbase is
+  OMITTED on the four mixed rows (feet, hands, wrist, waist), so the
+  page claims no base for them and the renderer simply drops the
+  tooltip; altbase is absent from validate.js, so this is legal. Chest
+  is all-new and carries altbase 4132 cleanly. Back, legs and main hand
+  are untouched and keep altbase 4164.
+- [page] The five carried-over arms are Skyshatter Wristguards -1.3%,
+  Skyshatter Grips -1.0%, Terror Pit Girdle -0.3%, Skyshatter Greaves
+  -0.6% and Skyshatter Boots -1.0%. Their percentages are still the ones
+  measured at 4164 and were NOT rebased onto 4132. Note also that none
+  of the five appears in the new sweep even though all five sit inside
+  its range, which reads as the screenshot being one page of a longer
+  sorted list rather than a complete re-run - so they were kept rather
+  than retired. If the 4132 sweep does supersede them, dropping the five
+  puts every row on a single clean base and retires the iso-ilvl caveat
+  that has stood against wrist, hands, waist and feet since 2026-09-23.
+
 ## 2026-09-23
 - [page] Obtainable Restoration Shaman updated to 4162 from 4036. Two
   substantive changes. The chest becomes Ebon Netherscale Breastplate
