@@ -7,7 +7,7 @@ profiles that produced every number on the page. Four constraint tiers per
 spec — All-time, All-time Full buffed, Obtainable, Herald of the Titans
 (ilvl ≤ 41, Classic/TBC/WotLK sources, necks/rings/trinkets exempt) — and
 DPS must satisfy Herald ≤ Obtainable ≤ All-time ≤ All-time Full buffed.
-All-time Full buffed is empty until its first profiles land. `list/Dummy mode/` holds reconciliation
+All-time Full buffed is mid-rollout: specs appear as their buffed profiles land (Restoration Shaman first, 5787). `list/Dummy mode/` holds reconciliation
 copies, which follow looser rules than benchmarks (see hunters_mark below).
 
 SimC branch: midnight (d0d2db1). DBC references come from
@@ -17,7 +17,12 @@ SimC branch: midnight (d0d2db1). DBC references come from
 
 **Self-buffed rail: own kit in, other actors out.** All-time Full buffed
 is this rail's one sanctioned exception — raid buffs are the point of that
-list; its exact buff set is fixed by its first landed profiles. Every other
+list. Its buff set, fixed by the first landed profile (Resto Shaman 5787):
+Bloodlust, Arcane Intellect, Mark of the Wild and Hunter's Mark ON;
+Power Word: Fortitude, Battle Shout, Mystic Touch, Chaos Brand and
+bleeding OFF; consumables run live in-sim where benchmarks disable them;
+Bloodlust is level-enabled via the standard player-scoped override
+(spell.2825 spell_level=1, effect.856.base_value=15). Every other
 benchmark profile carries no external buffs — no `external_buffs.pool` of any kind and no
 `invoke_external_buff` of any kind. Abilities the actor legitimately has at
 30 are in, which sanctions the priest's PI self-cast and rules out PI

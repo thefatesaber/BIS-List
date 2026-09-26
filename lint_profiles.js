@@ -147,9 +147,12 @@ for (const dir of DIRS) {
       E(`line ${n}: target_level=+N parses as absolute level N — use target_level+=N`);
     for (const n of where(/^target_level=(\d|1[0-9])$/))
       E(`line ${n}: absolute target_level below 20 — level-3-boss bug`);
-    if ((c.cls || c.id) !== "hunter" && has(/^override\.hunters_mark=1/))
+    // alltime_buffed is the self-buffed rail's sanctioned exception (see
+    // PROJECT.md): external buffs and live consumables are the tier's point,
+    // so the two rail checks below don't apply to it.
+    if (list !== "alltime_buffed" && (c.cls || c.id) !== "hunter" && has(/^override\.hunters_mark=1/))
       E(`hunters_mark=1 — the hunter's own permanent debuff; on a non-hunter it assumes an actor the rail excludes`);
-    if (!has(/^temporary_enchant=disabled/)) E(`temporary_enchant=disabled missing`);
+    if (list !== "alltime_buffed" && !has(/^temporary_enchant=disabled/)) E(`temporary_enchant=disabled missing`);
     for (const n of where(/^temporary_enchant=\s*$/))
       E(`line ${n}: blank temporary_enchant= — triggers the fallback; delete the line`);
     if (!has(/^augmentation=disabled/))

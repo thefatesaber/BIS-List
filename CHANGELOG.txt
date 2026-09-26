@@ -35,6 +35,39 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] The first All-time Full buffed profile lands: Restoration
+  Shaman at 5787, from a 100,000-iteration Raidbots Advanced run. The
+  buffed build is not the All-time build re-buffed - it re-gears:
+  Terror Pit Girdle (Magtheridon's Lair) takes the waist, Emperor's
+  Seal (Anniversary BRD) and Stitchflesh's Misplaced Signet (Necrotic
+  Wake) take the rings, HEROIC Solace of the Fallen (47432, ilvl 45)
+  replaces the normal 47271, and the two-hander gives way to Royal
+  Scepter of Terenas II + The Boreal Guard, an Ulduar hardmode-only
+  frill. Gemming shifts toward Purified Dreadstone and Reckless
+  Ametrine, and five enchant slots change tier or type. Every id,
+  name, quality, enchant spell and source was resolved against
+  item_data.inc, spell_item_enchantment.inc and rows already on the
+  page - all sixteen items already carried vetted sources elsewhere
+  on the site, so nothing was guessed. Raid-buffed stats: Int 337,
+  Stamina 1163, Crit 21.25%/81, Haste 26.00%/124, Vers 17.35%/84.
+  Monotonicity holds: 4415 alltime <= 5787 alltime_buffed.
+- [ruling] The tier's buff set is now fixed by this first profile, as
+  PROJECT.md said it would be: Bloodlust, Arcane Intellect, Mark of
+  the Wild and Hunter's Mark ON; Power Word: Fortitude, Battle Shout,
+  Mystic Touch, Chaos Brand and bleeding OFF. Consumables run LIVE
+  in-sim (Volcanic Potion, Flask of Distilled Wisdom, Severed Sagefish
+  Head, Superior Wizard Oil) where the benchmark rail disables them.
+  Bloodlust is level-enabled through the standard player-scoped
+  override (spell.2825 spell_level=1, effect.856.base_value=15).
+  PROJECT.md records the set.
+- [tooling] lint_profiles.js's two self-buffed-rail checks - the
+  non-hunter hunters_mark=1 error and the temporary_enchant=disabled
+  requirement - are scoped OFF the alltime_buffed directory, whose
+  point is external buffs and live consumables. Every other check
+  still runs there, including the filename-vs-page dps cross-check
+  and the per-slot id reconciliation, and all 56 profiles lint to
+  zero errors.
+
 ## 2026-09-24
 - [page] Obtainable Restoration Shaman re-sims to 4132 from 4162. One
   gear change: the chest returns to Embrace of the Phoenix (34373,
