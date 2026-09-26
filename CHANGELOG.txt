@@ -35,6 +35,21 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Devastation Evoker joins All-time Full buffed at 4315, a
+  100,000-iteration Raidbots Advanced run. Monotonicity holds:
+  3281 alltime <= 4315 buffed. The build is the All-time build with a
+  crit lean: feet enchant moves from Versatility to Precision, both
+  ring enchants move to Accord of Critical Strike and their gems to
+  Potent Pyrestone, and Abracadaver rises to 47 under ILVL_SPLIT_OK.
+  Everything else is byte-identical, wrist included - 2326
+  round-trips to Greater Spellpower 44635, the name already on the
+  row. The head carries the sanctioned enchant=12crit head-slot
+  instrument, undisplayed like the warlock's 1sp. The Solace why note
+  and Abracadaver alternates were not carried (unbuffed-derived).
+  Raid-buffed stats: Int 350, Stamina 1061, Crit 30.27%/126, Mastery
+  16.50%/0, Haste 21.60%/103, Vers 8.98%/35. On-set: skyfury on, no
+  PI pool (per-spec), drums-strength lust.
+
 - [page] Affliction Warlock joins All-time Full buffed at 4485, a
   100,000-iteration Raidbots Advanced run. Monotonicity holds:
   3358 alltime <= 4485 buffed. The build is the All-time build with a
