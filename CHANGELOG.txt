@@ -35,6 +35,31 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Retribution Paladin joins All-time Full buffed at 4158.
+  Monotonicity holds: 3111 alltime <= 4158 buffed. One gear change
+  from the All-time build: shoulders drop the Sunwell Spaulders of
+  the Thalassian Savior (34193, ilvl 44) for Lightbringer
+  Shoulderbraces (30997, ilvl 42, Black Temple - Mother Shahraz
+  token), whose row vocabulary was already vetted on the page; same
+  enchant, same gems. The head gains the sanctioned enchant=3crit
+  instrument. The main-hand comment says Bonereaver's Edge over the
+  the_untamed_blade_proxy token, and the token won - the row stays
+  The Untamed Blade, as on All-time. The per-spell HoW/Verdict/
+  Judgment/Blade calibrations are unchanged from the All-time
+  profile, including their local-build-only caveat. Consumables ran
+  live minus temporary enchants (commented out), the same oil-less
+  pattern as the warrior. UTB's unbuffed alternates were not carried.
+  Raid-buffed stats: Str 192, Stamina 1094, Crit 23.05%/85, Mastery
+  57.28%/163, Haste 16.99%/81, Vers 5.39%/14.
+- [flag] The weapon-proxy recalibration is now a PATTERN, not a
+  one-off: the ret profile's Untamed Blade proxy moves 17-29 to
+  31-43, the same near-doubling the warrior's intake flagged an hour
+  earlier, arrived independently. Two str-family profiles agreeing
+  strengthens the corrected-bracket-values reading, in which every
+  base-list number simmed on the old ranges (warrior alltime/
+  obtainable/herald, paladin alltime/obtainable/herald) under-simmed
+  its weapon and joins the re-sim queue. Fate's ruling still decides.
+
 - [page] Fury Warrior joins All-time Full buffed at 4973. Monotonicity
   holds: 3808 alltime <= 4973 buffed. Gear, gems, ring proc
   instruments and enchants are the All-time build verbatim - all
