@@ -35,6 +35,21 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Subtlety Rogue joins All-time Full buffed at 2516 on the
+  rogue_subtlety entry. Monotonicity holds: 1609 alltime <= 2516
+  buffed. Gear is the All-time build verbatim - the same dagger
+  instruments, re-ranged like Assassination's, the same head 6crit
+  instrument, full physical set with skyfury, oil-less consumables.
+  The Sub-specific total-anchored yellow calibration (x1.2006 on
+  Shadowstrike, both Eviscerate halves, Backstab, Instant Poison) is
+  unchanged from the All-time profile. CARRIED CAVEAT, stated by the
+  profile itself: both dagger proc anchors (Heartrazor 0.90ppm,
+  Heartpierce 2.55ppm / 546.6 energy) are Assassination anchors and
+  want re-anchoring from a Subtlety log; until then the buffed and
+  All-time Sub numbers share the same approximation. Raid-buffed
+  stats: Agi 255, Stamina 1062, Crit 29.46%/97, Mastery 24.50%/0,
+  Haste 35.29%/164, Vers 5.90%/17.
+
 - [page] Assassination Rogue joins All-time Full buffed at 4309, on
   the rogue_assassination entry (Outlaw holds the primary rogue
   slot). Monotonicity holds: 2774 alltime <= 4309 buffed. Gear is the
