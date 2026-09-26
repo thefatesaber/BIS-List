@@ -166,6 +166,9 @@ for (const c of CLASSES) {
   }
 
   for (const L of LISTS) {
+    // A list the class does not carry needs no consumables — same shape as
+    // the REQUIRED_LISTS carve for emptiness while a tier rolls out.
+    if (!(((c.lists || {})[L] || []).length) && !((c.dpsByList || {})[L])) continue;
     const cc = c.consumables;
     const cons = !cc ? null
       : (cc.potion || cc.flask || cc.food || cc.oil) ? cc : cc[L];

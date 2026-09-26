@@ -35,6 +35,36 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Affliction Warlock joins All-time Full buffed at 4485, a
+  100,000-iteration Raidbots Advanced run. Monotonicity holds:
+  3358 alltime <= 4485 buffed. The build is the All-time build with a
+  crit-side regem - neck trades Reckless Ametrine for Brilliant
+  Crimson Spinel x2, shoulders/back/chest/wrist move to Potent
+  Pyrestone, ring 2 moves to Reckless Ametrine, the main hand regems
+  Spinel x3 -> Reckless x3 - and Abracadaver rises to 47 under the
+  standing ILVL_SPLIT_OK ruling. Enchants are unchanged everywhere:
+  4092 and 6108 round-trip to Precision 74236 and Accord of Critical
+  Strike 298009, the names already on the rows. The head carries the
+  sanctioned enchant=1sp head-slot instrument, which the All-time
+  Affliction profile still lacks (standing flag). One comment lies
+  and the id won: "Boots of Fiery Resolution" over 45537, which is
+  Treads of the False Oracle (Yogg-Saron, hm only), matching the
+  All-time row. The Pendant why note and Abracadaver alternates were
+  not carried (unbuffed-derived). The gem-integrity linter earned its
+  keep during this intake: it caught a wrong gem id on the buffed
+  main-hand row before commit, exactly the mismatch class it exists
+  for.
+- [flag] NO STAT PANEL for buffed Affliction, deliberately: the
+  profile's precombat lacks snapshot_stats, so the report's
+  Raid-Buffed column reads zeros with infinite haste. DPS is
+  unaffected. The entry ships without stats.alltime_buffed (a lint
+  warning, not an error); add actions.precombat=snapshot_stats and
+  re-export, and the panel fills in.
+- [tooling] validate.js's consumables check is scoped to lists the
+  class actually carries - the LISTS expansion had it warning "no
+  consumables" for every per-list-consumables class on the buffed
+  tier it does not sim yet. Same shape as the REQUIRED_LISTS carve.
+
 - [page] Frost Mage joins All-time Full buffed at 4748, a
   100,000-iteration Raidbots Advanced run. Monotonicity holds:
   3715 alltime <= 4748 buffed. The build is the All-time build
