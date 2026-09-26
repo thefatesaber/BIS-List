@@ -35,6 +35,27 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Marksmanship Hunter joins All-time Full buffed at 4337, a
+  100,000-iteration Raidbots Advanced run and the tier's first
+  physical spec. Monotonicity holds: 3588 alltime <= 4337 buffed. The
+  build is the All-time build VERBATIM - every item, pin, gem and
+  enchant id identical, all six agility enchants round-tripping to
+  the names already on the rows (3808 Greater Inscription of the Axe,
+  4416/1887 Greater Agility, 5259 Major Agility, 4880 Primal Leg
+  Reinforcements, 5950 Gale-Force Striking) - including the two rows
+  that look odd and are settled page facts: Herkuml War Token at ilvl
+  15 (Dalaran - Emblem of Frost vendor) and the Superior Mana Oil
+  consumable kit. Raid-buffed stats: Agility 254, Stamina 1064, Crit
+  47.30%/190, Mastery 11.89%/45, Haste 16.04%/71, Vers 5.56%/15.
+- [ruling] The tier's buff set gains its role split, evidenced by the
+  first physical profile: Arcane Intellect for casters, Battle Shout
+  for physical specs - each spec takes the primary-stat buff that
+  feeds it. Bloodlust (drums strength), Mark of the Wild, Hunter's
+  Mark and Skyfury stay on for everyone; Fortitude, Mystic Touch,
+  Chaos Brand and bleeding stay off. The hunter's hunters_mark=1 is
+  its own debuff, the sanctioned stand-in the profile documents.
+  PROJECT.md records the split.
+
 - [page] Devastation Evoker joins All-time Full buffed at 4315, a
   100,000-iteration Raidbots Advanced run. Monotonicity holds:
   3281 alltime <= 4315 buffed. The build is the All-time build with a

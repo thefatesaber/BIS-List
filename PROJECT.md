@@ -18,8 +18,10 @@ SimC branch: midnight (d0d2db1). DBC references come from
 **Self-buffed rail: own kit in, other actors out.** All-time Full buffed
 is this rail's one sanctioned exception — raid buffs are the point of that
 list. Its buff set, as fixed by the landed profiles (Resto Shaman 5787,
-Devourer DH 4725; the held priest profile agrees): Bloodlust, Arcane
-Intellect, Mark of the Wild, Hunter's Mark and Skyfury ON; an external
+Devourer DH 4725, and the specs that followed): Bloodlust, Mark of the
+Wild, Hunter's Mark and Skyfury ON for everyone; Arcane Intellect ON for
+casters and Battle Shout ON for physical specs, each spec taking the
+primary-stat buff that feeds it (first physical profile: MM Hunter 4337); an external
 Power Infusion pool (external_buffs.pool=power_infusion:120) on the
 profiles Fate gives one - the DH runs it, the mage does not, so the pool
 is per-spec, not a blanket rule for actors without their own PI; Power Word: Fortitude, Battle Shout, Mystic Touch,
