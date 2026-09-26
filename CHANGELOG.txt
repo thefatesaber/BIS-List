@@ -35,6 +35,19 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [fix] Refreshing on the All-time Full buffed tab no longer falls
+  back to All-Time. readHash slugifies every URL segment, so the list
+  id alltime_buffed - the only id carrying an underscore - arrived as
+  "alltime-buffed" and matched neither the raw id nor the label slug;
+  the segment was silently discarded and the landing default took
+  over. listOf now also matches the id's slugified form. Class and
+  spec were never lost, which is why only the tab reset. Verified by
+  executing the page script against five hash shapes: the written
+  form (#priest/shadow/alltime_buffed), the hand-typed label slug
+  (all-time-full-buffed), and the three original lists' links, all
+  restoring correctly. Analytics paths are untouched - the hash
+  itself is unchanged.
+
 - [ruling] REVERSED, per Fate: Abracadaver's ilvl 47 pin is correct
   after all. This morning's 45 ruling held the Shadow Priest buffed
   intake; that hold is lifted and 51887 joins ILVL_SPLIT_OK alongside

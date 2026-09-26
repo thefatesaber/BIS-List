@@ -1532,7 +1532,10 @@ function readHash(){
 
   // Trailing segment is the list when it names one; otherwise treat all
   // segments as class/spec so #warrior/fury works as well as #warrior/fury/herald.
-  const listOf = sl => LIST_TYPES.find(t => t.id === sl || slugify(t.label) === sl) || null;
+  // Segments arrive slugified, so an id with an underscore (alltime_buffed)
+  // reads back as its hyphen form — match the id's slug as well, or a refresh
+  // on that tab silently falls back to the default list.
+  const listOf = sl => LIST_TYPES.find(t => t.id === sl || slugify(t.id) === sl || slugify(t.label) === sl) || null;
   let l = listOf(seg[seg.length - 1]);
   const cls = l ? seg.slice(0, -1) : seg;
 
