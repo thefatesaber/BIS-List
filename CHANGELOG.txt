@@ -35,6 +35,24 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Frost Death Knight joins All-time Full buffed at 4090.
+  Monotonicity holds: 3332 alltime <= 4090 buffed. Gear is the
+  All-time build verbatim - both lying ring comments included, and
+  the ids won as they did there: 178824 is Signet of the False
+  Accuser, 159462 is Footbomb Championship Ring, matching the page
+  rows exactly. The head gains the sanctioned enchant=3crit
+  instrument, temporary_enchant stays disabled (the weapon's real
+  enchant is the Razorice rune, id 3368, carried on the proxy line),
+  and the Bonereaver's proxy takes the recalibrated 31-43 weapon
+  range - the THIRD str-family profile on the new ranges. Raid-buffed
+  stats: Str 240, Stamina 1044, Crit 22.25%/86, Mastery 58.12%/105,
+  Haste 20.58%/76, Vers 6.76%/22.
+- [flag] NO SKYFURY: the DK profile carries no override.skyfury line
+  at all - the same gap the landed Resto Shaman 5787 has. Every other
+  buffed profile since runs skyfury=1. The DK joins the shaman on the
+  re-run list for the missing buff line, or the set wording changes;
+  either is Fate's call. Landed as simmed.
+
 - [page] Retribution Paladin joins All-time Full buffed at 4158.
   Monotonicity holds: 3111 alltime <= 4158 buffed. One gear change
   from the All-time build: shoulders drop the Sunwell Spaulders of
