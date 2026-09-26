@@ -35,6 +35,14 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] The list tabs reorder to Fate's ruling: All-time Full buffed
+  first, then All-Time, Obtainable, Herald of the Titans. Two defaults
+  were coupled to first position and are now pinned instead of moving
+  with it: the hash-less landing stays on All-Time while the buffed
+  tier holds one spec, so a first visit still opens on a full rail,
+  and the spec-name fallback stays anchored to the All-Time spec,
+  which is what it always meant. Labels are unchanged.
+
 - [page] The first All-time Full buffed profile lands: Restoration
   Shaman at 5787, from a 100,000-iteration Raidbots Advanced run. The
   buffed build is not the All-time build re-buffed - it re-gears:
