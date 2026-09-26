@@ -35,6 +35,21 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Havoc Demon Hunter joins All-time Full buffed at 3141
+  (Devourer keeps the demon hunter Best slot at 4725). Monotonicity
+  holds: 2013 alltime <= 3141 buffed. Rows are the All-time build
+  verbatim - Landslide and Gale-Force Striking stay simmed and
+  shown. Sim-side only: the head gains the sanctioned enchant=6crit
+  token, Eskhandar's Right Claw's proxy re-ranges 9-14 -> 24-29
+  (third file agreeing on that range, after Windwalker and Outlaw),
+  and Hand of the Deceiver (34331) gains
+  weapon=fist_2.60speed_26min_31max - the very override the
+  Windwalker file already gave the same fist, so the two files
+  agree. Consumables ran live and oil-less (Tol'vir, Endless Rage,
+  Skewered Eel); the entry keeps its flat All-time kit including
+  oil, noted here. Skyfury present. The buffed profile inherits
+  the sibling's Eskhandar no-calibration lint warning (5 standing
+  warnings, same family).
 - [page] Unholy Death Knight joins All-time Full buffed at 3454
   (Frost keeps the death knight Best slot at 4090). Monotonicity
   holds: 2511 alltime <= 3454 buffed. Rows are the All-time build
