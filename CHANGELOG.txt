@@ -35,6 +35,29 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Assassination Rogue joins All-time Full buffed at 4309, on
+  the rogue_assassination entry (Outlaw holds the primary rogue
+  slot). Monotonicity holds: 2774 alltime <= 4309 buffed. Gear is the
+  All-time build VERBATIM, including both hand-built dagger
+  instruments with their Landslide and Gale-Force Striking enchants
+  and the zone-only sources that still await boss confirmation
+  (Heartrazor - The Eye; Heartpierce - Icecrown Citadel). The head
+  gains the sanctioned enchant=6crit instrument; its comment says
+  "wastewalker_helm" over id 50206, which is Frayed Scoundrel's Cap,
+  and the id won as always. skyfury=1 present - full physical set.
+  Consumables ran live, stones commented out, the oil-less pattern.
+  Raid-buffed stats: Agi 255, Stamina 1062, Crit 29.26%/96, Mastery
+  17.00%/0, Haste 35.48%/165, Vers 5.90%/17.
+- [flag] The weapon-proxy recalibration now spans the AGILITY family:
+  Heartrazor's proxy moves 6-11 to 21-26 and Heartpierce's 7-12 to
+  19-27, joining the three str-family re-ranges. Every proxy weapon
+  profile that has arrived on the buffed tier carries new ranges, so
+  the corrected-bracket-values reading now covers all five proxy
+  weapons and every base-list number simmed on the old ones. Note
+  also that the profile's own instrument comments still describe the
+  OLD damage ("6-11 dmg", "7-12 dmg") above lines that sim the new -
+  worth fixing at the next touch so the file cannot mislead.
+
 - [page] Frost Death Knight joins All-time Full buffed at 4090.
   Monotonicity holds: 3332 alltime <= 4090 buffed. Gear is the
   All-time build verbatim - both lying ring comments included, and
