@@ -20,8 +20,9 @@ is this rail's one sanctioned exception — raid buffs are the point of that
 list. Its buff set, as fixed by the landed profiles (Resto Shaman 5787,
 Devourer DH 4725; the held priest profile agrees): Bloodlust, Arcane
 Intellect, Mark of the Wild, Hunter's Mark and Skyfury ON; an external
-Power Infusion pool (external_buffs.pool=power_infusion:120) for actors
-without their own PI; Power Word: Fortitude, Battle Shout, Mystic Touch,
+Power Infusion pool (external_buffs.pool=power_infusion:120) on the
+profiles Fate gives one - the DH runs it, the mage does not, so the pool
+is per-spec, not a blanket rule for actors without their own PI; Power Word: Fortitude, Battle Shout, Mystic Touch,
 Chaos Brand and bleeding OFF; consumables run live in-sim where
 benchmarks disable them. Bloodlust is level-enabled via the standard
 player-scoped override (spell.2825 spell_level=1) and modeled at DRUMS

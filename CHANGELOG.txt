@@ -35,6 +35,32 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Frost Mage joins All-time Full buffed at 4748, a
+  100,000-iteration Raidbots Advanced run. Monotonicity holds:
+  3715 alltime <= 4748 buffed. The build is the All-time build
+  VERBATIM - every slot, item level, gem and enchant id identical,
+  talents identical - so the whole gain is the buff set and live
+  consumables. Every enchant id round-trips to the spell the page
+  already names, including feet 4429 -> 104414 Pandaren's Step. Two
+  profile comments contradict their ids and the ids won, matching the
+  All-time rows exactly: "Handguards of Defiled Worlds" over 45665
+  (Pharos Gloves) and "signet_of_the_false_accuser" over 162542 (Seal
+  of the City Watch). The Pendant why note and the Abracadaver
+  alternates (Mag'hari -5.0%, Grand Magister's -5.4%) were not
+  carried: all were measured on the unbuffed 3715 base. Raid-buffed
+  stats: Int 339, Stamina 1056, Crit 23.45%/82, Mastery 52.91%/115,
+  Haste 13.84%/66, Vers 10.52%/44.
+- [flag] Two tier-set questions this profile sharpens, neither
+  resolved here. FIRST: no external Power Infusion pool, on a class
+  with no PI of its own - the DH profile has one, so the pool is
+  evidently not a blanket actors-without-own-PI rule; PROJECT.md's
+  wording is narrowed to match the evidence, and whether the mage
+  should re-run with a pool is Fate's call. SECOND: Abracadaver sims
+  at 45 here but 47 on the buffed priest - the same weapon at two
+  pins inside one tier. Both pass under ILVL_SPLIT_OK, but if 47 is
+  the true bracket value per this morning's ruling, the mage's 4748
+  understates by the same two levels the fourteen base rows do.
+
 - [fix] Refreshing on the All-time Full buffed tab no longer falls
   back to All-Time. readHash slugifies every URL segment, so the list
   id alltime_buffed - the only id carrying an underscore - arrived as
