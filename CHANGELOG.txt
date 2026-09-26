@@ -35,6 +35,24 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Feral Druid joins All-time Full buffed at 3892 and takes the
+  druid Best slot from Balance (3658). Monotonicity holds: 2770
+  alltime <= 3892 buffed. Gear is the All-time build with the
+  profile's two changes: the head gains the sanctioned enchant=3crit
+  instrument (sim-only, no row enchant shown), and Distant Land swaps
+  Mighty Agility for Superior Impact (enchant 1896, spell 20030,
+  level-scaled flat weapon damage). The MH line also carries an
+  explicit weapon=staff_3.60speed_39min_47max override on a real
+  item - second of its kind after Windwalker's fist override, logged
+  under the standing weapon-recalibration flag - though for Feral it
+  is inert: cat attacks are AP-normalized, weapon damage never
+  enters. Ring rows follow the profile of record: Deadly Pyrestone
+  x2 in both rings. Consumables ran live and oil-less (Tol'vir,
+  Endless Rage, Skewered Eel); skyfury present.
+- [flag] The All-time Feral ring rows display Delicate Crimson Spinel
+  x2, but the stored 2770 profile sims Deadly Pyrestone x2 in both
+  rings - a page<->profile transcription mismatch on the base list,
+  queued for correction with the other base-row flags.
 - [page] Windwalker Monk joins All-time Full buffed at 4002,
   completing the tier: all thirteen classes now carry a buffed list.
   Monotonicity holds: 2901 alltime <= 4002 buffed. Gear is the
