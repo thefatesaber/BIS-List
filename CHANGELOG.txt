@@ -35,6 +35,35 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Fire Mage joins All-time Full buffed at 4551, the tier's
+  first non-primary spec. Monotonicity holds: 3565 alltime <= 4551
+  buffed. Diffed against its own lint-clean All-time profile, the
+  entire delta is the tier's buff and consumable block, the
+  flame-cap shirt instrument going LIVE (All-time keeps it commented
+  with consumables disabled), and two ring gem changes: Emperor's
+  Seal trades one Spinel for a Purified Dreadstone, Stitchflesh's
+  moves to Reckless Ametrine x2. Every other slot, enchant and pin is
+  byte-identical, so the fire-profile quirks that would otherwise
+  read as anomalies (enemy=Fluffy_Pillow, the inert PI line, the
+  duplicated Bloodlust overrides, use_item lines naming unequipped
+  trinkets) are established facts of that profile family, not new
+  deviations. Two comments lie and the ids won, matching the page:
+  "Bromach's Disentombed Locket" over 200210, which is Amnesia, and
+  "Signet of the False Accuser" over 231437, which is Emperor's Seal.
+  Raid-buffed stats: Int 355, Stamina 1058, Crit 12.42%/37, Mastery
+  5.31%/5, Haste 26.81%/116, Vers 22.31%/113.
+- [data] The flame-cap instrument is renamed flame_cap_proxy in the
+  stored profile, shirt line and APL use_item line together, because
+  the bare name collides with the real DBC item Flame Cap and the
+  synthetic-naming rule hard-fails it. The rename is verified
+  behavior-identical against the midnight engine source, not assumed:
+  item_t::initialize_data() only downloads DBC data when an id is
+  given, so a name-only token with use= is a custom item under either
+  name, and the APL binding renames in step. The one surface this
+  cannot see is Raidbots' own importer; if its next fire report shows
+  the flame-cap buff missing, the bare name was load-bearing there
+  and the rule saved the profile family from a silent drop.
+
 - [feat] The header notice becomes a live update feed. It now fetches
   CHANGELOG.txt and renders the newest dated section: collapsed, one
   line - "Latest updates - <date>" plus the first entry and an
