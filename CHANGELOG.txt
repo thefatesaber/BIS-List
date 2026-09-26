@@ -35,6 +35,22 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Devourer Demon Hunter's buffed list re-simmed: 4725 ->
+  4972 (+5.2%), keeping the demon hunter Best slot. The profile
+  adds override.player.spell_data=spell.10060.spell_level=1 -
+  unlocking Power Infusion at level 30 for the pool the file
+  already carried - and re-homes the invoke into the cooldowns
+  list under a metamorphosis-window condition; the exit combo is
+  reworked (Void Ray rides the shared CD right after a Cull,
+  line_cd=30). Five sockets shift toward Masterful Onyx / Quick
+  Emerald (head third gem, neck x3, shoulders x2, back, chest
+  1-of-3) and feet re-enchant Haste -> Pandaren's Step
+  (4429 / 104414). Stats panel updated (346 int, 37.48 mastery,
+  23.07 haste). Stored profile renamed 4725 -> 4972 and
+  re-normalized to sibling forms exactly as at first intake
+  (lowercase _proxy macro names, bare id= lines, enchant_id=2669
+  for the 13sp token) - the export had reverted those forms;
+  ids and values are untouched.
 - [page] Havoc Demon Hunter joins All-time Full buffed at 3141
   (Devourer keeps the demon hunter Best slot at 4725). Monotonicity
   holds: 2013 alltime <= 3141 buffed. Rows are the All-time build
