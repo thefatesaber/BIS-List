@@ -35,6 +35,20 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Survival Hunter joins All-time Full buffed at 3732, the
+  hunter's second buffed spec (Marksmanship keeps the hunter Best
+  slot at 4337). Monotonicity holds: 2780 alltime <= 3732 buffed.
+  Rows are the All-time build verbatim - the profile's only gear
+  deltas are sim-side instruments that never surface in rows: the
+  sanctioned head token rises 12crit -> 15crit, and Distant Land
+  gains an explicit weapon=staff_3.60speed_37min_45max override -
+  third real-item override under the standing weapon-recalibration
+  flag, and NOT the range Feral's file gives the same staff (39-47):
+  two buffed files now assert two different ranges for item 50695,
+  and unlike Feral's (inert, AP-normalized cat), Survival's autos DO
+  ride this number. Consumables ran live and oil-less (Tol'vir,
+  Endless Rage, Skewered Eel); the entry keeps its flat All-time kit
+  including oil, so the difference is recorded here. Skyfury present.
 - [page] Feral Druid joins All-time Full buffed at 3892 and takes the
   druid Best slot from Balance (3658). Monotonicity holds: 2770
   alltime <= 3892 buffed. Gear is the All-time build with the
