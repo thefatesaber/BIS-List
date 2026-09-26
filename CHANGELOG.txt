@@ -35,6 +35,19 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Outlaw Rogue joins All-time Full buffed at 3486, filling
+  the primary rogue entry: all three rogue specs now carry buffed
+  lists, and Assassination keeps the rogue Best slot at 4309.
+  Monotonicity holds: 2473 alltime <= 3486 buffed. Rows are the
+  All-time build verbatim - the profile's gear deltas are sim-side
+  only: the head gains the sanctioned enchant=6crit token,
+  Eskhandar's Right Claw's proxy re-ranges 9-14 -> 24-29 (agreeing
+  with the Windwalker file's range for the same claw), and
+  Vibroblade (9485) gains weapon=axe_2.60speed_22min_30max - the
+  fourth real-item override under the standing weapon-recalibration
+  flag. The Outlaw calibration block is unchanged from All-time.
+  Consumables ran live and oil-less (Tol'vir, Endless Rage,
+  Skewered Eel); iterations rose 50k -> 100k. Skyfury present.
 - [page] Survival Hunter joins All-time Full buffed at 3732, the
   hunter's second buffed spec (Marksmanship keeps the hunter Best
   slot at 4337). Monotonicity holds: 2780 alltime <= 3732 buffed.
