@@ -35,6 +35,31 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Arms Warrior joins All-time Full buffed at 3553 (Fury
+  keeps the warrior Best slot at 4973). Monotonicity holds: 2703
+  alltime <= 3553 buffed. Rows are the All-time build with one
+  profile-proven change: the buffed file DROPS Crusader from The
+  Untamed Blade (the All-time Arms file sims it; the buffed file
+  does not), so the buffed MH row carries no enchant. Sim-side
+  only: the head gains the sanctioned enchant=3crit token, and the
+  UTB proxy re-ranges 17-29 -> 32-44, agreeing with the Fury file.
+  Consumables ran live and oil-less on the strength kit (Golemblood,
+  Endless Rage, Beer-Basted Crocolisk). Skyfury present. The buffed
+  profile inherits its sibling's standing UTB no-calibration lint
+  warning (4 standing warnings now, same family).
+- [page] Ret Paladin's buffed Main Hand row corrected: it showed
+  Crusader (20034), but the 4158 profile of record sims The Untamed
+  Blade with NO enchant - the row was copied verbatim from the
+  All-time row at intake, and the enchant absence never surfaced in
+  the profile-vs-profile diff because the All-time paladin profile
+  (3111) does not sim Crusader either. Rows follow ids: the buffed
+  row is now enchant-less.
+- [flag] The All-time Ret Paladin Main Hand row still shows
+  Crusader; the 3111 profile of record does not sim it (Fury's
+  files DO sim enchant 1900, so this is paladin-specific). Same
+  class of base-list page<->profile mismatch as the Feral ring
+  gems - flagged, not edited, pending a ruling: either the row
+  sheds Crusader or the pool re-sims with it.
 - [page] Outlaw Rogue joins All-time Full buffed at 3486, filling
   the primary rogue entry: all three rogue specs now carry buffed
   lists, and Assassination keeps the rogue Best slot at 4309.
