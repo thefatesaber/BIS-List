@@ -35,6 +35,16 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [ruling] The buffed Affliction stat panel fills from the run's
+  UNBUFFED column, per Fate: Int 287, Stamina 1157, Crit 31.87%/124,
+  Mastery 20.00%/0, Haste 27.68%/132, Vers 13.08%/59. The Raid-Buffed
+  column of that run is unusable (no snapshot_stats in precombat), and
+  the unbuffed snapshot is real data from the same sim. Note the basis
+  difference: every other buffed panel shows raid-buffed values, so
+  the warlock's panel reads lower-by-buffs until a snapshot_stats
+  re-export replaces it. The 2026-09-26 no-stat-panel flag is resolved
+  by this ruling; the re-export remains the cleaner endpoint.
+
 - [page] Marksmanship Hunter joins All-time Full buffed at 4337, a
   100,000-iteration Raidbots Advanced run and the tier's first
   physical spec. Monotonicity holds: 3588 alltime <= 4337 buffed. The
