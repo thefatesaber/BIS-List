@@ -35,6 +35,20 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [feat] The header notice becomes a live update feed. It now fetches
+  CHANGELOG.txt and renders the newest dated section: collapsed, one
+  line - "Latest updates - <date>" plus the first entry and an
+  "all N updates" toggle; expanded, every entry of that day with its
+  [tag] as a chip, in a scrollable list. Because it reads the
+  changelog itself, updates from EVERY list - All-time Full buffed
+  included - and from any section added in the future surface
+  automatically, with no hand-edited notice to go stale. CONFIG.notice
+  remains only as the fallback when the fetch cannot run (file://,
+  offline), and its text is refreshed to announce the buffed tier.
+  The parser and the render path are exercised in rehearsal against
+  the real changelog: 26 entries parsed for today, wrapped lines
+  joined, section boundaries respected, expand/collapse cycled.
+
 - [ruling] The buffed Affliction stat panel fills from the run's
   UNBUFFED column, per Fate: Int 287, Stamina 1157, Crit 31.87%/124,
   Mastery 20.00%/0, Haste 27.68%/132, Vers 13.08%/59. The Raid-Buffed
