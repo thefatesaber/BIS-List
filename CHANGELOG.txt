@@ -35,6 +35,29 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Herald re-simmed across the board after the patch, and
+  gear changed NOWHERE: every moved number rides a byte-identical
+  profile - pure engine drift. Landed: Frost DK 2424 -> 2823,
+  Feral Druid 2087 -> 2321, Devourer DH 2413 -> 2547, Devastation
+  Evoker 2860 -> 2868, Ret Paladin 2767 -> 2768, Outlaw Rogue
+  2154 -> 2155. Identical to the byte AND the number: Warlock
+  2870, Resto Shaman 3684, Frost Mage 3181, MM Hunter 3170, Fury
+  Warrior 3002. Stats panels stand untouched - same gear, same
+  panels. prov moves to Raidbots Advanced 2026-09-26 for the six
+  that moved; profiles renamed to their new numbers.
+- [flag] HELD, chain-blocked: Shadow Priest herald 3589 and
+  Windwalker Monk herald 2762 now EXCEED their obtainable numbers
+  (3570 and 2614). herald <= obtainable is a hard gate, and both
+  obtainables already sit on the re-sim queue as stale - the two
+  herald re-runs land the moment their obtainables re-sim above
+  them. Both held profiles are byte-identical to their stored
+  herald siblings (monk: derivation comments refreshed,
+  D0 2397 -> 2477 -> effective 2762).
+- [data] Survival Hunter's herald profile of record re-simmed
+  2077 -> 2308 on exactly one change, flagged by Fate: the talent
+  string, now matching the build its All-time and buffed lists
+  run. Gear untouched. File-only as before - the hidden
+  hunter_survival entry carries no herald on the page.
 - [page] Herald Frost Mage re-simmed: 2949 -> 3181 (+7.9%) on one
   item swap - shoulders drop Wings of the Avatar (30163) for
   Mantle of Tirisfal (30210, mage T5, same Void Reaver token slot,
