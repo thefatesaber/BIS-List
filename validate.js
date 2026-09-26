@@ -184,6 +184,10 @@ const ILVL_SPLIT_OK = new Set([
           // buffed DH row; ruled deliberate 2026-09-26.
   134487, // Arch-Druid's Tainted Seal — 33 on the base lists, 47 on the
           // buffed DH row; same ruling.
+  51887,  // Abracadaver (heroic id) — 45 on fourteen base-list rows, 47 on
+          // the buffed priest row. Ruled 47 correct 2026-09-26, reversing
+          // the same morning's 45 ruling; the 45 rows stay as their sims'
+          // record pending re-runs.
 ]);
 for (const [id, byIlvl] of ilvlById)
   if (byIlvl.size > 1 && !ILVL_SPLIT_OK.has(id))

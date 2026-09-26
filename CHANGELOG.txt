@@ -35,6 +35,36 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [ruling] REVERSED, per Fate: Abracadaver's ilvl 47 pin is correct
+  after all. This morning's 45 ruling held the Shadow Priest buffed
+  intake; that hold is lifted and 51887 joins ILVL_SPLIT_OK alongside
+  the two rings. CONSEQUENCE, flagged: fourteen base-list rows across
+  eight entries (mage x2, arcane, balance, resto shaman, priest x2,
+  warlock x3, evoker x2, augmentation) carry Abracadaver at 45, which
+  under-pins the weapon by two item levels if 47 is the true bracket
+  value. Those rows stay as their sims' record, and every one of them
+  belongs on the re-sim queue.
+- [page] Shadow Priest joins All-time Full buffed at 5048, a
+  100,000-iteration Raidbots Advanced run. Monotonicity holds:
+  4065 alltime <= 5048 buffed. The build is the All-time build with
+  two gear changes - feet drop the Yogg-Saron hardmode Treads of the
+  False Oracle for Slippers of the Seacaller (32239, ilvl 42, Black
+  Temple, Haste enchant), and Abracadaver rises to ilvl 47 - and one
+  build change: the talents are the obtainable/herald Void Volley
+  string, not the All-time one. Every other row is byte-identical to
+  its All-time sibling. The two why notes (Gale trinket, Abracadaver)
+  were not carried over: both argue from unbuffed comparisons no one
+  has re-run under raid buffs. Raid-buffed stats: Int 337, Stamina
+  1124, Crit 20.65%/78, Mastery 16.03%/110, Haste 26.98%/111,
+  Vers 4.88%/28.
+- [note] The priest profile sits on the tier's buff set: skyfury=1
+  present, and no external PI pool - the priest self-casts Power
+  Infusion, which is exactly the actors-without-their-own carve-out
+  the set records. Its VV instruments (hardcast charges, cooldown,
+  coefficient 1.400) and the PI level-gate relaxation are the same
+  ones its obtainable and herald profiles already carry. The
+  Restoration Shaman 5787 re-run flag stands.
+
 - [page] Devourer Demon Hunter joins All-time Full buffed at 4725, a
   100,000-iteration Raidbots Advanced run. Monotonicity holds:
   3561 alltime <= 4725 buffed. The build is the All-time build with a
