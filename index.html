@@ -2184,6 +2184,17 @@ function parseChangelogTop(text){
   }
   return entries.length ? { date: m[1], entries } : null;
 }
+// One short line per entry: the first sentence, capped at 120 chars on a
+// word boundary. The full text lives in CHANGELOG.txt, linked right there.
+function feedLine(t){
+  const m = t.match(/^[\s\S]*?\.(?=\s|$)/);
+  let s = m ? m[0] : t;
+  if(s.length > 120){
+    s = s.slice(0, 117);
+    s = s.slice(0, Math.max(60, s.lastIndexOf(" "))) + "\u2026";
+  }
+  return s;
+}
 function renderNoticeFeed(n, top){
   let open = false;
   const draw = () => {
@@ -2192,8 +2203,8 @@ function renderNoticeFeed(n, top){
       + (open ? "collapse" : "all " + top.entries.length + " updates") + '</button>' + CL_LINK;
     n.innerHTML = open
       ? head + '<ul class="nlist">' + top.entries.map(e =>
-          "<li>" + (e.tag ? '<span class="chip">' + esc(e.tag) + "</span>" : "") + esc(e.text) + "</li>").join("") + "</ul>"
-      : head + " " + esc(top.entries[0].text);
+          "<li>" + (e.tag ? '<span class="chip">' + esc(e.tag) + "</span>" : "") + esc(feedLine(e.text)) + "</li>").join("") + "</ul>"
+      : head + " " + esc(feedLine(top.entries[0].text));
     n.querySelector("#ntoggle").addEventListener("click", () => { open = !open; draw(); });
   };
   draw();

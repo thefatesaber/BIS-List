@@ -35,6 +35,10 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] The update feed now shows one short line per entry. Each
+  line is the entry's first sentence, hard-capped at 120 characters
+  on a word boundary; the full text stays one click away in
+  CHANGELOG.txt, and the changelog format is unchanged.
 - [page] Affliction Warlock's buffed stats panel moves to
   raid-buffed basis: Fate re-exported the 4485 profile with the one
   missing line (actions.precombat+=/snapshot_stats - the re-export
