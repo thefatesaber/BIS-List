@@ -35,6 +35,46 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Devourer Demon Hunter joins All-time Full buffed at 4725, a
+  100,000-iteration Raidbots Advanced run. Monotonicity holds:
+  3561 alltime <= 4725 buffed. The build is the All-time build with a
+  caster-side regem - head, neck and shoulders trade Brilliant Crimson
+  Spinel for Artful Lava Coral and a Masterful Emerald - the feet
+  enchant moves from Pandaren's Step to Haste (74199), and the rings
+  change: Signet of the False Accuser rises to ilvl 47 and Fleshfused
+  Circle gives way to Arch-Druid's Tainted Seal (134487, ilvl 47),
+  whose Darkheart Thicket - Archdruid Glaidalis source was already
+  vetted on the page and matches Wowhead. Trinkets remain the
+  macro-stacked Pendant + Meteorite pair the entry's notes describe.
+  Raid-buffed stats: Int 359, Stamina 1071, Crit 18.44%/62, Mastery
+  33.67%/118, Haste 23.49%/112, Vers 3.00%/0.
+- [ruling] The ring pins are DELIBERATE, per Fate 2026-09-26: both
+  rings sim at ilvl 47 on the buffed tier while the base lists keep
+  them at 33. validate.js gains ILVL_SPLIT_OK, a documented per-id
+  allowance holding exactly 178824 and 134487; every other id still
+  hard-fails on a split pin, and Abracadaver stays out of the set -
+  its 47 pin was ruled wrong earlier today.
+- [ruling] The tier's buff set grows two lines, evidenced by the second
+  and third profiles: override.skyfury=1, and an external Power
+  Infusion pool (external_buffs.pool=power_infusion:120) for actors
+  without their own PI. The profile also decodes the standing
+  effect.856.base_value=15 override: Bloodlust is modeled at DRUMS
+  strength, 15% haste instead of the 30% lust, per the profile's own
+  comment. PROJECT.md records all three. FLAGGED: the landed
+  Restoration Shaman 5787 predates Skyfury and the PI pool - it needs
+  a re-run before the buffed tier's numbers are cross-comparable.
+- [data] The 4725 profile file arrived carrying pre-cleanup forms and
+  is normalized to the actor's own established ones, byte-identical to
+  the 3561 and 3422 Devour files' treatment: the two synthetic
+  trinkets take their _proxy names, three name tokens come off id=
+  lines (SimC resolves from the id), and the weapon enchants move from
+  the flat enchant=13sp stand-in to enchant_id=2669, the Major
+  Spellpower id both sibling profiles carry and both page rows already
+  name. The run itself executed the flat stand-in.
+- [tooling] lint_profiles.js's external-buffs rule is scoped off the
+  buffed directory - an external PI pool is part of that tier's set,
+  not a rail violation. All 57 profiles lint to zero errors.
+
 - [page] The list tabs reorder to Fate's ruling: All-time Full buffed
   first, then All-Time, Obtainable, Herald of the Titans. Two defaults
   were coupled to first position and are now pinned instead of moving

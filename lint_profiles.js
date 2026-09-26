@@ -130,7 +130,8 @@ for (const dir of DIRS) {
     const where = re => lines.map((l, i) => re.test(l) ? i + 1 : 0).filter(Boolean);
 
     for (const n of where(/^external_buffs\.pool=/))
-      E(`line ${n}: external_buffs pool — external buffs are out; the rail is self-buffed`);
+      if (list !== "alltime_buffed") // the buffed tier IS externally buffed
+        E(`line ${n}: external_buffs pool — external buffs are out; the rail is self-buffed`);
     for (const n of where(/^actions[^#]*invoke_external_buff/))
       E(`line ${n}: invoke_external_buff — external buffs are out; the rail is self-buffed`);
     if ((c.cls || c.id) !== "priest")

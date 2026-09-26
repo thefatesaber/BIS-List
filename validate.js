@@ -177,8 +177,16 @@ for (const c of CLASSES) {
 
 // One item id carries one item level. Catches a drop entered at different
 // ilvls on different specs, and normal/heroic pairs that share a display name.
+// ILVL_SPLIT_OK holds the ids Fate has ruled legitimately exist at more than
+// one pin across lists; each entry names the ruling.
+const ILVL_SPLIT_OK = new Set([
+  178824, // Signet of the False Accuser — 33 on the base lists, 47 on the
+          // buffed DH row; ruled deliberate 2026-09-26.
+  134487, // Arch-Druid's Tainted Seal — 33 on the base lists, 47 on the
+          // buffed DH row; same ruling.
+]);
 for (const [id, byIlvl] of ilvlById)
-  if (byIlvl.size > 1)
+  if (byIlvl.size > 1 && !ILVL_SPLIT_OK.has(id))
     err(`${[...byIlvl.values()][0]} (${id}): conflicting ilvls ${[...byIlvl.keys()].sort((a, b) => a - b).join(", ")}`);
 
 // ---------------------------------------------------------------- report

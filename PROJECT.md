@@ -17,12 +17,17 @@ SimC branch: midnight (d0d2db1). DBC references come from
 
 **Self-buffed rail: own kit in, other actors out.** All-time Full buffed
 is this rail's one sanctioned exception — raid buffs are the point of that
-list. Its buff set, fixed by the first landed profile (Resto Shaman 5787):
-Bloodlust, Arcane Intellect, Mark of the Wild and Hunter's Mark ON;
-Power Word: Fortitude, Battle Shout, Mystic Touch, Chaos Brand and
-bleeding OFF; consumables run live in-sim where benchmarks disable them;
-Bloodlust is level-enabled via the standard player-scoped override
-(spell.2825 spell_level=1, effect.856.base_value=15). Every other
+list. Its buff set, as fixed by the landed profiles (Resto Shaman 5787,
+Devourer DH 4725; the held priest profile agrees): Bloodlust, Arcane
+Intellect, Mark of the Wild, Hunter's Mark and Skyfury ON; an external
+Power Infusion pool (external_buffs.pool=power_infusion:120) for actors
+without their own PI; Power Word: Fortitude, Battle Shout, Mystic Touch,
+Chaos Brand and bleeding OFF; consumables run live in-sim where
+benchmarks disable them. Bloodlust is level-enabled via the standard
+player-scoped override (spell.2825 spell_level=1) and modeled at DRUMS
+strength - effect.856.base_value=15 gives 15% haste instead of the 30%
+lust. FLAGGED: Resto Shaman 5787 predates Skyfury and the PI pool and
+needs a re-run to sit on this set. Every other
 benchmark profile carries no external buffs — no `external_buffs.pool` of any kind and no
 `invoke_external_buff` of any kind. Abilities the actor legitimately has at
 30 are in, which sanctions the priest's PI self-cast and rules out PI

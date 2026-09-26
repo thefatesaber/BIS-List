@@ -1,0 +1,122 @@
+# All-time Full buffed - Demon Hunter - Devour
+# Base Actor
+# drums: 15% haste instead of 30% lust
+demonhunter="Fateberserkr"
+override.player.spell_data=spell.2825.spell_level=1
+override.player.spell_data=effect.856.base_value=15
+level=30
+race=blood_elf
+region=us
+server=thrall
+role=spell
+professions=engineering=100/skinning=100
+spec=devourer
+# loot_spec=havoc
+
+talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAAAAA
+
+### Combo 1
+# Frayed Scoundrel's Cap (33)
+head=,id=50206,ilevel=33,gem_id=25893/213743/71854,bonus_id=4196,drop_level=30
+# Ukhel Ancestry Beads (135)
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213482/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+# mantle_of_perenolde (33)
+shoulder=,id=27434,ilevel=33,enchant_id=3838,gem_id=71854/71854,bonus_id=7202,drop_level=30
+# Drape of the Messenger (43)
+back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=30
+# Harness of Carnal Instinct (44)
+chest=,id=34211,ilevel=44,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
+#shirt=soul_fragment_aura,ilevel=30,use=1000vers_25dur_115cd
+# Umbrage Armbands (47)
+wrist=,id=54580,ilevel=47,enchant_id=2332,gem_id=71854,bonus_id=9051,drop_level=30
+# Gloves of the Endless Dark (43)
+hands=,id=46043,ilevel=43,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
+# Soul-Devouring Cinch (43)
+waist=,id=46095,ilevel=43,gem_id=71854/71854/71854,bonus_id=9043,drop_level=30
+# Plague-Soaked Leather Leggings (47)
+legs=,id=51889,ilevel=47,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9051,drop_level=30
+# footpads_of_impending_death (47)
+feet=,id=49895,ilevel=47,enchant_id=4069,gem_id=71854/71854,bonus_id=9051
+# signet_of_the_false_accuser (33)
+finger1=,ilevel=47,id=178824,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652,drop_level=30
+# Fleshfused Circle (33)
+finger2=,ilevel=47,id=134487,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652,drop_level=30
+# Pendant of the Violet Eye (38) — macro-stacked; use= carries BOTH trinkets'
+# stacks (380 + 320 = 700 vers) since the in-game macro pops them as one press
+trinket1=pendant_and_meteorite_macro_proxy,ilevel=38,stats=8int,use=700vers_20dur_120cd
+# Meteorite Crystal (41) — passive contribution only; its use window lives on trinket1
+trinket2=meteorite_crystal_macro_proxy,ilevel=41,stats=8int
+# Bloodsurge, Kel'Thuzad's Blade of Agony (47)
+main_hand=,id=50732,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
+# Rigormortis (47)
+off_hand=,id=50704,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
+
+#4429
+#4069
+# Consumables
+potion=volcanic_potion
+food=severed_sagefish_head
+flask=flask_of_distilled_wisdom
+temporary_enchant=main_hand:superior_wizard_oil/off_hand:superior_wizard_oil
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+external_buffs.pool=power_infusion:120
+# Custom APL
+actions.precombat=snapshot_stats
+actions.precombat+=/soul_immolation
+actions.precombat+=/arcane_torrent
+actions.precombat+=/consume
+
+actions=call_action_list,name=cooldowns
+actions+=/void_ray,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks,line_cd=120
+actions+=/metamorphosis,if=prev_gcd.1.void_ray|cooldown.void_ray.remains>15
+actions+=/call_action_list,name=reaps,if=buff.metamorphosis.up
+actions+=/devour,if=buff.metamorphosis.up&fury>=35&cooldown.void_ray.remains<15,wait_on_ready=0
+actions+=/void_ray,if=buff.metamorphosis.up&fury<35&cooldown.void_ray.remains<15,wait_on_ready=0
+actions+=/soul_immolation,if=buff.metamorphosis.up&active_dot.soul_immolation=0,wait_on_ready=0
+actions+=/call_action_list,name=reaps
+actions+=/consume,if=!buff.metamorphosis.up
+
+# Deadlock guard
+actions+=/consume
+
+#Trinkets and Pot
+actions.cooldowns=potion,use_off_gcd=1,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks&cooldown.void_ray.up|fight_remains<=20
+actions.cooldowns+=/use_item,use_off_gcd=1,slot=trinket1,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks&cooldown.void_ray.up|fight_remains<=20
+
+actions.reaps=eradicate
+actions.reaps+=/cull
+actions.reaps+=/reap
+
+# Simulation Options
+iterations=100000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+#html=Fury_toolTEST_Results.html
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=1
+override.skyfury=1
+override.arcane_intellect=1
+override.mark_of_the_wild=1
+override.hunters_mark=1
+override.battle_shout=0
+override.power_word_fortitude=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1
