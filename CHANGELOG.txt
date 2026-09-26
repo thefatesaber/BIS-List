@@ -35,6 +35,14 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Herald Frost Mage re-simmed: 2949 -> 3181 (+7.9%) on one
+  item swap - shoulders drop Wings of the Avatar (30163) for
+  Mantle of Tirisfal (30210, mage T5, same Void Reaver token slot,
+  same ilvl 40, same enchant and gems), plus the current APL.
+  Chain holds: 3181 herald <= 3506 obtainable. The Armored Elekk
+  Tusk trinket note comes off the Herald row for now, per Fate;
+  the same note stays on the All-time and Obtainable rows. Stats
+  panel updated (Int 259). Profile renamed 2949 -> 3181.
 - [page] The update feed now shows one short line per entry. Each
   line is the entry's first sentence, hard-capped at 120 characters
   on a word boundary; the full text stays one click away in
