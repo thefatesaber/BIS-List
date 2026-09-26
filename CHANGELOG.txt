@@ -35,6 +35,25 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Windwalker Monk joins All-time Full buffed at 4002,
+  completing the tier: all thirteen classes now carry a buffed list.
+  Monotonicity holds: 2901 alltime <= 4002 buffed. Gear is the
+  All-time build verbatim - and for once a head comment tells the
+  truth: 28224 really is Wastewalker Helm. The head gains the
+  sanctioned enchant=6crit instrument, skyfury is present, and
+  consumables ran live (Tol'vir, Endless Rage, Skewered Eel),
+  oil-less like the other physical specs, recorded in the monk's
+  per-list consumables. Raid-buffed stats: Agi 258, Stamina 1118,
+  Crit 27.85%/89, Mastery 76.54%/114, Haste 16.57%/79, Vers 3.00%/0.
+- [flag] The weapon recalibration crosses onto REAL items: the
+  buffed profile adds weapon=fist_2.60speed_26min_31max to Hand of
+  the Deceiver (34331), a real id whose All-time line used the
+  engine's own weapon damage, and the Eskhandar proxy moves 9-14 to
+  24-29 as the sixth re-ranged instrument. The recalibration is
+  therefore not a proxy-only fix - it says the engine's derived
+  bracket weapon damage is wrong for real weapons too, which widens
+  the eventual base-list re-sim to every weapon-wielding spec.
+
 - [page] Subtlety Rogue joins All-time Full buffed at 2516 on the
   rogue_subtlety entry. Monotonicity holds: 1609 alltime <= 2516
   buffed. Gear is the All-time build verbatim - the same dagger
