@@ -35,6 +35,31 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Balance Druid joins All-time Full buffed at 3658. Monotonicity
+  holds: 2826 alltime <= 3658 buffed. The build is the All-time build
+  with three changes - the neck takes a Deadly Onyx beside its Corals,
+  the feet enchant moves from Precision to Haste, and the Signet ring's
+  accord moves from Haste to Critical Strike. Everything else is
+  byte-identical, including the two rows that could read as mistakes
+  and are page facts: Umbrage Armbands here is the NORMAL 53126 at 47
+  (the DH runs the heroic 54580 - both Ruby Sanctum, both established),
+  and the heroic-Solace trinket is modeled by the
+  solace_of_the_fallen_heroic_proxy instrument while the row stays
+  47432 45. The file's own first line still reads "All-time ...
+  DRAFT ... unsimmed" - stale, contradicted by the filename, the buff
+  block and the sender; recorded here so nobody trusts that header
+  later. Raid-buffed stats: Int 321, Stamina 1102, Crit 20.25%/76,
+  Mastery 23.75%/108, Haste 25.17%/120, Vers 3.00%/0.
+- [flag] The APL carries invoke_external_buff,name=power_infusion with
+  NO external_buffs.pool declared. Without a pool that action never
+  readies, so the 3658 run almost certainly executed with the PI line
+  inert - the same silent-cooldown class as the Shaman Ascendance bug.
+  If Balance is meant to receive external PI like the DH, the profile
+  needs external_buffs.pool=power_infusion:120 and a re-run, which
+  would move the number UP; if not, the dead line should come out.
+  Landed as simmed either way. lint_profiles' invoke_external_buff
+  rule is scoped off the buffed directory like its pool sibling.
+
 - [page] Fire Mage joins All-time Full buffed at 4551, the tier's
   first non-primary spec. Monotonicity holds: 3565 alltime <= 4551
   buffed. Diffed against its own lint-clean All-time profile, the

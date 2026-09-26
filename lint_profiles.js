@@ -133,7 +133,8 @@ for (const dir of DIRS) {
       if (list !== "alltime_buffed") // the buffed tier IS externally buffed
         E(`line ${n}: external_buffs pool — external buffs are out; the rail is self-buffed`);
     for (const n of where(/^actions[^#]*invoke_external_buff/))
-      E(`line ${n}: invoke_external_buff — external buffs are out; the rail is self-buffed`);
+      if (list !== "alltime_buffed") // the buffed tier IS externally buffed
+        E(`line ${n}: invoke_external_buff — external buffs are out; the rail is self-buffed`);
     if ((c.cls || c.id) !== "priest")
       for (const n of where(/^actions[^#]*\/power_infusion\b(?!_)/))
         E(`line ${n}: power_infusion cast on a non-priest — not their kit; the rail is own-kit-only`);
