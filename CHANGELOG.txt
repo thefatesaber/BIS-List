@@ -35,6 +35,37 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Fury Warrior joins All-time Full buffed at 4973. Monotonicity
+  holds: 3808 alltime <= 4973 buffed. Gear, gems, ring proc
+  instruments and enchants are the All-time build verbatim - all
+  seven enchant ids round-trip to the names on the rows - with the
+  head gaining the sanctioned enchant=6crit instrument. The buffed
+  rows drop the unbuffed-derived decorations (Heart of Roccor's four
+  alternates, the Jackhammer why note) and the main hand's
+  "confirmed" status reads "sim" on this tier, since the buffed run
+  is its own sim. Physical buff set on-set: Battle Shout in, Arcane
+  Intellect out. Consumables ran LIVE as potion, flask and food only
+  - the temporary-enchant line is commented out in the profile, so
+  the buffed warrior fought with NO weapon stones or oils while every
+  caster ran its wizard oil; the buffed consumables panel records the
+  three that ran, and the missing stones understate the warrior
+  slightly if stones are legal in-bracket. Raid-buffed stats: Str
+  217, Stamina 1041, Crit 24.66%/98, Mastery 53.04%/139, Haste
+  15.52%/74, Vers 9.66%/39.
+- [flag] THE WEAPON PROXIES CHANGED CALIBRATION inside this profile,
+  and it is the biggest single lever in the number. The Untamed Blade
+  proxy's weapon line moves from 3.6speed_17min_29max to
+  3.6speed_32min_44max and the Jackhammer proxy's from 18min_23max to
+  33min_38max - roughly double the weapon damage, on the spec whose
+  own notes say weapon DPS dominates its stat weights. Raid buffs do
+  not change weapon damage, so this is a recalibration riding inside
+  a tier intake. Two readings, unresolved: if the new ranges are the
+  corrected bracket values, the All-time 3808, Obtainable 3216 and
+  Herald 3002 all under-simmed their weapons and join the re-sim
+  queue; if the old ranges were correct, 4973 overstates and needs a
+  re-run. Landed as simmed; the cross-tier warrior comparison is not
+  purely buffs until this is ruled.
+
 - [data] The Balance buffed profile's header line corrects to
   "All-time Full buffed" - a one-line comment change to the stored
   file, byte-identical everywhere else, confirmed by diff. The stored
