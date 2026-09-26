@@ -72,6 +72,7 @@ midnight.crucible_of_erratic_energies_predation=0
 
 # executed before combat begins. accepts non-harmful actions only.
 actions.precombat=summon_pet
+actions.precombat+=/snapshot_stats
 actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
 actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
 actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.summon_darkglare.duration=0|cooldown.summon_darkglare.duration%%trinket.1.cooldown.duration=0)

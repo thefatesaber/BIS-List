@@ -35,6 +35,16 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Affliction Warlock's buffed stats panel moves to
+  raid-buffed basis: Fate re-exported the 4485 profile with the one
+  missing line (actions.precombat+=/snapshot_stats - the re-export
+  differs from the stored file by exactly that line, DPS unchanged,
+  snapshot_stats is damage-inert), and the run now prints a real
+  Raid-Buffed column: Int 287 -> 329, Stamina 1157 -> 1162,
+  Mastery 20.00 -> 25.00 (crit/haste/vers identical on both bases).
+  Every buffed panel now reads raid-buffed; the 2026-09-26 unbuffed
+  -basis ruling is retired, its numbers superseded by the same
+  run's buffed snapshot.
 - [page] Stats-panel main stat corrected for the three hidden specs
   whose primary stat differs from their class fallback: Havoc Demon
   Hunter now labels Agility (was Intellect, inherited from the
