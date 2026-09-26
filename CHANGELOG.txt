@@ -35,6 +35,18 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [data] The Balance buffed profile's header line corrects to
+  "All-time Full buffed" - a one-line comment change to the stored
+  file, byte-identical everywhere else, confirmed by diff. The stored
+  copy also normalizes to LF line endings in the same commit: this is
+  the first in-place EDIT of a CRLF-stored profile, and rehearsal
+  proved git am cannot apply a CRLF-context diff (mailsplit strips the
+  CRs) - while Fate's own pipeline stores profiles as LF anyway, as
+  the six files his first big push normalized already showed. Profile
+  files are stored LF from here on. The header's remaining staleness
+  ("DRAFT ... unsimmed") is as sent, and the PI-pool flag from the
+  3658 intake stands unchanged.
+
 - [page] Balance Druid joins All-time Full buffed at 3658. Monotonicity
   holds: 2826 alltime <= 3658 buffed. The build is the All-time build
   with three changes - the neck takes a Deadly Onyx beside its Corals,

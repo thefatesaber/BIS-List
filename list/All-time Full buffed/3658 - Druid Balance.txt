@@ -1,4 +1,4 @@
-# All-time - Druid - Balance (DRAFT — leather build, assembled from Feral shells + caster shared slots, unsimmed)
+# All-time Full buffed - Druid - Balance (DRAFT — leather build, assembled from Feral shells + caster shared slots, unsimmed)
 druid="Promoting"
 level=30
 race=troll
