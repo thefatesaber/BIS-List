@@ -35,6 +35,19 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Unholy Death Knight joins All-time Full buffed at 3454
+  (Frost keeps the death knight Best slot at 4090). Monotonicity
+  holds: 2511 alltime <= 3454 buffed. Rows are the All-time build
+  verbatim - Rune of the Fallen Crusader stays simmed and shown.
+  Sim-side only: the head gains the sanctioned enchant=3crit token,
+  and the Bonereaver's Edge proxy re-ranges 16-28 -> 31-43,
+  agreeing with the Frost DK file (standing weapon-recalibration
+  flag). Consumables ran live and oil-less on the strength kit
+  (Golemblood, Endless Rage, Beer-Basted Crocolisk); the entry
+  keeps its flat All-time kit including oil, noted here. Skyfury
+  present. Stored-file trivia: the All-time Unholy profile's header
+  comment says "Frost" - the ids, spec line and dps say Unholy;
+  comments lie, ids do not.
 - [page] Arms Warrior joins All-time Full buffed at 3553 (Fury
   keeps the warrior Best slot at 4973). Monotonicity holds: 2703
   alltime <= 3553 buffed. Rows are the All-time build with one
