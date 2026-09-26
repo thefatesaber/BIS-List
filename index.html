@@ -1843,7 +1843,10 @@ function whyHtml(text){
 const PRIMARY = {warrior:"Strength", paladin:"Strength", deathknight:"Strength",
   hunter:"Agility", druid:"Agility", rogue:"Agility", monk:"Agility",
   mage:"Intellect", shaman:"Intellect", priest:"Intellect", warlock:"Intellect", evoker:"Intellect",
-  demonhunter:"Intellect"};
+  demonhunter:"Intellect",
+  // Spec-level overrides — a hidden spec whose main stat differs from its
+  // class fallback names itself here (id key wins over class key).
+  demonhunter_havoc:"Agility", druid_balance:"Intellect", shaman_enhancement:"Agility"};
 const STAT_CAP = 75;
 function statPanel(cls){
   const s = cls.stats && cls.stats[state.list];

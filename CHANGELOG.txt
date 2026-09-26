@@ -35,6 +35,23 @@ served by the site and linked from the header.
   are the point of it. Its exact buff set is fixed by its first landed
   profiles rather than legislated in advance.
 
+- [page] Stats-panel main stat corrected for the three hidden specs
+  whose primary stat differs from their class fallback: Havoc Demon
+  Hunter now labels Agility (was Intellect, inherited from the
+  Devourer-led class key), Balance Druid labels Intellect (was
+  Agility via Feral), Enhancement Shaman labels Agility (was
+  Intellect via Restoration). The recorded values were always the
+  right stat - Havoc 244/249 is its Agility, Balance 265/321 its
+  Intellect, Enhancement 262 its Agility - only the label resolved
+  through the wrong class fallback. PRIMARY now takes id-level
+  overrides (id key wins over class key).
+- [tooling] validate.js gains a main-stat-of-record check: a
+  MAIN_STAT table keyed by entry id (spec truth, all 28 entries),
+  re-run against the page's PRIMARY resolution. A new entry with no
+  line in the table, or one resolving through the wrong fallback,
+  fails the build instead of rendering the wrong stat name - the
+  pre-fix page fails this check with exactly the three errors
+  above.
 - [page] Devourer Demon Hunter's buffed list re-simmed: 4725 ->
   4972 (+5.2%), keeping the demon hunter Best slot. The profile
   adds override.player.spell_data=spell.10060.spell_level=1 -

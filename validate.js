@@ -215,6 +215,45 @@ const rows = CLASSES.reduce((n, c) =>
     if (per[k] !== 1) err(`class ${k}: ${per[k]} primary entries (must be exactly 1)`);
 }
 
+// Main stat of record: what each entry's stats panel must label its primary
+// stat, keyed by entry id (spec truth — a class fallback is not good enough:
+// Havoc is Agility under an Intellect Devourer class, Balance is Intellect
+// under an Agility Feral class). The page resolves PRIMARY[id] || PRIMARY[cls];
+// this check re-runs that resolution against the table, so a new entry with
+// no line here, or one that resolves through the wrong fallback, fails the
+// build instead of rendering the wrong stat name.
+{
+  const MAIN_STAT = {
+    warrior: "Strength", warrior_arms: "Strength",
+    paladin: "Strength",
+    deathknight: "Strength", deathknight_unholy: "Strength",
+    hunter: "Agility", hunter_survival: "Agility", hunter_beast_mastery: "Agility",
+    druid: "Agility", druid_balance: "Intellect",
+    rogue: "Agility", rogue_assassination: "Agility", rogue_subtlety: "Agility",
+    monk: "Agility",
+    demonhunter: "Intellect", demonhunter_havoc: "Agility",
+    mage: "Intellect", mage_fire: "Intellect", mage_arcane: "Intellect",
+    shaman: "Intellect", shaman_elemental: "Intellect", shaman_enhancement: "Agility",
+    priest: "Intellect",
+    warlock: "Intellect", warlock_demonology: "Intellect", warlock_destruction: "Intellect",
+    evoker: "Intellect", evoker_augmentation: "Intellect",
+  };
+  let pagePrimary = null;
+  try {
+    const src = fs.readFileSync(FILE, "utf8");
+    const m = src.match(/const PRIMARY = \{([\s\S]*?)\};/);
+    if (m) pagePrimary = new Function("return {" + m[1] + "};")();
+  } catch (e) {}
+  if (!pagePrimary) err("cannot extract the PRIMARY main-stat map from the page");
+  else for (const c of CLASSES) {
+    const expected = MAIN_STAT[c.id];
+    if (!expected) { err(`${c.id}: no main stat of record — add it to MAIN_STAT in validate.js`); continue; }
+    const resolved = pagePrimary[c.id] || pagePrimary[c.cls];
+    if (resolved !== expected)
+      err(`${c.id}: stats panel labels the main stat "${resolved}" but the spec's stat is ${expected}`);
+  }
+}
+
 if (warns.length) {
   console.log(`\n${warns.length} warning(s):`);
   for (const w of warns) console.log("  ~", w);
