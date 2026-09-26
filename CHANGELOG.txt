@@ -6,6 +6,35 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-26
+- [page] A fourth list joins the site: "All-time Full buffed"
+  (id alltime_buffed), the All-Time item pool simmed fully raid-buffed,
+  where every other list sims self-buffed only. The tab sits directly
+  after All-Time. The list ships EMPTY by design - no spec carries data
+  for it yet, so its rail is bare and every slot renders TBD until
+  profiles land. No numbers were invented to fill it.
+- [tooling] validate.js learns the new list: it joins LISTS, so its
+  future rows, stats and consumables get the same checks as the other
+  three, and the monotonicity chain extends upward to
+  herald <= obtainable <= alltime <= alltime_buffed, since raid buffs
+  can only add. The not-monotonic error message now prints whichever
+  tiers are actually present instead of naming the original three.
+  Completeness is split from coverage: a new REQUIRED_LISTS set keeps
+  "list is empty" a hard failure for the three established tiers while
+  the buffed tier rolls out - a primary spec without a buffed list is
+  "not yet simmed", not an error, but any rows it DOES carry are
+  checked in full. alltime_buffed joins REQUIRED_LISTS once every
+  primary spec has a buffed profile.
+- [tooling] lint_profiles.js maps the future "list/All-time Full buffed"
+  directory to alltime_buffed, tested BEFORE the all-time pattern -
+  /all.?time/ also matches that directory name, and in the old order
+  its profiles would have been cross-checked against the wrong list.
+  diffdata.js adds the new list to its column set.
+- [docs] PROJECT.md moves to four constraint tiers and records the new
+  list as the self-buffed rail's one sanctioned exception: raid buffs
+  are the point of it. Its exact buff set is fixed by its first landed
+  profiles rather than legislated in advance.
+
 ## 2026-09-24
 - [page] Obtainable Restoration Shaman re-sims to 4132 from 4162. One
   gear change: the chest returns to Embrace of the Phoenix (34373,

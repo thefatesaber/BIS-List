@@ -45,6 +45,7 @@ try {
 
 const LIST_OF_DIR = d => {
   const b = path.basename(d).toLowerCase();
+  if (/full.?buff/.test(b)) return "alltime_buffed"; // before all-time: /all.?time/ also matches this dir
   if (/all.?time/.test(b)) return "alltime";
   if (/obtain/.test(b)) return "obtainable";
   if (/herald/.test(b)) return "herald";

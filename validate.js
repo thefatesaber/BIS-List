@@ -7,7 +7,12 @@ const fs = require("fs");
 
 const FILE = process.argv[2] || "index.html";
 const HERALD_ILVL_CAP = 41;
-const LISTS = ["alltime", "obtainable", "herald"];
+const LISTS = ["alltime", "obtainable", "herald", "alltime_buffed"];
+// Tiers every primary spec must carry. alltime_buffed is rolling out and
+// joins this set once every primary spec has a buffed profile; until then a
+// missing buffed list means "not yet simmed", not a data error. Rows that DO
+// exist on it are checked exactly like the other tiers.
+const REQUIRED_LISTS = new Set(["alltime", "obtainable", "herald"]);
 
 // Necks, rings and trinkets are exempt from the Classic/TBC/WotLK source rule.
 const ERA_EXEMPT_SLOTS = new Set(["Neck", "Ring 1", "Ring 2", "Trinket 1", "Trinket 2"]);
@@ -81,7 +86,7 @@ for (const c of CLASSES) {
     const rows = (c.lists && c.lists[L]) || [];
     const at = `${c.id}/${L}`;
     if (!rows.length) {
-      if (c.primary) err(`${at}: list is empty`);
+      if (c.primary && REQUIRED_LISTS.has(L)) err(`${at}: list is empty`);
       continue;
     }
 
@@ -138,14 +143,14 @@ for (const c of CLASSES) {
   // Herald constrains a subset of Obtainable, which constrains a subset of
   // All-Time, so DPS can only fall in that direction.
   const d = c.dpsByList || {};
-  const seq = ["herald", "obtainable", "alltime"].filter((k) => d[k] != null);
+  const seq = ["herald", "obtainable", "alltime", "alltime_buffed"].filter((k) => d[k] != null);
   const eng = (k) => /Raidbots/i.test(((c.prov || {})[k]) || "") ? "raidbots" : "local";
   for (let i = 1; i < seq.length; i++)
     if (!(d[seq[i - 1]] <= d[seq[i]])) {
       // A column mid-migration between engines may legitimately invert;
       // adjacent tiers on the same engine must still be monotonic.
       if (eng(seq[i - 1]) === eng(seq[i]))
-        err(`${c.id}: DPS not monotonic — alltime ${d.alltime}, obtainable ${d.obtainable}, herald ${d.herald}`);
+        err(`${c.id}: DPS not monotonic — ${seq.map((k) => `${k} ${d[k]}`).join(", ")}`);
       else
         warn(`${c.id}: ${seq[i - 1]} ${d[seq[i - 1]]} > ${seq[i]} ${d[seq[i]]} across engines — column mid-migration`);
     }

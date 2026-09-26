@@ -481,7 +481,7 @@ const CONFIG = {
   patch: "12.1.0 (Midnight)",
   bracket: "Level 30",
   // Bump on every data change — a sim-derived list with no date can't be trusted.
-  updated: "2026-09-24",
+  updated: "2026-09-26",
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Rendered under the header when set — the public rebase notice (ruling B).
@@ -504,6 +504,7 @@ const DEFAULT_SLOTS = ["Head","Neck","Shoulders","Back","Chest","Wrist","Hands",
 
 const LIST_TYPES = [
   { id:"alltime",    label:"All-Time",   desc:"Best in slot regardless of obtainability — removed, legacy and unobtainable items included. Generated from the 13 live sim profiles." },
+  { id:"alltime_buffed", label:"All-time Full buffed", desc:"The All-Time item pool simmed fully raid-buffed — every other list sims self-buffed only." },
   { id:"obtainable", label:"Obtainable", desc:"Best in slot among items farmable in "+CONFIG.patch+"." },
   { id:"herald",     label:"Herald of the Titans", desc:CONFIG.heraldRule }
 ];

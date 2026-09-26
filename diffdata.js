@@ -23,7 +23,7 @@ for (const k of new Set([...Object.keys(a.CONFIG), ...Object.keys(b.CONFIG)]))
   if (JSON.stringify(a.CONFIG[k]) !== JSON.stringify(b.CONFIG[k]))
     say(`CONFIG.${k}: ${JSON.stringify(a.CONFIG[k])} -> ${JSON.stringify(b.CONFIG[k])}`);
 
-const LISTS = ["alltime", "obtainable", "herald"];
+const LISTS = ["alltime", "obtainable", "herald", "alltime_buffed"];
 const ROWFIELDS = ["item", "wowhead", "ilvl", "source", "ench", "enchsp", "gems",
                    "hm", "q", "why", "alts", "altbase", "prov", "status"];
 for (const ca of a.CLASSES) {
