@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [docs] Three rulings from Fate on Server58's review land in
+  PROJECT.md. ONE: Power Infusion joins the buffed set for every
+  spec - pool + invoke + the spell-level unlock on every buffed
+  profile (priest self-casts); pre-ruling profiles without a pool
+  are under-set and join the post-patch buffed re-sim wave, and
+  Balance's inert invoke resolves by gaining its pool, not by
+  deletion. TWO: the buffed tab stays public - hiding it while
+  re-sims catch up was considered and declined; prov dates the
+  numbers. THREE: pins above base ilvl need real Item Versions -
+  the Devourer 47 rings are legal as Timewalking versions (the
+  reason of record behind ILVL_SPLIT_OK), and a crafted piece with
+  no higher version cannot be pinned up at all (relic-only wrists
+  cap at 28). Check versions before pinning.
 - [page] Alternates policy adopted, per Fate's ruling on Server58's
   review: a row carries the BiS plus at most TWO alternates, and
   weapon slots are exempt - their ladders ARE the nearest-best

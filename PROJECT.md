@@ -22,9 +22,15 @@ Devourer DH 4725, and the specs that followed): Bloodlust, Mark of the
 Wild, Hunter's Mark and Skyfury ON for everyone; Arcane Intellect ON for
 casters and Battle Shout ON for physical specs, each spec taking the
 primary-stat buff that feeds it (first physical profile: MM Hunter 4337); an external
-Power Infusion pool (external_buffs.pool=power_infusion:120) on the
-profiles Fate gives one - the DH runs it, the mage does not, so the pool
-is per-spec, not a blanket rule for actors without their own PI; Power Word: Fortitude, Battle Shout, Mystic Touch,
+Power Infusion pool (external_buffs.pool=power_infusion:120) plus its
+invoke line on EVERY buffed profile, per Fate's 2026-09-30 ruling — PI is
+part of the buffed set, full stop; the priest self-casts instead of
+pooling, and the spell.10060.spell_level=1 unlock accompanies the pool
+everywhere (PI is level-gated at 30 without it, proven by the Devourer
+re-sim). Buffed profiles landed before this ruling without a pool are
+under-set and sit on the buffed re-sim queue. Considered and declined the
+same day: hiding the buffed tab while re-sims catch up — the tab stays
+public, its numbers dated by prov; Power Word: Fortitude, Battle Shout, Mystic Touch,
 Chaos Brand and bleeding OFF; consumables run live in-sim where
 benchmarks disable them. Bloodlust is level-enabled via the standard
 player-scoped override (spell.2825 spell_level=1) and modeled at DRUMS
@@ -104,7 +110,15 @@ holds and sim-side rates from either build are interchangeable.
 page — `drop_level=30` alone is insufficient on scaling gear. Item strings
 for synthetics are fully explicit (weapon type/speed/damage, stats, equip
 proc); bare `id=` lookups fail to attach proc effects. Item names derive
-from the DBC id, never from profile comments. One item id carries one ilvl.
+from the DBC id, never from profile comments. One item id carries one ilvl
+— the documented exceptions live in validate.js's ILVL_SPLIT_OK, and each
+needs a reason of record: the Devourer rings (178824, 134487) sim at 47 on
+the buffed tier because those are their Timewalking versions (confirmed via
+Server58, 2026-09-26). A pin above an item's base ilvl is only legal if
+that version actually exists in-game: raid items need the raid-difficulty
+Item Versions (Wowhead's Versions column), and a crafted piece with no
+higher version cannot be pinned up at all — relic-only wrists cap at 28
+(Server58's review, 2026-09-24). Check versions before pinning, not after.
 
 **Consumables are closed off.** `temporary_enchant=disabled` (not `none`,
 never blank — a blank field triggers the fallback) and
@@ -140,6 +154,11 @@ a same-character MM comparator.
 ## Open rulings
 
 - Health-timeline standard (which curve, if any, ever becomes benchmark).
+- Balance's inert PI invoke is resolved in direction by the PI-everywhere
+  ruling: it gets its pool on the re-run, not deleted. The re-run itself is
+  what remains open, inside the post-patch buffed re-sim wave (every buffed
+  number predates the patch; MM also drops its pointless mana oil there,
+  and Frost DK re-talents per Server58's 4,383 run).
 - Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
   a single paladin log (buff applications ÷ minutes) hardens them.
 - Monk Herald anomaly; DH Herald trinket; DK Roccor-vs-Chaos alt sweep.
