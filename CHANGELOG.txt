@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Obtainable Frost DK re-simmed 2939 -> 3048 (+3.7%) on a
+  byte-identical profile - the last stale obtainable clears the
+  post-patch queue. Gear frozen, stats panel stands. Chain holds:
+  2823 herald <= 3048 <= 3332 alltime. Profile renamed.
 - [page] Obtainable Resto Shaman 4132 -> 4244 (+2.7%), the full
   Server58 chain in one landing: Abracadaver (2H) gives way to the
   Royal Scepter of Terenas II + The Boreal Guard pair (about +1.3%
