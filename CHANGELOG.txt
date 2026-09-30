@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] The two stale obtainables re-simmed and the held heralds
+  released with them. Shadow Priest obtainable 3570 -> 3926
+  (+10.0%) and Windwalker obtainable 2614 -> 2788 (+6.7%), both on
+  byte-identical profiles - pure post-patch engine drift, gear
+  frozen, stats panels stand. That clears the chain gate, so the
+  two heralds held on 2026-09-26 land at last: Shadow Priest
+  herald 3278 -> 3589 and Windwalker herald 2230 -> 2762 (its
+  profile refreshed only its derivation comments, D0 2397 -> 2477).
+  Chains verified: priest 3589 <= 3926 <= 4065; monk
+  2762 <= 2788 <= 2901. Four profiles renamed to their numbers.
 - [docs] Three rulings from Fate on Server58's review land in
   PROJECT.md. ONE: Power Infusion joins the buffed set for every
   spec - pool + invoke + the spell-level unlock on every buffed
