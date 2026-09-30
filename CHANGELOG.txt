@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] All-time Resto Shaman stats panel updated from the 4420
+  run's Raid-Buffed snapshot: Int 274, Stamina 1152, Crit 21.25
+  (81), Haste 24.33 (116), Vers 15.72 (92), Mastery 24.00 (0) -
+  the ring-enchant swap's haste-to-vers shift, now on the sheet.
+  Both resto panels are current; the resto chain is fully closed.
 - [page] Obtainable Resto Shaman stats panel updated from the 4244
   run's Raid-Buffed snapshot: Int 279, Stamina 1155, Crit 21.25
   (81), Haste 21.18 (101), Vers 11.62 (68), Mastery 24.00 (0) -
