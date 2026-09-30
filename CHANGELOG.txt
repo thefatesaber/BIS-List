@@ -6,6 +6,23 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-09-30
+- [page] Consumables panels corrected across nine entries, per
+  Server58's review (Havoc was the tip of a pattern). Superior Mana
+  Oil - a caster oil no profile ever simmed - comes OFF the flat
+  kits of Havoc, Survival, Beast Mastery and Enhancement. Paladin
+  and both Death Knights convert to per-list kits: their stones
+  (Hissing Rune / Adamantite Sharpening Stone) stay on the
+  self-buffed tabs, while the buffed tab now shows the oil-less
+  strength kit those runs actually simmed. The hidden rogues gain
+  the oil-less agility kit their buffed runs simmed, retiring the
+  two standing "no consumables" warnings (validate 25 -> 23).
+  Evoker's wizard oil corrects to MH/OH, matching the run. NOT
+  touched, flagged: MM Hunter's buffed run genuinely simmed
+  Superior Mana Oil on the main hand - the panel is faithful to
+  the sim, and dropping the useless oil joins the buffed re-sim
+  queue. Casters and Devourer were already correct.
+
 ## 2026-09-26
 - [page] A fourth list joins the site: "All-time Full buffed"
   (id alltime_buffed), the All-Time item pool simmed fully raid-buffed,
