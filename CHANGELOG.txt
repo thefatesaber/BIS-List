@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] All-time Resto Shaman 4415 -> 4420 on one change, per the
+  Server58 review chain: both ring enchants move Accord of Haste ->
+  Accord of Versatility (6111 / 297991, a name already in the page
+  vocabulary). Everything else byte-identical. The stats panel
+  still shows the pre-swap ratings (two ring enchants' worth of
+  haste -> vers); a fresh Raid-Buffed screenshot updates it.
+  Obtainable resto (4,244 with the belt, hands-enchant and MH+OH
+  changes) is the remaining piece of the resto chain.
 - [page] The two stale obtainables re-simmed and the held heralds
   released with them. Shadow Priest obtainable 3570 -> 3926
   (+10.0%) and Windwalker obtainable 2614 -> 2788 (+6.7%), both on

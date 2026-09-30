@@ -55,9 +55,9 @@ legs=,ilevel=33,id=30534,enchant_id=6541,gem_id=40155/40155/40155,bonus_id=7202,
 # Star-Strider Boots 40
 feet=,id=29951,ilevel=40,enchant_id=851,gem_id=40133/40133,bonus_id=9035,drop_level=30
 # Emperor's Seal 33
-finger1=,ilevel=33,id=231437,enchant_id=6109,gem_id=40133/40133,drop_level=30
+finger1=,ilevel=33,id=231437,enchant_id=6111,gem_id=40133/40133,drop_level=30
 # Stitchflesh's Misplaced Signet 33
-finger2=,ilevel=33,id=178736,enchant_id=6109,gem_id=40155/40155,drop_level=30
+finger2=,ilevel=33,id=178736,enchant_id=6111,gem_id=40155/40155,drop_level=30
 # >>> ASCENDANCE = synthetic on-use haste. 170 = haste RATING (tune to in-game Ascendance haste).
 # Solace of the Fallen 45
 trinket1=,ilevel=45,id=47432,bonus_id=9047
@@ -100,8 +100,6 @@ potion=disabled
 flask=disabled
 food=disabled
 temporary_enchant=disabled
-
-name=Shaman
 
 # Simulation Options
 iterations=50000
