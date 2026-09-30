@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Obtainable Resto Shaman stats panel updated from the 4244
+  run's Raid-Buffed snapshot: Int 279, Stamina 1155, Crit 21.25
+  (81), Haste 21.18 (101), Vers 11.62 (68), Mastery 24.00 (0) -
+  the weapon/belt/enchant changes' new sheet. The All-time 4420
+  panel still awaits its screenshot.
 - [page] Obtainable Frost DK re-simmed 2939 -> 3048 (+3.7%) on a
   byte-identical profile - the last stale obtainable clears the
   post-patch queue. Gear frozen, stats panel stands. Chain holds:
