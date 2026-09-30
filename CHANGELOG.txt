@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Alternates policy adopted, per Fate's ruling on Server58's
+  review: a row carries the BiS plus at most TWO alternates, and
+  weapon slots are exempt - their ladders ARE the nearest-best
+  weapons and stay as long as they need to be. Six rows trimmed to
+  their best two: warrior All-time Heart of Roccor (drops Meteorite
+  Crystal -1.6, Herkuml -2.3), warrior Obtainable Dragonspine
+  (drops Meteorite -5.2) and Pendant (drops Meteorite -3.2), resto
+  shaman Obtainable hands (drops Skyshatter Grips -1.0 - Server58's
+  exact callout) and feet (drops Skyshatter Treads -0.3), Devourer
+  Obtainable feet (drops Footwraps of Vile Deceit -1.3, also his
+  callout). The weapon ladders on warrior/paladin/DK are untouched.
+- [tooling] validate.js enforces the policy as a warning: any
+  non-weapon row with more than two alternates flags on every run,
+  Main Hand and Off Hand exempt by the same ruling.
 - [page] Consumables panels corrected across nine entries, per
   Server58's review (Havoc was the tip of a pattern). Superior Mana
   Oil - a caster oil no profile ever simmed - comes OFF the flat
