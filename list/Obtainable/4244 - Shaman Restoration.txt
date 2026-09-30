@@ -47,23 +47,25 @@ tabard=ascendance_buff_proxy,use=170haste_20dur_180cd
 # Bracers of the Forest Stalker 33
 wrist=,ilevel=33,id=34698,enchant_id=4414,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Thalassian Ranger Gauntlets44
-hands=,ilevel=44,id=34343,enchant_id=4430,gem_id=32196/32196,bonus_id=9037,drop_level=30
+hands=,ilevel=44,id=34343,enchant_id=2937,gem_id=32196/32196,bonus_id=9037,drop_level=30
 # Skyshatter Cord 44
-waist=,ilevel=44,id=34542,gem_id=32196/32196,bonus_id=9037,drop_level=30
+#waist=,ilevel=44,id=34542,gem_id=32196/32196,bonus_id=9037,drop_level=30
+waist=,id=28778,ilevel=38,enchant_id=6906,gem_id=32196/32196/32196,bonus_id=9034,drop_level=30
 # Wyrmscale Greaves 33
 legs=,ilevel=33,id=30534,enchant_id=6539,gem_id=40133/40133/32196,bonus_id=7202,drop_level=30
 # Star-Strider Boots 40
 feet=,id=29951,ilevel=40,enchant_id=851,gem_id=40133/40133,bonus_id=9035,drop_level=30
 # Seal of the Regal Loa 33
-finger1=,ilevel=33,id=159458,enchant_id=6109,gem_id=40133,drop_level=30
+finger1=,ilevel=33,id=159458,enchant_id=6111,gem_id=40133,drop_level=30
 # Thornwoven Band 33
-finger2=,ilevel=33,id=162548,enchant_id=6109,gem_id=40133,drop_level=30
+finger2=,ilevel=33,id=162548,enchant_id=6111,gem_id=40133,drop_level=30
 # Solace of the Fallen 45
 trinket1=,ilevel=44,id=47271,bonus_id=9047
 # Gale of Shadows 33
 trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Abracadaver 47 
-main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
+main_hand=,id=50734,ilevel=47,bonus_id=9051,gem_id=32196,enchant_id=2669
+off_hand=,id=45877,ilevel=43,gem_id=32196/32196,enchant_id=4434,bonus_id=9041
 
 midnight.crucible_of_erratic_energies_violence=0
 midnight.crucible_of_erratic_energies_sustenance=0

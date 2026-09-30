@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Obtainable Resto Shaman 4132 -> 4244 (+2.7%), the full
+  Server58 chain in one landing: Abracadaver (2H) gives way to the
+  Royal Scepter of Terenas II + The Boreal Guard pair (about +1.3%
+  on the weapon swap alone), with Abracadaver kept as the
+  single-drop alternative carrying a why note and no delta - the
+  head-to-head on the final build is unsimmed, and the renderer
+  shows exactly that. Skyshatter Cord gives way to Terror Pit
+  Girdle (Magtheridon's Lair, Shadowed Belt Clasp) - the item that
+  was its own -0.3% alternate. Hands re-enchant Greater Haste ->
+  Major Spellpower; both rings move Accord of Haste -> Accord of
+  Versatility, matching the All-time change. The obtainable list
+  gains its first Off Hand row. Chain holds:
+  3684 herald <= 4244 <= 4420 alltime. Stats panel awaits a fresh
+  Raid-Buffed screenshot (weapons, belt and four enchants moved).
 - [page] All-time Resto Shaman 4415 -> 4420 on one change, per the
   Server58 review chain: both ring enchants move Accord of Haste ->
   Accord of Versatility (6111 / 297991, a name already in the page
