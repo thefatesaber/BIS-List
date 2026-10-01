@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Frost DK 4090 -> 4855 (+18.7%), the sanctioned
+  rebuild and the end of the no-Skyfury era: the sheet's +4.00%
+  mastery buffed-only is Skyfury's 2-point grant at Frozen Heart's
+  2.0 coefficient (seventeenth point), on the one profile that
+  never had it. The rebuild carries the Server58 re-talent (new
+  string on the buffed key, beating his 4,383 benchmark), both
+  rings in their TW-47 forms per the All-time ILVL_SPLIT allowance,
+  PI restored under the APL's own ghost comment on the
+  cooldown_check gate, and the new panel from the run's snapshot.
+  Both PROJECT.md flags close: no buffed profile predates Skyfury,
+  and the wave bullet's last remainder is done. Chain holds: 2823
+  <= 3048 <= 3332 <= 4855. Profile renamed and rebuilt.
 - [page] Buffed Ret Paladin 4158 -> 4310 (+3.7%) on the PI template,
   the invoke riding the Avenging Wrath buff (Radiant Glory procs it
   too) with the no-talent fallback. The run doubled as a ring

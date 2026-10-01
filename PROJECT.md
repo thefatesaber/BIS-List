@@ -36,8 +36,8 @@ benchmarks disable them. Bloodlust is level-enabled via the standard
 player-scoped override (spell.2825 spell_level=1) and modeled at DRUMS
 strength - effect.856.base_value=15 gives 15% haste instead of the 30%
 lust. Resolved 2026-09-30: Resto Shaman re-ran on this set (5944, PI pool +
-Skyfury), retiring the flagged 5787; no buffed profile predates Skyfury
-except Frost DK 4090, which rides its wave re-run. Every other
+Skyfury), retiring the flagged 5787. 2026-10-01: Frost DK followed (4090 ->
+4855, rebuilt per the Server58 ruling) - no buffed profile predates Skyfury. Every other
 benchmark profile carries no external buffs — no `external_buffs.pool` of any kind and no
 `invoke_external_buff` of any kind. Abilities the actor legitimately has at
 30 are in, which sanctions the priest's PI self-cast and rules out PI
@@ -160,8 +160,8 @@ a same-character MM comparator.
   which the 30-point build lacks, so the invoke never fired (proven by a
   bit-identical re-run). The gate of record is now buff.ca_inc.up |
   variable.no_cd_talent & buff.eclipse.up, and PI fires inside Eclipse.
-  MM's mana oil came off the same day. What remains of the wave bullet:
-  Frost DK re-talents per Server58's 4,383 run, inside its own re-run.
+  MM's mana oil came off the same day. Frost DK re-talented and rebuilt
+  2026-10-01 (4855: new string, TW-47 rings, Skyfury + PI) - wave bullet closed.
 - Demonology's of-record APL gates its racials call and potion line on
   pet.demonic_tyrant.active, dead at 30 (the build cannot reach Tyrant,
   proven 2026-09-30 by the buffed PI runs) - they only fire at fight's
