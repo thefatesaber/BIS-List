@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Windwalker's buffed head pair is measured after all: 4 DPS
+  separates the Wastewalker Helm (28224) from the Frayed
+  Scoundrel's Cap run side by side - 0.09%, deep inside the 1.5%
+  noise band. The Helm joins the Cap's row as its alternate at
+  -0.1% with a why note, retiring 214's "unmeasured" the same day.
+  Gear of record unchanged; 4438 stands.
 - [page] Buffed Windwalker Monk 4002 -> 4438 (+10.9%) on the PI
   template, the invoke main-list unconditional - the Sub-verified
   placement - into a stock APL that is already PI-aware
