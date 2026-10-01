@@ -11,6 +11,11 @@ talents=CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMKkxwMMAGwAgBjBDYGzwAYAwAAgACA
 
 override.player.spell_data=spell.2825.spell_level=1
 override.player.spell_data=effect.856.base_value=15
+# PI: row-3 priest talent, data carries vestigial Spell Level 58 - relax for the level-30 actor,
+# then pool one external PI on a 120s cadence (buffed-set ruling 2026-09-30: PI in every buffed sim).
+# The APL's own invoke (dreamgrove, gated on ca_inc) was inert without this pool - it now fires.
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
 
 ### Combo 1
 # Frayed Scoundrel's Cap (33) — AGI_INT dual primary, reads Int on balance
@@ -82,7 +87,10 @@ actions+=/use_items,if=!trinket.1.is.wraps_of_cosmic_madness&!trinket.2.is.wraps
 actions+=/use_item,name=wraps_of_cosmic_madness,if=!buff.eclipse.up
 actions+=/use_item,name=font_of_venomous_rage,if=!buff.eclipse.up
 actions+=/berserking,if=buff.ca_inc.up&(buff.harmony_of_the_grove.up|!talent.dream_surge)|fight_remains<cooldown.ca_inc.remains
-actions+=/invoke_external_buff,name=power_infusion,if=buff.ca_inc.up
+# PI gate fixed for 30: dreamgrove's buff.ca_inc.up assumes CA/Incarnation, which this
+# 30-point build does not have - the invoke never fired (proven: pool added, dps unchanged
+# to the digit). Fire inside Eclipse when the build has no CA; keep the CA gate for later.
+actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1,if=buff.ca_inc.up|variable.no_cd_talent&buff.eclipse.up|fight_remains<16
 actions+=/variable,name=eclipse_timings,value=((cooldown.eclipse.full_recharge_time<(cooldown.force_of_nature.remains<?(cooldown.fury_of_elune.remains*hero_tree.elunes_chosen*!talent.lunation)<?((buff.eclipse.duration+2)))|cooldown.ca_inc.remains<(cooldown.force_of_nature.remains<?(cooldown.fury_of_elune.remains*hero_tree.elunes_chosen*!talent.lunation)<?(buff.eclipse.duration+2)))|fight_remains<buff.eclipse.duration)&(buff.eclipse.remains<2&fight_style.dungeonroute|!fight_style.dungeonroute)
 actions+=/variable,name=opener,op=set,value=0,if=buff.ca_inc.up
 actions+=/variable,name=starfall_cosmos,value=(talent.starweaver&(talent.meteorites&(talent.incarnation_chosen_of_elune&talent.meteor_storm&!talent.power_of_goldrinn|buff.ca_inc.down&(talent.incarnation_chosen_of_elune|talent.stellar_amplification|!talent.power_of_goldrinn))|buff.eclipse.down&(talent.meteorites|talent.aetherial_kindling|talent.stellar_amplification&!talent.power_of_goldrinn))|buff.ca_inc.down&talent.meteorites&talent.aetherial_kindling&talent.stellar_amplification&!talent.power_of_goldrinn|buff.eclipse.down&talent.meteorites&(talent.aetherial_kindling|talent.stellar_amplification|!talent.power_of_goldrinn))&buff.touch_the_cosmos.react&!buff.starweavers_weft.react

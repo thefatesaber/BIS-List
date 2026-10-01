@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Buffed Balance Druid 3658 -> 3775 (+3.2%), and the inert-PI
+  saga closes. The pool alone changed nothing - a bit-identical
+  re-run proved dreamgrove's buff.ca_inc.up gate never passes on a
+  30-point build with no CA/Incarnation - so the gate of record
+  becomes ca_inc | no_cd_talent & eclipse, and PI finally fires
+  inside Eclipse. Two interim runs (a no-pool 3760 on drifted local
+  gear, and the bit-identical pool-only run) were held and never
+  landed; finger2 stays on the stored Accord 6108, the 6110 swap in
+  the local copy being an unruled re-gear. Sheet held to the digit,
+  panel stands. Mastery +1.50% buffed-only is Skyfury's 2-point
+  grant at Balance's 0.75 coefficient - ninth point on the line.
+  Open ruling updated: only Frost DK's re-talent remains of the
+  wave bullet. Chain holds: 2826 alltime <= 3775. Profile renamed.
 - [page] Buffed Fire Mage 4551 -> 4825 (+6.0%), the wave's biggest
   template gain yet - a haste steroid inside Combustion compounds.
   The invoke rides the racials' own gate; the unlock was already in

@@ -155,11 +155,13 @@ a same-character MM comparator.
 ## Open rulings
 
 - Health-timeline standard (which curve, if any, ever becomes benchmark).
-- Balance's inert PI invoke is resolved in direction by the PI-everywhere
-  ruling: it gets its pool on the re-run, not deleted. The re-run itself is
-  what remains open, inside the post-patch buffed re-sim wave (every buffed
-  number predates the patch; MM also drops its pointless mana oil there,
-  and Frost DK re-talents per Server58's 4,383 run).
+- Balance's inert PI invoke: RESOLVED 2026-09-30. The pool alone did not
+  move the number - dreamgrove's buff.ca_inc.up gate assumes CA/Incarnation,
+  which the 30-point build lacks, so the invoke never fired (proven by a
+  bit-identical re-run). The gate of record is now buff.ca_inc.up |
+  variable.no_cd_talent & buff.eclipse.up, and PI fires inside Eclipse.
+  MM's mana oil came off the same day. What remains of the wave bullet:
+  Frost DK re-talents per Server58's 4,383 run, inside its own re-run.
 - Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
   a single paladin log (buff applications ÷ minutes) hardens them.
 - Monk Herald anomaly; DH Herald trinket; DK Roccor-vs-Chaos alt sweep.
