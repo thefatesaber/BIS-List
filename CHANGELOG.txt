@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Windwalker Monk 4002 -> 4438 (+10.9%) on the PI
+  template, the invoke main-list unconditional - the Sub-verified
+  placement - into a stock APL that is already PI-aware
+  (has_external_pi, buff.power_infusion gates), so the pool plugs
+  straight into its burst windows. The run file is Fate's and it
+  also swaps the head of record: Frayed Scoundrel's Cap (50206)
+  over the Wastewalker Helm, run as the main actor with no
+  profileset beside it, so the Helm -> Cap delta is unmeasured.
+  The sheet carries the Cap's signature (haste 79 -> 87 rating,
+  crit 89 -> 87) and authenticates the loadout; the potion line
+  is rewritten to the bloodlust gate. Mastery +4.66% buffed-only
+  is Skyfury's 2-point grant at Combo Strikes' 2.33 coefficient -
+  twentieth point. Chain holds: 2901 alltime <= 4438. Profile
+  renamed.
 - [page] Buffed Subtlety Rogue 2516 -> 2663 (+5.8%), and the wave's
   first measured A/B of PI placement: the first template run put
   the invoke in the cds sub-list gated on Shadow Blades and the
