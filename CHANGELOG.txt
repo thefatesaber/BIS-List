@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Arcane joins All-time Full buffed at 3212, completing the
+  mage buffed column (4960 Frost > 4825 Fire > 3212 Arcane) - the
+  third class column done. PI report-verified: 2 casts at 11.7%
+  uptime synced to Arcane Surge, netting +1 over the held no-PI run
+  - the third thin-gain caster, mana- and charge-bound at 30. The
+  conversion had optimal_raid=1 where every benchmark runs 0 (the
+  set is explicit overrides, never the engine's default suite);
+  restored, and the held 3211 ran with it and never landed. Gear
+  verified byte-identical to the All-time 2380, so the buffed rows
+  mirror the All-time rows. Mastery +2.64% buffed-only is Skyfury's
+  2-point grant at Savant's ~1.32 coefficient - thirteenth point.
+  Chain holds: 2380 alltime <= 3212.
 - [page] Elemental joins All-time Full buffed at 3246, the first
   landing with report-verified PI: the Raidbots buff table shows 3
   casts at 14.8% uptime on the 120s pool - and its net here rounds
