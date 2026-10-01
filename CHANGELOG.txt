@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Survival Hunter 3732 -> 3871 (+3.7%) on the PI
+  template, the invoke main-list unconditional under the potion
+  line. The attached result txt was the pre-run file again; the
+  move validates the run, and this one decomposes: the stored 3732
+  defined Tol'vir but never drank it, and Sub's A/B measured a
+  first drink alone at +1.5% (2516 -> 2553 with PI dead) - the
+  rest of +3.7% is PI firing. Sheet held the stored panel to the
+  digit. Mastery +1.70% buffed-only is Skyfury's 2-point grant at
+  Spirit Bond's 0.85 coefficient - twenty-second point. Chain
+  holds: 2780 alltime <= 3871. Profile renamed and gains the
+  template lines.
 - [page] Buffed Feral Druid 3892 -> 4067 (+4.5%) on the PI
   template, the invoke main-list unconditional directly under
   dreamgrove's own "line up Power Infusion with Berserk" comment -
