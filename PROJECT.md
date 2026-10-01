@@ -162,6 +162,11 @@ a same-character MM comparator.
   variable.no_cd_talent & buff.eclipse.up, and PI fires inside Eclipse.
   MM's mana oil came off the same day. What remains of the wave bullet:
   Frost DK re-talents per Server58's 4,383 run, inside its own re-run.
+- Demonology's of-record APL gates its racials call and potion line on
+  pet.demonic_tyrant.active, dead at 30 (the build cannot reach Tyrant,
+  proven 2026-09-30 by the buffed PI runs) - they only fire at fight's
+  end. Adding |!talent.summon_demonic_tyrant would fix both but moves
+  the All-time 2751 benchmark, so it needs its own ruling and re-runs.
 - Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
   a single paladin log (buff applications ÷ minutes) hardens them.
 - Monk Herald anomaly; DH Herald trinket; DK Roccor-vs-Chaos alt sweep.

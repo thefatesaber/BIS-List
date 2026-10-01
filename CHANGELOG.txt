@@ -7,6 +7,21 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Demonology joins All-time Full buffed at 3659, completing
+  the warlock column on the buffed rail (4675 Affliction > 4101
+  Destruction > 3659 Demonology). It took three runs: a local copy
+  without PI (3588, held), then the template with the invoke gated
+  on pet.demonic_tyrant.active - dead at 30, where the build cannot
+  reach Tyrant - landing bit-identical at 3588 (held, and the proof),
+  then the no-Tyrant fallback gate (|!talent.summon_demonic_tyrant,
+  Balance's lesson) firing PI on cd for +2.0%. The same dead gate
+  sits on the of-record APL's racials call and potion line, which
+  only fire at fight's end - flagged as an open APL question since
+  fixing it moves the All-time 2751 too. The conversion also drops
+  an extra lust-gated potion line that stole the pot from the
+  Tyrant sync. Mastery +2.90% buffed-only is Skyfury's 2-point
+  grant at Master Demonologist's 1.45 coefficient - eleventh point.
+  Chain holds: 2751 alltime <= 3659.
 - [page] Destruction Warlock joins All-time Full buffed at 4101 -
   the first of the six missing specs enters, born on the complete
   set: PI pooled and invoked on the Infernal gate, Skyfury, drums
