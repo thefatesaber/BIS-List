@@ -7,6 +7,21 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Beast Mastery joins All-time Full buffed at 2635 - five of
+  the six missing specs are in, Enhancement alone remains. PI
+  report-verified: 3 casts at 14.8% uptime synced to Bestial Wrath.
+  The run also retires BM's superior mana oil per the consumables
+  ruling (focus user; the page kit dropped it back in the 186
+  landing), and the oil proves sheet-inert for hunters - the
+  All-time sheet, simmed with consumables disabled, carries the
+  same 14 gear vers - so the buffed panel reads from the
+  gear-identical companion sheet. The held oil-on no-PI run landed
+  on the same integer: the oil's nothing and PI's something
+  cancelled within rounding. Mastery +3.80% buffed-only is
+  Skyfury's 2-point grant at Master of Beasts' 1.9 coefficient -
+  fourteenth point. The hunter column is fully present on the
+  buffed rail (4521 MM > 3732 SV > 2635 BM), Survival's number
+  still pre-ruling. Chain holds: 2139 alltime <= 2635.
 - [page] Arcane joins All-time Full buffed at 3212, completing the
   mage buffed column (4960 Frost > 4825 Fire > 3212 Arcane) - the
   third class column done. PI report-verified: 2 casts at 11.7%
