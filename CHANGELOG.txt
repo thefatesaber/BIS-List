@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Buffed Fire Mage 4551 -> 4825 (+6.0%), the wave's biggest
+  template gain yet - a haste steroid inside Combustion compounds.
+  The invoke rides the racials' own gate; the unlock was already in
+  the stored file, so only the pool and invoke were added. Gear
+  untouched, sheet held to the digit, panel stands. Mastery +0.96%
+  buffed-only is Skyfury's 2-point grant at Fire's 0.48 coefficient
+  - eighth point on the line. Chain holds: 3565 alltime <= 4825.
+  Profile renamed and gains the two PI lines.
 - [page] Buffed MM Hunter 4337 -> 4521 (+4.2%), the first physical
   spec on the PI template (invoke on the trinkets' own Trueshot
   gate), and the run that retires its mana oil per the consumables
