@@ -9,6 +9,10 @@ talents=CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA
 #CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA
 override.player.spell_data=spell.2825.spell_level=1
 override.player.spell_data=effect.856.base_value=15
+# PI: row-3 priest talent, data carries vestigial Spell Level 58 - relax for the level-30 actor,
+# then pool one external PI on a 120s cadence (buffed-set ruling 2026-09-30: PI in every buffed sim).
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
 ### Combo 1
 # Helm of the Faceless 43
 head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9042,drop_level=30,enchant=6crit
@@ -98,6 +102,9 @@ actions+=/berserking,if=buff.recklessness.up
 actions+=/blood_fury
 actions+=/fireblood
 actions+=/ancestral_call
+# PI pooled externally per the buffed-set ruling. Unconditional like this file's racials:
+# Recklessness is never cast in the single-target list, so a reck-synced gate would be dead.
+actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1
 actions+=/use_item,slot=trinket2
 actions+=/run_action_list,name=slayer,if=active_enemies=1
 actions+=/run_action_list,name=slayer_aoe,if=active_enemies>1

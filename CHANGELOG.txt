@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Fury Warrior 4973 -> 5137 (+3.3%) on the PI
+  template, landed on Fate's confirmation that the PI lines were in
+  the run's input. The invoke is unconditional, this file's own
+  racial convention - and the dead-gate check earned its keep:
+  Recklessness is never cast in the single-target list, so a
+  reck-synced gate would never fire (the APL's own berserking line
+  shares that dead gate, harmlessly - mag'har runs Ancestral Call).
+  Sheet held to the digit, panel stands. Mastery +2.80% buffed-only
+  is Skyfury's 2-point grant at Fury's 1.4 coefficient - fifteenth
+  point. Chain holds: 3002 <= 3216 <= 3808 <= 5137. Fury takes #4
+  on the buffed rail behind Devour's 5248. Profile renamed and
+  gains the template lines.
 - [page] Beast Mastery joins All-time Full buffed at 2635 - five of
   the six missing specs are in, Enhancement alone remains. PI
   report-verified: 3 casts at 14.8% uptime synced to Bestial Wrath.
