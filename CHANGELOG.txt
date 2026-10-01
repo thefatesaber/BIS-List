@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Buffed Shadow Priest 5048 -> 5573 (+10.4%) on a
+  byte-identical profile - pure engine drift, the biggest post-patch
+  move yet. The priest needed no template edits: it was already on
+  the full set, self-casting its own PI per doctrine (never pooling)
+  with Skyfury in since day one - the sheet's +1.0% mastery
+  buffed-only is Skyfury at Shadow's 0.5 coefficient. The patch did
+  move the sheet (vers 4.88 -> 4.03, mastery 16.03 -> 16.63, haste
+  26.98 -> 27.62), so the panel updates from the run's Raid-Buffed
+  snapshot. Chain holds: 3589 <= 3926 <= 4065 <= 5573. Priest stays
+  second on the buffed rail behind the shaman's 5944. Profile renamed.
 - [page] Buffed Resto Shaman 5787 -> 5944 (+2.7%), the first landing
   of the buffed wave under the PI-everywhere ruling. The re-run
   carries the full template - PI pooled on a 120s cadence plus
