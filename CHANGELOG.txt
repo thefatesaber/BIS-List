@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Ret Paladin 4158 -> 4310 (+3.7%) on the PI template,
+  the invoke riding the Avenging Wrath buff (Radiant Glory procs it
+  too) with the no-talent fallback. The run doubled as a ring
+  head-to-head: the local copy's TW-47 Arch-Druid's Tainted Seal
+  swap ran as an in-sim profileset against the Fleshfused Circle of
+  record and won by 8 dps (+0.2%) - inside the 1.5% noise band, so
+  per the DHT precedent the Circle keeps the row and the Seal is
+  recorded as a within-noise alternate with its measured delta.
+  Gear of record otherwise unchanged; panel stands per the re-sim
+  doctrine. Chain holds: 2768 <= 2900 <= 3111 <= 4310. Profile
+  renamed and gains the template lines.
 - [page] Buffed Fury Warrior 4973 -> 5137 (+3.3%) on the PI
   template, landed on Fate's confirmation that the PI lines were in
   the run's input. The invoke is unconditional, this file's own

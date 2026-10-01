@@ -27,6 +27,10 @@ talents=CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBA
 
 override.player.spell_data=spell.2825.spell_level=1
 override.player.spell_data=effect.856.base_value=15
+# PI: row-3 priest talent, data carries vestigial Spell Level 58 - relax for the level-30 actor,
+# then pool one external PI on a 120s cadence (buffed-set ruling 2026-09-30: PI in every buffed sim).
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
 
 # Helm of the Faceless (42)
 head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30,enchant=3crit
@@ -95,6 +99,9 @@ actions.cooldowns+=/use_item,slot=trinket2
 actions.cooldowns+=/potion,if=buff.avenging_wrath.up|fight_remains<30|talent.radiant_glory&cooldown.wake_of_ashes.remains=0&(!talent.holy_flames|dot.expurgation.ticking)
 actions.cooldowns+=/lights_judgment,if=!raid_event.adds.exists|raid_event.adds.in>75|raid_event.adds.up
 actions.cooldowns+=/fireblood,if=buff.avenging_wrath.up|talent.radiant_glory&cooldown.wake_of_ashes.remains=0&(!talent.holy_flames|dot.expurgation.ticking)
+# PI pooled externally per the buffed-set ruling: rides the AW buff (Radiant Glory procs it too),
+# with the no-talent fallback so the gate cannot go dead at 30.
+actions.cooldowns+=/invoke_external_buff,name=power_infusion,use_off_gcd=1,if=buff.avenging_wrath.up|!talent.avenging_wrath&!talent.radiant_glory|fight_remains<16
 actions.cooldowns+=/execution_sentence,if=(cooldown.avenging_wrath.remains>15|talent.radiant_glory)&(target.time_to_die>10)&cooldown.wake_of_ashes.remains<gcd&(!talent.holy_flames|dot.expurgation.ticking)
 actions.cooldowns+=/avenging_wrath
 
