@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Buffed MM Hunter 4337 -> 4521 (+4.2%), the first physical
+  spec on the PI template (invoke on the trinkets' own Trueshot
+  gate), and the run that retires its mana oil per the consumables
+  ruling - the hunter kit converts to per-list, buffed oil-less,
+  and the sheet shows the oil leaving (vers 5.56 -> 3.85, gear 15
+  -> 5). The buffed profile also takes the current client's talent
+  re-export and gains the potion line the stored file never had.
+  Mastery +1.25% buffed-only is Skyfury's 2-point grant at MM's
+  0.625 coefficient - seventh exact point, the oddest one yet.
+  Chain holds: 3170 <= 3450 <= 3588 <= 4521. Profile renamed.
 - [page] Buffed Devastation Evoker 4315 -> 4456 (+3.3%) on the PI
   template, the invoke riding the potion's own Dragonrage gate so
   the 120s pool lands in every 2-minute window. Gear untouched,

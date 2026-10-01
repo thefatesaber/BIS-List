@@ -10,10 +10,14 @@ professions=leatherworking=66/engineering=1
 spec=marksmanship
 # loot_spec=survival
 
-talents=C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA
+talents=C4PAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAGGGLGMGGgwAsYMMDDglBDAAADAABMAAA
 
 override.player.spell_data=spell.2825.spell_level=1
 override.player.spell_data=effect.856.base_value=15
+# PI: row-3 priest talent, data carries vestigial Spell Level 58 - relax for the level-30 actor,
+# then pool one external PI on a 120s cadence (buffed-set ruling 2026-09-30: PI in every buffed sim).
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
 
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/32222,bonus_id=7202,drop_level=30,enchant=12crit
@@ -50,7 +54,6 @@ main_hand=,id=50733,ilevel=47,enchant_id=5950,bonus_id=9051,gem_id=32222,drop_le
 potion=potion_of_the_tolvir
 flask=flask_of_endless_rage
 food=skewered_eel
-temporary_enchant=main_hand:superior_mana_oil
 augmentation=disabled
 
 # Expansion Options
@@ -71,10 +74,13 @@ actions.precombat+=/summon_pet,if=talent.unbreakable_bond
 actions.precombat+=/aimed_shot
 
 actions=variable,name=trueshot_ready,value=!talent.bullseye|(fight_remains>cooldown.trueshot.duration+10|buff.bullseye.stack=buff.bullseye.max_stack)&(cooldown.explosive_shot.remains>=15|cooldown.explosive_shot.ready)|fight_remains<25|time<10
+actions+=/potion,name=potion_of_the_tolvir,if=buff.bloodlust.up|target.time_to_die<=30
 actions+=/auto_shot
 actions+=/use_item,slot=trinket1,if=buff.trueshot.up|!talent.trueshot
 actions+=/use_item,slot=trinket2,if=buff.trueshot.up|!talent.trueshot
 actions+=/use_items,if=buff.trueshot.up|!talent.trueshot
+# PI pooled externally per the buffed-set ruling, on the trinkets' own gate: synced to Trueshot.
+actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1,if=buff.trueshot.up|!talent.trueshot|fight_remains<16
 actions+=/explosive_shot,if=!talent.tactical_reload|!buff.lock_and_load.up
 actions+=/trueshot,if=variable.trueshot_ready
 actions+=/kill_shot,if=buff.precise_shots.up
