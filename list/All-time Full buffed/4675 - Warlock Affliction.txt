@@ -13,6 +13,10 @@ talents=CkQAMrNP5kak+EBqLfUa3dMm+uBMEAzMAAAwALmZWGAAAAAAAAAAAAAAAgBDAYmBYwAAAA
 
 override.player.spell_data=spell.2825.spell_level=1
 override.player.spell_data=effect.856.base_value=15
+# PI: row-3 priest talent, data carries vestigial Spell Level 58 - relax for the level-30 actor,
+# then pool one external PI on a 120s cadence (buffed-set ruling 2026-09-30: PI in every buffed sim).
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
 
 # Merciless Gladiator's Felweave Cowl 45
 head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659,enchant=1sp
@@ -142,6 +146,8 @@ actions.items+=/use_item,slot=trinket2
 actions.items+=/use_item,use_off_gcd=1,slot=main_hand
 
 actions.ogcd=potion,use_off_gcd=1,if=variable.cds_active|fight_remains<32
+# PI pooled externally per the buffed-set ruling, gated like the racials: synced to Darkglare.
+actions.ogcd+=/invoke_external_buff,use_off_gcd=1,name=power_infusion,if=variable.cds_active|fight_remains<16
 actions.ogcd+=/berserking,use_off_gcd=1,if=variable.cds_active|fight_remains<14
 actions.ogcd+=/blood_fury,use_off_gcd=1,if=variable.cds_active|fight_remains<17
 actions.ogcd+=/fireblood,use_off_gcd=1,if=variable.cds_active|fight_remains<10
