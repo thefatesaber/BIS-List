@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Subtlety Rogue 2516 -> 2663 (+5.8%), and the wave's
+  first measured A/B of PI placement: the first template run put
+  the invoke in the cds sub-list gated on Shadow Blades and the
+  report showed NO Power Infusion row (held at 2553); moved to the
+  main action list unconditional, PI fired for +110 (+4.3%) over
+  that held run. Main-list unconditional is Sub's placement of
+  record, and the run's input file is stored verbatim. The potion
+  line the stored 2516 never had comes along, synced to Shadow
+  Dance. Sheet held to the digit, panel stands. Mastery +4.90%
+  buffed-only is Skyfury's 2-point grant at Executioner's 2.45
+  coefficient - nineteenth point. Chain holds: 1609 alltime <=
+  2663. Profile renamed.
 - [page] Buffed Assassination Rogue 4309 -> 4660 (+8.1%) on the PI
   template, the invoke on the trinkets' own Deathmark gate with the
   no-talent fallback. The run also gains the potion line the stored
