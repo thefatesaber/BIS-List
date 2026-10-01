@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Feral Druid 3892 -> 4067 (+4.5%) on the PI
+  template, the invoke main-list unconditional directly under
+  dreamgrove's own "line up Power Infusion with Berserk" comment -
+  not on the Berserk gate, which can sit dead at 30. The attached
+  result txt was the pre-run file again; the run is validated by
+  the move itself - the input is byte-identical to the stored 3892
+  apart from the template lines and the potion resync to the
+  bloodlust gate, and potion timing cannot produce +175 - plus a
+  sheet that held the stored panel to the digit. The mastery line
+  confirms Razor Claws' 2.0 coefficient twice over: unbuffed
+  16.00% is exactly 8 base points x 2.0 at zero rating, and
+  Skyfury's 2-point grant adds exactly +4.00% - twenty-first
+  point. Chain holds: 2770 alltime <= 4067. Profile renamed and
+  gains the template lines.
 - [page] Windwalker's buffed head pair is measured after all: 4 DPS
   separates the Wastewalker Helm (28224) from the Frayed
   Scoundrel's Cap run side by side - 0.09%, deep inside the 1.5%
