@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Buffed Devourer DH 4972 -> 5248 (+5.6%) on a byte-identical
+  profile - engine drift, no gear or set changes. Devour was the PI
+  prototype, so the stored file already carried the full set (pool +
+  unlock + invoke, Skyfury); the run's snapshot matches the stored
+  panel to the digit, the clean re-sim case where the sheet stands.
+  The +2.0% mastery buffed-only is Skyfury at Devourer's 1.0
+  coefficient. Chain holds: 2547 <= 3422 <= 3561 <= 5248. Devour sits
+  third on the buffed rail behind 5944 and 5573. Profile renamed. An
+  older local copy with an inert PI pool (no unlock, no invoke) was
+  caught before running and discarded - re-runs come from the stored
+  files of record.
 - [page] Buffed Shadow Priest 5048 -> 5573 (+10.4%) on a
   byte-identical profile - pure engine drift, the biggest post-patch
   move yet. The priest needed no template edits: it was already on
