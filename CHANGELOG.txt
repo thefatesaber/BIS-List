@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Assassination Rogue 4309 -> 4660 (+8.1%) on the PI
+  template, the invoke on the trinkets' own Deathmark gate with the
+  no-talent fallback. The run also gains the potion line the stored
+  4309 never had - it defined Tol'vir but never drank it; the new
+  line syncs it to Deathmark. Gear untouched, sheet held to the
+  digit, panel stands. Mastery +3.40% buffed-only is Skyfury's
+  2-point grant at Potent Assassin's 1.7 coefficient - eighteenth
+  point. Chain holds: 2774 alltime <= 4660. Profile renamed and
+  gains the template lines.
 - [page] Buffed Frost DK 4090 -> 4855 (+18.7%), the sanctioned
   rebuild and the end of the no-Skyfury era: the sheet's +4.00%
   mastery buffed-only is Skyfury's 2-point grant at Frozen Heart's
