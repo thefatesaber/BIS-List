@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Buffed Resto Shaman 5787 -> 5944 (+2.7%), the first landing
+  of the buffed wave under the PI-everywhere ruling. The re-run
+  carries the full template - PI pooled on a 120s cadence plus
+  Skyfury - and the sheet shows it: Mastery 24.00% -> 30.00%
+  buffed-only, the Skyfury proof. Ring enchants follow the All-time
+  swap to Accord of Versatility. The oldest buffed flag is retired;
+  only Frost DK 4090 still predates Skyfury, riding its wave re-run.
+  Chain holds: 4420 alltime <= 5944. Shaman remains site-wide Best.
+  An interim 5789 run without PI/Skyfury was held and never landed.
 - [page] All-time Resto Shaman stats panel updated from the 4420
   run's Raid-Buffed snapshot: Int 274, Stamina 1152, Crit 21.25
   (81), Haste 24.33 (116), Vers 15.72 (92), Mastery 24.00 (0) -

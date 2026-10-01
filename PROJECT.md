@@ -35,8 +35,9 @@ Chaos Brand and bleeding OFF; consumables run live in-sim where
 benchmarks disable them. Bloodlust is level-enabled via the standard
 player-scoped override (spell.2825 spell_level=1) and modeled at DRUMS
 strength - effect.856.base_value=15 gives 15% haste instead of the 30%
-lust. FLAGGED: Resto Shaman 5787 predates Skyfury and the PI pool and
-needs a re-run to sit on this set. Every other
+lust. Resolved 2026-09-30: Resto Shaman re-ran on this set (5944, PI pool +
+Skyfury), retiring the flagged 5787; no buffed profile predates Skyfury
+except Frost DK 4090, which rides its wave re-run. Every other
 benchmark profile carries no external buffs — no `external_buffs.pool` of any kind and no
 `invoke_external_buff` of any kind. Abilities the actor legitimately has at
 30 are in, which sanctions the priest's PI self-cast and rules out PI
