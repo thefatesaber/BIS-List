@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Destruction Warlock joins All-time Full buffed at 4101 -
+  the first of the six missing specs enters, born on the complete
+  set: PI pooled and invoked on the Infernal gate, Skyfury, drums
+  lust, live caster consumables. The base is the All-time 2988 gear
+  byte-for-byte (the conversion was verified against the file of
+  record before running), so the buffed rows mirror the All-time
+  rows. Mastery +4.00% buffed-only is Skyfury's 2-point grant at
+  Chaotic Energies' 2.0 coefficient - tenth point on the line.
+  Affliction's 4675 keeps the warlock buffed lead. Chain holds:
+  2988 alltime <= 4101.
 - [page] Buffed Balance Druid 3658 -> 3775 (+3.2%), and the inert-PI
   saga closes. The pool alone changed nothing - a bit-identical
   re-run proved dreamgrove's buff.ca_inc.up gate never passes on a
