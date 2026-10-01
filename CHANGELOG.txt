@@ -6,6 +6,22 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-01
+- [page] Elemental joins All-time Full buffed at 3246, the first
+  landing with report-verified PI: the Raidbots buff table shows 3
+  casts at 14.8% uptime on the 120s pool - and its net here rounds
+  to zero against the held no-PI run, Balance's lesson taken
+  further. This L30 build is proc- and cooldown-bound (Lava Burst
+  on charges, Earth Shock on maelstrom), so haste windows barely
+  move it; the ruling asks for PI in the sim, not a minimum gain,
+  and the report proves it is. The invoke is unconditional like
+  Frost Mage's - no burst window exists at 30. Conversion verified
+  byte-identical to the All-time 2355 base; buffed rows mirror the
+  All-time rows. Mastery +3.75% buffed-only is Skyfury's 2-point
+  grant at Elemental Overload's 1.875 coefficient - twelfth point.
+  Chain holds: 2355 alltime <= 3246. Resto's 5944 keeps the shaman
+  buffed lead; Enhancement remains to complete the column.
+
 ## 2026-09-30
 - [page] Demonology joins All-time Full buffed at 3659, completing
   the warlock column on the buffed rail (4675 Affliction > 4101
