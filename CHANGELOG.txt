@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-09-30
+- [page] Buffed Frost Mage 4748 -> 4960 (+4.5%), the PI template's
+  second landing. The stored profile predated the ruling, so the run
+  adds the three PI lines (unlock, 120s pool, invoke) to an otherwise
+  untouched base - with no Icy Veins at 30 the invoke fires on cd
+  alongside the racials. Gear unchanged and the sheet held: the run's
+  snapshot matches the stored panel to the digit. Mastery +3.20%
+  buffed-only is Skyfury's 2-point grant at Frost's 1.6 coefficient,
+  fourth point on the coefficient line. Chain holds: 3181 <= 3506 <=
+  3715 <= 4960. Profile renamed and gains the template lines.
 - [page] Buffed Devourer DH 4972 -> 5248 (+5.6%) on a byte-identical
   profile - engine drift, no gear or set changes. Devour was the PI
   prototype, so the stored file already carried the full set (pool +
