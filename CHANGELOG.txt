@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Unholy DK 3454 -> 3611 (+4.5%) on the PI template.
+  The invoke takes the Dark Transformation gate with the no-talent
+  fallback (the Assassination shape): DT is this profile's own
+  sync backbone - racials and trinkets already gate on it, and the
+  1235391 override exists precisely so the buff window opens - so
+  PI's 120s pool lands all three casts inside DT windows on its
+  60s cadence. The stored APL's header even says external PI was
+  stripped pre-ruling; it returns. The attached result txt was the
+  pre-run file again; the move validates on the Survival pattern -
+  first Golemblood drink (~1.5% per Sub's A/B) plus PI. Sheet held
+  the stored panel to the digit. Mastery +3.60% buffed-only is
+  Skyfury's 2-point grant at Dreadblade's 1.80 coefficient -
+  twenty-fifth point. Chain holds: 2511 alltime <= 3611. Profile
+  renamed and gains the template lines.
 - [page] Buffed Arms Warrior 3553 -> 3709 (+4.4%) on the PI
   template, the invoke main-list unconditional under the potion
   line. The attached result txt was the pre-run file again; the
