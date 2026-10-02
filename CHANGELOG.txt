@@ -7,6 +7,24 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Enhancement Shaman joins All-time Full buffed at 3415 and
+  the rail is complete: 27 specs, every one on the full set, born
+  with the PI trio (invoke main-list unconditional, the Ele join's
+  shape) - the result file came back byte-identical to the posted
+  template, the set's cleanest intake. Conversion deltas all
+  precedented: buff set flipped live, consumables live and
+  oil-less (the All-time ran them disabled - its vers 2.39 vs the
+  buffed 5.39 at the same 14 rating is the Skewered Eel, not an
+  error), Eskhandar re-ranged 9-14 -> 24-29 per the Outlaw join,
+  Hand of the Deceiver gains its weapon line per Windwalker.
+  Buffed rows are the All-time sixteen verbatim. Mastery +4.00%
+  buffed-only is Skyfury's 2-point grant at Enhanced Elements'
+  2.0 - twenty-seventh point, and the wave's ledger closes with
+  it. Rides along: the entry's All-time mastery rating read 10
+  where the sheet says 100 - dropped-zero typo, fixed. The new
+  profile brings the sixth standing lint warning (Eskhandar has no
+  calibration of record for shaman, mirroring its All-time twin) -
+  the standing set is now 6. Chain holds: 2475 alltime <= 3415.
 - [page] Buffed Havoc DH 3141 -> 3256 (+3.7%), and the PI re-run
   wave closes: every buffed profile now carries the template. The
   invoke goes main-list unconditional under the stock potion line

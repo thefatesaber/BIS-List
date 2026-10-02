@@ -37,7 +37,7 @@ player-scoped override (spell.2825 spell_level=1) and modeled at DRUMS
 strength - effect.856.base_value=15 gives 15% haste instead of the 30%
 lust. Resolved 2026-09-30: Resto Shaman re-ran on this set (5944, PI pool +
 Skyfury), retiring the flagged 5787. 2026-10-01: Frost DK followed (4090 ->
-4855, rebuilt per the Server58 ruling) - no buffed profile predates Skyfury. Later the same day the PI wave itself closed: Feral, Survival, Outlaw, Arms, Unholy and Havoc re-ran on the template, so every buffed profile now invokes PI; Enhancement's join is the one gap left on the rail. Every other
+4855, rebuilt per the Server58 ruling) - no buffed profile predates Skyfury. Later the same day the PI wave itself closed: Feral, Survival, Outlaw, Arms, Unholy and Havoc re-ran on the template, so every buffed profile now invokes PI; Enhancement joined the same evening at 3415, completing the rail: 27 specs, all buffed profiles on the complete set. Every other
 benchmark profile carries no external buffs — no `external_buffs.pool` of any kind and no
 `invoke_external_buff` of any kind. Abilities the actor legitimately has at
 30 are in, which sanctions the priest's PI self-cast and rules out PI
