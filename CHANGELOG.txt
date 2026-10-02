@@ -7,6 +7,27 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] The All-time Full buffed view gains a Buff worth panel:
+  one line per buff - Consumables, Power Infusion, Bloodlust
+  (Drums), Hunter's Mark - with DPS and percent for all 27 specs,
+  each line tagged measured, estimated or derived, every tag
+  carrying its method tooltip. Behind it sits the night's
+  measurement campaign: each number is the number of record minus
+  the same input re-run with that one buff removed - 55 A/B
+  re-runs plus the Windwalker probe that proved the sim applies
+  Hunter's Mark as an unconditional 3% multiplier (4438 -> 4310
+  against a predicted 4309), filling the HM row for all 27 specs
+  by arithmetic. 77 of 108 cells are measured directly, 5
+  estimated (the PI + first-potion bundles, the potion priced at
+  +1.5% from Sub's measured pair), 26 derived from the probe.
+  Headlines: consumables are the site's biggest buff (+5.1% Fury
+  to +23.1% Devourer - Superior Wizard Oil is why caster kits
+  double the melee kits), PI is a melee buff that goes dead on
+  Ele, Arcane and Balance, drums-lust is a flat +1.7-4.7%
+  everywhere, and Hunter's Mark is +3.0% for everyone. Outlaw's
+  rows ride the effective-DPS convention; the priest's PI line is
+  its own cast. The stat panel stretches to match the taller
+  buffed paneline; the other three tabs keep their stock layout.
 - [page] Enhancement Shaman joins All-time Full buffed at 3415 and
   the rail is complete: 27 specs, every one on the full set, born
   with the PI trio (invoke main-list unconditional, the Ele join's
