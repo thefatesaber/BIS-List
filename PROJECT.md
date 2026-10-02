@@ -162,6 +162,11 @@ a same-character MM comparator.
   variable.no_cd_talent & buff.eclipse.up, and PI fires inside Eclipse.
   MM's mana oil came off the same day. Frost DK re-talented and rebuilt
   2026-10-01 (4855: new string, TW-47 rings, Skyfury + PI) - wave bullet closed.
+- Outlaw page numbers are effective DPS per Fate's 2026-10-01 ruling
+  (buffed 4190 = raw 3758 x 1.1149, Vibroblade armor-shred at
+  U=0.5694). Open half: whether All-time's 2473 is raw or already
+  effective - Fate to confirm; if raw, it moves to 2757 so the whole
+  spec speaks one convention.
 - Demonology's of-record APL gates its racials call and potion line on
   pet.demonic_tyrant.active, dead at 30 (the build cannot reach Tyrant,
   proven 2026-09-30 by the buffed PI runs) - they only fire at fight's

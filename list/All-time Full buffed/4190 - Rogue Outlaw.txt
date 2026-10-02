@@ -1,4 +1,4 @@
-# All-time - Rogue - Outlaw
+# All-time Full-buffed - Rogue - Outlaw
 # --- Log-anchored ability tuning + residual redistribution (target: effective 2742 @ U=0.5694) ---
 # new coeff = branch coeff x (game/sim) x 1.0812 (absorbs auto/MG residuals). Refresh after any engine/data update.
 # Sinister Strike   1.223  x1.285 x1.0812
@@ -28,6 +28,8 @@ talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
 
 override.player.spell_data=spell.2825.spell_level=1
 override.player.spell_data=effect.856.base_value=15
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
 
 
 # wastewalker_helm (33)
@@ -63,7 +65,7 @@ main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_24min_29max,ilevel=3
 # Vibroblade (33)
 off_hand=,ilevel=33,id=9485,weapon=axe_2.60speed_22min_30max,enchant_id=5950,bonus_id=6710,drop_level=30
 #effective DPS = D0 × (1 + A × P × U)
-#D0 = naked sim DPS (2445 — the sim with the proc counting for zero)
+#D0 = naked sim DPS (3758 — the sim with the proc counting for zero)
 #A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
 #P = proportion affected = physical share = 0.969
 #U = measured uptime
@@ -75,7 +77,7 @@ off_hand=,ilevel=33,id=9485,weapon=axe_2.60speed_22min_30max,enchant_id=5950,bon
 #u=((59.68+45.9+65.25)/3) = 56.94
 
 
-#effective DPS = 2445 × (1 + 0.2083 × 0.969 × 0.5694) = 2726
+#effective DPS = 3758 × (1 + 0.2083 × 0.969 × 0.5694) = 4190
 
 # Consumables
 potion=potion_of_the_tolvir
@@ -100,6 +102,8 @@ actions.precombat+=/roll_the_bones,precombat_seconds=0
 
 # Executed every time the actor is available.
 actions=variable,name=finish_condition,value=combo_points>=cp_max_spend-1
+actions+=/potion,name=potion_of_the_tolvir,if=buff.bloodlust.up|target.time_to_die<=30
+actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1
 actions+=/call_action_list,name=cds
 actions+=/run_action_list,name=finish,if=variable.finish_condition
 actions+=/call_action_list,name=build

@@ -7,6 +7,21 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Outlaw Rogue lands at 4190 effective DPS, and the
+  spec's number convention is now ruled: Outlaw pages carry
+  effective DPS (raw sim x 1.1149, the Vibroblade armor-shred
+  formula at U=0.5694), per Fate. This run on the PI template:
+  raw 3486 -> 3758, i.e. effective 3887 -> 4190, +7.8% - the
+  Assa-shaped PI + first-Tol'vir bundle (the stored 3486 never
+  drank its potion). The join's 3486 was the raw Raidbots number,
+  so the page jump reads +20% only across mixed conventions; the
+  real move is +7.8% in either. Sheet held the stored panel to
+  the digit. Mastery +2.00% buffed-only is Skyfury's 2-point
+  grant at Main Gauche's exact 1.0 - twenty-third point. Chain
+  holds: 2473 alltime <= 4190. Profile renamed; stored with the
+  template lines and the comment block brought current (D0 3758,
+  effective 4190). Whether All-time's 2473 is raw or effective
+  awaits Fate's confirmation - if raw, it becomes 2757.
 - [page] Buffed Survival Hunter 3732 -> 3871 (+3.7%) on the PI
   template, the invoke main-list unconditional under the potion
   line. The attached result txt was the pre-run file again; the
