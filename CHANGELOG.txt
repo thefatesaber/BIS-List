@@ -7,6 +7,21 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Havoc DH 3141 -> 3256 (+3.7%), and the PI re-run
+  wave closes: every buffed profile now carries the template. The
+  invoke goes main-list unconditional under the stock potion line
+  - Havoc's APL already drank, so this is the wave's cleanest
+  PI-only delta, right beside Sub's measured +4.3%. The attached
+  result txt was the pre-run file again; sheet held the stored
+  panel to the digit, and its unbuffed column reproduces the
+  All-time panel exactly (55.46 at 83) - the strongest
+  loadout authentication the sheets offer. Mastery +4.50%
+  buffed-only is Skyfury's 2-point grant at Demonic Presence's
+  2.25 - twenty-sixth point, Havoc's first (the table's 2.0 under
+  "Chaotic Energies" is Destruction's mastery of that name, from
+  the 4101 join). Chain holds: 2013 alltime <= 3256. Profile
+  renamed and gains the template lines; Enhancement's join is now
+  the buffed rail's one remaining gap.
 - [page] Buffed Unholy DK 3454 -> 3611 (+4.5%) on the PI template.
   The invoke takes the Dark Transformation gate with the no-talent
   fallback (the Assassination shape): DT is this profile's own

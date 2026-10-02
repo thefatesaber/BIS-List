@@ -13,6 +13,8 @@ spec=havoc
 talents=CEkAAAAAAAAAAAAAAAAAAAAAAwAmZgZghJMGAAAAAAwsxAwAzAYGAzCAAQCMAAAAAAAAAAAAAAA
 override.player.spell_data=spell.2825.spell_level=1
 override.player.spell_data=effect.856.base_value=15
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
 ### Combo 1
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30,enchant=6crit
@@ -93,6 +95,7 @@ actions+=/metamorphosis,if=!buff.metamorphosis.up&!cooldown.eye_beam.up&!action.
 
 actions+=/the_hunt,if=(!talent.eternal_hunt|cooldown.eye_beam.remains<10&cooldown.metamorphosis.remains>15|!cooldown.eye_beam.up&cooldown.metamorphosis.up|!hero_tree.felscarred)&!buff.reavers_glaive.up
 actions+=/potion,if=cooldown.metamorphosis.up&(cooldown.eye_beam.up|!talent.chaotic_transformation)|fight_remains<=30
+actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1
 actions+=/use_items,if=cooldown.metamorphosis.up|cooldown.eye_beam.up|fight_remains<=20
 actions+=/pick_up_fragment,type=all,use_off_gcd=1,if=fury<=40
 actions+=/reavers_glaive,if=buff.rending_strike.down&buff.glaive_flurry.down
