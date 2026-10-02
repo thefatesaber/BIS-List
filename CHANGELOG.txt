@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-01
+- [page] Buffed Arms Warrior 3553 -> 3709 (+4.4%) on the PI
+  template, the invoke main-list unconditional under the potion
+  line. The attached result txt was the pre-run file again; the
+  move validates the run on the Survival pattern - the stored 3553
+  defined Golemblood but never drank it, Sub's A/B priced a first
+  drink at +1.5%, and the remainder is PI firing. Sheet held the
+  stored panel to the digit. Mastery +2.20% buffed-only is
+  Skyfury's 2-point grant at Deep Wounds' 1.10 coefficient -
+  twenty-fourth point. Chain holds: 2703 alltime <= 3709. Profile
+  renamed and gains the template lines.
 - [page] Buffed Outlaw Rogue lands at 4190 effective DPS, and the
   spec's number convention is now ruled: Outlaw pages carry
   effective DPS (raw sim x 1.1149, the Vibroblade armor-shred
