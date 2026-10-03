@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Shadow Priest re-runs to 3987 (Raidbots Advanced,
+  Fate's run): second flagged VV re-run, +61 over 3926. This list never carried the calibration block, so its old number ran a chargeless Void Volley; the native-VV engine restores it, Treads of the False Oracle replace the Slippers, talents refresh and iterations double to 100k. Jewelry stays single-gem, no banned items. The chain holds: 3589 herald under 3987, under 4165 All-time. Herald 3589 is the last list on the old model.
 - [page] All-time Shadow Priest re-runs to 4165 (Raidbots Advanced,
   Fate's run): first of the three flagged VV re-runs lands +100 over 4065 - the native-VV engine plus the feet enchant (mastery -> haste), the Pendant of the Violet Eye replacing Solace in the pocket, and the talent/APL refresh. Rings stay at 33 on this list. Herald 3589 and Obtainable 3926 remain on the watch list. The chain holds: 3926 obtainable under 4165, under 5757 buffed.
 - [page] Full buffed Shadow Priest regears to 5757 (Raidbots Advanced,

@@ -1,6 +1,11 @@
+# Obtainable - Priest - Shadow
+# VV RE-RUN (2026-10-03): second of the three flagged priest re-runs after the engine ruling.
+# This list never carried the VV calibration block, so the old 3926 ran a chargeless Void Volley
+# on the old engine; the native-VV engine restores it. Also in this run: Treads of the False
+# Oracle replace the Slippers, talents refresh, iterations 50k -> 100k. 3926 -> 3987.
+# Note: this list's Pendant line keeps the 0.515 tick of record (All-time/buffed ran 0.525).
 # PI: row-3 class talent; data carries vestigial Spell Level 58 — relax for the level-30 actor.
 override.spell_data=spell.10060.spell_level=1
-# Obtainable - Priest - Shadow
 priest="Fateprayer"
 level=30
 race=pandaren
@@ -11,7 +16,7 @@ professions=tailoring=1/
 spec=shadow
 # loot_spec=holy
 
-talents=CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA
+talents=CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMAAzAyAmGADAAAAAAwAyYGwCDAQA
 
 # Saved Loadout: dummy 5 min
 # talents=CIQA4VPTJ8eQb8/qEm8PyGu4yADAAAAAAAAAAAAAYgxwMLGMA4BYAYGYwAGAAAAAAgBAzA2YAAAA
@@ -34,23 +39,24 @@ hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_
 waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
 # Leggings of Calamity 44
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
-# Slippers of the seacaller 42
-feet=,ilevel=42,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_level=30
+# Treads of the False Oracle 43
+feet=,ilevel=43,id=45537,enchant_id=4069,gem_id=71854/71854,bonus_id=,drop_level=30
 # Footbomb Championship Ring 33
 finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=213482,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Fleshfused Circle 33
+# Signet of the False Accuser 33
 finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Solace of the Defeated (45)
+# Gale of Shadows 33
 trinket1=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Pendant of the Violet Eye 38 
 trinket2=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
-# Abracadaver 47 
+# Abracadaver 45
 main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
 
 #finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 #feet=,ilevel=43,id=32239,enchant_id=4069,gem_id=71854/71854,bonus_id=9036,drop_level=30
 #feet=,ilevel=43,id=45537,enchant_id=4069,gem_id=71854/71854,bonus_id=,drop_level=30
 
+#4069
 
 # Consumables
 # potion=golemblood_potion
@@ -167,7 +173,7 @@ actions.trinkets=use_item,slot=trinket1
 actions.trinkets+=/use_item,slot=trinket2
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
