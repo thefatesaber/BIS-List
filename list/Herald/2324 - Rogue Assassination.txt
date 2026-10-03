@@ -1,0 +1,134 @@
+# Herald - Rogue - Assassination
+# FINAL (2026-10-03): Blade of the Unrequited (Kara, 38, 3 sockets) in the off hand per Fate's ruling, Heartrazor MH
+# HERALD WAVE candidate (2026-10-03): armor slots take the rogue main's Herald set verbatim
+# (ilvl <= 41, Classic/TBC/WotLK); neck/rings/trinkets ride the obtainable lines (era-exempt, <= 41 enforced).
+# Base Actor
+rogue="Fatesneak"
+level=30
+race=night_elf
+region=us
+server=thrall
+role=attack
+
+spec=assassination
+# loot_spec=assassination
+
+talents=CMQA5HmDzx68KWyrW/8Y781L7zYMbAAAAAAglBMAAAAAgsNMDMwAGMAMDGwAAAAAAAAAAMDA
+
+
+# wastewalker_helm (33)
+head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
+# Ukhel Ancestry Beads (obtainable swap, was Amnesia)
+neck=,id=193676,ilevel=33,enchant_id=5437,gem_id=213488,drop_level=30
+# Mantle of Perenolde (33)
+shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=213494/40150,bonus_id=6710/6652,drop_level=30
+# Cloak of the Coming Night 33
+back=,ilevel=33,id=34708,enchant_id=3243,gem_id=40146/40146,bonus_id=7202
+# Bloodsea Brigand's Vest 40
+chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=40150/40150/40150,bonus_id=9035,drop_level=30
+# Eversong Cuffs 33
+wrist=,id=34602,ilevel=33,enchant_id=4416,gem_id=40150/40150,bonus_id=7202,drop_level=30
+# Liar's Tongue Gloves 38
+hands=,id=28776,ilevel=38,enchant_id=5259,gem_id=40150/40150,bonus_id=9034,drop_level=30
+# Belt of One-Hundred Deaths 40
+waist=,id=30106,ilevel=40,gem_id=71852/71852/71852,bonus_id=9035,drop_level=30
+# Moonchild Leggings 33
+legs=,id=27492,ilevel=33,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=7202,drop_level=30
+# Footwraps of Vile Deceit 39
+feet=,id=40243,ilevel=39,enchant_id=1887,gem_id=71852,bonus_id=9039,drop_level=30
+# Stitchflesh's Misplaced Signet (33)
+finger1=,id=178736,ilevel=33,enchant_id=6108,gem_id=40150,drop_level=30
+# Signet of the False Accuser (obtainable swap, was Bloodoath Signet)
+finger2=,id=178824,ilevel=33,enchant_id=6108,gem_id=40150,drop_level=30
+# Dragonspine_Trophy (38)
+trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
+# Chaos Talisman (33)
+trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
+# Heartrazor (40) — 6-11 dmg 1.80, +4agi/+6sta; proc +27 AP 10s as agi.
+# 0.90ppm = MH anchor to 60% uptime (5.50 procs/min target; stream response 6.14/min per ppm, measured this run)
+main_hand=heartrazor_proxy,weapon=dagger_1.80speed_6min_11max,ilevel=40,quality=epic,stats=4agi_6sta,enchant_id=4099,equip=procby/attack_procon/hit_0.90ppm_27agi_10dur
+# Blade of the Unrequited 38 — Karazhan; Fate's pick 2026-10-03. Three sockets per the DBC
+# (socket bonus included via bonus stack), gemmed with the rogues' agi workhorse.
+off_hand=,id=28572,ilevel=38,bonus_id=9034,gem_id=40150/40150/40150,enchant_id=5950,drop_level=30
+
+
+# Consumables
+#potion=potion_of_the_tolvir
+#flask=flask_of_endless_rage
+#food=skewered_eel
+#temporary_enchant=main_hand:adamantite_weightstone/off_hand:adamantite_sharpening_stone
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL
+# Executed before combat begins.
+actions.precombat=apply_poison
+actions.precombat+=/snapshot_stats
+actions.precombat+=/stealth
+actions.precombat+=/slice_and_dice,precombat_seconds=1
+
+# Executed every time the actor is available.
+actions=thistle_tea,if=energy.pct<30|fight_remains<10
+actions+=/ambush,if=stealthed.rogue&talent.blindside&talent.improved_ambush&!talent.shrouded_suffocation
+actions+=/call_action_list,name=cds
+actions+=/call_action_list,name=core_dot
+actions+=/call_action_list,name=generate,if=combo_points<5
+actions+=/call_action_list,name=spend,if=combo_points>=5
+
+# Cooldowns
+actions.cds=deathmark,if=dot.garrote.ticking&dot.rupture.ticking&(!talent.kingsbane|cooldown.kingsbane.remains<=2)&buff.envenom.remains>2
+actions.cds+=/kingsbane,if=dot.garrote.ticking&dot.rupture.ticking&(!talent.deathmark|dot.deathmark.ticking|cooldown.deathmark.remains>52)&buff.envenom.up
+actions.cds+=/use_items,slots=trinket1,if=debuff.deathmark.up|!talent.deathmark|!trinket.1.has_use_buff|fight_remains<=20
+actions.cds+=/use_items,slots=trinket2,if=debuff.deathmark.up|!talent.deathmark|!trinket.2.has_use_buff|fight_remains<=20
+actions.cds+=/vanish,if=!stealthed.rogue&talent.improved_garrote&dot.garrote.pmultiplier<=1&(!talent.deathmark|dot.deathmark.ticking|cooldown.deathmark.remains>target.time_to_die-10)
+actions.cds+=/shadowmeld,if=!stealthed.rogue&talent.improved_garrote&dot.garrote.pmultiplier<=1&(!talent.deathmark|dot.deathmark.ticking|cooldown.deathmark.remains>target.time_to_die-10)
+
+# DoTs
+actions.core_dot=garrote,if=(buff.improved_garrote.up|stealthed.rogue)&(pmultiplier<=1|remains<=14+6*talent.razor_wire)
+actions.core_dot+=/garrote,if=combo_points.deficit>=1&pmultiplier<=1&refreshable&target.time_to_die-remains>12
+actions.core_dot+=/rupture,if=combo_points>=5&refreshable&target.time_to_die-remains>12
+
+# Builders
+actions.generate=ambush
+actions.generate+=/mutilate
+
+# Spenders
+actions.spend=envenom,if=buff.envenom.remains<=1|debuff.deathmark.up
+actions.spend+=/envenom,if=energy.pct>70|fight_remains<15
+
+# Simulation Options
+iterations=50000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1

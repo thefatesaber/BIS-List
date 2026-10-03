@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Assassination lands at 2324 (Raidbots Advanced,
+  Fate's run): the Outlaw main's Herald leather under Assassination's own kit, Heartrazor with Fate's triple-socket Blade of the Unrequited in the off hand. The chain holds: 2324 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Herald Fire lands at 2907 (Raidbots Advanced,
   Fate's run): corrects the morning 2688, which ran with an EMPTY off hand - Surplus Limb restores the slot for 219 DPS, the largest of the three off-hand corrections, and the old profile retires. The chain holds: 2907 herald vs the spec's
   obtainable, All-time and buffed numbers above it.
