@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Elemental lands at 2261 (Raidbots Advanced,
+  Fate's run): no banned items across all sixteen slots - the
+  94-DPS drop vs All-time is the jewelry-socket rule. Monotonic:
+  2261 vs 2355 All-time vs 3246 buffed. Six sub-spec lists remain
+  in flight.
 - [page] Obtainable Balance lands at 2715 (Raidbots Advanced,
   Fate's run): no banned items - the 111-DPS drop vs All-time is
   the jewelry-socket rule. Monotonic: 2715 vs 2826 All-time vs
