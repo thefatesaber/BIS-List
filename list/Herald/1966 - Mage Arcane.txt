@@ -1,4 +1,5 @@
 # Herald - Mage - Arcane
+# HERALD RE-RUN (2026-10-03): Surplus Limb was missing - the landed number ran with an EMPTY off hand.
 # HERALD WAVE candidate (2026-10-03): armor slots take the mage main's Herald set verbatim
 # (ilvl <= 41, Classic/TBC/WotLK); neck/rings/trinkets ride the obtainable lines (era-exempt, <= 41 enforced).
 
@@ -58,6 +59,8 @@ trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack
 trinket2=,id=108902,ilevel=32,bonus_id=6691,drop_level=29
 # torch_of_holy_fire 39
 main_hand=,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
+# surplus_limb 39 — the missing held-in-off-hand; the first run went one-handed
+off_hand=,id=40273,ilevel=39,bonus_id=9039,enchant_id=4434
 
 
 # Level-30 Arcane APL.
