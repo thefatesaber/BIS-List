@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Havoc lands at 1937 (Raidbots Advanced,
+  Fate's run): no obtainability bans, but Fate retires the
+  Dragonspine proxy in this slot for Herkuml War Token (the
+  badge-vendor trinket, in the hunter main's calibrated ilvl-15
+  form) alongside the jewelry-socket rule. Monotonic: 1937 vs
+  2013 All-time vs 3256 buffed. Four sub-spec lists remain in
+  flight.
 - [page] Obtainable Enhancement lands at 2310 (Raidbots
   Advanced, Fate's run): both rings give way - Bloodoath Signet
   to Stitchflesh's Misplaced Signet and Band of the Ancient
