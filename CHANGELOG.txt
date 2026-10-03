@@ -7,6 +7,23 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] The buffed rail now displays PI-less DPS per Fate's
+  ruling: each spec's shown number - badge, rail and Best-of
+  ordering alike - is its sim of record minus its measured Power
+  Infusion worth, with the worth itself still one line below in
+  the Buff worth panel and the tab's description saying so. The
+  priest keeps its own-cast PI in the number: own kit, not an
+  external. Enabling the ruling, the last five estimated PI cells
+  became exact A/Bs - Assa +284, Outlaw +212 raw / +236 effective,
+  Arms +115, Survival +110, Unholy +107 - so the PI row is 27/27
+  measured and the panel carries no estimates anywhere; the
+  bundles' potion shares land at 0.8-1.5%, bracketing Sub's +1.5%
+  pricing honestly. The data layer is untouched: dpsByList, prov,
+  profiles and filenames keep the sim numbers, and the subtraction
+  is render-side (dpsFor, bestOf, rail sort). On the PI-less rail
+  Resto leads at 5789 with the priest second at 5573, and Fury
+  edges past Devour, 4973 to 4946, once the pooled external stops
+  counting.
 - [page] Obtainable Devourer sheds its two TBC-raid alternates per
   Fate - the parked junk-alt cleanup lands: Liar's Tongue Gloves
   (28776, -2.0%) comes off the Gloves of the Endless Dark row,
