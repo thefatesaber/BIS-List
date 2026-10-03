@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Fire lands at 3430 (Raidbots Advanced,
+  Fate's run): Amnesia gives way to Hook Charm Necklace (DF-rare
+  ban) and Emperor's Seal to Seal of the Regal Loa (Anniversary
+  BRD is gone); the Sunwell pieces - Robe of Eternal Light,
+  Handguards of the Dawn - and the ICC staff all stay, since
+  their raids still run. Monotonic: 3430 vs 3565 All-time vs 4825
+  buffed. Nine sub-spec lists remain in flight.
 - [page] Obtainable Beast Mastery lands at 2061 (Raidbots
   Advanced, Fate's run): Bloodoath Signet gives way to
   Stitchflesh's Misplaced Signet per the main-list ban precedent,
