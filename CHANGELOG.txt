@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Survival lands at 2665 (Raidbots Advanced,
+  Fate's run): the first no-ban spec - every All-time item is
+  farmable, so the whole 115-DPS drop is the jewelry-socket rule.
+  Monotonic: 2665 vs 2780 All-time vs 3871 buffed. Eleven
+  sub-spec lists remain in flight.
 - [page] Obtainable Unholy lands at 2350 (Raidbots Advanced,
   Fate's run): the All-time loadout with Heart of Roccor giving
   way to Chaos Talisman (Anniversary BRD is gone) and jewelry on
