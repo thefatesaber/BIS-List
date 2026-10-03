@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Unholy lands at 2350 (Raidbots Advanced,
+  Fate's run): the All-time loadout with Heart of Roccor giving
+  way to Chaos Talisman (Anniversary BRD is gone) and jewelry on
+  native sockets only. Monotonic: 2350 vs 2511 All-time vs 3611
+  buffed. Hygiene riding along: the All-time Unholy
+  profile's header no longer claims Frost (git am normalizes the
+  229 profile's line endings on land, as this repo now does).
+  Twelve sub-spec lists remain in flight.
 - [page] Obtainable opens for the sub-specs: Arms lands first at
   2454 (Raidbots Advanced, Fate's run). Built from the All-time
   loadout under the obtainable rules - jewelry keeps its native

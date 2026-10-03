@@ -1,4 +1,7 @@
-# All-time - Death Knight - Unholy
+# Obtainable - Death Knight - Unholy
+# OBTAINABLE WAVE candidate (2026-10-03). Changes vs the All-time profile:
+#   neck/rings: native socket only — the extra-socket tech is not farmable; socket bonus stacks dropped
+#   Heart of Roccor -> Chaos Talisman — Anniversary BRD removed; DK-main pick
 # Base Actor
 deathknight=Asimiir
 race=orc
@@ -37,7 +40,7 @@ override.player.spell_data=effect.341774.ap_coefficient=0.952896
 # Helm of the Faceless (43) 
 head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30
 # Ukhel Ancestry Beads 135
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/71856/71856,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,drop_level=30
 # Spaulders of the Thalassian Savior 44
 shoulder=,ilevel=44,id=34193,enchant_id=4194,gem_id=71856/71856,bonus_id=9037,drop_level=30
 # Titanskin Cloak 43
@@ -55,11 +58,11 @@ legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=71856/71856/71856,bonus_id=9037,
 # Dreadboots of the Legion 42
 feet=,ilevel=42,id=32345,enchant_id=1597,gem_id=71856/71856,bonus_id=9036,drop_level=30
 # Seal of the City Watch 33
-finger1=,ilevel=33,id=162542,enchant_id=6110,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30,content_tuning=2574
+finger1=,ilevel=33,id=162542,enchant_id=6110,gem_id=71856,drop_level=30,content_tuning=2574
 # Fleshfused Circle 33
-finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71856/71856,bonus_id=6710/10386/6652/10879/10396,drop_level=30,content_tuning=500
-# Heart of Roccor (155)
-trinket1=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30,content_tuning=181
+finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71856,drop_level=30,content_tuning=500
+# Chaos Talisman (obtainable swap, was Heart of Roccor)
+trinket1=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Dragonspine Trophy 38
 trinket2=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Bonereavers_Edge 38
