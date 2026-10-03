@@ -1,11 +1,10 @@
 # Herald - Priest - Shadow
-# VV: Voidform grants 5 hardcast charges on live (verified in-game); sim reads stale effectN(3)=0 and grants none. Feed the slot the code reads. Side effect: +5% haste during VF, documented.
-override.spell_data=effect.285132.base_value=5
+# VV RE-RUN (2026-10-03): last of the three flagged re-runs - the priest column is now fully on
+# the native-VV engine. The retired calibration block (285132 charges, 1242173 cooldown, 1241611
+# x1.400 rescale) is stripped; talents match the build the other three lists run; gear untouched
+# (Herald era/ilvl rules). 3589 -> 3487: the only gearless re-run, so the -102 is the pure price
+# of the old calibration premium - the native engine values Void Volley lower than the x1.400 model.
 override.spell_data=spell.10060.spell_level=1
-# VV hardcast: live has no cooldown beyond GCD (verified at dummy); sim data carries 15s
-override.spell_data=spell.1242173.cooldown=0
-# VV per-bolt: sim undershoots live by ~47% (log 3703.7 vs sim 3518, all residual in VV — casts charge-capped at parity). Coefficient rescaled 0.9544→1.400 to match logged DPS; linear, one-pass. Recalibrate on simc VV changes.
-override.spell_data=effect.1241611.sp_coefficient=1.400
 
 priest="Fateprayer"
 level=30
@@ -17,7 +16,7 @@ professions=tailoring=1/
 spec=shadow
 # loot_spec=holy
 
-talents=CIQAR03Gt7xPmcDNOjs2Zlb3yCDAAAAAAAAAAAAAYwyYwsZMGAgZAZATDgBAQAABAAAGzAWYAAAA
+talents=CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMAAzAyAmGADAAAAAAwAyYGwCDAQA
 
 # Saved Loadout: dummy 5 min
 # talents=CIQA4VPTJ8eQb8/qEm8PyGu4yADAAAAAAAAAAAAAYgxwMLGMA4BYAYGYwAGAAAAAAgBAzA2YAAAA

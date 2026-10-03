@@ -175,9 +175,10 @@ a same-character MM comparator.
 - Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
   a single paladin log (buff applications ÷ minutes) hardens them.
 - DK Roccor-vs-Chaos alt sweep (Monk Herald and DH Herald trinket closed by the 2026-10-03 audit).
-- Priest VV re-runs: the 2026-10-03 ruling (landed with buffed 5757) retired the VV calibration
-  block - the engine now models Void Volley natively. All-time (4065 -> 4165) and Obtainable
-  (3926 -> 3987) re-ran same day; Herald 3589 still carries the block and is the last one left.
+- Priest VV re-runs: CLOSED 2026-10-03. The ruling retired the VV calibration block (the engine
+  models Void Volley natively) and all four lists re-ran same day: buffed 5573 -> 5757,
+  All-time 4065 -> 4165, Obtainable 3926 -> 3987, Herald 3589 -> 3487 - the Herald drop, the
+  only gearless re-run, prices the old calibration premium at ~100 DPS.
 - Burning Primal Diamond (76885) proven BiS on the DH head over the agi
   meta; sweep candidate against Mystical Skyfire (25893) on the other
   int-caster heads. The 76885 ban is shaman-scoped, as originally ruled.
