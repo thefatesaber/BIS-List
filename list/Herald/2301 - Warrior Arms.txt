@@ -1,0 +1,102 @@
+# Herald - Warrior - Arms
+# HERALD WAVE candidate (2026-10-03): armor slots take the warrior main's Herald set verbatim
+# (ilvl <= 41, Classic/TBC/WotLK); neck/rings/trinkets ride the obtainable lines (era-exempt, <= 41 enforced).
+# Base Actor
+warrior=Kleaveland
+race=maghar_orc
+level=30
+spec=arms
+role=attack
+
+talents=CcEASWsDSHNyPDXnbxuIhH3ZdDzMzsMzwAAAAAMNYYGWGMGAAAAAAAACAAAAAAAAYAAAAAAA
+
+### Combo 1
+# Helm of the Corrupted Mind (39)
+head=,ilevel=39,id=39260,gem_id=76886/213743,bonus_id=9039
+# Hatecoil Commander's Amulet (obtainable swap, was Crystalized Sigil)
+neck=,id=134492,ilevel=33,enchant_id=5890,gem_id=213500,bonus_id=6710/6652/8810,drop_level=30
+# Destroyer Shoulderblades (40)
+shoulder=,id=30122,ilevel=40,gem_id=40146/40146,bonus_id=9035,enchant_id=3835
+# Cloak of the Shadowed Sun (39)
+back=,ilevel=39,id=40252,enchant_id=3243,gem_id=40146/40146,bonus_id=9039
+# Warbringer Breastplate (38)
+chest=,ilevel=38,id=29019,bonus_id=9034,enchant_id=6625,gem_id=40146/40146/40146,drop_level=30
+# Bracers of Eradication (40)
+wrist=,id=30057,ilevel=40,enchant_id=1885,gem_id=40146,bonus_id=9035
+# Faith Bearer's Gauntlets (33)
+hands=,ilevel=33,id=25942,enchant_id=4432,gem_id=40146/40146,bonus_id=7202
+# Red Belt of Battle 40
+waist=,ilevel=40,id=30032,gem_id=40146/40146/40146,bonus_id=9035,drop_level=30
+# Greaves of the Martyr (33)
+legs=,ilevel=33,id=30536,enchant_id=4881,gem_id=40146/40146/40146,bonus_id=6710,drop_level=30
+# Sha'tari Wrought Greaves (33)
+feet=,ilevel=33,id=28176,enchant_id=4429,gem_id=40146/40146,bonus_id=6710,drop_level=30
+# Fleshfused Circle 33 — CRUSADER MODEL, ONE RING ONLY (one weapon).
+# 3.0% ~ doubled from Fury's 1.3% for Arms' halved event rate. Target ~0.85-0.9 procs/min; tune after first run.
+finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=32217,drop_level=30,equip=procby/attack_37str_15dur_3.0%
+# Stitchflesh's Misplaced Signet 33 — NO proc (second Crusader would double-dip on a one-weapon spec)
+finger2=,ilevel=33,id=178736,enchant_id=6110,gem_id=32217,drop_level=30
+# Dragonspine Trophy 38 — canonical payload (108 haste). Same per-event rate as Fury; lower uptime on Arms is expected and correct. Verify vs an Arms log.
+trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
+# Pendant of the Violet Eye (obtainable swap, was Heart of Roccor)
+trinket2=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+# The Untamed Blade 40 — canonical ppm, no weapon Crusader (ring carries it)
+main_hand=the_untamed_blade_proxy,enchant_id=1900,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=97str_8dur_procby/attack_3.7ppm
+
+# Consumables
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL — level 30, single target.
+# Delete any line whose talent this build doesn't take (rend, colossus_smash,
+# overpower, execute are the usual suspects) — untalented actions throw at init.
+actions.precombat=snapshot_stats
+actions.precombat+=/battle_shout
+actions.precombat+=/battle_stance,toggle=on
+
+actions=auto_attack
+actions+=/charge,if=time<=0.5
+actions+=/ancestral_call
+actions+=/use_item,slot=trinket2
+actions+=/rend,if=dot.rend_dot.remains<=gcd
+actions+=/colossus_smash
+actions+=/mortal_strike
+actions+=/overpower
+actions+=/execute
+actions+=/slam
+
+# Simulation Options
+iterations=50000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+override.mark_of_the_wild=0
+override.hunters_mark=0
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1

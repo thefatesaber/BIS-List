@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Arms lands at 2301 (Raidbots Advanced,
+  Fate's run): the Fury main's Herald armor under Arms' own talents, APL and jewelry. The chain holds: 2301 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Obtainable Subtlety lands at 1507 and closes the wave:
   all 14 sub-specs now carry an Obtainable list, so every spec on
   the page has one (Raidbots Advanced, Fate's runs throughout).
