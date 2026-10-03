@@ -1,4 +1,7 @@
 # Herald - Hunter - Survival
+# RE-RUN NEEDED (2026-10-03): your 2309 ran on the stored file's stale conventions.
+# Fixed here: Dragonspine payload 103haste/3.2% (was 108/2.7%), proxy naming, pool line removed
+# (the rail is self-buffed). One fresh run replaces 2308/2309 as the number of record.
 # Base Actor
 override.spell_data=effect.483865.base_value=0
 hunter="Legacythirty"
@@ -38,7 +41,7 @@ finger1=,id=178824,ilevel=33,enchant_id=6110,gem_id=213500,drop_level=30
 # Fleshfused Circle (33)
 finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=213500,drop_level=30
 # Dragonspine Trophy (38)
-trinket1=Dragonspine_Trophy,ilevel=38,stats=8str_8agi,equip=procby/attack_108haste_10dur_20cd_2.7%
+trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Black Ice (38)
@@ -60,7 +63,6 @@ midnight.crucible_of_erratic_energies_violence=0
 midnight.crucible_of_erratic_energies_sustenance=0
 midnight.crucible_of_erratic_energies_predation=0
 
-external_buffs.pool=power_infusion:120
 # Custom APL
 # Custom APL — level 30 single target, v2.1.
 
