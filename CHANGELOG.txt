@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Beast Mastery lands at 2061 (Raidbots
+  Advanced, Fate's run): Bloodoath Signet gives way to
+  Stitchflesh's Misplaced Signet per the main-list ban precedent,
+  and jewelry rides native sockets. Monotonic: 2061 vs 2139
+  All-time vs 2635 buffed. Ten sub-spec lists remain in flight.
 - [page] Obtainable Survival lands at 2665 (Raidbots Advanced,
   Fate's run): the first no-ban spec - every All-time item is
   farmable, so the whole 115-DPS drop is the jewelry-socket rule.
