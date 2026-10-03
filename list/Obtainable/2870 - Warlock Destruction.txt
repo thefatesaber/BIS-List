@@ -1,4 +1,6 @@
-# All-time - Warlock - Destruction
+# Obtainable - Warlock - Destruction
+# OBTAINABLE WAVE candidate (2026-10-03). Changes vs the All-time profile:
+#   neck/rings: native socket only — the extra-socket tech is not farmable; socket bonus stacks dropped
 warlock="Fatecastr"
 level=30
 race=troll
@@ -13,7 +15,7 @@ talents=CsQAMrNP5kak+EBqLfUa3dMm+iBDBwMDAgZAAAwAjZ2AAAAAAAAAAzAAAAGMAAAMYAAgB
 # Merciless Gladiator's Felweave Cowl 45
 head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659,enchant=1sp
 # Ukhel Ancestry Beads 135
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71854/71854/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71854,drop_level=30
 # Hatefury Mantle 42
 shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=71854/71854,bonus_id=9036,drop_level=30
 # Drape of the Messenger 43
@@ -31,9 +33,9 @@ legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,
 # Treads of the False Oracle 43
 feet=,ilevel=43,id=45537,enchant_id=4092,gem_id=71854/71854,bonus_id=9043,drop_level=30
 # Fleshfused Circle 33
-finger1=,id=178869,ilevel=33,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger1=,id=178869,ilevel=33,enchant_id=6110,gem_id=71854,drop_level=30
 # Signet of the False Accuser 33
-finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
 # Pendant of the Violet Eye 38
 trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Gale of Shadows 33
