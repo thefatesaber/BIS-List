@@ -1,4 +1,6 @@
-# All-time - Druid - Balance
+# Obtainable - Druid - Balance
+# OBTAINABLE WAVE candidate (2026-10-03). Changes vs the All-time profile:
+#   neck/rings: native socket only — the extra-socket tech is not farmable; socket bonus stacks dropped
 druid="Promoting"
 level=30
 race=troll
@@ -13,7 +15,7 @@ talents=CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMKkxwMMAGwAgBjBDYGzwAYAwAAgACA
 # Frayed Scoundrel's Cap (33) — AGI_INT dual primary, reads Int on balance
 head=,ilevel=33,id=50206,gem_id=25893/213743/71854,bonus_id=4196,drop_level=30
 # Ukhel Ancestry Beads (33)
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71854/71854/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71854,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,ilevel=33,id=27434,enchant_id=3838,gem_id=71854/71854,bonus_id=6710/6652,drop_level=30
 # Drape of the Messenger (43) — cloak exempt from armor typing; Int version
@@ -31,9 +33,9 @@ legs=,ilevel=47,id=51889,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9051,
 # Footpads of Impending Death (47)
 feet=,ilevel=47,id=49895,enchant_id=4092,gem_id=71854/71854,bonus_id=9051,drop_level=30
 # Fleshfused Circle (33)
-finger1=,ilevel=33,id=178869,enchant_id=6109,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger1=,ilevel=33,id=178869,enchant_id=6109,gem_id=71854,drop_level=30
 # Signet of the False Accuser (33)
-finger2=,ilevel=33,id=178824,enchant_id=6109,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,ilevel=33,id=178824,enchant_id=6109,gem_id=71854,drop_level=30
 # Solace of the Fallen (45, heroic) — modernized proc, Arcane's verified form
 trinket1=solace_of_the_fallen_heroic_proxy,ilevel=45,stats=9int,equip=3vers_100%_8stack_10dur_procby/spell
 # Gale of Shadows (33) — procby/periodic; Moonfire+Sunfire double-dot feeds it

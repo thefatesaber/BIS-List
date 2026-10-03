@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Balance lands at 2715 (Raidbots Advanced,
+  Fate's run): no banned items - the 111-DPS drop vs All-time is
+  the jewelry-socket rule. Monotonic: 2715 vs 2826 All-time vs
+  3775 buffed. Hygiene: both Balance profiles shed their stale
+  "DRAFT - unsimmed" headers, which predated their sims. Seven
+  sub-spec lists remain in flight.
 - [page] Obtainable Arcane lands at 2271 (Raidbots Advanced,
   Fate's run): no banned items - the 109-DPS drop vs All-time is
   the jewelry-socket rule alone, with Boots of Fiery Resolution
