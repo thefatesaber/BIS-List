@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Assassination lands at 2640 (Raidbots
+  Advanced, Fate's run): Amnesia gives way to Ukhel Ancestry
+  Beads and Bloodoath Signet to Signet of the False Accuser, per
+  the ban precedent; Frayed Scoundrel's Cap, Heartrazor and
+  Heartpierce all stay - Forge of Souls, The Eye and ICC still
+  run. Monotonic: 2640 vs 2774 All-time vs 4660 buffed. Hygiene:
+  the head comments in both Assassination profiles now name the
+  Cap instead of wastewalker_helm. One sub-spec list remains in
+  flight.
 - [page] Obtainable Destruction lands at 2870 (Raidbots
   Advanced, Fate's run): no banned items - the 118-DPS drop vs
   All-time is the jewelry-socket rule. Monotonic: 2870 vs 2988

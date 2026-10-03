@@ -1,3 +1,8 @@
+# Obtainable - Rogue - Assassination
+# OBTAINABLE WAVE candidate (2026-10-03). Changes vs the All-time profile:
+#   Amnesia -> Ukhel Ancestry Beads — DF-rare ban; rogue-main obtainable neck
+#   neck/rings: native socket only — the extra-socket tech is not farmable; socket bonus stacks dropped
+#   Bloodoath Signet -> Signet of the False Accuser — per main-list ban precedent
 # Base Actor
 rogue="Fatesneak"
 level=30
@@ -12,10 +17,10 @@ spec=assassination
 talents=CMQA5HmDzx68KWyrW/8Y781L7zYMbAAAAAAglBMAAAAAgsNMDMwAGMAMDGwAAAAAAAAAAMDA
 
 
-# Frayed Scoundrel's Cap (33)
+# Frayed Scoundrel's Cap (33) — NOTE: 2 sockets (meta+prismatic); third gem is inert
 head=,id=50206,ilevel=33,gem_id=76884/213743/40150,bonus_id=6710,drop_level=30
-# Amnesia (140)
-neck=,id=200210,ilevel=33,enchant_id=5437,gem_id=213488/40150/40150,bonus_id=9156/6652/9477/8782,drop_level=30
+# Ukhel Ancestry Beads (obtainable swap, was Amnesia)
+neck=,id=193676,ilevel=33,enchant_id=5437,gem_id=213488,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=32222/32222,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
@@ -33,9 +38,9 @@ legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=40150/40150/40150,bonus_id=9051,
 # Slayer's Boots (44)
 feet=,id=34575,ilevel=44,enchant_id=1887,gem_id=40150,bonus_id=9043,drop_level=30
 # Stitchflesh's Misplaced Signet (33)
-finger1=,id=178736,ilevel=33,enchant_id=6108,gem_id=40150/40150,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Bloodoath Signet (33)
-finger2=,id=178871,ilevel=33,enchant_id=6108,gem_id=40150/40150,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger1=,id=178736,ilevel=33,enchant_id=6108,gem_id=40150,drop_level=30
+# Signet of the False Accuser (obtainable swap, was Bloodoath Signet)
+finger2=,id=178824,ilevel=33,enchant_id=6108,gem_id=40150,drop_level=30
 # Dragonspine_Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Chaos Talisman (33)
