@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Windwalker corrects to 2757 (Raidbots Advanced,
+  Fate's re-run): the P-audit replaces the borrowed Outlaw physical share (0.969) with Windwalker's own measured 0.973 - MORE physical, not less - and the raw D0 re-rolls 2477 -> 2472; the -5 on the page is the re-roll, not the P fix. The chain holds: 2757 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Herald Subtlety lands at 1233 (Raidbots Advanced,
   Fate's run): the wave closes at 14 of 14 - the Outlaw main's Herald leather under Subtlety's own kit, Heartrazor and the triple-socket Blade of the Unrequited in hand. The chain holds: 1233 herald vs the spec's
   obtainable, All-time and buffed numbers above it.

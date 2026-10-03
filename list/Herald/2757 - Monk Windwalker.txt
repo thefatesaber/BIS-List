@@ -1,4 +1,12 @@
 # Herald - Monk - Windwalker
+# P-AUDIT RELAND (2026-10-03): the original conversion borrowed Outlaw's physical share (P=0.969);
+# this run measures Windwalker's own - and WW is MORE physical than Outlaw: P = 0.973
+# (BoK 25.7 + Melee 24.8 + RSK 23.0 + TP 16.2 + FoF 7.6 = 97.3; excluded: Touch of Karma 1.5 nature,
+# Expel Harm 0.7 nature, Touch of Death 0.5 fixed-value, not armor-scaled).
+# Raw D0 re-rolled 2477 -> 2472 at 50k iterations; the page's -5 is the re-roll, not the P fix.
+# effective DPS = D0 x (1 + A x P x U) = 2472 x (1 + 0.2083 x 0.973 x 0.5694) = 2757
+# A = 0.2083 armor gain while shredded; U = 0.5694 of record (Twins 59.68 / Jaraxxus 45.90 / NB-1 65.25,
+# Fate's log average).
 # Base Actor
 monk="Fateruler"
 level=30
@@ -42,20 +50,6 @@ trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4444,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur
 # Vibroblade (33)
 off_hand=,ilevel=33,id=9485,enchant_id=4444,bonus_id=6710,drop_level=30
-#effective DPS = D0 × (1 + A × P × U)
-#D0 = naked sim DPS (2477 — the sim with the proc counting for zero)
-#A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
-#P = proportion affected = physical share = 0.969
-#U = measured uptime
-
-#59.68% on Twins 
-#45.90% on Jaraxxus 
-#65.25% on 1st boss of northrend beast
-#so
-#u=((59.68+45.9+65.25)/3) = 56.94
-
-
-#effective DPS = 2477 × (1 + 0.2083 × 0.969 × 0.5694) = 2762
 
 #finger1=,id=159462,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Consumables
