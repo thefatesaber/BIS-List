@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Devour corrects to 2707 (Raidbots Advanced,
+  Fate's race): the audit's trinket race pays out - Pendant of the Violet Eye solo beats the landed ToEP by 160 (2707 vs 2547; the control actor reproduced 2547 exactly). PotVE was era- and ilvl-legal all along; it went untried when the Pendant+Meteorite macro pair broke at the Herald cap. The chain holds: 2707 herald vs 3422 obtainable above it.
 - Herald Survival's stored profile comes current: iterations 10000 -> 50000, the only Herald
   not at 50k. Fate's 50k re-run prints 2309 - identical to the number of record - and the stat sheet matches the stored block digit-for-digit, so the page does not move; the file now matches the run that backs it.
 - [page] The Outlaw convention audit closes: 2473, 2365 and 2155 all stand (Raidbots Advanced,

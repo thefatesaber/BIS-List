@@ -1,4 +1,7 @@
 # Herald - Demon Hunter - Devour
+# TRINKET RACE WINNER (2026-10-03): PotVE solo takes trinket1 from ToEP, +160 (2707 vs 2547).
+# The Pendant+Meteorite macro pair broke at the Herald cap (Meteorite is 43); the audit forced
+# the Pendant's solo head-to-head and it won. Stacking model as stored in the warlock lists.
 # Base Actor
 demonhunter="Fateberserkr"
 level=30
@@ -38,8 +41,8 @@ feet=,id=40243,ilevel=39,enchant_id=4429,gem_id=71854,bonus_id=9039,drop_level=3
 finger1=,ilevel=33,id=178824,enchant_id=6109,gem_id=71854,drop_level=30
 # Fleshfused Circle (33)
 finger2=,ilevel=33,id=178869,enchant_id=6109,gem_id=71854,drop_level=30
-# talisman_of_ephemeral_power (38)
-trinket1=,id=18820,ilevel=38
+# pendant_of_the_violet_eye_proxy (38)
+trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Armored Elekk Tusk (32)
 trinket2=,id=108902,ilevel=32,bonus_id=6691/6703,drop_level=30
 # The Turning Tide 39
