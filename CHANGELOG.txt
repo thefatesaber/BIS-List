@@ -7,6 +7,29 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] The PI dead zone is dead: Elemental corrects to +87
+  (+2.8%) and Balance to +117 (+3.2%), both measured by Fate's
+  fresh clean pairs run today. Elemental: 3159 without PI against
+  3247 with it (PI 14.8% uptime, 3 casts; the 3246 of record sits
+  one DPS of run noise away). Balance: 3658 without PI against the
+  3775 of record itself (PI 11.9% uptime, 2 casts; buff tables
+  otherwise identical). The old "exact zero" and "+15" were the
+  campaign's second and third artifacts, cousins of Arcane's
+  below: each compared the record against a held run that still
+  carried the invoke, so the difference measured run noise, not
+  Power Infusion. The entry below called both verified same-input
+  pairs; they were same-input in the wrong sense, never
+  minus-one-line A/Bs. Every spec now shows a real PI gain,
+  +2.0% (Demonology) to +10.8% (Windwalker) - though both band
+  ends sit in the queued seven below.
+  The PI-less display follows: Elemental shows 3159 (between
+  Enhancement 3283 and Havoc 3141), Balance 3658 (between
+  Survival 3761 and Arms 3594) - no rail order changes either
+  way. Seven PI cells still rest on the evidence class that
+  produced all three artifacts - Windwalker, Feral, Fury, Ret,
+  Havoc, Demonology, Subtlety - and are queued for the same
+  one-run check; Subtlety's sits two DPS from Beast Mastery on
+  the rail, so that pair could flip.
 - [page] Arcane's Power Infusion worth corrects to +99 (+3.2%),
   measured by Fate's fresh clean pair: 3113 without PI against the
   3212 of record (PI 11.7%, 2 casts, buff tables otherwise
