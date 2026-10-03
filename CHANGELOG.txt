@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] All-time Shadow Priest re-runs to 4165 (Raidbots Advanced,
+  Fate's run): first of the three flagged VV re-runs lands +100 over 4065 - the native-VV engine plus the feet enchant (mastery -> haste), the Pendant of the Violet Eye replacing Solace in the pocket, and the talent/APL refresh. Rings stay at 33 on this list. Herald 3589 and Obtainable 3926 remain on the watch list. The chain holds: 3926 obtainable under 4165, under 5757 buffed.
 - [page] Full buffed Shadow Priest regears to 5757 (Raidbots Advanced,
   Fate's run): +184 over the 5573 of record - Arch-Druid's Tainted Seal and the Signet of the False Accuser both at 47, Treads of the False Oracle, and the Pendant + Gale pocket pair replace Gale + Solace; talents and APL refresh to current. Ruling of record: Raidbots' engine now models Void Volley natively, so the VV calibration block (charges, cooldown, x1.400 rescale) retires from this profile - All-time 4065 and Herald 3589 still carry it and Obtainable 3926 never did; all three priest lists are flagged for re-runs on the new engine. The chain holds: 5757 buffed above 4065 All-time.
 - [page] Herald Devour corrects to 2707 (Raidbots Advanced,

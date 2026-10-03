@@ -1,13 +1,13 @@
 # All-time - Priest - Shadow
-# VV: Voidform grants 5 hardcast charges on live (verified in-game); sim reads stale effectN(3)=0 and grants none. Feed the slot the code reads. Side effect: +5% haste during VF, documented.
-override.spell_data=effect.285132.base_value=5
+# VV RE-RUN (2026-10-03): first of the three flagged priest re-runs after the engine ruling -
+# Raidbots now models Void Volley natively, so the retired VV calibration block (285132 charges,
+# 1242173 cooldown, 1241611 x1.400 rescale) is gone from this profile. Also in this run: feet
+# enchant mastery -> haste (4429 -> 4069), Pendant of the Violet Eye replaces Solace of the Fallen
+# in trinket2, talents and APL refreshed. Rings stay at 33 on this list. 4065 -> 4165.
 # PI: row-3 class talent, taken in this build. Data still carries the vestigial Spell Level 58,
 # so relax the level gate for the level-30 actor. Spell verified present on midnight a9a6985.
 override.spell_data=spell.10060.spell_level=1
-# VV hardcast: live has no cooldown beyond GCD (verified at dummy); sim data carries 15s
-override.spell_data=spell.1242173.cooldown=0
-# VV per-bolt: sim undershoots live by ~47% (log 3703.7 vs sim 3518, all residual in VV — casts charge-capped at parity). Coefficient rescaled 0.9544→1.400 to match logged DPS; linear, one-pass. Recalibrate on simc VV changes.
-override.spell_data=effect.1241611.sp_coefficient=1.400
+
 
 priest="Fateprayer"
 level=30
@@ -42,16 +42,16 @@ hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_
 waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
 # Leggings of Calamity 44
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
-# Slippers of the seacaller 42
-feet=,ilevel=43,id=45537,enchant_id=4429,gem_id=71854/71854,bonus_id=,drop_level=30
+# Treads of the False Oracle 43
+feet=,ilevel=43,id=45537,enchant_id=4069,gem_id=71854/71854,bonus_id=,drop_level=30
 # Footbomb Championship Ring 33
 finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Fleshfused Circle 33
+# Signet of the False Accuser 33
 finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Gale of Shadows 33
 trinket1=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
-# Solace of the Fallen 45
-trinket2=,ilevel=44,id=47271,bonus_id=9047
+# Pendant of the Violet Eye 38
+trinket2=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.525tick_20dur_120cd
 # Abracadaver 45 
 main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=71854/71854/71854,enchant_id=2669
 
