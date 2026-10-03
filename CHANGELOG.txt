@@ -7,6 +7,23 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] The queued seven re-ran and the wave-pair evidence class
+  retires: Subtlety (+110), Ret (+152) and Fury (+164) confirmed
+  exactly; four corrected - Windwalker 432 -> 113 (+2.6%), Feral
+  175 -> 165 (+4.2%), Havoc 115 -> 114 (+3.6%), Demonology 71 ->
+  106 (+3.0%). Windwalker's was the board's largest claimed PI
+  worth and the campaign's largest artifact: the old pair's sides
+  differed by more than the invoke line. Fresh pairs against the
+  records: WW 4325/4438, Feral 3902/4067, Havoc 3142/3256, Demo
+  3553/3659, Sub 2553/2663, Ret 4158/4310, Fury 4973/5137. All 27
+  PI cells now rest on Fate's own minus-one-line A/Bs, and the
+  worth lands in a tight physical band everywhere: +2.6%
+  (Windwalker) to +6.5% (Assassination). The PI-less display
+  follows: Monk rises from 4006 to 4325 and passes Paladin (4158)
+  to sit three DPS under Devastation (4328) - the only rail order
+  change; Feral 3902, Havoc 3142 and Demonology 3553 move without
+  reordering; Subtlety stays 2553, two DPS under Beast Mastery -
+  no flip.
 - [page] The PI dead zone is dead: Elemental corrects to +87
   (+2.8%) and Balance to +117 (+3.2%), both measured by Fate's
   fresh clean pairs run today. Elemental: 3159 without PI against
