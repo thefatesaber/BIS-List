@@ -6,6 +6,17 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-03
+- [page] Obtainable Devourer sheds its two TBC-raid alternates per
+  Fate - the parked junk-alt cleanup lands: Liar's Tongue Gloves
+  (28776, -2.0%) comes off the Gloves of the Endless Dark row,
+  leaving Gloves of Immortal Dusk as its one alternate, and Belt
+  of One-Hundred Deaths (30106, -2.7%) comes off the
+  Soul-Devouring Cinch row, which now carries no alternates. Rows,
+  dps and the stored profile are untouched - neither item was worn
+  by the Obtainable run; the same items remain as Herald rows on
+  the specs that wear them there.
+
 ## 2026-10-01
 - [page] The All-time Full buffed view gains a Buff worth panel:
   one line per buff - Consumables, Power Infusion, Bloodlust
