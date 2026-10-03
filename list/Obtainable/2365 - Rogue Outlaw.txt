@@ -59,20 +59,13 @@ trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_0.4ppm_184haste_5dur
 # Vibroblade (33)
 off_hand=,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
-#effective DPS = D0 × (1 + A × P × U)
-#D0 = naked sim DPS (2264 — the sim with the proc counting for zero)
-#A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
-#P = proportion affected = physical share = 0.969
-#U = measured uptime
-
-#59.68% on Twins 
-#45.90% on Jaraxxus 
-#65.25% on 1st boss of northrend beast
-#so
-#u=((59.68+45.9+65.25)/3) = 56.94
-
-
-#effective DPS = 2264 × (1 + 0.2083 × 0.969 × 0.5694) = 2049
+#effective DPS = D0 x (1 + A x P x U)
+#D0 = naked sim DPS (raw - Vibroblade's shred counts for zero in the sim)
+#A = 0.2083 armor gain while shredded; P = 0.969 physical share of record; U = 0.5694 measured uptime
+#(Twins 59.68 / Jaraxxus 45.90 / NB-1 65.25 log average)
+#effective DPS = 2121 x (1 + 0.2083 x 0.969 x 0.5694) = 2365
+#CONVENTION AUDIT (2026-10-03): Fate's re-run confirms D0 (pie P = 0.964, within rounding of the
+#0.969 of record) - the stored 2365 was already effective. The old comment (2264 -> "2049") was mangled on both ends; the re-run printed 2121 exactly.
 
 # Consumables
 # potion=golemblood_potion

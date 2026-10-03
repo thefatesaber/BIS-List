@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] The Outlaw convention audit closes: 2473, 2365 and 2155 all stand (Raidbots Advanced,
+  Fate's three re-runs): the raws print 2218, 2121 and 1932.9 - exact reconstructions at the Outlaw convention (x 1.1149), so all three stored numbers were already effective and the parked 2473 -> 2757 question dies. The four Vibroblade off-hand rows now document raw -> effective the way Enh, Havoc and WW do; the three stored profiles shed their stale comment blocks (one was arithmetically impossible). No number moves.
 - [page] Herald Windwalker corrects to 2757 (Raidbots Advanced,
   Fate's re-run): the P-audit replaces the borrowed Outlaw physical share (0.969) with Windwalker's own measured 0.973 - MORE physical, not less - and the raw D0 re-rolls 2477 -> 2472; the -5 on the page is the re-roll, not the P fix. The chain holds: 2757 herald vs the spec's
   obtainable, All-time and buffed numbers above it.
