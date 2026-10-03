@@ -1,0 +1,130 @@
+# Herald - Hunter - beast_mastery
+# HERALD WAVE candidate (2026-10-03): armor slots take the hunter main's Herald set verbatim
+# (ilvl <= 41, Classic/TBC/WotLK); neck/rings/trinkets ride the obtainable lines (era-exempt, <= 41 enforced).
+# Base Actor
+hunter="Legacythirty"
+level=30
+race=goblin
+region=us
+server=thrall
+role=attack
+professions=leatherworking=66/engineering=1
+spec=beast_mastery
+
+talents=C0PAD57yiELKEty14ekTDtZEqAAAAAAAAAADzghBgBMmZGDgxDYGAEAAAAAAAAgBAAAzCAAA
+
+# Helm of Desolation 33
+head=,id=28192,ilevel=33,gem_id=76884/213743/32222,bonus_id=7202,drop_level=30,enchant=12crit
+# Tuskarr Bone Necklace (135)
+neck=,id=193666,ilevel=33,enchant_id=5437,gem_id=32222,drop_level=30
+# Pauldrons of Desolation 33
+shoulder=,id=27713,ilevel=33,enchant_id=3808,gem_id=32222/32222,bonus_id=7202,drop_level=30
+# Cloak of the Coming Night 33
+back=,ilevel=33,id=34708,enchant_id=3243,gem_id=32222,bonus_id=7202
+# Hauberk of Desolation 33
+chest=,ilevel=33,id=28401,enchant_id=2661,gem_id=32222/32222/32222,bonus_id=7202,drop_level=30
+# Bracers of the Forest Stalker (33)
+wrist=,id=34698,ilevel=33,enchant_id=4416,gem_id=32222/32222,bonus_id=6710/6652/8810,drop_level=30
+# Gauntlets of Desolation 33
+hands=,ilevel=33,id=27528,enchant_id=4430,gem_id=32222/32222,bonus_id=7202,drop_level=30
+# Terror Pit Girdle 38
+waist=,ilevel=38,id=28778,gem_id=32222/32222/32222,bonus_id=9034,drop_level=30
+# Wyrmscale Greaves (33)
+legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=32222/32222/32222,bonus_id=6710/6652,drop_level=30
+# Star-Strider Boots (40)
+feet=,id=29951,ilevel=40,enchant_id=1887,gem_id=32222/32222,bonus_id=9035,drop_level=30
+# Seal of the City Watch (33)
+finger1=,id=162542,ilevel=33,enchant_id=6108,gem_id=32194,drop_level=30
+# Stitchflesh's Misplaced Signet (obtainable swap, was Bloodoath Signet)
+finger2=,id=178736,ilevel=33,enchant_id=6108,gem_id=32194,drop_level=30
+# Dragonspine Trophy (38)
+trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
+# Herkuml War Token (15)
+trinket2=,id=50355,ilevel=15
+# Arcanite Steam-Pistol (40)
+main_hand=,id=29949,ilevel=40,enchant_id=5950,bonus_id=9035
+
+# Consumables
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
+augmentation=disabled
+
+# Expansion Options
+midnight.crucible_of_erratic_energies_violence=0
+midnight.crucible_of_erratic_energies_sustenance=0
+midnight.crucible_of_erratic_energies_predation=0
+
+# Custom APL — level 30 single target, v1.
+# Stock BM APL, level-30 legalized.
+# Level blockers removed: drst/drcleave + routing (black_arrow = hero tree),
+#   natures_ally / master_handler (20-pt gate), apex.3 (untaken → !apex.3 always true),
+#   howl_summon / howl_of_the_pack_leader (hero).
+# Rail trims: puzzle box, racials (goblin), potion (disabled), PI invoke, retarget.
+# Kept: beast_cleave / wild_thrash / serpentine_strikes conditionals — reachable, sweep-safe.
+
+actions.precombat=summon_pet
+actions.precombat+=/snapshot_stats
+
+actions=auto_shot
+actions+=/call_action_list,name=trinkets
+actions+=/call_action_list,name=st,if=active_enemies<2|!talent.beast_cleave&active_enemies<3
+actions+=/call_action_list,name=cleave,if=active_enemies>2|talent.beast_cleave&active_enemies>1
+
+actions.cleave=wild_thrash,if=talent.beast_cleave&(prev_gcd.1.bestial_wrath|!buff.beast_cleave.up)
+actions.cleave+=/barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage,if=full_recharge_time<gcd
+actions.cleave+=/bestial_wrath,if=buff.beast_cleave.remains|!talent.beast_cleave|!talent.wild_thrash
+actions.cleave+=/wild_thrash,if=talent.beast_cleave&cooldown.bestial_wrath.remains>buff.beast_cleave.remains|!talent.beast_cleave
+actions.cleave+=/kill_command
+actions.cleave+=/cobra_shot,if=buff.cobra_fang.up&buff.beast_cleave.remains
+actions.cleave+=/barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage
+actions.cleave+=/cobra_shot,if=talent.beast_cleave&cooldown.wild_thrash.remains>gcd|!talent.beast_cleave
+
+actions.st=barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage,if=cooldown.bestial_wrath.remains<gcd|full_recharge_time<gcd
+actions.st+=/bestial_wrath
+actions.st+=/wild_thrash,if=active_enemies>1
+actions.st+=/kill_command,if=cooldown.kill_command.charges_fractional>1.8
+actions.st+=/cobra_shot
+actions.st+=/barbed_shot
+
+actions.trinkets=use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_damage
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_buff
+
+# Simulation Options
+iterations=50000
+desired_targets=1
+max_time=300
+fixed_time=1
+enemy=Fluffy_Pillow_Custom
+target_level+=3
+#enemy_custom_health_timeline=20:0.2
+calculate_scale_factors=1
+scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
+override.allow_augmentations=0
+optimal_raid=0
+override.bloodlust=0
+override.arcane_intellect=0
+override.power_word_fortitude=0
+override.battle_shout=0
+override.mystic_touch=0
+override.chaos_brand=0
+#override.windfury_totem=1
+override.mark_of_the_wild=0
+# Hunter's Mark: known at 30 (verified in-game 2026-08-30; spell 257284 — 3% damage
+# taken, no conditions, single target, permanent). simc 1210-01 has no hunters_mark
+# action (init error), so the debuff override stands in for the hunter's own precombat
+# cast — exact on patchwerk, and the measured 2.9% removal delta matches the 3% tooltip.
+# Hunter profiles only; replace with the cast if the engine ever gains one.
+override.hunters_mark=1
+override.bleeding=0
+report_details=1
+single_actor_batch=1
+optimize_expressions=1

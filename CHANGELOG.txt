@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Beast Mastery lands at 1897 (Raidbots Advanced,
+  Fate's run): the MM main's Herald mail and Steam-Pistol under BM's own kit. The chain holds: 1897 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Herald Unholy lands at 2221 (Raidbots Advanced,
   Fate's run): the Frost main's Herald plate under Unholy's own kit. The chain holds: 2221 herald vs the spec's
   obtainable, All-time and buffed numbers above it.
