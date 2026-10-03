@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Arcane's Power Infusion worth corrects to +99 (+3.2%),
+  measured by Fate's fresh clean pair: 3113 without PI against the
+  3212 of record (PI 11.7%, 2 casts, buff tables otherwise
+  identical). The old ~0 was a measurement artifact, not physics:
+  Arcane's cell rested on the one confounded comparison in the
+  whole campaign - the held 3211 ran under optimal_raid=1, a
+  richer buff environment that happened to offset the missing PI
+  to within one DPS - and it was never re-run as a minus-one-line
+  A/B like everything else. Arcane joins the normal caster band
+  with Frost (+3.1%) and Fire (+3.8%); the true PI dead zone is
+  Elemental (exact zero) and Balance (+0.4%), both from verified
+  same-input pairs. The PI-less display follows the correction:
+  Arcane now shows 3113 and slips below Havoc's 3141 on the
+  buffed rail.
 - [page] The buffed rail now displays PI-less DPS per Fate's
   ruling: each spec's shown number - badge, rail and Best-of
   ordering alike - is its sim of record minus its measured Power
