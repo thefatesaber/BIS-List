@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable Subtlety lands at 1507 and closes the wave:
+  all 14 sub-specs now carry an Obtainable list, so every spec on
+  the page has one (Raidbots Advanced, Fate's runs throughout).
+  Sub takes the same swaps as Assassination - Ukhel Ancestry
+  Beads for Amnesia, Signet of the False Accuser for Bloodoath
+  Signet - with jewelry on native sockets. Monotonic: 1507 vs
+  1609 All-time vs 2663 buffed.
 - [page] Obtainable Assassination lands at 2640 (Raidbots
   Advanced, Fate's run): Amnesia gives way to Ukhel Ancestry
   Beads and Bloodoath Signet to Signet of the False Accuser, per
