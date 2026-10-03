@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Obtainable opens for the sub-specs: Arms lands first at
+  2454 (Raidbots Advanced, Fate's run). Built from the All-time
+  loadout under the obtainable rules - jewelry keeps its native
+  socket only, Crystalized Sigil gives way to Hatecoil
+  Commander's Amulet (DF-rare ban) and Heart of Roccor to the
+  Pendant of the Violet Eye (the Anniversary BRD raid is gone;
+  the APL's use_item line drives the on-use). Monotonicity holds:
+  2454 obtainable vs 2703 All-time vs 3709 buffed. Thirteen
+  sub-spec obtainable lists remain in flight.
 - [page] The queued seven re-ran and the wave-pair evidence class
   retires: Subtlety (+110), Ret (+152) and Fury (+164) confirmed
   exactly; four corrected - Windwalker 432 -> 113 (+2.6%), Feral
