@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Elemental lands at 1891 (Raidbots Advanced,
+  Fate's run): the Resto main's Herald mail under Elemental's own kit, Torch and Surplus Limb in hand. The chain holds: 1891 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Herald Balance lands at 2094 (Raidbots Advanced,
   Fate's run): Feral herald shells regemmed to int under Balance's own kit, Torch of Holy Fire in hand; the leather set keeps Liar's Tongue and the Belt per the main-list Herald convention, Fate-run as-is. The chain holds: 2094 herald vs the spec's
   obtainable, All-time and buffed numbers above it.
