@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Havoc lands at 1770 (Raidbots Advanced,
+  Fate's run): effective DPS - raw 1676 on the full agi regear (Outlaw Herald leather, Eskhandar + Vibroblade), scaled by the armor-shred formula at Havoc's own 0.474 physical share and U=0.5694. The chain holds: 1770 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Herald Enhancement lands at 2190 (Raidbots Advanced,
   Fate's run): effective DPS - raw 2064 with Vibroblade per Fate's ruling, scaled by the Outlaw armor-shred formula at Enhancement's own physical share (0.514 from the run's damage sources) and U=0.5694. The chain holds: 2190 herald vs the spec's
   obtainable, All-time and buffed numbers above it.
