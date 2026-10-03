@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Fire lands at 2688 (Raidbots Advanced,
+  Fate's run): the Frost main's Herald cloth under Fire's own kit - its own Gale of Shadows carries over and Armored Elekk Tusk replaces the over-cap Solace. The chain holds: 2688 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Herald Survival lands at 2309 (Raidbots Advanced,
   Fate's run): re-run on current conventions after the stored 2308 bounced off the lint gate (103/3.2% Dragonspine, proxy naming, no pool line) - same 2309, so the stale payload was worth noise. The chain holds: 2309 herald vs the spec's
   obtainable, All-time and buffed numbers above it.
