@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Balance lands at 2094 (Raidbots Advanced,
+  Fate's run): Feral herald shells regemmed to int under Balance's own kit, Torch of Holy Fire in hand; the leather set keeps Liar's Tongue and the Belt per the main-list Herald convention, Fate-run as-is. The chain holds: 2094 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Herald Arcane lands at 1815 (Raidbots Advanced,
   Fate's run): the Frost main's Herald cloth under Arcane's own kit; Armored Elekk Tusk replaces the over-cap Solace. The chain holds: 1815 herald vs the spec's
   obtainable, All-time and buffed numbers above it.
