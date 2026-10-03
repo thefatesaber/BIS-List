@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-03
+- [page] Herald Subtlety lands at 1233 (Raidbots Advanced,
+  Fate's run): the wave closes at 14 of 14 - the Outlaw main's Herald leather under Subtlety's own kit, Heartrazor and the triple-socket Blade of the Unrequited in hand. The chain holds: 1233 herald vs the spec's
+  obtainable, All-time and buffed numbers above it.
 - [page] Herald Assassination lands at 2324 (Raidbots Advanced,
   Fate's run): the Outlaw main's Herald leather under Assassination's own kit, Heartrazor with Fate's triple-socket Blade of the Unrequited in the off hand. The chain holds: 2324 herald vs the spec's
   obtainable, All-time and buffed numbers above it.
