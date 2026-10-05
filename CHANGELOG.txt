@@ -6,6 +6,10 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-05
+- [page] Full buffed Frost DK relands at 4524: Skyfury leaves its list (Raidbots Advanced,
+  server58's pair, Fate's ruling): the community report was right - the displayed 4704 ran too hot. The stored number becomes the PI-in, Skyfury-out run (4524), the PI row re-pairs on the new base (151 -> 141), and the display shows 4383. The exit priced both buffs: PI 141, Skyfury 331 - the stat trio's first measured cell. Gear, talents and APL unchanged from the 4855 of record. The other 26 buffed lists still carry Skyfury and are flagged.
+
 ## 2026-10-03
 - [page] Herald Shadow Priest re-runs to 3487 (Raidbots Advanced,
   Fate's run): the VV ruling closes - all four priest lists now sit on the native-VV engine. The only gearless re-run drops 102, the pure price of the retired calibration premium (the x1.400 rescale and charge fix valued Void Volley higher than the native engine does); talents join the build the rest of the column runs. The chain holds: 3487 herald under 3987 obtainable, 4165 All-time, 5757 buffed.

@@ -1,4 +1,10 @@
 # All-time Full buffed - Death Knight - Frost
+# SKYFURY RETIREMENT (2026-10-05): ruling - the community report was right that 4704 ran too hot;
+# Skyfury leaves this list. Stored number = this run (PI in, Skyfury out) = 4524; the PI-less
+# display shows 4383, the bare base of server58's pair. The exit measured both buffs on this
+# config: PI = 4524 - 4383 = 141 (re-paired in the Buff worth panel), Skyfury = 4855 - 4524 = 331
+# (the stat trio's first priced cell, banked in PROJECT.md). Gear, talents and APL are identical
+# to the 4855 of record - only the skyfury override is gone and the PI lines remain.
 # Base Actor
 deathknight=Asimiir
 race=orc
@@ -9,8 +15,7 @@ talents=CsPAAAAAAAAAAAAAAAAAAAAAAAwAAYgZMDDamBgZgHAwMzMDAAAAAAAAAAAAAQIAAAAYAAAA
 
 override.player.spell_data=spell.2825.spell_level=1
 override.player.spell_data=effect.856.base_value=15
-# PI: row-3 priest talent, data carries vestigial Spell Level 58 - relax for the level-30 actor,
-# then pool one external PI on a 120s cadence (buffed-set ruling 2026-09-30: PI in every buffed sim).
+# PI: external invoke needs the spell-level relax at 30 (vestigial Spell Level 58 in data)
 override.player.spell_data=spell.10060.spell_level=1
 external_buffs.pool=power_infusion:120
 # Mayhem Projection Goggles 44
@@ -131,8 +136,6 @@ actions.cooldowns+=/empower_rune_weapon,if=talent.obliteration&buff.pillar_of_fr
 # High Priority Actions
 actions.high_prio_actions=mind_freeze,if=target.debuff.casting.react
 # Use <a href='https://www.wowhead.com/spell=10060/power-infusion'>Power Infusion</a> while <a href='https://www.wowhead.com/spell=51271/pillar-of-frost'>Pillar of Frost</a> is up
-# PI pooled externally per the buffed-set ruling, on the APL's own cooldown_check gate
-# (Pillar up / no-Pillar fallback / fight end) - the stock line this comment described, restored.
 actions.high_prio_actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1,if=variable.cooldown_check
 actions.high_prio_actions+=/antimagic_shell,if=runic_power.deficit>40&death_knight.first_ams_cast<time
 
@@ -212,7 +215,6 @@ override.chaos_brand=0
 #override.windfury_totem=1
 override.mark_of_the_wild=1
 override.hunters_mark=1
-override.skyfury=1
 override.bleeding=0
 report_details=1
 single_actor_batch=1

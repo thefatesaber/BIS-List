@@ -175,6 +175,11 @@ a same-character MM comparator.
 - Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
   a single paladin log (buff applications ÷ minutes) hardens them.
 - DK Roccor-vs-Chaos alt sweep (Monk Herald and DH Herald trinket closed by the 2026-10-03 audit).
+- Skyfury retirement wave: ruling 2026-10-05, Frost DK first - its buffed list relanded 4855 -> 4524
+  (PI re-paired at 141; Skyfury priced at 331 on the way out, the stat trio's first cell). The
+  other 26 buffed lists still carry override.skyfury=1 and take the same minus-one pair when
+  re-run; Frost Mage is named next by the same community report. The 4524 stats block still
+  shows the Skyfury-era sheet until Fate's panel for the new run lands.
 - Priest VV re-runs: CLOSED 2026-10-03. The ruling retired the VV calibration block (the engine
   models Void Volley natively) and all four lists re-ran same day: buffed 5573 -> 5757,
   All-time 4065 -> 4165, Obtainable 3926 -> 3987, Herald 3589 -> 3487 - the Herald drop, the
