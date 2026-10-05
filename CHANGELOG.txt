@@ -7,8 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-05
-- [page] Full buffed Frost DK relands at 4524: Skyfury leaves its list (Raidbots Advanced,
-  server58's pair, Fate's ruling): the community report was right - the displayed 4704 ran too hot. The stored number becomes the PI-in, Skyfury-out run (4524), the PI row re-pairs on the new base (151 -> 141), and the display shows 4383. The exit priced both buffs: PI 141, Skyfury 331 - the stat trio's first measured cell. Gear, talents and APL unchanged from the 4855 of record. The other 26 buffed lists still carry Skyfury and are flagged.
+- [page] Revert: Skyfury stays in the buffed template; Frost DK returns to 4855
+  (ruling reversed same day): patch 268 retired Skyfury from the DK list after the community report, but the Full buffed set is defined with Skyfury ON for everyone and a one-spec retirement left the rail mixed-template. The displayed 4704 is the number of record again. Banked from the detour, methodology intact: Skyfury on Frost DK = 331 and PI on the bare base = 141, from server58's minus-one pairs - the stat trio's first measured cell either way.
 
 ## 2026-10-03
 - [page] Herald Shadow Priest re-runs to 3487 (Raidbots Advanced,
