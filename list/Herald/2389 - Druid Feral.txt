@@ -1,4 +1,7 @@
 # Herald - Druid - Feral
+# OWN-CAST MOTW (2026-10-05): the own-buff sweep found Feral's Herald missing the druid's own
+# Mark of the Wild (Feral All-time and all three Balance benchmarks carry it). The one-line flip
+# lands 2321 -> 2389 (+2.9%, right on MotW's 3% vers). Everything else as the 2321 of record.
 druid="Promoting"
 level=30
 race=troll
@@ -257,7 +260,7 @@ override.battle_shout=0
 override.mystic_touch=0
 override.chaos_brand=0
 #override.windfury_totem=1
-override.mark_of_the_wild=0
+override.mark_of_the_wild=1
 override.hunters_mark=0
 override.bleeding=0
 report_details=1
