@@ -1,5 +1,7 @@
 # Herald - Shaman - Elemental
-# HERALD WAVE candidate (2026-10-03): armor slots take the shaman main's Herald set verbatim
+# OWN-CAST SKYFURY (2026-10-05): the own-buff sweep found Elemental's benchmarks missing the
+# shaman's own Skyfury while Enhancement's carry it. The one-line add lands 1891 -> 1926 (+1.9%,
+# the caster side of Skyfury: +2% mastery, no windfury). Everything else as the 1891 of record.
 # (ilvl <= 41, Classic/TBC/WotLK); neck/rings/trinkets ride the obtainable lines (era-exempt, <= 41 enforced).
 
 shaman="Broadcasting"
@@ -225,6 +227,7 @@ override.power_word_fortitude=0
 override.battle_shout=0
 override.mystic_touch=0
 override.chaos_brand=0
+override.skyfury=1
 override.mark_of_the_wild=0
 override.hunters_mark=0
 override.bleeding=0

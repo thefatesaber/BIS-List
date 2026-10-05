@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-05
+- [page] Herald Elemental corrects to 1926: the shaman casts its own Skyfury (Raidbots Advanced,
+  Fate's run): second own-buff gap closed - Elemental's benchmarks were missing the buff Enhancement's already carry. The one-line add lands +35, the caster side of Skyfury (+2% mastery, visible on the sheet as 42.06 -> 45.81), stats land from Fate's panel. The chain holds: 1926 herald under 2261 obtainable. Remaining gaps: Feral Obtainable/Herald (MotW) and Elemental All-time/Obtainable.
 - [page] Herald Survival corrects to 2379: the hunter self-marks (Raidbots Advanced,
   Fate's run): the own-cast sweep found this the only hunter benchmark of nine without the hunter's own Hunter's Mark - the doctrine that sanctions the priest's PI self-cast. The one-line flip lands +70, right on HM's derived 3%; stats untouched (target debuff). Feral Obtainable/Herald (own MotW) and the three Elemental lists (own Skyfury) are the remaining own-buff gaps, re-runs in flight. The chain holds: 2379 herald under 2665 obtainable.
 - [page] Revert: Skyfury stays in the buffed template; Frost DK returns to 4855

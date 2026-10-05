@@ -177,7 +177,8 @@ a same-character MM comparator.
 - DK Roccor-vs-Chaos alt sweep (Monk Herald and DH Herald trinket closed by the 2026-10-03 audit).
 - Own-cast raid-buff gaps (template sweep 2026-10-05): six benchmark lists missed their class's
   own buff under the doctrine that sanctions priest PI and Enh Skyfury. SV Herald closed same day
-  (HM, 2309 -> 2379); pending: Feral Obtainable + Herald (own MotW) and Elemental x3 (own Skyfury).
+  (HM, 2309 -> 2379); Ele Herald closed same day (1891 -> 1926); pending: Feral Obtainable + Herald (own MotW) and
+  Elemental All-time + Obtainable (own Skyfury).
   Hygiene, no number impact: Fire x3 carry an inert priest-only PI relax; priest buffed keeps two
   inert invoke lines; Aug lacks single_actor_batch (one actor, no-op); both mage sub families name
   the enemy Fluffy_Pillow vs _Custom (identical default actor).
