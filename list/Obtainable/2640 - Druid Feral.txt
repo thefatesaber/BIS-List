@@ -1,4 +1,6 @@
 # Obtainable - Druid - Feral
+# OWN-CAST MOTW (2026-10-05): fifth own-buff gap closed - the one-line flip lands 2566 -> 2640
+# (+2.9%, MotW's 3% versatility). Everything else as the 2566 of record.
 druid="Promoting"
 level=30
 race=troll
@@ -257,7 +259,7 @@ override.battle_shout=0
 override.mystic_touch=0
 override.chaos_brand=0
 #override.windfury_totem=1
-override.mark_of_the_wild=0
+override.mark_of_the_wild=1
 override.hunters_mark=0
 override.bleeding=0
 report_details=1

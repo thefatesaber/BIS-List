@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-05
+- [page] Obtainable Feral corrects to 2640: own Mark, fifth gap closed (Raidbots Advanced,
+  Fate's run): the one-line flip lands +74, MotW's 3% versatility again. The chain holds: 2389 herald under 2640, under 2770 All-time. One gap left: Elemental All-time.
 - [page] Obtainable Elemental corrects to 2301: own Skyfury, fourth gap closed (Raidbots Advanced,
   Fate's run): the one-line add lands +40, caster-side Skyfury again (mastery 47.71 -> 51.46 on the sheet). The chain holds: 1926 herald under 2301, under 2355 All-time. Remaining gaps: Feral Obtainable (staged, awaiting its panel) and Elemental All-time.
 - [page] Herald Feral corrects to 2389: the druid wears its own Mark (Raidbots Advanced,
