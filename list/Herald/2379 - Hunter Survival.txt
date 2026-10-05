@@ -1,4 +1,7 @@
 # Herald - Hunter - Survival
+# OWN-CAST HM (2026-10-05): the own-buff sweep found this the only hunter benchmark of nine
+# without the hunter's own Hunter's Mark; the one-line flip lands 2309 -> 2379 (+3.0%, right on
+# HM's derived 3%). Stats unchanged - HM is a target debuff. Everything else as the 2309 of record.
 # RE-RUN NEEDED (2026-10-03): your 2309 ran on the stored file's stale conventions.
 # Fixed here: Dragonspine payload 103haste/3.2% (was 108/2.7%), proxy naming, pool line removed
 # (the rail is self-buffed). One fresh run replaces 2308/2309 as the number of record.
@@ -103,7 +106,7 @@ override.mystic_touch=0
 override.chaos_brand=0
 #override.windfury_totem=1
 override.mark_of_the_wild=0
-override.hunters_mark=0
+override.hunters_mark=1
 override.bleeding=0
 report_details=1
 single_actor_batch=1

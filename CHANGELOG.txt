@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-05
+- [page] Herald Survival corrects to 2379: the hunter self-marks (Raidbots Advanced,
+  Fate's run): the own-cast sweep found this the only hunter benchmark of nine without the hunter's own Hunter's Mark - the doctrine that sanctions the priest's PI self-cast. The one-line flip lands +70, right on HM's derived 3%; stats untouched (target debuff). Feral Obtainable/Herald (own MotW) and the three Elemental lists (own Skyfury) are the remaining own-buff gaps, re-runs in flight. The chain holds: 2379 herald under 2665 obtainable.
 - [page] Revert: Skyfury stays in the buffed template; Frost DK returns to 4855
   (ruling reversed same day): patch 268 retired Skyfury from the DK list after the community report, but the Full buffed set is defined with Skyfury ON for everyone and a one-spec retirement left the rail mixed-template. The displayed 4704 is the number of record again. Banked from the detour, methodology intact: Skyfury on Frost DK = 331 and PI on the bare base = 141, from server58's minus-one pairs - the stat trio's first measured cell either way.
 

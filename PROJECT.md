@@ -175,6 +175,12 @@ a same-character MM comparator.
 - Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
   a single paladin log (buff applications ÷ minutes) hardens them.
 - DK Roccor-vs-Chaos alt sweep (Monk Herald and DH Herald trinket closed by the 2026-10-03 audit).
+- Own-cast raid-buff gaps (template sweep 2026-10-05): six benchmark lists missed their class's
+  own buff under the doctrine that sanctions priest PI and Enh Skyfury. SV Herald closed same day
+  (HM, 2309 -> 2379); pending: Feral Obtainable + Herald (own MotW) and Elemental x3 (own Skyfury).
+  Hygiene, no number impact: Fire x3 carry an inert priest-only PI relax; priest buffed keeps two
+  inert invoke lines; Aug lacks single_actor_batch (one actor, no-op); both mage sub families name
+  the enemy Fluffy_Pillow vs _Custom (identical default actor).
 - Skyfury ruling 2026-10-05, made and reversed same day (patches 268/269): the DK buffed list
   briefly retired Skyfury after the community report, then reverted - the Full buffed template
   keeps Skyfury ON for everyone (line-22 definition) and a one-spec retirement left the rail
