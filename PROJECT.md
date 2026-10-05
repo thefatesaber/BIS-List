@@ -175,10 +175,13 @@ a same-character MM comparator.
 - Paladin Untamed 19.6 / Crusader 16.2 are warrior-derived inferences —
   a single paladin log (buff applications ÷ minutes) hardens them.
 - DK Roccor-vs-Chaos alt sweep (Monk Herald and DH Herald trinket closed by the 2026-10-03 audit).
-- Own-cast raid-buff gaps (template sweep 2026-10-05): six benchmark lists missed their class's
-  own buff under the doctrine that sanctions priest PI and Enh Skyfury. SV Herald closed same day
-  (HM, 2309 -> 2379); Five of six closed same day: SV Herald 2379, Ele Herald 1926, Feral Herald 2389, Ele
-  Obtainable 2301, Feral Obtainable 2640. One left: Elemental All-time (own Skyfury).
+- Own-cast raid-buff gaps: CLOSED 2026-10-05, six for six in one evening. The template sweep
+  found six benchmark lists missing their class's own raid buff (the doctrine that sanctions
+  priest PI and Enh Skyfury); all re-ran on one-line flips: SV Herald 2309 -> 2379 (HM), Feral
+  Herald 2321 -> 2389 and Obtainable 2566 -> 2640 (MotW), Elemental Herald 1891 -> 1926,
+  Obtainable 2261 -> 2301 and All-time 2355 -> 2397 (Skyfury). Every gain sat on its buff's
+  textbook value. Hygiene still parked, no number impact: Fire x3 inert PI relax; priest buffed
+  two inert invoke lines; Aug single_actor_batch; mage sub families' Fluffy_Pillow naming.
   Hygiene, no number impact: Fire x3 carry an inert priest-only PI relax; priest buffed keeps two
   inert invoke lines; Aug lacks single_actor_batch (one actor, no-op); both mage sub families name
   the enemy Fluffy_Pillow vs _Custom (identical default actor).

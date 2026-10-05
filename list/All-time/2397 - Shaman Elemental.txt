@@ -1,5 +1,7 @@
 # All-time - Shaman - Elemental
-
+# OWN-CAST SKYFURY (2026-10-05): the sweep's sixth and last gap - the one-line add lands
+# 2355 -> 2397 (+1.8%; mastery 49.21 -> 52.96 on the sheet). The own-cast doctrine is now
+# uniform across the compendium: every class's own raid buff is in its own benchmarks.
 shaman="Broadcasting"
 level=30
 race=pandaren
@@ -223,6 +225,7 @@ override.power_word_fortitude=0
 override.battle_shout=0
 override.mystic_touch=0
 override.chaos_brand=0
+override.skyfury=1
 override.mark_of_the_wild=0
 override.hunters_mark=0
 override.bleeding=0
