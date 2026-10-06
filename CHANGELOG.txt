@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-05
+- [page] The stat trio lands in the Buff worth panel: 81 measured cells from 12 runs (Raidbots
+  Advanced, Fate's campaign): Skyfury, Mark of the Wild and Battle Shout/Arcane Intellect join every spec's panel, priced by a 4-leg x 3-group multi-actor campaign after profilesets proved unable to vary sim-scoped overrides. Skyfury: 5-14% on melee via windfury (Arms 529 the crown, Outlaw 545 effective-scale, DK Frost 331 matching the banked cell to the point) and 1-2% mastery on casters, with Resto at a true zero (healing mastery). Mark of the Wild: a tight 2.4-2.9% everywhere. Battle Shout 4.7-4.8% and Arcane Intellect 2.6-2.9% - except warriors and mages at zero, own-cast like priest PI. The Base legs re-verified all 27 stored buffed numbers within 2.
 - [page] All-time Elemental corrects to 2397: the own-cast sweep closes six for six (Raidbots
   Advanced, Fate's run): the last Skyfury add lands +42 (mastery 49.21 -> 52.96). The day's ledger: SV Herald +70 (HM), Feral Herald +68 and Obtainable +74 (MotW), Elemental Herald +35, Obtainable +40 and All-time +42 (Skyfury) - every gain on its buff's textbook value. The own-cast doctrine is now uniform: every class's own raid buff is in its own benchmarks, priest PI and Enh Skyfury included. Chains hold everywhere: 1926 under 2301 under 2397 under 3246 buffed.
 - [page] Obtainable Feral corrects to 2640: own Mark, fifth gap closed (Raidbots Advanced,
