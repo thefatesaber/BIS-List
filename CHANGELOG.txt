@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-05
+- [page] Hunter's Mark goes measured 27/27: one MinusHM leg per group retires the panel's last derived rows (Raidbots
+  Advanced, Fate's three boards): the flat-3% derivation confirmed nearly everywhere - every cell lands 2.86-2.94%, the
+  arithmetic signature of a true x1.03 debuff (1 - 1/1.03 = 2.91%). Largest correction: priest 162 -> 168 (the old cell
+  was 3% of a stale base). Monk's lone measured cell reproduced exactly (128). Hunters' own Mark stays in their numbers
+  with the own-cast note (MM 131, SV 113, BM 76), Outlaw converts raw 109 to 122 effective, and Resto answers at 174 -
+  the Mark boosts its damage benchmark even though Skyfury's mastery cannot. No derived row remains in the Buff worth panel.
 - [page] The stat trio lands in the Buff worth panel: 81 measured cells from 12 runs (Raidbots
   Advanced, Fate's campaign): Skyfury, Mark of the Wild and Battle Shout/Arcane Intellect join every spec's panel, priced by a 4-leg x 3-group multi-actor campaign after profilesets proved unable to vary sim-scoped overrides. Skyfury: 5-14% on melee via windfury (Arms 529 the crown, Outlaw 545 effective-scale, DK Frost 331 matching the banked cell to the point) and 1-2% mastery on casters, with Resto at a true zero (healing mastery). Mark of the Wild: a tight 2.4-2.9% everywhere. Battle Shout 4.7-4.8% and Arcane Intellect 2.6-2.9% - except warriors and mages at zero, own-cast like priest PI. The Base legs re-verified all 27 stored buffed numbers within 2.
 - [page] All-time Elemental corrects to 2397: the own-cast sweep closes six for six (Raidbots
