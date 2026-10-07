@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The three held specs land on confirmed engine drift: Enhancement 3415 -> 3724 (+9.0%), Unholy
+  3611 -> 3652, Survival 3871 -> 3903 (Raidbots Advanced). The A/A runs of the untouched stored inputs
+  agree with the split-run bases within 2 - two independent measurements each - so the buffed numbers
+  move as engine corrections, profiles renamed with zero content change; the breakdowns show why
+  (Enhancement's windfury/imbue lines, Unholy's Dread Plague - module implementations since the Oct-5
+  legs). Their consumable components land with them: Enh potion 49 / flask 125 / food 103 (Pandaren
+  double food again) / stone 339 (9.1%); Unholy 57/125/59/259; SV 59/124/55/290. 22 of 27 panels now
+  itemized; the three panels' pre-split cells, aggregates included, stay priced on the old engine with
+  re-pricing parked. Eight casters outstanding.
 - [page] The consumables split lands for 15 more specs: 58 component rows from Fate's profileset runs
   (Raidbots Advanced; 19 of 27 panels now itemized with Fury's pilot). Every aggregate reconfirms: the
   in-cell components sum within 13 DPS of each spec's measured Consumables cell - fifteen independent
