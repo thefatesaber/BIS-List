@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The caster wave lands the consumables split for 7 more specs - 26 of 27 panels itemized
+  (Raidbots Advanced): five Base rows reproduce stored exactly (Evoker, Demo, Ele, Resto, Balance),
+  Shadow -2, Destro +3 noise. The single-oil casters land in a tight band - oil 4.4-4.7%, flask
+  6.9-7.4% - and Pandaren Epicurean prints across all three Pandaren toons (Shadow food 172, Resto
+  166, Ele 94, roughly double the field). Resto's composition check is the pick of the campaign:
+  components sum 945 against the 946 aggregate. HELD: Devour - its Base came back 5657 against 5250
+  stored, +7.75%, the exact jump server58's character showed; the Devourer engine moved again between
+  this morning's re-verification and tonight. A/A out; its whole column is suspect until it answers.
 - [page] The three held specs land on confirmed engine drift: Enhancement 3415 -> 3724 (+9.0%), Unholy
   3611 -> 3652, Survival 3871 -> 3903 (Raidbots Advanced). The A/A runs of the untouched stored inputs
   agree with the split-run bases within 2 - two independent measurements each - so the buffed numbers
