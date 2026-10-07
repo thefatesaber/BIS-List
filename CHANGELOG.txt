@@ -6,6 +6,16 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-07
+- [page] Devour re-verifies on the Devourer-enabled engine and adopts the meta-synced potion line (Raidbots
+  Advanced, server58's report): all four stored numbers reproduce within noise - 3562/3423/2707/5250 against
+  3561/3422/2707/5248 stored, the Herald exact - so the community-reported engine jump (4985 -> 5371, a personal
+  September baseline) was never in our column. The one landed change: the Full buffed profile replaces its potion
+  line with the metamorphosis-synced form (potion,if=buff.metamorphosis.up|fight_remains<=30); the input of record
+  moving takes the number with it, 5248 -> 5250. All seven Devour Buff-worth pcts hold at one decimal against the
+  new base, and the Oct-5 leg campaign already ran post-implementation. The report's melee stone-bake and Feral
+  Superior Impact items stay open pending rulings.
+
 ## 2026-10-05
 - [page] Hunter's Mark goes measured 27/27: one MinusHM leg per group retires the panel's last derived rows (Raidbots
   Advanced, Fate's three boards): the flat-3% derivation confirmed nearly everywhere - every cell lands 2.86-2.94%, the

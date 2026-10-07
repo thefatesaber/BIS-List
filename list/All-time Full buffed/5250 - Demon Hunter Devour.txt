@@ -84,7 +84,7 @@ actions+=/consume,if=!buff.metamorphosis.up
 # Deadlock guard — do not remove
 actions+=/consume
 
-actions.cooldowns=potion,use_off_gcd=1,if=buff.metamorphosis.up|fight_remains<=20
+actions.cooldowns=potion,if=buff.metamorphosis.up|fight_remains<=30
 actions.cooldowns+=/invoke_external_buff,use_off_gcd=1,name=power_infusion,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks&cooldown.void_ray.up|fight_remains<=20&!buff.power_infusion.up
 actions.cooldowns+=/use_item,use_off_gcd=1,slot=trinket1,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks&cooldown.void_ray.up|fight_remains<=20
 

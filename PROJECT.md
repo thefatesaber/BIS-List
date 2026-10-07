@@ -180,18 +180,31 @@ a same-character MM comparator.
   priest PI and Enh Skyfury); all re-ran on one-line flips: SV Herald 2309 -> 2379 (HM), Feral
   Herald 2321 -> 2389 and Obtainable 2566 -> 2640 (MotW), Elemental Herald 1891 -> 1926,
   Obtainable 2261 -> 2301 and All-time 2355 -> 2397 (Skyfury). Every gain sat on its buff's
-  textbook value. Hygiene still parked, no number impact: Fire x3 inert PI relax; priest buffed
-  two inert invoke lines; Aug single_actor_batch; mage sub families' Fluffy_Pillow naming.
-  Hygiene, no number impact: Fire x3 carry an inert priest-only PI relax; priest buffed keeps two
+  textbook value. Hygiene, no number impact: Fire x3 carry an inert priest-only PI relax; priest buffed keeps two
   inert invoke lines; Aug lacks single_actor_batch (one actor, no-op); both mage sub families name
   the enemy Fluffy_Pillow vs _Custom (identical default actor).
 - Skyfury ruling 2026-10-05, made and reversed same day (patches 268/269): the DK buffed list
   briefly retired Skyfury after the community report, then reverted - the Full buffed template
   keeps Skyfury ON for everyone (line-22 definition) and a one-spec retirement left the rail
   mixed. Banked from the detour: Frost DK Skyfury = 331 and PI-on-bare = 141 (server58's pairs,
-  the stat trio's first cell). OPEN: the Enhancement benchmark lists (All-time 2475, Obtainable
-  2310, Herald 2190) run own-cast override.skyfury=1 while Elemental's benchmarks do not - the
-  priest-PI-analog sanction or the strip needs a ruling; one side's three numbers move either way.
+  the stat trio's first cell). The Elemental question this left open closed with the own-cast
+  sweep (patches 270-275): the sanction won - Elemental's three benchmarks joined Enhancement
+  on own-cast Skyfury.
+- server58 report #2 (2026-10-06, three items). (1) Devourer engine: RESOLVED 2026-10-07.
+  Raidbots models the spec natively now, and all four Devour numbers re-verified on that engine
+  within noise (3562/3423/2707/5250 vs 3561/3422/2707/5248 stored, Herald exact); his 4985 ->
+  5371 jump was a personal stale baseline, not our column. One change landed: the buffed profile
+  adopts the metamorphosis-synced potion line (potion,if=buff.metamorphosis.up|fight_remains<=30)
+  - the input of record changed, so 5248 -> 5250 rides with it; all seven Devour buff-worth pcts
+  hold at one decimal and the Oct-5 legs already ran post-implementation. (2) OPEN - melee stone
+  bake: the +15 min/max is confirmed on the buffed rail only (benchmarks clean); the crit half
+  (+3 2H / +6 DW helm) never entered the repo; anomalies for server58: Heartpierce +12/+15, Ret's
+  Untamed 31/43 vs Arms/Fury 32/44. Ruling pending: fold stone worth into the melee Consumables
+  cells via MinusStone legs (weapon stats are actor-scoped; 3 runs on the group architecture),
+  and whether the missing crit joins the bake. (3) OPEN - Feral Mighty Agility -> Superior Impact
+  swap: 7 page rows carry enchant 4227 (SV too - scope question for server58); feral's buffed
+  staff bakes stone+SI (39/47 vs SV's 37/45 on the same staff) over enchant 1896; the swap means
+  3 feral benchmark re-runs plus a buffed rebuild once the SI details are confirmed.
 - Priest VV re-runs: CLOSED 2026-10-03. The ruling retired the VV calibration block (the engine
   models Void Volley natively) and all four lists re-ran same day: buffed 5573 -> 5757,
   All-time 4065 -> 4165, Obtainable 3926 -> 3987, Herald 3589 -> 3487 - the Herald drop, the
