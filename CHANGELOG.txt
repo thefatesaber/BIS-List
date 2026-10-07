@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The Devour column completes on tonight's engine: All-time 3561 -> 3838, Obtainable 3422 -> 3689,
+  Herald 2707 -> 2918 (Raidbots Advanced). The drift is a uniform x1.078 across all four conditions -
+  each list lands on stored x 1.0779 to the digit, matching the buffed correction - one clean
+  multiplicative engine change, profiles renamed content-unchanged, provs to 2026-10-07. Devour passes
+  Frost mage on the All-time rail. The whole column is now current on the evening engine; its pre-split
+  panel cells stay old-engine with re-pricing parked.
 - [page] Devour closes the campaign at 27 of 27: the A/A confirms the second intraday Devourer engine
   event - the untouched stored input prints 5659 against 5250 stored, agreeing with the split Base
   (5657) within 2, and +7.8% is the exact jump server58's character showed (Raidbots Advanced). The
