@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The Consumables cell starts itemizing: Fury's pilot lands Potion 63 (1.1%), Flask 148 (2.6%),
+  Food 60 (1.1%) and Sharpening Stone 341 (6.1%) as component rows (Raidbots Advanced, one profileset
+  run). The pilot proves profilesets DO vary actor-scoped options - consumable lines and gear - where
+  the sim-scoped raid buffs defeated them; the Base row reproduced 5632 (+2) and the three in-cell
+  components compose to 271 against the 269 aggregate. The stone row sits OUTSIDE the aggregate (baked
+  in weapon stats, note says so): Fury's true consumable package is ~610, quantifying the melee
+  understatement server58 reported. The 26 remaining spec files are out - casters split potion/flask/
+  food/oil, melee potion/flask/food/stone; display is untouched (only PI subtracts).
 - [page] The Consumables-deduction display ruling is reversed within the hour (patches 283/284): displayed
   buffed DPS nets out Power Infusion only, as ruled 2026-10-03 - patch 283 read the request wrong and the
   revert restores the display calc, the list description and the docs byte-perfect. Banked from the detour:
