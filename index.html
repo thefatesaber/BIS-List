@@ -260,6 +260,14 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .buffworth .bwpct{text-align:right}
 .buffworth .bwtag{border:1px solid rgba(255,255,255,.22); border-radius:8px; padding:0 6px;
   font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; cursor:help; justify-self:start}
+.buffworth .cline.bwsub{display:none}
+#buffworthlines.cmpopen .cline.bwsub{display:contents}
+.buffworth .bwhead{cursor:pointer}
+.buffworth .bwhead b::before{content:"\25B8 "; color:var(--dust)}
+#buffworthlines.cmpopen .bwhead b::before{content:"\25BE "}
+.buffworth .cline.bwsub b{font-weight:400; color:var(--dust); padding-left:14px; position:relative}
+.buffworth .cline.bwsub b::before{content:"\2514"; position:absolute; left:2px; color:var(--dim)}
+.buffworth .cline.bwsub .bwval{color:var(--dust); font-weight:400}
 .paneline.solo{grid-template-columns:minmax(0,1fr)}
 .paneline.solo > .consum, .paneline.solo > .talents{grid-column:1}
 .statpanel[hidden], .consum[hidden]{display:none !important}
@@ -2114,18 +2122,23 @@ function renderMain(){
   if (cons) $("consumlines").innerHTML = consumHtml(cons);
   const bw = state.list === "alltime_buffed" ? (cls.buffWorth || null) : null;
   $("buffworth").hidden = !bw || !bw.length;
-  if (bw && bw.length) $("buffworthlines").innerHTML = bw.map(b => {
+  if (bw && bw.length) { $("buffworthlines").classList.remove("cmpopen"); $("buffworthlines").innerHTML = bw.map(b => {
     const tip = b.status === "estimated"
       ? "PI bundled with a first potion drink in the A/B; the potion share is priced at +1.5% from the Subtlety measured pair."
       : b.status === "derived"
       ? "Derived from the Windwalker model probe: the sim applies Hunter's Mark as an unconditional 3% multiplier."
       : "Number of record minus the same input re-run with the buff removed.";
-    return '<span class="cline"><b>'+esc(b.buff)+'</b>'
+    const isComp = !!(b.note && b.note.indexOf("Consumables") !== -1);
+    const isHead = b.buff === "Consumables";
+    let note = b.note || "";
+    if (isComp) note = note.replace("baked - not in Consumables", "baked - not in total").replace(/^in Consumables(, )?/, "");
+    return '<span class="cline'+(isComp ? ' bwsub' : '')+(isHead ? ' bwhead' : '')+'"'+(isHead ? ' title="Click to show the component split"' : '')+'><b>'+esc(b.buff)+'</b>'
     + '<span class="bwval">'+(b.dps > 0 ? "+" : "")+b.dps.toLocaleString()+' DPS</span>'
     + '<small class="bwpct">('+(b.pct > 0 ? "+" : "")+b.pct.toFixed(1)+'%)</small>'
-    + '<small class="bwtag" title="'+tip.replace(/"/g, "&quot;")+'">'+esc(b.status)+'</small>'
-    + '<small class="bwnote">'+(b.note ? esc(b.note) : "")+'</small>'
+    + '<small class="bwtag"'+(isComp ? ' style="border:none"' : ' title="'+tip.replace(/"/g, "&quot;")+'"')+'>'+(isComp ? "" : esc(b.status))+'</small>'
+    + '<small class="bwnote">'+esc(note)+'</small>'
     + '</span>'; }).join("");
+  $("buffworthlines").onclick = e => { if (e.target.closest && e.target.closest(".bwhead")) $("buffworthlines").classList.toggle("cmpopen"); }; }
   $("paneline").classList.toggle("wbw", !(!bw || !bw.length));
   $("paneline").classList.toggle("solo", $("statpanel").hidden);
   $("classnotes").hidden = true; // class notes hidden for now

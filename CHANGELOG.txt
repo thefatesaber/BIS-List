@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The Buff worth panel goes collapsible (ruling: option C of three mocks): the Consumables row
+  grows a chevron and the component split - potion, flask, food, oil, stone - opens on click, collapsed
+  by default, returning the panel to its pre-campaign height. Component rows render indented and dimmed
+  inside the same grid (columns stay aligned), their tags drop, and the structural notes translate -
+  "in Consumables" becomes the indentation itself, the stone's note reads "baked - not in total".
+  Display math untouched; renderer and CSS only, every number of record byte-identical.
 - [page] The Devour column completes on tonight's engine: All-time 3561 -> 3838, Obtainable 3422 -> 3689,
   Herald 2707 -> 2918 (Raidbots Advanced). The drift is a uniform x1.078 across all four conditions -
   each list lands on stored x 1.0779 to the digit, matching the buffed correction - one clean
