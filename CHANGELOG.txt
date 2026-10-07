@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The consumables split lands for 15 more specs: 58 component rows from Fate's profileset runs
+  (Raidbots Advanced; 19 of 27 panels now itemized with Fury's pilot). Every aggregate reconfirms: the
+  in-cell components sum within 13 DPS of each spec's measured Consumables cell - fifteen independent
+  cross-checks of cells measured weeks apart. Findings: the stone is the largest single consumable
+  wherever it exists - the dagger twins at 12.9% (Sub 343, Assa 603), Outlaw 438 effective (10.5%), WW
+  453 and Havoc 331 (10.2%), Feral 354 (8.7%, carries the baked Superior Impact +2), DK Frost 340, Ret
+  242, Arms 211; the flask is the biggest bottle (casters 6.6-7.6%, melee 2.7-3.9%); Pandaren Epicurean
+  shows up in the data - WW food 131 (3.0%), double the field. HELD, not landed: Enhancement, Unholy and
+  Survival - their Base rows came back 3723/3653/3901 against 3415/3611/3871 stored on byte-identical
+  actors, a +9.0%/+1.2%/+0.8% engine drift since the Oct-5 legs (the Devourer pattern); their components
+  are in hand and land once the base ruling is made. DK Frost's +4 rode along as noise, recorded. Eight
+  casters outstanding.
 - [page] The Consumables cell starts itemizing: Fury's pilot lands Potion 63 (1.1%), Flask 148 (2.6%),
   Food 60 (1.1%) and Sharpening Stone 341 (6.1%) as component rows (Raidbots Advanced, one profileset
   run). The pilot proves profilesets DO vary actor-scoped options - consumable lines and gear - where
