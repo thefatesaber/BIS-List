@@ -35,9 +35,9 @@ legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=213500/213500/213500,bonus_id=90
 # Onslaught Treads 44
 feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=213500,bonus_id=9037,drop_level=30
 # Fleshfused Circle 33
-finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30,equip=procby/attack_37str_15dur_3.0%
+finger1=,ilevel=33,id=178869,enchant_id=6108,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30,equip=procby/attack_37str_15dur_3.0%
 # Stitchflesh's Misplaced Signet 33
-finger2=,ilevel=33,id=178736,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30,equip=procby/attack_37str_15dur_3.0%
+finger2=,ilevel=33,id=178736,enchant_id=6108,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30,equip=procby/attack_37str_15dur_3.0%
 # Dragonspine Trophy 38
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Heart of Roccor (155)

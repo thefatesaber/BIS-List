@@ -197,8 +197,11 @@ a same-character MM comparator.
   adopts the metamorphosis-synced potion line (potion,if=buff.metamorphosis.up|fight_remains<=30)
   - the input of record changed, so 5248 -> 5250 rides with it; all seven Devour buff-worth pcts
   hold at one decimal and the Oct-5 legs already ran post-implementation. (2) OPEN - melee stone
-  bake: the +15 min/max is confirmed on the buffed rail only (benchmarks clean); the crit half
-  (+3 2H / +6 DW helm) never entered the repo; anomalies for server58: Heartpierce +12/+15, Ret's
+  bake: the +15 min/max is confirmed on the buffed rail only (benchmarks clean); the crit half IS in the
+  repo after all - stat-syntax helm lines (enchant=3crit 2H / 6crit DW) on the buffed melee heads,
+  missed by the 00278 enchant_id-only grep; benchmark heads carry separate legal arcana
+  (12/13/15crit), and Enhancement's buffed head (bare 12crit on DW fists) is the one candidate
+  gap, queued with this ruling; anomalies for server58: Heartpierce +12/+15, Ret's
   Untamed 31/43 vs Arms/Fury 32/44. Ruling pending: fold stone worth into the melee Consumables
   cells via MinusStone legs (weapon stats are actor-scoped; 3 runs on the group architecture),
   and whether the missing crit joins the bake. (3) OPEN - Feral Mighty Agility -> Superior Impact
@@ -209,8 +212,10 @@ a same-character MM comparator.
   at 2.5% per attack (was 1.3%) and swaps the ring Accords Mastery -> Critical Strike; 3808 ->
   4220, now the top DPS spec on the All-time rail (Resto's 4420 healer benchmark above it).
   The calibration of record moved to 2.5% everywhere (lint registry + the buffed profile, one
-  spec one calibration). OPEN: the buffed 5137 was simmed at 1.3% and keeps Mastery rings - its
-  number, and with it the warrior buff-worth base, moves on the queued re-run.
+  spec one calibration). CLOSED same day: the buffed re-run landed 5632 (crit rings, both stones
+  intact; a 5563 first run with the off-hand stone accidentally stripped was retired unlanded).
+  Warrior's buff-worth cells are priced on the 5137 build; re-pricing runs are out (1 multi-actor
+  file for Base/Consumables/PI + 4 one-flag legs - profilesets cannot vary sim-scoped overrides).
 - Priest VV re-runs: CLOSED 2026-10-03. The ruling retired the VV calibration block (the engine
   models Void Volley natively) and all four lists re-ran same day: buffed 5573 -> 5757,
   All-time 4065 -> 4165, Obtainable 3926 -> 3987, Herald 3589 -> 3487 - the Herald drop, the

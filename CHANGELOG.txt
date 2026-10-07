@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] Full buffed Fury corrects to 5632 on the both-stones re-run: the rail stays one template
+  (Raidbots Advanced): crit rings land on the buffed build too (sheet-confirmed: crit 98 -> 106, mastery
+  139 -> 131) over the 2.5% Jackhammer calibration; 5137 -> 5632, past Devour's 5250 to #2 on the buffed
+  rail behind Shadow. A first run at 5563 had the off-hand stone accidentally stripped (18/23, the bare
+  tooltip) while the main hand kept its bake - a mixed template, retired unlanded; the landed input
+  stones both weapons (32/44 + 33/38). Audit correction riding along: the stone-crit stand-in DOES live
+  in the repo - enchant=3crit/6crit stat-syntax helm lines on the buffed melee heads (the 00278 note
+  missed them with an enchant_id-only grep); benchmark heads carry separate legal arcana (12/13/15crit),
+  and Enhancement's buffed head (bare 12crit, DW fists) is the one candidate gap, queued with the open
+  stone ruling. Warrior's Buff-worth cells are priced on the 5137 build - re-pricing runs are out.
 - [page] All-time Fury corrects to 4220, past Shadow to the top of the DPS field (Raidbots Advanced,
   Fate's re-run): the Jackhammer's 281-haste proc recalibrates 1.3% -> 2.5% per attack - nearly all of
   the +412 - and both ring Accords swap Mastery -> Critical Strike (sheet-confirmed: crit 92 -> 100,
