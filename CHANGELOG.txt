@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The percentage column adds up too: the TOTAL row's pct becomes the sum of its children's
+  displayed pcts (twelve parents move by 0.1-0.2 points - independent one-decimal rounding was the
+  last place a reader's calculator could disagree with the panel). Both columns of every Consumables
+  group now sum exactly, by construction, on all 27 specs; sweep verified dps and pct layers clean,
+  no stale statuses or notes anywhere.
 - [page] The stone joins the Consumables total: a child the layout shows gets summed like one, and the
   melee understatement server58 reported is finally priced into the headline cell - Fury 271 -> 612,
   Assa 291 -> 894 (19.2%), WW 364 -> 817, Sub 160 -> 503; thirteen melee totals grow by their stone,
