@@ -7,13 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
-- [page] Ruling: the buffed rail's displayed DPS now nets out Consumables as well as PI (dpsFor gains
-  consumWorthOf, same own-cast-aware shape; bestOf and the rail sort follow; the data layer keeps the sim
-  numbers of record). The list description comes current with it. The rail reshuffles hard: Fury takes the
-  display crown at 5221 (5632 - 142 PI - 269 consumables), Resto 4843 and Shadow 4820 follow, Devour drops
-  to 3964 on the heaviest consumable load (984). Known and recorded: melee Consumables cells still exclude
-  the baked weapon stone (it cannot toggle until that ruling), so melee displays keep roughly a stone's
-  worth that caster displays do not - the stone ruling will rebalance this.
+- [page] The Consumables-deduction display ruling is reversed within the hour (patches 283/284): displayed
+  buffed DPS nets out Power Infusion only, as ruled 2026-10-03 - patch 283 read the request wrong and the
+  revert restores the display calc, the list description and the docs byte-perfect. Banked from the detour:
+  the fully-netted rail order (Fury 5221 at the top) and the visibility finding - melee Consumables cells
+  understate by the baked weapon stone, which that display would have shown on the rail itself.
 - [page] The panel's last five zero cells price their own casts: warrior Battle Shout and mage Arcane
   Intellect (Raidbots Advanced, two strip-the-cast legs - the self-cast removed from the APL and the
   override zeroed so nothing re-grants it). The warriors validate the method: own BS lands 266 (4.7%)

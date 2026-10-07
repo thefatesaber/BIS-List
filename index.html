@@ -526,7 +526,7 @@ const DEFAULT_SLOTS = ["Head","Neck","Shoulders","Back","Chest","Wrist","Hands",
   "Waist","Legs","Feet","Ring 1","Ring 2","Trinket 1","Trinket 2","Main Hand","Off Hand"];
 
 const LIST_TYPES = [
-  { id:"alltime_buffed", label:"All-time Full buffed", desc:"The All-Time item pool simmed fully raid-buffed — every other list sims self-buffed only. Displayed DPS excludes Power Infusion and Consumables; each spec's measured worths sit in its Buff worth panel (the priest's own-cast PI stays in its number)." },
+  { id:"alltime_buffed", label:"All-time Full buffed", desc:"The All-Time item pool simmed fully raid-buffed — every other list sims self-buffed only. Displayed DPS excludes Power Infusion; each spec's measured PI worth sits in its Buff worth panel (the priest's own-cast PI stays in its number)." },
   { id:"alltime",    label:"All-Time",   desc:"Best in slot regardless of obtainability — removed, legacy and unobtainable items included. Generated from the 13 live sim profiles." },
   { id:"obtainable", label:"Obtainable", desc:"Best in slot among items farmable in "+CONFIG.patch+"." },
   { id:"herald",     label:"Herald of the Titans", desc:CONFIG.heraldRule }
@@ -1798,17 +1798,10 @@ const piWorthOf = c => {
   const b = c.buffWorth && c.buffWorth.find(x => x.buff === "Power Infusion");
   return (b && b.note !== "own cast") ? (b.dps || 0) : 0;
 };
-// Ruling 2026-10-07: Consumables joins the deduction - displayed buffed DPS nets out
-// PI and Consumables both. Same shape as piWorthOf; melee Consumables cells still
-// exclude the baked weapon stone (pending that ruling).
-const consumWorthOf = c => {
-  const b = c.buffWorth && c.buffWorth.find(x => x.buff === "Consumables");
-  return (b && b.note !== "own cast") ? (b.dps || 0) : 0;
-};
 const dpsFor = (c, listId) => {
   const l = listId != null ? listId : state.list;
   const v = (c.dpsByList && c.dpsByList[l]) || 0;
-  return l === "alltime_buffed" && v ? v - piWorthOf(c) - consumWorthOf(c) : v;
+  return l === "alltime_buffed" && v ? v - piWorthOf(c) : v;
 };
 function sortedClasses(){
   const a = visible();
