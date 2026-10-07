@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The maths add up, by construction: every Consumables parent becomes the exact sum of its
+  measured component rows (tag TOTAL, tooltip says so), pct moved onto the same denominator as the
+  children so the percentages compose too; the baked stone stays outside the total, as its note says.
+  The old joint-removal aggregates retire - they mixed eras (Shadow's 937 was priced on the 5573-era
+  build, Devour's 984 pre-drift, Enh's 248 pre-windfury), where the component sums are all same-run,
+  current-engine measurements: Shadow 937 -> 952, Devour 984 -> 1070, Enh 248 -> 277, Ele unchanged at
+  514, the rest within 14. Interaction terms between consumables now live nowhere - the parent is
+  defined as the sum, so a reader's calculator always agrees with the panel.
 - [page] The Buff worth panel goes collapsible (ruling: option C of three mocks): the Consumables row
   grows a chevron and the component split - potion, flask, food, oil, stone - opens on click, collapsed
   by default, returning the panel to its pre-campaign height. Component rows render indented and dimmed
