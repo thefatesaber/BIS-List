@@ -252,7 +252,10 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .paneline{grid-template-rows:auto auto auto}
 .paneline.wbw > .statpanel{grid-row:1 / 4; align-content:center}
 .consum.buffworth{display:block}
-.buffworth h3{margin:0 0 6px}
+.buffworth h3{margin:0 0 8px; font:600 13.5px var(--display); letter-spacing:.08em;
+  color:var(--cc,var(--parchment)); display:flex; align-items:center; gap:10px; text-transform:none}
+.buffworth h3::after{content:""; flex:1; height:1px;
+  background:linear-gradient(90deg, var(--cc,var(--edge)), var(--edge) 38%)}
 #buffworthlines{display:grid; grid-template-columns:max-content max-content max-content max-content 1fr;
   gap:3px 12px; align-items:baseline}
 .buffworth .cline{display:contents}
@@ -274,8 +277,8 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .consum{display:flex; align-items:center; align-content:center; flex-wrap:wrap; gap:6px 14px;
   margin:0 0 14px; padding:9px 12px;
   border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
-.consum h3{margin:0; flex:none; font-size:10px; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--dim); font-weight:600}
+.consum h3{margin:0; flex:none; font:600 12.5px var(--display); letter-spacing:.08em;
+  color:var(--dust)}
 #consumlines{display:contents}
 .consum .cline{white-space:nowrap; color:var(--dust); font-size:12px}
 .consum .cline b{color:var(--dim); font-weight:600; font-size:10px; letter-spacing:.07em;
@@ -285,8 +288,8 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .consum .tbtn{margin-left:auto}
 .talents{display:flex; align-items:center; gap:10px; margin:0 0 14px; padding:9px 12px;
   border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
-.talents h3{margin:0; flex:none; font-size:10px; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--dim); font-weight:600}
+.talents h3{margin:0; flex:none; font:600 12.5px var(--display); letter-spacing:.08em;
+  color:var(--dust)}
 .talents code{flex:1; min-width:0; overflow-x:auto; white-space:nowrap; color:var(--dust);
   font-size:11.5px; letter-spacing:.01em; scrollbar-width:thin}
 .tbtn{flex:none; background:none; border:1px solid var(--edge); color:var(--dust); font:inherit;
@@ -2122,6 +2125,7 @@ function renderMain(){
   if (cons) $("consumlines").innerHTML = consumHtml(cons);
   const bw = state.list === "alltime_buffed" ? (cls.buffWorth || null) : null;
   $("buffworth").hidden = !bw || !bw.length;
+  if (bw && bw.length) $("buffworth").style.setProperty("--cc", cls.color);
   if (bw && bw.length) { $("buffworthlines").classList.remove("cmpopen"); $("buffworthlines").innerHTML = bw.map(b => {
     const tip = b.status === "total"
       ? "Exact sum of every measured component row under it, the baked weapon stone included."

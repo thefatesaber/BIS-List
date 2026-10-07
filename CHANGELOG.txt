@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] Section titles become section titles (ruling: combo A of the mocks): Buff worth's title sets in
+  Cinzel in the selected spec's class color with a hairline fading from the color into the panel edge -
+  the renderer scopes --cc onto the panel per spec, like the stat panel does - and the sibling titles
+  (Consumables, Talent string) move from 10px dim mono caps to dusty Cinzel, inline layout untouched.
+  CSS and one renderer line; no data moved.
 - [page] The percentage column adds up too: the TOTAL row's pct becomes the sum of its children's
   displayed pcts (twelve parents move by 0.1-0.2 points - independent one-decimal rounding was the
   last place a reader's calculator could disagree with the panel). Both columns of every Consumables
