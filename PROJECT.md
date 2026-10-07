@@ -214,8 +214,11 @@ a same-character MM comparator.
   The calibration of record moved to 2.5% everywhere (lint registry + the buffed profile, one
   spec one calibration). CLOSED same day: the buffed re-run landed 5632 (crit rings, both stones
   intact; a 5563 first run with the off-hand stone accidentally stripped was retired unlanded).
-  Warrior's buff-worth cells are priced on the 5137 build; re-pricing runs are out (1 multi-actor
-  file for Base/Consumables/PI + 4 one-flag legs - profilesets cannot vary sim-scoped overrides).
+  Warrior's buff-worth cells re-priced same day on the 5632 build (5 runs; the Base co-actor
+  reproduced 5632 exactly): Consumables 269, PI 142, Drums 96, HM 163 (x1.03 signature holds),
+  Skyfury 392, MotW 154, BS 0 own-cast. The raid-buff trio lands within 4 DPS of the old cells
+  scaled by 5632/5137; the cooldown-window cells shift with the build's timing, PI 164 -> 142
+  the largest mover.
 - Priest VV re-runs: CLOSED 2026-10-03. The ruling retired the VV calibration block (the engine
   models Void Volley natively) and all four lists re-ran same day: buffed 5573 -> 5757,
   All-time 4065 -> 4165, Obtainable 3926 -> 3987, Herald 3589 -> 3487 - the Herald drop, the

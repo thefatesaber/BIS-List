@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] Warrior's Buff worth panel re-prices on the 5632 build: six cells move, the Base co-actor lands
+  5632 exactly (Raidbots Advanced, 5 runs - one multi-actor file pricing the actor-scoped pair plus four
+  one-flag legs; profilesets cannot vary sim-scoped overrides). Consumables 249 -> 269 (5.0%), PI 164 ->
+  142 (2.6%), Drums 107 -> 96 (1.7%), Hunter's Mark 150 -> 163 (2.9% - the x1.03 signature holds on the
+  new build), Skyfury 360 -> 392 (7.0%), Mark of the Wild 143 -> 154 (2.7%); Battle Shout stays 0 own-cast.
+  The raid-buff trio lands within 4 DPS of the old cells scaled by 5632/5137 - the panel tracks the build
+  multiplicatively - while the cooldown-window cells (Consumables/PI/Drums) shift with the new timing, PI
+  the largest mover.
 - [page] Full buffed Fury corrects to 5632 on the both-stones re-run: the rail stays one template
   (Raidbots Advanced): crit rings land on the buffed build too (sheet-confirmed: crit 98 -> 106, mastery
   139 -> 131) over the 2.5% Jackhammer calibration; 5137 -> 5632, past Devour's 5250 to #2 on the buffed
