@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The stone joins the Consumables total: a child the layout shows gets summed like one, and the
+  melee understatement server58 reported is finally priced into the headline cell - Fury 271 -> 612,
+  Assa 291 -> 894 (19.2%), WW 364 -> 817, Sub 160 -> 503; thirteen melee totals grow by their stone,
+  caster totals untouched. The stone's note becomes plain "baked into weapon stats" (it still cannot
+  toggle in the stored profiles - that is a simc mechanics fact, not an arithmetic one), and the TOTAL
+  tooltip says the sum includes it. Melee consumable packages now read in the same league as casters'
+  oil-stacked ones, which is what the game actually does.
 - [page] The maths add up, by construction: every Consumables parent becomes the exact sum of its
   measured component rows (tag TOTAL, tooltip says so), pct moved onto the same denominator as the
   children so the percentages compose too; the baked stone stays outside the total, as its note says.
