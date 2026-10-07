@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The panel's last five zero cells price their own casts: warrior Battle Shout and mage Arcane
+  Intellect (Raidbots Advanced, two strip-the-cast legs - the self-cast removed from the APL and the
+  override zeroed so nothing re-grants it). The warriors validate the method: own BS lands 266 (4.7%)
+  for Fury and 176 (4.7%) for Arms, matching the external 4.7-4.8% band digit for digit - same aura,
+  same worth. The mages are the finding: own AI is worth far more than AI on any other caster - Frost
+  216 (4.4%), Fire 208 (4.3%), Arcane 189 (5.9%) against the 2.6-2.9% external band. AI is +%% intellect:
+  mages gem raw int harder than any caster, so int's budget share is largest, and Arcane's Savant
+  mastery double-dips through mana - the standout. Cells keep the own-cast note: the value stays in
+  each number, display still subtracts only PI. Every cell in the Buff worth panel now carries a
+  measured value.
 - [page] Warrior's Buff worth panel re-prices on the 5632 build: six cells move, the Base co-actor lands
   5632 exactly (Raidbots Advanced, 5 runs - one multi-actor file pricing the actor-scoped pair plus four
   one-flag legs; profilesets cannot vary sim-scoped overrides). Consumables 249 -> 269 (5.0%), PI 164 ->
