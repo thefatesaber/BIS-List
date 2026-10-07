@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] All-time Fury corrects to 4220, past Shadow to the top of the DPS field (Raidbots Advanced,
+  Fate's re-run): the Jackhammer's 281-haste proc recalibrates 1.3% -> 2.5% per attack - nearly all of
+  the +412 - and both ring Accords swap Mastery -> Critical Strike (sheet-confirmed: crit 92 -> 100,
+  mastery 139 -> 131, every other stat identical). Gear otherwise unchanged - Roccor, DST and the
+  clean-stat weapons were already of record; only Resto's healer benchmark (4420) sits above it on the
+  All-time rail. The calibration of record moves to 2.5% with it (lint registry + the Full buffed
+  profile, one spec one calibration); the buffed 5137 and its Mastery rings await the queued re-run.
 - [page] Devour re-verifies on the Devourer-enabled engine and adopts the meta-synced potion line (Raidbots
   Advanced, server58's report): all four stored numbers reproduce within noise - 3562/3423/2707/5250 against
   3561/3422/2707/5248 stored, the Herald exact - so the community-reported engine jump (4985 -> 5371, a personal

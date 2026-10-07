@@ -68,7 +68,7 @@ const CALIBRATIONS = {
   "103haste_10dur_20cd": { label: "Dragonspine Trophy", rates: { "*": 3.2 } },
   "97str_8dur":          { label: "The Untamed Blade", rates: { warrior: 3.7, paladin: 19.6 } },
   "51crit_10dur_3stack": { label: "Bonereaver's Edge", rates: { deathknight: 8.6, warrior: 9.8 } },
-  "281haste_10dur":      { label: "The Jackhammer", rates: { warrior: 1.3 } },
+  "281haste_10dur":      { label: "The Jackhammer", rates: { warrior: 2.5 } },
   "184haste_5dur":       { label: "Eskhandar's Right Claw", ppm: { monk: 0.88, rogue: 0.4 } },
   "37str_15dur":         { label: "Crusader (ring encoding)", rates: { warrior: 3.0, paladin: 16.2 } },
 };

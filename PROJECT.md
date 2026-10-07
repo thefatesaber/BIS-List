@@ -205,6 +205,12 @@ a same-character MM comparator.
   swap: 7 page rows carry enchant 4227 (SV too - scope question for server58); feral's buffed
   staff bakes stone+SI (39/47 vs SV's 37/45 on the same staff) over enchant 1896; the swap means
   3 feral benchmark re-runs plus a buffed rebuild once the SI details are confirmed.
+- Jackhammer recalibration (2026-10-07): Fate's All-time Fury re-run prices the 281-haste proc
+  at 2.5% per attack (was 1.3%) and swaps the ring Accords Mastery -> Critical Strike; 3808 ->
+  4220, now the top DPS spec on the All-time rail (Resto's 4420 healer benchmark above it).
+  The calibration of record moved to 2.5% everywhere (lint registry + the buffed profile, one
+  spec one calibration). OPEN: the buffed 5137 was simmed at 1.3% and keeps Mastery rings - its
+  number, and with it the warrior buff-worth base, moves on the queued re-run.
 - Priest VV re-runs: CLOSED 2026-10-03. The ruling retired the VV calibration block (the engine
   models Void Volley natively) and all four lists re-ran same day: buffed 5573 -> 5757,
   All-time 4065 -> 4165, Obtainable 3926 -> 3987, Herald 3589 -> 3487 - the Herald drop, the

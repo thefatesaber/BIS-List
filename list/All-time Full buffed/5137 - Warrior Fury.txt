@@ -45,7 +45,7 @@ trinket2=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30
 # The Untamed Blade 40
 main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_32min_44max,enchant_id=1900,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_3.7%
 # The Jackhammer 33
-off_hand=the_jackhammer_proxy,ilevel=33,weapon=mace2h_3.6speed_33min_38max,enchant_id=1900,equip=procby/attack_281haste_10dur_1.3%
+off_hand=the_jackhammer_proxy,ilevel=33,weapon=mace2h_3.6speed_33min_38max,enchant_id=1900,equip=procby/attack_281haste_10dur_2.5%
 
 
 # Consumables
