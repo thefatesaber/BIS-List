@@ -6,6 +6,9 @@
 # New in this set: Arch-Druid's Tainted Seal 47 + Signet of the False Accuser 47, Treads of the False
 # Oracle, and the PotVE + Gale pocket pair; talents and APL refreshed to current. The two
 # invoke_external_buff lines below are inert (no external_buffs pool) - PI remains the priest's own cast.
+# CONSISTENCY SWAP (2026-10-07): same 5757 - the neck's third socket trades its Artful Lava Coral for
+# a second Masterful Emerald and finger2 takes the Lava Coral in exchange. Gem totals across the
+# character unchanged, Raid-Buffed sheet identical digit-for-digit; Fate's call, steadier DPS.
 
 priest="Fateprayer"
 level=30
@@ -29,7 +32,7 @@ override.player.spell_data=effect.856.base_value=15
 # cowl_of_icy_breaths 42
 head=,ilevel=42,id=45464,gem_id=25893/213743,bonus_id=9041,drop_level=30
 # Ukhel Ancestry Beads 135
-neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213482/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
+neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213482/213482,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Hatefury Mantle 42
 shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=71854/71854,bonus_id=9036,drop_level=30
 # Drape of the Messenger 43
@@ -51,7 +54,7 @@ feet=,ilevel=43,id=45537,enchant_id=4069,gem_id=71854/71854,bonus_id=9043,drop_l
 #finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 finger1=,ilevel=47,id=134487,enchant_id=6109,gem_id=71854,bonus_id=6710/10386/6652/8810,drop_level=30
 # Signet of the False Accuser 47
-finger2=,ilevel=47,id=178824,enchant_id=6109,gem_id=213482,bonus_id=6710/10386/6652/8810,drop_level=30
+finger2=,ilevel=47,id=178824,enchant_id=6109,gem_id=71854,bonus_id=6710/10386/6652/8810,drop_level=30
 # Pendant of the Violet Eye 38
 trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.525tick_20dur_120cd
 # Gale of Shadows 33

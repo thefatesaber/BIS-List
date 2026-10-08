@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] Buffed Shadow regems for consistency at an unchanged 5757 (Raidbots Advanced, Fate's re-run):
+  the Ukhel neck's third socket trades its Artful Lava Coral for a second Masterful Emerald and the
+  Signet of the False Accuser takes the Lava Coral in exchange. Gem totals across the character are
+  unchanged and the Raid-Buffed sheet is identical digit-for-digit - variance is the only mover. The
+  same consistency trade Devour just made at 5656, this time free: the page number doesn't move.
 - [page] Devour's panel re-prices whole on the 5656 build: 7 runs, the Base reproducing 5656 exactly
   (Raidbots Advanced). Components refresh with the regear - potion 102, flask 375, food 84, dual oil 486
   - parent 1047 (18.5%), both columns summing exactly as ruled; and the six raid cells leave the
