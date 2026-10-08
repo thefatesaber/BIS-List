@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] Devour's panel re-prices whole on the 5656 build: 7 runs, the Base reproducing 5656 exactly
+  (Raidbots Advanced). Components refresh with the regear - potion 102, flask 375, food 84, dual oil 486
+  - parent 1047 (18.5%), both columns summing exactly as ruled; and the six raid cells leave the
+  5248-era at last: PI 302 -> 279 (the reworked meta window prices its invoke differently), Drums
+  129 -> 137, Hunter's Mark 154 -> 165 - the x1.03 signature to the digit, 2.91% of 5656 predicts 164.6
+  - Skyfury 95 -> 106, MotW 127 -> 138, AI 138 -> 155. The buffed rail now displays 5656 - 279 = 5377
+  for Devour. No old-engine cells remain on this spec; Enh/Unholy/SV re-pricing stays parked.
 - [page] The real Devour rework lands - the previous upload was the wrong file, Fate's call: buffed
   5659 -> 5656, three DPS traded for consistency (Raidbots Advanced). Substance this time: gems shift
   toward intellect (head's Quick Emerald, the neck's and shoulders' and back's Onyx and one chest Onyx
