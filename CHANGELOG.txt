@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [page] The real Devour rework lands - the previous upload was the wrong file, Fate's call: buffed
+  5659 -> 5656, three DPS traded for consistency (Raidbots Advanced). Substance this time: gems shift
+  toward intellect (head's Quick Emerald, the neck's and shoulders' and back's Onyx and one chest Onyx
+  all give way to Artful Lava Coral, the neck keeping one Onyx and gaining a Masterful Emerald), the
+  boots re-enchant Pandaren's Step -> Haste, and the APL gains its reworked meta weave - a
+  soul_immolation refresh line and fury-gated devour/void_ray at wait_on_ready=0 replacing the old
+  exit-combo beam. Sheet-confirmed: int 359, haste 23.49% (112), mastery 33.67% (118). Stored profile
+  keeps repo conventions (enchant_id spelling, _proxy names, bare id lines) with every substantive
+  as-run line verbatim; panel cells stand as measured, parked with the re-pricing.
 - [profiles] The buffed Devour rework re-runs at an identical 5659 - same DPS, lower variance, the
   macro-stacked on-use window and haste build aligning burst more consistently (Raidbots Advanced).
   The stored profile adopts the substantive deltas - ring bonus packages consolidate to 8810 at their
