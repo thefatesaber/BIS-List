@@ -6,6 +6,15 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-08
+- [page] The Shadow panel re-prices whole on the regemmed 5757: 7 runs, every cell measured current.
+  The Base re-verified at 5754 (-3, 0.05% - run noise, an order below the smallest confirmed drift);
+  worths are same-run deltas. Consumables 948 = Potion 105 + Flask 410 + Food 171 + Oil 262, all four
+  within 2 of the campaign cells. The raid buffs barely breathe: HM 165 (2.87% - the x1.03 signature
+  again), Skyfury 109, MotW 147, AI 159. The movers are the cooldown-window pair, finally priced off
+  their stale 5573-era base: own-cast PI 308 -> 329 (6.1% vs-bare), Drums 184 -> 159. The displayed
+  number stays 5757 - the priest's own PI never leaves it.
+
 ## 2026-10-07
 - [page] Buffed Shadow regems for consistency at an unchanged 5757 (Raidbots Advanced, Fate's re-run):
   the Ukhel neck's third socket trades its Artful Lava Coral for a second Masterful Emerald and the
