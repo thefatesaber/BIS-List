@@ -39,9 +39,9 @@ legs=,id=51889,ilevel=47,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9051,
 # footpads_of_impending_death (47)
 feet=,id=49895,ilevel=47,enchant_id=4429,gem_id=71854/71854,bonus_id=9051
 # signet_of_the_false_accuser (33)
-finger1=,ilevel=47,id=178824,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/10879,drop_level=30
+finger1=,ilevel=47,id=178824,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/8810,drop_level=30
 # Fleshfused Circle (33)
-finger2=,ilevel=47,id=134487,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652,drop_level=30
+finger2=,ilevel=47,id=134487,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/8810,drop_level=30
 # Pendant of the Violet Eye (38) — macro-stacked; use= carries BOTH trinkets'
 # stacks (380 + 320 = 700 vers) since the in-game macro pops them as one press
 trinket1=pendant_and_meteorite_macro_proxy,ilevel=38,stats=8int,use=700vers_20dur_120cd
@@ -84,7 +84,7 @@ actions+=/consume,if=!buff.metamorphosis.up
 # Deadlock guard — do not remove
 actions+=/consume
 
-actions.cooldowns=potion,if=buff.metamorphosis.up|fight_remains<=30
+actions.cooldowns+=/potion,if=buff.metamorphosis.up|fight_remains<=30
 actions.cooldowns+=/invoke_external_buff,use_off_gcd=1,name=power_infusion,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks&cooldown.void_ray.up|fight_remains<=20&!buff.power_infusion.up
 actions.cooldowns+=/use_item,use_off_gcd=1,slot=trinket1,if=!buff.metamorphosis.up&buff.void_metamorphosis_stack.at_max_stacks&cooldown.void_ray.up|fight_remains<=20
 

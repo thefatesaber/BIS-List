@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-07
+- [profiles] The buffed Devour rework re-runs at an identical 5659 - same DPS, lower variance, the
+  macro-stacked on-use window and haste build aligning burst more consistently (Raidbots Advanced).
+  The stored profile adopts the substantive deltas - ring bonus packages consolidate to 8810 at their
+  explicit ilvl 47, the potion line keeps the as-run += form - and keeps the repo's profile
+  conventions the linter enforces: enchant_id spelling on weapons (2669 IS the +13 Spell Power the
+  rows display; the identical number proves the spellings equivalent), lowercase _proxy names on
+  synthetics (bare DBC-colliding names drop silently), bare id= lines. No page data moves: rows,
+  stats and prov were already of this build, and the sheet re-confirms the stats digit for digit.
 - [page] Section titles become section titles (ruling: combo A of the mocks): Buff worth's title sets in
   Cinzel in the selected spec's class color with a hairline fading from the color into the panel edge -
   the renderer scopes --cc onto the panel per spec, like the stat panel does - and the sibling titles
