@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Affliction closes the audit's section 1: 2870 -> 2848 (-22), nine of nine lists now
+  class-legal. The same lock pair as its siblings - Mantle of the Corruptor for the Priest-only
+  Wings, The Turning Tide for the mace - and the same sheet trade a third time (+5 crit rating,
+  -11 vers, +2 stam). This landing also retires one of section 9's eight off-engine stamps (the
+  old 2026-08-30 local run) and restores the profile's missing snapshot_stats, a reporting-only
+  line the stored profile never had - its absence is why this board's Raid-Buffed column read
+  zeros; the stats of record land from the Unbuffed column, the same state in a buffless profile.
 - [page] Herald Destruction pays 18 for the same two swaps: 2527 -> 2509 (Raidbots Advanced). Wings
   of the Avatar -> Mantle of the Corruptor and Torch -> The Turning Tide, the mirror of Demonology's
   landing down to the sheet shape (+5 crit rating, -11 vers, +2 stam). Audit section 1 stands 8 of
