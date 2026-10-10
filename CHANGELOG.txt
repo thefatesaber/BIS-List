@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Restoration Shaman rises to 3788 on Raidbots: its Ascendance stand-in never fired before this fix.
+  The audit's S3, last of three, became a repair. Run verbatim on Raidbots Advanced the stored
+  profile returned 3685 against the local build's 3684 of 2026-08-30, so the engines agree. But
+  its APL fired use_item,name=ascendance_buff while the tabard is named ascendance_buff_proxy -
+  the unbound name repaired on Obtainable on 2026-09-23 - so Herald was the last Resto list
+  simmed with Ascendance inert. Fate's corrected file binds that one token and drops a stray
+  name=Shaman line: 3788, +103 on the same engine the same day, 6 more Lightning Bolts, the
+  sheet digit-identical. Stamp 2026-08-30 simc 1210-01 (a0d9bbb) -> today on Raidbots Advanced.
+  S3 is closed; off-engine numbers: three -> two, both Retribution.
 - [page] Obtainable Marksmanship is now a Raidbots number: 3451 there, 3450 on the local build in August.
   The audit's S3, second of three. The upload is byte-identical to the stored profile, the sheet
   matches the page digit for digit, the number takes the engine of record's 3451 and the stamp

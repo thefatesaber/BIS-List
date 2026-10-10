@@ -85,7 +85,7 @@ actions+=/blood_fury,if=dot.flame_shock.ticking
 actions+=/berserking,if=dot.flame_shock.ticking
 actions+=/fireblood,if=dot.flame_shock.ticking
 actions+=/ancestral_call,if=dot.flame_shock.ticking
-actions+=/use_item,name=ascendance_buff,use_off_gcd=1,if=dot.flame_shock.ticking
+actions+=/use_item,name=ascendance_buff_proxy,use_off_gcd=1,if=dot.flame_shock.ticking
 actions+=/use_item,slot=trinket2,use_off_gcd=1,if=dot.flame_shock.ticking
 actions+=/potion,if=dot.flame_shock.ticking
 # 4. Lava Burst, then Lightning Bolt filler.
@@ -98,8 +98,6 @@ flask=disabled
 food=disabled
 augmentation=disabled
 temporary_enchant=disabled
-
-name=Shaman
 
 # Simulation Options
 iterations=50000
