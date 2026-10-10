@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] All-time Marksmanship is now a Raidbots number: 3588 there too, from the stored profile unchanged.
+  The audit's S3, first of three. The upload is byte-identical to the stored profile, the sheet
+  matches the page digit for digit, and the stamp moves from 2026-08-30 simc 1210-01 (a0d9bbb)
+  to today on Raidbots Advanced. Nothing else changes. Off-engine numbers: five -> four.
+  Marksmanship Obtainable and Resto Herald are next.
 - [page] Herald Retribution is now a Raidbots number: the stored profile returns 2711 there, 2710 on the
   local build. The run is the audit's S2 and it settles the provenance doubt: Raidbots honours
   the six calibration overrides ahead of the actor line (by the report's damage shares,
