@@ -25,7 +25,7 @@ neck=,id=200284,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=213494/40150,bonus_id=6710/6652,drop_level=30
 # Cloak of the Coming Night 33
-back=,ilevel=33,id=34708,enchant_id=3243,gem_id=40146/40146,bonus_id=7202
+back=,ilevel=33,id=34708,enchant_id=3243,bonus_id=7202
 # Bloodsea Brigand's Vest 40
 chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=40150/40150/40150,bonus_id=9035,drop_level=30
 # Eversong Cuffs 33
@@ -53,7 +53,9 @@ main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38
 # P_phys = 0.474 from this run's damage sources (MH autos 14.9 + OH autos 7.4 + Death Sweep 13.3 + Blade Dance 11.8);
 # chaos/shadow/fire (Chaos Strike 14.2, Annihilation 12.2, Demon Blades 13.0, Eye Beam 6.6, Felblade 4.2, Immolation 2.3) takes no shred.
 # U = 0.5694 carried from Outlaw — same Vibroblade, same slot.
-#effective DPS = 1676 x (1 + 0.2083 x 0.474 x 0.5694) = 1770
+#effective DPS = 1665 x (1 + 0.2083 x 0.474 x 0.5694) = 1759
+#BARE CLOAK (2026-10-10): per the cloak ruling the two Ametrines leave the Coming Night;
+#raw 1676 -> 1665, effective 1770 -> 1759 - the number of record.
 off_hand=,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
 
 # Consumables

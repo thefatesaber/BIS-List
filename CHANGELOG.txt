@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Havoc bares its cloak: 1770 -> 1759 effective (Raidbots Advanced). Raw 1676 -> 1665
+  under the cloak ruling - the same two Fierce Ametrines, the same -4 haste rating - and the
+  effective number re-derives on the factor of record (P 0.474, U 0.5694, x1.0562), the off-hand
+  note updated. Section 2 stands 9 of 16 actionable; Balance, Feral and Windwalker carry the last
+  2-gem Coming Nights, then the five Shadowed Suns close the section.
 - [page] Herald Assassination bares its cloak: 2324 -> 2301 (Raidbots Advanced). The same two Fierce
   Ametrines as its rogue siblings, worth 23 here - the biggest single phantom return among the
   rogues - and the same -4 haste rating on the sheet. Section 2 stands 8 of 16 actionable; Havoc,
