@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Fire pays 12 for legality: 2907 -> 2895 on The Turning Tide (Raidbots Advanced). Same
+  swap as Arcane - the Torch is a mace no mage can swing, the Tide the sword beside it on Kel'Thuzad's
+  table - and the same +5 crit / -5 vers trade, but Fire's profile liked the vers better and gives
+  twelve points back. An honest number over an illegal one. Audit section 1: 5 of 9 fixed; Frost
+  mage carries the last Torch, then the three Warlocks close the section.
 - [page] Herald Arcane trades the mace it could never swing: 1966 -> 1967 (Raidbots Advanced). Torch
   of Holy Fire (40395, a one-hand mace - no mage proficiency) gives way to The Turning Tide (40396,
   the sword one id over on the same Kel'Thuzad table; DBC subclass 4 -> 7, masks clean). The sheet

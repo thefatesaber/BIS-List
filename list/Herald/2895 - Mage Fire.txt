@@ -40,8 +40,8 @@ finger2=,ilevel=33,id=178736,enchant_id=6109,gem_id=32196,drop_level=30
 trinket1=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
 # Armored Elekk Tusk (32)
 trinket2=,id=108902,ilevel=32,bonus_id=6691,drop_level=29
-# torch_of_holy_fire 39
-main_hand=,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
+# The Turning Tide 39
+main_hand=,ilevel=39,id=40396,bonus_id=9039,enchant_id=2669
 # surplus_limb 39 — the missing held-in-off-hand; the first run went one-handed
 off_hand=,id=40273,ilevel=39,bonus_id=9039,enchant_id=4434
 
