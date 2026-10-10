@@ -34,7 +34,7 @@ neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=213494/40150,bonus_id=6710/6652,drop_level=30
 # Cloak of the Coming Night 33
-back=,ilevel=33,id=34708,enchant_id=3243,gem_id=40146/40146,bonus_id=7202
+back=,ilevel=33,id=34708,enchant_id=3243,bonus_id=7202
 # Bloodsea Brigand's Vest 40
 chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=40150/40150/40150,bonus_id=9035,drop_level=30
 # Eversong Cuffs 33
@@ -62,7 +62,9 @@ main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38
 #D0 = naked sim DPS (raw - Vibroblade's shred counts for zero in the sim)
 #A = 0.2083 armor gain while shredded; P = 0.969 physical share of record; U = 0.5694 measured uptime
 #(Twins 59.68 / Jaraxxus 45.90 / NB-1 65.25 log average)
-#effective DPS = 1933 x (1 + 0.2083 x 0.969 x 0.5694) = 2155
+#effective DPS = 1915 x (1 + 0.2083 x 0.969 x 0.5694) = 2135
+#BARE CLOAK (2026-10-10): per the cloak ruling the two Ametrines leave the Coming Night;
+#raw 1933 -> 1915, effective 2155 -> 2135 - the number of record.
 #CONVENTION AUDIT (2026-10-03): Fate's re-run confirms D0 (pie P = 0.962, within rounding of the
 #0.969 of record) - the stored 2155 was already effective. The re-run displays 1932, the integer floor of 1932.9 (= 2155 / 1.114929) - exact at display precision. The old comment (2065 -> 2302) was a stale tuning-pass remnant.
 

@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Outlaw bares its cloak under the ruling: 2155 -> 2135 effective (Raidbots Advanced).
+  The two Fierce Ametrines leave the Coming Night per the cloaks-don't-proc convention: raw 1933 ->
+  1915 (-4 haste rating on the sheet, same gems as Sub's), effective re-derived on the factor of
+  record (P 0.969, U 0.5694, x1.1149) with the off-hand note updated to the new arithmetic. Section
+  2 stands 7 of 16 actionable; five 2-gem Coming Nights and five Shadowed Suns remain.
 - [page] Herald Sub returns both phantom gems and sets the cloak convention: 1233 -> 1226 (Raidbots
   Advanced). Fate's ruling of record: cloaks do NOT proc sockets - Cloak of the Coming Night takes
   zero gems, full stop. A one-gem intermediate run (1228) was held and retired unlanded once the
