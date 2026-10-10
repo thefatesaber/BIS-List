@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Frost mage retires the mages' last Torch: 3181 -> 3184 on The Turning Tide (Raidbots
+  Advanced). Same one-line swap and the same +5 crit / -5 vers sheet trade as its siblings, worth +3
+  here - the mage family closes at +1 / -12 / +3, proficiency-legal for a net -8. The Torch itself
+  stays of record on the five mace-proficient casters (Balance, Ele, Resto, Shadow, Dev) where it is
+  legal, and on the three Warlocks only until their re-runs land. Audit section 1 stands 6 of 9.
 - [page] Herald Fire pays 12 for legality: 2907 -> 2895 on The Turning Tide (Raidbots Advanced). Same
   swap as Arcane - the Torch is a mace no mage can swing, the Tide the sword beside it on Kel'Thuzad's
   table - and the same +5 crit / -5 vers trade, but Fire's profile liked the vers better and gives
