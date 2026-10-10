@@ -37,6 +37,8 @@ feet=,id=40243,ilevel=39,enchant_id=4092,gem_id=71854,bonus_id=9039,drop_level=3
 # Fleshfused Circle (33)
 finger1=,ilevel=33,id=178869,enchant_id=6109,gem_id=71854,drop_level=30
 # Signet of the False Accuser (33)
+# Accord A/B 2026-10-10: the crit-accord leg (6108) returned 2225, -4 - the haste accord stands;
+# the page ring relabeled to match (section 3, relabel branch). The 2225 input retired unlanded.
 finger2=,ilevel=33,id=178824,enchant_id=6109,gem_id=71854,drop_level=30
 # Talisman of Ephemeral Power 38
 trinket2=,ilevel=38,id=18820,bonus_id=9029,drop_level=30

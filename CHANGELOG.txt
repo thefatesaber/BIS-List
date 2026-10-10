@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Balance answers section 3 by the pre-registered rule: the page's crit accord
+  re-simmed LOWER - 2225 against the stored 2229, the haste accord worth its 4 rating (the
+  sheet's +4 crit / -4 haste is the swap to the digit) - so 2229 stands, the 2225 leg retires
+  as the A/B, and the page ring relabels to the winner (Accord of Haste, 298009 -> 297989).
+  The four Feral-shell leftovers on the same list come right in the same stroke: wrist, hands,
+  legs and feet now show the simmed Greater Spellpower, Major Spellpower, Frozen Spellthread r3
+  and Precision. Page and profile agree on all five flagged Balance rows; no number moved.
 - [page] Full-buffed Fire matches its page enchant: hands 2322 Major Healing -> 2937 Major
   Spellpower, 4825 exact on the fresh run, the page mislink corrected 33999 -> 33997, stamp
   2026-09-30 -> today. The number holding still means the 11-cell Buff worth panel keeps its
