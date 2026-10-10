@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Ret opens the Shadowed Sun wave and sets a new record: 2768 -> 2710 (local a0d9bbb,
+  calibrations active - the stamp already current from the morning's legalization). The two
+  Masterful Onyx flagged at that landing come out of the socketless Naxx cloak: 58 DPS of fiction,
+  -10 mastery rating on a spec that lives on mastery. Section 2 stands 13 of 16 actionable; Fury,
+  Arms and the two DKs carry the last Shadowed Suns.
 - [page] Herald Windwalker closes the Coming Night family: 2757 -> 2699 effective (Raidbots
   Advanced). Raw 2472 -> 2420 - two Adept Lava Corals, 52 raw of phantom - with Fate's own formula
   edit carrying both sides this time; the x1.1154 factor (P 0.973 of record) is untouched and the

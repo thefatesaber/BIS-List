@@ -32,7 +32,7 @@ neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,drop_level=30
 # Crystalforge Shoulderbraces (40)
 shoulder=,id=30133,ilevel=40,gem_id=213500/213500,bonus_id=9035,enchant_id=3835
 # Cloak of the Shadowed Sun (39)
-back=,ilevel=39,id=40252,enchant_id=3243,gem_id=213500/213500,bonus_id=9039
+back=,ilevel=39,id=40252,enchant_id=3243,bonus_id=9039
 # Justicar Chestpiece (38)
 chest=,ilevel=38,id=29062,bonus_id=9034,enchant_id=6625,gem_id=213500/213500/213500,drop_level=30
 # bracers_of_eradication 40
