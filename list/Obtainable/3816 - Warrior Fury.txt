@@ -28,9 +28,9 @@ legs=,id=34180,ilevel=44,enchant_id=3823,gem_id=40146/40146/40146,bonus_id=9037
 # Onslaught Treads 44 — Quick Emerald (engraved)
 feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=213488,bonus_id=9037,drop_level=30
 # Loop of Vitriolic Intent (33) — Quick Emerald
-finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/41/8810,drop_level=30
+finger1=,id=134530,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/41/8810,drop_level=30,equip=procby/attack_37str_15dur_3.0%
 # Loop of Pulsing Veins (33) — Quick Emerald
-finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/6652/8810,drop_level=30
+finger2=,id=159463,ilevel=33,enchant_id=6109,gem_id=213488,bonus_id=6710/6652/8810,drop_level=30,equip=procby/attack_37str_15dur_3.0%
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Pendant of the Violet Eye — incumbent (+13 over Chaos, x2 reproduced; in-game 19x20 vers audit = last gate)

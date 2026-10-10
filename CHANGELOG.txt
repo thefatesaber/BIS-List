@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Obtainable Fury now sims the Crusader its page shows: 3816, up from 3216.
+  The audit's S4, and its D1 ruling answered by the run: both rings gain the warrior Crusader
+  proc of record (attack_37str_15dur_3.0%), the model All-time and Full buffed already carry,
+  and nothing else changes in the profile. +600 (+18.7%) on a fresh 100k Raidbots run, sheet
+  digit-identical, stamp 2026-09-22 -> today. The drop from All-time narrows from 23.8% to
+  9.6%. The two trinket rows' alternates keep their sweep base of 3216.
 - [page] Herald Restoration Shaman rises to 3788 on Raidbots: its Ascendance stand-in never fired before this fix.
   The audit's S3, last of three, became a repair. Run verbatim on Raidbots Advanced the stored
   profile returned 3685 against the local build's 3684 of 2026-08-30, so the engines agree. But
