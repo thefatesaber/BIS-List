@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Sub returns both phantom gems and sets the cloak convention: 1233 -> 1226 (Raidbots
+  Advanced). Fate's ruling of record: cloaks do NOT proc sockets - Cloak of the Coming Night takes
+  zero gems, full stop. A one-gem intermediate run (1228) was held and retired unlanded once the
+  ruling settled; the two Fierce Ametrines were 7 DPS of fiction (-4 haste rating on the sheet).
+  The ruling also confirms the morning's hunter and Enhancement strips were right. Section 2
+  stands 6 of 16 actionable; six 2-gem Coming Nights and five Shadowed Suns remain.
 - [page] Herald Devastation's 3-gem neck falls after all: 2868 -> 2815 (Raidbots Advanced). The
   previous entry's story corrects: the earlier upload paired the old 3-gem profile with what turns
   out to be THIS build's stat sheet - there was no identical re-run and no display shift, the -6

@@ -40,7 +40,7 @@ neck=,id=193676,ilevel=33,enchant_id=5437,gem_id=213464,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=213494/40150,bonus_id=6710/6652,drop_level=30
 # Cloak of the Coming Night 33
-back=,ilevel=33,id=34708,enchant_id=3243,gem_id=40146/40146,bonus_id=7202
+back=,ilevel=33,id=34708,enchant_id=3243,bonus_id=7202
 # Bloodsea Brigand's Vest 40
 chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=40150/40150/40150,bonus_id=9035,drop_level=30
 # Eversong Cuffs 33
