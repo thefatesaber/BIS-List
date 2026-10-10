@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Elemental adopts its own enchants: the four Resto-shell leftovers retire
+  (shoulders 3810 -> 3838 Master's of the Storm, waist +6906 Shadowed Belt Clasp, legs
+  Spellthread r1 -> r3, feet 851 Versatility -> 4092 Precision) and the list comes back
+  HIGHER - 1926 -> 1941 on today's engine, section 3's first land-branch close. The page's
+  labels already showed all four, so only the number, sheet and stamp move (2026-10-05 ->
+  today). Section 3 stands 6 of 9.
 - [page] Herald Demonology keeps Precision too: the Pandaren's Step leg prices -6 - 2256 against
   the stored 2262, the same 3-crit-for-2-mastery sheet trade as its twin - so the number stands
   and the page feet row relabels (104414 -> 74236). The warlock pair closes in one shape;

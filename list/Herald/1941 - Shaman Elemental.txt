@@ -20,7 +20,7 @@ head=,ilevel=33,id=28192,gem_id=25893/213743/32196,bonus_id=7202,drop_level=30
 # Phoenix Feather Pendant 33
 neck=,ilevel=33,id=200284,enchant_id=5890,gem_id=213464,drop_level=30
 # Pauldrons of Desolation 33
-shoulder=,ilevel=33,id=27713,enchant_id=3810,gem_id=32196/32196,bonus_id=7202,drop_level=30
+shoulder=,ilevel=33,id=27713,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Reanimator's Cloak 33
 back=,ilevel=33,id=37799,enchant_id=3243,gem_id=32196,bonus_id=4196,drop_level=30
 # Hauberk of Desolation 33
@@ -30,11 +30,11 @@ wrist=,ilevel=33,id=34698,enchant_id=4414,gem_id=32196/32196,bonus_id=7202,drop_
 # Gauntlets of Desolation 33
 hands=,ilevel=33,id=27528,enchant_id=4430,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Terror Pit Girdle 38
-waist=,ilevel=38,id=28778,gem_id=32196/32196/32196,bonus_id=9034,drop_level=30
+waist=,ilevel=38,id=28778,enchant_id=6906,gem_id=32196/32196/32196,bonus_id=9034,drop_level=30
 # Wyrmscale Greaves 33
-legs=,ilevel=33,id=30534,enchant_id=6539,gem_id=32196/32196/32196,bonus_id=7202,drop_level=30
+legs=,ilevel=33,id=30534,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=7202,drop_level=30
 # Star-Strider Boots 40
-feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_level=30
+feet=,id=29951,ilevel=40,enchant_id=4092,gem_id=32196/32196,bonus_id=9035,drop_level=30
 # Fleshfused Circle 33
 finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854,drop_level=30
 # Seal of the City Watch 33
