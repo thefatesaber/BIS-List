@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Windwalker closes the Coming Night family: 2757 -> 2699 effective (Raidbots
+  Advanced). Raw 2472 -> 2420 - two Adept Lava Corals, 52 raw of phantom - with Fate's own formula
+  edit carrying both sides this time; the x1.1154 factor (P 0.973 of record) is untouched and the
+  off-hand note re-derives. All eleven Coming Night rows are now bare: the cloak returned 7-56 DPS
+  per list, every sheet matching its gems exactly. Section 2 stands 12 of 16 actionable - only the
+  five Shadowed Suns remain (Fury, Arms, Ret and both DKs).
 - [page] Herald Feral bares its cloak: 2389 -> 2336 (Raidbots Advanced). Two Delicate Crimson
   Spinels - 7 agility of phantom stats - were worth 53 DPS, a near-tie with Balance's record 56.
   One profile line, the sheet exact. Section 2 stands 11 of 16 actionable: Windwalker's Coming

@@ -4,7 +4,7 @@
 # (BoK 25.7 + Melee 24.8 + RSK 23.0 + TP 16.2 + FoF 7.6 = 97.3; excluded: Touch of Karma 1.5 nature,
 # Expel Harm 0.7 nature, Touch of Death 0.5 fixed-value, not armor-scaled).
 # Raw D0 re-rolled 2477 -> 2472 at 50k iterations; the page's -5 is the re-roll, not the P fix.
-# effective DPS = D0 x (1 + A x P x U) = 2472 x (1 + 0.2083 x 0.973 x 0.5694) = 2757
+# effective DPS = D0 x (1 + A x P x U) = 2420 x (1 + 0.2083 x 0.973 x 0.5694) = 2699
 # A = 0.2083 armor gain while shredded; U = 0.5694 of record (Twins 59.68 / Jaraxxus 45.90 / NB-1 65.25,
 # Fate's log average).
 # Base Actor
@@ -25,7 +25,7 @@ neck=,id=137311,ilevel=33,enchant_id=5890,gem_id=213500,drop_level=30
 # mantle_of_perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=7202,drop_level=30
 # Cloak of the Coming Night 33
-back=,ilevel=33,id=34708,enchant_id=3243,gem_id=71852/71852,bonus_id=7202
+back=,ilevel=33,id=34708,enchant_id=3243,bonus_id=7202
 # Bloodsea Brigand's Vest 40
 chest=,id=30101,ilevel=40,enchant_id=6625,gem_id=71852/71852/71852,bonus_id=9035,drop_level=30
 # Eversong Cuffs 33
