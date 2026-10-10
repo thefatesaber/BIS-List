@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Obtainable Marksmanship is now a Raidbots number: 3451 there, 3450 on the local build in August.
+  The audit's S3, second of three. The upload is byte-identical to the stored profile, the sheet
+  matches the page digit for digit, the number takes the engine of record's 3451 and the stamp
+  moves from 2026-08-30 simc 1210-01 (a0d9bbb) to today on Raidbots Advanced. Marksmanship is
+  now on Raidbots on all four lists. Off-engine numbers: four -> three. Resto Herald is next.
 - [page] All-time Marksmanship is now a Raidbots number: 3588 there too, from the stored profile unchanged.
   The audit's S3, first of three. The upload is byte-identical to the stored profile, the sheet
   matches the page digit for digit, and the stamp moves from 2026-08-30 simc 1210-01 (a0d9bbb)
