@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Arcane trades the mace it could never swing: 1966 -> 1967 (Raidbots Advanced). Torch
+  of Holy Fire (40395, a one-hand mace - no mage proficiency) gives way to The Turning Tide (40396,
+  the sword one id over on the same Kel'Thuzad table; DBC subclass 4 -> 7, masks clean). The sheet
+  trades 5 vers rating for 5 crit and the number moves one point. Audit section 1: 4 of 9 fixed;
+  Fire and Frost carry the same Torch and their re-runs are expected next, then the three Warlocks.
 - [page] Herald Frost follows its twin clean: 2823 -> 2825 on the legalized set (Raidbots Advanced).
   Same two swaps as Unholy - Shoulderplates of Everlasting Pain (34601) and Netherforce Chestplate
   (34615) replace the Warrior-only pair - and the number again holds through the ilvl drop, +2. The
