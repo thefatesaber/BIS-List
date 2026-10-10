@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Fury now sims the Crusader its page shows: 3498, up from 2946.
+  The second half of the audit's S4: both rings gain the warrior Crusader proc of record
+  (attack_37str_15dur_3.0%), nothing else changes. +552 (+18.7%) against this morning's 2946,
+  a clean same-day A/B at 50k on Raidbots, sheet digit-identical. Obtainable gained the same
+  18.7% on its 09-22 base, so that list had not moved on the engine since September. All four
+  Fury lists now sim Crusader, and the audit's four Fury rows that showed an enchant the sim
+  lacked are closed.
 - [page] Obtainable Fury now sims the Crusader its page shows: 3816, up from 3216.
   The audit's S4, and its D1 ruling answered by the run: both rings gain the warrior Crusader
   proc of record (attack_37str_15dur_3.0%), the model All-time and Full buffed already carry,

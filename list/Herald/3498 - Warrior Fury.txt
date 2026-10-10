@@ -28,9 +28,9 @@ legs=,ilevel=33,id=30536,enchant_id=4881,gem_id=40146/40146/40146,bonus_id=6710,
 # Sha'tari Wrought Greaves (33)
 feet=,ilevel=33,id=28176,enchant_id=4429,gem_id=40146/40146,bonus_id=6710,drop_level=30
 # Loop of Vitriolic Intent (33)
-finger1=,id=134530,ilevel=33,enchant_id=6110,gem_id=40146,bonus_id=6710/41/8810,drop_level=30
+finger1=,id=134530,ilevel=33,enchant_id=6110,gem_id=40146,bonus_id=6710/41/8810,drop_level=30,equip=procby/attack_37str_15dur_3.0%
 # Loop of Pulsing Veins (33)
-finger2=,id=159463,ilevel=33,enchant_id=6110,gem_id=40146,bonus_id=6710/6652/8810,drop_level=30
+finger2=,id=159463,ilevel=33,enchant_id=6110,gem_id=40146,bonus_id=6710/6652/8810,drop_level=30,equip=procby/attack_37str_15dur_3.0%
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Pendant of the Violet Eye (38)
