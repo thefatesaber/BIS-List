@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Frost follows its twin clean: 2823 -> 2825 on the legalized set (Raidbots Advanced).
+  Same two swaps as Unholy - Shoulderplates of Everlasting Pain (34601) and Netherforce Chestplate
+  (34615) replace the Warrior-only pair - and the number again holds through the ilvl drop, +2. The
+  first upload's 2838 (Destroyer's id under the new label) is retired unlanded like Unholy's 2250.
+  Section 1 of the audit now stands at 3 of 9 lists fixed; Mage x3 and Warlock x3 remain.
 - [page] Herald Unholy comes clean and gains 16: 2221 -> 2237 on the legalized set (Raidbots Advanced).
   Both Warrior-only pieces leave - Destroyer Shoulderblades for Shoulderplates of Everlasting Pain
   (34601) and Warbringer Breastplate for Netherforce Chestplate (34615), Sunwell trash with real
