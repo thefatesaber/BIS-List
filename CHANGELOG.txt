@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Heartpierce rows now link the normal version, the one the lists use: the heroic's effect does not work.
+  Fate's ruling on the audit's S5. The six Assassination and Subtlety off-hand rows (Full buffed,
+  All-time, Obtainable) linked the heroic item, 50641, which shows a prismatic socket - hence the
+  audit's 'empty socket'. Game data agrees with the ruling: the normal Heartpierce, 49982, has no
+  socket and carries the proc the six profiles already model (driver 71880, trigger 71882); the
+  heroic carries 71892. Rows relinked 50641 -> 49982 with a one-line version note. No profile
+  changes, no runs: the sims were the normal weapon with no gem all along. S5 is void.
 - [page] Herald Fury now sims the Crusader its page shows: 3498, up from 2946.
   The second half of the audit's S4: both rings gain the warrior Crusader proc of record
   (attack_37str_15dur_3.0%), nothing else changes. +552 (+18.7%) against this morning's 2946,
