@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Shadow's buffed rings keep their haste accords: the mastery-accord leg returned 5753,
+  -4 and noise-scale (the 10-08 Base leg read 5754 on the same build), so 5757 stands WITH its
+  re-priced Buff worth base - exactly the outcome the audit doc flagged as worth protecting -
+  and both page rings relabel to the winner (Accord of Haste, 297995 -> 297989). Section 3
+  stands 7 of 9: Devourer's entangled leg and the doubled Fire All-time are the two holds.
 - [page] Herald Elemental adopts its own enchants: the four Resto-shell leftovers retire
   (shoulders 3810 -> 3838 Master's of the Storm, waist +6906 Shadowed Belt Clasp, legs
   Spellthread r1 -> r3, feet 851 Versatility -> 4092 Precision) and the list comes back
