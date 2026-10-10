@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Feral bares its cloak: 2389 -> 2336 (Raidbots Advanced). Two Delicate Crimson
+  Spinels - 7 agility of phantom stats - were worth 53 DPS, a near-tie with Balance's record 56.
+  One profile line, the sheet exact. Section 2 stands 11 of 16 actionable: Windwalker's Coming
+  Night (on its x1.115 effective scale) is the last, then the five Shadowed Suns close it.
 - [page] Herald Balance bares its cloak and pays the casters' price: 2285 -> 2229 (Raidbots
   Advanced). Two Artful Lava Corals - int gems, not the rogues' haste - were worth 56 DPS of
   fiction, the largest Coming Night return of the campaign; the sheet gives back 5 int and 4
