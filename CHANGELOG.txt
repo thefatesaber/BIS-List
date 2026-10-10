@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Balance bares its cloak and pays the casters' price: 2285 -> 2229 (Raidbots
+  Advanced). Two Artful Lava Corals - int gems, not the rogues' haste - were worth 56 DPS of
+  fiction, the largest Coming Night return of the campaign; the sheet gives back 5 int and 4
+  mastery rating. The druid's own-cast Mark of the Wild rides unchanged. Section 2 stands 10 of
+  16 actionable; Feral and Windwalker close the Coming Nights, then the five Shadowed Suns.
 - [page] Herald Havoc bares its cloak: 1770 -> 1759 effective (Raidbots Advanced). Raw 1676 -> 1665
   under the cloak ruling - the same two Fierce Ametrines, the same -4 haste rating - and the
   effective number re-derives on the factor of record (P 0.474, U 0.5694, x1.0562), the off-hand
