@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Devastation re-verifies exact: the stored input reproduces 2868 to the digit on
+  today's engine - the day's first A/A that didn't move, putting the evoker family outside the
+  drift. The 3-gem Tuskarr neck the audit singled out rode unchanged through Fate's re-run and
+  stands of record. One sheet oddity logged: int reads 263 against the stored 269 (the dracthyr
+  race-bonus column now prints zeros) while the number reproduces exactly - the stats block
+  follows the sheet, the display shift noted on the watch list. Prov comes current.
 - [page] The Enhancement rail re-prices whole: Herald 2351, Obtainable 2516, All-time 2618, one
   commit, monotonic again (Raidbots Advanced throughout). The Herald re-run - phantom Coming Night
   gem out, raw 2064 -> 2216 - rode the Enhancement engine family onto today's engine and inverted
