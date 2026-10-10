@@ -14,7 +14,7 @@ neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,drop_level=30
 # Shoulderplates of Everlasting Pain (40)
 shoulder=,id=34601,ilevel=33,gem_id=71856/71856,bonus_id=9035,enchant_id=3835
 # Cloak of the Shadowed Sun (39)
-back=,ilevel=39,id=40252,enchant_id=3243,gem_id=71856/71856,bonus_id=9039
+back=,ilevel=39,id=40252,enchant_id=3243,bonus_id=9039
 # Netherforce Chestplate (38)
 chest=,ilevel=33,id=34615,bonus_id=9034,enchant_id=6625,gem_id=71856/71856/71856,drop_level=30
 # Bracers of Eradication 40

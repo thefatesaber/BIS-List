@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Frost DK bares its Shadowed Sun: 2825 -> 2758, -67 the audit's largest single
+  return (Raidbots Advanced, stamp already current). Two Skillful Lava Corals of fiction, -4 str
+  and -4 mastery rating on the sheet, digits exact elsewhere. Counter of record: the tallies
+  since Sub had absorbed the separate Dev-neck close - Unholy stood 13 of 16 actionable, not 14;
+  Frost DK makes 14 of 16. Fury and Arms close the section.
 - [page] Herald Unholy's third pass of the day bares its Shadowed Sun: 2237 -> 2185 (Raidbots
   Advanced, stamp already current). Two Skillful Lava Corals - 52 DPS of fiction, -4 str and -4
   mastery rating on the sheet. The list that started the morning in Warrior tier ends it legal
