@@ -1,5 +1,5 @@
 # Herald - Shaman - Enhancement
-# FINAL (2026-10-03): Vibroblade OH per Fate's ruling; the page number is effective DPS (raw 2064 -> 2190)
+# FINAL (2026-10-10): Vibroblade OH per Fate's ruling; the page number is effective DPS (raw 2216 -> 2351)
 # HERALD WAVE candidate (2026-10-03): armor slots take the hunter main's Herald set verbatim
 # (ilvl <= 41, Classic/TBC/WotLK); neck/rings/trinkets ride the obtainable lines (era-exempt, <= 41 enforced).
 #   armor: hunter herald shells (agi mail, dual-primary)
@@ -23,7 +23,7 @@ neck=,id=193666,ilevel=33,enchant_id=5890,gem_id=213500,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3808,gem_id=32222/32222,bonus_id=7202,drop_level=30
 # Cloak of the Coming Night 33
-back=,ilevel=33,id=34708,enchant_id=3243,gem_id=32222,bonus_id=7202
+back=,ilevel=33,id=34708,enchant_id=3243,bonus_id=7202
 # Hauberk of Desolation 33
 chest=,ilevel=33,id=28401,enchant_id=2661,gem_id=32222/32222/32222,bonus_id=7202,drop_level=30
 # Bracers of the Forest Stalker (33)
@@ -47,10 +47,12 @@ trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
 main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur,enchant_id=4099
 # Vibroblade 33 — Gnomeregan (axe per DBC) — Fate's ruling 2026-10-03; EFFECTIVE-SCALE spec.
-# P_phys = 0.514 from this run's damage sources (MH 19.3 + OH 9.6 + Stormstrike 18.7 + WF 3.8);
+# P_phys = 0.514 OF RECORD, carried from the 2026-10-03 run's sources (MH 19.3 + OH 9.6 + Stormstrike 18.7 + WF 3.8);
+# the 2026-10-10 run's own mix reads 0.490 (MH 18.4 + SS 17.9 + OH 9.1 + WF 3.6, Lava Lash's fire share grew) -
+# Fate's ruling 2026-10-10 keeps the carried factor; the refresh (-6 effective) is parked on the watch list.
 # the nature/fire half (Crash 17.6, Lava Lash 13.1, LB 9.1, FS 5.0, Flametongue 3.8) takes no shred.
 # U = 0.5694 carried from Outlaw — same Vibroblade, same slot, same 2.6 speed; WF extras push U up if anything.
-#effective DPS = 2064 x (1 + 0.2083 x 0.514 x 0.5694) = 2190
+#effective DPS = 2216 x (1 + 0.2083 x 0.514 x 0.5694) = 2351
 off_hand=,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
 
 # Consumables

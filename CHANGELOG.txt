@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] The Enhancement rail re-prices whole: Herald 2351, Obtainable 2516, All-time 2618, one
+  commit, monotonic again (Raidbots Advanced throughout). The Herald re-run - phantom Coming Night
+  gem out, raw 2064 -> 2216 - rode the Enhancement engine family onto today's engine and inverted
+  the rail, so the stored Obtainable and All-time re-ran verbatim: +8.9% and +5.8%, pure engine
+  moves, stats digit-identical (All-time's mastery rating also corrects the audit's 100-for-10
+  typo). Herald's effective number keeps P_phys 0.514 of record per Fate's ruling; this run
+  measures 0.490, parked at -6. And a second ruling closes eight audit rows outright: Eversong
+  Cuffs' two gems are legal, the wrist procs a second socket. Section 2 stands 4 of 16 actionable.
 - [page] Herald Survival completes the hunters' phantom-gem return: 2379 -> 2365 (Raidbots Advanced).
   The socketless Coming Night gives back its Adept Lava Coral - 14 DPS of fiction, -2 agi / -2
   mastery rating on the sheet. All three hunter Coming Nights are now clean; section 2 stands 3 of
