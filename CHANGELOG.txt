@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Retribution is now a Raidbots number: the stored profile returns 2711 there, 2710 on the
+  local build. The run is the audit's S2 and it settles the provenance doubt: Raidbots honours
+  the six calibration overrides ahead of the actor line (by the report's damage shares,
+  stripping them would cost about 9%, not 1 DPS). The stamp moves from simc 1210-01 (a0d9bbb)
+  to Raidbots Advanced, the sheet is digit-identical, and the profile's 'Raidbots strips these'
+  header note is corrected. Off-engine numbers: six -> five. Ret All-time 3111 and Obtainable
+  2900 can follow with one verbatim run each.
 - [page] All-time Fire Mage now sims the glove enchant its page shows, Major Spellpower: 3565, unchanged.
   The stored profile carried Major Healing (2322) under the page's Major Spellpower label; the
   clean re-send sims 2937 and returns the stored number to the digit on a fresh 100k Raidbots
