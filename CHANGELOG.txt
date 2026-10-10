@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Devastation's 3-gem neck falls after all: 2868 -> 2815 (Raidbots Advanced). The
+  previous entry's story corrects: the earlier upload paired the old 3-gem profile with what turns
+  out to be THIS build's stat sheet - there was no identical re-run and no display shift, the -6
+  int was simply the two Brilliant Crimson Spinels leaving the Tuskarr neck. The audit's only
+  multi-gem neck now follows the native-socket convention (1 gem + socket-proc badge), its empty
+  extra-socket tokens inert, and the -53 is consistent with the gems alone - so the evoker drift
+  question stays open rather than answered. Stats of record were already this build's, one patch early.
 - [page] Herald Devastation re-verifies exact: the stored input reproduces 2868 to the digit on
   today's engine - the day's first A/A that didn't move, putting the evoker family outside the
   drift. The 3-gem Tuskarr neck the audit singled out rode unchanged through Fate's re-run and
