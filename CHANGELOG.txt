@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Arms bares its Shadowed Sun: 2301 -> 2255 (Raidbots Advanced). The cloak's two
+  Fierce Ametrines were 46 DPS of fiction - -4 str and -4 haste rating on the sheet, digits
+  exact elsewhere, the one-line strip byte-verified. Section 2 stands 15 of 16 actionable;
+  Fury alone closes it.
 - [page] Herald Frost DK bares its Shadowed Sun: 2825 -> 2758, -67 the audit's largest single
   return (Raidbots Advanced, stamp already current). Two Skillful Lava Corals of fiction, -4 str
   and -4 mastery rating on the sheet, digits exact elsewhere. Counter of record: the tallies
