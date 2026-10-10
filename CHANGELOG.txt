@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Unholy's third pass of the day bares its Shadowed Sun: 2237 -> 2185 (Raidbots
+  Advanced, stamp already current). Two Skillful Lava Corals - 52 DPS of fiction, -4 str and -4
+  mastery rating on the sheet. The list that started the morning in Warrior tier ends it legal
+  AND honest. Section 2 stands 14 of 16 actionable; Fury, Arms and Frost DK close it.
 - [page] Herald Ret opens the Shadowed Sun wave and sets a new record: 2768 -> 2710 (local a0d9bbb,
   calibrations active - the stamp already current from the morning's legalization). The two
   Masterful Onyx flagged at that landing come out of the socketless Naxx cloak: 58 DPS of fiction,
