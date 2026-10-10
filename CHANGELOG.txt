@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald BM opens the audit's section 2 and gives back a phantom gem: 1897 -> 1875 (Raidbots
+  Advanced). Cloak of the Coming Night has no sockets in game data, and the Deadly Pyrestone it was
+  simming was pure fiction - 22 DPS of it, -2 agi / -2 crit rating on the sheet now reading true.
+  The row's gem icon leaves with it. 23 phantom-socket rows remain on the watch list: ten more
+  Coming Nights, five Shadowed Suns, eight Eversong Cuffs.
 - [page] Herald Affliction closes the audit's section 1: 2870 -> 2848 (-22), nine of nine lists now
   class-legal. The same lock pair as its siblings - Mantle of the Corruptor for the Priest-only
   Wings, The Turning Tide for the mace - and the same sheet trade a third time (+5 crit rating,
