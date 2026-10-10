@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Full-buffed Fire matches its page enchant: hands 2322 Major Healing -> 2937 Major
+  Spellpower, 4825 exact on the fresh run, the page mislink corrected 33999 -> 33997, stamp
+  2026-09-30 -> today. The number holding still means the 11-cell Buff worth panel keeps its
+  current base. Two of the Fire trio home; the All-time upload arrived doubled (two spliced
+  copies disagreeing only on the hands token) and waits on a clean re-send. Section 3: 2 of 9.
 - [page] Obtainable Fire opens section 3: the hands enchant the page always showed is now the one
   simmed - 2322 Major Healing -> 2937 Major Spellpower, 3430 exact on a fresh 100k run (the two
   are coefficient twins, as the audit's re-check predicted) - and the page's mislink corrects,
