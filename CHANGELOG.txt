@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Demonology pays 17 to dress legally: 2279 -> 2262 (Raidbots Advanced). Both illegal
+  pieces leave at once - the Priest-only Wings of the Avatar for Mantle of the Corruptor (30215, the
+  warlock token off the same Void Reaver kill; DBC mask 0x0100, two real sockets) and the unswingable
+  Torch for The Turning Tide. The sheet moves +1.01% crit / -1.87% vers and two stam. Audit section 1
+  stands 7 of 9: Affliction and Destruction carry the same pair and close the section.
 - [page] Herald Frost mage retires the mages' last Torch: 3181 -> 3184 on The Turning Tide (Raidbots
   Advanced). Same one-line swap and the same +5 crit / -5 vers sheet trade as its siblings, worth +3
   here - the mage family closes at +1 / -12 / +3, proficiency-legal for a net -8. The Torch itself

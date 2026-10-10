@@ -19,8 +19,8 @@ talents=CoQAMrNP5kak+EBqLfUa3dMm+CYGBGmZAAAAAAAAAAAAAAYsNghBAMMDDAwAAAAMYAAAA
 head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30
 # Tuskarr Bone Necklace 135
 neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=32196,drop_level=30
-# wings_of_the_avatar 40
-shoulder=,ilevel=40,id=30163,enchant_id=3838,gem_id=32196/32196,bonus_id=9035,drop_level=30
+# Mantle of the Corruptor 40
+shoulder=,ilevel=40,id=30215,enchant_id=3838,gem_id=32196/32196,bonus_id=9035,drop_level=30
 # pennant_cloak 40
 back=,ilevel=39,id=44005,enchant_id=3243,gem_id=32196,bonus_id=9039,drop_level=30
 # vestments_of_the_seawitch 40
@@ -43,8 +43,8 @@ finger2=,id=151410,ilevel=33,enchant_id=6108,gem_id=32196,drop_level=30
 trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Gale of Shadows (33)
 trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
-# torch_of_holy_fire 39
-main_hand=,ilevel=39,id=40395,bonus_id=9039,enchant_id=2669
+# The Turning Tide 39
+main_hand=,ilevel=39,id=40396,bonus_id=9039,enchant_id=2669
 # surplus_limb 39
 off_hand=,id=40273,ilevel=39,bonus_id=9039,enchant_id=4434
 
