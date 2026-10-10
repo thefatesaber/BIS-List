@@ -26,7 +26,7 @@ neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3808,gem_id=71852/71852,bonus_id=7202,drop_level=30
 # Cloak of the Coming Night 33
-back=,ilevel=33,id=34708,enchant_id=3243,gem_id=71852,bonus_id=7202
+back=,ilevel=33,id=34708,enchant_id=3243,bonus_id=7202
 # Hauberk of Desolation 33
 chest=,ilevel=33,id=28401,enchant_id=2661,gem_id=71852/71852/71852,bonus_id=7202,drop_level=30
 # Bracers of the Forest Stalker (33)

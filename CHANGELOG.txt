@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Survival completes the hunters' phantom-gem return: 2379 -> 2365 (Raidbots Advanced).
+  The socketless Coming Night gives back its Adept Lava Coral - 14 DPS of fiction, -2 agi / -2
+  mastery rating on the sheet. All three hunter Coming Nights are now clean; section 2 stands 3 of
+  24, with the 2-gem crowd (both rogues, Havoc, Balance, Feral, WW), the five Shadowed Suns and the
+  Eversong Cuffs still to come.
 - [page] Herald MM returns its phantom gem and comes off the old engine: 3170 -> 3137 (Raidbots
   Advanced). The same socketless Coming Night fiction as BM (-2 agi / -2 crit on the sheet), plus
   five weeks of engine between the retired 2026-08-30 local stamp and today - the audit's section 9
