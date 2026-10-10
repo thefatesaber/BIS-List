@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Obtainable Fire opens section 3: the hands enchant the page always showed is now the one
+  simmed - 2322 Major Healing -> 2937 Major Spellpower, 3430 exact on a fresh 100k run (the two
+  are coefficient twins, as the audit's re-check predicted) - and the page's mislink corrects,
+  33999 -> 33997. Nine section-3 inputs went out at 14:20; Fire's trio is first back. Ledger
+  correction of record: the off-engine count reads SIX, not five - the morning's Ret Herald move
+  onto the local build was never counted (audit re-check).
 - [page] Herald Fury closes section 2: 3002 -> 2946, and the last warrior local stamp retires -
   2026-08-30 simc a0d9bbb gives way to today's Raidbots Advanced, the ledger's off-engine count
   dropping to five. Same signature as Arms: two Fierce Ametrines out, -56 DPS, -4 str and -4
