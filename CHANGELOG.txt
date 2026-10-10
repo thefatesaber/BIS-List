@@ -6,6 +6,15 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-10
+- [page] Herald Ret regears its shoulders legal at an unchanged 2768: the site audit's first finding, answered.
+  Destroyer Shoulderblades (30122, Warrior tier - a paladin can't wear it) swaps for Crystalforge
+  Shoulderbraces (30133, the paladin token off the same Void Reaver kill); the sheet moves by a hair
+  (+1 str, -1 crit rating, -1 haste rating) and the number holds. Run on Fate's local a0d9bbb build
+  with the HoW/FV/HJ/BoJ calibrations active, and stamped so. Known and kept: the audit's phantom-gem
+  cloak (40252 sims 2 gems on 0 sockets) rides along unchanged - watch-listed with the rest of the
+  audit; 8 other Herald lists still wear class-illegal items.
+
 ## 2026-10-08
 - [page] The Shadow panel re-prices whole on the regemmed 5757: 7 runs, every cell measured current.
   The Base re-verified at 5754 (-3, 0.05% - run noise, an order below the smallest confirmed drift);
