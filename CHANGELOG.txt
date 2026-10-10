@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] All-time Fire Mage now sims the glove enchant its page shows, Major Spellpower: 3565, unchanged.
+  The stored profile carried Major Healing (2322) under the page's Major Spellpower label; the
+  clean re-send sims 2937 and returns the stored number to the digit on a fresh 100k Raidbots
+  run. The Hands row's link corrects 33999 -> 33997 and the stamp moves 2026-09-23 -> today.
+  This is the re-send of the upload that arrived doubled; Fire is now current on all four
+  lists. Section 3 stands 8 of 9: Devourer Herald is the one left.
 - [page] Shadow's buffed rings keep their haste accords: the mastery-accord leg returned 5753,
   -4 and noise-scale (the 10-08 Base leg read 5754 on the same build), so 5757 stands WITH its
   re-priced Buff worth base - exactly the outcome the audit doc flagged as worth protecting -

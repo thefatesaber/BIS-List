@@ -22,7 +22,7 @@ chest=,ilevel=44,id=34365,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9037
 # Bracers of the Tempest (44)
 wrist=,ilevel=44,id=34447,enchant_id=2326,gem_id=32196,bonus_id=9037,drop_level=30
 # Handguards of the Dawn (44)
-hands=,ilevel=44,id=34342,enchant_id=2322,gem_id=32196/32196,bonus_id=9037,drop_level=30
+hands=,ilevel=44,id=34342,enchant_id=2937,gem_id=32196/32196,bonus_id=9037,drop_level=30
 # Belt of Blasting (40)
 waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
 # Leggings of Calamity (44)
