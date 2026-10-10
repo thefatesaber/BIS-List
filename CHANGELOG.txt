@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Destruction pays 18 for the same two swaps: 2527 -> 2509 (Raidbots Advanced). Wings
+  of the Avatar -> Mantle of the Corruptor and Torch -> The Turning Tide, the mirror of Demonology's
+  landing down to the sheet shape (+5 crit rating, -11 vers, +2 stam). Audit section 1 stands 8 of
+  9 - Affliction carries the last illegal pair on the rail and closes the section when it lands.
 - [page] Herald Demonology pays 17 to dress legally: 2279 -> 2262 (Raidbots Advanced). Both illegal
   pieces leave at once - the Priest-only Wings of the Avatar for Mantle of the Corruptor (30215, the
   warlock token off the same Void Reaver kill; DBC mask 0x0100, two real sockets) and the unswingable
