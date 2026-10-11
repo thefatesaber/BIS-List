@@ -7,6 +7,22 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] The small grey text is lighter and easier to read; sizes and layout are unchanged.
+  The quietest grey on the page (level and source under each item, spec names and numbers
+  in the class list, column heads, labels) sat at about 3 to 1 against its background,
+  where 4.5 to 1 is the usual floor for body text. It is now 4.5 to 5.2 to 1. On Fury
+  All-Time the share of text under that floor falls from 56% to 20% on a desktop. What is
+  left is the colour of item and gem names: epic purple, and the rare blue that Wowhead's
+  stylesheet puts in place of the page's lighter one.
+  Icons lose a stray line. A ring in the item's quality colour was declared around every
+  icon and clipped away, except for a one-pixel sliver along an edge of most icons. The
+  rule is deleted and the edges are clean.
+  Class colours stay the game's own, on small numbers too.
+  Fate ruled all three from mock-ups: lift the grey and keep the sizes, no ring, official
+  colours. With this the audit's 24 page-code items are worked through. Two leftovers of
+  the dead-code item stay until Fate says otherwise: the status field on every row, which
+  nothing shows, and the class notes, which the page builds and hides.
+  No list and no number changed.
 - [fix] The Back button now returns to the list you came from instead of leaving the site.
   Opening a class, a spec or a tab used to rewrite a single history entry, so Back skipped
   every list you had looked at and left the site. Each list you open is now a step of its

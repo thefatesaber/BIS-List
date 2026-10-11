@@ -29,9 +29,13 @@
 <style>
 :root{
   --void:#0b0d12; --slate:#141822; --slate2:#181d29; --edge:#232a39;
-  --parchment:#e7e4dc; --dust:#8e97a8; --dim:#5c6575;
+  /* --dim is the quietest text: level and source lines, labels, column heads,
+     spec names in the class list. #7b8597 is 4.5 to 1 on the lightest row
+     background and 5.2 on the page; it was #5c6575, 2.9 to 3.3 (ruling L1,
+     2026-10-11: lift the grey, leave the sizes). */
+  --parchment:#e7e4dc; --dust:#8e97a8; --dim:#7b8597;
   --epic:#a335ee;
-  --confirmed:#41c176; --tbd:#566074;
+  --confirmed:#41c176;
   --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
   --display:"Cinzel", "Friz Quadrata", Georgia, serif;
 }
@@ -114,6 +118,10 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
   margin:0; font-family:var(--display); font-weight:600;
   font-size:clamp(17px,2.6vw,22px); letter-spacing:.03em; color:var(--cc,#fff);
 }
+/* Class colours are the game's own and are used as they are, on small text
+   too (ruling L2, 2026-10-11). Three are dark for small text on this
+   background: Death Knight 3.0 to 1, Demon Hunter 3.2, Shaman 3.7. A lighter
+   cut for the numbers was built and not taken. */
 .dpsbadge{display:inline-flex; align-items:baseline; gap:5px; margin-left:2px; padding:3px 10px;
   border:1px solid color-mix(in srgb, var(--cc) 45%, transparent); border-radius:999px;
   background:color-mix(in srgb, var(--cc) 12%, transparent);
@@ -181,22 +189,25 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 }
 .slot{color:var(--dust); font-size:12px}
 .item a{color:var(--epic); text-decoration:none; font-weight:500; display:inline-flex; align-items:center; gap:10px}
-.item a > ins, .item a span[class*="icon"]{flex:none; width:34px !important; height:34px !important;
+/* Icons carry no quality ring (ruling L4, 2026-10-11). One was declared here
+   from the start, as a box-shadow in the item's quality colour. The clip-path
+   that rounds the icon clipped it, all but a stray one-pixel sliver along an
+   edge wherever an icon landed on a fraction of a pixel. */
+.item a span[class*="icon"]{flex:none; width:34px !important; height:34px !important;
   box-sizing:border-box !important; border:0 !important; padding:0 !important; margin:0 !important;
   border-radius:4px; overflow:hidden; clip-path:inset(0 round 4px);
-  background-size:34px 34px !important; background-position:center !important;
-  box-shadow:0 0 0 2px var(--qc), 0 0 0 3px rgba(0,0,0,.65)}
+  background-size:34px 34px !important; background-position:center !important}
 .item a span[class*="icon"] ins{display:block; position:static !important; width:100% !important; height:100% !important;
   margin:0 !important; border:0 !important; background-size:cover !important; background-position:center !important}
 .item a span[class*="icon"] del{display:none !important}
 .item a.q1{color:#eaeaea}.item a.q2{color:#1eff00}.item a.q3{color:#2f8dff}.item a.q5{color:#ff8000}
-.item a,.gems a{--qc:var(--epic)}
-.item a.q1,.gems a.q1{--qc:#eaeaea}
-.item a.q2,.gems a.q2{--qc:#1eff00}
-.item a.q3,.gems a.q3{--qc:#2f8dff}
-.item a.q5,.gems a.q5{--qc:#ff8000}
+.gems a{--qc:var(--epic)}
+.gems a.q1{--qc:#eaeaea}
+.gems a.q2{--qc:#1eff00}
+.gems a.q3{--qc:#2f8dff}
+.gems a.q5{--qc:#ff8000}
 .item a:hover{text-decoration:underline}
-.item .none{color:var(--tbd); margin-left:44px}
+.item .none{color:var(--dim); margin-left:44px}
 .ench,.gems{color:var(--dust); font-size:12px; overflow-wrap:anywhere}
 .ench a{color:#2f8dff; text-decoration:none}
 .ench a:hover{text-decoration:underline}
@@ -204,10 +215,9 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .gemgrp{display:flex; align-items:center; gap:6px; padding:2px 0; flex-wrap:wrap}
 .gems a{color:var(--qc); text-decoration:none; display:inline-flex; align-items:center; gap:8px}
 /* icon-only socket: keeps a visible socket square even if Wowhead never iconizes */
-/* Extra socket icons must look identical to the named one. No ring here: the
-   Wowhead-injected icon clips its own box-shadow via clip-path, so a ring on
-   this anchor would be the only one that actually paints. Background is a
-   fallback so the socket is still countable if iconization ever fails. */
+/* Extra socket icons must look identical to the named one, which has no ring.
+   Background is a fallback so the socket is still countable if iconization
+   ever fails. */
 .gems a.gicon{width:24px; height:24px; border-radius:3px; flex:none;
   background:rgba(255,255,255,.045)}
 .hm{margin-left:8px; font-size:10px; font-weight:600; letter-spacing:.06em;
@@ -224,20 +234,19 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
   color:#e0a53f; border:1px solid currentColor; vertical-align:1px}
 .alts{grid-column:2 / -1; padding-left:44px; padding-top:2px;
   color:var(--dim); font-size:11px; overflow-wrap:anywhere}
-.alts em{font-style:normal; color:var(--tbd); text-transform:uppercase;
+.alts em{font-style:normal; color:var(--dim); text-transform:uppercase;
   font-size:9.5px; letter-spacing:.07em; margin-right:5px}
 .alts a{color:#9fb6d4; text-decoration:none}
 .alts a:hover{text-decoration:underline}
 .alts a ins, .alts a del, .alts a span[class*="icon"]{display:none !important}
 .alts .delta{color:var(--dust)}
-.alts .pending{color:var(--tbd); font-style:italic}
+.alts .pending{color:var(--dim); font-style:italic}
 .alts .sep{opacity:.5; margin:0 3px}
 .alts.fb{opacity:.82}
-.gems a > ins, .gems a span[class*="icon"], .consum a span[class*="icon"]{flex:none; width:24px !important; height:24px !important;
+.gems a span[class*="icon"], .consum a span[class*="icon"]{flex:none; width:24px !important; height:24px !important;
   box-sizing:border-box !important; border:0 !important; padding:0 !important; margin:0 !important;
   border-radius:3px; overflow:hidden; clip-path:inset(0 round 3px);
-  background-size:24px 24px !important; background-position:center !important;
-  box-shadow:0 0 0 2px var(--qc), 0 0 0 3px rgba(0,0,0,.65)}
+  background-size:24px 24px !important; background-position:center !important}
 .gems a span[class*="icon"] ins, .consum a span[class*="icon"] ins{display:block; position:static !important; width:100% !important; height:100% !important;
   margin:0 !important; border:0 !important; background-size:cover !important; background-position:center !important}
 .gems a span[class*="icon"] del, .consum a span[class*="icon"] del{display:none !important}
@@ -384,18 +393,11 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .row.head{transition:none}
 .item a, .gems a, .ench a{transition:color .15s ease, filter .15s ease}
 .item a:hover, .gems a:hover{filter:brightness(1.16)}
-.item a > ins, .item a span[class*="icon"],
-.gems a > ins, .gems a span[class*="icon"]{
-  transition:box-shadow .18s ease, transform .18s cubic-bezier(.2,.8,.36,1.15);
+.item a span[class*="icon"], .gems a span[class*="icon"]{
+  transition:transform .18s cubic-bezier(.2,.8,.36,1.15);
 }
-.item a:hover > ins, .item a:hover span[class*="icon"]{
-  transform:translateY(-1px) scale(1.045);
-  box-shadow:0 0 0 2px var(--qc), 0 0 0 3px rgba(0,0,0,.65), 0 3px 12px -3px var(--qc);
-}
-.gems a:hover > ins, .gems a:hover span[class*="icon"]{
-  transform:scale(1.07);
-  box-shadow:0 0 0 2px var(--qc), 0 0 0 3px rgba(0,0,0,.65), 0 2px 9px -2px var(--qc);
-}
+.item a:hover span[class*="icon"]{transform:translateY(-1px) scale(1.045)}
+.gems a:hover span[class*="icon"]{transform:scale(1.07)}
 .item a span[class*="icon"] ins{transition:transform .3s ease}
 .item a:hover span[class*="icon"] ins{transform:scale(1.1)}
 .cls, .tab, .btn, #sortsel{transition:background-color .15s ease, color .15s ease,
