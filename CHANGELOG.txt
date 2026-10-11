@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] All-time Retribution is now a Raidbots number: 3110 there, 3111 on the local build.
+  The audit's S2, second of three runs. The stored profile ran unchanged at 100k on Raidbots
+  Advanced and lands 1 DPS from the local figure, as Herald did this afternoon: the six
+  calibration overrides are honoured. The number takes the engine of record's 3110, the stamp
+  moves from 2026-09-22 simc 1210-01 (a0d9bbb) to today on Raidbots, and the profile's 'Raidbots
+  strips these' header note is corrected. Off-engine numbers: two -> one.
 - [page] All-time Feral's ring rows now show the gems that were simmed, Deadly Pyrestone: 2770 stands.
   The audit's S7, settled by a same-day A/B at 100k on Raidbots. A, the stored profile
   unchanged, returned 2770 - the stored number exactly, so the 09-09 figure is current on
