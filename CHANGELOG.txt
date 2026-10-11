@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [tooling] Every item on the lists is now checked against the game's own data on each change.
+  The page check now reads a small file of game data, gamedata.json: for each of the 200
+  items and gems and the 40 enchants the lists name, what the game's own tables say. On
+  every change it confirms that the class can wear the item and use the weapon, that the
+  item goes in the slot it is listed in, that its name and colour are the game's, that
+  the gems shown fit its sockets (one extra only where a list counts on a belt buckle or
+  a socket proc, and then with the Socket Proc badge), that an enchant's link is a spell
+  for that kind of item and carries the name shown, and that the Professions line knows
+  every profession-only enchant and every crafted chest that binds on pickup. The page
+  was clean but for one thing: the Talisman of Ephemeral Power listed as an alternate on
+  Devourer's Obtainable trinket had no colour and is now epic purple. Run on the page as
+  it stood at the audit of 10 October, the same check reports every item, gem, badge
+  and link that audit found by hand. No list and no number changed.
 - [tooling] The Full buffed sim profiles are now checked on every change, as the other three are.
   The automatic check that runs on each change to the site linted the profiles of
   All-Time, Obtainable and Herald, and left out the Full buffed folder; it passed when run

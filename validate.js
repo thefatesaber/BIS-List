@@ -42,9 +42,9 @@ const eraOk = (src) => ERA_OK.some((k) => (src || "").includes(k));
 // Pull the dataset out of the single-file page and evaluate it, rather than
 // regex-parsing the object literals — a real parse means a schema change can't
 // silently drift away from what this file checks.
-let CLASSES, DEFAULT_SLOTS, CONFIG;
+let CLASSES, DEFAULT_SLOTS, CONFIG, html;
 try {
-  const html = fs.readFileSync(FILE, "utf8");
+  html = fs.readFileSync(FILE, "utf8");
   // Header date must match the newest changelog section: any commit that
   // extends the changelog without touching CONFIG.updated fails.
   {
@@ -70,6 +70,105 @@ try {
   console.error(`cannot read data from ${FILE}: ${e.message}`);
   process.exit(2);
 }
+
+// ------------------------------------------------------------- game data
+// What the client's tables say about every item, gem and enchant spell the
+// page names: gamedata.json, cut from SimulationCraft's client data by
+// gamedata.js. A row that names an id the file does not hold fails, and the
+// message says how to rebuild it.
+let GD;
+try { GD = require("./gamedata.js").load(); }
+catch (e) { console.error(e.message); process.exit(2); }
+
+// What a class can equip. Weapon types are the client's item subclass
+// numbers; armour is the heaviest type the class wears. Cloaks are cloth for
+// everyone and are not held to the armour type.
+const WEAPON = { 0: "one-handed axe", 1: "two-handed axe", 2: "bow", 3: "gun", 4: "one-handed mace",
+  5: "two-handed mace", 6: "polearm", 7: "one-handed sword", 8: "two-handed sword", 9: "warglaive",
+  10: "staff", 13: "fist weapon", 15: "dagger", 18: "crossbow", 19: "wand" };
+const ARMOR = { 1: "cloth", 2: "leather", 3: "mail", 4: "plate" };
+const CLASS_RULES = {
+  warrior:     { bit: 0x0001, armor: 4, shield: true, weapons: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 13, 15, 18] },
+  paladin:     { bit: 0x0002, armor: 4, shield: true, weapons: [0, 1, 4, 5, 6, 7, 8] },
+  hunter:      { bit: 0x0004, armor: 3, weapons: [0, 1, 2, 3, 6, 7, 8, 10, 13, 15, 18] },
+  rogue:       { bit: 0x0008, armor: 2, weapons: [0, 4, 7, 13, 15] },
+  priest:      { bit: 0x0010, armor: 1, weapons: [4, 10, 15, 19] },
+  deathknight: { bit: 0x0020, armor: 4, weapons: [0, 1, 4, 5, 6, 7, 8] },
+  shaman:      { bit: 0x0040, armor: 3, shield: true, weapons: [0, 1, 4, 5, 10, 13, 15] },
+  mage:        { bit: 0x0080, armor: 1, weapons: [7, 10, 15, 19] },
+  warlock:     { bit: 0x0100, armor: 1, weapons: [7, 10, 15, 19] },
+  monk:        { bit: 0x0200, armor: 2, weapons: [0, 4, 6, 7, 10, 13] },
+  druid:       { bit: 0x0400, armor: 2, weapons: [4, 5, 6, 10, 13, 15] },
+  demonhunter: { bit: 0x0800, armor: 2, weapons: [0, 7, 9, 13, 15] },
+  evoker:      { bit: 0x1000, armor: 3, weapons: [0, 1, 4, 5, 7, 8, 10, 13, 15] },
+};
+const classesOf = (mask) => Object.keys(CLASS_RULES).filter((k) => mask & CLASS_RULES[k].bit).join(", ");
+
+// The client's inventory types a page slot accepts. An off hand takes a
+// one-handed weapon, an off-hand weapon, a held item or a shield, and a
+// two-hander only under Titan's Grip.
+const SLOT_INV = {
+  "Head": [1], "Neck": [2], "Shoulders": [3], "Back": [16], "Chest": [5, 20], "Wrist": [9],
+  "Hands": [10], "Waist": [6], "Legs": [7], "Feet": [8], "Ring 1": [11], "Ring 2": [11],
+  "Trinket 1": [12], "Trinket 2": [12],
+  "Main Hand": [13, 17, 21, 15, 26], "Off Hand": [13, 22, 23, 14, 17],
+};
+const TITANS_GRIP = new Set(["warrior"]);   // entry ids: Fury holds a two-hander in each hand
+const twoHanded = (it) => it.inv === 17 || ((it.inv === 15 || it.inv === 26) && it.sub !== 19);
+
+// Why an entry's class cannot wear an item in a slot; an empty list means it can.
+function equipIssues(it, c, slot) {
+  const out = [], rule = CLASS_RULES[c.cls];
+  if (!rule) return [`class "${c.cls}" has no line in CLASS_RULES`];
+  if (!(SLOT_INV[slot] || []).includes(it.inv))
+    out.push(`does not go in the ${slot} slot (the game data gives it inventory type ${it.inv})`);
+  if (it.classes && !(it.classes & rule.bit))
+    out.push(`is restricted to ${classesOf(it.classes) || "other classes"}`);
+  if (it.class === 2 && !rule.weapons.includes(it.sub))
+    out.push(`is a ${WEAPON[it.sub] || "weapon of type " + it.sub}, which a ${c.cls} cannot use`);
+  if (it.class === 4 && ARMOR[it.sub] && it.inv !== 16 && it.sub > rule.armor)
+    out.push(`is ${ARMOR[it.sub]} armour; a ${c.cls} wears up to ${ARMOR[rule.armor]}`);
+  if (it.class === 4 && it.sub === 6 && !rule.shield)
+    out.push(`is a shield, which a ${c.cls} cannot use`);
+  return out;
+}
+
+// Gems against sockets (the rule patches 359 and 365 left with no exception).
+// A row may show one gem more than its item has sockets only where the lists
+// count on a socket: the belt buckle on the waist, and a socket proc on a
+// helm, bracers, a neck or a ring, which then wears the Socket Proc badge.
+// Necks and rings on All-Time and Full buffed may carry two or three: their
+// sockets come from the jeweller's settings, named by bonus id in the profile.
+const SOCKET_PROC_SLOTS = new Set(["Head", "Wrist", "Neck", "Ring 1", "Ring 2"]);
+const JEWELLERY = new Set(["Neck", "Ring 1", "Ring 2"]);
+function socketIssue(r, it, L) {
+  const gems = (r.gems || []).reduce((n, g) => n + (g.n || 1), 0);
+  const extra = gems - it.sockets;
+  const badge = r.hm === "socket";
+  if (extra < 0) return `shows ${gems} gem(s) and has ${it.sockets} socket(s) — an empty socket`;
+  if (r.slot === "Waist") {
+    if (extra > 1) return `shows ${gems} gems on ${it.sockets} socket(s) — the buckle adds one`;
+    return badge ? `wears the Socket Proc badge; a belt's extra socket is the buckle` : null;
+  }
+  if (extra === 1) {
+    if (!SOCKET_PROC_SLOTS.has(r.slot)) return `shows ${gems} gem(s) on ${it.sockets} socket(s) — no socket to put it in`;
+    return badge ? null : `shows one gem more than its ${it.sockets} socket(s) and has no Socket Proc badge (hm:"socket")`;
+  }
+  if (badge) return `wears the Socket Proc badge but shows ${gems} gem(s) on ${it.sockets} socket(s) — the badge is for exactly one extra`;
+  if (extra > 1 && !(JEWELLERY.has(r.slot) && (L === "alltime" || L === "alltime_buffed") && gems <= 3))
+    return `shows ${gems} gems on ${it.sockets} socket(s)`;
+  return null;
+}
+
+// The two tables behind the page's "Professions assumed" line (ruling D2):
+// the shoulder inscriptions only a scribe can wear, and the crafted chests
+// that bind on pickup. Read from the page so the game data can hold them.
+const RUNEFORGING = 960;   // the one skill line on an enchant that is a class's own, not a profession
+let SCRIBE_ENCH = null, BOP_CRAFT = null;
+try {
+  SCRIBE_ENCH = new Function("return " + html.match(/const SCRIBE_ENCH = (new Set\(\[[^\]]*\]\));/)[1])();
+  BOP_CRAFT = new Function("return {" + html.match(/const BOP_CRAFT = \{([\s\S]*?)\};/)[1] + "};")();
+} catch (e) { err("cannot read SCRIBE_ENCH and BOP_CRAFT from the page"); }
 
 // ---------------------------------------------------------------- config
 if (!CONFIG.updated) err("CONFIG.updated is missing");
@@ -109,6 +208,19 @@ for (const c of CLASSES) {
         err(`${at}: ${holders[0].item} (${id}) appears twice`);
     }
 
+    // Hands. A two-handed or ranged main hand leaves no off hand (Titan's
+    // Grip aside); a one-handed one needs it filled.
+    {
+      const mh = rows.find((r) => r.slot === "Main Hand"), oh = rows.find((r) => r.slot === "Off Hand");
+      const mi = mh && GD.items[mh.wowhead], oi = oh && GD.items[oh.wowhead];
+      if (mi && twoHanded(mi) && oh && !TITANS_GRIP.has(c.id))
+        err(`${at}: ${mh.item} takes both hands, and the list has an Off Hand row`);
+      if (mi && !twoHanded(mi) && !oh)
+        err(`${at}: ${mh.item} is one-handed and the list has no Off Hand row`);
+      if (oi && oi.inv === 17 && !TITANS_GRIP.has(c.id))
+        err(`${at}: ${oh.item} is two-handed and sits in the Off Hand`);
+    }
+
     for (const r of rows) {
       const item = `${r.item} (${r.wowhead})`;
 
@@ -134,6 +246,80 @@ for (const c of CLASSES) {
       // hm:"ilvl" was retired; "only" and "socket" are the surviving badges.
       if (r.hm && !["only", "socket", "none"].includes(r.hm))
         err(`${at}: ${item} has unknown hm value "${r.hm}"`);
+
+      // The item itself, against the game data.
+      const it = GD.items[r.wowhead];
+      if (!it) err(`${at}: ${item} is not in gamedata.json — rebuild it with: node gamedata.js --fetch`);
+      else {
+        if (it.name !== r.item) err(`${at}: ${r.slot} names "${r.item}" but id ${r.wowhead} is "${it.name}"`);
+        if ((r.q || 4) !== it.quality)
+          err(`${at}: ${item} has q ${r.q == null ? "unset (epic)" : r.q} but its quality in the game data is ${it.quality}`);
+        for (const why of equipIssues(it, c, r.slot)) err(`${at}: ${item} ${why}`);
+        if (it.class === 4 && ARMOR[it.sub] && it.inv !== 16 && it.sub < CLASS_RULES[c.cls].armor)
+          warn(`${at}: ${item} is ${ARMOR[it.sub]} on a class that wears ${ARMOR[CLASS_RULES[c.cls].armor]} — wearable, but the armour specialization is lost`);
+        if (it.skill)
+          err(`${at}: ${item} needs a profession to wear (skill line ${it.skill}) and the Professions line does not know it`);
+        const sock = socketIssue(r, it, L);
+        if (sock) err(`${at}: ${item} ${sock}`);
+        // Crafted and bind on pickup: only the crafter wears it, and the page
+        // has to say so (BOP_CRAFT feeds the badge and the Professions line).
+        const crafted = (r.source || "").match(/^Crafted — (.+)$/);
+        if (BOP_CRAFT) {
+          const prof = BOP_CRAFT[r.wowhead];
+          if (crafted && it.bind === 1 && !prof)
+            err(`${at}: ${item} is crafted and binds on pickup, and is missing from BOP_CRAFT`);
+          if (prof && !(crafted && it.bind === 1))
+            err(`${at}: ${item} is in BOP_CRAFT but ${crafted ? "binds on equip in the game data" : `its source is "${r.source}"`}`);
+          if (prof && crafted && prof !== crafted[1])
+            err(`${at}: ${item} is "${r.source}" but BOP_CRAFT says ${prof}`);
+        }
+      }
+      for (const g of r.gems || []) {
+        const gi = GD.items[g.id];
+        if (!gi) { err(`${at}: gem ${g.name} (${g.id}) is not in gamedata.json — rebuild it with: node gamedata.js --fetch`); continue; }
+        if (gi.class !== 3) err(`${at}: ${item} lists ${gi.name} (${g.id}) as a gem; it is not one`);
+        if (gi.name !== g.name) err(`${at}: gem ${g.id} is named "${g.name}" on ${item}; the game data says "${gi.name}"`);
+        if ((g.q || 4) !== gi.quality)
+          err(`${at}: gem ${gi.name} (${g.id}) on ${item} has q ${g.q == null ? "unset (epic)" : g.q}; its quality is ${gi.quality}`);
+      }
+
+      // The enchant label and its link. The link has to be a spell that can
+      // put an enchant on this item, and it has to carry the row's name:
+      // the feet rows once linked the gloves' Greater Agility, and a Major
+      // Spellpower label once linked Major Healing.
+      if (!!r.ench !== (r.enchsp != null))
+        err(`${at}: ${item} has ${r.ench ? `the enchant "${r.ench}" with no spell id (enchsp)` : `a spell id (enchsp ${r.enchsp}) with no enchant name`}`);
+      else if (r.ench) {
+        const sp = GD.spells[r.enchsp];
+        if (!sp) err(`${at}: enchant spell ${r.enchsp} (${r.ench}) is not in gamedata.json — rebuild it with: node gamedata.js --fetch`);
+        else {
+          if (sp.name !== r.ench && sp.name !== "Apply " + r.ench)
+            err(`${at}: ${item} shows the enchant "${r.ench}" but links spell ${r.enchsp}, "${sp.name}"`);
+          if (!sp.enchants.length)
+            err(`${at}: ${item}: spell ${r.enchsp} (${sp.name}) applies no enchant in the game data`);
+          if (it && sp.invMask && !(sp.invMask & (1 << it.inv)))
+            err(`${at}: ${item}: spell ${r.enchsp} (${sp.name}) does not go on this kind of item (${r.slot})`);
+          if (it && sp.eqClass && sp.eqClass !== it.class)
+            err(`${at}: ${item}: spell ${r.enchsp} (${sp.name}) is for ${sp.eqClass === 2 ? "weapons" : "armour"}, and this is not one`);
+          const skills = sp.enchants.map((e) => (GD.enchants[e] || {}).skill).filter(Boolean);
+          if (skills.includes(RUNEFORGING) && c.cls !== "deathknight")
+            err(`${at}: ${item}: ${r.ench} is a runeforge, and a ${c.cls} cannot make one`);
+          const needsProf = skills.some((k) => k !== RUNEFORGING);
+          if (SCRIBE_ENCH && needsProf !== SCRIBE_ENCH.has(r.enchsp))
+            err(`${at}: ${item}: ${r.ench} ${needsProf ? "needs a profession in the game data and is missing from SCRIBE_ENCH" : "is in SCRIBE_ENCH but needs no profession in the game data"}`);
+        }
+      }
+
+      // Alternates are items too: same name, quality and wearability rules.
+      for (const a of r.alts || [])
+        for (const [aid, aname, aq] of [[a.wowhead, a.item, a.q], [a.wowhead2, a.item2, a.q2]]) {
+          if (aid == null) continue;
+          const ai = GD.items[aid];
+          if (!ai) { err(`${at}: alternate ${aname} (${aid}) is not in gamedata.json — rebuild it with: node gamedata.js --fetch`); continue; }
+          if (ai.name !== aname) err(`${at}: alternate "${aname}" but id ${aid} is "${ai.name}"`);
+          if (aq !== ai.quality) err(`${at}: alternate ${aname} (${aid}) has q ${aq == null ? "unset" : aq}; its quality is ${ai.quality}`);
+          for (const why of equipIssues(ai, c, r.slot)) err(`${at}: alternate ${aname} (${aid}) ${why}`);
+        }
 
       if (r.alts && r.alts.length && !r.why)
         warn(`${at}: ${item} lists alternates but has no why note`);
