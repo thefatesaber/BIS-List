@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Two enchant links fixed: Greater Agility on boots and Waking Stats on chests.
+  The audit's link rows (P6 and P7), 141 rows. Names and numbers are unchanged; what changes
+  is where the enchant name links to and the tooltip it shows.
+  Feet, Greater Agility, 40 rows (the ten agility specs, all four lists): the link went to
+  spell 20012, the gloves enchant of the same name, whose tooltip reads 'Requires Gloves'. It
+  now goes to 20023, the boots enchant. Both spells apply the same enchant, the one the
+  profiles sim (1887).
+  Chest, Waking Stats, 101 rows: the rows had no spell id, so the name opened a Wowhead search
+  and showed no tooltip. They now link spell 389410.
+  Checked after the change, every enchant link on the page against the game data and the
+  profiles: on 1148 rows the linked spell applies the enchant id the profile line carries, and
+  the Waking Stats rows match by name (game data ties that enchant to no spell). One link is
+  outside SimC's spell data, Icescale Leg Armor on Fury Obtainable; it is right on Wowhead.
 - [page] The Socket Proc badge now sits on every row that needs the socket-proc drop: 89 added.
   The audit's badge rows (P4 and P5). A row needs the socket-proc version of its item when it
   shows one gem more than the item has sockets; the belt is excepted, where the extra gem is
