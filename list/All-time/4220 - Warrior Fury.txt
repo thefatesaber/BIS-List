@@ -36,9 +36,9 @@ trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_
 # Heart of Roccor (155)
 trinket2=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30
 # The Untamed Blade 40
-main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,enchant_id=1900,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_3.7%
+main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_3.7%
 # The Jackhammer 33
-off_hand=the_jackhammer_proxy,ilevel=33,weapon=mace2h_3.6speed_18min_23max,enchant_id=1900,equip=procby/attack_281haste_10dur_2.5%
+off_hand=the_jackhammer_proxy,ilevel=33,weapon=mace2h_3.6speed_18min_23max,equip=procby/attack_281haste_10dur_2.5%
 
 
 # Consumables

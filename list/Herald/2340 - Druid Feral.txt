@@ -236,8 +236,6 @@ actions.finisher=rip,if=combo_points>=5&refreshable&(buff.tigers_fury.up|dot.rip
 actions.finisher+=/pool_resource,for_next=1
 actions.finisher+=/ferocious_bite,max_energy=1,if=combo_points>=5
 
-name=Druid
-
 # Simulation Options
 iterations=50000
 desired_targets=1

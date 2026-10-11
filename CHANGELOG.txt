@@ -7,6 +7,30 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [profiles] Sim profile labels tidied on 24 files; every one sims the same to the last digit.
+  The audit's profile-label rows (P17). Nothing on the page changes and no file is renamed.
+  Fire, four lists: the action line for a Meteorite Crystal that is not equipped gated on
+  'cooldown.combuastion'. It reads 'combustion' now. The line never runs either way.
+  Retribution Full buffed, and the Dummy mode copy: the header called the calibration
+  overrides 'local build only, Raidbots strips these'. Raidbots honours them (settled on
+  2026-10-10), and the note says so, as it already does on the other three lists.
+  Seven profiles renamed their actor with a second name= line: Feral Obtainable and Herald,
+  Frost DK Herald, Affliction Herald, Shadow Herald, Fury Herald, Restoration Full buffed. The
+  line is gone, as on Restoration Herald since 2026-10-10.
+  Affliction All-time and Obtainable gain a snapshot_stats line, so their reports carry a stat
+  sheet like the other 107.
+  Eleven neck and ring lines with one gem carried a bonus id that grants two or three sockets
+  (8782, 10879). They carry the one-socket id of the same family (8780, 10878).
+  Crusader: the enchant_id=1900 token comes off the seven weapon lines that still had it (Fury
+  Full buffed and All-time, Arms All-time, Obtainable and Herald). All twelve warrior and
+  paladin lists sim the proc on a ring, the token creates nothing in the engine, and the Arms
+  profiles' own comment reads 'no weapon Crusader (ring carries it)'. With or without the
+  token a run is identical; no list profile carries it now.
+  Proof: each file against its previous version on the local build, fixed seed, 1000
+  iterations, one thread. The whole result is identical on all 24.
+  Not applied: Meteorite Crystal on three Devourer lists. Its line says item level 41 and 8
+  Intellect, the page says 43, and at 43 the engine gives the trinket 9. That moves three
+  numbers, so it waits for a run.
 - [page] Share image and page descriptions now say 27 specs, four lists and patch 12.1.0.
   The audit's stale-text rows (P14). No list data changes.
   Share image (assets/og.png, what Discord shows when the link is pasted): it said 'all 13

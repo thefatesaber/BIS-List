@@ -70,7 +70,7 @@ actions+=/ancestral_call,if=buff.combustion.up|(target.health.pct>90&talent.fire
 # PI pooled externally per the buffed-set ruling, on the racials' own gate: synced to Combustion.
 actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled)|fight_remains<16
 actions+=/use_item,name=pendant_of_the_violet_eye,if=cooldown.combustion.remains<8,use_off_gcd=1,use_while_casting=1
-actions+=/use_item,name=meteorite_crystal,if=cooldown.combuastion.remains<4,use_off_gcd=1,use_while_casting=1
+actions+=/use_item,name=meteorite_crystal,if=cooldown.combustion.remains<4,use_off_gcd=1,use_while_casting=1
 
 # ------------------------
 actions+=/meteor,if=cooldown.meteor.ready&(((buff.combustion.up&buff.combustion.remains>2))|cooldown.combustion.remains>variable.meteor_combustion_delay|(cooldown.combustion.remains<2&buff.hot_streak.up&!(target.health.pct>90&talent.firestarter.enabled)))

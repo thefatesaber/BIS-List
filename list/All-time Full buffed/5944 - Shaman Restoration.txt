@@ -110,8 +110,6 @@ actions+=/flame_shock,moving=1,if=dot.flame_shock.refreshable
 actions+=/frost_shock,moving=1
 augmentation=disabled
 
-name=Shaman
-
 # Simulation Options
 iterations=100000
 desired_targets=1

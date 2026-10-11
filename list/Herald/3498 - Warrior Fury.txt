@@ -148,8 +148,6 @@ actions.variables+=/variable,name=adds_remain,value=active_enemies>=2&(!raid_eve
 actions.variables+=/variable,name=execute_phase,value=(talent.massacre.enabled&target.health.pct<35)|target.health.pct<20
 actions.variables+=/variable,name=on_gcd_racials,value=buff.recklessness.down&buff.recklessness.down&rage<80&buff.sudden_death.down&!cooldown.bladestorm.ready&(!cooldown.execute.ready|!variable.execute_phase)
 
-name=Warrior
-
 # Simulation Options
 iterations=50000
 desired_targets=1

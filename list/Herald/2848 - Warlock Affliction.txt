@@ -160,8 +160,6 @@ warlock.soul_shards=0
 warlock.default_pet=sayaad
 
 
-name=Warlock
-
 # Simulation Options
 iterations=50000
 desired_targets=1

@@ -39,8 +39,6 @@ trinket2=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_
 main_hand=bonereavers_edge_frostdk_proxy,ilevel=38,enchant_id=3368,weapon=sword2h_3.6speed_16min_28max,stats=5sta_6crit,equip=procby/attack_51crit_10dur_3stack_8.6%
 
 
-name=Asimiir
-
 # Consumables
 # potion=golemblood_potion
 # flask=flask_of_titanic_strength
