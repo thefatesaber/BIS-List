@@ -7,6 +7,25 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] The Socket Proc badge now sits on every row that needs the socket-proc drop: 89 added.
+  The audit's badge rows (P4 and P5). A row needs the socket-proc version of its item when it
+  shows one gem more than the item has sockets; the belt is excepted, where the extra gem is
+  the buckle's. 177 such rows had the badge and 89 did not. No profile and no number moves:
+  each of these rows was already simmed with the gem it shows.
+  Necks and rings on Obtainable and Herald, 67 rows: all six on Unholy, Survival, Beast
+  Mastery, Arcane, Balance, Elemental, Havoc and Destruction; four on Arms, Enhancement and
+  Demonology; two on Fire, Assassination and Subtlety; and Marksmanship's Obtainable neck.
+  Survival's Helm of Desolation and Bracers of the Forest Stalker on all four lists, 8 rows.
+  The same two items already had the badge on every other spec that wears them.
+  Eversong Cuffs on eight Herald lists (Feral, Balance, Devourer, Havoc, Outlaw,
+  Assassination, Subtlety, Windwalker): the second gem is a proc socket by the ruling of
+  2026-10-10.
+  The six item-level-47 rings on Full buffed (Frost DK, Devourer, Shadow): one gem, no native
+  socket. Three of them also gain '(Timewalking)' in their source; the other three had it.
+  One badge removed: the neck on Restoration Full buffed. It shows three gems like the other
+  Full buffed necks, which is not a socket proc, and the same neck on All-time has no badge.
+  The badge now marks exactly the 266 rows that show one gem over their item's sockets,
+  checked against the game data.
 - [page] Seven enchant labels now match the enchant the list sims.
   The audit's last enchant rows (P1 to P3). In each the profile was right and the page label
   was not, so no number moves and nothing was re-run.
