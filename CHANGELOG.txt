@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] All-time Feral's ring rows now show the gems that were simmed, Deadly Pyrestone: 2770 stands.
+  The audit's S7, settled by a same-day A/B at 100k on Raidbots. A, the stored profile
+  unchanged, returned 2770 - the stored number exactly, so the 09-09 figure is current on
+  today's engine. B, with the page's Delicate Crimson Spinel on both rings, returned 2765. The
+  lower leg retires and the page takes the simmed gems: Ring 1 and Ring 2 relabel from Delicate
+  Crimson Spinel x2 to Deadly Pyrestone x2. Stamp 2026-09-09 -> today. No profile change.
 - [page] Obtainable Restoration Shaman moves to Frozen Spellthread rank 3: 4257, up from 4244.
   The audit's S6, last of three. The input is the stored profile with the legs enchant moved
   from rank 1 (6539) to rank 3 (6541); nothing else changed. +13 on a base stamped 09-30 - the
