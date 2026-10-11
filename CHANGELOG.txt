@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] A data field that nothing read is gone from every row; the page looks the same.
+  Every gear row carried a status: 1,678 said "sim" and 6 said "confirmed" (Fury's two
+  weapons on three lists). Nothing showed it and no check read it; the text export looked
+  at it only to ask whether a row was still "tbd", and none was. Fate ruled it out. It is
+  gone from all 1,684 rows, the page is 28.8 KB smaller before compression, and every list
+  draws and exports exactly as before. The class notes, the other leftover of the audit's
+  dead-code item, stay hidden in the data by the same round of answers, for a
+  stat-priority section later. That closes the last of the 24 page-code items.
+  No list and no number changed.
 - [fix] The small grey text is lighter and easier to read; sizes and layout are unchanged.
   The quietest grey on the page (level and source under each item, spec names and numbers
   in the class list, column heads, labels) sat at about 3 to 1 against its background,
