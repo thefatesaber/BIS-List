@@ -7,6 +7,23 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Share image and page descriptions now say 27 specs, four lists and patch 12.1.0.
+  The audit's stale-text rows (P14). No list data changes.
+  Share image (assets/og.png, what Discord shows when the link is pasted): it said 'all 13
+  specs', named three lists and read 'Patch 12.0.5'. Redrawn in the same design at 1200x630:
+  'Sim-validated best in slot — 27 specs, 13 classes', the four lists, 'Patch 12.1.0
+  (Midnight)'.
+  Meta description and og:description: 'all 13 specs' and three lists become '27 specs across
+  all 13 classes' and the four lists.
+  All-Time tab description: the sentence 'Generated from the 13 live sim profiles.' is removed.
+  Tab label: 'All-time Full buffed' becomes 'All-Time Full buffed', spelled like the tab
+  beside it. Links to the tab still work.
+  Fallback notice: the line under the header that shows until the changelog feed loads, and
+  in its place offline, still announced the fourth list with 'seven specs landed so far'. It
+  now reads 'Four lists per spec: All-Time, All-Time Full buffed, Obtainable and Herald of the
+  Titans. Every change is dated in the changelog.' It takes the same room as a feed line, so
+  the page does not jump when the feed replaces it (measured at six widths; a two-word
+  fallback moved the page 50 px on a desktop and 57 px on a phone).
 - [page] Two stat panels corrected (Balance and Shadow All-time) and eight gems shown as rare.
   The audit's data-field rows (P12 and P13). No DPS number moves.
   Balance All-time, mastery: 21.19% (101) -> 21.95% (106). The panel dated from 2026-09-15;

@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fate — L30 BiS Compendium</title>
-<meta name="description" content="Sim-validated best-in-slot gear lists for all 13 specs at level 30 (patch 12.1.0, Midnight). All-Time, Obtainable, and Herald of the Titans variants with talents, consumables, and stat panels.">
+<meta name="description" content="Sim-validated best-in-slot gear lists for 27 specs across all 13 classes at level 30 (patch 12.1.0, Midnight). All-Time, Full buffed, Obtainable, and Herald of the Titans variants with talents, consumables, and stat panels.">
 <meta name="theme-color" content="#0b0d12">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fate BiS Compendium">
 <meta property="og:title" content="Fate — L30 BiS Compendium">
-<meta property="og:description" content="Sim-validated BiS for all 13 specs at level 30. All-Time, Obtainable, and Herald of the Titans.">
+<meta property="og:description" content="Sim-validated BiS for 27 specs across all 13 classes at level 30. All-Time, Full buffed, Obtainable, and Herald of the Titans.">
 <meta property="og:image" content="https://thefatesaber.github.io/BIS-List/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -540,8 +540,10 @@ const CONFIG = {
   updated: "2026-10-11",
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
-  // Rendered under the header when set — the public rebase notice (ruling B).
-  notice: "All-time Full buffed opens as the site's fourth list — seven specs landed so far, simmed fully raid-buffed with live consumables."
+  // Shown under the header until the changelog feed loads, and in its place when the
+  // fetch cannot run (file://, offline). The feed carries the news, so keep this timeless,
+  // and about as long as a feed line so the page does not jump when the feed replaces it.
+  notice: "Four lists per spec: All-Time, All-Time Full buffed, Obtainable and Herald of the Titans. Every change is dated in the changelog."
 };
 
 /* Some items share a display name across difficulties — the DBC lists 47271 and
@@ -559,8 +561,8 @@ const DEFAULT_SLOTS = ["Head","Neck","Shoulders","Back","Chest","Wrist","Hands",
   "Waist","Legs","Feet","Ring 1","Ring 2","Trinket 1","Trinket 2","Main Hand","Off Hand"];
 
 const LIST_TYPES = [
-  { id:"alltime_buffed", label:"All-time Full buffed", desc:"The All-Time item pool simmed fully raid-buffed — every other list sims self-buffed only. Displayed DPS excludes Power Infusion; each spec's measured PI worth sits in its Buff worth panel (the priest's own-cast PI stays in its number)." },
-  { id:"alltime",    label:"All-Time",   desc:"Best in slot regardless of obtainability — removed, legacy and unobtainable items included. Generated from the 13 live sim profiles." },
+  { id:"alltime_buffed", label:"All-Time Full buffed", desc:"The All-Time item pool simmed fully raid-buffed — every other list sims self-buffed only. Displayed DPS excludes Power Infusion; each spec's measured PI worth sits in its Buff worth panel (the priest's own-cast PI stays in its number)." },
+  { id:"alltime",    label:"All-Time",   desc:"Best in slot regardless of obtainability — removed, legacy and unobtainable items included." },
   { id:"obtainable", label:"Obtainable", desc:"Best in slot among items farmable in "+CONFIG.patch+"." },
   { id:"herald",     label:"Herald of the Titans", desc:CONFIG.heraldRule }
 ];
