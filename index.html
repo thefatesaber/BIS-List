@@ -65,7 +65,9 @@ header h1 .thirty{color:var(--epic)}
   display:flex; flex-direction:column; min-height:0;
 }
 nav{flex:1; padding:8px 0 12px; overflow-y:auto}
-main{flex:1; min-width:0; padding:20px 24px 48px}
+/* Capped: past this the gap between an item's name and its enchant only grows
+   (890 px of it on a 2560 px screen). */
+main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 
 /* ---------- class rail ---------- */
 .sortrow{display:flex; align-items:center; gap:10px; padding:12px 14px 10px;
@@ -321,8 +323,13 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
 .talents h3{margin:0; flex:none; font:600 12.5px var(--display); letter-spacing:.08em;
   color:var(--dust)}
+/* The string is longer than its box on most screens and scrolls sideways. The
+   fade at the right edge says so; the padding lets the last characters scroll
+   clear of it. */
 .talents code{flex:1; min-width:0; overflow-x:auto; white-space:nowrap; color:var(--dust);
-  font-size:11.5px; letter-spacing:.01em; scrollbar-width:thin}
+  font-size:11.5px; letter-spacing:.01em; scrollbar-width:thin; padding-right:28px;
+  -webkit-mask-image:linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+  mask-image:linear-gradient(90deg, #000 calc(100% - 28px), transparent)}
 .tbtn{flex:none; background:none; border:1px solid var(--edge); color:var(--dust); font:inherit;
   font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px;
   border-radius:4px; cursor:pointer; transition:color .15s ease, border-color .15s ease, transform .13s ease}
@@ -2047,7 +2054,11 @@ const PRIMARY = {warrior:"Strength", paladin:"Strength", deathknight:"Strength",
   // Spec-level overrides — a hidden spec whose main stat differs from its
   // class fallback names itself here (id key wins over class key).
   demonhunter_havoc:"Agility", druid_balance:"Intellect", shaman_enhancement:"Agility"};
-const STAT_CAP = 75;
+// One scale for every panel, so shapes compare between specs: the next multiple
+// of 5 above the highest secondary on any list. It was a fixed 75 until
+// Windwalker's Full buffed mastery reached 76.54 and sat clipped on the ring.
+const STAT_CAP = 5 * (Math.floor(Math.max(...CLASSES.flatMap(c => Object.values(c.stats || {}).flatMap(
+  s => ["crit","mastery","haste","vers"].map(k => (s[k] || [0])[0])))) / 5) + 1);
 function statPanel(cls){
   const s = cls.stats && cls.stats[state.list];
   const el = $("statpanel");
@@ -2064,9 +2075,6 @@ function statPanel(cls){
     + (s.stam != null ? tcell("Stamina", s.stam, true) : '')
     + '</div>' : "";
   const K = [["crit","Critical Strike"],["mastery","Mastery"],["haste","Haste"],["vers","Versatility"]];
-  // Fixed scale, shared by every panel, so shapes are comparable between specs.
-  // 75 clears the highest secondary in the dataset (monk mastery 71.88) without
-  // clipping it flat against the outer ring.
   const cap = STAT_CAP;
   const cell = (k, label, right) =>
     '<div class="statcell'+(right?" r":"")+'"><span class="lbl">'+label+'</span>'

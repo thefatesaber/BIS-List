@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] The list stops stretching on very wide screens; the talent string shows it scrolls.
+  Three small layout fixes. No list and no number changed.
+  Width: the page's main column stops growing at 1400 pixels. On a 2560 pixel screen an
+  item's name sat 890 pixels from its enchant; it is 396 now, and the same on any screen
+  wider than 1600.
+  Talent string: the string is longer than its box on most screens and scrolls sideways,
+  which nothing showed. It now fades out at the right edge.
+  Stat chart: its scale was fixed at 75%, and Windwalker's Full buffed mastery is 76.54%, so
+  that corner sat flat on the frame. The scale is now the next multiple of 5 above the
+  highest secondary stat on any list, 80% today. Every chart is drawn 6% smaller for it.
 - [fix] Best per class and All specs now sit in a proper two-way switch above the list.
   The two buttons had no border and used the browser's own font: their style sheet rules
   named two colours the page never defined. They are now one outlined switch in the page's
