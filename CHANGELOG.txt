@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] Keyboard and screen-reader users get a skip link, real buttons and spoken state.
+  For people who use the page without a mouse or without seeing it. Nothing looks different
+  apart from the skip link, which only shows when it has keyboard focus.
+  Skip link: the first press of Tab shows "Skip to the list"; Enter jumps past the class
+  list to the gear list.
+  Buff worth: the Consumables line that opens the split is a real button now. It takes Tab,
+  Enter and Space and says whether it is open. Clicking anywhere on the line still works.
+  Selections: the open tab, the open class and the active half of the view switch are
+  announced as selected, not only drawn that way.
+  The "eff" mark in the class list is read apart from its number ("3,932 eff").
+  No list and no number changed.
 - [fix] The list stops stretching on very wide screens; the talent string shows it scrolls.
   Three small layout fixes. No list and no number changed.
   Width: the page's main column stops growing at 1400 pixels. On a 2560 pixel screen an
