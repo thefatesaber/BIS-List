@@ -17,7 +17,7 @@ external_buffs.pool=power_infusion:120
 # Bromach's Disentombed Locket 135
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/71856/71856,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Spaulders of the Thalassian Savior 44
-shoulder=,ilevel=44,id=34193,enchant_id=4194,gem_id=71856/71856,bonus_id=9037,drop_level=30
+shoulder=,ilevel=44,id=34193,enchant_id=3835,gem_id=71856/71856,bonus_id=9037,drop_level=30
 # Titanskin Cloak 43
 back=,ilevel=43,id=45496,enchant_id=3243,gem_id=71856,bonus_id=9043,drop_level=30
 # Hard Khorium Battleplate 44

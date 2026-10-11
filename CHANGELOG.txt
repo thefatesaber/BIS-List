@@ -7,6 +7,22 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Frost and Unholy DK swap Lionsmane for Master's Inscription of the Axe: 6 lists re-simmed.
+  Not asked by the professions ruling, shown by the same sweeps: on Frost All-time Lionsmane
+  was the lowest of the three strength inscriptions (3253, against Greater Axe 3260 and
+  Master's Axe 3266), and on Fury it trailed Master's Axe by 16. The engine gives Lionsmane 2
+  strength and 1 crit at level 30, Master's Axe 3 attack power and 2 crit. Both Herald lists
+  already wore Master's Axe. Same method as the entry below: one token per list (shoulder
+  4194 -> 3835), All-time and Obtainable in one run with a control arm, Full buffed alone.
+  Frost, Full buffed / All-time / Obtainable: 4855 / 3332 / 3048 -> 4875 / 3265 / 3055.
+  Unholy: 3652 / 2511 / 2350 -> 3664 / 2545 / 2378.
+  The swap is worth +13 on both All-time lists against their control arms. Frost All-time
+  still falls by 67: its stored 3332 (stamped 09-23) no longer reproduces - the unchanged list
+  read 3252 in the same run, as it had read 3253 in the sweep the day before. Unholy All-time
+  had moved the other way, 2532 against a stored 2511 (stamped 09-06). Stat panels: strength
+  -2 and crit +1 rating on all six; Frost All-time's stamina is corrected from 1163 to 1039.
+  Stamps -> 2026-10-11. Buff worth panels on the two Full buffed lists are carried. Every list
+  on the site now wears a Master's inscription.
 - [page] Twelve specs move to the scribe's Master's shoulder inscription: 45 lists re-simmed.
   Fate's ruling on the audit's professions item (D2): where the scribe-only inscription is
   better, the lists use it. Five pilot sweeps on 2026-10-10 put Master's Inscription of the Axe
