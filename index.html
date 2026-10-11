@@ -21,7 +21,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="shortcut icon" href="assets/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded without holding the page: a sheet for print does not block rendering,
+     and becomes a sheet for the screen once it has arrived. Until then, and if
+     the host never answers, the text shows in the fallback fonts. -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <!-- Optional: uncomment for live Wowhead tooltips when hosting / opening locally.
 <script>const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: false};</script>
 <script src="https://wow.zamimg.com/js/tooltips.js"></script>
@@ -487,7 +491,10 @@ footer{
 }
 </style>
 <script>const whTooltips = { colorLinks: false, iconizeLinks: true, renameLinks: false, iconSize: 'medium' };</script>
-<script src="https://wow.zamimg.com/js/tooltips.js"></script>
+<!-- defer: fetched alongside the page, run once the page is built. Without it a
+     slow or blocked Wowhead left the whole page blank. The script scans the
+     links it finds when it starts, so the first list gets its icons either way. -->
+<script defer src="https://wow.zamimg.com/js/tooltips.js"></script>
 </head>
 <body>
 
@@ -2346,11 +2353,19 @@ function renderMain(){
   $("copyout").style.display = "none";
 }
 
+/* Analytics. GoatCounter's script counts the arrival by itself, under the
+   page's own path. countView adds the views: each class/spec/list a visitor
+   opens, under that view's path. The script is async and arrives after the
+   first render, so a count that finds it missing is left for the next call;
+   the load handler at the bottom of this script makes that call. An arrival on
+   a link that names a view is counted as that view; an arrival on the bare
+   address is not, since nobody chose the default view.                      */
+const viewPath = () => (location.hash || "").replace(/^#/, "") || "home";
 let lastCounted = null;
 function countView(){
-  if(!(window.goatcounter && window.goatcounter.count)) return;
-  const path = (location.hash || "").replace(/^#/, "") || "home";
+  const path = viewPath();
   if(path === lastCounted) return;   // re-renders (sort changes) aren't new views
+  if(!(window.goatcounter && window.goatcounter.count)) return;   // not loaded yet, or blocked
   lastCounted = path;
   window.goatcounter.count({ path: path, title: document.title, event: false });
 }
@@ -2524,8 +2539,10 @@ document.getElementById("viewtoggle").addEventListener("click", e => {
 });
 window.addEventListener("hashchange", () => { if(readHash()) render(); });
 
-readHash();
+const arrivedOnLink = readHash();
 render();
+if(!arrivedOnLink) lastCounted = viewPath();   // bare address: the arrival is all there is to count
+window.addEventListener("load", countView);    // count.js has run by now, if it is going to
 </script>
 <script data-goatcounter="https://fate.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

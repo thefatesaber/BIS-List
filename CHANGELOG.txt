@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] The page shows at once even when Wowhead or Google Fonts is slow or blocked.
+  The page loaded Wowhead's tooltip script and Google's font sheet in a way that made the
+  browser wait for both before drawing anything. If either host hung, the page stayed
+  blank. Both now load alongside the page: the lists appear straight away, in a fallback
+  font until the fonts arrive and without icons until Wowhead answers.
+  Visitor counts: someone who arrives on a link to a list, such as #rogue/outlaw/herald,
+  is now counted as a view of that list. Until now only clicks made after arriving were
+  counted that way, so a shared link never showed up under the list it pointed to.
+  No list and no number changed.
 - [fix] Keyboard and screen-reader users get a skip link, real buttons and spoken state.
   For people who use the page without a mouse or without seeing it. Nothing looks different
   apart from the skip link, which only shows when it has keyboard focus.
