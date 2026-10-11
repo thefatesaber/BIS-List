@@ -559,7 +559,7 @@ footer{
    EDIT ME — everything below until "END DATA" is the whole dataset.
    Schema per slot entry:
      slot     one of the DEFAULT_SLOTS labels (or a custom label)
-     item     item name (omit or leave list empty -> renders TBD)
+     item     item name (a row without one renders a dash and is exported as TBD)
      wowhead  numeric item ID (optional; falls back to Wowhead search)
      ilvl     number: the item level actually simmed
      variant  string (optional) — difficulty label shown beside the item name,
@@ -599,7 +599,8 @@ footer{
               vs the listed BiS (e.g. -0.3). Omit delta -> renders "sim pending".
               Only add entries you have actually swept. This is not a loot list.
      status   "confirmed" | "sim" | "theory" | "tbd" (recorded, not shown)
-   Lists: alltime / obtainable / herald. Any missing slot -> TBD row.
+   Lists: alltime_buffed / alltime / obtainable / herald. A slot a list does not
+   carry gets no row: a list under a two-handed or ranged weapon has no Off Hand.
    ================================================================ */
 
 const CONFIG = {
@@ -1950,7 +1951,12 @@ function mergedList(cls, listId){
   const raw = (cls.lists && cls.lists[listId]) || [];
   const bySlot = {};
   raw.forEach(e => { if(!(e.slot in bySlot)) bySlot[e.slot] = e; });
-  const rows = DEFAULT_SLOTS.map(s => bySlot[s] || { slot:s, status:"tbd" });
+  // A list shows the slots it has, in the standard order. The page used to add
+  // a row with a dash for any slot a list lacked, and the only slot a list may
+  // lack is Off Hand (validate.js requires the rest): 60 of the 109 lists wear
+  // a two-handed or ranged weapon and showed an empty "Off Hand" row under it,
+  // which the text export then listed as TBD (ruling C5, 2026-10-11: no row).
+  const rows = DEFAULT_SLOTS.filter(s => bySlot[s]).map(s => bySlot[s]);
   raw.forEach(e => { if(!DEFAULT_SLOTS.includes(e.slot)) rows.push(e); });
   return rows;
 }

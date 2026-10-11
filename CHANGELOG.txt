@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] A list with a two-handed or ranged weapon no longer shows an empty Off Hand row.
+  60 of the 109 lists wear a staff, a polearm, a two-handed sword, a crossbow or a gun and
+  have no off hand. The page added an "Off Hand" row with a dash to each of them, and
+  "Copy list as text" ended with "- TBD: Off Hand", as if the slot were still to be
+  decided. Both are gone: such a list now ends at its main hand. Fate chose this over a
+  row that says the main hand takes both hands. The other 49 lists are unchanged.
+  No list and no number changed.
 - [fix] On a phone, each item now shows its enchant and each gem shows its name.
   Below 701 pixels the gear list left the enchant out altogether and drew gems as icons
   with no name, so a phone reader could not tell what a slot was enchanted with, or which
