@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Feral Full buffed re-simmed without a weapon oil its staff cannot take: 4073 -> 3986.
+  Found by the page-data pass (patch 361) and run by Fate as S11. The profile had no
+  temporary_enchant line, and SimC's druid module then applies its own default: Thalassian
+  Phoenix Oil, +7 crit and +7 haste rating. The game data gives that oil a minimum item level
+  of 120; the list's staff is 47. The page never listed it.
+  One line added to the profile, temporary_enchant=disabled, nothing else. Raidbots returns
+  3986, from 4073. The local build read 3986 for the same file and 4073 for the old one.
+  The stat panel follows: crit 32.27% (111) -> 30.86% (104), haste 31.31% (150) -> 29.99%
+  (143). The rest of the sheet is unchanged.
+  On the tab the number shows less Power Infusion: 3,908 -> 3,821. Feral keeps its place,
+  16th of 27, and is still the best druid spec on Full buffed. The Buff worth panel is
+  carried.
+  All 109 profiles now close off the fallback weapon buff in writing.
 - [profiles] Sim profile labels tidied on 24 files; every one sims the same to the last digit.
   The audit's profile-label rows (P17). Nothing on the page changes and no file is renamed.
   Fire, four lists: the action line for a Meteorite Crystal that is not equipped gated on
