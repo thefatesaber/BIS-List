@@ -7,6 +7,21 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Windwalker drops Touch of Death from its action list: four lists re-simmed.
+  Fate's ruling on the Windwalker spread found during S8 (D7). On the sim's boss fight Touch
+  of Death fired at the very end in 13% to 42% of iterations depending on the run's seed, so
+  the four numbers wandered about 5 DPS either way between identical runs, and more
+  iterations did not help. The two touch_of_death lines are out of the four profiles; nothing
+  else changed. Fate ran them on Raidbots in two runs (All-time with Obtainable and Herald as
+  profileset arms, Full buffed alone).
+  Full buffed / All-time / Obtainable / Herald: 4445 / 2909 / 2792 / 2705 -> 4438 / 2896 /
+  2783 / 2693. Herald is effective DPS: raw 2425 -> 2414 at its factor of record (x 1.1154).
+  All four came back within 1.2 DPS of the local build's reading; in S8 two Windwalker
+  lists were the only ones of 51 more than 2.2 from it. Stat panels and stamps stand (same
+  gear, same day). The Full buffed list's Buff worth panel is carried; its shown number, which
+  leaves Power Infusion out, goes from 4,332 to 4,325 and Windwalker falls one place there,
+  below Devastation. The effective tag's tooltip now takes its factor from the off-hand note:
+  dividing the two rounded numbers would have printed 1.116 for Windwalker's 1.1154.
 - [page] Four stale lists re-simmed unchanged: Arms All-time, Frost Mage Obtainable, Devastation x2.
   The re-run half of Fate's sim-date ruling (D5): of the old stamps, only what moved. The
   screen in the entry below named four lists; Fate ran them unchanged on Raidbots, in three

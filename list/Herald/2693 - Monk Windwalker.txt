@@ -139,7 +139,7 @@ actions.default_st+=/rising_sun_kick,if=buff.zenith.up&talent.flurry_strikes&!co
 actions.default_st+=/rising_sun_kick,if=combo_strike
 actions.default_st+=/fists_of_fury,if=talent.flurry_strikes|!buff.zenith.up&(talent.flurry_strikes|cooldown.invoke_xuen_the_white_tiger.remains>3|!variable.patchwerk)|buff.bloodlust.up&talent.jadefire_stomp&cooldown.celestial_conduit.remains
 actions.default_st+=/rising_sun_kick,if=buff.heart_of_the_jade_serpent.up|buff.heart_of_the_jade_serpent_unity_within.up|buff.heart_of_the_jade_serpent_yulons_avatar.up
-actions.default_st+=/touch_of_death,if=!buff.zenith.up|fight_remains<5|((trinket.1.is.algethar_puzzle_box&trinket.1.cooldown.remains>100|trinket.2.is.algethar_puzzle_box&trinket.2.cooldown.remains>100)|!trinket.1.has_use_buff&!trinket.2.has_use_buff)
+# touch_of_death removed 2026-10-11 (ruling D7): it fired at the very end of the fight in 13-42% of iterations depending on the seed, a run-to-run spread of about +-5 DPS that more iterations did not remove.
 actions.default_st+=/strike_of_the_windlord,if=buff.heart_of_the_jade_serpent_unity_within.remains<2&(buff.zenith.up|cooldown.invoke_xuen_the_white_tiger.remains>5|!variable.patchwerk)|talent.flurry_strikes
 actions.default_st+=/rising_sun_kick,if=combo_strike&(buff.flurry_charge.stack<30|chi>3|buff.zenith.up|buff.bloodlust.up|energy>50&chi>2)|combo_strike&buff.heart_of_the_jade_serpent.up
 actions.default_st+=/tiger_palm,if=combo_strike&buff.zenith.up&(chi<1|chi<2&!buff.combo_breaker.up)&talent.celestial_conduit
@@ -172,7 +172,6 @@ actions.multitarget+=/spinning_crane_kick,if=combo_strike&buff.dance_of_chiji.up
 actions.multitarget+=/rushing_wind_kick,target_if=max:target.time_to_die
 actions.multitarget+=/rising_sun_kick,target_if=max:target.time_to_die,if=(active_enemies<5|cooldown.fists_of_fury.remains>1|buff.zenith.up)&(buff.rushing_wind_kick.up|buff.heart_of_the_jade_serpent.up|buff.heart_of_the_jade_serpent_unity_within.up|buff.heart_of_the_jade_serpent_yulons_avatar.up)
 actions.multitarget+=/zenith_stomp,target_if=max:target.time_to_die,if=buff.zenith.up&chi<5-1*!talent.ascension&(talent.flurry_strikes|chi<3|buff.zenith.remains<5)&buff.combo_breaker.stack<2&buff.dance_of_chiji.stack<2&(!buff.combo_breaker.up|talent.echo_technique)
-actions.multitarget+=/touch_of_death,target_if=min:target.time_to_die,if=!buff.zenith.up|fight_remains<5|((trinket.1.is.algethar_puzzle_box&trinket.1.cooldown.remains>100|trinket.2.is.algethar_puzzle_box&trinket.2.cooldown.remains>100)|!trinket.1.has_use_buff&!trinket.2.has_use_buff)
 actions.multitarget+=/strike_of_the_windlord,if=buff.zenith.up|cooldown.zenith.remains>5&buff.heart_of_the_jade_serpent_unity_within.remains<2
 actions.multitarget+=/whirling_dragon_punch,if=buff.zenith.up|cooldown.zenith.remains>5&buff.heart_of_the_jade_serpent_unity_within.remains<2
 actions.multitarget+=/fists_of_fury,target_if=max:target.time_to_die,if=talent.flurry_strikes|!buff.zenith.up|buff.bloodlust.up&talent.jadefire_stomp&cooldown.celestial_conduit.remains

@@ -1,4 +1,4 @@
-# All-time - Monk - Windwalker
+# All-time Full buffed - Monk - Windwalker
 # Base Actor
 monk="Fateruler"
 level=30
@@ -9,9 +9,14 @@ role=attack
 professions=jewelcrafting=1/inscription=75
 spec=windwalker
 talents=C0QAi6cZM+HWADeySjzG9Lwx8bGAMDmZAAAAAAAAAAAAAgwMgBYGYGAAwEAADAYGAAAAAAAAAAMAGA
+
+override.player.spell_data=spell.2825.spell_level=1
+override.player.spell_data=effect.856.base_value=15
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
 ### Combo 1
-# wastewalker_helm (33)
-head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
+# Frayed Scoundrel's Cap (33) —
+head=,id=50206,ilevel=33,gem_id=76884/213743/71852,bonus_id=4196,drop_level=30,enchant=6crit
 # Phoenix Feather Pendant (135)
 neck=,id=200284,ilevel=33,enchant_id=5890,gem_id=213500/71852/71852,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # mantle_of_perenolde (33)
@@ -39,20 +44,16 @@ trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4444,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur
+main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_24min_29max,ilevel=38,quality=epic,stats=2agi,enchant_id=4444,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur
 # Hand of the Deceiver (44)
-off_hand=,id=34331,ilevel=44,enchant_id=4444,gem_id=71852/71852,bonus_id=9037,drop_level=30
+off_hand=,id=34331,ilevel=44,weapon=fist_2.60speed_26min_31max,enchant_id=4444,gem_id=71852/71852,bonus_id=9037,drop_level=30
 
 #finger1=,id=159462,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Consumables
-# potion=golemblood_potion
-# flask=flask_of_titanic_strength
-# food=BeerBasted_Crocolisk
+potion=potion_of_the_tolvir
+flask=flask_of_endless_rage
+food=skewered_eel
 # temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
-temporary_enchant=disabled
-potion=disabled
-flask=disabled
-food=disabled
 augmentation=disabled
 
 # Expansion Options
@@ -79,8 +80,11 @@ actions=auto_attack,target_if=max:target.time_to_die
 actions+=/touch_of_karma,target_if=max:target.time_to_die
 # Move to target
 actions+=/flying_serpent_kick,if=movement.distance>5
-actions+=/potion,if=buff.invoke_xuen_the_white_tiger.remains>15|fight_remains<=30
+actions+=/potion,name=potion_of_the_tolvir,if=buff.bloodlust.up|target.time_to_die<=30
 actions+=/potion,if=talent.flurry_strikes&chi>2&(time<5|cooldown.zenith.up&time<5|time>300&((trinket.1.is.algethar_puzzle_box&trinket.1.cooldown.remains>100|trinket.2.is.algethar_puzzle_box&trinket.2.cooldown.remains>100)|!trinket.1.has_use_buff&!trinket.2.has_use_buff)&talent.flurry_strikes|time>300&buff.zenith.up)
+# PI pooled externally per the buffed-set ruling - main-list unconditional, the verified placement.
+# The stock APL below is already PI-aware (has_external_pi, buff.power_infusion gates).
+actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1
 # Enable PI if available
 actions+=/variable,name=has_external_pi,value=cooldown.invoke_power_infusion_0.duration>0
 actions+=/call_action_list,name=opener,if=time<2
@@ -131,7 +135,7 @@ actions.default_st+=/rising_sun_kick,if=buff.zenith.up&talent.flurry_strikes&!co
 actions.default_st+=/rising_sun_kick,if=combo_strike
 actions.default_st+=/fists_of_fury,if=talent.flurry_strikes|!buff.zenith.up&(talent.flurry_strikes|cooldown.invoke_xuen_the_white_tiger.remains>3|!variable.patchwerk)|buff.bloodlust.up&talent.jadefire_stomp&cooldown.celestial_conduit.remains
 actions.default_st+=/rising_sun_kick,if=buff.heart_of_the_jade_serpent.up|buff.heart_of_the_jade_serpent_unity_within.up|buff.heart_of_the_jade_serpent_yulons_avatar.up
-actions.default_st+=/touch_of_death,if=!buff.zenith.up|fight_remains<5|((trinket.1.is.algethar_puzzle_box&trinket.1.cooldown.remains>100|trinket.2.is.algethar_puzzle_box&trinket.2.cooldown.remains>100)|!trinket.1.has_use_buff&!trinket.2.has_use_buff)
+# touch_of_death removed 2026-10-11 (ruling D7): it fired at the very end of the fight in 13-42% of iterations depending on the seed, a run-to-run spread of about +-5 DPS that more iterations did not remove.
 actions.default_st+=/strike_of_the_windlord,if=buff.heart_of_the_jade_serpent_unity_within.remains<2&(buff.zenith.up|cooldown.invoke_xuen_the_white_tiger.remains>5|!variable.patchwerk)|talent.flurry_strikes
 actions.default_st+=/rising_sun_kick,if=combo_strike&(buff.flurry_charge.stack<30|chi>3|buff.zenith.up|buff.bloodlust.up|energy>50&chi>2)|combo_strike&buff.heart_of_the_jade_serpent.up
 actions.default_st+=/tiger_palm,if=combo_strike&buff.zenith.up&(chi<1|chi<2&!buff.combo_breaker.up)&talent.celestial_conduit
@@ -164,7 +168,6 @@ actions.multitarget+=/spinning_crane_kick,if=combo_strike&buff.dance_of_chiji.up
 actions.multitarget+=/rushing_wind_kick,target_if=max:target.time_to_die
 actions.multitarget+=/rising_sun_kick,target_if=max:target.time_to_die,if=(active_enemies<5|cooldown.fists_of_fury.remains>1|buff.zenith.up)&(buff.rushing_wind_kick.up|buff.heart_of_the_jade_serpent.up|buff.heart_of_the_jade_serpent_unity_within.up|buff.heart_of_the_jade_serpent_yulons_avatar.up)
 actions.multitarget+=/zenith_stomp,target_if=max:target.time_to_die,if=buff.zenith.up&chi<5-1*!talent.ascension&(talent.flurry_strikes|chi<3|buff.zenith.remains<5)&buff.combo_breaker.stack<2&buff.dance_of_chiji.stack<2&(!buff.combo_breaker.up|talent.echo_technique)
-actions.multitarget+=/touch_of_death,target_if=min:target.time_to_die,if=!buff.zenith.up|fight_remains<5|((trinket.1.is.algethar_puzzle_box&trinket.1.cooldown.remains>100|trinket.2.is.algethar_puzzle_box&trinket.2.cooldown.remains>100)|!trinket.1.has_use_buff&!trinket.2.has_use_buff)
 actions.multitarget+=/strike_of_the_windlord,if=buff.zenith.up|cooldown.zenith.remains>5&buff.heart_of_the_jade_serpent_unity_within.remains<2
 actions.multitarget+=/whirling_dragon_punch,if=buff.zenith.up|cooldown.zenith.remains>5&buff.heart_of_the_jade_serpent_unity_within.remains<2
 actions.multitarget+=/fists_of_fury,target_if=max:target.time_to_die,if=talent.flurry_strikes|!buff.zenith.up|buff.bloodlust.up&talent.jadefire_stomp&cooldown.celestial_conduit.remains
@@ -237,7 +240,7 @@ actions.zenith+=/zenith,target_if=max:target.time_to_die,if=!buff.zenith.up&(var
 actions.zenith+=/zenith,target_if=max:target.time_to_die,if=!buff.zenith.up&(variable.patchwerk&!trinket.1.is.algethar_puzzle_box&!trinket.2.is.algethar_puzzle_box&trinket.2.has_use_buff&(trinket.2.cooldown.ready|cooldown.zenith.full_recharge_time<5))
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
@@ -247,20 +250,18 @@ target_level+=3
 calculate_scale_factors=1
 #html=Fury_toolTEST_Results.html
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
-override.allow_flasks=0
-override.allow_food=0
-override.allow_potions=0
 override.allow_augmentations=0
 optimal_raid=0
-override.bloodlust=0
+override.bloodlust=1
 override.arcane_intellect=0
 override.power_word_fortitude=0
-override.battle_shout=0
+override.battle_shout=1
 override.mystic_touch=0
 override.chaos_brand=0
 #override.windfury_totem=1
-override.mark_of_the_wild=0
-override.hunters_mark=0
+override.mark_of_the_wild=1
+override.hunters_mark=1
+override.skyfury=1
 override.bleeding=0
 report_details=1
 single_actor_batch=1
