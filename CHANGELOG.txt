@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Obtainable Restoration Shaman moves to Frozen Spellthread rank 3: 4257, up from 4244.
+  The audit's S6, last of three. The input is the stored profile with the legs enchant moved
+  from rank 1 (6539) to rank 3 (6541); nothing else changed. +13 on a base stamped 09-30 - the
+  same token was worth +9 and +11 on today's two same-day Herald bases, so no engine movement
+  shows on this list. The sheet gains 1 Intellect and 1 Stamina (280 / 1156) and is otherwise
+  digit-identical; the stamp moves to today and the Legs row links rank 3's spell (387291 ->
+  387294). Every caster list now sims rank 3, and S6 is closed.
 - [page] Herald Restoration Shaman moves to Frozen Spellthread rank 3: 3799, up from 3788.
   The audit's S6, second of three. The input is this afternoon's repaired profile with the legs
   enchant moved from rank 1 (6539) to rank 3 (6541); nothing else changed. +11 against the 3788
