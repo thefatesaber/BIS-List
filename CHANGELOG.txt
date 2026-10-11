@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Every list now shows when it was simmed, beside its DPS number.
+  Fate's ruling on the audit's sim-date item (D5), picked from two mock-ups: the date goes
+  beside every number, not only on old stamps. After the DPS badge the spec header now reads,
+  for example, 'simmed 7 Oct 2026 - Raidbots'. Date and engine were the badge's hover tooltip,
+  which a phone never shows; on a phone the line wraps under the title. 108 lists carry a
+  date: 51 of 11 Oct, 18 of 10 Oct, 7 of 7 Oct and 32 older, back to 9 Sept. No number moved.
+  Second half of the ruling: of the older stamps, only what moved gets re-run. All 57 lists
+  not simmed on 11 Oct were run unchanged on the local build as a screen: 53 reproduce within
+  2 DPS, 4 do not - Arms All-time (2547 against 2703), Frost Mage Obtainable (3556 against
+  3506), Devastation All-time (3290 against 3281) and Obtainable (3147 against 3139). The
+  three caster lists predate the game data of 2026-09-22, which retuned Frozen Orb, Glacial
+  Assault and the Devastation aura: with the old values restored they return their stored
+  numbers. Arms All-time's 2703 was never run on its committed profile (flagged at its
+  landing on 09-11). The four keep their numbers until Fate's re-runs come back.
 - [page] The unlisted Augmentation entry now says 'Preview, number pending' beside its number.
   Fate's ruling on the audit's hidden-entry item (D6): keep it as an unlisted preview and label
   it. The Augmentation list opens only from its link (#evoker/augmentation/alltime). It showed

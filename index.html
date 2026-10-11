@@ -120,6 +120,7 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .efftag .effraw{display:none; font-weight:500; letter-spacing:.02em; text-transform:none}
 .efftag.open .effraw{display:inline}
 .efftag:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+.simdate{color:var(--dust); font-size:11.5px; white-space:nowrap}
 .preview{font-size:10px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
   padding:2px 7px; border-radius:3px; white-space:nowrap; color:#e0a53f; border:1px solid currentColor}
 .cls .dps .eff{margin-left:4px; font-size:8.5px; font-weight:600; letter-spacing:.05em;
@@ -2146,6 +2147,14 @@ function fmtUpdated(iso){
   return new Date(Date.UTC(y, m-1, d)).toLocaleDateString("en-GB",
     { day:"numeric", month:"short", year:"numeric", timeZone:"UTC" });
 }
+// Sim date beside the number (ruling D5, 2026-10-11). prov reads
+// "simmed YYYY-MM-DD \u00b7 Raidbots Advanced" and was only the badge's hover
+// tooltip, which a phone never shows. A prov with no date prints nothing here.
+function simDateHtml(cls){
+  const m = /^simmed (\d{4}-\d{2}-\d{2}) \u00b7 (.+)$/.exec((cls.prov && cls.prov[state.list]) || "");
+  if(!m) return "";
+  return '<span class="simdate">simmed '+esc(fmtUpdated(m[1]))+' \u00b7 '+esc(m[2].replace(/^Raidbots Advanced$/, "Raidbots"))+'</span>';
+}
 function whRefresh(){
   if (window.$WowheadPower && window.$WowheadPower.refreshLinks) window.$WowheadPower.refreshLinks();
 }
@@ -2159,6 +2168,7 @@ function renderMain(){
     + '<span class="clsname" style="--cc:'+cls.color+'">'+esc(cls.name)+'</span>'
     + (dpsFor(cls) ? '<span class="dpsbadge" style="--cc:'+cls.color+'"'+(cls.prov && cls.prov[state.list] ? ' title="'+esc(cls.prov[state.list])+'"' : '')+'><b>'+dpsFor(cls).toLocaleString()+'</b> DPS</span>' : "")
     + (eff ? '<button type="button" class="efftag" aria-expanded="false" title="'+esc(eff.tip)+'">effective<span class="effraw"> \u00b7 '+esc(eff.raw)+'</span></button>' : "")
+    + (dpsFor(cls) ? simDateHtml(cls) : "")
     // Ruling D6, 2026-10-11: an entry kept out of the class list (hidden:true)
     // still opens from its link, and says in the open that it is a preview.
     + (cls.hidden ? '<span class="preview"'+(cls.prov && cls.prov[state.list] ? ' title="'+esc(cls.prov[state.list])+'"' : '')+'>Preview, number pending</span>' : "");
