@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Validates the compendium data inside index.html.
+// Validates the compendium data inside index.html, against the project's
+// rulings and against the game data in gamedata.json.
 //   node validate.js [path/to/index.html]
 // Exits 1 on any error so it can gate a build or a pre-commit hook.
 
@@ -7,37 +8,32 @@ const fs = require("fs");
 
 const FILE = process.argv[2] || "index.html";
 const HERALD_ILVL_CAP = 41;
+// Every listed spec carries all four lists. An entry with hidden:true is an
+// unlisted preview (ruling D6) and may carry any of them.
 const LISTS = ["alltime", "obtainable", "herald", "alltime_buffed"];
-// Tiers every primary spec must carry. alltime_buffed is rolling out and
-// joins this set once every primary spec has a buffed profile; until then a
-// missing buffed list means "not yet simmed", not a data error. Rows that DO
-// exist on it are checked exactly like the other tiers.
-const REQUIRED_LISTS = new Set(["alltime", "obtainable", "herald"]);
 
-// Necks, rings and trinkets are exempt from the Classic/TBC/WotLK source rule.
+// Herald: outside necks, rings and trinkets, every piece comes from Classic,
+// TBC or WotLK. The item id decides it, not the source label, which is free
+// text. Ids run in order of creation and the last Icecrown Citadel items sit
+// just under 52000: of the 24,216 equippable items below that line in the
+// game data, all but two stray entries can be worn at level 30. A Wrath item
+// with a later id (the Ruby Sanctum's are 53xxx to 54xxx) or an Anniversary
+// edition of an old item goes in ERA_ID_OK with the reason it counts.
 const ERA_EXEMPT_SLOTS = new Set(["Neck", "Ring 1", "Ring 2", "Trinket 1", "Trinket 2"]);
+const HERALD_ERA_LAST_ID = 51999;
+const ERA_ID_OK = new Map([
+  // [id, "why it counts as Classic, TBC or WotLK"],
+]);
 
-// Sources that satisfy the Herald era restriction, matched as substrings.
-const ERA_OK = [
-  "Molten Core", "Blackwing", "Naxxramas", "Ahn'Qiraj", "Zul'Gurub", "Onyxia",
-  "Blackrock", "Scholomance", "Stratholme", "Dire Maul", "Gnomeregan",
-  "Sunken Temple", "Uldaman", "Maraudon", "Anniversary",
-  "Karazhan", "Gruul", "Magtheridon", "Serpentshrine", "Tempest Keep", "Hyjal",
-  "Black Temple", "Sunwell", "Zul'Aman", "Magisters", "Mechanar", "Botanica",
-  "Arcatraz", "Shattered Halls", "Shadow Labyrinth", "Steamvault", "Slave Pens",
-  "Underbog", "Mana-Tombs", "Auchenai", "Sethekk", "Old Hillsbrad",
-  "Black Morass", "Blood Furnace", "Ramparts", "Durnholde",
-  "Ulduar", "Icecrown", "Trial of the Crusader", "Eye of Eternity",
-  "Obsidian Sanctum", "Vault of Archavon", "Ruby Sanctum", "Utgarde", "Nexus",
-  "Azjol", "Ahn'kahet", "Drak'Tharon", "Gundrak", "Oculus", "Culling",
-  "Violet Hold", "Forge of Souls", "Pit of Saron", "Halls of", "Dalaran",
-  "Crafted", "World", "PvP", "Quest", "Vendor",
-];
+// Icecrown Citadel drops at level 30, by difficulty (Standing item decisions
+// in PROJECT.md): 10-player heroic 45, 25-player normal 46, 25-player heroic
+// 47. gamedata.json tags each drop from its id block and its twin's.
+const ICC_ILVL = { "10h": 45, "25n": 46, "25h": 47 };
+const ICC_NAME = { "10n": "10-player normal", "10h": "10-player heroic", "25n": "25-player normal", "25h": "25-player heroic" };
 
-const errs = [], warns = [];
+const errs = [], warns = [], notes = [];
 const err = (m) => errs.push(m);
 const warn = (m) => warns.push(m);
-const eraOk = (src) => ERA_OK.some((k) => (src || "").includes(k));
 
 // Pull the dataset out of the single-file page and evaluate it, rather than
 // regex-parsing the object literals — a real parse means a schema change can't
@@ -185,9 +181,10 @@ for (const c of CLASSES) {
     const rows = (c.lists && c.lists[L]) || [];
     const at = `${c.id}/${L}`;
     if (!rows.length) {
-      if (c.primary && REQUIRED_LISTS.has(L)) err(`${at}: list is empty`);
+      if (!c.hidden) err(`${at}: list is empty — every listed spec carries all four lists`);
       continue;
     }
+    if ((c.dpsByList || {})[L] == null) err(`${at}: the list has rows but no dpsByList number`);
 
     const slots = new Set(rows.map((r) => r.slot));
     for (const slot of DEFAULT_SLOTS)
@@ -227,14 +224,16 @@ for (const c of CLASSES) {
       if (r.ilvl == null) err(`${at}: ${item} has no ilvl`);
       else {
         if (!ilvlById.has(r.wowhead)) ilvlById.set(r.wowhead, new Map());
-        ilvlById.get(r.wowhead).set(r.ilvl, r.item);
+        const byIlvl = ilvlById.get(r.wowhead);
+        if (!byIlvl.has(r.ilvl)) byIlvl.set(r.ilvl, { item: r.item, lists: new Set() });
+        byIlvl.get(r.ilvl).lists.add(L);
       }
 
       if (L === "herald") {
         if (r.ilvl > HERALD_ILVL_CAP)
           err(`${at}: ${item} is ilvl ${r.ilvl}, cap is ${HERALD_ILVL_CAP}`);
-        if (!ERA_EXEMPT_SLOTS.has(r.slot) && !eraOk(r.source))
-          err(`${at}: ${item} in ${r.slot} from "${r.source}" — outside Classic/TBC/WotLK`);
+        if (!ERA_EXEMPT_SLOTS.has(r.slot) && r.wowhead > HERALD_ERA_LAST_ID && !ERA_ID_OK.has(r.wowhead))
+          err(`${at}: ${item} in ${r.slot} is outside Classic/TBC/WotLK by its id (above ${HERALD_ERA_LAST_ID}) — if it is a Wrath or Anniversary item, add it to ERA_ID_OK with the reason`);
       }
 
       // Ulduar drops have normal and hardmode versions; each needs a decision
@@ -261,6 +260,13 @@ for (const c of CLASSES) {
           err(`${at}: ${item} needs a profession to wear (skill line ${it.skill}) and the Professions line does not know it`);
         const sock = socketIssue(r, it, L);
         if (sock) err(`${at}: ${item} ${sock}`);
+        if (it.icc && r.ilvl != null) {
+          const want = ICC_ILVL[it.icc];
+          if (want == null)
+            warn(`${at}: ${item} is a ${ICC_NAME[it.icc]} Icecrown drop; no level is on record for those (Wowhead's step is 44)`);
+          else if (r.ilvl !== want)
+            err(`${at}: ${item} is ilvl ${r.ilvl}; a ${ICC_NAME[it.icc]} Icecrown drop is ${want} at level 30`);
+        }
         // Crafted and bind on pickup: only the crafter wears it, and the page
         // has to say so (BOP_CRAFT feeds the badge and the Professions line).
         const crafted = (r.source || "").match(/^Crafted — (.+)$/);
@@ -395,22 +401,65 @@ for (const c of CLASSES) {
 
 // One item id carries one item level. Catches a drop entered at different
 // ilvls on different specs, and normal/heroic pairs that share a display name.
-// ILVL_SPLIT_OK holds the ids Fate has ruled legitimately exist at more than
-// one pin across lists; each entry names the ruling.
-const ILVL_SPLIT_OK = new Set([
-  178824, // Signet of the False Accuser — 33 on the base lists, 47 on three
-          // Full buffed rows (Frost DK, Devourer, Shadow); ruled deliberate
-          // 2026-09-26.
-  134487, // Arch-Druid's Tainted Seal — 33 on the base lists, 47 on the
-          // same three Full buffed rows; same ruling.
+// ILVL_SPLIT_OK holds the ids ruled to exist at more than one level: the
+// levels, the lists a level is confined to, and the ruling. An exception is
+// an open door, and one hid an open item for two weeks (Abracadaver, whose
+// comment said re-runs were pending). So each one is data, not a comment: it
+// is printed on every run, it fails when the page shows a level or a list it
+// does not name, when the page no longer needs it, and when its reason says
+// that something is still to be done.
+const ILVL_SPLIT_OK = new Map([
+  [178824, { levels: { 33: null, 47: ["alltime_buffed"] },
+             why: "Signet of the False Accuser: 47 is its Timewalking version, on three Full buffed lists (Frost DK, Devourer, Shadow); ruled 2026-09-26" }],
+  [134487, { levels: { 33: null, 47: ["alltime_buffed"] },
+             why: "Arch-Druid's Tainted Seal: 47 is its Timewalking version, on the same three Full buffed lists; ruled 2026-09-26" }],
 ]);
-for (const [id, byIlvl] of ilvlById)
-  if (byIlvl.size > 1 && !ILVL_SPLIT_OK.has(id))
-    err(`${[...byIlvl.values()][0]} (${id}): conflicting ilvls ${[...byIlvl.keys()].sort((a, b) => a - b).join(", ")}`);
+for (const [id, byIlvl] of ilvlById) {
+  if (byIlvl.size < 2) continue;
+  const name = [...byIlvl.values()][0].item, seen = [...byIlvl.keys()].sort((a, b) => a - b);
+  const ok = ILVL_SPLIT_OK.get(id);
+  if (!ok) { err(`${name} (${id}): conflicting ilvls ${seen.join(", ")}`); continue; }
+  for (const lv of seen) {
+    if (!(lv in ok.levels)) { err(`${name} (${id}): ilvl ${lv} is not one of the levels its exception allows (${Object.keys(ok.levels).join(", ")})`); continue; }
+    const only = ok.levels[lv];
+    const stray = only ? [...byIlvl.get(lv).lists].filter((L) => !only.includes(L)) : [];
+    if (stray.length) err(`${name} (${id}): ilvl ${lv} is allowed on ${only.join(", ")} only, and shows on ${stray.join(", ")}`);
+  }
+}
+for (const [id, ok] of ILVL_SPLIT_OK) {
+  const byIlvl = ilvlById.get(id);
+  if (!byIlvl || byIlvl.size < 2) err(`ILVL_SPLIT_OK still lists ${id}, which the page no longer shows at two levels — remove the exception`);
+  if (/pending|re-?run|until|to do|todo|tbd|await/i.test(ok.why)) err(`ILVL_SPLIT_OK ${id}: the reason says something is still open ("${ok.why}") — an exception needs a ruling, not a promise`);
+  notes.push(`item-level exception in force: ${ok.why} (${id}; levels ${Object.keys(ok.levels).join(" and ")})`);
+}
 
 // ---------------------------------------------------------------- report
 const rows = CLASSES.reduce((n, c) =>
   n + LISTS.reduce((m, L) => m + ((c.lists && c.lists[L]) || []).length, 0), 0);
+
+// The entry-level dps field is the All-Time number. Only the sort uses it as
+// a tiebreak, which is how it went stale twice without anyone seeing.
+for (const c of CLASSES)
+  if (c.dps !== (c.dpsByList || {}).alltime)
+    err(`${c.id}: dps ${c.dps} is not dpsByList.alltime ${(c.dpsByList || {}).alltime}`);
+
+// The page states how many specs and classes it lists in two descriptions
+// (and on the share image assets/og.png, which no script reads).
+{
+  const listed = CLASSES.filter((c) => !c.hidden);
+  const nSpecs = listed.length, nClasses = new Set(listed.map((c) => c.cls)).size;
+  for (const [what, re] of [["meta description", /<meta name="description" content="([^"]*)"/],
+                            ["og:description", /<meta property="og:description" content="([^"]*)"/]]) {
+    const m = html.match(re);
+    if (!m) { err(`${what} not found on the page`); continue; }
+    const sp = m[1].match(/(\d+) specs/), cl = m[1].match(/(\d+) classes/);
+    if (!sp) warn(`${what} states no spec count ("N specs") — nothing to hold to the ${nSpecs} listed`);
+    else if (+sp[1] !== nSpecs)
+      err(`${what} says "${sp[0]}"; the page lists ${nSpecs} — the share image assets/og.png states the count too`);
+    if (cl && +cl[1] !== nClasses)
+      err(`${what} says "${cl[0]}"; the page lists ${nClasses}`);
+  }
+}
 
 // Multi-spec invariants: unique entry ids, a class key on every entry,
 // exactly one primary per class (the ruling the "Best" view renders).
@@ -466,6 +515,10 @@ const rows = CLASSES.reduce((n, c) =>
   }
 }
 
+if (notes.length) {
+  console.log("");
+  for (const n of notes) console.log("  i", n);
+}
 if (warns.length) {
   console.log(`\n${warns.length} warning(s):`);
   for (const w of warns) console.log("  ~", w);

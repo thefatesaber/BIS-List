@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [tooling] Herald's era rule is now checked by item id, and Icecrown drops by their difficulty.
+  Five more things are checked on every change. Herald's rule that every piece outside
+  necks, rings and trinkets comes from Classic, TBC or WotLK was judged from the source
+  label, which is free text; it is now judged from the item's id. Icecrown Citadel drops
+  have to sit on their difficulty's item level (10-player heroic 45, 25-player normal 46,
+  25-player heroic 47), which would have caught the two items that were re-simmed this
+  morning. Every listed spec has to carry all four lists. The number a spec sorts by has
+  to be its All-Time number. The spec count in the page's two descriptions has to match
+  the specs listed. The two rings that are allowed two item levels are now printed with
+  their reason each time the check runs. The page passes all of it; nothing changed on it.
 - [tooling] Every item on the lists is now checked against the game's own data on each change.
   The page check now reads a small file of game data, gamedata.json: for each of the 200
   items and gems and the 40 enchants the lists name, what the game's own tables say. On
