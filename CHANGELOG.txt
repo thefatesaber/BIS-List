@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [new] Every list now ends with a key to its badges, and Buff worth explains its tags.
+  HM only, Socket Proc, Crafter only and Scribe only were explained by a tooltip on hover,
+  and so were the "measured" and "total" tags in the Buff worth panel. A phone has no
+  hover, so there the badges explained nothing. Under each list a short key now gives one
+  line per kind of badge that list carries: the badge, then what it means (HM only: "Hard
+  mode exclusive: does not drop on normal"). The Buff worth panel says what its two tags
+  mean in a line of its own. The tooltips stay. Fate chose this over badges that open on a
+  tap.
+  No list and no number changed.
 - [fix] A list with a two-handed or ranged weapon no longer shows an empty Off Hand row.
   60 of the 109 lists wear a staff, a polearm, a two-handed sword, a crossbow or a gun and
   have no off hand. The page added an "Off Hand" row with a dash to each of them, and

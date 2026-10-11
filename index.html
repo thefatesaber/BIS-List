@@ -365,11 +365,18 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
   border-radius:3px; font:inherit; font-size:11.5px; padding:10px;
 }
 
-/* ---------- legend ---------- */
-footer{
-  border-top:1px solid var(--edge); margin-top:28px; padding:12px 0 0;
-  color:var(--dim); font-size:11px; display:flex; flex-wrap:wrap; gap:6px 18px;
-}
+/* ---------- key ---------- */
+/* Under the list: one line per kind of badge the list carries. Under Buff
+   worth: what its tags mean. Both say what the hover tooltips say, for a
+   screen with no hover. */
+.key{margin:10px 2px 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:5px 18px;
+  color:var(--dim); font-size:11.5px}
+.key[hidden]{display:none}
+.key li{display:flex; align-items:baseline; gap:7px; min-width:0}
+.key .hm, .key .vtag{margin-left:0; flex:none}
+.bwkey{margin:8px 0 0; color:var(--dim); font-size:11px; line-height:1.5}
+.bwkey b{color:var(--dust); font-weight:600; font-size:9.5px; letter-spacing:.06em;
+  text-transform:uppercase}
 
 /* ---------- motion ---------- */
 .row{transition:background-color .16s ease}
@@ -540,9 +547,11 @@ footer{
       <div class="consum buffworth" id="buffworth" hidden>
         <h3 title="What each buff adds to this exact profile: the number of record minus the same input re-run with the buff removed.">Buff worth</h3>
         <span id="buffworthlines"></span>
+        <p class="bwkey" id="bwkey"></p>
       </div>
     </div>
     <div class="ledger" id="ledger"></div>
+    <ul class="key" id="key" role="list" aria-label="Key to the badges" hidden></ul>
     <p class="credit" id="creditline" hidden></p>
     <div class="classnotes" id="classnotes" hidden></div>
     <div class="actions">
@@ -2030,13 +2039,25 @@ function profsOf(rows){
   }
   return out;
 }
+/* The badges a row can carry: class, label, and what the badge means. The
+   meaning is the badge's hover tooltip, which a phone never shows, so each
+   list also prints a key under itself: one line per kind of badge it carries,
+   in the same words (ruling M4, 2026-10-11). */
+const BADGE = {
+  only:   ["hm only",   "HM only",      "Hard mode exclusive: does not drop on normal"],
+  socket: ["hm socket", "Socket Proc",  "Only the socket-proc roll of this item is worth using"],
+  craft:  ["hm craft",  "Crafter only", "Bind on pickup: only the crafter can wear it"],
+  scribe: ["vtag",      "Scribe only",  "A scribe applies it to their own shoulders"],
+};
+// more: text added to the tooltip of this one badge (the profession, on a chest).
+const badge = (k, more) => '<span class="'+BADGE[k][0]+'" data-badge="'+k+'" title="'+esc(BADGE[k][2] + (more || ""))+'">'+BADGE[k][1]+'</span>';
 function enchLink(e){
   if(!e.ench) return "";
   const url = e.enchsp
     ? "https://www.wowhead.com/spell=" + e.enchsp
     : "https://www.wowhead.com/search?q=" + encodeURIComponent(e.ench);
   return '<a href="'+url+'" target="_blank" rel="noopener">'+esc(e.ench)+'</a>'
-    + (SCRIBE_ENCH.has(e.enchsp) ? '<span class="vtag" title="Scribe only: a scribe applies it to their own shoulders">Scribe only</span>' : "");
+    + (SCRIBE_ENCH.has(e.enchsp) ? badge("scribe") : "");
 }
 // Items a why note may name. Built from the data so any item already in a list or
 // an alts entry links itself; the literals below only cover names that appear in
@@ -2119,6 +2140,17 @@ function statPanel(cls){
   el.innerHTML = top + cell("crit","Critical Strike") + web + cell("mastery","Mastery", true)
     + cell("haste","Haste") + cell("vers","Versatility", true);
 }
+/* What a Buff worth tag means: the tag's hover tooltip, then the line the key
+   under the panel prints for a screen with no hover (ruling M4, 2026-10-11).
+   A status with no line of its own prints its tooltip. */
+const BW_TAG = {
+  measured:  ["Number of record minus the same input re-run with the buff removed.",
+              "the number of record minus the same input re-run with the buff removed."],
+  total:     ["Exact sum of every measured component row under it, the baked weapon stone included.",
+              "the exact sum of the measured rows under it."],
+  estimated: ["PI bundled with a first potion drink in the A/B; the potion share is priced at +1.5% from the Subtlety measured pair."],
+  derived:   ["Derived from the Windwalker model probe: the sim applies Hunter's Mark as an unconditional 3% multiplier."],
+};
 function gemLinks(e){
   if(!e.gems) return "";
   return e.gems.map(g => {
@@ -2139,12 +2171,8 @@ function gemLinks(e){
 }
 
 function hmBadge(e){
-  const craft = BOP_CRAFT[e.wowhead]
-    ? '<span class="hm craft" title="Bind on pickup: only the crafter can wear it, so you need '+BOP_CRAFT[e.wowhead]+' to make your own">Crafter only</span>'
-    : "";
-  if(e.hm === "only")  return '<span class="hm only" title="Hard mode exclusive \u2014 does not drop on normal">HM only</span>' + craft;
-  if(e.hm === "socket") return '<span class="hm socket" title="Only the socket-proc roll of this item is worth using">Socket Proc</span>' + craft;
-  return craft;
+  return (e.hm === "only" ? badge("only") : e.hm === "socket" ? badge("socket") : "")
+    + (BOP_CRAFT[e.wowhead] ? badge("craft", ", so you need "+BOP_CRAFT[e.wowhead]+" to make your own") : "");
 }
 
 // Inside this band an alternate is a tie for practical purposes — at 10k
@@ -2300,6 +2328,13 @@ function renderMain(){
       + '</div>';
   }).join("");
 
+  // The key is read off the rows just drawn, so it cannot name a badge the
+  // list does not show or miss one it does.
+  const used = Object.keys(BADGE).filter(k => $("ledger").querySelector('[data-badge="'+k+'"]'));
+  $("key").hidden = !used.length;
+  $("key").innerHTML = used.map(k =>
+    '<li><span class="'+BADGE[k][0]+'">'+BADGE[k][1]+'</span> <span>'+esc(BADGE[k][2])+'</span></li>').join("");
+
   const notes = cls.notes || [];
   statPanel(cls);
   const tal = cls.talents && cls.talents[state.list];
@@ -2316,13 +2351,7 @@ function renderMain(){
   $("buffworth").hidden = !bw || !bw.length;
   if (bw && bw.length) $("buffworth").style.setProperty("--cc", cls.color);
   if (bw && bw.length) { $("buffworthlines").classList.remove("cmpopen"); $("buffworthlines").innerHTML = bw.map(b => {
-    const tip = b.status === "total"
-      ? "Exact sum of every measured component row under it, the baked weapon stone included."
-      : b.status === "estimated"
-      ? "PI bundled with a first potion drink in the A/B; the potion share is priced at +1.5% from the Subtlety measured pair."
-      : b.status === "derived"
-      ? "Derived from the Windwalker model probe: the sim applies Hunter's Mark as an unconditional 3% multiplier."
-      : "Number of record minus the same input re-run with the buff removed.";
+    const tip = (BW_TAG[b.status] || BW_TAG.measured)[0];
     const isComp = !!(b.note && b.note.indexOf("Consumables") !== -1);
     const isHead = b.buff === "Consumables";
     let note = b.note || "";
@@ -2342,6 +2371,10 @@ function renderMain(){
     const t = $("buffworthlines").querySelector(".bwtoggle");
     if (t) t.setAttribute("aria-expanded", String(open));
   }; }
+  // Key to the tags the panel shows. Component rows carry no tag.
+  const tags = (bw || []).filter(b => !(b.note && b.note.indexOf("Consumables") !== -1)).map(b => b.status);
+  $("bwkey").innerHTML = Object.keys(BW_TAG).filter(s => tags.includes(s)).map(s =>
+    '<b>'+esc(s)+'</b> '+esc(BW_TAG[s][1] || BW_TAG[s][0])).join(" ");
   $("paneline").classList.toggle("wbw", !(!bw || !bw.length));
   $("paneline").classList.toggle("solo", $("statpanel").hidden);
   $("classnotes").hidden = true; // class notes hidden for now
