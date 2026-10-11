@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Four stale lists re-simmed unchanged: Arms All-time, Frost Mage Obtainable, Devastation x2.
+  The re-run half of Fate's sim-date ruling (D5): of the old stamps, only what moved. The
+  screen in the entry below named four lists; Fate ran them unchanged on Raidbots, in three
+  runs (Devastation Obtainable as a profileset arm of All-time).
+  Arms All-time 2703 -> 2546. Frost Mage Obtainable 3506 -> 3555. Devastation All-time
+  3281 -> 3291, Obtainable 3139 -> 3148.
+  All four came back within 1.3 DPS of the local build's reading. The three caster lists move
+  with the game data of 2026-09-22 (Frozen Orb, Glacial Assault, the Devastation aura). Arms
+  All-time is the correction flagged when it landed on 09-11: 2703 was simmed from an export,
+  and the committed profile had never been run until now. The profiles are renamed, not
+  changed; the stat panels stand (each list's sheet matches its panel); stamps -> 2026-10-11.
+  Every list is now either simmed on 2026-10-11 or reproduced that day within 2 DPS on the
+  local build.
 - [page] Every list now shows when it was simmed, beside its DPS number.
   Fate's ruling on the audit's sim-date item (D5), picked from two mock-ups: the date goes
   beside every number, not only on old stamps. After the DPS badge the spec header now reads,
