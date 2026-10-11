@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] Best per class and All specs now sit in a proper two-way switch above the list.
+  The two buttons had no border and used the browser's own font: their style sheet rules
+  named two colours the page never defined. They are now one outlined switch in the page's
+  font, with the half that is in force filled in, and they are full size on a phone.
+  Nothing else about them changed, and no list or number did.
 - [fix] The page no longer scrolls sideways on a phone or in a narrow desktop window.
   The row of panels above the gear list (stats, consumables, talent string, Buff worth) ran
   off the right edge in two places. In a desktop window between 861 and about 1000 pixels
