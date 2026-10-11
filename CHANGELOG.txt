@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] On a phone, each item now shows its enchant and each gem shows its name.
+  Below 701 pixels the gear list left the enchant out altogether and drew gems as icons
+  with no name, so a phone reader could not tell what a slot was enchanted with, or which
+  gem sat in a socket, without opening Wowhead. Each row now reads top to bottom: slot,
+  item, level and source, the enchant under a small "Enchant" label, then the gems with
+  their names. The Scribe only tag shows with its inscription. A list is about 280 pixels
+  longer on a phone for it (Fury All-Time 2,261 to 2,561 at 390 pixels wide).
+  Fate chose this from three versions of the row. Nothing changes from 701 pixels up.
+  No list and no number changed.
 - [fix] Tablets and narrow desktop windows now get the full table, enchants included.
   Below 861 pixels the gear list switched to the phone's layout: one stacked block per
   slot, no enchant, gems as icons without names. That is right for a phone, but an upright

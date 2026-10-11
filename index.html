@@ -462,22 +462,29 @@ footer{
   .talents{flex-wrap:wrap; gap:6px}
   .talents code{flex:1 0 100%; order:3}
 }
-/* Gear rows stack below 701 px: slot, item, gems as icons, then level and
-   source. From 701 px up the four-column table fits, so an upright tablet
-   (744 or 768 px) and a narrow desktop window get the table, enchants and gem
-   names included; they used to get the phone's rows up to 860 px. */
+/* Gear rows stack below 701 px, and a row then reads top to bottom: slot,
+   item, its level and source, its enchant, its gems by name, the note, the
+   alternates. Nothing the table shows is left out (ruling M1 and M2,
+   2026-10-11: a phone used to get no enchant at all and gems as icons with
+   no name). The enchant has no column head here, so it carries its own
+   label. From 701 px up the four-column table fits, so an upright tablet
+   (744 or 768 px) and a narrow desktop window get the table. */
 @media (max-width:700px){
-  .row{grid-template-columns:minmax(0,1fr); gap:1px 0; padding:9px 12px}
+  .row{grid-template-columns:minmax(0,1fr); gap:2px 0; padding:9px 12px}
   .row.head{display:none}
   .slot{font-size:10.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--dim)}
-  .ench{display:none}
-  /* keep sockets visible on mobile, icons only — socket count is BiS-relevant */
-  .gems{padding-left:44px}
-  .gems a.gname{font-size:0; gap:0}
-  .gemgrp{padding:1px 0}
-  .note, .alts{grid-column:1}
-  .why{grid-column:1; margin-left:0; max-width:none}
-  .alts{padding-left:44px}
+  .note{order:1}
+  .ench{order:2; padding-left:44px}
+  .ench:empty, .gems:empty{display:none}
+  .ench:not(:empty)::before{content:"Enchant"; margin-right:8px; color:var(--dim); font-weight:600;
+    font-size:10px; letter-spacing:.07em; text-transform:uppercase}
+  .gems{order:3; padding-left:44px}
+  /* A gem's icons and its name stay on one line; on a 320 px screen a long
+     name wraps beside the icons instead of dropping under them. */
+  .gemgrp{padding:1px 0; flex-wrap:nowrap}
+  .why{order:4; margin-left:0; max-width:none}
+  .alts{order:5; padding-left:44px}
+  .note, .why, .alts{grid-column:1}
 }
 .tab:focus-visible,.cls:focus-visible,.btn:focus-visible,.item a:focus-visible{
   outline:2px solid var(--epic); outline-offset:2px;
