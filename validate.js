@@ -162,6 +162,28 @@ for (const c of CLASSES) {
         warn(`${c.id}: ${seq[i - 1]} ${d[seq[i - 1]]} > ${seq[i]} ${d[seq[i]]} across engines — column mid-migration`);
     }
 
+  // Effective-DPS lists (ruling D4, 2026-10-11). rawByList names the raw sim
+  // result behind a number that carries the Vibroblade factor; the page's
+  // "effective" tag reads it, and the off-hand note states the same pair. All
+  // three must agree, in both directions, or the tag shows a stale raw figure
+  // or goes missing from a list whose note says the number is effective.
+  for (const [L, raw] of Object.entries(c.rawByList || {})) {
+    const at = `${c.id}/${L}`;
+    if (!LISTS.includes(L)) { err(`${at}: rawByList names an unknown list`); continue; }
+    if (!(Number.isInteger(raw) && raw > 0)) { err(`${at}: rawByList must hold a positive integer`); continue; }
+    if (d[L] == null) { err(`${at}: rawByList entry without a dpsByList number`); continue; }
+    if (!(raw < d[L])) err(`${at}: raw ${raw} is not below the effective number ${d[L]}`);
+    const oh = ((c.lists || {})[L] || []).find((r) => r.slot === "Off Hand");
+    const why = (oh && oh.why) || "";
+    if (!why.includes(`raw ${raw} x`) || !why.includes(`= ${d[L]}`))
+      err(`${at}: off-hand note does not read "raw ${raw} x ... = ${d[L]}" — rawByList, dpsByList and the note must agree`);
+  }
+  for (const L of LISTS) {
+    const oh = ((c.lists || {})[L] || []).find((r) => r.slot === "Off Hand");
+    if (oh && /effective DPS: raw \d+ x/.test(oh.why || "") && !(c.rawByList || {})[L])
+      err(`${c.id}/${L}: off-hand note states an effective number but rawByList has no entry — the "effective" tag would be missing`);
+  }
+
   for (const L of LISTS) {
     const s = (c.stats || {})[L];
     if (!s) { if ((c.lists || {})[L] && (c.lists || {})[L].length) warn(`${c.id}/${L}: no stats entry`); continue; }

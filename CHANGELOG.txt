@@ -7,6 +7,19 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] The seven effective-DPS numbers now wear an 'effective' tag; a tap or hover gives the raw.
+  Fate's ruling on the audit's effective-DPS item (D4). Seven numbers are not a plain sim
+  result: Outlaw on all four lists and the Herald lists of Windwalker, Havoc and Enhancement
+  show the sim result times a Vibroblade factor, because the off-hand's armor shred is not
+  simmed. Until now only the note under the off-hand row said so, while the numbers ranked
+  beside raw ones. Each now wears an amber 'effective' tag beside its DPS badge: a tap opens
+  it in place ('raw 2,224'), hovering explains the factor. The class list marks the same
+  numbers with a small 'eff'. On Outlaw Full buffed, where the badge is the number less Power
+  Infusion, the tag gives the raw on the same footing (3,553) beside the sim's own (3,765
+  with PI), and the off-hand note no longer calls 4,198 'the shown number' (the audit's P15).
+  A new data field, rawByList, holds the raw results on the four specs (Outlaw 3765 / 2224 /
+  2125 / 1919, Windwalker 2425, Havoc 1668, Enhancement 2219). validate.js now fails when it,
+  the off-hand note and dpsByList disagree. No number moved.
 - [page] Consumables panel now reads 'Not included in the DPS shown' outside the Full buffed list.
   Fate's ruling on the audit's consumables item (D3): keep the panel and say what it is. The
   panel lists a potion, flask, food and weapon buff beside the DPS number, but only the Full
