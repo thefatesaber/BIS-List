@@ -2,8 +2,8 @@
 // Lints the .simc benchmark profiles against the page dataset and the
 // standing profile rulings.
 //   node lint_profiles.js [--advisory] [--page index.html] <dir> [<dir>...]
-// Exits 1 on errors unless --advisory is given (CI runs advisory until the
-// rebase waves land, then the flag is removed and drift can't merge).
+// Exits 1 on errors unless --advisory is given. CI runs it without the flag
+// on all four list folders, so an error blocks.
 //
 // Rulings encoded here (see PROJECT.md for the full record):
 //  - self-buffed rail: no power_infusion pooling, invoking, or casting
@@ -20,6 +20,8 @@
 //  - Survival profiles carry override.spell_data=effect.483865.base_value=0
 //  - calibrations of record are per-spec (flat % encodes ppm at that spec's
 //    event density); deviations flagged, pending-ruling spreads warned
+//  - every profile carries a temporary_enchant= line with a value:
+//    "disabled" off the Full buffed list, the buff or "disabled" on it
 
 const fs = require("fs");
 const path = require("path");
@@ -155,6 +157,12 @@ for (const dir of DIRS) {
     if (list !== "alltime_buffed" && (c.cls || c.id) !== "hunter" && has(/^override\.hunters_mark=1/))
       E(`hunters_mark=1 — the hunter's own permanent debuff; on a non-hunter it assumes an actor the rail excludes`);
     if (list !== "alltime_buffed" && !has(/^temporary_enchant=disabled/)) E(`temporary_enchant=disabled missing`);
+    // Full buffed sims its weapon buff, so the line names one or says
+    // "disabled" - but it has to be there. With no line the druid and evoker
+    // modules add an oil of their own (Feral Full buffed, 87 DPS, until
+    // 2026-10-11).
+    if (list === "alltime_buffed" && !has(/^temporary_enchant=\S/))
+      E(`no temporary_enchant= line - name the weapon buff or write temporary_enchant=disabled; with no line the class module may add its own`);
     for (const n of where(/^temporary_enchant=\s*$/))
       E(`line ${n}: blank temporary_enchant= — triggers the fallback; delete the line`);
     if (!has(/^augmentation=disabled/))

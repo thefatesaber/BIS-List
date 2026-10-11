@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [tooling] The Full buffed sim profiles are now checked on every change, as the other three are.
+  The automatic check that runs on each change to the site linted the profiles of
+  All-Time, Obtainable and Herald, and left out the Full buffed folder; it passed when run
+  by hand. It now lints all four, 109 profiles. One rule is new: a Full buffed profile
+  has to carry a temporary_enchant line that names its weapon buff or says "disabled".
+  The other lists already had to say "disabled". With no line at all the druid and
+  evoker modules add an oil of their own, which was worth 87 DPS on Feral until this
+  morning. All 27 Full buffed profiles carry the line. No list and no number changed.
 - [fix] Rare item and gem names now keep the page's lighter blue, which is easier to read.
   The page's style sheet has always asked for a light blue (#2f8dff) on rare names. On the
   live site Wowhead's own style sheet, which its script adds a moment after the page
