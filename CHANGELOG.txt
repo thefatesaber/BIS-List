@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Consumables panel now reads 'Not included in the DPS shown' outside the Full buffed list.
+  Fate's ruling on the audit's consumables item (D3): keep the panel and say what it is. The
+  panel lists a potion, flask, food and weapon buff beside the DPS number, but only the Full
+  buffed list sims them: all 82 profiles of the other three lists set potion, flask, food and
+  temporary_enchant to disabled. All-Time, Obtainable and Herald now carry the line under the
+  panel title; Full buffed, whose number includes them, does not. No row and no number moved.
+  The panel is 8 px taller on a desktop and one text line taller where its first row wraps
+  (1024 px and phones).
 - [page] Every list now states the professions it assumes: a line above the gear, tags on the rows.
   Fate's ruling on the open half of the audit's professions item (D2), picked from two
   mock-ups. Two things on the lists need a profession. The Master's shoulder inscription, on

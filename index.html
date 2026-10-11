@@ -283,6 +283,8 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
 .consum h3{margin:0; flex:none; font:600 12.5px var(--display); letter-spacing:.08em;
   color:var(--dust)}
+.consum .chead{flex:none; display:flex; flex-direction:column; gap:1px}
+.consum .chead small{color:var(--dust); font-size:11px}
 #consumlines{display:contents}
 .consum .cline{white-space:nowrap; color:var(--dust); font-size:12px}
 .consum .cline b{color:var(--dim); font-weight:600; font-size:10px; letter-spacing:.07em;
@@ -443,7 +445,7 @@ footer{
     <div class="paneline" id="paneline">
       <div class="statpanel" id="statpanel" hidden></div>
       <div class="consum" id="consum" hidden>
-        <h3>Consumables</h3>
+        <div class="chead"><h3>Consumables</h3><small id="consumnote" hidden>Not included in the DPS shown</small></div>
         <span id="consumlines"></span>
         <button class="tbtn" id="consumcopy">Copy SimC</button>
       </div>
@@ -2160,6 +2162,10 @@ function renderMain(){
   if (tal) $("talentstr").textContent = tal;
   const cons = consumFor(cls, state.list);
   $("consum").hidden = !cons;
+  // Ruling D3, 2026-10-11: only the Full buffed list sims its consumables. The
+  // other three disable potion, flask, food and weapon buff, so their number
+  // is without what this panel lists, and the panel says so.
+  $("consumnote").hidden = state.list === "alltime_buffed";
   if (cons) $("consumlines").innerHTML = consumHtml(cons);
   const bw = state.list === "alltime_buffed" ? (cls.buffWorth || null) : null;
   $("buffworth").hidden = !bw || !bw.length;
