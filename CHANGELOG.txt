@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Herald Devastation moves to Frozen Spellthread rank 3: 2824, up from 2815.
+  The audit's S6, first of three. The input is the stored profile with the legs enchant moved
+  from rank 1 (6539) to rank 3 (6541), the rank the other 46 caster lists sim; nothing else
+  changed. +9 against this morning's 2815, a clean same-day A/B at 50k on Raidbots. The sheet
+  gains 1 Intellect and 1 Stamina (264 / 1064) and is otherwise digit-identical. The page's Legs
+  row now links rank 3's spell (387291 -> 387294). Restoration Obtainable and Herald are next.
 - [page] Heartpierce rows now link the normal version, the one the lists use: the heroic's effect does not work.
   Fate's ruling on the audit's S5. The six Assassination and Subtlety off-hand rows (Full buffed,
   All-time, Obtainable) linked the heroic item, 50641, which shows a prismatic socket - hence the
