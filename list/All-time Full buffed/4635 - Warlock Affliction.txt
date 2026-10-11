@@ -46,8 +46,8 @@ finger2=,ilevel=33,id=159461,enchant_id=6108,gem_id=40155/40155,bonus_id=6710/10
 trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Gale of Shadows 33
 trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
-# Abracadaver 47 
-main_hand=,ilevel=47,id=51887,bonus_id=9051,gem_id=40155/40155/40155,enchant_id=2669
+# Abracadaver 45 
+main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=40155/40155/40155,enchant_id=2669
 
 #profileset."Crafted"+=chest=,id=34364,ilevel=44,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
 #profileset."Head"+=head=,id=45464,ilevel=42,gem_id=25893/213743,bonus_id=9041,drop_level=30

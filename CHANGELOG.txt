@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Abracadaver at item level 45 on three Full buffed lists: 39 to 52 DPS less.
+  Run by Fate as S12a. The game shows Abracadaver at 45 (his tooltip of this morning). Shadow,
+  Affliction and Devastation Full buffed carried it at 47; every other list had it at 45.
+  One line changed per profile: main_hand ilevel=47 -> ilevel=45. Raidbots returns 5705, 4635
+  and 4417, from 5757, 4675 and 4456. Each run carried a control arm with the old line, which
+  read 5757, 4676 and 4455: the engine has not moved and the difference is the staff.
+  The three stat panels lose 2 Intellect and 1 crit rating. The three rows read 45 and the
+  stamps move to 2026-10-11.
+  On the tab: Shadow 5,705, still 2nd; Affliction 4,445, still 8th; Devastation 4,289, down
+  one place to 12th, below Windwalker. The Buff worth panels are carried.
+  Abracadaver now sits at 45 on all 25 rows, and validate.js no longer lists it as an item
+  allowed at two levels.
 - [ruling] Two tooltips read in game: Heartpierce is item level 46 and Abracadaver is 45.
   Three answers from Fate on the audit's open questions. Nothing on the page changes today.
   The Nibelung note on nine caster main hands stays as written (D8). The audit's P9 took it

@@ -217,12 +217,6 @@ const ILVL_SPLIT_OK = new Set([
           // 2026-09-26.
   134487, // Arch-Druid's Tainted Seal — 33 on the base lists, 47 on the
           // same three Full buffed rows; same ruling.
-  51887,  // Abracadaver (10-heroic id) — 45 on 22 rows, 47 on three Full
-          // buffed rows (Shadow, Affliction, Devastation). The game shows 45
-          // (Fate's tooltip, 2026-10-11), which ends the 47 ruling of
-          // 2026-09-26: the 45 rows are right, and the three at 47 are
-          // over-pinned until their re-runs land (S12). Take this entry out
-          // with them.
 ]);
 for (const [id, byIlvl] of ilvlById)
   if (byIlvl.size > 1 && !ILVL_SPLIT_OK.has(id))
