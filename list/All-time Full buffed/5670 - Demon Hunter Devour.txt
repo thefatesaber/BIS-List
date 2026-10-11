@@ -45,8 +45,8 @@ finger2=,ilevel=47,id=134487,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/66
 # Pendant of the Violet Eye (38) — macro-stacked; use= carries BOTH trinkets'
 # stacks (380 + 320 = 700 vers) since the in-game macro pops them as one press
 trinket1=pendant_and_meteorite_macro_proxy,ilevel=38,stats=8int,use=700vers_20dur_120cd
-# Meteorite Crystal (41) — passive contribution only; its use window lives on trinket1
-trinket2=meteorite_crystal_macro_proxy,ilevel=41,stats=8int
+# Meteorite Crystal (43) — passive contribution only; its use window lives on trinket1
+trinket2=meteorite_crystal_macro_proxy,ilevel=43,stats=9int
 # Bloodsurge, Kel'Thuzad's Blade of Agony (47)
 main_hand=,id=50732,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
 # Bloodsurge, Kel'Thuzad's Blade of Agony (47)

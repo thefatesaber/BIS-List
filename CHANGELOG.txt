@@ -7,6 +7,21 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Devourer re-simmed with Meteorite Crystal at item level 43: three lists gain 11 to 14 DPS.
+  The audit's item-level row for this trinket (P16), run by Fate as S11. The page lists
+  Meteorite Crystal at 43 on Devourer's Full buffed, All-Time and Obtainable lists. The sim
+  line behind all three said item level 41 and 8 Intellect. At 43 the trinket has 9.
+  One line changed per profile: ilevel=43,stats=9int. Raidbots returns 5670, 3850 and 3700,
+  from 5656, 3838 and 3689. The control arm of the same run, the All-Time list with the old
+  line, read 3838 again: the engine has not moved since 10-07 and the gain is the Intellect.
+  The three stat panels show 1 more Intellect (360, 296, 285) and the three stamps move to
+  2026-10-11. Herald does not wear the trinket and keeps 2918 and its stamp.
+  Devourer stays 4th on all three tabs. Full buffed shows less Power Infusion: 5,377 ->
+  5,391. The Buff worth panel is carried.
+  Tooltip: Wowhead reads the bare item at 41 with +8 Intellect, and at 43 with +9 under the
+  bonus id the page's other Algalon drops carry. The use effect is 16 Versatility a stack at
+  both levels, so the macro line on the other trinket is unchanged. No in-game reading is on
+  record.
 - [page] Feral Full buffed re-simmed without a weapon oil its staff cannot take: 4073 -> 3986.
   Found by the page-data pass (patch 361) and run by Fate as S11. The profile had no
   temporary_enchant line, and SimC's druid module then applies its own default: Thalassian
