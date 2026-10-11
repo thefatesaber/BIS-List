@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-10
+- [page] Obtainable Retribution is now a Raidbots number: 2901 there, 2900 on the local build.
+  The audit's S2, last of three runs. The stored profile ran unchanged at 50k on Raidbots
+  Advanced. The number takes the engine of record's 2901, the stamp moves from 2026-08-30 simc
+  1210-01 (a0d9bbb) to today on Raidbots, and the profile's header note is corrected. Off-engine
+  numbers: one -> zero. Every number on the site now carries a Raidbots Advanced stamp, and
+  Retribution is on Raidbots on all four lists.
 - [page] All-time Retribution is now a Raidbots number: 3110 there, 3111 on the local build.
   The audit's S2, second of three runs. The stored profile ran unchanged at 100k on Raidbots
   Advanced and lands 1 DPS from the local figure, as Herald did this afternoon: the six
