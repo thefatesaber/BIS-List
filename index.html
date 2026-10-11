@@ -1764,11 +1764,12 @@ const entryOf = id => CLASSES.find(x => x.id === id);
 /* ---------- URL state ----------------------------------------------------
    Shareable as #class/spec/list, e.g. #warrior/fury/herald. Class and spec are
    separate segments, so the Frost DK / Frost Mage collision resolves naturally
-   without a compound slug. Segments are matched independently: a link that
-   names only the class still lands on that class, and a spec that is
-   unambiguous on its own resolves even if the class segment is wrong or
-   missing. Unknown fragments are ignored rather than throwing, so an old or
-   hand-typed link still loads instead of erroring.                          */
+   without a compound slug. The class segment takes the class's name or its
+   key (death-knight or deathknight). Segments are matched independently: a
+   link that names only the class lands on that class's best spec for the
+   list, and a spec that is unambiguous on its own resolves even if the class
+   segment is wrong or missing. Unknown fragments are ignored rather than
+   throwing, so an old or hand-typed link still loads instead of erroring.   */
 const slugify = v => String(v).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 const classSlug = c => slugify(c.name);
 // spec may be one string for the whole class, or keyed per list when a list is
@@ -1799,18 +1800,23 @@ function readHash(){
   const cls = l ? seg.slice(0, -1) : seg;
 
   // Class first, then narrow by spec — falling back to a spec-only match so a
-  // two-segment legacy link (#fury/herald) still resolves.
+  // two-segment legacy link (#fury/herald) still resolves. The class is every
+  // entry of that class, not the one entry whose id happens to be the class
+  // key: #deathknight/unholy used to open Frost.
   let c = null;
   if(cls.length){
     const [a, b] = cls;
     const anySpec = (x, sl) => LIST_TYPES.some(t => specSlug(x, t.id) === sl);
-    const byClass = CLASSES.filter(x => classSlug(x) === a || x.id === a);
+    const byClass = CLASSES.filter(x => classSlug(x) === a || slugify(classKey(x)) === a);
+    const classBest = byClass.length
+      ? (bestOf(classKey(byClass[0]), (l && l.id) || state.list) || byClass.find(x => x.primary) || byClass[0])
+      : null;
     c = (b && byClass.find(x => anySpec(x, b)))
-     || (byClass.length === 1 ? byClass[0] : null)
+     || ((!b || byClass.length === 1) ? classBest : null)
      || CLASSES.find(x => anySpec(x, a) && (!b || anySpec(x, b)))
      || CLASSES.find(x => anySpec(x, b))
      || CLASSES.find(x => anySpec(x, a))
-     || null;
+     || classBest;
   }
   let hit = false;
   if(c){ state.cls = c.id; if(!isBest(c, (l && l.id) || state.list)) state.view = "all"; hit = true; }
@@ -1904,6 +1910,9 @@ function whLink(e){
 
 function renderRail(){
   $("sortsel").value = state.sort;
+  // Drawn from state on every render: a deep link to a non-best spec switches
+  // the view to "all" without a click on the toggle.
+  for(const b of document.querySelectorAll("#viewtoggle button")) b.classList.toggle("on", b.dataset.view === state.view);
   const cur = entryOf(state.cls);
   $("classsel").innerHTML = sortedClasses().map(c =>
     '<option value="'+c.id+'">'+esc(c.name)+" \u2014 "+esc(specOf(c))+"</option>"
@@ -2269,8 +2278,12 @@ function countView(){
   window.goatcounter.count({ path: path, title: document.title, event: false });
 }
 function render(){
+  // The entry shown has to carry the list shown. Under "Best per class" it also
+  // has to be its class's best on that list, because the class list offers no
+  // other: Druid is Balance on All-Time and Obtainable and Feral on the other
+  // two, and a tab click used to leave Balance up with nothing selected.
   const cur = entryOf(state.cls);
-  if(cur && !((cur.dpsByList || {})[state.list])){
+  if(cur && (!((cur.dpsByList || {})[state.list]) || (state.view === "best" && !isBest(cur)))){
     const p = bestOf(classKey(cur), state.list) || CLASSES.find(x => classKey(x) === classKey(cur) && x.primary);
     if(p) state.cls = p.id;
   }
@@ -2427,12 +2440,6 @@ document.getElementById("viewtoggle").addEventListener("click", e => {
   const b = e.target.closest("button[data-view]"); if(!b) return;
   const v = b.dataset.view; if(v === state.view) return;
   state.view = v;
-  for(const x of document.querySelectorAll("#viewtoggle button")) x.classList.toggle("on", x.dataset.view === v);
-  const cur = entryOf(state.cls);
-  if(v === "best" && cur && !isBest(cur)){
-    const p = bestOf(classKey(cur), state.list);
-    if(p) state.cls = p.id;
-  }
   render();
 });
 window.addEventListener("hashchange", () => { if(readHash()) render(); });

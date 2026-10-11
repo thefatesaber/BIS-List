@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] Best per class now follows the best spec across tabs, and hand-typed links work.
+  Three fixes to how the page keeps track of what it shows. No list and no number changed.
+  Best per class: the view lists each class's best spec for the tab that is open, and now
+  shows that spec too. Druid is Balance on All-Time and Obtainable and Feral on Full buffed
+  and Herald; clicking a tab used to leave Balance up with nothing selected in the class
+  list and an empty class dropdown on a phone.
+  View toggle: a link to a spec that is not its class's best opens with All specs lit, as
+  it should. It used to show Best per class while listing all 27, and All specs then did
+  nothing.
+  Links: the class part of a link takes deathknight as well as death-knight, so
+  #deathknight/unholy/herald opens Unholy (it opened Frost) and #demonhunter/havoc/herald
+  opens Havoc. A link that names only a class, such as #death-knight or #mage/herald, opens
+  that class's best spec for the list; for a class with several specs it used to fall back
+  to the default view.
 - [page] Plague-Soaked Leather Leggings at item level 45: 24 lists lose 11 to 35 DPS each.
   Run by Fate as S12b. The leggings are the 10-heroic drop of the boss that drops Abracadaver,
   and Icecrown's 10-heroic drops are 45. Eight specs wore them at 47 on Full buffed, All-Time
