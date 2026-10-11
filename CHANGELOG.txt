@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] Tablets and narrow desktop windows now get the full table, enchants included.
+  Below 861 pixels the gear list switched to the phone's layout: one stacked block per
+  slot, no enchant, gems as icons without names. That is right for a phone, but an upright
+  tablet (744 or 768 pixels) and a narrow desktop window have room for the four-column
+  table. They now get it: the phone layout starts below 701 pixels. At 768 pixels a list is
+  about 400 pixels shorter and shows every enchant and gem name.
+  The class list still folds into a dropdown at 860 pixels. Phones are unchanged.
+  No list and no number changed.
 - [fix] The header's news line now costs 4 KB to load, not the whole 200 KB changelog.
   The line under the page title is the first sentence of the newest entry in this file.
   To show it, the page downloaded the whole file on every visit: 75 KB compressed today,
