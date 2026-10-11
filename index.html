@@ -2459,6 +2459,16 @@ $("metaline").innerHTML = "<b>"+esc(CONFIG.guild)+"</b> · "+esc(CONFIG.patch)+"
 // The header shows the changelog's newest day, so every list's updates —
 // current tabs and any future ones — surface without hand-editing a notice.
 // CONFIG.notice is only the fallback when the fetch cannot run (file://, offline).
+// The line shown is the first sentence of the newest entry, which sits in the
+// first few hundred bytes of a file of over 200 KB. So the page asks for the
+// first 4 KB only (a Range request; GitHub Pages answers 206), and reads the
+// whole file when a visitor opens the day's list. A server that ignores Range
+// sends the whole file, and that works the same. If the first request fails
+// or brings back nothing that parses, the whole file is read, as it always was.
+// The two requests use different addresses so that a browser cannot answer the
+// first from a stored, compressed copy of the second.
+const CL_URL = "CHANGELOG.txt?v=" + encodeURIComponent(CONFIG.updated || "");
+const CL_HEAD_URL = CL_URL + "&top=4k";
 const CL_LINK = ' <span class="sep">\u00b7</span> <a href="CHANGELOG.txt" target="_blank" rel="noopener">full changelog</a>';
 function parseChangelogTop(text){
   const m = text.match(/^## (\d{4}-\d{2}-\d{2})\s*$/m);
@@ -2489,17 +2499,26 @@ function feedLine(t){
   }
   return s;
 }
-function renderNoticeFeed(n, top){
+function renderNoticeFeed(n, top, whole){
+  // whole: the full file has been read, so top holds every entry of the day.
+  // Until then it holds what the first 4 KB had, which is enough for the line.
   let open = false;
   const draw = () => {
     const head = '<b>Latest updates \u2014 ' + esc(fmtUpdated(top.date)) + '</b>'
-      + ' <span class="sep">\u00b7</span> <button class="nbtn" id="ntoggle">'
-      + (open ? "collapse" : "all " + top.entries.length + " updates") + '</button>' + CL_LINK;
+      + ' <span class="sep">\u00b7</span> <button type="button" class="nbtn" id="ntoggle" aria-expanded="' + open + '">'
+      + (open ? "collapse" : "all updates") + '</button>' + CL_LINK;
     n.innerHTML = open
       ? head + '<ul class="nlist">' + top.entries.map(e =>
           "<li>" + (e.tag ? '<span class="chip">' + esc(e.tag) + "</span>" : "") + esc(feedLine(e.text)) + "</li>").join("") + "</ul>"
       : head + " " + esc(feedLine(top.entries[0].text));
-    n.querySelector("#ntoggle").addEventListener("click", () => { open = !open; draw(); });
+    n.querySelector("#ntoggle").addEventListener("click", toggle);
+  };
+  const toggle = () => {
+    if(open || whole){ open = !open; draw(); return; }
+    fetch(CL_URL).then(r => r.ok ? r.text() : null)
+      .then(t => { const full = t && parseChangelogTop(t); if(full) top = full; })
+      .catch(() => {})
+      .then(() => { whole = true; open = true; draw(); const b = n.querySelector("#ntoggle"); if(b) b.focus(); });
   };
   draw();
 }
@@ -2508,9 +2527,11 @@ if (CONFIG.notice) {
   n.className = "notice";
   n.innerHTML = esc(CONFIG.notice) + CL_LINK;
   $("metaline").insertAdjacentElement("afterend", n);
-  if (window.fetch) fetch("CHANGELOG.txt?v=" + encodeURIComponent(CONFIG.updated || ""))
-    .then(r => r.ok ? r.text() : null)
-    .then(t => { const top = t && parseChangelogTop(t); if(top) renderNoticeFeed(n, top); })
+  if (window.fetch) fetch(CL_HEAD_URL, { headers: { Range: "bytes=0-4095" } })
+    .then(r => r.ok ? r.text().then(t => [t, r.status !== 206]) : null)
+    .catch(() => null)
+    .then(a => (a && parseChangelogTop(a[0])) ? a : fetch(CL_URL).then(r => r.ok ? r.text().then(t => [t, true]) : null))
+    .then(a => { const top = a && parseChangelogTop(a[0]); if(top) renderNoticeFeed(n, top, a[1]); })
     .catch(() => {});
 }
 

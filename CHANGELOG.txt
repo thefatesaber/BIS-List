@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] The header's news line now costs 4 KB to load, not the whole 200 KB changelog.
+  The line under the page title is the first sentence of the newest entry in this file.
+  To show it, the page downloaded the whole file on every visit: 75 KB compressed today,
+  more than the page itself, which is 63. It now asks the server for the first 4 KB, where
+  that sentence is, and fetches the rest only when someone opens the day's list. If that
+  first request fails, the page reads the whole file, as it always has.
+  One visible change: the link that opens the list reads "all updates". It used to count
+  them ("all 29 updates"), and the count is not known until the rest has been read.
+  No list and no number changed.
 - [page] Unused code removed from the page: the lists, numbers and layout are unchanged.
   Left over from earlier versions of the page and no longer reached: the counter of filled
   slots the class list showed before it showed DPS, two status colours, the "HM ilvl" badge
