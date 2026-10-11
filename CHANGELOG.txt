@@ -7,6 +7,29 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Consumables panel corrected on nine lists: Unholy, Arms and Devastation.
+  The audit's consumables rows (P8). No number moves.
+  Unholy Obtainable and Herald showed no Consumables panel. They now list what Unholy All-time
+  lists: Golemblood Potion, Flask of Endless Rage, Beer-Basted Crocolisk and an Adamantite
+  Sharpening Stone on the main hand. The weapon is Bonereaver's Edge on all four lists.
+  Seven lists named a weapon buff for an off hand that cannot take one. Arms wields one
+  two-hander: All-time listed a Weightstone for the off hand, Obtainable and Herald said
+  MH/OH; all three now list the Sharpening Stone on the main hand only. Devastation's Superior
+  Wizard Oil said MH/OH on all four lists: three wield a staff and Herald holds an off-hand
+  item, so it is main hand only. 'Copy SimC' on these panels follows.
+  Devastation Full buffed is the one list of the nine whose panel is simmed. Its profile named
+  the oil for the off hand too; the profile now names the main hand only and sims the same
+  to the last digit (fixed seed, local build).
+  Profiles: ten Full buffed profiles had no temporary_enchant line and now carry
+  temporary_enchant=disabled, the standing rule: Beast Mastery, Marksmanship, Survival,
+  Enhancement, Retribution, Fury, Outlaw, Assassination, Subtlety and Windwalker. SimC's own
+  default for them was already no weapon buff, and each sims identically with the line.
+  Not applied, it needs a run: Feral Full buffed is the eleventh, and there SimC's default is
+  not empty. It applies Thalassian Phoenix Oil, +7 crit and +7 haste rating, which the game
+  data restricts to item level 120 and up; the staff is 47. With the oil disabled the list
+  reads 3986 on the local build against 4073 as stored (20,000 iterations each).
+  Not applied, open ruling: the weapon stone the thirteen melee Full buffed lists sim is
+  still not listed on their panels (it is priced in Buff worth).
 - [page] Two enchant links fixed: Greater Agility on boots and Waking Stats on chests.
   The audit's link rows (P6 and P7), 141 rows. Names and numbers are unchanged; what changes
   is where the enchant name links to and the tooltip it shows.

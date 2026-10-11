@@ -53,6 +53,7 @@ main_hand=,id=50733,ilevel=47,enchant_id=5950,bonus_id=9051,gem_id=32194,drop_le
 potion=potion_of_the_tolvir
 flask=flask_of_endless_rage
 food=skewered_eel
+temporary_enchant=disabled
 augmentation=disabled
 
 # Expansion Options

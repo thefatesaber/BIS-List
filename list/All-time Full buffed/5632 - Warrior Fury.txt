@@ -53,6 +53,7 @@ potion=golemblood_potion
 flask=flask_of_endless_rage
 food=BeerBasted_Crocolisk
 #temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+temporary_enchant=disabled
 augmentation=disabled
 
 # Expansion Options

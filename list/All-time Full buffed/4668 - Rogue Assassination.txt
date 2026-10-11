@@ -64,6 +64,7 @@ potion=potion_of_the_tolvir
 flask=flask_of_endless_rage
 food=skewered_eel
 #temporary_enchant=main_hand:adamantite_weightstone/off_hand:adamantite_sharpening_stone
+temporary_enchant=disabled
 augmentation=disabled
 
 # Expansion Options

@@ -57,7 +57,7 @@ main_hand=,ilevel=47,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=
 potion=volcanic_potion
 food=severed_sagefish_head
 flask=flask_of_distilled_wisdom
-temporary_enchant=main_hand:superior_wizard_oil/off_hand:superior_wizard_oil
+temporary_enchant=main_hand:superior_wizard_oil
 
 augmentation=disabled
 
