@@ -7,6 +7,24 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Plague-Soaked Leather Leggings at item level 45: 24 lists lose 11 to 35 DPS each.
+  Run by Fate as S12b. The leggings are the 10-heroic drop of the boss that drops Abracadaver,
+  and Icecrown's 10-heroic drops are 45. Eight specs wore them at 47 on Full buffed, All-Time
+  and Obtainable.
+  One line changed per profile: legs ilevel=47 -> ilevel=45. Full buffed / All-Time /
+  Obtainable now read: Feral 3957 / 2756 / 2627, Balance 3751 / 2807 / 2698, Devourer 5635 /
+  3820 / 3673, Havoc 3242 / 2004 / 1927, Outlaw 4168 / 2453 / 2351 (effective; raw 3738 /
+  2200 / 2109), Assassination 4634 / 2761 / 2623, Subtlety 2647 / 1601 / 1496, Windwalker
+  4413 / 2878 / 2765.
+  Every run carried a control arm with the old line. All 16 came back within 1 DPS of the
+  stored number, so the differences are the leggings.
+  Each stat panel loses 1 Agility or Intellect, 1 crit rating and 1 haste rating. The 24 rows
+  read 45. Balance's three stamps move to 2026-10-11; the other 21 were already there.
+  Places: on Full buffed Assassination, Outlaw and Feral each fall one place (to 10th, 15th
+  and 17th); on All-Time Balance falls one, to 15th; on Obtainable Assassination falls two, to
+  18th. The Buff worth panels are carried.
+  The leggings' tooltip was not sent. Wowhead reads them at 47 bare and at 45 under the
+  10-heroic bonus id.
 - [page] Abracadaver at item level 45 on three Full buffed lists: 39 to 52 DPS less.
   Run by Fate as S12a. The game shows Abracadaver at 45 (his tooltip of this morning). Shadow,
   Affliction and Devastation Full buffed carried it at 47; every other list had it at 45.

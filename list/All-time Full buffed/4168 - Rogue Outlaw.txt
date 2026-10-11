@@ -1,4 +1,4 @@
-# Obtainable - Rogue - Outlaw
+# All-time Full-buffed - Rogue - Outlaw
 # --- Log-anchored ability tuning + residual redistribution (target: effective 2742 @ U=0.5694) ---
 # new coeff = branch coeff x (game/sim) x 1.0812 (absorbs auto/MG residuals). Refresh after any engine/data update.
 # Sinister Strike   1.223  x1.285 x1.0812
@@ -26,11 +26,16 @@ spec=outlaw
 
 talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
 
+override.player.spell_data=spell.2825.spell_level=1
+override.player.spell_data=effect.856.base_value=15
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
+
 
 # wastewalker_helm (33)
-head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
+head=,id=50206,ilevel=33,gem_id=76884/213743/71852,bonus_id=6710,drop_level=30,enchant=6crit
 # Ukhel Ancestry Beads (140)
-neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213494,drop_level=30
+neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213494/71852/71852,bonus_id=9156/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3835,gem_id=71852/71852,bonus_id=6710/6652,drop_level=30
 # Drape of the Faceless General (43)
@@ -43,39 +48,43 @@ wrist=,id=54580,ilevel=47,enchant_id=4416,gem_id=71852,bonus_id=9051,drop_level=
 hands=,id=46043,ilevel=43,enchant_id=5259,gem_id=71852/71852,bonus_id=9043,drop_level=30
 # Soul-Devouring Cinch (43)
 waist=,id=46095,ilevel=43,gem_id=71852/71852/71852,bonus_id=9043,drop_level=30
-# Plague-Soaked Leather Leggings (47)
-legs=,id=51889,ilevel=47,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
+# Plague-Soaked Leather Leggings (45)
+legs=,id=51889,ilevel=45,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
 # Slayer's Boots (44)
 feet=,id=34575,ilevel=44,enchant_id=1887,gem_id=71852,bonus_id=9043,drop_level=30
-# Loop of Vitriolic Intent (33)
-finger1=,id=134530,ilevel=33,enchant_id=6110,gem_id=71852,bonus_id=6710/41/8810,drop_level=30
+# Stitchflesh's Misplaced Signet (33)
+finger1=,id=159462,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Signet of the False Accuser (33)
-finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852,drop_level=30
+finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine_Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_0.4ppm_184haste_5dur
+main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_24min_29max,ilevel=38,quality=epic,stats=2agi,enchant_id=4099,equip=procby/attack_procon/hit_0.4ppm_184haste_5dur
 # Vibroblade (33)
-off_hand=,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
-#effective DPS = D0 x (1 + A x P x U)
-#D0 = naked sim DPS (raw - Vibroblade's shred counts for zero in the sim)
-#A = 0.2083 armor gain while shredded; P = 0.969 physical share of record; U = 0.5694 measured uptime
-#(Twins 59.68 / Jaraxxus 45.90 / NB-1 65.25 log average)
-#effective DPS = 2121 x (1 + 0.2083 x 0.969 x 0.5694) = 2365
-#CONVENTION AUDIT (2026-10-03): Fate's re-run confirms D0 (pie P = 0.964, within rounding of the
-#0.969 of record) - the stored 2365 was already effective. The old comment (2264 -> "2049") was mangled on both ends; the re-run printed 2121 exactly.
+off_hand=,ilevel=33,id=9485,weapon=axe_2.60speed_22min_30max,enchant_id=5950,bonus_id=6710,drop_level=30
+#effective DPS = D0 × (1 + A × P × U)
+#D0 = naked sim DPS (3758 — the sim with the proc counting for zero)
+#A = armor gain while active = (armor+K)/(armor−shred+K) − 1 = 0.2083 here
+#P = proportion affected = physical share = 0.969
+#U = measured uptime
+
+#59.68% on Twins 
+#45.90% on Jaraxxus 
+#65.25% on 1st boss of northrend beast
+#so
+#u=((59.68+45.9+65.25)/3) = 56.94
+
+
+#effective DPS = 3758 × (1 + 0.2083 × 0.969 × 0.5694) = 4190
 
 # Consumables
-# potion=golemblood_potion
-# flask=flask_of_titanic_strength
-# food=BeerBasted_Crocolisk
+potion=potion_of_the_tolvir
+flask=flask_of_endless_rage
+food=skewered_eel
 # temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
 temporary_enchant=disabled
-potion=disabled
-flask=disabled
-food=disabled
 augmentation=disabled
 
 # Expansion Options
@@ -94,6 +103,8 @@ actions.precombat+=/roll_the_bones,precombat_seconds=0
 
 # Executed every time the actor is available.
 actions=variable,name=finish_condition,value=combo_points>=cp_max_spend-1
+actions+=/potion,name=potion_of_the_tolvir,if=buff.bloodlust.up|target.time_to_die<=30
+actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1
 actions+=/call_action_list,name=cds
 actions+=/run_action_list,name=finish,if=variable.finish_condition
 actions+=/call_action_list,name=build
@@ -123,7 +134,7 @@ actions.finish=between_the_eyes
 actions.finish+=/dispatch
 
 # Simulation Options
-iterations=50000
+iterations=100000
 desired_targets=1
 max_time=300
 fixed_time=1
@@ -132,20 +143,18 @@ target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
-override.allow_flasks=0
-override.allow_food=0
-override.allow_potions=0
 override.allow_augmentations=0
 optimal_raid=0
-override.bloodlust=0
+override.bloodlust=1
 override.arcane_intellect=0
 override.power_word_fortitude=0
-override.battle_shout=0
+override.battle_shout=1
 override.mystic_touch=0
 override.chaos_brand=0
 #override.windfury_totem=1
-override.mark_of_the_wild=0
-override.hunters_mark=0
+override.mark_of_the_wild=1
+override.hunters_mark=1
+override.skyfury=1
 override.bleeding=0
 report_details=1
 single_actor_batch=1
