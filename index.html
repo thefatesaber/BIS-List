@@ -192,6 +192,10 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   border:1px solid currentColor}
 .hm.only{color:#ff9d5c}
 .hm.socket{color:#ff5c5c}
+.hm.craft{color:#6fc3d6}
+.profs{color:var(--dust); font-size:11.5px; margin:-10px 0 16px}
+.profs b{color:var(--parchment); font-weight:600}
+.profs .sep{opacity:.5; margin:0 5px}
 .vtag{margin-left:7px; font-size:9.5px; font-weight:600; letter-spacing:.07em;
   text-transform:uppercase; padding:1px 5px; border-radius:3px; white-space:nowrap;
   color:#e0a53f; border:1px solid currentColor; vertical-align:1px}
@@ -435,6 +439,7 @@ footer{
     <div class="spec-head" id="spechead"></div>
     <div class="tabs" id="tabs" role="tablist"></div>
     <p class="constraint" id="constraint"></p>
+    <p class="profs" id="profs" hidden></p>
     <div class="paneline" id="paneline">
       <div class="statpanel" id="statpanel" hidden></div>
       <div class="consum" id="consum" hidden>
@@ -1871,12 +1876,35 @@ function renderRail(){
   }).join("");
 }
 
+/* Professions a list assumes, read from its own rows (ruling D2, 2026-10-11).
+   Two kinds exist on the page: the Master's shoulder inscriptions, which a
+   scribe can only put on their own shoulders, and the four Sunwell chests,
+   which bind on pickup to whoever crafts them. Every other crafted item on
+   the lists binds on equip and can be bought.                              */
+const SCRIBE_ENCH = new Set([61117, 61120]);   // Master's Inscription of the Axe, of the Storm
+const BOP_CRAFT = {
+  34377: "Blacksmithing",    // Hard Khorium Battleplate
+  34373: "Leatherworking",   // Embrace of the Phoenix
+  34364: "Tailoring",        // Sunfire Robe
+  34365: "Tailoring",        // Robe of Eternal Light
+};
+function profsOf(rows){
+  const out = [];
+  if(rows.some(r => SCRIBE_ENCH.has(r.enchsp))) out.push(["Inscription", "shoulder inscription"]);
+  for(const r of rows){
+    const p = BOP_CRAFT[r.wowhead];
+    if(p && !out.some(x => x[0] === p))
+      out.push([p, "to craft the " + String(r.slot).toLowerCase() + ", bind on pickup"]);
+  }
+  return out;
+}
 function enchLink(e){
   if(!e.ench) return "";
   const url = e.enchsp
     ? "https://www.wowhead.com/spell=" + e.enchsp
     : "https://www.wowhead.com/search?q=" + encodeURIComponent(e.ench);
-  return '<a href="'+url+'" target="_blank" rel="noopener">'+esc(e.ench)+'</a>';
+  return '<a href="'+url+'" target="_blank" rel="noopener">'+esc(e.ench)+'</a>'
+    + (SCRIBE_ENCH.has(e.enchsp) ? '<span class="vtag" title="Scribe only: a scribe applies it to their own shoulders">Scribe only</span>' : "");
 }
 // Items a why note may name. Built from the data so any item already in a list or
 // an alts entry links itself; the literals below only cover names that appear in
@@ -1978,9 +2006,12 @@ function gemLinks(e){
 }
 
 function hmBadge(e){
-  if(e.hm === "only")  return '<span class="hm only" title="Hard mode exclusive \u2014 does not drop on normal">HM only</span>';
-  if(e.hm === "socket") return '<span class="hm socket" title="Only the socket-proc roll of this item is worth using">Socket Proc</span>';
-  return "";
+  const craft = BOP_CRAFT[e.wowhead]
+    ? '<span class="hm craft" title="Bind on pickup: only the crafter can wear it, so you need '+BOP_CRAFT[e.wowhead]+' to make your own">Crafter only</span>'
+    : "";
+  if(e.hm === "only")  return '<span class="hm only" title="Hard mode exclusive \u2014 does not drop on normal">HM only</span>' + craft;
+  if(e.hm === "socket") return '<span class="hm socket" title="Only the socket-proc roll of this item is worth using">Socket Proc</span>' + craft;
+  return craft;
 }
 
 // Inside this band an alternate is a tie for practical purposes — at 10k
@@ -2095,10 +2126,17 @@ function renderMain(){
 
   $("constraint").textContent = lt.desc;
 
+  const rows = mergedList(cls, state.list);
+  const pf = profsOf(rows);
+  $("profs").hidden = !pf.length;
+  $("profs").innerHTML = pf.length
+    ? 'Professions assumed: ' + pf.map(p => '<b>'+esc(p[0])+'</b> ('+esc(p[1])+')').join('<span class="sep">\u00b7</span>')
+    : "";
+
   const head = '<div class="row head"><span>Slot</span><span>Item</span>'
     + '<span>Enchant</span><span>Gems</span></div>';
 
-  $("ledger").innerHTML = head + mergedList(cls, state.list).map((e, i) => {
+  $("ledger").innerHTML = head + rows.map((e, i) => {
     let ilvlTxt = "";
     if (e.ilvl != null){
       ilvlTxt = "ilvl "+esc(e.ilvl);
@@ -2187,14 +2225,19 @@ function asText(){
     const e = cons[k]; if(!e || !e.item) return "";
     return label+" ["+e.item+"]"+vs(e);
   }).filter(Boolean).join(" · "));
+  const rows = mergedList(cls, state.list);
+  const pf = profsOf(rows);
+  if(pf.length) lines.push("- Professions assumed: " + pf.map(p => p[0]+" ("+p[1]+")").join(" · "));
   const tbd = [];
-  mergedList(cls, state.list).forEach(e => {
+  rows.forEach(e => {
     if(!e.item || (e.status||"tbd")==="tbd"){ tbd.push(e.slot); return; }
     const gtxt = e.gems ? e.gems.map(g=>g.name+(g.n>1?" \u00d7"+g.n:"")).join(", ") : "";
     const hm = e.hm==="only" ? "HM only" : (e.hm==="ilvl" ? "HM ilvl" : (e.hm==="socket" ? "Socket Proc" : ""));
+    const craft = BOP_CRAFT[e.wowhead] ? "Crafter only" : "";
+    const ench = e.ench ? e.ench + (SCRIBE_ENCH.has(e.enchsp) ? " (Scribe only)" : "") : "";
     const iv = e.ilvl==null ? "" :
       "ilvl "+e.ilvl;
-    const bits = [iv, hm, e.source||"", e.ench||"", gtxt].filter(Boolean).join(" · ");
+    const bits = [iv, hm, craft, e.source||"", ench, gtxt].filter(Boolean).join(" · ");
     const vt = variantOf(e);
     lines.push("- "+e.slot+": ["+e.item+"]"+(vt?" ("+vt+")":"")+(bits?" — "+bits:""));
     if(e.alts && e.alts.length){

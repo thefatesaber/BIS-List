@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Every list now states the professions it assumes: a line above the gear, tags on the rows.
+  Fate's ruling on the open half of the audit's professions item (D2), picked from two
+  mock-ups. Two things on the lists need a profession. The Master's shoulder inscription, on
+  every list since the two entries below, can only be put on a scribe's own shoulders: its row
+  now carries a Scribe only tag. Four Sunwell chests bind on pickup to whoever crafts them -
+  Hard Khorium Battleplate (Blacksmithing, 14 lists), Embrace of the Phoenix (Leatherworking,
+  22), Sunfire Robe (Tailoring, 9) and Robe of Eternal Light (Tailoring, 3): their rows carry
+  a Crafter only badge. Under the list description a new line reads 'Professions assumed:
+  Inscription (shoulder inscription)', followed on those 48 lists by the chest's profession.
+  The line and both tags are derived from the rows at render (two enchant ids, four item
+  ids): no row changed and no number moved. The text export carries the same line and tags.
+  Every other crafted item on the lists binds on equip and carries nothing. At phone width
+  the enchant column is still hidden, and the Scribe only tag with it; the line above the gear
+  shows at every width.
 - [page] Frost and Unholy DK swap Lionsmane for Master's Inscription of the Axe: 6 lists re-simmed.
   Not asked by the professions ruling, shown by the same sweeps: on Frost All-time Lionsmane
   was the lowest of the three strength inscriptions (3253, against Greater Axe 3260 and
