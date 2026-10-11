@@ -6,6 +6,40 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-11
+- [page] Twelve specs move to the scribe's Master's shoulder inscription: 45 lists re-simmed.
+  Fate's ruling on the audit's professions item (D2): where the scribe-only inscription is
+  better, the lists use it. Five pilot sweeps on 2026-10-10 put Master's Inscription of the Axe
+  above Greater Axe, Lionsmane and Swiftsteel, and Master's Inscription of the Storm above
+  Greater Storm. The Pandaria Secret inscriptions topped the sweeps but are items that require
+  level 32, so they are out. Each list is its stored profile with one token changed, the
+  shoulder enchant (3808 -> 3835; 3810 -> 3838 on Restoration), run on Raidbots Advanced: Full
+  buffed lists alone, a spec's self-buffed lists in one run with Obtainable and Herald as
+  profileset arms built from their own gear lines.
+  Full buffed / All-time / Obtainable / Herald, before -> after:
+  Marksmanship 4521 / 3588 / 3451 / 3137 -> 4528 / 3594 / 3457 / 3143.
+  Survival 3903 / 2780 / 2665 / 2365 -> 3909 / 2808 / 2692 / 2369.
+  Beast Mastery 2635 / 2139 / 2061 / 1875 -> 2640 / 2143 / 2064 / 1878.
+  Windwalker 4438 / 2901 / 2788 / 2699 -> 4445 / 2909 / 2792 / 2705.
+  Retribution 4310 / 3110 / 2901 -> 4316 / 3115 / 2904 (Herald already wore it).
+  Assassination 4660 / 2774 / 2640 / 2301 -> 4668 / 2779 / 2645 / 2305.
+  Outlaw 4190 / 2473 / 2365 / 2135 -> 4198 / 2480 / 2369 / 2140.
+  Subtlety 2663 / 1609 / 1507 / 1226 -> 2668 / 1612 / 1509 / 1228.
+  Enhancement 3724 / 2618 / 2516 / 2351 -> 3730 / 2622 / 2521 / 2354.
+  Feral 4067 / 2770 / 2640 / 2336 -> 4073 / 2774 / 2644 / 2340.
+  Havoc 3256 / 2013 / 1937 / 1759 -> 3263 / 2016 / 1940 / 1762.
+  Restoration Obtainable 4257 -> 4270, Herald 3799 -> 3809 (the other two already wore it).
+  Each self-buffed run carried the stored list as a control arm: against it the swap is worth
+  +3 to +13 DPS, and eleven of the twelve controls read within 3 DPS of their stored number.
+  Survival's read 2803 against 2780, so its All-time gain (+28) is mostly engine movement
+  since the 09-23 stamp; Obtainable's +27 on a 10-03 stamp points the same way. The seven
+  Vibroblade numbers stay effective DPS on new raws: Outlaw 3765 / 2224 / 2125 / 1919 and the
+  Herald lists of Windwalker 2425, Havoc 1668 and Enhancement 2219, times their factors of
+  record. Stat panels come from a local build that reproduces the page's sheets: one crit
+  rating more on 43 lists, no change on Restoration's two, and Enhancement Full buffed's
+  mastery rating corrected from 100 to 10. Shoulder rows relabel, stamps -> 2026-10-11. Buff
+  worth panels on the eleven Full buffed lists are carried from before the swap.
+
 ## 2026-10-10
 - [page] Obtainable Retribution is now a Raidbots number: 2901 there, 2900 on the local build.
   The audit's S2, last of three runs. The stored profile ran unchanged at 50k on Raidbots
