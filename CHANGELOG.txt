@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] The Back button now returns to the list you came from instead of leaving the site.
+  Opening a class, a spec or a tab used to rewrite a single history entry, so Back skipped
+  every list you had looked at and left the site. Each list you open is now a step of its
+  own: Back returns to the one before it, Forward goes on again, and the page comes back
+  scrolled where you left it. Changing the order, or switching between "Best per class"
+  and "All specs" without changing spec, is not a step. Fate chose this over also keeping
+  the view and the order in the link.
+  No list and no number changed.
 - [new] Every list now ends with a key to its badges, and Buff worth explains its tags.
   HM only, Socket Proc, Crafter only and Scribe only were explained by a tooltip on hover,
   and so were the "measured" and "total" tags in the Buff worth panel. A phone has no

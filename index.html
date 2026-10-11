@@ -1903,12 +1903,21 @@ function readHash(){
   if(l){ state.list = l.id; hit = true; }
   return hit;
 }
-// replaceState so back/forward isn't polluted by every click; pushing only on
-// a real navigation would double-fire with the hashchange listener below.
-function writeHash(){
+/* A view the visitor opens gets a history entry of its own, so Back returns
+   to the view before it and Forward goes on again (ruling O2, 2026-10-11).
+   Until then every click rewrote the one entry, and Back left the site. The
+   entry is added with pushState, which fires neither hashchange nor popstate,
+   so the listener at the bottom of this script does not run a second time.
+   Every other render rewrites the entry it is on: the first one, which turns
+   a bare or short address into the full one, and one that answers Back,
+   Forward or a typed address, where the browser has already moved.         */
+function writeHash(push){
   const c = CLASSES.find(x => x.id === state.cls);
   const h = "#" + classSlug(c) + "/" + specSlug(c, state.list) + "/" + state.list;
-  if(location.hash !== h) history.replaceState(null, "", h);
+  if(location.hash === h) return;
+  // A browser may refuse the call (Safari allows 100 in 30 seconds). The view
+  // is drawn by then; only its address goes unwritten.
+  try { history[push ? "pushState" : "replaceState"](null, "", h); } catch(e) {}
 }
 // Ruling 2026-10-03: the buffed list DISPLAYS PI-less DPS. The pooled
 // external's measured worth is informational - it sits in the Buff worth
@@ -2403,7 +2412,10 @@ function countView(){
   lastCounted = path;
   window.goatcounter.count({ path: path, title: document.title, event: false });
 }
-function render(){
+// push: the visitor chose this view (a class, a tab, the view switch), so it
+// gets a history entry. Left out by the first render and by the one that
+// answers Back, Forward or a typed address.
+function render(push){
   // The entry shown has to carry the list shown. Under "Best per class" it also
   // has to be its class's best on that list, because the class list offers no
   // other: Druid is Balance on All-Time and Obtainable and Feral on the other
@@ -2413,7 +2425,7 @@ function render(){
     const p = bestOf(classKey(cur), state.list) || CLASSES.find(x => classKey(x) === classKey(cur) && x.primary);
     if(p) state.cls = p.id;
   }
-  renderRail(); renderMain(); whRefresh(); writeHash(); countView(); }
+  renderRail(); renderMain(); whRefresh(); writeHash(push); countView(); }
 
 function asText(){
   const cls = CLASSES.find(c => c.id === state.cls);
@@ -2475,12 +2487,12 @@ $("consumcopy").addEventListener("click", () => {
   if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(()=>{});
   else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); done(); }
 });
-$("classsel").addEventListener("change", ev => { state.cls = ev.target.value; render(); });
+$("classsel").addEventListener("change", ev => { state.cls = ev.target.value; render(true); });
 document.addEventListener("click", ev => {
   const c = ev.target.closest(".cls");
-  if(c){ state.cls = c.dataset.cls; render(); return; }
+  if(c){ state.cls = c.dataset.cls; render(true); return; }
   const t = ev.target.closest(".tab");
-  if(t){ state.list = t.dataset.list; render(); return; }
+  if(t){ state.list = t.dataset.list; render(true); return; }
   // The tag opens in place on a tap, where there is no hover for its tooltip.
   const ef = ev.target.closest(".efftag");
   if(ef){ ef.setAttribute("aria-expanded", String(ef.classList.toggle("open"))); return; }
@@ -2585,13 +2597,13 @@ if (CONFIG.notice) {
 // The skip link moves focus itself: following href="#main" would replace the
 // view's address (#class/spec/list) with #main.
 $("skiplink").addEventListener("click", ev => { ev.preventDefault(); $("main").focus(); });
-// Back/forward and pasted-link navigation.
 document.getElementById("viewtoggle").addEventListener("click", e => {
   const b = e.target.closest("button[data-view]"); if(!b) return;
   const v = b.dataset.view; if(v === state.view) return;
   state.view = v;
-  render();
+  render(true);   // an entry only if the switch moves to another spec
 });
+// Back, Forward and an address typed or pasted over the open page.
 window.addEventListener("hashchange", () => { if(readHash()) render(); });
 
 const arrivedOnLink = readHash();
