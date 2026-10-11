@@ -120,6 +120,8 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .efftag .effraw{display:none; font-weight:500; letter-spacing:.02em; text-transform:none}
 .efftag.open .effraw{display:inline}
 .efftag:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+.preview{font-size:10px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+  padding:2px 7px; border-radius:3px; white-space:nowrap; color:#e0a53f; border:1px solid currentColor}
 .cls .dps .eff{margin-left:4px; font-size:8.5px; font-weight:600; letter-spacing:.05em;
   text-transform:uppercase; color:#e0a53f; font-style:normal}
 .cls .who small .specvar{margin-left:3px; font-style:normal; opacity:.75}
@@ -1893,9 +1895,11 @@ function whLink(e){
 
 function renderRail(){
   $("sortsel").value = state.sort;
+  const cur = entryOf(state.cls);
   $("classsel").innerHTML = sortedClasses().map(c =>
     '<option value="'+c.id+'">'+esc(c.name)+" \u2014 "+esc(specOf(c))+"</option>"
-  ).join("");
+  ).join("")
+    + (cur && cur.hidden ? '<option value="'+cur.id+'">'+esc(cur.name)+" \u2014 "+esc(specOf(cur))+" (preview)</option>" : "");
   $("classsel").value = state.cls;
   $("rail").innerHTML = sortedClasses().map(c => {
     const on = c.id === state.cls ? " on" : "";
@@ -2154,7 +2158,10 @@ function renderMain(){
     '<h2 style="--cc:'+cls.color+'">'+esc(specOf(cls, state.list))+'</h2>'
     + '<span class="clsname" style="--cc:'+cls.color+'">'+esc(cls.name)+'</span>'
     + (dpsFor(cls) ? '<span class="dpsbadge" style="--cc:'+cls.color+'"'+(cls.prov && cls.prov[state.list] ? ' title="'+esc(cls.prov[state.list])+'"' : '')+'><b>'+dpsFor(cls).toLocaleString()+'</b> DPS</span>' : "")
-    + (eff ? '<button type="button" class="efftag" aria-expanded="false" title="'+esc(eff.tip)+'">effective<span class="effraw"> \u00b7 '+esc(eff.raw)+'</span></button>' : "");
+    + (eff ? '<button type="button" class="efftag" aria-expanded="false" title="'+esc(eff.tip)+'">effective<span class="effraw"> \u00b7 '+esc(eff.raw)+'</span></button>' : "")
+    // Ruling D6, 2026-10-11: an entry kept out of the class list (hidden:true)
+    // still opens from its link, and says in the open that it is a preview.
+    + (cls.hidden ? '<span class="preview"'+(cls.prov && cls.prov[state.list] ? ' title="'+esc(cls.prov[state.list])+'"' : '')+'>Preview, number pending</span>' : "");
 
   $("tabs").innerHTML = LIST_TYPES.map(l =>
     '<button class="tab'+(l.id===state.list?" on":"")+'" role="tab" data-list="'+l.id+'">'+esc(l.label)+'</button>'

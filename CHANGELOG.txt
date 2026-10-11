@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] The unlisted Augmentation entry now says 'Preview, number pending' beside its number.
+  Fate's ruling on the audit's hidden-entry item (D6): keep it as an unlisted preview and label
+  it. The Augmentation list opens only from its link (#evoker/augmentation/alltime). It showed
+  2,304 DPS like any other list, and only the badge's hover said the number is pending. The
+  header now carries an amber 'Preview, number pending' tag, and on a phone the class dropdown
+  names the entry '(preview)' while it is open instead of going blank. It stays out of the
+  class list and out of 'Best per class'. No number moved.
 - [page] The seven effective-DPS numbers now wear an 'effective' tag; a tap or hover gives the raw.
   Fate's ruling on the audit's effective-DPS item (D4). Seven numbers are not a plain sim
   result: Outlaw on all four lists and the Herald lists of Windwalker, Havoc and Enhancement
