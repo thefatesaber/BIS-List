@@ -221,14 +221,14 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .alts .pending{color:var(--tbd); font-style:italic}
 .alts .sep{opacity:.5; margin:0 3px}
 .alts.fb{opacity:.82}
-.gems a > ins, .gems a span[class*="icon"]{flex:none; width:24px !important; height:24px !important;
+.gems a > ins, .gems a span[class*="icon"], .consum a span[class*="icon"]{flex:none; width:24px !important; height:24px !important;
   box-sizing:border-box !important; border:0 !important; padding:0 !important; margin:0 !important;
   border-radius:3px; overflow:hidden; clip-path:inset(0 round 3px);
   background-size:24px 24px !important; background-position:center !important;
   box-shadow:0 0 0 2px var(--qc), 0 0 0 3px rgba(0,0,0,.65)}
-.gems a span[class*="icon"] ins{display:block; position:static !important; width:100% !important; height:100% !important;
+.gems a span[class*="icon"] ins, .consum a span[class*="icon"] ins{display:block; position:static !important; width:100% !important; height:100% !important;
   margin:0 !important; border:0 !important; background-size:cover !important; background-position:center !important}
-.gems a span[class*="icon"] del{display:none !important}
+.gems a span[class*="icon"] del, .consum a span[class*="icon"] del{display:none !important}
 .gems a:hover{text-decoration:underline}
 .note{
   grid-column:2 / -1; color:var(--dim); font-size:11.5px; padding-top:1px; padding-left:44px;
@@ -271,9 +271,11 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   color:var(--cc,var(--parchment)); display:flex; align-items:center; gap:10px; text-transform:none}
 .buffworth h3::after{content:""; flex:1; height:1px;
   background:linear-gradient(90deg, var(--cc,var(--edge)), var(--edge) 38%)}
-#buffworthlines{display:grid; grid-template-columns:max-content max-content max-content max-content 1fr;
+#buffworthlines{display:grid; grid-template-columns:max-content max-content max-content max-content minmax(0,1fr);
   gap:3px 12px; align-items:baseline}
 .buffworth .cline{display:contents}
+.buffworth .cline > *{white-space:nowrap}
+.buffworth .cline > .bwnote{white-space:normal}
 .buffworth .bwval{color:var(--dust); font-weight:600; text-align:right}
 .buffworth .bwpct{text-align:right}
 .buffworth .bwtag{border:1px solid rgba(255,255,255,.22); border-radius:8px; padding:0 6px;
@@ -297,10 +299,16 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .consum .chead{flex:none; display:flex; flex-direction:column; gap:1px}
 .consum .chead small{color:var(--dust); font-size:11px}
 #consumlines{display:contents}
-.consum .cline{white-space:nowrap; color:var(--dust); font-size:12px}
+.consum .cline{color:var(--dust); font-size:12px}
 .consum .cline b{color:var(--dim); font-weight:600; font-size:10px; letter-spacing:.07em;
   text-transform:uppercase; margin-right:5px}
 .consum .cline small{color:var(--dim); font-size:10.5px; margin-left:3px}
+/* A consumable line is one unit: label, icon, name, hand. It only breaks inside
+   when it is alone on its row and still too wide (a 320 px phone). */
+#consumlines .cline{display:inline-flex; align-items:center; min-width:0}
+#consumlines .cline b, #consumlines .cline small{flex:none}
+#consumlines .cline a{display:inline-flex; align-items:center; gap:7px; min-width:0}
+#consumlines .cline small{margin-left:8px}
 .consum .cbreak{flex:1 0 100%; height:0; margin:0; padding:0}
 .consum .tbtn{margin-left:auto}
 .talents{display:flex; align-items:center; gap:10px; margin:0 0 14px; padding:9px 12px;
@@ -383,6 +391,41 @@ footer{
 }
 
 /* ---------- responsive ---------- */
+/* Two columns need about 900 px beside the class list: the stat panel takes
+   438, a consumable line up to 320 and a Buff worth row with its note about
+   460. Below that the four panels stack. From 861 to about 1000 px the two
+   columns used to push every view past the right edge, and to 1100 on the
+   Full buffed tab. */
+@media (max-width:1180px){
+  .paneline, .paneline.wbw{grid-template-columns:minmax(0,1fr)}
+  .paneline > .statpanel, .paneline.wbw > .statpanel,
+  .paneline > .consum, .paneline > .talents, .paneline > .buffworth{grid-column:1; grid-row:auto}
+}
+/* Stacked and wider than a phone, the stat panel keeps its labels beside the
+   chart instead of at the two ends of a 900 px card. */
+@media (min-width:521px) and (max-width:1180px){
+  .statpanel{grid-template-columns:minmax(0,200px) auto minmax(0,200px); justify-content:center}
+}
+/* On a phone a Buff worth row is name, DPS, percent and tag, set a little
+   tighter so the longest name (Bloodlust (Drums)) fits a 360 px screen; its
+   note takes a line of its own. Consumables go one to a row, icons in line. */
+@media (max-width:520px){
+  #buffworthlines{grid-template-columns:minmax(0,1fr) max-content max-content max-content; gap:3px 6px}
+  .buffworth .cline > b{white-space:normal; letter-spacing:.02em; margin-right:0}
+  .buffworth .cline > small{margin-left:0}
+  .buffworth .bwtag{padding:0 5px; letter-spacing:.03em}
+  .buffworth .cline > .bwnote{grid-column:1 / -1; margin:-3px 0 3px}
+  .buffworth .cline.bwsub > .bwnote{padding-left:14px}
+  .buffworth .cline > .bwnote:empty{display:none}
+  #consumlines .cline{flex:1 0 100%}
+  #consumlines .cline b{min-width:50px}
+  #consumlines .cline.cont{padding-left:55px}
+}
+/* Below 350 px the tag goes: a name would otherwise run into its number. */
+@media (max-width:350px){
+  #buffworthlines{grid-template-columns:minmax(0,1fr) max-content max-content}
+  .buffworth .bwtag{display:none}
+}
 @media (max-width:860px){
   .layout{display:block}
   .side{width:auto; flex:none; display:block; border-right:0}
@@ -409,9 +452,6 @@ footer{
   .statweb{width:104px; height:104px}
   .consum{gap:5px 10px}
   .consum .tbtn{margin-left:0; flex:1 0 100%; order:9}
-  .paneline{grid-template-columns:minmax(0,1fr)}
-  .paneline > .statpanel{grid-column:1; grid-row:auto}
-  .paneline > .consum, .paneline > .talents{grid-column:1; grid-row:auto}
   .statcell .pct{font-size:14px}
   .talents{flex-wrap:wrap; gap:6px}
   .talents code{flex:1 0 100%; order:3}
@@ -2131,7 +2171,7 @@ function consumHtml(c){
       if(!parts.length) return "";
       // Weapon buffs always start their own row, however many hands are listed.
       return '<span class="cbreak"></span>' + parts.map((e,i) =>
-        '<span class="cline">'+(i ? "" : '<b>'+label+'</b>')+whLink(e)+vTag(e)
+        '<span class="cline'+(i ? " cont" : "")+'">'+(i ? "" : '<b>'+label+'</b>')+whLink(e)+vTag(e)
         + ' <small>'+esc(e.hand)+'</small></span>').join("");
     }
     const e = c[k]; if(!e || !e.item) return "";

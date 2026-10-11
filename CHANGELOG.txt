@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [fix] The page no longer scrolls sideways on a phone or in a narrow desktop window.
+  The row of panels above the gear list (stats, consumables, talent string, Buff worth) ran
+  off the right edge in two places. In a desktop window between 861 and about 1000 pixels
+  wide every list did, on all four tabs: half a 1920 screen is 960. On a phone the Full
+  buffed tab did for 11 specs at 390 pixels and for all 27 at 360, with the Buff worth notes
+  outside the panel.
+  Now the four panels stack below 1181 pixels and sit in two columns from there up. A Buff
+  worth note wraps inside its panel, and on a phone it takes a line of its own under its
+  row. Nothing leaves its panel at any width from 320 to 2560 pixels.
+  Consumable icons are the size of gem icons, 24 pixels, without Wowhead's frame; they were
+  44. On a phone the consumables sit one to a row with the icons in line.
+  No list and no number changed.
 - [fix] Best per class now follows the best spec across tabs, and hand-typed links work.
   Three fixes to how the page keeps track of what it shows. No list and no number changed.
   Best per class: the view lists each class's best spec for the tab that is open, and now
