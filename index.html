@@ -200,12 +200,18 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .item a span[class*="icon"] ins{display:block; position:static !important; width:100% !important; height:100% !important;
   margin:0 !important; border:0 !important; background-size:cover !important; background-position:center !important}
 .item a span[class*="icon"] del{display:none !important}
-.item a.q1{color:#eaeaea}.item a.q2{color:#1eff00}.item a.q3{color:#2f8dff}.item a.q5{color:#ff8000}
+/* Quality colours. The classes are the page's own, quality-1 to quality-5,
+   and must not be q1 to q5: Wowhead's style sheet colours anything with a
+   class q0 to q6, with !important. Until 2026-10-11 the links carried q3, and
+   on the live site every rare name was drawn in the blue below (5.1 to 5.4 to
+   1 on these rows) and repainted a moment later in Wowhead's darker #0070dd
+   (3.5 to 3.7). Ruling D9: the lighter blue. A link with no class is epic. */
+.item a.quality-1{color:#eaeaea}.item a.quality-2{color:#1eff00}.item a.quality-3{color:#2f8dff}.item a.quality-5{color:#ff8000}
 .gems a{--qc:var(--epic)}
-.gems a.q1{--qc:#eaeaea}
-.gems a.q2{--qc:#1eff00}
-.gems a.q3{--qc:#2f8dff}
-.gems a.q5{--qc:#ff8000}
+.gems a.quality-1{--qc:#eaeaea}
+.gems a.quality-2{--qc:#1eff00}
+.gems a.quality-3{--qc:#2f8dff}
+.gems a.quality-5{--qc:#ff8000}
 .item a:hover{text-decoration:underline}
 .item .none{color:var(--dim); margin-left:44px}
 .ench,.gems{color:var(--dust); font-size:12px; overflow-wrap:anywhere}
@@ -237,6 +243,10 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .alts em{font-style:normal; color:var(--dim); text-transform:uppercase;
   font-size:9.5px; letter-spacing:.07em; margin-right:5px}
 .alts a{color:#9fb6d4; text-decoration:none}
+/* An alternate with a quality on record takes that colour; one without keeps
+   the muted blue above. Wowhead's sheet used to do this, once it had loaded. */
+.alts a.quality-1{color:#eaeaea}.alts a.quality-2{color:#1eff00}.alts a.quality-3{color:#2f8dff}
+.alts a.quality-4{color:var(--epic)}.alts a.quality-5{color:#ff8000}
 .alts a:hover{text-decoration:underline}
 .alts a ins, .alts a del, .alts a span[class*="icon"]{display:none !important}
 .alts .delta{color:var(--dust)}
@@ -1997,7 +2007,7 @@ function whLink(e){
   const url = e.wowhead
     ? "https://www.wowhead.com/item=" + e.wowhead + (e.ilvl ? "?ilvl=" + e.ilvl : "")
     : "https://www.wowhead.com/search?q=" + encodeURIComponent(e.item);
-  return '<a'+(e.q?' class="q'+e.q+'"':'')+(e.wowhead?whAttr(e.wowhead, e.ilvl):'')+' href="'+url+'" target="_blank" rel="noopener">['+esc(e.item)+']</a>';
+  return '<a'+(e.q?' class="quality-'+e.q+'"':'')+(e.wowhead?whAttr(e.wowhead, e.ilvl):'')+' href="'+url+'" target="_blank" rel="noopener">['+esc(e.item)+']</a>';
 }
 
 function renderRail(){
@@ -2165,7 +2175,7 @@ function gemLinks(e){
   if(!e.gems) return "";
   return e.gems.map(g => {
     const n    = g.n || 1;
-    const q    = g.q ? " q"+g.q : "";
+    const q    = g.q ? " quality-"+g.q : "";
     const href = "https://www.wowhead.com/item="+g.id;
     // One icon per socket. Empty leading anchors render icon-only; the last
     // carries the name. Socket count has to be readable at a glance.
@@ -2198,9 +2208,9 @@ function altLinks(e){
     const d = (a.delta == null)
       ? '<span class="pending">sim pending</span>'
       : '<span class="delta"'+(e.altbase ? ' title="vs sweep base '+esc(String(e.altbase))+' DPS"' : '')+'>'+(a.delta>0?"+":"")+esc(a.delta.toFixed(1))+'%</span>';
-    return '<a'+(a.q?' class="q'+a.q+'"':'')+(a.wowhead?whAttr(a.wowhead, a.ilvl):'')+' href="'+href+'" target="_blank" rel="noopener">'
+    return '<a'+(a.q?' class="quality-'+a.q+'"':'')+(a.wowhead?whAttr(a.wowhead, a.ilvl):'')+' href="'+href+'" target="_blank" rel="noopener">'
          + esc(a.item)+'</a>'
-         + (a.item2 ? ' + <a'+(a.q2?' class="q'+a.q2+'"':'')+' href="https://www.wowhead.com/item='+a.wowhead2+pinQ(a.wowhead2)+'"'+whAttr(a.wowhead2)+'  target="_blank" rel="noopener">'+esc(a.item2)+'</a>' : '')
+         + (a.item2 ? ' + <a'+(a.q2?' class="quality-'+a.q2+'"':'')+' href="https://www.wowhead.com/item='+a.wowhead2+pinQ(a.wowhead2)+'"'+whAttr(a.wowhead2)+'  target="_blank" rel="noopener">'+esc(a.item2)+'</a>' : '')
          + vTag(a)+' '+d;
   };
   const band2 = (label, list, cls) => !list.length ? "" :
