@@ -26,16 +26,12 @@
      and becomes a sheet for the screen once it has arrived. Until then, and if
      the host never answers, the text shows in the fallback fonts. -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<!-- Optional: uncomment for live Wowhead tooltips when hosting / opening locally.
-<script>const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: false};</script>
-<script src="https://wow.zamimg.com/js/tooltips.js"></script>
--->
 <style>
 :root{
   --void:#0b0d12; --slate:#141822; --slate2:#181d29; --edge:#232a39;
   --parchment:#e7e4dc; --dust:#8e97a8; --dim:#5c6575;
   --epic:#a335ee;
-  --confirmed:#41c176; --sim:#4fa3ff; --theory:#e0a53f; --tbd:#566074;
+  --confirmed:#41c176; --tbd:#566074;
   --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
   --display:"Cinzel", "Friz Quadrata", Georgia, serif;
 }
@@ -107,12 +103,10 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .cls .dot{width:9px; height:9px; border-radius:2px; background:var(--cc); flex:0 0 9px}
 .cls .who{display:flex; flex-direction:column; min-width:0}
 .cls .who small{color:var(--dim); font-size:10.5px; letter-spacing:.03em}
-.cls .fill{margin-left:auto; color:var(--dim); font-size:10.5px}
 .cls .dps{flex:none; white-space:nowrap; margin-left:auto; padding-left:8px; color:var(--dim); font-size:11px;
   font-variant-numeric:tabular-nums; letter-spacing:.02em; transition:color .15s ease}
 .cls:hover .dps{color:var(--dust)}
 .cls.on .dps{color:var(--cc); font-weight:600}
-.cls.on .fill{color:var(--dust)}
 
 /* ---------- spec header + tabs ---------- */
 .spec-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin:0 0 14px}
@@ -276,13 +270,12 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .statweb .area{fill:color-mix(in srgb, var(--cc) 26%, transparent); stroke:var(--cc); stroke-width:1.5;
   stroke-linejoin:round}
 .statweb .dot{fill:var(--parchment); stroke:var(--cc); stroke-width:1.5}
-.paneline{display:grid; grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto;
+.paneline{display:grid; grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto auto;
   gap:14px; margin:0 0 14px}
 .paneline > .statpanel{grid-column:1; grid-row:1 / 3; margin:0}
 .paneline > .consum{grid-column:2; grid-row:1; margin:0; min-width:0}
 .paneline > .talents{grid-column:2; grid-row:2; margin:0; min-width:0}
 .paneline > .buffworth{grid-column:2; grid-row:3; margin:0; min-width:0}
-.paneline{grid-template-rows:auto auto auto}
 .paneline.wbw > .statpanel{grid-row:1 / 4; align-content:center}
 .consum.buffworth{display:block}
 .buffworth h3{margin:0 0 8px; font:600 13.5px var(--display); letter-spacing:.08em;
@@ -462,7 +455,7 @@ footer{
   nav{display:none}
   .cls{flex:0 0 auto; border-left:0; border-bottom:2px solid transparent; padding:6px 10px}
   .cls.on{border-bottom-color:var(--cc)}
-  .cls .who small,.cls .fill{display:none}
+  .cls .who small{display:none}
   .cls .dps{margin-left:6px; padding-left:0}
   main{padding:16px 14px 40px}
   .row{grid-template-columns:1fr auto; gap:1px 10px; padding:9px 12px}
@@ -485,7 +478,6 @@ footer{
   .talents code{flex:1 0 100%; order:3}
   .alts{grid-column:1 / -1; padding-left:44px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 .tab:focus-visible,.cls:focus-visible,.btn:focus-visible,.item a:focus-visible{
   outline:2px solid var(--epic); outline-offset:2px;
 }
@@ -561,7 +553,7 @@ footer{
      slot     one of the DEFAULT_SLOTS labels (or a custom label)
      item     item name (omit or leave list empty -> renders TBD)
      wowhead  numeric item ID (optional; falls back to Wowhead search)
-     ilvl     number/string (optional)
+     ilvl     number: the item level actually simmed
      variant  string (optional) — difficulty label shown beside the item name,
               e.g. "Heroic". Defaults from ITEM_VARIANT by item id.
      source   where it drops (optional)
@@ -591,16 +583,14 @@ footer{
      credits  optional {listId: name} — renders a thanks line under that list
      why      optional per-row one-liner explaining the pick
      gems     [{id, name, n}] socketed gems — n renders as n separate socket icons
-     hm       "only" -> hard-mode exclusive drop (badge); "none" -> decided normal loot, no badge
-              "ilvl" -> drops on normal too, hard mode gives higher ilvl (badge)
-                 `ilvl` should always be the value you actually simmed.
+     hm       "only" -> hard-mode exclusive drop (badge); "socket" -> only the
+              socket-proc roll is worth using (badge); "none" -> decided normal loot, no badge
      alts     [{item, wowhead, q, delta}] alternates, split on render at
               ALT_NOISE_BAND: inside it (or delta null) shows as "within noise",
               beyond it as "fallback". delta = signed %
               vs the listed BiS (e.g. -0.3). Omit delta -> renders "sim pending".
               Only add entries you have actually swept. This is not a loot list.
-     status   "confirmed" | "sim" | "theory" | "tbd"
-     note     free text, shown under the row (optional)
+     status   "confirmed" | "sim" | "theory" | "tbd" (recorded, not shown)
    Lists: alltime / obtainable / herald. Any missing slot -> TBD row.
    ================================================================ */
 
@@ -1956,9 +1946,6 @@ function mergedList(cls, listId){
   raw.forEach(e => { if(!DEFAULT_SLOTS.includes(e.slot)) rows.push(e); });
   return rows;
 }
-const filled = (cls, listId) =>
-  mergedList(cls, listId).filter(r => r.item && (r.status||"tbd") !== "tbd").length;
-
 const PIN = (() => {
   const m = {};
   for (const c of CLASSES) for (const rows of Object.values(c.lists || {})) for (const r of rows || []) {
@@ -2402,7 +2389,7 @@ function asText(){
   rows.forEach(e => {
     if(!e.item || (e.status||"tbd")==="tbd"){ tbd.push(e.slot); return; }
     const gtxt = e.gems ? e.gems.map(g=>g.name+(g.n>1?" \u00d7"+g.n:"")).join(", ") : "";
-    const hm = e.hm==="only" ? "HM only" : (e.hm==="ilvl" ? "HM ilvl" : (e.hm==="socket" ? "Socket Proc" : ""));
+    const hm = e.hm==="only" ? "HM only" : (e.hm==="socket" ? "Socket Proc" : "");
     const craft = BOP_CRAFT[e.wowhead] ? "Crafter only" : "";
     const ench = e.ench ? e.ench + (SCRIBE_ENCH.has(e.enchsp) ? " (Scribe only)" : "") : "";
     const iv = e.ilvl==null ? "" :

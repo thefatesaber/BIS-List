@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Unused code removed from the page: the lists, numbers and layout are unchanged.
+  Left over from earlier versions of the page and no longer reached: the counter of filled
+  slots the class list showed before it showed DPS, two status colours, the "HM ilvl" badge
+  text (no row can carry it, the checker rejects it), a second copy of the Wowhead tags
+  kept in a comment, and two style rules that repeated others.
+  The notes at the top of the data now describe the fields as they are. A "note" field was
+  described there but never drawn, and no row has one.
 - [fix] The page shows at once even when Wowhead or Google Fonts is slow or blocked.
   The page loaded Wowhead's tooltip script and Google's font sheet in a way that made the
   browser wait for both before drawing anything. If either host hung, the page stayed
