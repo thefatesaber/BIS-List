@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Seven enchant labels now match the enchant the list sims.
+  The audit's last enchant rows (P1 to P3). In each the profile was right and the page label
+  was not, so no number moves and nothing was re-run.
+  Devourer Herald, both rings: Accord of Mastery -> Accord of Haste. The list sims Haste. The
+  A/A of 2026-10-10 (2917 against the stored 2918, and 2831 with Mastery on both rings) put
+  the difference on the rings, so the number stands and the label follows the sim.
+  Assassination Herald and Subtlety Herald, off hand (Blade of the Unrequited): Gale-Force
+  Striking added. Both profiles sim it; the rows showed no enchant.
+  Arms Full buffed, Arms Herald and Retribution Full buffed, main hand (The Untamed Blade):
+  Crusader added. All twelve warrior and paladin lists sim the Crusader proc; these were the
+  three weapon rows that did not show it.
+  Checked after the change against all 109 profiles: no row shows an enchant other than the
+  one its profile sims. Crusader is simmed as a ring proc, so nine of its sixteen weapon lines
+  carry no enchant token; that is the model, not a mismatch.
 - [page] Windwalker drops Touch of Death from its action list: four lists re-simmed.
   Fate's ruling on the Windwalker spread found during S8 (D7). On the sim's boss fight Touch
   of Death fired at the very end in 13% to 42% of iterations depending on the run's seed, so
