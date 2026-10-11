@@ -22,6 +22,12 @@
 //    event density); deviations flagged, pending-ruling spreads warned
 //  - every profile carries a temporary_enchant= line with a value:
 //    "disabled" off the Full buffed list, the buff or "disabled" on it
+//  - page and profile agree line by line: item id, item level (proxy lines
+//    included), gems (rings and trinkets included) and enchant; an enchant
+//    agrees when the spell the page links applies the profile's enchant id
+//  - Crusader is simmed as a ring proc: one ring per weapon row that shows it,
+//    and no enchant_id=1900 on a weapon line
+//  - a line's socket bonus ids add up to its gems
 
 const fs = require("fs");
 const path = require("path");
@@ -33,6 +39,18 @@ const pi = args.indexOf("--page");
 if (pi >= 0) { PAGE = args[pi + 1]; args.splice(pi, 2); }
 const DIRS = args.filter(a => a !== "--advisory");
 if (!DIRS.length) { console.error("usage: node lint_profiles.js [--advisory] [--page index.html] <dir>..."); process.exit(2); }
+
+// ---------------------------------------------------------------- game data
+// gamedata.json, rebuilt by gamedata.js: what the client's tables say about
+// the items, gems and enchants the profiles name.
+let GD;
+try { GD = require("./gamedata.js").load(); }
+catch (e) { console.error(e.message); process.exit(2); }
+const REBUILD = "is not in gamedata.json - rebuild it with: node gamedata.js --fetch";
+
+// Crusader (enchant 1900) creates nothing in SimC: the lists sim it as a proc
+// on a ring, one ring per weapon that wears it (Standing item decisions).
+const CRUSADER_ENCHANT = 1900, CRUSADER_RING = "37str_15dur";
 
 // ---------------------------------------------------------------- page data
 let CLASSES;
@@ -179,6 +197,7 @@ for (const dir of DIRS) {
     // -------- gear lines
     const seenSlot = {};
     const pairIds = {};                       // "finger"/"trinket" -> [{id,ilvl,ln}]
+    const gear = [];                          // every line that should have a page row
     lines.forEach((line, i) => {
       const ln = i + 1;
       const gm = line.match(/^([a-z_0-9]+)=(.*)$/);
@@ -235,30 +254,22 @@ for (const dir of DIRS) {
       if (kv.id && !kv.ilevel && slot !== "shirt" && slot !== "tabard")
         E(`line ${ln}: id=${kv.id} has no ilevel= — drop_level alone is insufficient`);
 
-      // page agreement
+      // page agreement: find the row here, compare below once every line is read
       if (onPage && slot !== "shirt" && slot !== "tabard") {
+        const g = { slot, ln, kv, named, rest, row: null };
+        gear.push(g);
         if (PAIRS[slot]) {
           const key = slot.replace(/[12]$/, "");
-          (pairIds[key] = pairIds[key] || []).push({ id: kv.id, ilvl: kv.ilevel, named, ln, slot });
+          (pairIds[key] = pairIds[key] || []).push({ id: kv.id, ilvl: kv.ilevel, named, ln, slot, g });
         } else {
           const want = PAGE_SLOT[slot]; const row = rows.find(r => Array.isArray(want) ? want.includes(r.slot) : r.slot === want);
           if (!row) { if (slot !== "off_hand") E(`line ${ln}: no page row for ${slot}`); }
           else {
+            g.row = row;
             if (kv.id && String(row.wowhead) !== kv.id)
               E(`line ${ln}: ${slot} id=${kv.id} but page has ${row.item} (${row.wowhead})`);
             if (kv.ilevel && row.ilvl != null && +kv.ilevel !== row.ilvl)
-              E(`line ${ln}: ${slot} ilevel=${kv.ilevel} but page pins ${row.ilvl} for ${row.item}`);
-            if (named && row.ilvl != null && kv.ilevel && +kv.ilevel !== row.ilvl)
-              E(`line ${ln}: synthetic ${slot} ilevel=${kv.ilevel} but page pins ${row.ilvl}`);
-            // Gems: when the page row displays a gems array, its multiset
-            // must match the profile's gem_id string — the audit rule that
-            // caught the 0021-era strays, now permanent.
-            if (kv.gem_id && row.gems && row.gems.length) {
-              const prof = kv.gem_id.split("/").sort().join("/");
-              const page = row.gems.flatMap(g => Array(g.n || 1).fill(String(g.id))).sort().join("/");
-              if (prof !== page)
-                E(`line ${ln}: ${slot} gems ${kv.gem_id} disagree with the page row [${page}]`);
-            }
+              E(`line ${ln}: ${named ? "synthetic " : ""}${slot} ilevel=${kv.ilevel} but page pins ${row.ilvl} for ${row.item}`);
           }
         }
       }
@@ -298,13 +309,81 @@ for (const dir of DIRS) {
         E(`${key} pair ids [${gids}] differ from page [${pids}] (${prows.map(r => r.item).join(" / ")})`);
       for (const g of got) if (g.id && !pids.includes(g.id))
         E(`line ${g.ln}: ${g.slot} id=${g.id} is not a page ${key} id [${pids}] (${prows.map(r => r.item).join(" / ")})`);
-      for (const g of got) if (g.ilvl) {
-        const rowMatch = prows.find(r => String(r.wowhead) === g.id) ||
-          (got.filter(x => x.ilvl).length === prows.length ? null : null);
-        if (rowMatch && rowMatch.ilvl != null && +g.ilvl !== rowMatch.ilvl)
-          E(`line ${g.ln}: ${g.slot} ilevel=${g.ilvl} but page pins ${rowMatch.ilvl} for ${rowMatch.item}`);
+      // Which page row a ring or trinket line stands for: the row with its
+      // id; for a proxy, the row whose name the proxy's name starts with
+      // (dragonspine_trophy_proxy, meteorite_crystal_macro_proxy); and when
+      // one line and one row are left, each other.
+      const left = prows.slice();
+      const take = (g, r) => { g.g.row = r; left.splice(left.indexOf(r), 1); };
+      for (const g of got) { const r = g.id && left.find(r => String(r.wowhead) === g.id); if (r) take(g, r); }
+      for (const g of got) {
+        if (g.g.row || g.id || !g.named) continue;
+        const r = left.find(r => g.named.startsWith(tokenizeName(r.item)));
+        if (r) take(g, r);
       }
+      const open = got.filter(g => !g.g.row && !g.id);
+      if (open.length === 1 && left.length === 1) take(open[0], left[0]);
+      for (const g of got)
+        if (!g.g.row && !g.id) W(`line ${g.ln}: cannot tell which page ${key} row ${g.named || g.slot} stands for - its level, gems and enchant are not compared`);
+      for (const g of got) if (g.ilvl && g.g.row && g.g.row.ilvl != null && +g.ilvl !== g.g.row.ilvl)
+        E(`line ${g.ln}: ${g.named ? "synthetic " : ""}${g.slot} ilevel=${g.ilvl} but page pins ${g.g.row.ilvl} for ${g.g.row.item}`);
     }
+
+    // -------- line against row: gems, enchant, sockets
+    let crusaderRows = 0, crusaderRings = 0;
+    for (const g of gear) {
+      const { slot, ln, kv, rest, row } = g;
+      const gems = (kv.gem_id || "").split("/").filter(x => x && x !== "0");
+      const eid = /^\d+$/.test(kv.enchant_id || "") ? +kv.enchant_id : null;
+      if (rest.includes(CRUSADER_RING)) crusaderRings++;
+
+      // every id the line names has to be in the game data
+      const it = kv.id ? GD.items[kv.id] : null;
+      if (kv.id && !it) E(`line ${ln}: item ${kv.id} ${REBUILD}`);
+      for (const x of new Set(gems)) {
+        if (!GD.items[x]) E(`line ${ln}: gem ${x} ${REBUILD}`);
+        else if (GD.items[x].class !== 3) E(`line ${ln}: gem_id ${x} is ${GD.items[x].name}, which is not a gem`);
+      }
+      if (eid != null && !GD.enchants[eid]) E(`line ${ln}: enchant ${eid} ${REBUILD}`);
+
+      // Socket bonus ids are labels to the engine, which counts the gems; the
+      // lists keep them true all the same: the item's own sockets plus the
+      // bonus ids' have to be the gems on the line.
+      const bonusSockets = (kv.bonus_id || "").split("/").reduce((n, b) => n + (GD.socketBonus[b] || 0), 0);
+      if (bonusSockets && it && it.sockets + bonusSockets !== gems.length)
+        E(`line ${ln}: ${slot} carries ${gems.length} gem(s) on ${it.sockets} socket(s) plus ${bonusSockets} from its bonus ids`);
+
+      if (!row) continue;
+
+      // Gems: the same ones, as many times, as the page row shows - rings and
+      // trinkets included, and also when one side shows none.
+      const page = (row.gems || []).flatMap(x => Array(x.n || 1).fill(String(x.id))).sort().join("/");
+      if (gems.slice().sort().join("/") !== page)
+        E(`line ${ln}: ${slot} gems [${gems.join("/") || "none"}] disagree with the page row ${row.item} [${page || "none"}]`);
+
+      // Enchant: the spell the page links has to apply the enchant the line
+      // sims. Through the spell, because several spells apply one enchant
+      // (gloves and boots both give 1887) and the page links the right one
+      // for the slot. A head line's enchant=<stat> token is a proxy, not an
+      // enchant, and the page shows nothing for it.
+      const sp = row.enchsp != null ? GD.spells[row.enchsp] : null;
+      if (row.enchsp != null && !sp) { E(`line ${ln}: enchant spell ${row.enchsp} (${row.ench}) ${REBUILD}`); continue; }
+      if (sp && sp.enchants.includes(CRUSADER_ENCHANT)) {
+        crusaderRows++;
+        if (eid != null)
+          E(`line ${ln}: ${slot} carries enchant_id=${eid} under a Crusader row - Crusader is simmed on a ring, and enchant_id=1900 creates nothing in SimC`);
+        continue;
+      }
+      const ename = eid != null && GD.enchants[eid] ? ` (${GD.enchants[eid].name})` : "";
+      if (row.ench && eid == null)
+        E(`line ${ln}: page shows ${row.ench} on ${row.item}; the ${slot} line has no enchant_id`);
+      else if (!row.ench && eid != null)
+        E(`line ${ln}: ${slot} sims enchant ${eid}${ename}; the page row ${row.item} shows no enchant`);
+      else if (sp && !sp.enchants.includes(eid))
+        E(`line ${ln}: page shows ${row.ench} on ${row.item} (spell ${row.enchsp}, enchant ${sp.enchants.join("/") || "none"}); the ${slot} line sims enchant ${eid}${ename}`);
+    }
+    if (onPage && crusaderRows !== crusaderRings)
+      E(`page shows Crusader on ${crusaderRows} weapon row(s) and the profile sims its proc on ${crusaderRings} ring(s) - one ring (${CRUSADER_RING}) per weapon that wears it`);
   }
 }
 

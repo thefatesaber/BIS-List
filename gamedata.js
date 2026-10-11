@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Game data for the gates. gamedata.json holds, for every item, gem, enchant
-// and enchant spell the page or a list profile names, what the game client's
-// tables say about it: name, quality, type, sockets, class restriction, and
-// which enchant a spell applies. validate.js reads that file; this script
-// writes it.
+// Game data for the two gates. gamedata.json holds, for every item, gem,
+// enchant and enchant spell the page or a list profile names, what the game
+// client's tables say about it: name, quality, type, sockets, class
+// restriction, and which enchant a spell applies. validate.js and
+// lint_profiles.js read that file; this script writes it.
 //
 //   node gamedata.js <simc checkout>   rebuild from a local SimulationCraft tree
 //   node gamedata.js --fetch [ref]     rebuild from GitHub (simulationcraft/simc);
@@ -13,8 +13,8 @@
 //
 // The source is SimulationCraft's generated client data (engine/dbc/generated),
 // the same tables the sims run on. Run a rebuild whenever a row or a profile
-// line brings in an id the file has not seen; the page gate fails until then,
-// and says so.
+// line brings in an id the file has not seen; the gates fail until then, and
+// say so.
 
 const fs = require("fs");
 const path = require("path");

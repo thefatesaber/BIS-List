@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [tooling] Each sim profile is now compared with its list on the page: every enchant and every gem.
+  The profile check compared item ids and item levels, and gems outside rings and
+  trinkets. It compared no enchant, which is how a list could show one enchant and be
+  simmed with another. Now every gear line of the 109 profiles is held to its row on
+  the page: the item, its level (hand-built trinket and weapon lines included), the gems
+  (rings and trinkets included, and also when one side shows none) and the enchant. An
+  enchant agrees when the spell the page links is one that applies the enchant the
+  profile sims. Crusader, which the lists sim as a proc on a ring, is held to its own
+  rule: one ring per weapon that shows it. All 109 profiles agree with the page today.
+  Run on the lists as they stood at the audit of 10 October, it reports 29 of the 30
+  rows that audit found by hand, and the page check reports the other. No list and no
+  number changed.
 - [tooling] Herald's era rule is now checked by item id, and Icecrown drops by their difficulty.
   Five more things are checked on every change. Herald's rule that every piece outside
   necks, rings and trinkets comes from Classic, TBC or WotLK was judged from the source
