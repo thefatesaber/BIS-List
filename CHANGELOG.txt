@@ -7,6 +7,22 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Two stat panels corrected (Balance and Shadow All-time) and eight gems shown as rare.
+  The audit's data-field rows (P12 and P13). No DPS number moves.
+  Balance All-time, mastery: 21.19% (101) -> 21.95% (106). The panel dated from 2026-09-15;
+  the next day the neck enchant became Mark of the Trained Soldier, which is mastery, and the
+  landing took the sheet for unchanged. The profile behind the 2826 gives 21.95% (106).
+  Shadow All-time, mastery rating: 103 -> 110. The percentage, 15.03%, was already the one
+  the profile gives at 110.
+  With these two, all 109 stat panels match what their profile gives on the local build.
+  The two Affliction profiles without a stat sheet were read with one added for the check.
+  The dps field, a sort tiebreaker that nothing displays, was stale on two specs and now
+  equals the All-time number: Elemental 2355 -> 2397, Shadow 4065 -> 4165.
+  Eight gems are rare in the game data and had no quality set, so they showed in epic purple:
+  Deadly Ruby on three necks (Elemental Herald, Subtlety Obtainable and Herald), Quick
+  Sapphire on two (Fire Obtainable and Herald), Quick Emerald on two (Assassination Obtainable
+  and Herald) and Masterful Onyx on one (Arms Obtainable). Every other gem on the page already
+  matched the game data in name and quality.
 - [page] Source labels name the boss on 23 rows, and one alternate is tagged 'second copy'.
   The audit's source-label rows (P10) and one alternates row (P11). No number moves.
   The Untamed Blade read 'Blackwing Lair (Anniversary)' on the four Arms rows and 'Blackwing
