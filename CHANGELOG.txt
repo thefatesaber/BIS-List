@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [ruling] Two tooltips read in game: Heartpierce is item level 46 and Abracadaver is 45.
+  Three answers from Fate on the audit's open questions. Nothing on the page changes today.
+  The Nibelung note on nine caster main hands stays as written (D8). The audit's P9 took it
+  for a leftover; Fate wrote it after Nibelung left the builds.
+  Heartpierce, the normal version, reads 46 in game, which is what its six rows say (Q2, the
+  last of P16).
+  Abracadaver reads 45 in game. Its 22 rows at 45 are right, and the 'pending re-runs' flag
+  they carried since 2026-09-26 is void. The three Full buffed rows at 47 (Shadow, Affliction,
+  Devastation) are 2 item levels high and wait for a re-run.
+  That settles Icecrown Citadel at level 30: 10-heroic drops are 45, 25-normal 46, 25-heroic
+  47. By that scale Plague-Soaked Leather Leggings, the 10-heroic drop of the boss that drops
+  Abracadaver, should be 45. It sits at 47 on 24 rows, and its tooltip has not been read.
+  Inputs for both went out as S12: 19 runs, 27 lists. validate.js's comment on the Abracadaver
+  exception says the same; the check itself is unchanged.
 - [page] Devourer re-simmed with Meteorite Crystal at item level 43: three lists gain 11 to 14 DPS.
   The audit's item-level row for this trinket (P16), run by Fate as S11. The page lists
   Meteorite Crystal at 43 on Devourer's Full buffed, All-Time and Obtainable lists. The sim

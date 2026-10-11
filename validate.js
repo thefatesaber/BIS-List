@@ -212,14 +212,17 @@ for (const c of CLASSES) {
 // ILVL_SPLIT_OK holds the ids Fate has ruled legitimately exist at more than
 // one pin across lists; each entry names the ruling.
 const ILVL_SPLIT_OK = new Set([
-  178824, // Signet of the False Accuser — 33 on the base lists, 47 on the
-          // buffed DH row; ruled deliberate 2026-09-26.
+  178824, // Signet of the False Accuser — 33 on the base lists, 47 on three
+          // Full buffed rows (Frost DK, Devourer, Shadow); ruled deliberate
+          // 2026-09-26.
   134487, // Arch-Druid's Tainted Seal — 33 on the base lists, 47 on the
-          // buffed DH row; same ruling.
-  51887,  // Abracadaver (heroic id) — 45 on fourteen base-list rows, 47 on
-          // the buffed priest row. Ruled 47 correct 2026-09-26, reversing
-          // the same morning's 45 ruling; the 45 rows stay as their sims'
-          // record pending re-runs.
+          // same three Full buffed rows; same ruling.
+  51887,  // Abracadaver (10-heroic id) — 45 on 22 rows, 47 on three Full
+          // buffed rows (Shadow, Affliction, Devastation). The game shows 45
+          // (Fate's tooltip, 2026-10-11), which ends the 47 ruling of
+          // 2026-09-26: the 45 rows are right, and the three at 47 are
+          // over-pinned until their re-runs land (S12). Take this entry out
+          // with them.
 ]);
 for (const [id, byIlvl] of ilvlById)
   if (byIlvl.size > 1 && !ILVL_SPLIT_OK.has(id))
