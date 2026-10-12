@@ -483,8 +483,7 @@ for (const c of CLASSES)
 // this check re-runs that resolution against the table, so a new entry with
 // no line here, or one that resolves through the wrong fallback, fails the
 // build instead of rendering the wrong stat name.
-{
-  const MAIN_STAT = {
+const MAIN_STAT = {
     warrior: "Strength", warrior_arms: "Strength",
     paladin: "Strength",
     deathknight: "Strength", deathknight_unholy: "Strength",
@@ -498,7 +497,8 @@ for (const c of CLASSES)
     priest: "Intellect",
     warlock: "Intellect", warlock_demonology: "Intellect", warlock_destruction: "Intellect",
     evoker: "Intellect", evoker_augmentation: "Intellect",
-  };
+};
+{
   let pagePrimary = null;
   try {
     const src = fs.readFileSync(FILE, "utf8");
@@ -513,6 +513,38 @@ for (const c of CLASSES)
     if (resolved !== expected)
       err(`${c.id}: stats panel labels the main stat "${resolved}" but the spec's stat is ${expected}`);
   }
+}
+
+// Weapon buffs on the Consumables panel (P8, ruled 2026-10-11). A melee list
+// is one whose spec's stat is Strength or Agility and whose main hand is not
+// a bow, gun or crossbow. Its Full buffed sim bakes a stone into each weapon,
+// so its Full buffed panel has to list a weapon buff. On any panel a buff is
+// listed for a hand that holds a weapon, and a stone fits the weapon it goes
+// on: a Sharpening Stone on an edge (sword, axe, dagger, polearm, warglaive),
+// a Weightstone on a blunt weapon (mace, fist weapon, staff).
+{
+  const EDGED = new Set([0, 1, 6, 7, 8, 9, 15]), BLUNT = new Set([4, 5, 10, 13]);
+  const STONE = { 23529: [EDGED, "an edged weapon"], 28421: [BLUNT, "a blunt weapon"] };
+  const hands = (o) => !o ? [] : (o.mh || o.oh) ? [o.mh && ["Main Hand", o.mh], o.oh && ["Off Hand", o.oh]].filter(Boolean)
+    : !o.item ? [] : o.hands === "MH/OH" ? [["Main Hand", o], ["Off Hand", o]] : [["Main Hand", o]];
+  for (const c of CLASSES)
+    for (const L of LISTS) {
+      const rows = (c.lists || {})[L] || [];
+      if (!rows.length) continue;
+      const cc = c.consumables;
+      const cons = !cc ? null : (cc.potion || cc.flask || cc.food || cc.oil) ? cc : cc[L];
+      const held = (slot) => { const r = rows.find((x) => x.slot === slot); return r ? GD.items[r.wowhead] : null; };
+      const mh = held("Main Hand");
+      const melee = ["Strength", "Agility"].includes(MAIN_STAT[c.id]) && mh && mh.class === 2 && ![2, 3, 18].includes(mh.sub);
+      const listed = hands(cons && cons.oil);
+      if (L === "alltime_buffed" && melee && !listed.length)
+        err(`${c.id}/${L}: a melee Full buffed list sims a weapon stone, and its Consumables panel lists no weapon buff`);
+      for (const [slot, e] of listed) {
+        const it = held(slot), st = STONE[e.wowhead];
+        if (!it || it.class !== 2) err(`${c.id}/${L}: the Consumables panel lists ${e.item} for the ${slot}, which holds no weapon`);
+        else if (st && !st[0].has(it.sub)) err(`${c.id}/${L}: the Consumables panel lists ${e.item} for the ${slot}, a ${WEAPON[it.sub]} — it goes on ${st[1]}`);
+      }
+    }
 }
 
 if (notes.length) {

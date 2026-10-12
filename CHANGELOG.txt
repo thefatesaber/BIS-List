@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] The Full buffed tab now lists the weapon stone each melee spec is simmed with.
+  The 13 melee lists on Full buffed are simmed with a weapon stone, and the Buff worth
+  panel prices it, but the Consumables panel left it out. It now shows the stone for each
+  hand: an Adamantite Sharpening Stone on a sword, axe, dagger or polearm, an Adamantite
+  Weightstone on a mace, fist weapon or staff. Copy SimC carries it too. Assassination and
+  Subtlety also change on their other three tabs: they listed a Weightstone for a dagger
+  main hand, and now list a Sharpening Stone for both daggers. Retribution's other tabs
+  keep Hissing Rune. The page check now holds the rule: a melee Full buffed list has to
+  name its weapon buff, a stone has to fit the weapon, and a buff cannot be listed for a
+  hand that holds no weapon. Fate ruled this from a mock-up. No number changed.
 - [tooling] Each sim profile is now compared with its list on the page: every enchant and every gem.
   The profile check compared item ids and item levels, and gems outside rings and
   trinkets. It compared no enchant, which is how a list could show one enchant and be
