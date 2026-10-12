@@ -7,6 +7,24 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Two Herald fixes: Devourer's meta gem, +25 DPS; Elemental's gems and set bonus, +84.
+  Run by Fate as S18. Both lists wore the other meta gem than their spec's other three
+  lists, and the sim agrees with the other three.
+  Devourer Herald: the helm takes Mystical Skyfire Diamond for Burning Primal Diamond. 2918
+  becomes 2943; the control arm read 2918 again. The panel loses 2 Intellect.
+  Elemental Herald: the helm takes Burning Primal Diamond for Mystical Skyfire, which alone
+  reads 1954 against 1941. The list had been built on Restoration's Herald list, and two
+  more things had come with it. Its sim lacked the 2-piece bonus of the Desolation set,
+  which Elemental's other lists count: with it, 2009. And nine pieces wore Restoration's
+  gems: with the gems Elemental wears on Obtainable, 2025. Fate's run carried all three
+  steps as separate arms, and he ruled that the last one lands.
+  So nine rows of Elemental Herald change gems: the helm's third gem becomes Masterful
+  Onyx, shoulders, back, chest, wrist, hands and waist take Potent Pyrestone, legs and feet
+  Artful Lava Coral. The panel trades 20 Intellect for 39 crit and 15 mastery rating.
+  Elemental rises one place on Herald, to 23rd, past Arcane. Both sim dates move to 11
+  October.
+  Restoration's own four lists also lack the set bonus. Fate ruled that they get it, and
+  those two runs are out as S19.
 - [page] Retribution's Hammer of Wrath is retuned to its log: four lists lose 9 to 13 DPS.
   Run by Fate as S16. Retribution's abilities are calibrated against a combat log through
   overrides on their coefficients. With the other overrides in place, Hammer of Wrath read
