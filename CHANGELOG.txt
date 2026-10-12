@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Feral Full buffed is back on Mighty Agility and gains 71 DPS: 3,957 becomes 4,028.
+  Run by Fate as S14. Feral's other three lists wear Mighty Agility on the staff. Full buffed
+  alone wore Superior Impact, and counted it twice: once in the staff's damage and once more
+  as an enchant the sim applies by itself. By Fate's ruling it returns to Mighty Agility,
+  which is worth more to a cat than two points of weapon damage.
+  One line changed. The control arm, the list as it was, read 3,957 again in the same run.
+  The Main Hand row reads Mighty Agility, the stat panel gains 14 Agility (291), and the tab
+  shows 3,863, which moves Feral up one place to 17th, past Survival. The Buff worth panel is
+  carried.
 - [page] Four weapon procs now fire at their own spec's rate: Unholy rises, three specs fall.
   Run by Fate as S13. Each of these procs has an anchor in procs a minute, read from a log,
   and a spec's rate is solved until the sim meets it. Four specs had never been solved and
