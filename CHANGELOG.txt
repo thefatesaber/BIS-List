@@ -7,6 +7,21 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [ruling] Four Herald lists get a run on their own spec's gems; the set bonus is 12 crit for all.
+  Two answers from Fate. Nothing changes on the page today; six runs are out.
+  Herald gems. On the local build, each Herald list was compared with itself wearing the
+  gems its spec wears on Obtainable, slot for slot. Five already wear them. Four gain more
+  than 25 DPS: Fire about +75, Assassination +39, Subtlety +30, Fury +27. Fate ruled that
+  those four get a run of record, with the regem beside the list as it stands (S20). A
+  list whose regem wins takes it. Nine gain 4 to 16 and are noted. Six read lower with
+  those gems and three read the same; they stay as they are.
+  The Desolation set. The sim does not know the 2-piece bonus of the Helm and Pauldrons of
+  Desolation, so a list that wears both carries it as crit rating on the helm: 13 on
+  Elemental, 12 on every other spec that carries it. Fate ruled 12 for all. Elemental's
+  four lists are re-run at 12 (S21), about 5 DPS lower on the local build. Restoration
+  wears both and carried nothing; it takes 12 as well (S19).
+  Flagged after the ruling: Wowhead's tooltip for the bonus reads 13 at level 30. The
+  in-game tooltip decides.
 - [page] Two Herald fixes: Devourer's meta gem, +25 DPS; Elemental's gems and set bonus, +84.
   Run by Fate as S18. Both lists wore the other meta gem than their spec's other three
   lists, and the sim agrees with the other three.
