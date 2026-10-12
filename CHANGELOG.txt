@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Druid lists now show the heroic Umbrage Armbands, the version every other spec wears.
+  Feral and Balance linked the normal Umbrage Armbands on Full buffed, All-Time and
+  Obtainable, and showed it at item level 47, which is the heroic's level. The six
+  other specs that wear the bracers link the heroic. The six druid rows now link it
+  too, and so do their six sim profiles. The sim takes the item's level from the
+  profile line, so it gives the same result for either version: run with a fixed seed,
+  each of the six lists returns the same number to the last digit. The page check now
+  fails when one item is shown at one level under two ids. Fate ruled this. No number
+  changed.
 - [page] The Full buffed tab now lists the weapon stone each melee spec is simmed with.
   The 13 melee lists on Full buffed are simmed with a weapon stone, and the Buff worth
   panel prices it, but the Consumables panel left it out. It now shows the stone for each

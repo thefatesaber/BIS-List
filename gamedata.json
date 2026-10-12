@@ -144,7 +144,6 @@
     "51887": {"name":"Abracadaver","quality":4,"class":2,"sub":10,"inv":17,"sockets":3,"bind":1,"reqLevel":30,"heroic":true,"icc":"10h"},
     "51889": {"name":"Plague-Soaked Leather Leggings","quality":4,"class":4,"sub":2,"inv":7,"sockets":3,"bind":1,"reqLevel":30,"heroic":true,"icc":"10h"},
     "51898": {"name":"Mag'hari Chieftain's Staff","quality":4,"class":2,"sub":10,"inv":17,"sockets":3,"bind":1,"reqLevel":30,"heroic":true,"icc":"10h"},
-    "53126": {"name":"Umbrage Armbands","quality":4,"class":4,"sub":2,"inv":9,"sockets":1,"bind":1,"reqLevel":30},
     "54580": {"name":"Umbrage Armbands","quality":4,"class":4,"sub":2,"inv":9,"sockets":1,"bind":1,"reqLevel":30,"heroic":true},
     "56462": {"name":"Gale of Shadows","quality":3,"class":4,"sub":0,"inv":12,"sockets":0,"bind":1,"reqLevel":32},
     "68780": {"name":"Burning Shadowspirit Diamond","quality":3,"class":3,"sub":9,"inv":0,"sockets":0,"bind":0,"reqLevel":0},

@@ -547,6 +547,36 @@ const MAIN_STAT = {
     }
 }
 
+// One item at one level has one id. A raid drop's normal and heroic versions
+// share a name and differ in level, so the same name at the same level under
+// two ids means some rows link the wrong version: six druid rows showed the
+// normal Umbrage Armbands at the heroic's 47 until 2026-10-11. Alternates
+// carry no level and are not compared. TWIN_OK is for a real pair that does
+// share a level (a faction twin): "name @level" -> why.
+{
+  const TWIN_OK = new Map();
+  const seen = new Map();
+  for (const c of CLASSES)
+    for (const L of LISTS)
+      for (const r of (c.lists || {})[L] || []) {
+        if (!r.item || r.wowhead == null || r.ilvl == null) continue;
+        const k = `${r.item} @${r.ilvl}`;
+        if (!seen.has(k)) seen.set(k, new Map());
+        const ids = seen.get(k);
+        if (!ids.has(r.wowhead)) ids.set(r.wowhead, []);
+        ids.get(r.wowhead).push(`${c.id}/${L}/${r.slot}`);
+      }
+  for (const [k, ids] of seen) {
+    if (ids.size < 2) { if (TWIN_OK.has(k)) err(`TWIN_OK lists "${k}", which the page links under one id — remove the entry`); continue; }
+    if (TWIN_OK.has(k)) { notes.push(`${k} is linked under ${ids.size} ids — ${TWIN_OK.get(k)}`); continue; }
+    const [name, lvl] = k.split(" @");
+    const parts = [...ids].sort((a, b) => b[1].length - a[1].length)
+      .map(([id, at]) => `${id} on ${at.length} row${at.length > 1 ? "s" : ""} (${at.slice(0, 2).join(", ")}${at.length > 2 ? ", …" : ""})`);
+    err(`${name} is shown at ilvl ${lvl} under ${ids.size} ids: ${parts.join("; ")} — two versions of an item do not share a level, so one of these links the wrong version`);
+  }
+  for (const k of TWIN_OK.keys()) if (!seen.has(k)) err(`TWIN_OK lists "${k}", which is on no row — remove the entry`);
+}
+
 if (notes.length) {
   console.log("");
   for (const n of notes) console.log("  i", n);
