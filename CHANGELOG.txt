@@ -7,6 +7,28 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [ruling] Ten rulings from Fate are on record, and the runs that follow from them are out.
+  Ten questions went to Fate on three sheets, each with numbers from the local build or a
+  mock-up. Two are on the page already: the weapon stone on the Full buffed panels and the
+  druids' Umbrage Armbands. The other eight change nothing on the page today. The local
+  build is an instrument; the numbers of record will come from Fate's runs.
+  Four weapon procs carried another spec's rate and were never solved for their own: The
+  Untamed Blade on Arms, Eskhandar's Right Claw on Havoc and on Enhancement, Bonereaver's
+  Edge on Unholy. Each is solved to its anchor. On the local build that moves All-Time by
+  about -36, -35, -118 and +249. Eight runs (S13).
+  Feral keeps Mighty Agility on every list. Full buffed alone wore Superior Impact, and
+  counted it twice. One run puts Mighty Agility back, about +69 (S14).
+  Demonology's potion and racials waited for a Demonic Tyrant that a level-30 build cannot
+  summon. Both lines are opened: about +11 to +31. Two runs (S15).
+  Retribution's Hammer of Wrath goes from 2.91414 to the exact 2.81: about -8 to -16. Two
+  runs (S16).
+  The weapon stones stay baked into the weapons as they were simmed.
+  A row that lists alternates no longer needs a note: the page check warned on 21 rows.
+  Meta gems: Mystical Skyfire holds on the nine caster helms that wear it. Two Herald helms
+  swap, Devourer to Mystical Skyfire and Elemental to Burning Primal: about +25 and +14.
+  Two runs (S18).
+  todo.txt is deleted. Its one line, to verify the Obtainable lists of Death Knight and
+  Paladin, is done.
 - [page] Druid lists now show the heroic Umbrage Armbands, the version every other spec wears.
   Feral and Balance linked the normal Umbrage Armbands on Full buffed, All-Time and
   Obtainable, and showed it at item level 47, which is the heroic's level. The six

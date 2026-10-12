@@ -327,9 +327,6 @@ for (const c of CLASSES) {
           for (const why of equipIssues(ai, c, r.slot)) err(`${at}: alternate ${aname} (${aid}) ${why}`);
         }
 
-      if (r.alts && r.alts.length && !r.why)
-        warn(`${at}: ${item} lists alternates but has no why note`);
-
       // Alternates policy (Fate, 2026-09-30, per Server58's review): a row
       // carries the BiS plus at most TWO alternates. Weapon slots are exempt
       // by the same ruling - their alt ladders ARE the nearest-best weapons
