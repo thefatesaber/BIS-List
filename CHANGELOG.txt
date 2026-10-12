@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [page] Elemental Shaman's set bonus is 12 crit rating, not 13: four lists lose 4 to 6 DPS.
+  Run by Fate as S21. Elemental wears the Helm and Pauldrons of Desolation, and its four
+  lists counted the set's 2-piece bonus as 13 crit rating where every other list counts
+  12. Fate ruled 12 for all, and the helm's tooltip in game reads 12 at level 30.
+  Full buffed 3246 becomes 3240, All-Time 2397 becomes 2392, Obtainable 2301 becomes 2297
+  and Herald 2025 becomes 2021. The control arms, the lists at 13, read 3246 and 2397
+  again. Each stat panel loses 1 crit rating. No row changes and no place changes;
+  Full buffed shows 3,153. All four sim dates move to 12 October.
+  The profile check now holds the bonus: a list that wears both pieces has to carry it at
+  12. Run on the page as it stood yesterday, that check fails on eight lists, Restoration's
+  four and Elemental's four, and on none today.
 - [page] Restoration Shaman now counts its Desolation set bonus: four lists gain 62 to 94 DPS.
   Run by Fate as S19. Restoration wears the Helm and Pauldrons of Desolation on all four
   lists, and the sim does not know that set's 2-piece bonus. The other lists that wear the

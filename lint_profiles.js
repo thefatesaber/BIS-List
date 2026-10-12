@@ -28,6 +28,8 @@
 //  - Crusader is simmed as a ring proc: one ring per weapon row that shows it,
 //    and no enchant_id=1900 on a weapon line
 //  - a line's socket bonus ids add up to its gems
+//  - a list that wears the Helm and Pauldrons of Desolation carries the set's
+//    2-piece on its head line: enchant=12crit (15 on Survival Full buffed)
 
 const fs = require("fs");
 const path = require("path");
@@ -51,6 +53,16 @@ const REBUILD = "is not in gamedata.json - rebuild it with: node gamedata.js --f
 // Crusader (enchant 1900) creates nothing in SimC: the lists sim it as a proc
 // on a ring, one ring per weapon that wears it (Standing item decisions).
 const CRUSADER_ENCHANT = 1900, CRUSADER_RING = "37str_15dur";
+
+// The Desolation set (660) is missing from the engine's set-bonus registry, so
+// a list that wears the Helm and the Pauldrons carries the 2-piece on its head
+// line (PROJECT.md, "Head is the proxy slot"). 12 crit rating is the tooltip at
+// level 30, read in game by Fate on 2026-10-12; Wowhead's says 13 and is not
+// the bracket's. One list writes more: Survival Full buffed bakes the 3 crit of
+// its weapon stone into the same token. Until 2026-10-12 nothing held this:
+// Restoration's four lists had no token and Elemental's four carried 13.
+const DESOLATION = { head: "28192", shoulder: "27713", token: "12crit",
+                     withStone: { "hunter_survival/alltime_buffed": "15crit" } };
 
 // ---------------------------------------------------------------- page data
 let CLASSES;
@@ -307,6 +319,17 @@ for (const dir of DIRS) {
         }
       }
     });
+
+    // the Desolation pair carries its 2-piece on the head line
+    {
+      const dh = gear.find(g => g.slot === "head"), ds = gear.find(g => g.slot === "shoulder");
+      if (dh && ds && dh.kv.id === DESOLATION.head && ds.kv.id === DESOLATION.shoulder) {
+        const want = DESOLATION.withStone[`${c.id}/${list}`] || DESOLATION.token;
+        if (dh.kv.enchant !== want)
+          E(`line ${dh.ln}: the Helm and Pauldrons of Desolation are worn and the head line carries ` +
+            `${dh.kv.enchant ? "enchant=" + dh.kv.enchant : "no enchant= token"} — the 2-piece proxy of record is enchant=${want}`);
+      }
+    }
 
     // ring/trinket pairs, order-insensitive
     if (onPage) for (const key of Object.keys(pairIds)) {
