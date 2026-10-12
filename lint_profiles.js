@@ -80,22 +80,28 @@ const PAGE_SLOT = { head:"Head", neck:"Neck", shoulder:["Shoulder","Shoulders"],
 const PAIRS = { finger1:["Ring 1","Ring 2"], finger2:["Ring 1","Ring 2"],
                 trinket1:["Trinket 1","Trinket 2"], trinket2:["Trinket 1","Trinket 2"] };
 
-// Calibrations of record, keyed by the proc's stat signature. Flat % rates
-// are per-spec by ruling; ppm entries are per-spec too. `pending` marks
-// spreads awaiting the Dragonspine/Bonereaver per-spec ruling — warned, not
-// failed, so the ruling (not the linter) settles them.
+// Calibrations of record, keyed by the proc's stat signature and then by
+// spec: the page entry's id (warrior is Fury, deathknight is Frost, rogue is
+// Outlaw, monk is Windwalker, paladin is Retribution). One spec, one
+// encoding, in one unit: each was solved until the sim realizes the proc's
+// anchor in procs a minute (PROJECT.md, Proc calibrations). A spec with no
+// entry fails. Until 2026-10-11 the table was keyed by class and a missing
+// entry only warned, which is how four specs ran for weeks on an encoding
+// copied from another: Arms on Fury's number in the wrong unit, Havoc and
+// Enhancement on Windwalker's, Unholy on Frost's. `pending` marks a spread
+// that awaits a ruling: warned, not failed.
 const CALIBRATIONS = {
   "103haste_10dur_20cd": { label: "Dragonspine Trophy", rates: { "*": 3.2 } },
-  "97str_8dur":          { label: "The Untamed Blade", rates: { warrior: 3.7, paladin: 19.6 } },
-  "51crit_10dur_3stack": { label: "Bonereaver's Edge", rates: { deathknight: 8.6, warrior: 9.8 } },
+  "97str_8dur":          { label: "The Untamed Blade", rates: { warrior: 3.7, warrior_arms: 18.2, paladin: 19.6 } },
+  "51crit_10dur_3stack": { label: "Bonereaver's Edge", rates: { warrior: 9.8, deathknight: 8.6, deathknight_unholy: 20.9 } },
   "281haste_10dur":      { label: "The Jackhammer", rates: { warrior: 2.5 } },
-  "184haste_5dur":       { label: "Eskhandar's Right Claw", ppm: { monk: 0.88, rogue: 0.4 } },
-  "37str_15dur":         { label: "Crusader (ring encoding)", rates: { warrior: 3.0, paladin: 16.2 } },
+  "184haste_5dur":       { label: "Eskhandar's Right Claw", ppm: { monk: 0.88, rogue: 0.4, demonhunter_havoc: 0.63, shaman_enhancement: 0.41 } },
+  "37str_15dur":         { label: "Crusader (ring encoding)", rates: { warrior: 3.0, warrior_arms: 3.0, paladin: 16.2 } },
 };
 
 const errs = [], warns = [];
 let files = 0;
-const seenRates = new Map(); // `${cls}|${sig}` -> Map(rate -> [where])
+const seenRates = new Map(); // `${spec}|${sig}` -> Map(rate -> [where])
 
 const tokenizeName = s => (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 
@@ -282,14 +288,18 @@ for (const dir of DIRS) {
         const sig = Object.keys(CALIBRATIONS).find(s => rest.includes(s));
         if (sig) {
           const cal = CALIBRATIONS[sig];
-          const pend = (cal.pending || []).find(p => p.cls === (c.cls || c.id) && p.rate === rate);
+          const pend = (cal.pending || []).find(p => p.spec === c.id && p.rate === rate);
+          const pick = t => t ? (t[c.id] != null ? t[c.id] : t["*"]) : null;
           const table = unit === "ppm" ? cal.ppm : cal.rates;
-          const want = table ? (table[c.cls || c.id] != null ? table[c.cls || c.id] : table["*"]) : null;
+          const want = pick(table), other = pick(unit === "ppm" ? cal.rates : cal.ppm);
           if (pend) W(`line ${ln}: ${cal.label} at ${rate}${unit} — ${pend.note}`);
-          else if (want == null) W(`line ${ln}: ${cal.label} has no calibration of record for ${c.cls || c.id}`);
+          else if (want == null && other != null)
+            E(`line ${ln}: ${cal.label} at ${rate}${unit} — the calibration of record for ${c.id} is ${other}${unit === "ppm" ? "%" : "ppm"}, in the other unit`);
+          else if (want == null)
+            E(`line ${ln}: ${cal.label} has no calibration of record for ${c.id} — an encoding is solved per spec, not copied from another`);
           else if (rate !== want)
-            E(`line ${ln}: ${cal.label} at ${rate}${unit} — calibration of record for ${c.cls || c.id} is ${want}${unit}`);
-          const k = `${c.cls || c.id}|${sig}`;
+            E(`line ${ln}: ${cal.label} at ${rate}${unit} — calibration of record for ${c.id} is ${want}${unit}`);
+          const k = `${c.id}|${sig}`;
           if (!seenRates.has(k)) seenRates.set(k, new Map());
           const mm = seenRates.get(k);
           if (!mm.has(rate)) mm.set(rate, []);
@@ -392,7 +402,7 @@ for (const [k, mm] of seenRates) if (mm.size > 1) {
   const [cid, sig] = k.split("|");
   const cal = CALIBRATIONS[sig];
   const detail = [...mm.entries()].map(([r, ws]) => `${r} @ ${ws.length} file(s)`).join(" vs ");
-  const pending = (cal.pending || []).some(p => p.cls === cid);
+  const pending = (cal.pending || []).some(p => p.spec === cid);
   (pending ? warns : errs).push(
     `${cid}: ${cal.label} carries different rates across lists (${detail}) — one spec, one calibration${pending ? " (ruling A open)" : ""}`);
 }

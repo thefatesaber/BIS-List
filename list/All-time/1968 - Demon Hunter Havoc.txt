@@ -1,4 +1,4 @@
-# All-time Full buffed - Demon Hunter - Havoc
+# All-time - Demon Hunter - Havoc
 # Base Actor
 demonhunter="Fateberserkr"
 level=30
@@ -11,13 +11,9 @@ spec=havoc
 # loot_spec=havoc
 
 talents=CEkAAAAAAAAAAAAAAAAAAAAAAwAmZgZghJMGAAAAAAwsxAwAzAYGAzCAAQCMAAAAAAAAAAAAAAA
-override.player.spell_data=spell.2825.spell_level=1
-override.player.spell_data=effect.856.base_value=15
-override.player.spell_data=spell.10060.spell_level=1
-external_buffs.pool=power_infusion:120
 ### Combo 1
 # wastewalker_helm (33)
-head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30,enchant=6crit
+head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
 # Phoenix Feather Pendant (135)
 neck=,id=200284,ilevel=33,enchant_id=5890,gem_id=71852/71852/71852,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # mantle_of_perenolde (33)
@@ -46,15 +42,20 @@ trinket1=,id=50355,bonus_id=9051,ilevel=15
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_24min_29max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur,enchant_id=4099
+# 0.63ppm: solved for Havoc to the item anchor of 2.47 procs a minute, 2026-10-11 (was Windwalker's 0.88ppm)
+main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.63ppm_184haste_5dur,enchant_id=4099
 # Hand of the Deceiver (44)
-off_hand=,id=34331,ilevel=44,weapon=fist_2.60speed_26min_31max,gem_id=71852/71852,bonus_id=9037,drop_level=30,enchant_id=5950
+off_hand=,id=34331,ilevel=44,gem_id=71852/71852,bonus_id=9037,drop_level=30,enchant_id=5950
 
 # Consumables
-potion=potion_of_the_tolvir
-flask=flask_of_endless_rage
-food=skewered_eel
+# potion=golemblood_potion
+# flask=flask_of_titanic_strength
+# food=BeerBasted_Crocolisk
+# temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
 temporary_enchant=disabled
+potion=disabled
+flask=disabled
+food=disabled
 augmentation=disabled
 
 # Expansion Options
@@ -95,7 +96,6 @@ actions+=/metamorphosis,if=!buff.metamorphosis.up&!cooldown.eye_beam.up&!action.
 
 actions+=/the_hunt,if=(!talent.eternal_hunt|cooldown.eye_beam.remains<10&cooldown.metamorphosis.remains>15|!cooldown.eye_beam.up&cooldown.metamorphosis.up|!hero_tree.felscarred)&!buff.reavers_glaive.up
 actions+=/potion,if=cooldown.metamorphosis.up&(cooldown.eye_beam.up|!talent.chaotic_transformation)|fight_remains<=30
-actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1
 actions+=/use_items,if=cooldown.metamorphosis.up|cooldown.eye_beam.up|fight_remains<=20
 actions+=/pick_up_fragment,type=all,use_off_gcd=1,if=fury<=40
 actions+=/reavers_glaive,if=buff.rending_strike.down&buff.glaive_flurry.down
@@ -129,18 +129,20 @@ target_level+=3
 calculate_scale_factors=1
 #html=Fury_toolTEST_Results.html
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
+override.allow_flasks=0
+override.allow_food=0
+override.allow_potions=0
 override.allow_augmentations=0
 optimal_raid=0
-override.bloodlust=1
+override.bloodlust=0
 override.arcane_intellect=0
 override.power_word_fortitude=0
-override.battle_shout=1
+override.battle_shout=0
 override.mystic_touch=0
 override.chaos_brand=0
 #override.windfury_totem=1
-override.mark_of_the_wild=1
-override.hunters_mark=1
-override.skyfury=1
+override.mark_of_the_wild=0
+override.hunters_mark=0
 override.bleeding=0
 report_details=1
 single_actor_batch=1

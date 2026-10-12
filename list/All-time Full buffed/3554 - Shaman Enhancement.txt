@@ -1,8 +1,4 @@
-# Obtainable - Shaman - Enhancement
-# OBTAINABLE WAVE candidate (2026-10-03). Changes vs the All-time profile:
-#   neck/rings: native socket only — the extra-socket tech is not farmable; socket bonus stacks dropped
-#   Bloodoath Signet -> Stitchflesh's Misplaced Signet — per main-list ban precedent
-#   Band of the Ancient Dredger -> Bottle-Popper Ring — per main-list ban precedent
+# All-time Full buffed - Shaman - Enhancement
 # Base Actor
 shaman="Broadcasting"
 level=30
@@ -16,10 +12,15 @@ spec=enhancement
 
 talents=CcQAAAAAAAAAAAAAAAAAAAAAAYmZYAGGwYAAAAAAAAAAAAEAgAAwDMGAAzgNjZAAAgBAoBAgBA
 
+override.player.spell_data=spell.2825.spell_level=1
+override.player.spell_data=effect.856.base_value=15
+override.player.spell_data=spell.10060.spell_level=1
+external_buffs.pool=power_infusion:120
+
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/213464,bonus_id=7202,drop_level=30,enchant=12crit
 # Tuskarr Bone Necklace (135)
-neck=,id=193666,ilevel=33,enchant_id=5890,gem_id=213500,drop_level=30
+neck=,id=193666,ilevel=33,enchant_id=5890,gem_id=213500/32194/32194,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3835,gem_id=32194/32194,bonus_id=7202,drop_level=30
 # Drape of the Faceless General (43)
@@ -36,28 +37,27 @@ waist=,id=45553,ilevel=43,gem_id=32194/32194/32194,bonus_id=9035,drop_level=30
 legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=32194/32194/32194,bonus_id=6710/6652,drop_level=30
 # Star-Strider Boots (40)
 feet=,id=29951,ilevel=40,enchant_id=1887,gem_id=32194/32194,bonus_id=9035,drop_level=30
-# Stitchflesh's Misplaced Signet (obtainable swap, was Bloodoath Signet)
-finger1=,id=178736,ilevel=33,enchant_id=6109,gem_id=32194,drop_level=30
-# Bottle-Popper Ring (obtainable swap, was Band of the Ancient Dredger)
-finger2=,id=151410,ilevel=33,enchant_id=6109,gem_id=32194,drop_level=30
+# Bloodoath Signet (33)
+finger1=,id=178871,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# Band of the Ancient Dredger (33)
+finger2=,ilevel=33,id=159461,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur,enchant_id=4099
+# 0.41ppm: solved for Enhancement to the item anchor of 2.47 procs a minute, 2026-10-11 (was Windwalker's 0.88ppm)
+main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_24min_29max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.41ppm_184haste_5dur,enchant_id=4099
 # Hand of the Deceiver (44)
-off_hand=,id=34331,ilevel=44,gem_id=32194/32194,bonus_id=9037,drop_level=30,enchant_id=5950
+off_hand=,id=34331,ilevel=44,weapon=fist_2.60speed_26min_31max,gem_id=32194/32194,bonus_id=9037,drop_level=30,enchant_id=5950
 
 # Consumables
-# potion=golemblood_potion
-# flask=flask_of_titanic_strength
-# food=BeerBasted_Crocolisk
+potion=potion_of_the_tolvir
+flask=flask_of_endless_rage
+food=skewered_eel
 # temporary_enchant=main_hand:superior_mana_oil/off_hand:superior_mana_oil
+
 temporary_enchant=disabled
-potion=disabled
-flask=disabled
-food=disabled
 augmentation=disabled
 
 # Expansion Options
@@ -91,6 +91,7 @@ actions+=/variable,name=expected_cl_funnel,value=action.chain_lightning.damage*(
 actions+=/variable,name=flame_shock_saturated,value=((active_dot.flame_shock=active_enemies)|(active_dot.flame_shock=6))
 actions+=/bloodlust,line_cd=600
 actions+=/auto_attack
+actions+=/invoke_external_buff,name=power_infusion,use_off_gcd=1
 actions+=/call_action_list,name=single_sb,if=active_enemies=1&!talent.surging_totem.enabled
 actions+=/call_action_list,name=single_totemic,if=active_enemies=1&talent.surging_totem.enabled
 actions+=/call_action_list,name=aoe,if=active_enemies>1
@@ -208,21 +209,18 @@ target_level+=3
 #enemy_custom_health_timeline=20:0.2
 calculate_scale_factors=1
 scale_only=strength,intellect,agility,crit,mastery,vers,haste,weapon_dps,weapon_offhand_dps
-override.allow_flasks=0
-override.allow_food=0
-override.allow_potions=0
 override.allow_augmentations=0
 optimal_raid=0
-override.bloodlust=0
+override.bloodlust=1
 override.arcane_intellect=0
 override.power_word_fortitude=0
-override.battle_shout=0
+override.battle_shout=1
 override.mystic_touch=0
 override.chaos_brand=0
 override.skyfury=1
 #override.windfury_totem=1
-override.mark_of_the_wild=0
-override.hunters_mark=0
+override.mark_of_the_wild=1
+override.hunters_mark=1
 override.bleeding=0
 report_details=1
 single_actor_batch=1

@@ -1,4 +1,6 @@
-# All-time - Warrior - Arms
+# Herald - Warrior - Arms
+# HERALD WAVE candidate (2026-10-03): armor slots take the warrior main's Herald set verbatim
+# (ilvl <= 41, Classic/TBC/WotLK); neck/rings/trinkets ride the obtainable lines (era-exempt, <= 41 enforced).
 # Base Actor
 warrior=Kleaveland
 race=maghar_orc
@@ -9,37 +11,38 @@ role=attack
 talents=CcEASWsDSHNyPDXnbxuIhH3ZdDzMzsMzwAAAAAMNYYGWGMGAAAAAAAACAAAAAAAAYAAAAAAA
 
 ### Combo 1
-# Helm of the Faceless 43
-head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9042,drop_level=30
-# Crystalized Sigil 140
-neck=,ilevel=33,id=200446,enchant_id=5890,gem_id=213500/213500/213500,bonus_id=9156/6652/9477/8782,drop_level=30
-# Spaulders of the Thalassian Savior 44
-shoulder=,ilevel=44,id=34193,enchant_id=3835,gem_id=71856/71856,bonus_id=9037,drop_level=30
-# Titanskin Cloak 43
-back=,ilevel=43,id=45496,enchant_id=3243,gem_id=213500,bonus_id=9043,drop_level=30
-# Hard Khorium Battleplate 44
-chest=,ilevel=44,id=34377,enchant_id=6625,gem_id=71856/71856/71856,bonus_id=9037,drop_level=30
-# bracers_of_eradication 44
-wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=71856,bonus_id=9035,drop_level=30
-# Hard Khorium Battlefists 44
-hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=71856/71856,bonus_id=9037,drop_level=30
+# Helm of the Corrupted Mind (39)
+head=,ilevel=39,id=39260,gem_id=76886/213743,bonus_id=9039
+# Hatecoil Commander's Amulet (obtainable swap, was Crystalized Sigil)
+neck=,id=134492,ilevel=33,enchant_id=5890,gem_id=213500,bonus_id=6710/6652/8810,drop_level=30
+# Destroyer Shoulderblades (40)
+shoulder=,id=30122,ilevel=40,gem_id=40146/40146,bonus_id=9035,enchant_id=3835
+# Cloak of the Shadowed Sun (39)
+back=,ilevel=39,id=40252,enchant_id=3243,bonus_id=9039
+# Warbringer Breastplate (38)
+chest=,ilevel=38,id=29019,bonus_id=9034,enchant_id=6625,gem_id=40146/40146/40146,drop_level=30
+# Bracers of Eradication (40)
+wrist=,id=30057,ilevel=40,enchant_id=1885,gem_id=40146,bonus_id=9035
+# Faith Bearer's Gauntlets (33)
+hands=,ilevel=33,id=25942,enchant_id=4432,gem_id=40146/40146,bonus_id=7202
 # Red Belt of Battle 40
-waist=,ilevel=40,id=30032,gem_id=71856/71856/71856,bonus_id=9035,drop_level=30
-# Felfury Legplates 44
-legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=32217/32217/213464,bonus_id=9037,drop_level=30
-# Onslaught Treads 44
-feet=,ilevel=44,id=34569,enchant_id=1597,gem_id=32217,bonus_id=9037,drop_level=30
+waist=,ilevel=40,id=30032,gem_id=40146/40146/40146,bonus_id=9035,drop_level=30
+# Greaves of the Martyr (33)
+legs=,ilevel=33,id=30536,enchant_id=4881,gem_id=40146/40146/40146,bonus_id=6710,drop_level=30
+# Sha'tari Wrought Greaves (33)
+feet=,ilevel=33,id=28176,enchant_id=4429,gem_id=40146/40146,bonus_id=6710,drop_level=30
 # Fleshfused Circle 33 — CRUSADER MODEL, ONE RING ONLY (one weapon).
 # 3.0% ~ doubled from Fury's 1.3% for Arms' halved event rate. Target ~0.85-0.9 procs/min; tune after first run.
-finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=32217/32217,bonus_id=6710/10386/6652/10879/10396,drop_level=30,equip=procby/attack_37str_15dur_3.0%
+finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=32217,drop_level=30,equip=procby/attack_37str_15dur_3.0%
 # Stitchflesh's Misplaced Signet 33 — NO proc (second Crusader would double-dip on a one-weapon spec)
-finger2=,ilevel=33,id=178736,enchant_id=6110,gem_id=32217/32217,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+finger2=,ilevel=33,id=178736,enchant_id=6110,gem_id=32217,drop_level=30
 # Dragonspine Trophy 38 — canonical payload (108 haste). Same per-event rate as Fury; lower uptime on Arms is expected and correct. Verify vs an Arms log.
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
-# Heart of Roccor (155)
-trinket2=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30
-# The Untamed Blade 40 — canonical ppm, no weapon Crusader (ring carries it)
-main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=97str_8dur_procby/attack_3.7ppm
+# Pendant of the Violet Eye (obtainable swap, was Heart of Roccor)
+trinket2=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+# The Untamed Blade 40 — 18.2% per attack: solved for Arms to the warrior anchor of 12.4 procs a minute, 2026-10-11
+# (was 3.7ppm, Fury's number in the other unit: 22.2% per event). No weapon Crusader (ring carries it)
+main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_18.2%
 
 # Consumables
 temporary_enchant=disabled
@@ -72,7 +75,7 @@ actions+=/execute
 actions+=/slam
 
 # Simulation Options
-iterations=100000
+iterations=50000
 desired_targets=1
 max_time=300
 fixed_time=1

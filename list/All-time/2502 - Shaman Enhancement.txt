@@ -41,7 +41,8 @@ trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur,enchant_id=4099
+# 0.41ppm: solved for Enhancement to the item anchor of 2.47 procs a minute, 2026-10-11 (was Windwalker's 0.88ppm)
+main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.41ppm_184haste_5dur,enchant_id=4099
 # Hand of the Deceiver (44)
 off_hand=,id=34331,ilevel=44,gem_id=32194/32194,bonus_id=9037,drop_level=30,enchant_id=5950
 

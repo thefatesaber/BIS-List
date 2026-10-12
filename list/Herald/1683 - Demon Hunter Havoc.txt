@@ -48,7 +48,8 @@ trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
 # Eskhandar's Right Claw (38)
-main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.88ppm_184haste_5dur,enchant_id=4099
+# 0.63ppm: solved for Havoc to the item anchor of 2.47 procs a minute, 2026-10-11 (was Windwalker's 0.88ppm)
+main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38,quality=epic,stats=2agi,equip=procby/attack_procon/hit_0.63ppm_184haste_5dur,enchant_id=4099
 # Vibroblade 33 — Gnomeregan (axe per DBC) — Fate's ruling 2026-10-03; EFFECTIVE-SCALE spec.
 # P_phys = 0.474 from this run's damage sources (MH autos 14.9 + OH autos 7.4 + Death Sweep 13.3 + Blade Dance 11.8);
 # chaos/shadow/fire (Chaos Strike 14.2, Annihilation 12.2, Demon Blades 13.0, Eye Beam 6.6, Felblade 4.2, Immolation 2.3) takes no shred.
@@ -56,6 +57,9 @@ main_hand=eskhandars_right_claw_proxy,weapon=fist_2.60speed_9min_14max,ilevel=38
 #effective DPS = 1665 x (1 + 0.2083 x 0.474 x 0.5694) = 1759
 #BARE CLOAK (2026-10-10): per the cloak ruling the two Ametrines leave the Coming Night;
 #raw 1676 -> 1665, effective 1770 -> 1759 - the number of record.
+#SHARE REFRESHED (2026-10-11, ruling D25): P_phys = 0.222, the auto-attacks alone (MH 14.8 + OH 7.4). Blade Dance and Death Sweep
+#are Chaos under First Blood (spells 391374, 391378, 393054, 393055: school mask 127) and take no shred, nor does Trail of Ruin.
+#Eskhandar solved to 0.63ppm the same day: raw 1640, effective 1640 x (1 + 0.2083 x 0.222 x 0.5694) = 1683 - the number of record.
 off_hand=,ilevel=33,id=9485,enchant_id=5950,bonus_id=6710,drop_level=30
 
 # Consumables

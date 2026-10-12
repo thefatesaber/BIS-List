@@ -7,6 +7,31 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Four weapon procs now fire at their own spec's rate: Unholy rises, three specs fall.
+  Run by Fate as S13. Each of these procs has an anchor in procs a minute, read from a log,
+  and a spec's rate is solved until the sim meets it. Four specs had never been solved and
+  ran on another spec's rate: The Untamed Blade on Arms, Eskhandar's Right Claw on Havoc and
+  on Enhancement, Bonereaver's Edge on Unholy. The first three fired too often. Unholy's
+  fired less than half as often as its anchor.
+  Full buffed / All-Time / Obtainable / Herald now read: Arms 3671 / 2509 / 2416 / 2221 (from
+  3709 / 2546 / 2454 / 2255), Havoc 3176 / 1968 / 1894 / 1683 (3242 / 2004 / 1927 / 1762),
+  Enhancement 3554 / 2502 / 2408 / 2245 (3730 / 2622 / 2521 / 2354), Unholy 4018 / 2792 /
+  2619 / 2414 (3664 / 2545 / 2378 / 2185).
+  Every run carried a control arm with the old rate. All eight came back within 1 DPS of the
+  stored number, so the differences are the rates.
+  Havoc Herald and Enhancement Herald are effective numbers: a raw result times a factor for
+  Vibroblade's armor shred, which the sim does not model. The factor uses the share of the
+  list's damage that armor reduces, and Fate ruled both shares refreshed. Havoc's had counted
+  Blade Dance and Death Sweep as physical. With First Blood they deal Chaos damage, so the
+  share is the auto-attacks alone, 0.222 instead of 0.474: raw 1640 gives 1683, where the old
+  share would give 1732. Enhancement's reads 0.493 instead of 0.514: raw 2121 gives 2245.
+  Places: Unholy rises to 16th on Full buffed and All-Time, 19th on Obtainable and 14th on
+  Herald. Enhancement falls to 22nd, 21st, 21st and 19th. Havoc falls one place on Full
+  buffed, to 25th, and Arms two on Herald, to 21st. No stat panel changes. The Buff worth
+  panels are carried from before the runs.
+  The profile check now keeps one rate per spec and fails a spec that has none. The
+  Jackhammer's anchor on Fury is also settled: 2.5% is the calibration, and Fury's numbers
+  stand.
 - [tooling] A new script re-runs every sim profile and lists the numbers that went stale.
   SimulationCraft's game data is retuned now and then, and a list simmed before a retune
   can give another number after it with nothing in the list changed. Two retunes, on 22
