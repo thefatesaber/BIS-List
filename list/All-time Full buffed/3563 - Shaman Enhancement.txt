@@ -37,10 +37,13 @@ waist=,id=45553,ilevel=43,gem_id=32194/32194/32194,bonus_id=9035,drop_level=30
 legs=,id=30534,ilevel=33,enchant_id=4880,gem_id=32194/32194/32194,bonus_id=6710/6652,drop_level=30
 # Star-Strider Boots (40)
 feet=,id=29951,ilevel=40,enchant_id=1887,gem_id=32194/32194,bonus_id=9035,drop_level=30
-# Bloodoath Signet (33)
-finger1=,id=178871,ilevel=33,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Band of the Ancient Dredger (33)
-finger2=,ilevel=33,id=159461,enchant_id=6109,gem_id=32194/32194,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# RINGS 2026-10-12 (ruling D32): the Timewalking pair at 47, one gem each, as on Frost DK, Devourer and Shadow, for Bloodoath Signet
+# and Band of the Ancient Dredger (33, two gems each). Fate's run carried all four lists: 3553 as it stood, 3558 with the Seal
+# alone, 3558 with the Signet alone, 3563 with both.
+# Arch-Druid's Tainted Seal (47)
+finger1=,ilevel=47,id=134487,enchant_id=6109,gem_id=32194,bonus_id=6710/10386/6652/8810,drop_level=30
+# Signet of the False Accuser (47)
+finger2=,ilevel=47,id=178824,enchant_id=6109,gem_id=32194,bonus_id=6710/10386/6652/8810,drop_level=30
 # Dragonspine Trophy (38)
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
 # Chaos Talisman (33)

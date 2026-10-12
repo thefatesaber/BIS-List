@@ -38,10 +38,13 @@ waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
 # Slippers of the Seacaller (42)
 feet=,ilevel=42,id=32239,enchant_id=4429,gem_id=71854/71854,bonus_id=9036,drop_level=30
-# signet_of_the_false_accuser (33)
-finger1=,ilevel=33,id=162542,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Fleshfused Circle (33)
-finger2=,ilevel=33,id=178869,enchant_id=6110,gem_id=71854/71854,bonus_id=6710/10386/6652/10879/10396,drop_level=30
+# RINGS 2026-10-12 (ruling D32): the Timewalking pair at 47, one gem each, as on Frost DK, Devourer and Shadow, for Seal of the City
+# Watch and Fleshfused Circle (33, two gems each). Fate's run carried all four lists: 4960 as it stood, 4962 with the Seal alone,
+# 4964 with the Signet alone, 4972 with both.
+# Arch-Druid's Tainted Seal (47)
+finger1=,ilevel=47,id=134487,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/8810,drop_level=30
+# Signet of the False Accuser (47)
+finger2=,ilevel=47,id=178824,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/8810,drop_level=30
 # Pendant of the Violet Eye (38)
 trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
 # Solace of the Fallen 45

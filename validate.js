@@ -445,9 +445,9 @@ for (const c of CLASSES) {
 // that something is still to be done.
 const ILVL_SPLIT_OK = new Map([
   [178824, { levels: { 33: null, 47: ["alltime_buffed"] },
-             why: "Signet of the False Accuser: 47 is its Timewalking version, on three Full buffed lists (Frost DK, Devourer, Shadow); ruled 2026-09-26" }],
+             why: "Signet of the False Accuser: 47 is its Timewalking version, on ten Full buffed lists: Frost DK, Devourer and Shadow (ruled 2026-09-26) and the seven of S24 (D32, 2026-10-12)" }],
   [134487, { levels: { 33: null, 47: ["alltime_buffed"] },
-             why: "Arch-Druid's Tainted Seal: 47 is its Timewalking version, on the same three Full buffed lists; ruled 2026-09-26" }],
+             why: "Arch-Druid's Tainted Seal: 47 is its Timewalking version, on nine of the same ten (Fury keeps Fleshfused Circle in Ring 1); the same two rulings" }],
 ]);
 for (const [id, byIlvl] of ilvlById) {
   if (byIlvl.size < 2) continue;

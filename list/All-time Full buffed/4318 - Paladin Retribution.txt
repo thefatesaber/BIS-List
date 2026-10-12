@@ -52,10 +52,13 @@ waist=,ilevel=40,id=30032,gem_id=213500/213500/213500,bonus_id=9035,drop_level=3
 legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=213500/213500/213500,bonus_id=9037,drop_level=30
 # Dreadboots of the Legion (42)
 feet=,ilevel=42,id=32345,enchant_id=1597,gem_id=213500/213500,bonus_id=9036,drop_level=30
-# Fleshfused Circle (33)
-finger1=,id=178869,ilevel=33,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30
-# Signet of the False Accuser (33)
-finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30,equip=procby/attack_37str_15dur_16.2%
+# RINGS 2026-10-12 (ruling D32): the Timewalking pair at 47, one gem each, as on Frost DK, Devourer and Shadow. The Seal takes the
+# place of Fleshfused Circle, and the Signet goes from 33 (two gems) to 47. Fate's run carried all four lists: 4302 as it stood,
+# 4311 with the Seal alone, 4309 with the Signet at 47 alone, 4318 with both.
+# Arch-Druid's Tainted Seal (47)
+finger1=,ilevel=47,id=134487,enchant_id=6110,gem_id=213500,bonus_id=6710/10386/6652/8810,drop_level=30
+# Signet of the False Accuser (47)
+finger2=,ilevel=47,id=178824,enchant_id=6110,gem_id=213500,bonus_id=6710/10386/6652/8810,drop_level=30,equip=procby/attack_37str_15dur_16.2%
 # Heart of Roccor (155)
 trinket1=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30
 # Chaos Talisman (33)

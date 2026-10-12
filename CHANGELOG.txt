@@ -7,6 +7,24 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [page] Six Full buffed lists take both Timewalking rings and Fury takes one: up 9 to 23 DPS.
+  Run by Fate as S24, seven runs. Each run carried a list as it stood beside the same list
+  with Arch-Druid's Tainted Seal at item level 47 in Ring 1, with Signet of the False
+  Accuser at 47 in Ring 2, and with both. The seven lists read their own number again,
+  three exactly and four 1 DPS under, and on every list the best of the three read above
+  it. By Fate's ruling each list takes that one.
+  Both rings: Unholy 4018 becomes 4041, Retribution 4303 becomes 4318, Outlaw 4168 becomes
+  4185 (raw 3738 to 3754), Frost Mage 4960 becomes 4972, Arms 3671 becomes 3683,
+  Enhancement 3554 becomes 3563.
+  Fury takes the Signet in Ring 2 only: 5632 becomes 5648. With the Seal in Ring 1 as well
+  it read 5641, and with the Seal alone 5619, so Ring 1 keeps Fleshfused Circle.
+  The rings at 47 are the Timewalking versions and carry one gem each, on a Socket Proc.
+  The item-level-33 rings they replace carried two. Every ring keeps the enchant and the
+  gem its list already wore. Ten Full buffed lists now wear the Signet at 47 and nine the
+  Seal.
+  On Retribution, Fleshfused Circle becomes the alternate on Ring 1, 0.2% behind: 4309 for
+  4318 in the same run. The seven stat panels follow the new rings, and the sim date moves
+  to 12 October on all seven. No list changes place on the Full buffed tab.
 - [ruling] Seven Full buffed lists get a run against the Timewalking rings three others wear.
   One answer from Fate. Nothing changes on the page today; seven runs are out.
   S23 left one alternate above its row: on Retribution Full buffed, Arch-Druid's Tainted
