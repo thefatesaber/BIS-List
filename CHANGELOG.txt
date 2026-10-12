@@ -7,6 +7,23 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [ruling] The Desolation 4-piece stays out of the sims; alternates get ten runs of their own.
+  Three answers from Fate. Nothing changes on the page today; ten runs are out.
+  The Desolation set. Seven Herald lists wear four pieces of it. The sim does not know its
+  4-piece bonus, a chance on attacks to gain Agility for 15 seconds, and those lists carry
+  the 2-piece only. Taken at the 1% chance Wowhead gives it, the local build reads the
+  bonus at +65 DPS on Marksmanship and Enhancement and under +20 on Survival and Beast
+  Mastery. But no log shows how often it fires, and procs on this site are tuned to logs,
+  not to tooltip chances. Fate ruled that it stays out. The seven lists do not change.
+  Alternates. 28 rows list alternates with deltas from older sweeps: 18 against a list
+  that has changed since, 10 with no base on record. Fate ruled a fresh reading. Each
+  alternate is run on its list as it stands today, wearing the row's enchant and gems:
+  37 alternates on 24 rows, ten runs (S23). The page takes the new deltas when the runs
+  come back.
+  Weapon rows. Four rows are left as they are: Fury Obtainable's two weapon rows and the
+  All-Time main hands of Retribution and Frost Death Knight. Most of their 17 alternates
+  are proc weapons with no model for that spec, and all 17 are fallbacks. Fate ruled that
+  they keep the sweeps of record.
 - [page] Obtainable Feral takes a Blasphemite and ten Deft Ametrines: 2627 becomes 2662.
   Run by Fate as S22. Feral Obtainable was the one list outside the evokers with no
   Blasphemite: its helm wore two Delicate Crimson Spinel beside the meta gem. The run
