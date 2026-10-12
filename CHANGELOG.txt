@@ -6,6 +6,20 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-12
+- [page] Restoration Shaman now counts its Desolation set bonus: four lists gain 62 to 94 DPS.
+  Run by Fate as S19. Restoration wears the Helm and Pauldrons of Desolation on all four
+  lists, and the sim does not know that set's 2-piece bonus. The other lists that wear the
+  pair count it as crit rating on the helm. Restoration's four did not, and now do.
+  Full buffed 5944 becomes 6038, All-Time 4420 becomes 4492, Obtainable 4270 becomes 4339
+  and Herald 3809 becomes 3871. The control arms, the lists without the bonus, read 5943
+  and 4418 on two lists last simmed on 30 September. Each stat panel gains 12 crit rating.
+  No row changes, since a set bonus has no row. Restoration still leads every tab; Full
+  buffed shows 5,883.
+  The bonus is 12 crit rating at level 30: Fate read it on the helm in game. Wowhead's
+  tooltip says 13, and an arm at 13 read 3 and 8 DPS higher; the game's number is the one
+  that counts. All four sim dates move to 12 October.
+
 ## 2026-10-11
 - [ruling] Four Herald lists get a run on their own spec's gems; the set bonus is 12 crit for all.
   Two answers from Fate. Nothing changes on the page today; six runs are out.
