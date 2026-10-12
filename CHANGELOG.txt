@@ -7,6 +7,26 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [page] Alternates re-read on today's lists: 37 new deltas; staff alternates now sit within noise.
+  Run by Fate as S23, ten runs. Each run was one list as it stands, with every alternate of
+  its rows as an arm wearing the row's enchant and gems. The ten lists read their own
+  number again, six exactly and all within 2 DPS, so no number moves. 24 rows take the new
+  deltas, and hovering a delta shows the number it was measured against.
+  What changed band. Mag'hari Chieftain's Staff and Grand Magister's Staff of Torrents read
+  0.4% to 0.8% behind Abracadaver on Frost Mage, Affliction and Devastation All-Time, not
+  4.2% to 5.4%: they are within noise. The old sweeps fit staves that were not enchanted.
+  On Fury Obtainable, Chaos Talisman in Trinket 1 (-1.7%) and Herkuml War Token in Trinket
+  2 (-2.0%) go the other way and become fallbacks.
+  Elsewhere. Devourer Obtainable's Wastewalker Helm reads 1.8% behind, not 4.4%.
+  Restoration Obtainable's Abracadaver gets its first result: 1.1% behind the Royal Scepter
+  and its off hand. On Retribution Full buffed, Arch-Druid's Tainted Seal at item level 47
+  read 8 DPS above the listed Fleshfused Circle, +0.2% as it already showed. Both sit
+  inside the noise band and the row is unchanged.
+  Four rows list their alternates in a new order, best first. Two notes follow the runs:
+  Restoration's main hand no longer calls Abracadaver unsimmed, and Windwalker's head note
+  gives this run's gap, 6 DPS.
+  The four weapon rows kept by ruling were not in these runs. From here on validate.js
+  fails a row whose alternates were measured on a number its list no longer has.
 - [ruling] The Desolation 4-piece stays out of the sims; alternates get ten runs of their own.
   Three answers from Fate. Nothing changes on the page today; ten runs are out.
   The Desolation set. Seven Herald lists wear four pieces of it. The sim does not know its

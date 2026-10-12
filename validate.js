@@ -173,6 +173,29 @@ else if (!/^\d{4}-\d{2}-\d{2}$/.test(CONFIG.updated))
 if (/SET ME/i.test(CONFIG.heraldRule || ""))
   err("CONFIG.heraldRule still holds the placeholder text");
 
+// ------------------------------------------------------------ sweep bases
+// A row's alternates are measured against a base: the list itself, run beside
+// them. altbase holds that reading, and each delta is a percentage of it
+// (ruling D30; the S23 runs of 2026-10-12). A list that is re-run and moves
+// leaves its alternates on a base it no longer has. By 2026-10-12 that had
+// happened to 18 rows without anyone seeing it, and ten more named no base at
+// all. So a row that shows a delta carries an altbase within ALT_BASE_TOL DPS
+// of its list's number: the raw number on an effective list, since that is
+// what a run reports. An unchanged list read within 2 of its stored number on
+// every run of S19 to S23; a list that really moves, moves by more.
+// ALT_BASE_OLD holds the rows ruled to keep an older sweep. Like the
+// item-level exceptions further down, each one is data: it is printed on
+// every run, and it fails when its row no longer needs it or when its reason
+// says that something is still to be done.
+const ALT_BASE_TOL = 3;
+const ALT_BASE_OLD = new Map([
+  ["warrior/obtainable/Main Hand", "Fury Obtainable, Main Hand: its four alternates keep the sweep of record, on a base of 3384; ruled 2026-10-12 (D31)"],
+  ["warrior/obtainable/Off Hand", "Fury Obtainable, Off Hand: its five alternates, the same sweep and ruling (D31)"],
+  ["paladin/alltime/Main Hand", "Retribution All-Time, Main Hand: its four alternates keep the sweep of record, which named no base; ruled 2026-10-12 (D31)"],
+  ["deathknight/alltime/Main Hand", "Frost DK All-Time, Main Hand: its four alternates, the same ruling (D31)"],
+]);
+const altBaseOldSeen = new Map();
+
 // ------------------------------------------------------------------ rows
 const ilvlById = new Map();
 
@@ -333,6 +356,21 @@ for (const c of CLASSES) {
       // and stay however long they need to be.
       if (r.alts && r.alts.length > 2 && !["Main Hand", "Off Hand"].includes(r.slot))
         warn(`${at}: ${item} lists ${r.alts.length} alternates - policy is BiS + 2 on non-weapon slots`);
+
+      // The base the deltas were measured on (see ALT_BASE_TOL above).
+      {
+        const key = `${c.id}/${L}/${r.slot}`;
+        const measured = (r.alts || []).some((a) => a.delta != null);
+        const number = (c.rawByList || {})[L] != null ? c.rawByList[L] : (c.dpsByList || {})[L];
+        const onBase = Number.isInteger(r.altbase) && number != null && Math.abs(r.altbase - number) <= ALT_BASE_TOL;
+        if (r.altbase != null && !(r.alts || []).length)
+          err(`${at}: ${item} names a sweep base (altbase ${r.altbase}) and lists no alternate`);
+        if (ALT_BASE_OLD.has(key)) altBaseOldSeen.set(key, { measured, onBase });
+        else if (measured && r.altbase == null)
+          err(`${at}: ${item} shows a delta on its alternates and names no base — altbase is the list's own DPS in the run that measured them`);
+        else if (measured && !onBase)
+          err(`${at}: ${item}: its alternates were measured against ${r.altbase} and the list is at ${number} — re-read them on the list as it stands (a row ruled to keep an old sweep goes in ALT_BASE_OLD)`);
+      }
     }
   }
 
@@ -428,6 +466,15 @@ for (const [id, ok] of ILVL_SPLIT_OK) {
   if (!byIlvl || byIlvl.size < 2) err(`ILVL_SPLIT_OK still lists ${id}, which the page no longer shows at two levels — remove the exception`);
   if (/pending|re-?run|until|to do|todo|tbd|await/i.test(ok.why)) err(`ILVL_SPLIT_OK ${id}: the reason says something is still open ("${ok.why}") — an exception needs a ruling, not a promise`);
   notes.push(`item-level exception in force: ${ok.why} (${id}; levels ${Object.keys(ok.levels).join(" and ")})`);
+}
+
+for (const [key, why] of ALT_BASE_OLD) {
+  const seen = altBaseOldSeen.get(key);
+  if (!seen) err(`ALT_BASE_OLD lists ${key}, which is not a row of the page — remove the exception`);
+  else if (!seen.measured) err(`ALT_BASE_OLD still lists ${key}, which shows no delta any more — remove the exception`);
+  else if (seen.onBase) err(`ALT_BASE_OLD still lists ${key}, whose base is its list's number again — remove the exception`);
+  if (/pending|re-?run|until|to do|todo|tbd|await/i.test(why)) err(`ALT_BASE_OLD ${key}: the reason says something is still open ("${why}") — an exception needs a ruling, not a promise`);
+  notes.push(`sweep-base exception in force: ${why} (${key})`);
 }
 
 // ---------------------------------------------------------------- report
