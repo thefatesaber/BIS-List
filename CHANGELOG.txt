@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [page] Obtainable Feral takes a Blasphemite and ten Deft Ametrines: 2627 becomes 2662.
+  Run by Fate as S22. Feral Obtainable was the one list outside the evokers with no
+  Blasphemite: its helm wore two Delicate Crimson Spinel beside the meta gem. The run
+  carried three lists: this one as it stood, which read 2627, its number exactly; the same
+  with a Culminating Blasphemite in the helm, 2651; and that with Deft Ametrine for
+  Delicate Crimson Spinel in the ten sockets of waist, legs, feet and rings, 2662. Fate
+  ruled that the last one lands.
+  Six rows change gems. The helm wears Agile Primal Diamond, Culminating Blasphemite and
+  one Delicate Crimson Spinel; waist, legs, feet and both rings wear Deft Ametrine, as on
+  Feral Herald. The panel trades 7 Agility for 20 haste rating. Feral rises one place on
+  Obtainable, to 16th, past Demonology. The sim date moves to 12 October.
 - [page] Herald Fire, Assassination, Subtlety and Fury take new gems and gain 26 to 75 DPS.
   Run by Fate as S20. Each of the four Herald lists wore other gems than its spec wears on
   Obtainable. Each run carried the list as it stood beside the same list with the
