@@ -1,8 +1,7 @@
-# Obtainable - Warlock - Demonology
-# OBTAINABLE WAVE candidate (2026-10-03). Changes vs the All-time profile:
-#   neck/rings: native socket only — the extra-socket tech is not farmable; socket bonus stacks dropped
-#   Bloodoath Signet -> Stitchflesh's Misplaced Signet — warlock-main pick
-#   Band of the Ancient Dredger -> Bottle-Popper Ring — warlock-main pick
+# Herald - Warlock - Demonology
+# REGEARED v2 (2026-10-03): the double Elekk Tusk becomes the warlock main pair (Pendant + Gale); Surplus Limb fills the empty off hand
+# HERALD WAVE candidate (2026-10-03): armor slots take the warlock main's Herald set verbatim
+# (ilvl <= 41, Classic/TBC/WotLK); neck/rings/trinkets ride the obtainable lines (era-exempt, <= 41 enforced).
 warlock="Fatecastr"
 level=30
 race=troll
@@ -16,36 +15,40 @@ spec=demonology
 talents=CoQAMrNP5kak+EBqLfUa3dMm+CYGBGmZAAAAAAAAAAAAAAYsNghBAMMDDAwAAAAMYAAAA
 
 
-# Merciless Gladiator's Felweave Cowl 45
-head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30
+# forgotten_shadow_hood 33
+head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30
 # Tuskarr Bone Necklace 135
 neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=32196,drop_level=30
-# Hatefury Mantle 42
-shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=32218/32196,bonus_id=9036,drop_level=30
-# Drape of the Messenger 43
-back=,ilevel=43,id=46042,enchant_id=3243,gem_id=32196,bonus_id=9043,drop_level=30
-# Merciless Gladiator's Felweave Raiment 45
-chest=,ilevel=45,id=31982,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9357,drop_level=30
-# Bracers of the Malefic 44
-wrist=,ilevel=44,id=34436,enchant_id=2332,gem_id=32196,bonus_id=9037,drop_level=30
-# Pharos Gloves 43
-hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=32196/32196,bonus_id=9043,drop_level=30
+# Mantle of the Corruptor 40
+shoulder=,ilevel=40,id=30215,enchant_id=3838,gem_id=32196/32196,bonus_id=9035,drop_level=30
+# pennant_cloak 40
+back=,ilevel=39,id=44005,enchant_id=3243,gem_id=32196,bonus_id=9039,drop_level=30
+# vestments_of_the_seawitch 40
+chest=,ilevel=40,id=30107,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
+# bindings_of_raging_fire 33
+wrist=,ilevel=33,id=34697,enchant_id=2332,gem_id=32196,bonus_id=7202,drop_level=30
+# manaspark_gloves 33
+hands=,ilevel=33,id=24450,enchant_id=2937,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Belt of Blasting 40
 waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
-# Leggings of Calamity 44
-legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
-# Boots of Fiery Resolution 43
-feet=,ilevel=43,id=45537,enchant_id=4092,gem_id=32196/32196,bonus_id=9043,drop_level=30
+# breeches_of_the_occultist 33
+legs=,ilevel=33,id=30531,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,drop_level=30
+# saviors_slippers 41
+# Feet A/B 2026-10-10: the page's Pandaren's Step leg (4429) returned 2256, -6; Precision stands,
+# the page row relabeled to match (section 3, relabel branch). The 2256 input retired unlanded.
+feet=,ilevel=41,id=45567,enchant_id=4092,gem_id=71854/71854,bonus_id=9043,drop_level=30
 # Stitchflesh's Misplaced Signet (obtainable swap, was Bloodoath Signet)
 finger1=,id=178736,ilevel=33,enchant_id=6108,gem_id=32196,drop_level=30
 # Bottle-Popper Ring (obtainable swap, was Band of the Ancient Dredger)
 finger2=,id=151410,ilevel=33,enchant_id=6108,gem_id=32196,drop_level=30
-# Solace of the Fallen (44)
-trinket1=solace_of_the_fallen_proxy,ilevel=44,stats=9int,equip=3vers_100%_8stack_10dur_procby/spell
-# Solace of the Fallen (45)
-trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
-# Abracadaver 45 
-main_hand=,ilevel=45,id=51887,bonus_id=9051,gem_id=32196/32196/32196,enchant_id=2669
+# Pendant of the Violet Eye (38)
+trinket1=pendant_of_the_violet_eye_proxy,ilevel=38,stats=8int,use=19vers_20stack_0.515tick_20dur_120cd
+# Gale of Shadows (33)
+trinket2=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic
+# The Turning Tide 39
+main_hand=,ilevel=39,id=40396,bonus_id=9039,enchant_id=2669
+# surplus_limb 39
+off_hand=,id=40273,ilevel=39,bonus_id=9039,enchant_id=4434
 
 # Consumables
 # potion=golemblood_potion
@@ -87,8 +90,10 @@ actions.precombat+=/demonbolt,if=!buff.power_siphon.up&(talent.ruination&!talent
 actions.precombat+=/shadow_bolt
 
 # Executed every time the actor is available.
-actions=potion,if=pet.demonic_tyrant.active|fight_remains<=30
-actions+=/call_action_list,name=racials,if=pet.demonic_tyrant.active|fight_remains<22,use_off_gcd=1
+# 2026-10-11 (ruling D14): the potion line and the racials call also fire on a build without Demonic Tyrant.
+# A level-30 build cannot reach the talent; gated on the pet alone, both waited for the end of the fight.
+actions=potion,if=pet.demonic_tyrant.active|!talent.summon_demonic_tyrant|fight_remains<=30
+actions+=/call_action_list,name=racials,if=pet.demonic_tyrant.active|!talent.summon_demonic_tyrant|fight_remains<22,use_off_gcd=1
 actions+=/call_action_list,name=items,use_off_gcd=1
 actions+=/call_action_list,name=diabolist
 
@@ -127,7 +132,7 @@ warlock.default_pet=sayaad
 
 
 # Simulation Options
-iterations=100000
+iterations=50000
 desired_targets=1
 max_time=300
 fixed_time=1

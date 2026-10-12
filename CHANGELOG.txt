@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Demonology now uses its potion and its racial on time: four lists gain 12 to 31 DPS.
+  Run by Fate as S15. Two lines of Demonology's action list waited for a Demonic Tyrant to
+  be out. A level-30 build cannot reach that talent, so Berserking and, on Full buffed, the
+  potion were only used in the last seconds of a fight. By Fate's ruling both lines now
+  also fire when the build has no Tyrant.
+  Full buffed / All-Time / Obtainable / Herald: 3690 / 2763 / 2650 / 2274, from 3659 / 2751
+  / 2638 / 2262. The three lists without consumables gain 12 each, from Berserking; Full
+  buffed gains 31 with its potion. Both control arms, the action list as it was, returned
+  the stored number exactly.
+  Places: Demonology rises to 17th on All-Time, past Assassination and Feral, and to 20th on
+  Full buffed, past Arms. No stat panel changes. The four sim dates move to 11 October. The
+  Buff worth panel is carried.
 - [page] Feral Full buffed is back on Mighty Agility and gains 71 DPS: 3,957 becomes 4,028.
   Run by Fate as S14. Feral's other three lists wear Mighty Agility on the staff. Full buffed
   alone wore Superior Impact, and counted it twice: once in the staff's damage and once more

@@ -86,8 +86,10 @@ actions.precombat+=/demonbolt,if=!buff.power_siphon.up&(talent.ruination&!talent
 actions.precombat+=/shadow_bolt
 
 # Executed every time the actor is available.
-actions=potion,if=pet.demonic_tyrant.active|fight_remains<=30
-actions+=/call_action_list,name=racials,if=pet.demonic_tyrant.active|fight_remains<22,use_off_gcd=1
+# 2026-10-11 (ruling D14): the potion line and the racials call also fire on a build without Demonic Tyrant.
+# A level-30 build cannot reach the talent; gated on the pet alone, both waited for the end of the fight.
+actions=potion,if=pet.demonic_tyrant.active|!talent.summon_demonic_tyrant|fight_remains<=30
+actions+=/call_action_list,name=racials,if=pet.demonic_tyrant.active|!talent.summon_demonic_tyrant|fight_remains<22,use_off_gcd=1
 # PI pooled externally per the buffed-set ruling, on the racials' own gate: synced to Tyrant.
 # No-Tyrant fallback: the 30-point build cannot reach Summon Demonic Tyrant, so without
 # |!talent the gate never passes (proven: full template in, dps unchanged to the digit).
