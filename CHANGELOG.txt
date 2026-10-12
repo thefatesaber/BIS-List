@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [ruling] Seven Full buffed lists get a run against the Timewalking rings three others wear.
+  One answer from Fate. Nothing changes on the page today; seven runs are out.
+  S23 left one alternate above its row: on Retribution Full buffed, Arch-Druid's Tainted
+  Seal at item level 47 read 8 DPS over the listed ring. The Seal and Signet of the False
+  Accuser at 47 are Timewalking versions with one gem each, and Frost Death Knight,
+  Devourer and Shadow already wear both on Full buffed. The other 24 Full buffed lists wear
+  item-level-33 rings with two gems.
+  On the local build the pair reads higher on twelve of those 24 and lower on twelve.
+  Seven gain 8 DPS or more: Unholy 25, Retribution 16, Outlaw 15, Frost Mage 12, Arms 10,
+  Fury 9, Enhancement 8. Fate ruled a run of record for all seven (S24): each list as it
+  stands, beside the same list with Ring 1 at 47, with Ring 2 at 47, and with both. A list
+  whose best arm reads above it takes that arm. One that does not stays as it is.
 - [page] Alternates re-read on today's lists: 37 new deltas; staff alternates now sit within noise.
   Run by Fate as S23, ten runs. Each run was one list as it stands, with every alternate of
   its rows as an arm wearing the row's enchant and gems. The ten lists read their own
