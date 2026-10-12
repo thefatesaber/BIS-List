@@ -33,12 +33,15 @@ spec=subtlety
 talents=CUQA5HmDzx68KWyrW/8Y781L7DgBAAAAAALjBxstBGAgZWwCMjthZgBAGAAAAAAAAAAAAAgBA
 
 
+# REGEMMED 2026-10-12 (ruling D26): the gems Subtlety Obtainable wears, slot for slot, on five pieces. Deft Ametrine for 7 Adept Lava
+# Coral, Deadly Pyrestone for the eighth, a Deft Ametrine and the Quick Onyx. Fate's run carried both lists: 1228 as it stood,
+# 1259 regemmed.
 # wastewalker_helm (33)
-head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
+head=,id=28224,ilevel=33,gem_id=76884/213743/32222,bonus_id=7202,drop_level=30
 # Ukhel Ancestry Beads (obtainable swap, was Amnesia)
 neck=,id=193676,ilevel=33,enchant_id=5437,gem_id=213464,drop_level=30
 # Mantle of Perenolde (33)
-shoulder=,id=27434,ilevel=33,enchant_id=3835,gem_id=213494/40150,bonus_id=6710/6652,drop_level=30
+shoulder=,id=27434,ilevel=33,enchant_id=3835,gem_id=32222/32222,bonus_id=6710/6652,drop_level=30
 # Cloak of the Coming Night 33
 back=,ilevel=33,id=34708,enchant_id=3243,bonus_id=7202
 # Bloodsea Brigand's Vest 40
@@ -48,11 +51,11 @@ wrist=,id=34602,ilevel=33,enchant_id=4416,gem_id=40150/40150,bonus_id=7202,drop_
 # Liar's Tongue Gloves 38
 hands=,id=28776,ilevel=38,enchant_id=5259,gem_id=40150/40150,bonus_id=9034,drop_level=30
 # Belt of One-Hundred Deaths 40
-waist=,id=30106,ilevel=40,gem_id=71852/71852/71852,bonus_id=9035,drop_level=30
+waist=,id=30106,ilevel=40,gem_id=40150/40150/40150,bonus_id=9035,drop_level=30
 # Moonchild Leggings 33
-legs=,id=27492,ilevel=33,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=7202,drop_level=30
+legs=,id=27492,ilevel=33,enchant_id=4880,gem_id=40150/40150/40150,bonus_id=7202,drop_level=30
 # Footwraps of Vile Deceit 39
-feet=,id=40243,ilevel=39,enchant_id=1887,gem_id=71852,bonus_id=9039,drop_level=30
+feet=,id=40243,ilevel=39,enchant_id=1887,gem_id=40150,bonus_id=9039,drop_level=30
 # Stitchflesh's Misplaced Signet (33)
 finger1=,id=178736,ilevel=33,enchant_id=6109,gem_id=40150,drop_level=30
 # Signet of the False Accuser (obtainable swap, was Bloodoath Signet)

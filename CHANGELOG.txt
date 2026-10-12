@@ -7,6 +7,25 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [page] Herald Fire, Assassination, Subtlety and Fury take new gems and gain 26 to 75 DPS.
+  Run by Fate as S20. Each of the four Herald lists wore other gems than its spec wears on
+  Obtainable. Each run carried the list as it stood beside the same list with the
+  Obtainable gems, slot for slot, and the regem won all four.
+  Fire: 2895 becomes 2970. The helm takes Burning Shadowspirit Diamond for Mystical Skyfire
+  Diamond, and 17 sockets on eight pieces take Brilliant Crimson Spinel for Artful Lava
+  Coral. The meta gem alone read 2905. The panel gains 21 Intellect and loses 34 mastery
+  rating. Fire rises one place on Herald, to 6th, past Devourer.
+  Assassination: 2305 becomes 2345. Six rows: Deft Ametrine for eight Adept Lava Coral,
+  Deadly Pyrestone for two Deft Ametrine and the Quick Onyx. It rises one place, to 16th,
+  past Feral.
+  Subtlety: 1228 becomes 1259. Five rows: Deft Ametrine for seven Adept Lava Coral, Deadly
+  Pyrestone for the eighth, a Deft Ametrine and the Quick Onyx.
+  Both rogue panels gain 2 Agility, 6 crit and 11 haste rating and lose 20 mastery rating.
+  Fury: 3498 becomes 3524. Four rows: Quick Onyx on the shoulders, Quick Emerald on the
+  feet and both rings, for six Fierce Ametrine. The panel trades 13 Strength for 8 mastery
+  and 10 haste rating.
+  The lists as they stood read 2894, 2306, 1228 and 3498 in the same runs, each within 1
+  of its number. All four sim dates move to 12 October.
 - [page] Elemental Shaman's set bonus is 12 crit rating, not 13: four lists lose 4 to 6 DPS.
   Run by Fate as S21. Elemental wears the Helm and Pauldrons of Desolation, and its four
   lists counted the set's 2-piece bonus as 13 crit rating where every other list counts

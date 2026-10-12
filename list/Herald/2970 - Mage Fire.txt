@@ -12,26 +12,29 @@ professions=enchanting=60/inscription=25
 spec=fire
 talents=C8DAche08tHz49KSVf7iKFnyuBgxAmZkBAAAAAAAAAwMDYMDAAAAAwGYGAAAAGDLAAAAMAA
 
+# REGEMMED 2026-10-12 (ruling D26): the gems Fire Obtainable wears, slot for slot. Burning Shadowspirit Diamond for Mystical Skyfire
+# Diamond on the helm, Brilliant Crimson Spinel for Artful Lava Coral in 17 sockets. Fate's run carried both lists: 2894 as it
+# stood, 2970 regemmed (2905 with the meta gem alone).
 # forgotten_shadow_hood 33
-head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30
+head=,ilevel=33,id=37684,gem_id=68780/213743,bonus_id=4196,drop_level=30
 # Hook Charm Necklace (obtainable swap, was Amnesia; the All-time comment here was already stale)
 neck=,id=151437,ilevel=33,enchant_id=5890,gem_id=213470,drop_level=30
 # Mantle of Tirisfal 40
-shoulder=,ilevel=40,id=30210,enchant_id=3838,gem_id=71854/71854,bonus_id=9035,drop_level=30
+shoulder=,ilevel=40,id=30210,enchant_id=3838,gem_id=32196/32196,bonus_id=9035,drop_level=30
 # pennant_cloak 40
-back=,ilevel=39,id=44005,enchant_id=3243,gem_id=71854,bonus_id=9039,drop_level=30
+back=,ilevel=39,id=44005,enchant_id=3243,gem_id=32196,bonus_id=9039,drop_level=30
 # vestments_of_the_seawitch 40
-chest=,ilevel=40,id=30107,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
+chest=,ilevel=40,id=30107,enchant_id=6625,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
 # bindings_of_raging_fire 33
-wrist=,ilevel=33,id=34697,enchant_id=2332,gem_id=71854,bonus_id=7202,drop_level=30
+wrist=,ilevel=33,id=34697,enchant_id=2332,gem_id=32196,bonus_id=7202,drop_level=30
 # manaspark_gloves 33
-hands=,ilevel=33,id=24450,enchant_id=2937,gem_id=71854/71854,bonus_id=7202,drop_level=30
+hands=,ilevel=33,id=24450,enchant_id=2937,gem_id=32196/32196,bonus_id=7202,drop_level=30
 # Belt of Blasting 40
-waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30
+waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
 # breeches_of_the_occultist 33
-legs=,ilevel=33,id=30531,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,drop_level=30
+legs=,ilevel=33,id=30531,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=7202,drop_level=30
 # saviors_slippers 41
-feet=,ilevel=41,id=45567,enchant_id=4429,gem_id=71854/71854,bonus_id=9043,drop_level=30
+feet=,ilevel=41,id=45567,enchant_id=4429,gem_id=32196/32196,bonus_id=9043,drop_level=30
 # Seal of the Regal Loa (obtainable swap, was Emperor's Seal; the All-time comment here was already stale)
 finger1=,id=159458,ilevel=33,enchant_id=6109,gem_id=32196,drop_level=30
 # Stitchflesh's Misplaced Signet (33)
