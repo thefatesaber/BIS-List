@@ -1,8 +1,8 @@
-# Obtainable - Paladin - Retribution
-# HoW damage calibration — game/sim = 1.3503  (place BEFORE the actor line; Raidbots honours these: 2901 there vs 2900 local, 2026-10-10)
-override.spell_data=effect.14488.ap_coefficient=2.91414
+# Herald - Paladin - Retribution
+# HoW damage calibration — game/sim = 1.3503  (place BEFORE the actor line; Raidbots honours these: 2711 there vs 2710 local, 2026-10-10)
+override.spell_data=effect.14488.ap_coefficient=2.81
 override.spell_data=effect.1259264.ap_coefficient=2.18553
-override.spell_data=effect.1291900.ap_coefficient=2.91414
+override.spell_data=effect.1291900.ap_coefficient=2.81
 # Per-spell calibration to Exhibiting's naked 5:00 log — BEFORE the actor line
 # Final Verdict 383328: 4.65069 × 1.089
 override.spell_data=effect.1015174.ap_coefficient=5.06460
@@ -10,8 +10,9 @@ override.spell_data=effect.1015174.ap_coefficient=5.06460
 override.spell_data=effect.1016127.ap_coefficient=4.53180
 # Blade of Justice 184575: 1.92877 × 1.321
 override.spell_data=effect.267535.ap_coefficient=2.54791
-# (keep the three HoW overrides from before; HoW merged now reads 0.966 —
-#  if you want it exact, retune 2.91414 → 2.81 on 14488/1291900, i.e. ×1.304 instead of ×1.35)
+# Hammer of Wrath retuned 2026-10-11 (ruling D15): 14488 and 1291900 at 2.81, i.e. ×1.304 instead of ×1.35.
+#  At 2.91414 the merged HoW read 0.966 game to sim. 1259264 keeps 2.18553.
+
 paladin="Exhibiting"
 level=30
 race=blood_elf
@@ -24,35 +25,35 @@ spec=retribution
 
 talents=CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA
 
-# Helm of the Faceless (42)
-head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30
+# Helm of the Corrupted Mind (39)
+head=,ilevel=39,id=39260,gem_id=76886/213743,bonus_id=9039
 # Ukhel Ancestry Beads (140)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,drop_level=30
-# Lightbringer Shoulderbraces (42)
-shoulder=,ilevel=42,id=30997,enchant_id=3835,gem_id=213500/213500,bonus_id=9036,drop_level=30
-# Titanskin Cloak (43)
-back=,ilevel=43,id=45496,enchant_id=3243,gem_id=213500,bonus_id=9043,drop_level=30
-# Hard Khorium Battleplate (44)
-chest=,ilevel=44,id=34377,enchant_id=6625,gem_id=213500/213500/71856,bonus_id=9037,drop_level=30
+# Crystalforge Shoulderbraces (40)
+shoulder=,id=30133,ilevel=40,gem_id=213500/213500,bonus_id=9035,enchant_id=3835
+# Cloak of the Shadowed Sun (39)
+back=,ilevel=39,id=40252,enchant_id=3243,bonus_id=9039
+# Justicar Chestpiece (38)
+chest=,ilevel=38,id=29062,bonus_id=9034,enchant_id=6625,gem_id=213500/213500/213500,drop_level=30
 # bracers_of_eradication 40
-wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=71856,bonus_id=9035,drop_level=30
-# Hard Khorium Battlefists (44)
-hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=71856/71856,bonus_id=9037,drop_level=30
-# Red Belt of Battle (40)
+wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=213500,bonus_id=9035,drop_level=30
+# Faith Bearer's Gauntlets (33)
+hands=,ilevel=33,id=25942,enchant_id=4432,gem_id=213500/213500,bonus_id=7202
+# Red Belt of Battle 40
 waist=,ilevel=40,id=30032,gem_id=213500/213500/213500,bonus_id=9035,drop_level=30
-# Felfury Legplates (44)
-legs=,ilevel=44,id=34180,enchant_id=4881,gem_id=213500/213500/213500,bonus_id=9037,drop_level=30
-# Dreadboots of the Legion (42)
-feet=,ilevel=42,id=32345,enchant_id=1597,gem_id=213500/213500,bonus_id=9036,drop_level=30
-# Arch-Druid's Tainted Seal (33)
-finger1=,ilevel=33,id=134487,enchant_id=6110,gem_id=213500,drop_level=30
+# Greaves of the Martyr (33)
+legs=,ilevel=33,id=30536,enchant_id=4881,gem_id=213500/213500/213500,bonus_id=6710,drop_level=30
+# Sha'tari Wrought Greaves (33)
+feet=,ilevel=33,id=28176,enchant_id=4429,gem_id=213500/213500,bonus_id=6710,drop_level=30
+# Fleshfused Circle (33)
+finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=213500,drop_level=30
 # Signet of the False Accuser (33)
-finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=213500,drop_level=30,equip=procby/attack_37str_15dur_16.2%
-# Armored Elekk Tusk (33)
-trinket1=,id=108902,ilevel=32,bonus_id=4811,drop_level=30
+finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=213500,drop_level=30,equip=procby/attack_37str_15dur_16.2%
+# Herkuml War Token (15)
+trinket1=,id=50355,ilevel=15
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
-# The_Untamed_Blade (40)
+# Bonereaver's Edge (38)
 main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_19.6%
 
 #213500

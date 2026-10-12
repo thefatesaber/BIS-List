@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-11
+- [page] Retribution's Hammer of Wrath is retuned to its log: four lists lose 9 to 13 DPS.
+  Run by Fate as S16. Retribution's abilities are calibrated against a combat log through
+  overrides on their coefficients. With the other overrides in place, Hammer of Wrath read
+  0.966 game to sim, a little hot. By Fate's ruling its coefficient goes from 2.91414 to
+  2.81 on both of its effects, the exact figure.
+  Full buffed / All-Time / Obtainable / Herald: 4303 / 3106 / 2895 / 2702, from 4316 / 3115
+  / 2904 / 2711. Hammer of Wrath is about 6% of the Full buffed list's damage, so the change
+  is small.
+  The override applies to the whole sim, so these runs could carry no control arm. All four
+  numbers are within 1 DPS of the local build's reading, and the four stored numbers had
+  been re-read on that build the same day, each within 2.
+  No place changes and no stat panel changes. The Buff worth panel is carried.
 - [page] Demonology now uses its potion and its racial on time: four lists gain 12 to 31 DPS.
   Run by Fate as S15. Two lines of Demonology's action list waited for a Demonic Tyrant to
   be out. A level-30 build cannot reach that talent, so Berserking and, on Full buffed, the
