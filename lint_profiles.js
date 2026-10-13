@@ -30,6 +30,9 @@
 //  - a line's socket bonus ids add up to its gems
 //  - a list that wears the Helm and Pauldrons of Desolation carries the set's
 //    2-piece on its head line: enchant=12crit (15 on Survival Full buffed)
+//  - any other head token is the crit of a Full buffed list's weapon stones,
+//    3 a stone, or it is no proxy on record
+//  - a line leaves no socket of its item empty
 
 const fs = require("fs");
 const path = require("path");
@@ -63,6 +66,22 @@ const CRUSADER_ENCHANT = 1900, CRUSADER_RING = "37str_15dur";
 // Restoration's four lists had no token and Elemental's four carried 13.
 const DESOLATION = { head: "28192", shoulder: "27713", token: "12crit",
                      withStone: { "hunter_survival/alltime_buffed": "15crit" } };
+
+// The other head token on record is the crit of a melee Full buffed list's
+// weapon stones, 3 a stone (PROJECT.md, D16 and D17), and the page names the
+// stones in that list's Consumables panel. A head token is one of those two
+// or it stands for nothing. Until 2026-10-12 nothing held that: four warlock
+// heads carried enchant=1sp for a Felweave 2-piece the set does not have
+// (ruling D33), and the token had come back once after being taken off by
+// hand.
+const STONES = new Set([23529, 28421]), STONE_CRIT = 3;
+const stonesOn = (c, list) => {
+  const cons = c.consumables || {};
+  const oil = (cons[list] || cons).oil;       // per list, or one panel for every list
+  if (!oil) return 0;
+  if (oil.wowhead != null) return STONES.has(oil.wowhead) ? String(oil.hands || "MH").split("/").length : 0;
+  return ["mh", "oh"].filter(h => oil[h] && STONES.has(oil[h].wowhead)).length;
+};
 
 // ---------------------------------------------------------------- page data
 let CLASSES;
@@ -328,6 +347,15 @@ for (const dir of DIRS) {
         if (dh.kv.enchant !== want)
           E(`line ${dh.ln}: the Helm and Pauldrons of Desolation are worn and the head line carries ` +
             `${dh.kv.enchant ? "enchant=" + dh.kv.enchant : "no enchant= token"} — the 2-piece proxy of record is enchant=${want}`);
+      } else if (dh && /^\d+[a-z_]+$/.test(dh.kv.enchant || "")) {
+        // any other head token: the crit of this list's weapon stones, or nothing
+        const n = list === "alltime_buffed" ? stonesOn(c, list) : 0;
+        if (!n)
+          E(`line ${dh.ln}: head carries enchant=${dh.kv.enchant}, which is no proxy on record — a head token stands for the Desolation 2-piece ` +
+            `or for the crit of a Full buffed list's weapon stones, and this list has neither`);
+        else if (dh.kv.enchant !== `${STONE_CRIT * n}crit`)
+          E(`line ${dh.ln}: head carries enchant=${dh.kv.enchant}; the page names ${n} weapon stone(s) for this list, ` +
+            `so the token of record is enchant=${STONE_CRIT * n}crit`);
       }
     }
 
@@ -385,6 +413,13 @@ for (const dir of DIRS) {
       const bonusSockets = (kv.bonus_id || "").split("/").reduce((n, b) => n + (GD.socketBonus[b] || 0), 0);
       if (bonusSockets && it && it.sockets + bonusSockets !== gems.length)
         E(`line ${ln}: ${slot} carries ${gems.length} gem(s) on ${it.sockets} socket(s) plus ${bonusSockets} from its bonus ids`);
+      // No socket of the item is left empty. The engine grants an item its
+      // socket bonus whatever its sockets hold (PROJECT.md, Socket bonuses),
+      // so an empty one would be counted by the sim and not by the game. More
+      // gems than the item has sockets is not an error here: a belt buckle, a
+      // socket proc and a jeweller's setting add sockets no bonus id names.
+      else if (it && gems.length < it.sockets)
+        E(`line ${ln}: ${slot} leaves a socket empty: ${gems.length} gem(s) on the ${it.sockets} socket(s) of ${it.name}`);
 
       if (!row) continue;
 

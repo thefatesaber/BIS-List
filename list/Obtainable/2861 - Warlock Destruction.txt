@@ -12,8 +12,11 @@ spec=destruction
 
 talents=CsQAMrNP5kak+EBqLfUa3dMm+iBDBwMDAgZAAAwAjZ2AAAAAAAAAAzAAAAGMAAAMYAAgB
 
+# 1sp OFF 2026-10-12 (ruling D33): the head line carried enchant=1sp, the stand-in of a 2-piece bonus. The Felweave set is a legacy
+# set with no 2-piece (Wowhead's level-30 tooltip), so the token came off. Fate's run carried both lists: 2870 with it, 2861
+# without.
 # Merciless Gladiator's Felweave Cowl 45
-head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659,enchant=1sp
+head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30,content_tuning=2659
 # Ukhel Ancestry Beads 135
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=71854,drop_level=30
 # Hatefury Mantle 42

@@ -7,6 +7,21 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [page] Four warlock lists drop a head token that stood for nothing and read 9 to 12 DPS lower.
+  Run by Fate as S25, four runs. Each run carried a list as it stood beside the same list
+  without the hidden +1 spell power on its head. All four lists read their own number
+  again, exactly. By Fate's ruling the list without the token lands.
+  Destruction: Full buffed 4101 becomes 4091, All-Time 2988 becomes 2979, Obtainable 2870
+  becomes 2861. Affliction Full buffed: 4635 becomes 4623.
+  The token was the stand-in of a 2-piece bonus of the Felweave set, which is a legacy set
+  with no such bonus. The five other lists that wear the Cowl and Raiment do not carry it,
+  so the nine now count the pair the same way. Nothing on a list's rows or stat panel
+  changes: the token was never shown.
+  On the Full buffed tab Outlaw rises to 14th and Destruction falls to 15th. The sim date
+  moves to 12 October on the four lists.
+  Two checks join the profile linter. A head token has to be one on record: the Desolation
+  2-piece, or the crit of a Full buffed list's weapon stones. And no socket of an item may
+  be left empty, since the sim grants a socket bonus whatever the sockets hold.
 - [ruling] The +8 Haste socket bonus is lit in game; a warlock head token comes off four lists.
   Two answers from Fate. Nothing changes on the page today; four runs are out.
   Socket bonuses. Six items on the lists read "Socket Bonus: +8 Haste": Abracadaver, the
