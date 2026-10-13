@@ -25,11 +25,11 @@ spec=retribution
 
 talents=CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA
 
-# Helm of the Faceless (42)
+# Helm of the Faceless (43)
 head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30
-# Ukhel Ancestry Beads (140)
+# Ukhel Ancestry Beads (33)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/71856/71856,bonus_id=9156/6652/9477/8782,drop_level=30
-# Lightbringer Shoulderbraces (42)
+# Spaulders of the Thalassian Savior (44)
 shoulder=,ilevel=44,id=34193,enchant_id=3835,gem_id=71856/71856,bonus_id=9036,drop_level=30
 # Titanskin Cloak (43)
 back=,ilevel=43,id=45496,enchant_id=3243,gem_id=71856,bonus_id=9043,drop_level=30
@@ -49,11 +49,11 @@ feet=,ilevel=42,id=32345,enchant_id=1597,gem_id=213500/213500,bonus_id=9036,drop
 finger1=,id=178869,ilevel=33,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Signet of the False Accuser (33)
 finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=213500/213500,bonus_id=6710/10386/6652/10879/10396,drop_level=30,equip=procby/attack_37str_15dur_16.2%
-# Heart of Roccor (155)
+# Heart of Roccor (36)
 trinket1=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
-# Bonereaver's Edge (38)
+# The Untamed Blade (40)
 main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_19.6%
 
 #213500

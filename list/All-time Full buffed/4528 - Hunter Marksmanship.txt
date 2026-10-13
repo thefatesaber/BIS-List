@@ -21,7 +21,7 @@ external_buffs.pool=power_infusion:120
 
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/32222,bonus_id=7202,drop_level=30,enchant=12crit
-# Phoenix Feather Pendant (135)
+# Phoenix Feather Pendant (33)
 neck=,id=200284,ilevel=33,enchant_id=5890,gem_id=213464/32222/32222,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3835,gem_id=32222/32222,bonus_id=7202,drop_level=30

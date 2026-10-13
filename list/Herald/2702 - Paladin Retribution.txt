@@ -27,7 +27,7 @@ talents=CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBA
 
 # Helm of the Corrupted Mind (39)
 head=,ilevel=39,id=39260,gem_id=76886/213743,bonus_id=9039
-# Ukhel Ancestry Beads (140)
+# Ukhel Ancestry Beads (33)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,drop_level=30
 # Crystalforge Shoulderbraces (40)
 shoulder=,id=30133,ilevel=40,gem_id=213500/213500,bonus_id=9035,enchant_id=3835
@@ -53,7 +53,7 @@ finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=213500,drop_level=30,equip=p
 trinket1=,id=50355,ilevel=15
 # Chaos Talisman (33)
 trinket2=,id=137459,ilevel=33,bonus_id=6710/6652,drop_level=30
-# Bonereaver's Edge (38)
+# The Untamed Blade (40)
 main_hand=the_untamed_blade_proxy,ilevel=40,weapon=sword2h_3.6speed_17min_29max,stats=5str_7agi_5sta,equip=procby/attack_97str_8dur_19.6%
 
 #213500

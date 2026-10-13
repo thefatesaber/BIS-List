@@ -14,7 +14,7 @@ override.player.spell_data=effect.856.base_value=15
 
 # Vengeful Gladiator's Silk Cowl (44)
 head=,ilevel=44,id=33758,gem_id=68780/213743,bonus_id=9357,drop_level=30
-# Bromach's Disentombed Locket (33)
+# Amnesia (33)
 neck=,ilevel=33,id=200210,enchant_id=5890,gem_id=213470/32196/32196,bonus_id=9156/6652/9477/8782,drop_level=30
 # vengeful_gladiators_silk_amice (44)
 shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=32196/32196,bonus_id=9357,drop_level=30
@@ -32,7 +32,7 @@ waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
 # Boots of Fiery Resolution (43)
 feet=,ilevel=43,id=45135,enchant_id=4069,gem_id=32196/32196,bonus_id=9043,drop_level=30
-# Signet of the False Accuser (33)
+# Emperor's Seal (33)
 finger1=,ilevel=33,id=231437,enchant_id=6109,gem_id=32196/40133,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Stitchflesh's Misplaced Signet (33)
 finger2=,ilevel=33,id=178736,enchant_id=6109,gem_id=40155/40155,drop_level=30

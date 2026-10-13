@@ -42,7 +42,7 @@ override.player.spell_data=effect.341774.ap_coefficient=0.952896
 
 # Helm of the Faceless (43) 
 head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9043,drop_level=30,enchant=3crit
-# Ukhel Ancestry Beads 135
+# Ukhel Ancestry Beads 33
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/71856/71856,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Spaulders of the Thalassian Savior 44
 shoulder=,ilevel=44,id=34193,enchant_id=3835,gem_id=71856/71856,bonus_id=9037,drop_level=30
@@ -67,7 +67,7 @@ feet=,ilevel=42,id=32345,enchant_id=1597,gem_id=71856/71856,bonus_id=9036,drop_l
 finger1=,ilevel=47,id=134487,enchant_id=6110,gem_id=71856,bonus_id=6710/10386/6652/8810,drop_level=30
 # Signet of the False Accuser 47
 finger2=,ilevel=47,id=178824,enchant_id=6110,gem_id=71856,bonus_id=6710/10386/6652/8810,drop_level=30
-# Heart of Roccor (155)
+# Heart of Roccor (36)
 trinket1=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30,content_tuning=181
 # Dragonspine Trophy 38
 trinket2=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%

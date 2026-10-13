@@ -23,11 +23,11 @@ talents=CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMAAzAyAmGADAAAAAAwAyYGwCD
 
 # forgotten_shadow_hood 33
 head=,ilevel=33,id=37684,gem_id=25893/213743,bonus_id=4196,drop_level=30
-# Ukhel Ancestry Beads 135
+# Ukhel Ancestry Beads 33
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500,bonus_id=7978/7975/6652/9477/8780,drop_level=30
 # wings_of_the_avatar 40
 shoulder=,ilevel=40,id=30163,enchant_id=3838,gem_id=40155/40155,bonus_id=9035,drop_level=30
-# pennant_cloak 40
+# Pennant Cloak 39
 back=,ilevel=39,id=44005,enchant_id=3243,gem_id=40155,bonus_id=9039,drop_level=30
 # vestments_of_the_seawitch 40
 chest=,ilevel=40,id=30107,enchant_id=6625,gem_id=40155/40155/40155,bonus_id=9035,drop_level=30
@@ -43,7 +43,7 @@ legs=,ilevel=33,id=30531,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=7202,
 feet=,ilevel=41,id=45567,enchant_id=4069,gem_id=71854/71854,bonus_id=9043,drop_level=30
 # Footbomb Championship Ring 33
 finger1=,ilevel=33,id=159462,enchant_id=6110,gem_id=71854,drop_level=30
-# Fleshfused Circle 33
+# Signet of the False Accuser 33
 finger2=,ilevel=33,id=178824,enchant_id=6110,gem_id=71854,drop_level=30
 # Gale of Shadows 33
 trinket1=gale_of_shadows_proxy,ilevel=33,stats=11haste,equip=1int_100%_20stack_15dur_procby/periodic

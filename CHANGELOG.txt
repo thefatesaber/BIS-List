@@ -7,6 +7,23 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [profiles] The labels inside 90 sim profiles now name the item and level each line wears.
+  Asked by Fate. Above each gear line of a sim profile sits a comment with the item's name
+  and level, kept by hand. 181 were off on 90 of the 109 profiles: 51 named another item,
+  24 another level, 90 carried a three-digit level where the list wears 33 or 36, 6
+  misspelt a name, 3 named an item no line wears, 1 labelled an old commented-out line
+  with another ring's name, and 6 lines had no name of their own. They now read what the
+  page shows for that row.
+  The sim does not read comments, so nothing on the page changes and no number moves.
+  Each of the 90 files was run against its previous version with a fixed seed and returns
+  the same result to the last digit, stat sheet included.
+  One remark went with its name: "third gem is inert" on the Frayed Scoundrel's Cap of
+  Assassination and Subtlety Full buffed. The sim counts that gem, 46 DPS on Assassination,
+  and the row shows it under the Socket Proc badge.
+  The same evening Fate ruled on the rest of the housekeeping list. His working files stay
+  in the repository and a README will say what they are. No list links to its sim
+  profile. Two ideas for readers go to mock-ups: a short "how to read this" and one
+  overview of all specs across the four lists.
 - [page] Four warlock lists drop a head token that stood for nothing and read 9 to 12 DPS lower.
   Run by Fate as S25, four runs. Each run carried a list as it stood beside the same list
   without the hidden +1 spell power on its head. All four lists read their own number

@@ -22,7 +22,7 @@ talents=C4DAche08tHz49KSVf7iKFnyuBgBwDMoZGAAAAAAAAAAAALwYAmZMADmBbgZAAAAAAAAAAAG
 # 2pc check pending: if the Gladiator 2pc grants a non-resilience bonus in-game,
 # encode it as a head-enchant proxy per house rule; if resilience/absent, ignore.
 head=,ilevel=44,id=33758,gem_id=25893/213743,bonus_id=9357,drop_level=30
-# Ukhel Ancestry Beads 135
+# Ukhel Ancestry Beads 33
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213500/213500,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Vengeful Gladiator's Silk Amice (44) - promoted 2026-09-09 slot race, +0.7%
 shoulder=,ilevel=44,id=33757,enchant_id=3838,gem_id=213500/213500,bonus_id=9357,drop_level=30
@@ -32,7 +32,7 @@ back=,ilevel=43,id=46042,enchant_id=3243,gem_id=71854,bonus_id=9043,drop_level=3
 chest=,ilevel=44,id=34364,enchant_id=6625,gem_id=71854/71854/71854,bonus_id=9037,drop_level=30
 # Bracers of the Tempest (44)
 wrist=,ilevel=44,id=34447,enchant_id=2326,gem_id=71854,bonus_id=9037,drop_level=30
-# Handguards of Defiled Worlds 44
+# Pharos Gloves 43
 hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=71854/71854,bonus_id=9043,drop_level=30
 # Belt of Blasting (40)
 waist=,ilevel=40,id=30038,gem_id=71854/71854/71854,bonus_id=9035,drop_level=30

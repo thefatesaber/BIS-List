@@ -11,7 +11,7 @@ talents=CcEASWsDSHNyPDXnbxuIhH3ZdDzMzsMzwAAAAAMNYYGWGMGAAAAAAAACAAAAAAAAYAAAAAAA
 ### Combo 1
 # Helm of the Faceless 43
 head=,ilevel=43,id=45502,gem_id=76886/213743,bonus_id=9042,drop_level=30
-# Crystalized Sigil 140
+# Crystalized Sigil 33
 neck=,ilevel=33,id=200446,enchant_id=5890,gem_id=213500/213500/213500,bonus_id=9156/6652/9477/8782,drop_level=30
 # Spaulders of the Thalassian Savior 44
 shoulder=,ilevel=44,id=34193,enchant_id=3835,gem_id=71856/71856,bonus_id=9037,drop_level=30
@@ -19,7 +19,7 @@ shoulder=,ilevel=44,id=34193,enchant_id=3835,gem_id=71856/71856,bonus_id=9037,dr
 back=,ilevel=43,id=45496,enchant_id=3243,gem_id=213500,bonus_id=9043,drop_level=30
 # Hard Khorium Battleplate 44
 chest=,ilevel=44,id=34377,enchant_id=6625,gem_id=71856/71856/71856,bonus_id=9037,drop_level=30
-# bracers_of_eradication 44
+# Bracers of Eradication 40
 wrist=,ilevel=40,id=30057,enchant_id=1885,gem_id=71856,bonus_id=9035,drop_level=30
 # Hard Khorium Battlefists 44
 hands=,ilevel=44,id=34378,enchant_id=4432,gem_id=71856/71856,bonus_id=9037,drop_level=30
@@ -36,7 +36,7 @@ finger1=,ilevel=33,id=178869,enchant_id=6110,gem_id=32217/32217,bonus_id=6710/10
 finger2=,ilevel=33,id=178736,enchant_id=6110,gem_id=32217/32217,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Dragonspine Trophy 38 — canonical payload (108 haste). Same per-event rate as Fury; lower uptime on Arms is expected and correct. Verify vs an Arms log.
 trinket1=dragonspine_trophy_proxy,ilevel=38,stats=8str_8agi,equip=procby/attack_103haste_10dur_20cd_3.2%
-# Heart of Roccor (155)
+# Heart of Roccor (36)
 trinket2=,id=231456,ilevel=36,bonus_id=12378/7756,drop_level=30
 # The Untamed Blade 40 — 18.2% per attack: solved for Arms to the warrior anchor of 12.4 procs a minute, 2026-10-11
 # (was 3.7ppm, Fury's number in the other unit: 22.2% per event). No weapon Crusader (ring carries it)

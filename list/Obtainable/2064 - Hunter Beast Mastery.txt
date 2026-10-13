@@ -16,7 +16,7 @@ talents=C0PAD57yiELKEty14ekTDtZEqAAAAAAAAAADzghBgBMmZGDgxDYGAEAAAAAAAAgBAAAzCAAA
 
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=76884/213743/32194,bonus_id=7202,drop_level=30,enchant=12crit
-# Tuskarr Bone Necklace (135)
+# Tuskarr Bone Necklace (33)
 neck=,id=193666,ilevel=33,enchant_id=5437,gem_id=32222,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3835,gem_id=32194/32194,bonus_id=7202,drop_level=30

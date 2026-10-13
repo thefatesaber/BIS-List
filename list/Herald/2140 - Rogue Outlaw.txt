@@ -29,7 +29,7 @@ talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
 
 # wastewalker_helm (33)
 head=,id=28224,ilevel=33,gem_id=76884/213743/71852,bonus_id=7202,drop_level=30
-# Ukhel Ancestry Beads (140)
+# Ukhel Ancestry Beads (33)
 neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=71852,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3835,gem_id=213494/40150,bonus_id=6710/6652,drop_level=30

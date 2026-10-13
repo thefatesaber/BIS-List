@@ -27,9 +27,9 @@ spec=outlaw
 talents=CQQAphyM11FofNMFa1K3vFEDUCAAmZGgBAsAjlpFwMAAAAAgZZbYGYYAMAAAAAAAAAAAAAAA
 
 
-# wastewalker_helm (33)
+# Frayed Scoundrel's Cap (33)
 head=,id=50206,ilevel=33,gem_id=76884/213743/71852,bonus_id=6710,drop_level=30
-# Ukhel Ancestry Beads (140)
+# Ukhel Ancestry Beads (33)
 neck=,id=193676,ilevel=33,enchant_id=5890,gem_id=213494/71852/71852,bonus_id=9156/6652/9477/8782,drop_level=30
 # Mantle of Perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3835,gem_id=71852/71852,bonus_id=6710/6652,drop_level=30
@@ -47,7 +47,7 @@ waist=,id=46095,ilevel=43,gem_id=71852/71852/71852,bonus_id=9043,drop_level=30
 legs=,id=51889,ilevel=45,enchant_id=4880,gem_id=71852/71852/71852,bonus_id=9051,drop_level=30
 # Slayer's Boots (44)
 feet=,id=34575,ilevel=44,enchant_id=1887,gem_id=71852,bonus_id=9043,drop_level=30
-# Stitchflesh's Misplaced Signet (33)
+# Footbomb Championship Ring (33)
 finger1=,id=159462,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30
 # Signet of the False Accuser (33)
 finger2=,id=178824,ilevel=33,enchant_id=6110,gem_id=71852/71852,bonus_id=6710/10386/6652/10879/10396,drop_level=30

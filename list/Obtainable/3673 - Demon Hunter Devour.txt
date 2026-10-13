@@ -15,7 +15,7 @@ talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAA
 ### Combo 1
 # Frayed Scoundrel's Cap (33)
 head=,id=50206,ilevel=33,gem_id=25893/213743/32196,bonus_id=4196,drop_level=30
-# Ukhel Ancestry Beads (135)
+# Ukhel Ancestry Beads (33)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=32196,bonus_id=7978/7975/6652/9477/8780,drop_level=30
 # mantle_of_perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
@@ -45,7 +45,7 @@ trinket1=pendant_and_meteorite_macro_proxy,ilevel=38,stats=8int,use=700vers_20du
 trinket2=meteorite_crystal_macro_proxy,ilevel=43,stats=9int
 # Bloodsurge, Kel'Thuzad's Blade of Agony (47)
 main_hand=,id=50732,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
-# Bloodsurge, Kel'Thuzad's Blade of Agony (47)
+# Rigormortis (47)
 off_hand=,id=50704,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
 
 # Consumables

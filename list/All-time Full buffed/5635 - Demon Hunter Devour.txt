@@ -19,7 +19,7 @@ talents=CgcBp/epaxe7D0A403L+Tvk0iCAgBMMzMYAAAAAAAAgZAAAAAAAAwAGGmhZGMwAaZDAAAAAA
 ### Combo 1
 # Frayed Scoundrel's Cap (33)
 head=,id=50206,ilevel=33,gem_id=25893/213743/71854,bonus_id=4196,drop_level=30
-# Ukhel Ancestry Beads (135)
+# Ukhel Ancestry Beads (33)
 neck=,ilevel=33,id=193676,enchant_id=5890,gem_id=213500/213482/71854,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # mantle_of_perenolde (33)
 shoulder=,id=27434,ilevel=33,enchant_id=3838,gem_id=71854/71854,bonus_id=7202,drop_level=30
@@ -38,9 +38,9 @@ waist=,id=46095,ilevel=43,gem_id=71854/71854/71854,bonus_id=9043,drop_level=30
 legs=,id=51889,ilevel=45,enchant_id=6541,gem_id=71854/71854/71854,bonus_id=9051,drop_level=30
 # footpads_of_impending_death (47)
 feet=,id=49895,ilevel=47,enchant_id=4069,gem_id=71854/71854,bonus_id=9051
-# signet_of_the_false_accuser (33)
+# Signet of the False Accuser (47)
 finger1=,ilevel=47,id=178824,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/8810,drop_level=30
-# Fleshfused Circle (33)
+# Arch-Druid's Tainted Seal (47)
 finger2=,ilevel=47,id=134487,enchant_id=6110,gem_id=71854,bonus_id=6710/10386/6652/8810,drop_level=30
 # Pendant of the Violet Eye (38) — macro-stacked; use= carries BOTH trinkets'
 # stacks (380 + 320 = 700 vers) since the in-game macro pops them as one press
@@ -49,7 +49,7 @@ trinket1=pendant_and_meteorite_macro_proxy,ilevel=38,stats=8int,use=700vers_20du
 trinket2=meteorite_crystal_macro_proxy,ilevel=43,stats=9int
 # Bloodsurge, Kel'Thuzad's Blade of Agony (47)
 main_hand=,id=50732,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
-# Bloodsurge, Kel'Thuzad's Blade of Agony (47)
+# Rigormortis (47)
 off_hand=,id=50704,ilevel=47,bonus_id=9051,gem_id=71854,enchant_id=2669
 
 #4429

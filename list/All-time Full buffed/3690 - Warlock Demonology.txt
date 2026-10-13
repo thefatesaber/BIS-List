@@ -21,7 +21,7 @@ external_buffs.pool=power_infusion:120
 
 # Merciless Gladiator's Felweave Cowl 45
 head=,ilevel=45,id=31980,gem_id=25893/213743,bonus_id=9357,drop_level=30
-# Tuskarr Bone Necklace 135
+# Tuskarr Bone Necklace 33
 neck=,ilevel=33,id=193666,enchant_id=5437,gem_id=32196/32196/32196,bonus_id=7978/7975/6652/9477/8782,drop_level=30
 # Hatefury Mantle 42
 shoulder=,ilevel=42,id=30884,enchant_id=3838,gem_id=32218/32196,bonus_id=9036,drop_level=30
@@ -37,7 +37,7 @@ hands=,ilevel=43,id=45665,enchant_id=2937,gem_id=32196/32196,bonus_id=9043,drop_
 waist=,ilevel=40,id=30038,gem_id=32196/32196/32196,bonus_id=9035,drop_level=30
 # Leggings of Calamity 44
 legs=,ilevel=44,id=34181,enchant_id=6541,gem_id=32196/32196/32196,bonus_id=9037,drop_level=30
-# Boots of Fiery Resolution 43
+# Treads of the False Oracle 43
 feet=,ilevel=43,id=45537,enchant_id=4092,gem_id=32196/32196,bonus_id=9043,drop_level=30
 # Bloodoath Signet 33
 finger1=,id=178871,ilevel=33,enchant_id=6108,gem_id=32196/32196,bonus_id=6710/10386/6652/10879/10396,drop_level=30

@@ -13,7 +13,7 @@ talents=CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAghZGDGzAgBMTDmJAAAmBYAAAAAAAAAAAAAA
 ### Combo 1
 # Helm of Desolation 33
 head=,id=28192,ilevel=33,gem_id=25893/213746/32196,bonus_id=7202,drop_level=30,enchant=12crit
-# Hook Charm Necklace 135
+# Hook Charm Necklace 33
 neck=,id=151437,ilevel=33,enchant_id=5437,gem_id=32196,drop_level=30
 # Pauldrons of Desolation 33
 shoulder=,id=27713,ilevel=33,enchant_id=3838,gem_id=32196/32196,bonus_id=7202,drop_level=30
@@ -35,7 +35,7 @@ feet=,id=29951,ilevel=40,enchant_id=851,gem_id=32196/32196,bonus_id=9035,drop_le
 finger1=,id=151410,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
 # Stitchflesh's Misplaced Signet 33
 finger2=,id=178736,ilevel=33,enchant_id=6111,gem_id=32196,drop_level=30
-# Phylactery of the Nameless Lich (47)
+# Gale of Shadows (33)
 trinket1=,ilevel=33,id=56462,bonus_id=8998
 # Solace of the Fallen (45)
 trinket2=,ilevel=45,id=47432,bonus_id=9047,drop_level=30
