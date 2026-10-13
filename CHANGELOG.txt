@@ -7,6 +7,22 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [ruling] The +8 Haste socket bonus is lit in game; a warlock head token comes off four lists.
+  Two answers from Fate. Nothing changes on the page today; four runs are out.
+  Socket bonuses. Six items on the lists read "Socket Bonus: +8 Haste": Abracadaver, the
+  Plague-Soaked Leather Leggings, Frayed Scoundrel's Cap, Helm of the Faceless, Forgotten
+  Shadow Hood and Helm of the Corrupted Mind. The game data scales nearly every socket bonus
+  down to a point or two at level 30 and leaves this one at 8. On the local build that is
+  worth 15 to 106 DPS an item, 1.3% of a list at the median, and 76 profiles wear one to
+  three of them. Fate answered from the game: the line is green, so the lists count what
+  the game grants. The data says the same: every coloured socket on these items is
+  prismatic now, and every list fills them.
+  The warlock token. Four warlock lists carried a hidden +1 spell power on the head, as a
+  stand-in for a 2-piece bonus of the Felweave set. Wowhead shows that set as a legacy set
+  with no 2-piece bonus, and the five other lists that wear the same two pieces do not
+  carry the token. Fate ruled that it comes off. It is worth 9 to 13 DPS a list:
+  Destruction Full buffed, All-Time and Obtainable and Affliction Full buffed take new
+  numbers when the four runs (S25) are back.
 - [page] Six Full buffed lists take both Timewalking rings and Fury takes one: up 9 to 23 DPS.
   Run by Fate as S24, seven runs. Each run carried a list as it stood beside the same list
   with Arch-Druid's Tainted Seal at item level 47 in Ring 1, with Signet of the False
