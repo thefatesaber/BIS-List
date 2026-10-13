@@ -6,6 +6,21 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-13
+- [page] Two buttons join the header: How to read this, and All specs, every spec on all four lists.
+  Asked by Fate, who chose both from mock-ups.
+  How to read this opens a short panel under the header. It says how a number is made (a
+  SimulationCraft run on Raidbots: one target, a fixed 300-second fight), which buffs a list
+  counts, what an effective number is, where the badges and the changes are explained, and
+  whom to tell of a mistake.
+  All specs opens one table of the 27 specs on the four lists. Each number is the one its
+  list shows and a link to that list, with the spec's place on that list beside it. A click
+  on a column sorts by it. On a phone a row is the spec on a line of its own with its four
+  numbers under it. The table has an address of its own, #all-specs, and Back returns from
+  it as from any list.
+  No list, number or row changes. On a screen 1536 to 1839 px wide the update line now sits
+  under the title, as it already did on narrower ones, to make room for the buttons.
+
 ## 2026-10-12
 - [docs] A README now says what this repository is, where the site is and what each file is for.
   Asked by Fate. The repository's page on GitHub showed a list of files and nothing else.

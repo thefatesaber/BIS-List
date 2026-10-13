@@ -174,6 +174,46 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .notice ul.nlist{list-style:none; margin:6px 0 0; padding:0; max-height:38vh; overflow-y:auto}
 .notice ul.nlist li{margin:0 0 6px; padding-left:2px}
 
+/* ---------- header buttons, "How to read this" ---------- */
+/* Two buttons in the header (ruling D36, 2026-10-13). One opens the panel
+   under the header, the other the overview of all specs. They take the
+   title's row where it has room for them, the update line's row where it has
+   not, and a row of their own on a phone. From 1200 to 1839 px the title's
+   row holds them but not the update line as well, so that line is sent to the
+   next row: up to 1535 px it was there already, and from 1536 it used to
+   share the title's row. Each threshold leaves about 20 px to spare, so a
+   longer date or a fallback font moves nothing to another row.
+   In the document the buttons come before the update line, which is the
+   order they are seen in from 1200 to 1839 px, so that is where Tab follows
+   the eye; at the other widths they are drawn after the line. */
+.hbtns{display:flex; gap:8px; margin-left:auto; align-self:center; order:1}
+.hbtn{background:none; border:1px solid var(--edge); color:var(--dust); font:inherit; font-size:10.5px;
+  letter-spacing:.06em; text-transform:uppercase; padding:4px 10px; border-radius:4px; cursor:pointer;
+  white-space:nowrap; transition:color .15s ease, border-color .15s ease, background-color .15s ease}
+.hbtn:hover{color:var(--parchment); border-color:var(--dust)}
+.hbtn.on{color:var(--parchment); background:var(--edge); border-color:var(--edge)}
+.hbtn:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+@media (min-width:1200px) and (max-width:1839px){
+  .hbtns{order:0}
+  /* A row of its own, its text still held to 78 characters. */
+  header .notice{flex:0 0 100%; max-width:none; padding-right:max(0px, calc(100% - 78ch))}
+}
+@media (max-width:899px){
+  .hbtns{margin-left:0; flex:0 0 100%}
+}
+/* The panel says once what the page otherwise says in pieces or not at all:
+   how a number is made, which buffs a list counts, whom to tell of a mistake.
+   Closed on arrival; the button opens it in place, under the header. */
+.howto{background:var(--slate); border-bottom:1px solid var(--edge); padding:16px 24px 18px}
+.howto[hidden]{display:none}
+.howto h2{margin:0 0 10px; font:600 12.5px var(--display); letter-spacing:.08em; color:var(--dust)}
+.howto dl{margin:0; display:grid; grid-template-columns:max-content minmax(0,1fr); gap:7px 18px; max-width:104ch}
+.howto dt{color:var(--parchment); font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:600; padding-top:2px}
+.howto dd{margin:0; color:var(--dust); font-size:12.5px; line-height:1.55}
+.howto dd b{color:var(--parchment); font-weight:500}
+.howto dd a{color:var(--dust); text-decoration:underline dotted}
+.howto dd a:hover{color:var(--parchment)}
+
 /* ---------- slot ledger ---------- */
 .ledger{border:1px solid var(--edge); border-radius:4px; overflow:hidden}
 .row{
@@ -384,6 +424,50 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
   border-radius:3px; font:inherit; font-size:11.5px; padding:10px;
 }
 
+/* ---------- overview of all specs ---------- */
+/* Every listed spec on the four lists, one row a spec (ruling D36,
+   2026-10-13). While it is up, it is all that main shows. Numbers stand in
+   one column per list: the place before a number has a fixed width, and so
+   has the slot after it, which holds the star of an effective number. The
+   first column is never under 176 px, the longest name ("Devourer Demon
+   Hunter", "Beast Mastery Hunter") with its dot. */
+main.ov > :not(#overview){display:none !important}
+.overview[hidden]{display:none}
+.ovhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin:0 0 6px}
+.ovhead h2{margin:0; font-family:var(--display); font-weight:600; font-size:clamp(17px,2.6vw,22px);
+  letter-spacing:.03em; color:var(--parchment)}
+.ovhead span{color:var(--dust); font-size:11.5px}
+.ovt{border:1px solid var(--edge); border-radius:4px; overflow:hidden; max-width:860px}
+.ovr{display:grid; grid-template-columns:minmax(176px,1.7fr) repeat(4, minmax(0,1fr)); align-items:center; gap:0 12px;
+  padding:5px 14px; border-bottom:1px solid var(--edge); background:var(--slate)}
+.ovr:nth-child(even){background:var(--slate2)}
+.ovr:last-child{border-bottom:0}
+.ovr.head{background:var(--void); padding:8px 14px}
+.ovr{transition:background-color .16s ease}
+.ovr:not(.head):hover{background:rgba(255,255,255,.03)}
+.ovr > [role="cell"], .ovr > [role="columnheader"]{justify-self:end; min-width:0}
+.ovr > [role="columnheader"]:first-child{justify-self:start}
+.ovh{font:inherit; font-size:10.5px; text-transform:uppercase; letter-spacing:.09em; color:var(--dim); background:none;
+  border:0; padding:0; cursor:pointer; white-space:nowrap}
+.ovr > [role="columnheader"]:not(:first-child) .ovh{padding-right:9px}
+.ovh:hover, .ovh.on{color:var(--parchment)}
+.ovh .ovarrow{color:var(--dust)}
+.ovh:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+.ovspec{display:flex; align-items:baseline; gap:9px; min-width:0}
+.ovspec .dot{width:9px; height:9px; border-radius:2px; background:var(--cc); flex:0 0 9px; align-self:center}
+.ovspec b{color:var(--parchment); font-weight:500; font-size:13px; white-space:nowrap}
+.ovspec small{color:var(--dim); font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+/* The link is a little taller than its text, for a finger; the row is not. */
+.ovn{display:inline-flex; align-items:baseline; color:var(--dust); text-decoration:none; font-size:13px;
+  font-variant-numeric:tabular-nums; white-space:nowrap; padding:3px 0; margin:-3px 0; transition:color .15s ease}
+.ovn:hover{color:var(--parchment); text-decoration:underline}
+.ovn.sorted{color:var(--cc); font-weight:600}
+.ovn:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+.ovn .rk{color:var(--dim); font-size:10.5px; font-weight:400; min-width:2ch; text-align:right; margin-right:9px}
+.ovn .ef{flex:0 0 9px; padding-left:2px; color:#e0a53f; font-style:normal; font-weight:600; font-size:12px; text-align:left}
+.ovnote{color:var(--dim); font-size:11.5px; margin:10px 2px 0; font-style:italic; max-width:860px}
+.ovnote b{color:#e0a53f; font-style:normal}
+
 /* ---------- key ---------- */
 /* Under the list: one line per kind of badge the list carries. Under Buff
    worth: what its tags mean. Both say what the hover tooltips say, for a
@@ -505,6 +589,30 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
   .alts{order:5; padding-left:44px}
   .note, .why, .alts{grid-column:1}
 }
+/* Where the gear rows stack, so do these two. The panel sets each term over
+   its text. A row of the overview is the spec on a line of its own with its
+   four numbers under it, each under its list's head: beside the name there
+   is no room for four numbers with their places. */
+@media (max-width:700px){
+  .howto{padding:14px 14px 16px}
+  .howto dl{grid-template-columns:minmax(0,1fr); gap:1px 0}
+  .howto dd{margin-bottom:8px}
+  .howto dd:last-child{margin-bottom:0}
+  .ovr{grid-template-columns:repeat(4, minmax(0,1fr)); gap:2px 4px; padding:7px 10px 8px}
+  .ovr.head{padding:8px 10px}
+  .ovr.head > [role="columnheader"]:first-child{grid-column:1 / -1; margin-bottom:4px}
+  .ovspec{grid-column:1 / -1}
+}
+@media (max-width:520px){
+  .ovn{font-size:12.5px}
+  .ovn .rk{font-size:10px; margin-right:6px}
+  .ovh{font-size:9.5px; letter-spacing:.03em}
+}
+@media (max-width:350px){
+  .ovn{font-size:12px}
+  .ovn .rk{margin-right:4px; min-width:0}
+  .ovh{font-size:9px; letter-spacing:0}
+}
 .tab:focus-visible,.cls:focus-visible,.btn:focus-visible,.item a:focus-visible{
   outline:2px solid var(--epic); outline-offset:2px;
 }
@@ -521,7 +629,28 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 <header>
   <h1><span class="thirty">FATE</span> · BiS COMPENDIUM</h1>
   <span class="meta" id="metaline"></span>
+  <div class="hbtns">
+    <button type="button" class="hbtn" id="howtobtn" aria-expanded="false" aria-controls="howto">How to read this</button>
+    <button type="button" class="hbtn" id="ovbtn" aria-pressed="false" aria-label="Overview of all specs" title="All specs on the four lists, in one table">All specs</button>
+  </div>
 </header>
+<section class="howto" id="howto" aria-labelledby="howtohead" hidden>
+  <h2 id="howtohead">How to read this</h2>
+  <dl>
+    <dt>Numbers</dt>
+    <dd>Every DPS number is a <b>SimulationCraft</b> result, run on Raidbots: a level-30 character on one target, in a fixed 300-second fight. The date beside a number is the day it was simmed.</dd>
+    <dt>Buffs</dt>
+    <dd><b>All-Time</b>, <b>Obtainable</b> and <b>Herald of the Titans</b> are simmed self-buffed and without consumables; their Consumables panel lists what to bring. <b>Full buffed</b> adds raid buffs and consumables, and leaves Power Infusion out of the number shown (a priest's own cast stays in).</dd>
+    <dt>Effective</dt>
+    <dd>A number tagged <b>effective</b> is the sim's result times a factor for the Vibroblade's armor shred, which the sim does not model.</dd>
+    <dt>Badges</dt>
+    <dd>HM only, Socket Proc, Crafter only and Scribe only are explained in the key under each list.</dd>
+    <dt>Changes</dt>
+    <dd>Every change is dated in the <a href="CHANGELOG.txt" target="_blank" rel="noopener">changelog</a>.</dd>
+    <dt>Contact</dt>
+    <dd>Found a mistake? Reach Fate in game (NA-Thrall) or on Discord.</dd>
+  </dl>
+</section>
 
 <div class="layout">
   <aside class="side">
@@ -540,6 +669,7 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
   <nav id="rail" aria-label="Classes"></nav>
   </aside>
   <main id="main" tabindex="-1">
+    <div class="overview" id="overview" hidden></div>
     <div class="spec-head" id="spechead"></div>
     <div class="tabs" id="tabs" role="tablist"></div>
     <p class="constraint" id="constraint"></p>
@@ -631,7 +761,7 @@ const CONFIG = {
   patch: "12.1.0 (Midnight)",
   bracket: "Level 30",
   // Bump on every data change — a sim-derived list with no date can't be trusted.
-  updated: "2026-10-12",
+  updated: "2026-10-13",
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Shown under the header until the changelog feed loads, and in its place when the
@@ -1840,7 +1970,9 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 // Tab order is presentation; the hash-less landing is pinned to All-Time
 // while the buffed tier rolls out, so first-time visitors open on a full
 // rail rather than a one-spec list.
-let state = { cls: CLASSES[0].id, list: "alltime", sort: "dps", view: "best" };
+// ov: the overview of all specs is up instead of a list (ruling D36); ovsort
+// is the column it is sorted by, null for the list the visitor was on.
+let state = { cls: CLASSES[0].id, list: "alltime", sort: "dps", view: "best", ov: false, ovsort: null };
 const classKey = c => c.cls || c.id;
 const bestOf = (ck, list) => {
   let best = null;
@@ -1863,7 +1995,8 @@ const entryOf = id => CLASSES.find(x => x.id === id);
    link that names only the class lands on that class's best spec for the
    list, and a spec that is unambiguous on its own resolves even if the class
    segment is wrong or missing. Unknown fragments are ignored rather than
-   throwing, so an old or hand-typed link still loads instead of erroring.   */
+   throwing, so an old or hand-typed link still loads instead of erroring.
+   #all-specs is the overview of all specs: no class and no list.            */
 const slugify = v => String(v).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 const classSlug = c => slugify(c.name);
 // spec may be one string for the whole class, or keyed per list when a list is
@@ -1883,6 +2016,7 @@ function readHash(){
   if(!raw) return false;
   const seg = raw.split("/").map(x => slugify(decodeURIComponent(x || ""))).filter(Boolean);
   if(!seg.length) return false;
+  if(seg[0] === "all-specs"){ state.ov = true; return true; }
 
   // Trailing segment is the list when it names one; otherwise treat all
   // segments as class/spec so #warrior/fury works as well as #warrior/fury/herald.
@@ -1915,6 +2049,7 @@ function readHash(){
   let hit = false;
   if(c){ state.cls = c.id; if(!isBest(c, (l && l.id) || state.list)) state.view = "all"; hit = true; }
   if(l){ state.list = l.id; hit = true; }
+  if(hit) state.ov = false;   // a link to a list leaves the overview
   return hit;
 }
 /* A view the visitor opens gets a history entry of its own, so Back returns
@@ -1927,7 +2062,7 @@ function readHash(){
    Forward or a typed address, where the browser has already moved.         */
 function writeHash(push){
   const c = CLASSES.find(x => x.id === state.cls);
-  const h = "#" + classSlug(c) + "/" + specSlug(c, state.list) + "/" + state.list;
+  const h = state.ov ? "#all-specs" : "#" + classSlug(c) + "/" + specSlug(c, state.list) + "/" + state.list;
   if(location.hash === h) return;
   // A browser may refuse the call (Safari allows 100 in 30 seconds). The view
   // is drawn by then; only its address goes unwritten.
@@ -2017,18 +2152,21 @@ function renderRail(){
   $("sortsel").value = state.sort;
   // Drawn from state on every render: a deep link to a non-best spec switches
   // the view to "all" without a click on the toggle.
+  // While the overview is up no list is open: the switch shows neither view
+  // as current, the class list no class, and the phone's menu "All specs".
   for(const b of document.querySelectorAll("#viewtoggle button")){
-    b.classList.toggle("on", b.dataset.view === state.view);
-    b.setAttribute("aria-pressed", String(b.dataset.view === state.view));
+    const on = !state.ov && b.dataset.view === state.view;
+    b.classList.toggle("on", on);
+    b.setAttribute("aria-pressed", String(on));
   }
   const cur = entryOf(state.cls);
-  $("classsel").innerHTML = sortedClasses().map(c =>
+  $("classsel").innerHTML = (state.ov ? '<option value="">All specs</option>' : "") + sortedClasses().map(c =>
     '<option value="'+c.id+'">'+esc(c.name)+" \u2014 "+esc(specOf(c))+"</option>"
   ).join("")
     + (cur && cur.hidden ? '<option value="'+cur.id+'">'+esc(cur.name)+" \u2014 "+esc(specOf(cur))+" (preview)</option>" : "");
-  $("classsel").value = state.cls;
+  $("classsel").value = state.ov ? "" : state.cls;
   $("rail").innerHTML = sortedClasses().map(c => {
-    const on = c.id === state.cls ? " on" : "";
+    const on = !state.ov && c.id === state.cls ? " on" : "";
     return '<button class="cls'+on+'"'+(on ? ' aria-current="true"' : '')+' style="--cc:'+c.color+'" data-cls="'+c.id+'">'
       + '<span class="dot"></span>'
       + '<span class="who">'+esc(c.name)+'<small>'+esc(specOf(c))
@@ -2300,6 +2438,51 @@ function simDateHtml(cls){
   if(!m) return "";
   return '<span class="simdate">simmed '+esc(fmtUpdated(m[1]))+' \u00b7 '+esc(m[2].replace(/^Raidbots Advanced$/, "Raidbots"))+'</span>';
 }
+/* The overview (ruling D36, 2026-10-13): every listed spec on the four lists,
+   one row a spec. A number is the one its list shows, so Full buffed is
+   without Power Infusion here as on its tab, and it is a link to that list.
+   The small figure before it is the spec's place on that list. A column head
+   sorts by its list; "Spec" sorts by class and then spec, as the class
+   list's A-Z does. On arrival the table is sorted by the list the visitor
+   was on. The overview has an address of its own, #all-specs, and a history
+   entry like any view; the order of its rows is not part of the address.   */
+const OV_LABEL = { alltime_buffed: "Full buffed", alltime: "All-Time", obtainable: "Obtainable", herald: "Herald" };
+function renderOverview(){
+  const specs = CLASSES.filter(c => !c.hidden);
+  const byDps = l => (a, b) => (dpsFor(b, l) - dpsFor(a, l)) || ((b.dps||0) - (a.dps||0));
+  const place = {}, count = {};
+  for(const l of LIST_TYPES){
+    const on = specs.filter(c => dpsFor(c, l.id)).sort(byDps(l.id));
+    count[l.id] = on.length;
+    on.forEach((c, i) => { (place[c.id] = place[c.id] || {})[l.id] = i + 1; });
+  }
+  const key = state.ovsort || state.list;
+  const rows = specs.slice().sort(key === "name"
+    ? (a, b) => a.name.localeCompare(b.name) || specOf(a, "alltime").localeCompare(specOf(b, "alltime"))
+    : byDps(key));
+  const head = (k, label) => '<span role="columnheader"'+(k === key ? ' aria-sort="'+(k === "name" ? "ascending" : "descending")+'"' : '')+'>'
+    + '<button type="button" class="ovh'+(k === key ? " on" : "")+'" data-ovsort="'+k+'">'+esc(label)
+    + (k === key ? '<span class="ovarrow" aria-hidden="true"> \u25BE</span>' : '')+'</button></span>';
+  $("overview").innerHTML =
+    '<div class="ovhead"><h2>All specs</h2><span>'+specs.length+' specs on the four lists. Click a column to sort by it, a number to open that list.</span></div>'
+    + '<div class="ovt" role="table" aria-label="All specs on the four lists">'
+    + '<div class="ovr head" role="row">'+head("name", "Spec")+LIST_TYPES.map(l => head(l.id, OV_LABEL[l.id] || l.label)).join("")+'</div>'
+    + rows.map(c => '<div class="ovr" role="row" style="--cc:'+c.color+'">'
+        + '<span class="ovspec" role="rowheader"><i class="dot"></i><b>'+esc(specOf(c, "alltime"))+'</b><small>'+esc(c.name)+'</small></span>'
+        + LIST_TYPES.map(l => {
+            const v = dpsFor(c, l.id), eff = v ? effOf(c, l.id) : null;
+            if(!v) return '<span role="cell"></span>';
+            return '<span role="cell"><a class="ovn'+(key === l.id ? " sorted" : "")+'" href="#'+classSlug(c)+"/"+specSlug(c, l.id)+"/"+l.id+'"'
+              + ' aria-label="'+esc(specOf(c, l.id)+" "+c.name+", "+l.label+": "+v.toLocaleString()+" DPS"+(eff ? ", effective" : "")
+                  +", place "+place[c.id][l.id]+" of "+count[l.id])+'">'
+              + '<small class="rk">'+place[c.id][l.id]+'</small>'+v.toLocaleString()
+              + '<i class="ef"'+(eff ? ' title="'+esc(eff.tip)+'"' : '')+'>'+(eff ? "*" : "")+'</i></a></span>';
+          }).join("")
+        + '</div>').join("")
+    + '</div>'
+    + "<p class=\"ovnote\">The small number is the spec's place on that list. Full buffed is shown without Power Infusion, as on its tab. "
+    + "<b>*</b> Effective DPS: the sim's result times a factor for the Vibroblade's armor shred.</p>";
+}
 function whRefresh(){
   if (window.$WowheadPower && window.$WowheadPower.refreshLinks) window.$WowheadPower.refreshLinks();
 }
@@ -2439,7 +2622,15 @@ function render(push){
     const p = bestOf(classKey(cur), state.list) || CLASSES.find(x => classKey(x) === classKey(cur) && x.primary);
     if(p) state.cls = p.id;
   }
-  renderRail(); renderMain(); whRefresh(); writeHash(push); countView(); }
+  // The overview takes main's place while it is up; the list under it is
+  // drawn again when the visitor leaves it.
+  $("main").classList.toggle("ov", state.ov);
+  $("overview").hidden = !state.ov;
+  $("ovbtn").classList.toggle("on", state.ov);
+  $("ovbtn").setAttribute("aria-pressed", String(state.ov));
+  renderRail();
+  if(state.ov) renderOverview(); else renderMain();
+  whRefresh(); writeHash(push); countView(); }
 
 function asText(){
   const cls = CLASSES.find(c => c.id === state.cls);
@@ -2501,10 +2692,30 @@ $("consumcopy").addEventListener("click", () => {
   if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(()=>{});
   else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); done(); }
 });
-$("classsel").addEventListener("change", ev => { state.cls = ev.target.value; render(true); });
+$("classsel").addEventListener("change", ev => {
+  if(!ev.target.value) return;   // "All specs", the overview's own entry
+  state.cls = ev.target.value; state.ov = false; render(true);
+});
+// "How to read this" opens in place and is not a view: no address, no entry.
+$("howtobtn").addEventListener("click", () => {
+  const p = $("howto"), b = $("howtobtn"), open = p.hidden;
+  p.hidden = !open;
+  b.classList.toggle("on", open);
+  b.setAttribute("aria-expanded", String(open));
+});
+$("ovbtn").addEventListener("click", () => { state.ov = !state.ov; render(true); });
 document.addEventListener("click", ev => {
+  // A column head of the overview: the table is drawn again in that order,
+  // and the head keeps the keyboard's focus. The address does not change.
+  const oh = ev.target.closest(".ovh");
+  if(oh){
+    state.ovsort = oh.dataset.ovsort; render();
+    const again = document.querySelector('.ovh[data-ovsort="'+state.ovsort+'"]');
+    if(again) again.focus();
+    return;
+  }
   const c = ev.target.closest(".cls");
-  if(c){ state.cls = c.dataset.cls; render(true); return; }
+  if(c){ state.cls = c.dataset.cls; state.ov = false; render(true); return; }
   const t = ev.target.closest(".tab");
   if(t){ state.list = t.dataset.list; render(true); return; }
   // The tag opens in place on a tap, where there is no hover for its tooltip.
@@ -2599,7 +2810,8 @@ if (CONFIG.notice) {
   const n = document.createElement("div");
   n.className = "notice";
   n.innerHTML = esc(CONFIG.notice) + CL_LINK;
-  $("metaline").insertAdjacentElement("afterend", n);
+  // After the buttons of the header, which come first in the document (see .hbtns).
+  document.querySelector(".hbtns").insertAdjacentElement("afterend", n);
   if (window.fetch) fetch(CL_HEAD_URL, { headers: { Range: "bytes=0-4095" } })
     .then(r => r.ok ? r.text().then(t => [t, r.status !== 206]) : null)
     .catch(() => null)
@@ -2613,8 +2825,8 @@ if (CONFIG.notice) {
 $("skiplink").addEventListener("click", ev => { ev.preventDefault(); $("main").focus(); });
 document.getElementById("viewtoggle").addEventListener("click", e => {
   const b = e.target.closest("button[data-view]"); if(!b) return;
-  const v = b.dataset.view; if(v === state.view) return;
-  state.view = v;
+  const v = b.dataset.view; if(v === state.view && !state.ov) return;
+  state.view = v; state.ov = false;   // from the overview, either button goes back to the lists
   render(true);   // an entry only if the switch moves to another spec
 });
 // Back, Forward and an address typed or pasted over the open page.
