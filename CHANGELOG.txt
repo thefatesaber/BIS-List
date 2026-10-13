@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-12
+- [docs] A README now says what this repository is, where the site is and what each file is for.
+  Asked by Fate. The repository's page on GitHub showed a list of files and nothing else.
+  The README names the site, the four lists and what each file is for. Of the Dummy mode
+  folder and the loose profiles it says what they are: working copies that Fate keeps and
+  uses, not lists of record.
+  Nothing on the site changes.
 - [profiles] The labels inside 90 sim profiles now name the item and level each line wears.
   Asked by Fate. Above each gear line of a sim profile sits a comment with the item's name
   and level, kept by hand. 181 were off on 90 of the 109 profiles: 51 named another item,
