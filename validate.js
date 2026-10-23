@@ -454,7 +454,7 @@ const ILVL_SPLIT_OK = new Map([
   [178824, { levels: { 33: null, 47: ["alltime"] },
              why: "Signet of the False Accuser: 47 is its Timewalking version, on ten Full buffed lists: Frost DK, Devourer and Shadow (ruled 2026-09-26) and the seven of S24 (D32, 2026-10-12)" }],
   [193676, { levels: { 33: null, 30: ["alltime"] },
-             why: "Ukhel Ancestry Beads: Frost DK All-Time ran Asimiir's export at 30 (bonus 13642 in place of 7978), the sim of record on 2026-10-22; a re-export at 33 retires this" }],
+             why: "Ukhel Ancestry Beads: Frost DK and Outlaw All-Time ran their exports at 30 (bonus 13642 in place of 7978), the sims of record on 2026-10-22; re-exports at 33 retire this" }],
   [134487, { levels: { 33: null, 47: ["alltime"] },
              why: "Arch-Druid's Tainted Seal: 47 is its Timewalking version, on nine of the same ten (Fury keeps Fleshfused Circle in Ring 1); the same two rulings" }],
 ]);

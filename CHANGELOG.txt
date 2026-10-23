@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Outlaw Rogue All-Time on BracketSim: 4,236, the sim's own number - no effective factor.
+  Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,185 on
+  Raidbots, an effective number (raw 3,754 times the Vibroblade factor); BracketSim sims the
+  Puncture Armor shred itself, on the target 94% of the fight in the report, so the new number
+  carries no factor and no "effective" tag, and the off-hand note says so. New rows from the
+  export, talents, stat panel and sim date: Midnight Chestguard for Harness of Carnal
+  Instinct, Footpads of Impending Death for Slayer's Boots, the Signet at 33 with two gems
+  for its Timewalking 47, Lesser Inscription of the Axe, Greater Assault, the belt clasp, a
+  Masterful Onyx in the neck, and the neck at item level 30 from the export's bonus set, as
+  on the Frost Death Knight. No alternates until a sweep is read on the new number.
 - [page] Devastation Evoker All-Time on BracketSim: 4,222.
   Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
   (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, Flame Cap),
