@@ -30,6 +30,8 @@ const TABLES = ["item_data.inc", "sc_spell_data.inc", "spell_item_enchantment.in
 const MANUAL_SPELLS = {
   60582: { name: "Icescale Leg Armor", enchants: [3823],
            manual: "not in SimulationCraft's spell data; read on Wowhead 2026-10-11" },
+  59934: { name: "Lesser Inscription of the Axe", enchants: [3808],
+           manual: "not in SimulationCraft's spell data; spell_item_enchantment.inc names 59934 as the spell of enchant 3808 (Sons of Hodir, honored); read 2026-10-22" },
   59937: { name: "Lesser Inscription of the Storm", enchants: [3810],
            manual: "not in SimulationCraft's spell data; spell_item_enchantment.inc names 59937 as the spell of enchant 3810 (Sons of Hodir, honored); read 2026-10-22" },
 };

@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Frost Death Knight All-Time on BracketSim: 4,588.
+  Simmed by Fate on 2026-10-22 from Asimiir's export, on the site's full-buffed set (Battle
+  Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,875 on Raidbots.
+  New rows from the export, talents, stat panel and sim date: Lesser Inscription of the Axe on
+  the shoulders, the belt gets its clasp, the trinkets swap slots, and the neck ran at item
+  level 30 (the export's bonus set) where every other list pins 33 - a re-export at 33 would
+  retire that. Gems and items are the Full buffed list's. No alternates until a sweep is read
+  on the new number.
 - [page] Devourer Demon Hunter All-Time on BracketSim: 5,420.
   Simmed by Fate on 2026-10-22 from fateberserkr's export, on the site's full-buffed set.
   It was 5,635 on Raidbots. New rows from the export, talents, stat panel and sim date: the
