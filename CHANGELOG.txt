@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Windwalker Monk All-Time on BracketSim: 4,370.
+  Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,413 on
+  Raidbots. New rows from the export, talents, stat panel and sim date: Wastewalker Helm for
+  Frayed Scoundrel's Cap, Ukhel Ancestry Beads for Phoenix Feather Pendant, Midnight
+  Chestguard for Harness of Carnal Instinct, the Timewalking Signet and Arch-Druid's Seal at
+  47 for Fleshfused Circle and the Signet at 33, Lesser Inscription of the Axe, Greater
+  Assault on the wrist, the belt clasp. The helm ran at item level 17 - the export's head
+  line carries no item-level bonus, so the sim took the item's base - where every other list
+  pins it at 33; a re-export at 33 retires that and lifts the number. No alternates until a
+  sweep is read on the new number.
 - [page] Fury Warrior All-Time on BracketSim: 5,390.
   Simmed by Fate on 2026-10-22 from Kleaveland's export, on the site's full-buffed set (Battle
   Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 5,648 on Raidbots.

@@ -221,6 +221,7 @@
     "3823": {"name":"+$k2 Attack Power and +$k1 Critical Strike","spell":60582},
     "3835": {"name":"+$k1 Attack Power and +$k2 Critical Strike","skill":2512,"spell":61117},
     "3838": {"name":"+$k1 Spell Power and +$k2 Critical Strike","skill":2512,"spell":61120},
+    "3845": {"name":"+$k1 Attack Power","spell":44575},
     "4069": {"name":"+$k1 Haste","spell":74199},
     "4092": {"name":"+$k1 Critical Strike","spell":74236},
     "4099": {"name":"Landslide","spell":74246},
@@ -251,6 +252,7 @@
   },
   "spells": {
     "20010": {"name":"Superior Strength","enchants":[1885],"eqClass":4,"invMask":512},
+    "20012": {"name":"Greater Agility","enchants":[1887],"eqClass":4,"invMask":1024},
     "20023": {"name":"Greater Agility","enchants":[1887],"eqClass":4,"invMask":256},
     "20024": {"name":"Versatility","enchants":[851],"eqClass":4,"invMask":256},
     "20034": {"name":"Crusader","enchants":[1900],"eqClass":2},
@@ -259,6 +261,7 @@
     "33997": {"name":"Major Spellpower","enchants":[2937],"eqClass":4,"invMask":1024},
     "33999": {"name":"Major Healing","enchants":[2322],"eqClass":4,"invMask":1024},
     "44529": {"name":"Major Agility","enchants":[5259],"eqClass":4,"invMask":1024},
+    "44575": {"name":"Greater Assault","enchants":[3845],"eqClass":4,"invMask":512},
     "44582": {"name":"Minor Power","enchants":[3243],"eqClass":4,"invMask":65536},
     "44635": {"name":"Greater Spellpower","enchants":[2326],"eqClass":4,"invMask":512},
     "53344": {"name":"Rune of the Fallen Crusader","enchants":[3368],"eqClass":2},

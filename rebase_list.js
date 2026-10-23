@@ -111,7 +111,14 @@ for (const g of gear) {
   if (at && g.ilvl != null && at.ilvl !== g.ilvl) problems.push(`${g.slot}: profile ilevel=${g.ilvl}, report ran it at ${at.ilvl}`);
   const same = (r) => r.wowhead === g.id;
   const prev = prevRows.find((r) => r.slot === g.slot && same(r)) || prevRows.find(same);
-  const anyRow = prev || (everyRow.find((x) => x.c === c && same(x.r)) || everyRow.find((x) => same(x.r)) || {}).r;
+  // The row to carry source, enchant spell and badges from: this list's own
+  // row for the item, else a row of the page at the same item level (its
+  // badges hold at that level), else any row for the item.
+  const lvl = g.ilvl != null ? g.ilvl : at ? at.ilvl : null;
+  const atLvl = (x) => same(x.r) && (lvl == null || x.r.ilvl === lvl);
+  const anyRow = (prev && (lvl == null || prev.ilvl === lvl)) ? prev
+    : (everyRow.find((x) => x.c === c && atLvl(x)) || everyRow.find(atLvl) || (prev ? { r: prev } : null)
+       || everyRow.find((x) => x.c === c && same(x.r)) || everyRow.find((x) => same(x.r)) || {}).r;
   const row = { slot: g.slot, item: it.name, wowhead: g.id };
   if (it.quality !== 4) row.q = it.quality;
   if (ilvl != null) row.ilvl = ilvl;
