@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Fire Mage All-Time on BracketSim: 4,502.
+  Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
+  (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, and Flame Cap,
+  which BracketSim offers to fire casters). It was 4,825 on Raidbots. The gear and talents
+  are the Full buffed list's but for Major Healing on the gloves and Brilliant Crimson Spinels
+  in both rings; the stat panel and sim date are new. No alternates until a sweep is read on
+  the new number.
 - [page] Windwalker Monk All-Time on BracketSim: 4,370.
   Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,413 on

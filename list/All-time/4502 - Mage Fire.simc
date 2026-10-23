@@ -1,0 +1,105 @@
+# ============================================================================
+# Legacy Thirty BiS — All-time — Fire Mage
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git a95d356, WoW 12.1.5.70448 hotfix 2026-10-17
+# Result           : 4,502 DPS (±0.7 / 0.017%), 20015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 4502 - Mage Fire.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-22 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [x] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [x] Arcane Intellect  [ ] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Int 11.76 > SP 11.05 > Haste 6.60 > Vers 6.08 > Mastery 5.34 > Crit 2.81
+# ============================================================================
+
+mage="Fateccaster"
+source=default
+region=us
+server=thrall
+spec=fire
+level=30
+race=nightborne
+role=spell
+position=back
+professions=enchanting=60/inscription=25
+talents=C8DAche08tHz49KSVf7iKFnyuBgxAmZkBAAAAAAAAAwMDYMDAAAAAwGYGAAAAGDLAAAAMAA
+
+# Default consumables
+potion=volcanic_potion
+flask=flask_of_distilled_wisdom
+elixir=disabled
+food=severed_sagefish_head
+augmentation=disabled
+temporary_enchant=main_hand:superior_wizard_oil
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=arcane_intellect
+actions.precombat+=/variable,name=hardcast_aoe_threshold,value=4
+actions.precombat+=/variable,name=hardcast_aoe_threshold_low,value=11
+actions.precombat+=/variable,name=hot_streak_aoe_threshold,value=3
+actions.precombat+=/variable,name=combustion_meteor_delay,value=1
+actions.precombat+=/variable,name=meteor_combustion_delay,value=25
+actions.precombat+=/snapshot_stats
+actions.precombat+=/pyroblast
+
+# Executed every time the actor is available.
+actions=variable,name=hold_hot_streak,value=10-(((fight_remains-10-cooldown.combustion.remains)%%62)%floor(fight_remains-10-cooldown.combustion.remains)%62)
+actions+=/use_item,name=flame_cap,if=cooldown.combustion.remains<40,use_off_gcd=1
+actions+=/potion,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled)|target.time_to_die<25,use_off_gcd=1
+actions+=/combustion,if=buff.hot_streak.up&(!buff.combustion.up)&target.health.pct<=90&(!talent.meteor.enabled|(action.meteor.in_flight_remains<0.1&action.meteor.in_flight_remains>0)|(cooldown.meteor.remains>variable.combustion_meteor_delay&action.meteor.in_flight_remains=0)),use_off_gcd=1,use_while_casting=1
+actions+=/use_items,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/blood_fury,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/berserking,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/fireblood,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/ancestral_call,if=buff.combustion.up|(target.health.pct>90&talent.firestarter.enabled),use_off_gcd=1,use_while_casting=1
+actions+=/use_item,name=pendant_of_the_violet_eye,if=cooldown.combustion.remains<8,use_off_gcd=1,use_while_casting=1
+actions+=/use_item,name=meteorite_crystal,if=cooldown.combuastion.remains<4,use_off_gcd=1,use_while_casting=1
+actions+=/meteor,if=cooldown.meteor.ready&(((buff.combustion.up&buff.combustion.remains>2))|cooldown.combustion.remains>variable.meteor_combustion_delay|(cooldown.combustion.remains<2&buff.hot_streak.up&!(target.health.pct>90&talent.firestarter.enabled)))
+actions+=/flamestrike,if=buff.hot_streak.up&active_enemies>=variable.hot_streak_aoe_threshold&!(cooldown.combustion.remains<variable.hold_hot_streak&!(target.health.pct>90&talent.firestarter.enabled))
+actions+=/pyroblast,if=buff.hot_streak.up&!(cooldown.combustion.remains<variable.hold_hot_streak&!(target.health.pct>90&talent.firestarter.enabled))
+actions+=/fire_blast,if=cooldown.fire_blast.charges>=2,use_off_gcd=1,use_while_casting=1
+actions+=/fire_blast,if=buff.heating_up.up&!buff.hot_streak.up&!(action.scorch.executing&buff.heating_up.up),use_off_gcd=1,use_while_casting=1
+actions+=/flamestrike,if=((((target.health.pct<30&(talent.scorch.enabled|talent.scald.enabled))|buff.heat_shimmer.up)&!buff.heating_up.up&active_enemies>=variable.hardcast_aoe_threshold_low)|(!((target.health.pct<30&(talent.scorch.enabled|talent.scald.enabled))|buff.heat_shimmer.up)&active_enemies>=variable.hardcast_aoe_threshold))
+actions+=/scorch,if=target.health.pct<30|buff.heat_shimmer.up
+actions+=/fireball
+
+head=vengeful_gladiators_silk_cowl,id=33758,bonus_id=9357,ilevel=44,gem_id=68780/213743,drop_level=30
+neck=amnesia,id=200210,bonus_id=6652/8782/9156/9477,ilevel=33,gem_id=213470/32196/32196,enchant_id=5890,drop_level=30
+shoulders=vengeful_gladiators_silk_amice,id=33757,bonus_id=9357,ilevel=44,gem_id=32196/32196,enchant_id=3838,drop_level=30
+back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=32196,enchant_id=3243,drop_level=30
+chest=robe_of_eternal_light,id=34365,bonus_id=9037,ilevel=44,gem_id=32196/32196/32196,enchant_id=6625,drop_level=30
+wrists=bracers_of_the_tempest,id=34447,bonus_id=9037,ilevel=44,gem_id=32196,enchant_id=2326,drop_level=30
+hands=handguards_of_the_dawn,id=34342,bonus_id=9037,ilevel=44,gem_id=32196/32196,enchant_id=2322,drop_level=30
+waist=belt_of_blasting,id=30038,bonus_id=9035,ilevel=40,gem_id=32196/32196/32196,drop_level=30
+legs=leggings_of_calamity,id=34181,bonus_id=9037,ilevel=44,gem_id=32196/32196/32196,enchant_id=6541,drop_level=30
+feet=boots_of_fiery_resolution,id=45135,bonus_id=9043,ilevel=43,gem_id=32196/32196,enchant_id=4069,drop_level=30
+finger1=emperors_seal,id=231437,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32196/32196,enchant_id=6109,drop_level=30
+finger2=stitchfleshs_misplaced_signet,id=178736,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32196/32196,enchant_id=6109,drop_level=30
+trinket1=gale_of_shadows,id=56462,bonus_id=6652/6710,drop_level=30
+trinket2=solace_of_the_fallen,id=47432,bonus_id=9047,ilevel=45
+main_hand=maghari_chieftains_staff,id=51898,bonus_id=9049,ilevel=45,gem_id=32196/32196/32196,enchant_id=2669,drop_level=30
+
+# Gear Summary
+# gear_ilvl=40.80
+# gear_stamina=101
+# gear_intellect=228
+# gear_spell_power=30
+# gear_crit_rating=37
+# gear_haste_rating=112
+# gear_mastery_rating=5
+# gear_versatility_rating=111
+# gear_armor=48
