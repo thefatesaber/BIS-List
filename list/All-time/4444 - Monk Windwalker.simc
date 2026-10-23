@@ -3,9 +3,9 @@
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
 #                    git a95d356, WoW 12.1.5.70448 hotfix 2026-10-17
-# Result           : 4,370 DPS (±1.8 / 0.041%), 20015 iterations
+# Result           : 4,444 DPS (±1.8 / 0.040%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 4370 - Monk Windwalker.html (same folder; /r/ share links expire)
+# Report           : 4444 - Monk Windwalker.html (same folder; /r/ share links expire)
 # Simmed           : 2026-10-22 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
@@ -23,7 +23,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Wdps 65.41 > Agi 12.76 > AP 12.07 > Mastery 7.77 > Crit 7.53 > Vers 7.21 > Haste 6.56
+# Stat weights (DPS): Wdps 65.74 > Agi 13.09 > AP 12.23 > Mastery 7.82 > Crit 7.65 > Vers 7.23 > Haste 6.65
 # ============================================================================
 
 monk="fateruler"
@@ -191,7 +191,7 @@ actions.zenith+=/zenith,target_if=max:target.time_to_die,if=!buff.zenith.up&(var
 actions.zenith+=/zenith,target_if=max:target.time_to_die,if=!buff.zenith.up&(variable.patchwerk&!trinket.1.is.algethar_puzzle_box&!trinket.2.is.algethar_puzzle_box&trinket.2.has_use_buff&(trinket.2.cooldown.ready|cooldown.zenith.full_recharge_time<5))&(talent.flurry_strikes|buff.invoke_xuen_the_white_tiger.remains>10)
 actions.zenith+=/zenith,target_if=max:target.time_to_die,if=!buff.zenith.up&talent.celestial_conduit&cooldown.zenith.full_recharge_time<30&active_enemies>4&fight_style.dungeonslice|talent.flurry_strikes&fight_style.dungeonslice&cooldown.zenith.full_recharge_time<20&cooldown.rising_sun_kick.remains&cooldown.fists_of_fury.remains<10&time<60&!buff.zenith.up
 
-head=wastewalker_helm,id=28224,bonus_id=6652/7202/8810,gem_id=213743/76884/71852,drop_level=30
+head=wastewalker_helm,id=28224,bonus_id=6652/7202/8810,ilevel=33,gem_id=213743/76884/71852,drop_level=30
 neck=ukhel_ancestry_beads,id=193676,bonus_id=6652/8782/9156/9477,ilevel=33,gem_id=213500/71852/71852,enchant_id=5890,drop_level=30
 shoulders=mantle_of_perenolde,id=27434,bonus_id=42/6710,ilevel=33,gem_id=71852/71852,enchant_id=3808,drop_level=30
 back=drape_of_the_faceless_general,id=46032,bonus_id=9043,ilevel=43,gem_id=71852/71852,enchant_id=3243,drop_level=30
@@ -209,13 +209,13 @@ main_hand=eskhandars_right_claw,id=18203,bonus_id=9029,ilevel=38,enchant_id=4444
 off_hand=hand_of_the_deceiver,id=34331,bonus_id=9037,ilevel=44,gem_id=71852/71852,enchant_id=4444,drop_level=30
 
 # Gear Summary
-# gear_ilvl=40.00
-# gear_agility=158
-# gear_stamina=98
+# gear_ilvl=41.00
+# gear_agility=161
+# gear_stamina=101
 # gear_attack_power=10
-# gear_crit_rating=77
-# gear_haste_rating=95
+# gear_crit_rating=80
+# gear_haste_rating=97
 # gear_mastery_rating=121
 # gear_speed_rating=5
-# gear_armor=76
+# gear_armor=79
 # gear_dodge_rating=1

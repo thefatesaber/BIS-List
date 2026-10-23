@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Windwalker Monk All-Time re-run with the helm at its level: 4,444.
+  Simmed by Fate on 2026-10-22, the same export with ilevel=33 on the head line. The earlier
+  run of the day (4,370) had the Wastewalker Helm at its base 17; +74 DPS for the sixteen
+  levels, and the item-level exception the validator carried for it is gone. Nothing else on
+  the list changes.
 - [page] Fire Mage All-Time on BracketSim: 4,502.
   Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
   (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, and Flame Cap,
