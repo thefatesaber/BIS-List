@@ -22,8 +22,8 @@ list is re-run.
 | Path | What it is |
 |---|---|
 | `index.html` | The site: one self-contained page, data included |
-| `list/All-time/`, `list/Obtainable/`, `list/Herald/` | The sim profile behind every number, one file per list: `<DPS> - <Class> <Spec>.simc` with its BracketSim report `<DPS> - <Class> <Spec>.html` beside it, or `.txt` for a Raidbots-era number not yet re-run |
-| `list/old/` | Retired profiles: the self-buffed All-time rail, the Full buffed files replaced by a BracketSim run, and `Dummy mode/` working copies. Not lists of record: the site does not use them and no check covers them |
+| `list/All-time/`, `list/Obtainable/`, `list/Herald/` | The BracketSim runs behind the site's numbers, one pair per list: `<DPS> - <Class> <Spec>.simc` and its report `<DPS> - <Class> <Spec>.html`. A list the site still shows from Raidbots has no file here until it is re-run |
+| `list/old/` | The Raidbots-era profiles: the self-buffed rail (`All-time/`, `Obtainable/`, `Herald/`), `All-time Full buffed/`, and `Dummy mode/` working copies. The numbers tagged "re-sim pending" on the site came from these; no check covers them |
 | The loose profiles in `list/` | Working copies that Fate keeps and uses; not lists of record either |
 | `CHANGELOG.txt` | Every change, dated, newest first. The site's header shows the latest entry |
 | `PROJECT.md` | Working notes: conventions, rulings and the record of each change |

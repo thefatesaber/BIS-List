@@ -5,13 +5,14 @@
 // Exits 1 on errors unless --advisory is given. CI runs it without the flag
 // on the three list folders, so an error blocks.
 //
-// Two kinds of profile sit in a list folder since 2026-10-22. A BracketSim
-// profile (".simc", header "Engine of record : BracketSim") is the export the
-// site's Advanced tab ran: native items, no proxies, its own hotfix layer.
-// It is held to the page - filename DPS, talents, every gear line against
-// its row - and to nothing of the Raidbots house style below. A ".txt"
-// profile is a Raidbots-era file still of record on Obtainable or Herald,
-// and carries every rule below until its list is re-run.
+// Since 2026-10-22 a list folder holds BracketSim profiles only (".simc",
+// header "Engine of record : BracketSim"): the export the site's Advanced
+// tab ran, with native items, no proxies, and its own hotfix layer. One is
+// held to the page - filename DPS, prov engine, talents, every gear line
+// against its row - and to nothing of the Raidbots house style below. A
+// ".txt" file in a list folder is an error: the Raidbots-era profiles live
+// in list/old, where no gate runs; the rules below still apply to one when
+// a list/old folder is passed by hand.
 //
 // Rulings encoded here (see PROJECT.md for the full record):
 //  - self-buffed rail: no power_infusion pooling, invoking, or casting
@@ -162,6 +163,7 @@ for (const dir of DIRS) {
     const has = re => lines.some(l => re.test(l));
     const where = re => lines.map((l, i) => re.test(l) ? i + 1 : 0).filter(Boolean);
     const BS = /^#\s*Engine of record\s*:\s*BracketSim/m.test(text);
+    if (!/[\\/]old[\\/]/.test(fp) && fname.endsWith(".txt")) { E(`a Raidbots-era profile - a list folder holds BracketSim runs only; it belongs in list/old`); continue; }
     if (BS !== fname.endsWith(".simc"))
       E(BS ? `a BracketSim profile is a .simc file` : `a .simc file carries the BracketSim header ("# Engine of record : BracketSim")`);
 

@@ -1722,8 +1722,10 @@ A profile of record is the export with its header: engine and build, the
 result line, the report's file name, the sim date, the option block, the
 stat weights. The report (Run + HTML Report) is kept beside the profile:
 BracketSim's share links expire after 30 days, so the `/r/` address is not
-a citation. A BracketSim profile is a `.simc` file; the Raidbots-era files
-of record stay `.txt`, and the linter tells them apart by the header.
+a citation. A BracketSim profile is a `.simc` file, and a list folder holds
+nothing else (ruled 2026-10-22, later the same day): the Raidbots-era files
+whose numbers the page still carries sit in `list/old` by their old folder
+names, so a list folder reads as the roster of what is on the new engine.
 `rebase_list.js` turns a profile and its report into the page's number,
 talents, stat panel and rows.
 
@@ -1744,9 +1746,8 @@ Since 2026-10-22 (BracketSim): Fate runs the character's export on the
 Advanced tab with the full-buffed set, saves the profile with its header
 and the report into the list folder as `<DPS> - <Class> <Spec>.simc` and
 `.html`, and `node rebase_list.js --spec <id> --list <list> --profile
-<file> --report <file>` rebases the page; the retired file of that list
-goes to `list/old/`; the two gates run; a changelog entry and a patch
-follow. Items the page has never shown get their source line by hand.
+<file> --report <file>` rebases the page; the two gates run; a changelog
+entry and a patch follow. Items the page has never shown get their source line by hand.
 
 Until 2026-10-22 (Raidbots):
 
@@ -1776,8 +1777,9 @@ gated on `validate.js` monotonicity against the untouched lists.
   an error blocks (the `--advisory` flag is for trying a rule out). Since
   2026-10-22 a `.simc` file with the BracketSim header is held to the page
   (filename DPS, prov engine, talents, every gear line against its row) and
-  to none of the Raidbots house-style rulings; a `.txt` file is held to all
-  of them. Since
+  to none of the Raidbots house-style rulings; a `.txt` file in a list
+  folder is an error (they live in `list/old`, where the old rulings still
+  apply if a folder there is passed by hand). Since
   2026-10-11 it compares every gear line with its page row: id, item
   level, gems and enchant, rings, trinkets and proxy lines included,
   and holds each calibrated proc to the encoding solved for its spec.
