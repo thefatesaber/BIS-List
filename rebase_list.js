@@ -138,7 +138,11 @@ for (const g of gear) {
     }
     row.gems = seen;
   }
-  if (anyRow && anyRow.hm) row.hm = anyRow.hm;
+  // Badges carry over; the Socket Proc badge only when the row still shows
+  // the gem count the badge was read on (a ring at another item level has
+  // other sockets).
+  const gemsOf = (r) => (r.gems || []).reduce((n, x) => n + (x.n || 1), 0);
+  if (anyRow && anyRow.hm && (anyRow.hm !== "socket" || gemsOf(anyRow) === g.gems.length)) row.hm = anyRow.hm;
   if (prev && prev.why) row.why = prev.why;
   rows.push(row);
 }

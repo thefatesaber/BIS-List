@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Frost Mage All-Time on BracketSim: 4,305.
+  Simmed by Fate on 2026-10-22 from fateccaster's export, on the site's full-buffed set. It
+  was 4,972 on Raidbots. New rows from the export, talents, stat panel and sim date: Cowl of
+  Icy Breaths and Hatefury Mantle for the Vengeful Gladiator's cowl and amice, Treads of the
+  False Oracle for Slippers of the Seacaller, Fleshfused Circle and the Signet at item level
+  33 with two gems each for the Timewalking pair, Meteorite Crystal for Solace of the Fallen,
+  Burning Primal Diamond for Mystical Skyfire, Lesser Inscription of the Storm, Greater
+  Spellpower, Major Healing, the belt clasp. No alternates until a sweep is read on the new
+  number.
 - [page] Frost Death Knight All-Time on BracketSim: 4,588.
   Simmed by Fate on 2026-10-22 from Asimiir's export, on the site's full-buffed set (Battle
   Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,875 on Raidbots.
