@@ -138,6 +138,7 @@
     "50670": {"name":"Toskk's Maximized Wristguards","quality":4,"class":4,"sub":2,"inv":9,"sockets":1,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
     "50695": {"name":"Distant Land","quality":4,"class":2,"sub":10,"inv":17,"sockets":3,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
     "50704": {"name":"Rigormortis","quality":4,"class":2,"sub":7,"inv":13,"sockets":1,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
+    "50706": {"name":"Tiny Abomination in a Jar","quality":4,"class":4,"sub":0,"inv":12,"sockets":0,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
     "50732": {"name":"Bloodsurge, Kel'Thuzad's Blade of Agony","quality":4,"class":2,"sub":7,"inv":13,"sockets":1,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
     "50733": {"name":"Fal'inrush, Defender of Quel'Thalas","quality":4,"class":2,"sub":18,"inv":26,"sockets":1,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
     "50734": {"name":"Royal Scepter of Terenas II","quality":4,"class":2,"sub":4,"inv":13,"sockets":1,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},

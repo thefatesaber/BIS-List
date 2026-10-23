@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Fury Warrior All-Time on BracketSim: 5,390.
+  Simmed by Fate on 2026-10-22 from Kleaveland's export, on the site's full-buffed set (Battle
+  Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 5,648 on Raidbots.
+  New rows from the export, talents, stat panel and sim date: Ukhel Ancestry Beads for
+  Crystallized Sigil, Seal of the City Watch and Fleshfused Circle at 33 with Accord of
+  Mastery for the Fleshfused and Signet pair on Accord of Critical Strike, Tiny Abomination
+  in a Jar (Icecrown Citadel, Professor Putricide) for Heart of Roccor, Lesser Inscription of
+  the Axe, the belt clasp, and Masterful Onyx and Ruby throughout for the sweep's mixed gems.
+  No alternates until a sweep is read on the new number.
 - [page] Frost Mage All-Time on BracketSim: 4,305.
   Simmed by Fate on 2026-10-22 from fateccaster's export, on the site's full-buffed set. It
   was 4,972 on Raidbots. New rows from the export, talents, stat panel and sim date: Cowl of
