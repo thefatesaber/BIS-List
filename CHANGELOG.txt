@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Assassination Rogue All-Time on BracketSim: 4,332.
+  Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark), with Plague-Soaked
+  Leather Leggings written at 45, the level a 10-player heroic Icecrown drop has at 30 (the
+  export carried them at 47, and a first run at that level was set aside). It was 4,634 on
+  Raidbots. New rows from the export, stat panel and sim date: Midnight Chestguard for
+  Harness of Carnal Instinct, The Night Blade (Outland world drop) in the off hand for
+  Heartpierce, Accord of Haste on the rings for Accord of Critical Strike, Lesser Inscription
+  of the Axe, Deft Ametrines where the sweep mixed Deadly Pyrestones. Talents are the Full
+  buffed list's. No alternates until a sweep is read on the new number.
 - [page] Outlaw Rogue All-Time on BracketSim: 4,236, the sim's own number - no effective factor.
   Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,185 on

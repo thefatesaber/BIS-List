@@ -1,0 +1,136 @@
+# ============================================================================
+# Legacy Thirty BiS — All-time — Assassination Rogue
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git a95d356, WoW 12.1.5.70448 hotfix 2026-10-17
+# Result           : 4,332 DPS (±1.3 / 0.030%), 20015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 4332 - Rogue Assassination.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-22 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [ ] Arcane Intellect  [x] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Wdps 55.88 > Agi 12.16 > AP 11.44 > Haste 7.84 > Vers 7.05 > Crit 7.04 > Mastery 5.96
+# ============================================================================
+
+rogue="Fatesneak"
+source=default
+region=us
+server=thrall
+spec=assassination
+level=30
+race=night_elf
+timeofday=night
+role=attack
+position=back
+talents=CMQA5HmDzx68KWyrW/8Y781L7zYMbAAAAAAglBMAAAAAgsNMDMwAGMAMDGwAAAAAAAAAAMDA
+
+# Default consumables
+potion=potion_of_the_tolvir
+flask=flask_of_endless_rage
+elixir=disabled
+food=skewered_eel
+augmentation=disabled
+temporary_enchant=main_hand:adamantite_sharpening_stone/off_hand:adamantite_sharpening_stone
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=apply_poison
+actions.precombat+=/snapshot_stats
+actions.precombat+=/variable,name=trinket_sync_slot,value=1,if=trinket.1.has_use_buff&(!trinket.2.has_use_buff|trinket.1.cooldown.duration>=trinket.2.cooldown.duration)
+actions.precombat+=/variable,name=trinket_sync_slot,value=2,if=trinket.2.has_use_buff&(!trinket.1.has_use_buff|trinket.2.cooldown.duration>trinket.1.cooldown.duration)
+actions.precombat+=/stealth
+actions.precombat+=/slice_and_dice,precombat_seconds=1
+
+# Executed every time the actor is available.
+actions=stealth
+actions+=/kick
+actions+=/variable,name=single_target,value=spell_targets.fan_of_knives=1
+actions+=/thistle_tea,if=energy.pct<30|fight_remains<10
+actions+=/ambush,if=stealthed.rogue&variable.single_target&talent.blindside&talent.improved_ambush&!talent.shrouded_suffocation
+actions+=/call_action_list,name=cds
+actions+=/call_action_list,name=core_dot
+actions+=/call_action_list,name=generate,if=!buff.darkest_night.up&combo_points<5|buff.darkest_night.up&combo_points.deficit>0
+actions+=/call_action_list,name=spend,if=!buff.darkest_night.up&combo_points>=5|buff.darkest_night.up&combo_points.deficit=0
+
+actions.cds=deathmark,if=dot.garrote.ticking&dot.rupture.ticking&cooldown.kingsbane.remains<=2&buff.envenom.remains>2&(target.time_to_die>10|fight_remains<20)
+actions.cds+=/invoke_external_buff,name=power_infusion,if=dot.deathmark.ticking
+actions.cds+=/call_action_list,name=items
+actions.cds+=/call_action_list,name=misc_cds
+actions.cds+=/kingsbane,if=dot.garrote.ticking&dot.rupture.ticking&(dot.deathmark.ticking|cooldown.deathmark.remains>52)&buff.envenom.up&(target.time_to_die>10|fight_remains<20)
+actions.cds+=/call_action_list,name=vanish,if=!stealthed.rogue
+
+actions.core_dot=garrote,if=(buff.improved_garrote.up|stealthed.rogue)&(pmultiplier<=1|remains<=14+6*talent.razor_wire+4*!variable.single_target)
+actions.core_dot+=/garrote,if=combo_points.deficit>=1&(pmultiplier<=1|!variable.single_target)&refreshable&target.time_to_die-remains>12
+actions.core_dot+=/garrote,cycle_targets=1,if=!talent.crimson_tempest&combo_points.deficit>=1&(pmultiplier<=1|!variable.single_target)&refreshable&target.time_to_die-remains>12
+actions.core_dot+=/rupture,if=combo_points>=4&refreshable&target.time_to_die-remains>12&(!buff.darkest_night.up|!dot.rupture.ticking)
+actions.core_dot+=/rupture,cycle_targets=1,if=(!talent.crimson_tempest&combo_points>=4&refreshable&target.time_to_die-remains>12&(!buff.darkest_night.up|!dot.rupture.ticking))&active_enemies>1
+actions.core_dot+=/rupture,cycle_targets=1,if=!talent.crimson_tempest&combo_points>=5&refreshable&target.time_to_die-remains>12&(!buff.darkest_night.up|!dot.rupture.ticking)
+
+actions.generate=crimson_tempest,target_if=max:dot.rupture.remains,if=!variable.single_target&(active_dot.garrote<spell_targets.fan_of_knives|active_dot.rupture<spell_targets.fan_of_knives)&(dot.rupture.remains>5|energy.regen_combined>40)
+actions.generate+=/shiv,if=spell_targets.fan_of_knives<=1&talent.toxic_stiletto&talent.darkest_night
+actions.generate+=/fan_of_knives,if=buff.darkest_night.up&combo_points.deficit=1&spell_targets.fan_of_knives<=1
+actions.generate+=/fan_of_knives,if=spell_targets.fan_of_knives>2+(talent.blindside&!talent.clear_the_witnesses)
+actions.generate+=/ambush,if=spell_targets.fan_of_knives<=2+(talent.blindside&!talent.clear_the_witnesses)
+actions.generate+=/mutilate,if=spell_targets.fan_of_knives<=2+(talent.blindside&!talent.clear_the_witnesses)
+actions.generate+=/fan_of_knives,if=!(main_hand.dagger&off_hand.dagger)
+
+actions.items=variable,name=base_trinket_condition,value=dot.rupture.ticking&cooldown.deathmark.remains<2|dot.deathmark.ticking|fight_remains<=22
+actions.items+=/use_item,name=astral_gladiators_badge_of_ferocity,use_off_gcd=1,if=dot.kingsbane.ticking|dot.deathmark.ticking|(cooldown.kingsbane.remains>60|cooldown.deathmark.remains>60)
+actions.items+=/use_item,name=algethar_puzzle_box,use_off_gcd=1,if=variable.base_trinket_condition&buff.envenom.up&(target.time_to_die>10|fight_remains<20)
+actions.items+=/use_item,name=font_of_venomous_rage,use_off_gcd=1,if=buff.lingering_darkness.up|!dot.deathmark.ticking&!cooldown.deathmark.ready&cooldown.deathmark.remains>20
+actions.items+=/use_items,slots=trinket1,if=(variable.trinket_sync_slot=1&(debuff.deathmark.up)|(variable.trinket_sync_slot=2&!trinket.2.cooldown.ready&cooldown.deathmark.remains>20))|!variable.trinket_sync_slot|fight_remains<=20
+actions.items+=/use_items,slots=trinket2,if=(variable.trinket_sync_slot=2&(debuff.deathmark.up)|(variable.trinket_sync_slot=1&!trinket.1.cooldown.ready&cooldown.deathmark.remains>20))|!variable.trinket_sync_slot|fight_remains<=20
+
+actions.misc_cds=potion,if=dot.rupture.ticking&(buff.bloodlust.react|fight_remains<30|debuff.deathmark.up)
+actions.misc_cds+=/blood_fury,use_off_gcd=1,if=debuff.deathmark.up
+actions.misc_cds+=/berserking,use_off_gcd=1,if=debuff.deathmark.up
+actions.misc_cds+=/fireblood,use_off_gcd=1,if=debuff.deathmark.up
+actions.misc_cds+=/ancestral_call,use_off_gcd=1,if=debuff.deathmark.up
+
+actions.spend=envenom,if=(buff.envenom.remains<=1|buff.deathmark.up)&active_enemies=1
+actions.spend+=/envenom,if=energy.pct>70|fight_remains<15
+actions.spend+=/envenom,if=energy.pct>30&(target.time_to_die<12|spell_targets.fan_of_knives>=4)
+
+actions.vanish=vanish,if=variable.single_target&talent.improved_garrote&dot.garrote.pmultiplier<=1&(dot.deathmark.ticking|cooldown.deathmark.remains>target.time_to_die-10)&!raid_event.adds.in<=30
+actions.vanish+=/vanish,if=!variable.single_target&talent.improved_garrote&dot.garrote.pmultiplier<=1&(raid_event.adds.remains>=10|!raid_event.adds.in<=30)
+
+head=frayed_scoundrels_cap,id=50206,bonus_id=6710,ilevel=33,gem_id=76884/213743/40150,drop_level=30
+neck=amnesia,id=200210,bonus_id=6652/8782/9156/9477,ilevel=33,gem_id=213488/40150/40150,enchant_id=5437,drop_level=30
+shoulders=mantle_of_perenolde,id=27434,bonus_id=6652/6710,ilevel=33,gem_id=40150/40150,enchant_id=3808,drop_level=30
+back=drape_of_the_faceless_general,id=46032,bonus_id=9043,ilevel=43,gem_id=40150/40150,enchant_id=3243,drop_level=30
+chest=midnight_chestguard,id=30905,bonus_id=9036,ilevel=42,gem_id=40150/40150/40150,enchant_id=6625,drop_level=30
+wrists=umbrage_armbands,id=54580,bonus_id=9051,ilevel=47,gem_id=40150,enchant_id=4416,drop_level=30
+hands=gloves_of_the_endless_dark,id=46043,bonus_id=9043,ilevel=43,gem_id=40150/40150,enchant_id=5259,drop_level=30
+waist=souldevouring_cinch,id=46095,bonus_id=9043,ilevel=43,gem_id=40150/40150/40150,drop_level=30
+legs=plaguesoaked_leather_leggings,id=51889,bonus_id=9051,ilevel=45,gem_id=40150/40150/40150,enchant_id=4880,drop_level=30
+feet=slayers_boots,id=34575,bonus_id=9043,ilevel=44,gem_id=40150,enchant_id=1887,drop_level=30
+finger1=stitchfleshs_misplaced_signet,id=178736,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=40150/40150,enchant_id=6109,drop_level=30
+finger2=bloodoath_signet,id=178871,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=40150/40150,enchant_id=6109,drop_level=30
+trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
+trinket2=chaos_talisman,id=137459,bonus_id=6652/6710,ilevel=33,drop_level=30
+main_hand=heartrazor,id=29962,bonus_id=9035,ilevel=40,enchant_id=4099,drop_level=30,content_tuning=2659
+off_hand=the_night_blade,id=31331,bonus_id=6661,ilevel=37,enchant_id=5950,drop_level=26,content_tuning=1694
+
+# Gear Summary
+# gear_ilvl=38.75
+# gear_agility=156
+# gear_stamina=93
+# gear_attack_power=4
+# gear_crit_rating=84
+# gear_haste_rating=184
+# gear_versatility_rating=17
+# gear_armor=79
+# gear_dodge_rating=1

@@ -50,6 +50,7 @@
     "30975": {"name":"Onslaught Breastplate","quality":4,"class":4,"sub":4,"inv":5,"sockets":3,"bind":1,"reqLevel":27,"classes":1},
     "30997": {"name":"Lightbringer Shoulderbraces","quality":4,"class":4,"sub":4,"inv":3,"sockets":2,"bind":1,"reqLevel":27,"classes":2},
     "31318": {"name":"Singing Crystal Axe","quality":4,"class":2,"sub":1,"inv":17,"sockets":0,"bind":2,"reqLevel":27},
+    "31331": {"name":"The Night Blade","quality":4,"class":2,"sub":15,"inv":13,"sockets":0,"bind":2,"reqLevel":27},
     "31980": {"name":"Merciless Gladiator's Felweave Cowl","quality":4,"class":4,"sub":1,"inv":1,"sockets":2,"bind":1,"reqLevel":27,"classes":256},
     "31982": {"name":"Merciless Gladiator's Felweave Raiment","quality":4,"class":4,"sub":1,"inv":20,"sockets":3,"bind":1,"reqLevel":27,"classes":256},
     "32194": {"name":"Delicate Crimson Spinel","quality":4,"class":3,"sub":1,"inv":0,"sockets":0,"bind":0,"reqLevel":0},
