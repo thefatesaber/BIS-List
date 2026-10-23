@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Devastation Evoker All-Time on BracketSim: 4,222.
+  Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
+  (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, Flame Cap),
+  with Abracadaver written at 45, the level a 10-player heroic Icecrown drop has at 30 (the
+  export carried it at 47, and a first run at that level was set aside). It was 4,417 on
+  Raidbots. Gear is the Full buffed list's but for Solace of the Fallen in its heroic version
+  (45 for 44) and the trinkets swapping slots; talents, stat panel and sim date are new. No
+  alternates until a sweep is read on the new number.
 - [page] Marksmanship Hunter All-Time on BracketSim: 4,327.
   Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,528 on
