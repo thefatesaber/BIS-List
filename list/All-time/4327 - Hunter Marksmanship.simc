@@ -1,0 +1,165 @@
+# ============================================================================
+# Legacy Thirty BiS — All-time — Marksmanship Hunter
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git a95d356, WoW 12.1.5.70448 hotfix 2026-10-17
+# Result           : 4,327 DPS (±1.7 / 0.040%), 20015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 4327 - Hunter Marksmanship.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-22 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [ ] Arcane Intellect  [x] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Wdps 76.90 > Agi 13.70 > AP 12.73 > Crit 7.99 > Haste 7.35 > Mastery 7.13 > Vers 6.97
+# ============================================================================
+
+hunter="legacythirty"
+source=default
+region=us
+server=thrall
+spec=marksmanship
+level=30
+race=goblin
+role=attack
+position=ranged_back
+talents=C4PAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAmxwYxgxAgwAsYMMDDglBDAAADAAAGAAA
+
+# Default consumables
+potion=potion_of_the_tolvir
+flask=flask_of_endless_rage
+elixir=disabled
+food=skewered_eel
+augmentation=disabled
+temporary_enchant=main_hand:superior_mana_oil
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=snapshot_stats
+actions.precombat+=/potion
+actions.precombat+=/summon_pet,if=talent.unbreakable_bond
+actions.precombat+=/use_item,name=algethar_puzzle_box
+actions.precombat+=/aimed_shot
+
+# Executed every time the actor is available.
+actions=variable,name=trueshot_ready,value=!talent.bullseye|(fight_remains>cooldown.trueshot.duration+10|buff.bullseye.stack=buff.bullseye.max_stack)&(cooldown.explosive_shot.remains>=15|cooldown.explosive_shot.ready)|fight_remains<25|time<10
+actions+=/variable,name=trueshot_ready,op=setif,condition=fight_style.dungeonroute,value_else=variable.trueshot_ready,value=raid_event.pull.remains>20|raid_event.pull.in>45|talent.calling_the_shots
+actions+=/retarget,target_if=max:target.health,line_cd=5,if=fight_style.dungeonroute
+actions+=/auto_shot
+actions+=/call_action_list,name=cds
+actions+=/call_action_list,name=trinkets
+actions+=/call_action_list,name=draoe,if=active_enemies>2&talent.trick_shots&hero_tree.dark_ranger
+actions+=/call_action_list,name=sentaoe,if=active_enemies>2&talent.trick_shots&hero_tree.sentinel
+actions+=/call_action_list,name=drst,if=hero_tree.dark_ranger
+actions+=/call_action_list,name=sentst,if=hero_tree.sentinel
+actions+=/call_action_list,name=sentaoe,if=active_enemies>2&!hero_tree.dark_ranger&!hero_tree.sentinel
+actions+=/call_action_list,name=sentst,if=!hero_tree.dark_ranger&!hero_tree.sentinel
+
+actions.cds=invoke_external_buff,name=power_infusion,if=buff.trueshot.remains>12|fight_remains<13
+actions.cds+=/berserking,if=buff.trueshot.up|fight_remains<13
+actions.cds+=/blood_fury,if=buff.trueshot.up|cooldown.trueshot.remains>30|fight_remains<16
+actions.cds+=/ancestral_call,if=buff.trueshot.up|cooldown.trueshot.remains>30|fight_remains<16
+actions.cds+=/fireblood,if=buff.trueshot.up|cooldown.trueshot.remains>30|fight_remains<9
+actions.cds+=/lights_judgment,if=buff.trueshot.down
+actions.cds+=/potion,if=buff.trueshot.up&(buff.bloodlust.up|fight_remains<120-30*talent.calling_the_shots)|fight_remains<31
+actions.cds+=/potion,name=liquid_luster_2,if=potion.potion_of_recklessness&buff.bullseye.up&cooldown.trueshot.remains<7&(fight_style.dungeonroute|cooldown.explosive_shot.remains>=25|cooldown.explosive_shot.remains<10)|fight_remains<31
+
+actions.draoe=explosive_shot,target_if=min:dot.explosive_shot.remains,if=set_bonus.mid2_4pc&!fight_style.dungeonroute&(!talent.tactical_reload|!buff.lock_and_load.up)
+actions.draoe+=/explosive_shot,if=(!talent.tactical_reload|!buff.lock_and_load.up)&(!cooldown.rapid_fire.ready|!fight_style.dungeonroute)
+actions.draoe+=/volley
+actions.draoe+=/aimed_shot,if=buff.trick_shots.remains>cast_time&full_recharge_time<gcd+cast_time
+actions.draoe+=/black_arrow,if=buff.precise_shots.up
+actions.draoe+=/multishot,if=buff.trick_shots.down
+actions.draoe+=/trueshot,if=variable.trueshot_ready
+actions.draoe+=/rapid_fire,if=buff.trick_shots.remains>execute_time
+actions.draoe+=/wailing_arrow,if=!cooldown.black_arrow.ready
+actions.draoe+=/multishot,if=buff.precise_shots.up
+actions.draoe+=/aimed_shot,if=buff.trick_shots.remains>cast_time
+actions.draoe+=/black_arrow
+actions.draoe+=/multishot,if=focus>cost+action.aimed_shot.cost
+actions.draoe+=/steady_shot
+
+actions.drst=black_arrow,if=buff.precise_shots.up
+actions.drst+=/explosive_shot,target_if=min:dot.explosive_shot.remains,if=set_bonus.mid2_4pc&active_enemies>1&!fight_style.dungeonroute&(!talent.tactical_reload|!buff.lock_and_load.up)
+actions.drst+=/explosive_shot,if=(!talent.tactical_reload|!buff.lock_and_load.up)&(!cooldown.rapid_fire.ready|!fight_style.dungeonroute)
+actions.drst+=/volley
+actions.drst+=/aimed_shot,if=buff.trueshot.up&buff.precise_shots.down&cooldown.black_arrow.ready|full_recharge_time<gcd+cast_time
+actions.drst+=/trueshot,if=variable.trueshot_ready
+actions.drst+=/rapid_fire
+actions.drst+=/wailing_arrow
+actions.drst+=/multishot,target_if=max:debuff.spotters_mark.down,if=buff.precise_shots.up&active_enemies>1&talent.aspect_of_the_hydra&(!fight_style.dungeonroute|active_enemies>2)
+actions.drst+=/arcane_shot,if=buff.precise_shots.up
+actions.drst+=/aimed_shot
+actions.drst+=/black_arrow
+actions.drst+=/steady_shot
+
+actions.sentaoe=explosive_shot,target_if=min:dot.explosive_shot.remains,if=set_bonus.mid2_4pc&!fight_style.dungeonroute&(!talent.tactical_reload|!buff.lock_and_load.up)
+actions.sentaoe+=/explosive_shot,if=(!talent.tactical_reload|!buff.lock_and_load.up)&(!cooldown.rapid_fire.ready|!fight_style.dungeonroute)
+actions.sentaoe+=/volley
+actions.sentaoe+=/trueshot,if=variable.trueshot_ready
+actions.sentaoe+=/moonlight_chakram,if=buff.moonlight_chakram.remains<gcd.max
+actions.sentaoe+=/multishot,target_if=max:debuff.sentinels_mark.down,if=buff.precise_shots.up&!talent.aspect_of_the_hydra|buff.trick_shots.down
+actions.sentaoe+=/aimed_shot,target_if=max:debuff.sentinels_mark.up,if=debuff.sentinels_mark.react&buff.bulletstorm.up
+actions.sentaoe+=/rapid_fire
+actions.sentaoe+=/aimed_shot,target_if=max:debuff.sentinels_mark.up,if=buff.trick_shots.remains>cast_time
+actions.sentaoe+=/moonlight_chakram
+actions.sentaoe+=/multishot,if=focus>cost+action.aimed_shot.cost
+actions.sentaoe+=/steady_shot,if=active_enemies=1
+
+actions.sentst=explosive_shot,target_if=min:dot.explosive_shot.remains,if=set_bonus.mid2_4pc&active_enemies>1&!fight_style.dungeonroute&(!talent.tactical_reload|!buff.lock_and_load.up)
+actions.sentst+=/explosive_shot,if=(!talent.tactical_reload|!buff.lock_and_load.up)&(!cooldown.rapid_fire.ready|!fight_style.dungeonroute)
+actions.sentst+=/volley
+actions.sentst+=/trueshot,if=variable.trueshot_ready
+actions.sentst+=/moonlight_chakram,if=buff.moonlight_chakram.remains<5
+actions.sentst+=/aimed_shot,if=debuff.sentinels_mark.react&buff.bulletstorm.up&active_enemies>1&fight_style.dungeonroute
+actions.sentst+=/aimed_shot,if=buff.trueshot.up&buff.precise_shots.down&active_enemies=1
+actions.sentst+=/rapid_fire,if=buff.precise_shots.down|buff.trueshot.up|active_enemies>1&talent.aspect_of_the_hydra|!talent.no_scope
+actions.sentst+=/kill_shot,if=buff.precise_shots.up
+actions.sentst+=/multishot,target_if=max:debuff.sentinels_mark.down,if=buff.precise_shots.up&active_enemies>1&talent.aspect_of_the_hydra&(!fight_style.dungeonroute|active_enemies>2)
+actions.sentst+=/arcane_shot,if=buff.precise_shots.up
+actions.sentst+=/aimed_shot,target_if=max:debuff.sentinels_mark.up
+actions.sentst+=/moonlight_chakram
+actions.sentst+=/steady_shot
+
+actions.trinkets=use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_buff&this_trinket.cooldown.duration%%cooldown.trueshot.duration=0&(buff.trueshot.remains>14|this_trinket.is.algethar_puzzle_box&variable.trueshot_ready&cooldown.trueshot.remains<5)
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_buff&other_trinket.has_use_buff&other_trinket.cooldown.duration%%cooldown.trueshot.duration=0&(buff.trueshot.remains>14&other_trinket.cooldown.remains|cooldown.trueshot.remains>20&other_trinket.cooldown.remains<=cooldown.trueshot.remains)
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_buff&(buff.trueshot.remains>14|buff.trueshot.up&fight_remains<cooldown.trueshot.remains+15|fight_remains<21)
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_damage&cooldown.trueshot.remains>20
+
+head=helm_of_desolation,id=28192,bonus_id=6652/6710/8810,ilevel=33,gem_id=213743/76884/32194,drop_level=30
+neck=phoenix_feather_pendant,id=200284,bonus_id=6652/8782/9156/9477,ilevel=33,gem_id=213464/213491/32194,enchant_id=5890,drop_level=30
+shoulders=pauldrons_of_desolation,id=27713,bonus_id=43/6710,ilevel=33,gem_id=32194/32194,enchant_id=3808,drop_level=30
+back=drape_of_the_faceless_general,id=46032,bonus_id=9043,ilevel=43,gem_id=32222/32222,enchant_id=3243,drop_level=30
+chest=embrace_of_the_phoenix,id=34373,bonus_id=9037,ilevel=44,gem_id=32222/32222/32222,enchant_id=6625,drop_level=30
+wrists=bracers_of_the_forest_stalker,id=34698,bonus_id=6652/7202/8810,ilevel=33,gem_id=32222/32222,enchant_id=3845,drop_level=30
+hands=thalassian_ranger_gauntlets,id=34343,bonus_id=9037,ilevel=44,gem_id=32222/32222,enchant_id=5259,drop_level=30
+waist=belt_of_dragons,id=45553,bonus_id=9043,ilevel=43,gem_id=32222/32222/32222,enchant_id=6904,drop_level=30
+legs=wyrmscale_greaves,id=30534,bonus_id=6652/6710,ilevel=33,gem_id=32222/32222/32222,enchant_id=4880,drop_level=30
+feet=starstrider_boots,id=29951,bonus_id=9035,ilevel=40,gem_id=32222/32222,enchant_id=1887
+finger1=fleshfused_circle,id=178869,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32222/32222,enchant_id=6108,drop_level=30
+finger2=seal_of_the_city_watch,id=162542,bonus_id=6652/6710/10386/10395/10879,ilevel=33,gem_id=32222/32222,enchant_id=6108,drop_level=30
+trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
+trinket2=herkuml_war_token,id=50355,ilevel=15
+main_hand=falinrush_defender_of_quelthalas,id=50733,bonus_id=9051,ilevel=47,gem_id=32222,enchant_id=5950
+
+# Gear Summary
+# gear_ilvl=36.33
+# gear_agility=163
+# gear_stamina=110
+# gear_attack_power=12
+# gear_crit_rating=175
+# gear_haste_rating=71
+# gear_mastery_rating=49
+# gear_versatility_rating=15
+# gear_armor=107

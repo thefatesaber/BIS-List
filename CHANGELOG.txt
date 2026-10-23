@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Marksmanship Hunter All-Time on BracketSim: 4,327.
+  Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,528 on
+  Raidbots. Items are the Full buffed list's; the talents, stat panel and sim date are new,
+  and the export's enchants and gems replace the sweep's: Lesser Inscription of the Axe,
+  Greater Assault on the wrist, the belt clasp, Delicate Crimson Spinels in the head,
+  shoulders and neck (with a Deadly Onyx) where the sweep ran Deadly Pyrestones, and the two
+  rings swap slots. No alternates until a sweep is read on the new number.
 - [page] Windwalker Monk All-Time re-run with the helm at its level: 4,444.
   Simmed by Fate on 2026-10-22, the same export with ilevel=33 on the head line. The earlier
   run of the day (4,370) had the Wastewalker Helm at its base 17; +74 DPS for the sixteen
