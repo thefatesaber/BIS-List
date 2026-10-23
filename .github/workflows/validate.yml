@@ -11,4 +11,4 @@ jobs:
       - name: page dataset (blocking)
         run: node validate.js index.html
       - name: profile linter (gating)
-        run: node lint_profiles.js --page index.html "list/All-time Full buffed" "list/All-time" "list/Obtainable" "list/Herald"
+        run: node lint_profiles.js --page index.html "list/All-time" "list/Obtainable" "list/Herald"

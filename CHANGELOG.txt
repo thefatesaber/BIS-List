@@ -6,6 +6,25 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-22
+- [page] BracketSim is the engine of record, and the four lists become three, every one fully raid-buffed: All-Time, Obtainable and Herald of the Titans.
+  Ruled by Fate. All-Time takes over the Full buffed list's gear and numbers (the same item
+  pool, the same buff set); the self-buffed All-Time list is retired. Obtainable and Herald
+  keep their numbers, self-buffed as they were simmed, until each is re-run. A number not yet
+  from BracketSim is tagged "re-sim pending" beside its sim date, and the Consumables panel
+  of such an Obtainable or Herald number still says the panel is not in the number shown.
+  The number shown is the number of record: the Full buffed tab's subtraction of Power
+  Infusion worth is withdrawn (BracketSim's buff set has no external Power Infusion), so an
+  All-Time number carried from Raidbots shows as simmed, Power Infusion included, until its
+  re-run. Buff worth stays on All-Time as information, measured on Raidbots. How to read this
+  now says all of that; the All specs table has three columns; a link to the old Full buffed
+  address opens All-Time. Crystallized Sigil is spelt as the game now spells it.
+  Repository: the profiles of record sit in list/All-time, list/Obtainable and list/Herald
+  (a BracketSim run is a .simc file with its .html report beside it; a Raidbots-era file stays
+  .txt); list/old holds the retired self-buffed All-time rail and Dummy mode. rebase_list.js
+  puts a run on the page. validate.js, lint_profiles.js, stale.js, gamedata.js and CI know
+  three lists; gamedata.json is rebuilt on 12.1.5 and now records each enchant's own spell.
+
 ## 2026-10-13
 - [page] Two buttons join the header: How to read this, and All specs, every spec on all four lists.
   Asked by Fate, who chose both from mock-ups.

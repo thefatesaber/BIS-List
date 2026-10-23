@@ -21,7 +21,7 @@ const path = require("path");
 
 const ROOT = __dirname;
 const FILE = path.join(ROOT, "gamedata.json");
-const LIST_DIRS = ["All-time Full buffed", "All-time", "Obtainable", "Herald"];
+const LIST_DIRS = ["All-time", "Obtainable", "Herald"];
 const GEAR_LINE = /^(head|neck|shoulders?|back|chest|shirt|tabard|wrists?|hands|waist|legs|feet|finger[12]|trinket[12]|main_hand|off_hand)=/;
 const TABLES = ["item_data.inc", "sc_spell_data.inc", "spell_item_enchantment.inc", "item_bonus.inc"];
 
@@ -30,6 +30,8 @@ const TABLES = ["item_data.inc", "sc_spell_data.inc", "spell_item_enchantment.in
 const MANUAL_SPELLS = {
   60582: { name: "Icescale Leg Armor", enchants: [3823],
            manual: "not in SimulationCraft's spell data; read on Wowhead 2026-10-11" },
+  59937: { name: "Lesser Inscription of the Storm", enchants: [3810],
+           manual: "not in SimulationCraft's spell data; spell_item_enchantment.inc names 59937 as the spell of enchant 3810 (Sons of Hodir, honored); read 2026-10-22" },
 };
 
 // Spell effects that put an enchant on an item, misc value = enchant id.
@@ -78,7 +80,7 @@ function wanted(root) {
   for (const dir of LIST_DIRS) {
     const d = path.join(root, "list", dir);
     let names = [];
-    try { names = fs.readdirSync(d).filter(f => f.endsWith(".txt")); } catch (e) {}
+    try { names = fs.readdirSync(d).filter(f => f.endsWith(".txt") || f.endsWith(".simc")); } catch (e) {}
     for (const f of names)
       for (const line of fs.readFileSync(path.join(d, f), "utf8").split(/\r?\n/)) {
         if (!GEAR_LINE.test(line)) continue;
@@ -185,11 +187,15 @@ function build(read, source, root) {
     // Profession-quality enchants carry their tier as an icon in the name.
     const tier = f.last.match(/\|A:Professions-ChatIcon-Quality-Tier(\d)/);
     const name = f.last.replace(/\s*\|A:.*$/, "").trim();
-    const e = { id: n[0], name, skill: n[7], tier: tier ? +tier[1] : 0 };
+    // [21] the spell that applies the enchant, by the table's own column
+    const e = { id: n[0], name, skill: n[7], tier: tier ? +tier[1] : 0, spell: n[21] > 0 ? n[21] : 0 };
     enchAll.set(e.id, e);
     if (e.tier) { if (!enchByName.has(name)) enchByName.set(name, []); enchByName.get(name).push(e.id); }
   }
   if (!enchAll.size) throw new Error("spell_item_enchantment.inc: no rows parsed — the table layout has changed");
+  // An enchant a profile sims is wanted with the spell that applies it, so
+  // a page row can link that spell before any row does (rebase_list.js).
+  for (const id of w.enchants) { const e = enchAll.get(id); if (e && e.spell) w.spells.add(e.spell); }
 
   // spells, then their effects, from one file.
   // spell: name, id, ..., [34] equipped_class, [35] equipped_invtype_mask
@@ -237,6 +243,7 @@ function build(read, source, root) {
     if (!e) continue;
     const o = { name: e.name };
     if (e.skill) o.skill = e.skill;
+    if (e.spell) o.spell = e.spell;
     out.enchants[id] = o;
   }
 

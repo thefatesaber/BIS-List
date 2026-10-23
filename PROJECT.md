@@ -2,13 +2,16 @@
 
 Sim-validated Best-in-Slot for all 13 classes at level 30 (12.1.0 / Midnight),
 hosted at thefatesaber.github.io/BIS-List/. One self-contained `index.html`
-with the dataset embedded as JS literals; `list/` holds the benchmark `.simc`
-profiles that produced every number on the page. Four constraint tiers per
-spec — All-time, All-time Full buffed, Obtainable, Herald of the Titans
-(ilvl ≤ 41, Classic/TBC/WotLK sources, necks/rings/trinkets exempt) — and
-DPS must satisfy Herald ≤ Obtainable ≤ All-time ≤ All-time Full buffed.
-All-time Full buffed is mid-rollout: specs appear as their buffed profiles land (Restoration Shaman first, 5787). `list/Dummy mode/` holds reconciliation
-copies, which follow looser rules than benchmarks (see hunters_mark below).
+with the dataset embedded as JS literals; `list/` holds the profile that
+produced every number on the page. Three constraint tiers per spec since
+2026-10-22 — All-time, Obtainable, Herald of the Titans (ilvl ≤ 41,
+Classic/TBC/WotLK sources, necks/rings/trinkets exempt) — every one simmed
+fully raid-buffed on BracketSim, and DPS must satisfy Herald ≤ Obtainable ≤
+All-time. Until 2026-10-22 there were four: a self-buffed rail (All-time,
+Obtainable, Herald) and All-time Full buffed, on Raidbots; see "Engine of
+record" for the cutover and what still stands from it. `list/old/Dummy mode/`
+holds reconciliation copies, which follow looser rules than benchmarks (see
+hunters_mark below).
 
 SimC branch: midnight (d0d2db1). DBC references come from
 `raw.githubusercontent.com/simulationcraft/simc/midnight/engine/dbc/generated/`.
@@ -1687,7 +1690,44 @@ validate.js holds it to the off-hand note and to `dpsByList`.
 
 ## Engine of record
 
-Ruled 2026-09-02: numbers of record come from Raidbots Advanced —
+**Ruled 2026-10-22: BracketSim (bracketsim.gg) is the engine of record,
+and every list is fully buffed.** BracketSim is SimulationCraft 1210-01
+(midnight) with a per-bracket hotfix layer of its own (the report lists
+them beside the stock ones: "Fire Blast is learnt below level 30
+(BracketSim)"), run from its Advanced tab on the character's export. The
+four lists became three: All-Time inherits the Full buffed data (same item
+pool, same buff set); the self-buffed All-time rail is retired to
+`list/old/All-time`; Obtainable and Herald keep their Raidbots numbers,
+self-buffed as simmed, until each is re-run. On the page a number not yet
+from BracketSim carries "re-sim pending" beside its sim date (engine read
+off the prov stamp); the Consumables panel keeps its "not included" note on
+such an Obtainable or Herald number. The ruling of 2026-10-03 that the
+Full buffed tab subtracts Power Infusion worth at render is withdrawn: the
+number shown is the number of record, and a carried Raidbots All-Time
+number therefore shows as simmed, PI included, until re-run. The Buff worth
+panel stays on All-Time as information (measured on Raidbots, 2026-10).
+
+The full-buffed set, as the two first BracketSim lists ran it (Resto
+Shaman 5487, Shadow Priest 5385, both 2026-10-22): the Optimal Raid Buffs
+preset (Arcane Intellect, Battle Shout, Mark of the Wild, Skyfury, each
+where the class uses it), Drums of Fury (15% haste, 40 s at pull),
+Hunter's Mark on the target (+3% damage taken); world buffs off except
+Flame Cap where BracketSim offers it (fire casters; on for the Shaman); no
+teammate armor debuff (Annihilator, Vibroblade, Phantom Blade off); no
+external Power Infusion (the priest's own cast stays); consumables live;
+Patchwerk 300 s, fixed length (vary fight length off); detailed report and
+stat weights on. Open: whether Flame Cap belongs in the set (it is offered
+only to fire casters, so it is an asymmetry across the Best-class view).
+A profile of record is the export with its header: engine and build, the
+result line, the report's file name, the sim date, the option block, the
+stat weights. The report (Run + HTML Report) is kept beside the profile:
+BracketSim's share links expire after 30 days, so the `/r/` address is not
+a citation. A BracketSim profile is a `.simc` file; the Raidbots-era files
+of record stay `.txt`, and the linter tells them apart by the header.
+`rebase_list.js` turns a profile and its report into the page's number,
+talents, stat panel and rows.
+
+Earlier ruling, 2026-09-02: numbers of record come from Raidbots Advanced —
 Fate's platform throughout the project and the one any reader can
 reproduce. The local/parity midnight builds remain the calibration and
 verification instruments (proc-rate rescaling, three-checks, stats
@@ -1699,6 +1739,16 @@ mid-migration may briefly invert — validate warns instead of failing
 until the class's tiers share an engine again.
 
 ## Wave workflow
+
+Since 2026-10-22 (BracketSim): Fate runs the character's export on the
+Advanced tab with the full-buffed set, saves the profile with its header
+and the report into the list folder as `<DPS> - <Class> <Spec>.simc` and
+`.html`, and `node rebase_list.js --spec <id> --list <list> --profile
+<file> --report <file>` rebases the page; the retired file of that list
+goes to `list/old/`; the two gates run; a changelog entry and a patch
+follow. Items the page has never shown get their source line by hand.
+
+Until 2026-10-22 (Raidbots):
 
 Fix set is cut per list directory and linted to zero. Sims run at 50k
 iterations (`calculate_scale_factors=0` halves runtime when weights aren't
@@ -1722,8 +1772,12 @@ gated on `validate.js` monotonicity against the untouched lists.
   line brings in a new item, gem or enchant: both gates fail on an id the
   file does not hold. `--check` only reports what is missing.
 - `node lint_profiles.js [--advisory] [--page index.html] <dir>...` —
-  profiles vs page and rulings. CI runs it on all four list folders and
+  profiles vs page and rulings. CI runs it on the three list folders and
   an error blocks (the `--advisory` flag is for trying a rule out). Since
+  2026-10-22 a `.simc` file with the BracketSim header is held to the page
+  (filename DPS, prov engine, talents, every gear line against its row) and
+  to none of the Raidbots house-style rulings; a `.txt` file is held to all
+  of them. Since
   2026-10-11 it compares every gear line with its page row: id, item
   level, gems and enchant, rings, trinkets and proxy lines included,
   and holds each calibrated proc to the encoding solved for its spec.
@@ -1741,6 +1795,13 @@ gated on `validate.js` monotonicity against the untouched lists.
   run on HEAD~1 vs HEAD before pushing a rebase.
 - `talent_sim_gen.cpp` — level-30 legal-build enumerator for profileset
   sweeps (`--tree both`, `--list`, `--exclude-file`).
+- `node rebase_list.js --spec <page id> --list <list> --profile <.simc>
+  --report <.html> [--dry]` — rebases one list on a BracketSim run: number,
+  talents, prov, stat panel and rows from the profile and its report; names
+  and qualities from `gamedata.json`, sources, enchant spells and badges
+  carried from rows the page already has. Says what it could not resolve
+  (an item never shown before, an enchant with no spell on file) and exits
+  1 until those are written by hand. Since 2026-10-22.
 - Planned: `gen_profiles.js`, page-to-profile generation, druid pilot
   first.
 

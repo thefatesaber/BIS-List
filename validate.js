@@ -8,9 +8,18 @@ const fs = require("fs");
 
 const FILE = process.argv[2] || "index.html";
 const HERALD_ILVL_CAP = 41;
-// Every listed spec carries all four lists. An entry with hidden:true is an
-// unlisted preview (ruling D6) and may carry any of them.
-const LISTS = ["alltime", "obtainable", "herald", "alltime_buffed"];
+// Every listed spec carries all three lists, each fully raid-buffed (since
+// 2026-10-22; the self-buffed rail and its Full buffed twin are in list/old).
+// An entry with hidden:true is an unlisted preview (ruling D6) and may carry
+// any of them.
+const LISTS = ["alltime", "obtainable", "herald"];
+// Engine of a list's number, off its prov stamp. BracketSim is the engine of
+// record since 2026-10-22; a Raidbots number stands, tagged, until its list
+// is re-run there.
+const engineOf = (c, L) => {
+  const p = ((c.prov || {})[L]) || "";
+  return /BracketSim/i.test(p) ? "bracketsim" : /Raidbots/i.test(p) ? "raidbots" : "local";
+};
 
 // Herald: outside necks, rings and trinkets, every piece comes from Classic,
 // TBC or WotLK. The item id decides it, not the source label, which is free
@@ -151,7 +160,7 @@ function socketIssue(r, it, L) {
     return badge ? null : `shows one gem more than its ${it.sockets} socket(s) and has no Socket Proc badge (hm:"socket")`;
   }
   if (badge) return `wears the Socket Proc badge but shows ${gems} gem(s) on ${it.sockets} socket(s) — the badge is for exactly one extra`;
-  if (extra > 1 && !(JEWELLERY.has(r.slot) && (L === "alltime" || L === "alltime_buffed") && gems <= 3))
+  if (extra > 1 && !(JEWELLERY.has(r.slot) && L === "alltime" && gems <= 3))
     return `shows ${gems} gems on ${it.sockets} socket(s)`;
   return null;
 }
@@ -191,8 +200,6 @@ const ALT_BASE_TOL = 3;
 const ALT_BASE_OLD = new Map([
   ["warrior/obtainable/Main Hand", "Fury Obtainable, Main Hand: its four alternates keep the sweep of record, on a base of 3384; ruled 2026-10-12 (D31)"],
   ["warrior/obtainable/Off Hand", "Fury Obtainable, Off Hand: its five alternates, the same sweep and ruling (D31)"],
-  ["paladin/alltime/Main Hand", "Retribution All-Time, Main Hand: its four alternates keep the sweep of record, which named no base; ruled 2026-10-12 (D31)"],
-  ["deathknight/alltime/Main Hand", "Frost DK All-Time, Main Hand: its four alternates, the same ruling (D31)"],
 ]);
 const altBaseOldSeen = new Map();
 
@@ -204,7 +211,7 @@ for (const c of CLASSES) {
     const rows = (c.lists && c.lists[L]) || [];
     const at = `${c.id}/${L}`;
     if (!rows.length) {
-      if (!c.hidden) err(`${at}: list is empty — every listed spec carries all four lists`);
+      if (!c.hidden) err(`${at}: list is empty — every listed spec carries all three lists`);
       continue;
     }
     if ((c.dpsByList || {})[L] == null) err(`${at}: the list has rows but no dpsByList number`);
@@ -377,8 +384,8 @@ for (const c of CLASSES) {
   // Herald constrains a subset of Obtainable, which constrains a subset of
   // All-Time, so DPS can only fall in that direction.
   const d = c.dpsByList || {};
-  const seq = ["herald", "obtainable", "alltime", "alltime_buffed"].filter((k) => d[k] != null);
-  const eng = (k) => /Raidbots/i.test(((c.prov || {})[k]) || "") ? "raidbots" : "local";
+  const seq = ["herald", "obtainable", "alltime"].filter((k) => d[k] != null);
+  const eng = (k) => engineOf(c, k);
   for (let i = 1; i < seq.length; i++)
     if (!(d[seq[i - 1]] <= d[seq[i]])) {
       // A column mid-migration between engines may legitimately invert;
@@ -444,9 +451,9 @@ for (const c of CLASSES) {
 // does not name, when the page no longer needs it, and when its reason says
 // that something is still to be done.
 const ILVL_SPLIT_OK = new Map([
-  [178824, { levels: { 33: null, 47: ["alltime_buffed"] },
+  [178824, { levels: { 33: null, 47: ["alltime"] },
              why: "Signet of the False Accuser: 47 is its Timewalking version, on ten Full buffed lists: Frost DK, Devourer and Shadow (ruled 2026-09-26) and the seven of S24 (D32, 2026-10-12)" }],
-  [134487, { levels: { 33: null, 47: ["alltime_buffed"] },
+  [134487, { levels: { 33: null, 47: ["alltime"] },
              why: "Arch-Druid's Tainted Seal: 47 is its Timewalking version, on nine of the same ten (Fury keeps Fleshfused Circle in Ring 1); the same two rulings" }],
 ]);
 for (const [id, byIlvl] of ilvlById) {
@@ -581,8 +588,11 @@ const MAIN_STAT = {
       const mh = held("Main Hand");
       const melee = ["Strength", "Agility"].includes(MAIN_STAT[c.id]) && mh && mh.class === 2 && ![2, 3, 18].includes(mh.sub);
       const listed = hands(cons && cons.oil);
-      if (L === "alltime_buffed" && melee && !listed.length)
-        err(`${c.id}/${L}: a melee Full buffed list sims a weapon stone, and its Consumables panel lists no weapon buff`);
+      // A fully buffed list sims its weapon buff, so a melee list's panel names
+      // one. A Raidbots number carried on Obtainable or Herald was simmed
+      // self-buffed, with the weapon buff disabled (ruling D3): exempt.
+      if (melee && !listed.length && (L === "alltime" || engineOf(c, L) === "bracketsim"))
+        err(`${c.id}/${L}: a melee fully buffed list sims a weapon stone, and its Consumables panel lists no weapon buff`);
       for (const [slot, e] of listed) {
         const it = held(slot), st = STONE[e.wowhead];
         if (!it || it.class !== 2) err(`${c.id}/${L}: the Consumables panel lists ${e.item} for the ${slot}, which holds no weapon`);

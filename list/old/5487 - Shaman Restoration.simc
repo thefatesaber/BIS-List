@@ -5,10 +5,11 @@
 #                    git 464f12e, WoW 12.1.5.70448 hotfix 2026-10-17
 # Result           : 5,487 DPS (±1.3 / 0.025%), 20,011 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : shaman_restoration.html (same folder; /r/ share links expire)
+# Report           : 5487 - Shaman Restoration.html (same folder; /r/ share links expire)
 # Simmed           : 2026-10-22 by Fate
 #
-# BracketSim options (identical across all three tiers — see PROJECT.md):
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
 #   Raid buff preset: Optimal Raid Buffs
 #   World buffs:   [x] Flame Cap (+21 fire SP, 60s every 180s)
 #                  [ ] Slip'kik's Savvy  [ ] Icecrown Citadel  [ ] Plague Stream

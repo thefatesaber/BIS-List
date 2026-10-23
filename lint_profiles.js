@@ -3,7 +3,15 @@
 // standing profile rulings.
 //   node lint_profiles.js [--advisory] [--page index.html] <dir> [<dir>...]
 // Exits 1 on errors unless --advisory is given. CI runs it without the flag
-// on all four list folders, so an error blocks.
+// on the three list folders, so an error blocks.
+//
+// Two kinds of profile sit in a list folder since 2026-10-22. A BracketSim
+// profile (".simc", header "Engine of record : BracketSim") is the export the
+// site's Advanced tab ran: native items, no proxies, its own hotfix layer.
+// It is held to the page - filename DPS, talents, every gear line against
+// its row - and to nothing of the Raidbots house style below. A ".txt"
+// profile is a Raidbots-era file still of record on Obtainable or Herald,
+// and carries every rule below until its list is re-run.
 //
 // Rulings encoded here (see PROJECT.md for the full record):
 //  - self-buffed rail: no power_infusion pooling, invoking, or casting
@@ -65,7 +73,7 @@ const CRUSADER_ENCHANT = 1900, CRUSADER_RING = "37str_15dur";
 // its weapon stone into the same token. Until 2026-10-12 nothing held this:
 // Restoration's four lists had no token and Elemental's four carried 13.
 const DESOLATION = { head: "28192", shoulder: "27713", token: "12crit",
-                     withStone: { "hunter_survival/alltime_buffed": "15crit" } };
+                     withStone: { "hunter_survival/alltime": "15crit" } };
 
 // The other head token on record is the crit of a melee Full buffed list's
 // weapon stones, 3 a stone (PROJECT.md, D16 and D17), and the page names the
@@ -96,7 +104,7 @@ try {
 
 const LIST_OF_DIR = d => {
   const b = path.basename(d).toLowerCase();
-  if (/full.?buff/.test(b)) return "alltime_buffed"; // before all-time: /all.?time/ also matches this dir
+  if (/full.?buff/.test(b)) return null;            // list/old only: not a list of record
   if (/all.?time/.test(b)) return "alltime";
   if (/obtain/.test(b)) return "obtainable";
   if (/herald/.test(b)) return "herald";
@@ -140,7 +148,7 @@ for (const dir of DIRS) {
   const list = LIST_OF_DIR(dir);
   if (!list) { warns.push(`${dir}: not a benchmark list directory — skipped`); continue; }
   let names;
-  try { names = fs.readdirSync(dir).filter(f => f.endsWith(".txt")); }
+  try { names = fs.readdirSync(dir).filter(f => f.endsWith(".txt") || f.endsWith(".simc")); }
   catch (e) { errs.push(`${dir}: ${e.message}`); continue; }
 
   for (const fname of names.sort()) {
@@ -151,10 +159,15 @@ for (const dir of DIRS) {
     const W = m => warns.push(`${fp}: ${m}`);
     const text = fs.readFileSync(fp, "utf8");
     const lines = text.split(/\r?\n/);
+    const has = re => lines.some(l => re.test(l));
+    const where = re => lines.map((l, i) => re.test(l) ? i + 1 : 0).filter(Boolean);
+    const BS = /^#\s*Engine of record\s*:\s*BracketSim/m.test(text);
+    if (BS !== fname.endsWith(".simc"))
+      E(BS ? `a BracketSim profile is a .simc file` : `a .simc file carries the BracketSim header ("# Engine of record : BracketSim")`);
 
-    // -------- filename: "<dps> - <Class> <Spec>.txt", space or underscore
-    const m = fname.match(/^(\d+)\s*-\s*(.+)\.txt$/);
-    if (!m) { E(`filename does not parse as "<dps> - <Class> <Spec>.txt"`); continue; }
+    // -------- filename: "<dps> - <Class> <Spec>.txt|.simc", space or underscore
+    const m = fname.match(/^(\d+)\s*-\s*(.+)\.(txt|simc)$/);
+    if (!m) { E(`filename does not parse as "<dps> - <Class> <Spec>.txt" or ".simc"`); continue; }
     const fdps = +m[1];
     const words = m[2].replace(/_/g, " ").trim();
     const cls = [...new Set(CLASSES.map(c => c.name))].sort((a, b) => b.length - a.length)
@@ -181,16 +194,28 @@ for (const dir of DIRS) {
     const rows = onPage ? (c.lists || {})[list] || [] : [];
     if (onPage && fdps !== (c.dpsByList || {})[list])
       E(`filename dps ${fdps} != page dpsByList.${list} ${(c.dpsByList || {})[list]}`);
+    // The page's prov stamp names the engine the file ran on.
+    const prov = ((c.prov || {})[list]) || "";
+    if (onPage && BS !== /BracketSim/i.test(prov))
+      E(`page prov.${list} reads "${prov}" and the profile is ${BS ? "" : "not "}a BracketSim export`);
+    if (BS) {
+      // A BracketSim profile: the page agreement checks below apply, the
+      // Raidbots house-style rulings do not.
+      const t = lines.find(l => /^talents=/.test(l));
+      const pageT = (c.talents || {})[list];
+      if (t && pageT && t.slice(8) !== pageT) E(`talents string differs from page talents.${list}`);
+      if (!has(/^augmentation=disabled/)) E(`augmentation=disabled missing - the export sets it; a blank field falls back to an augment rune`);
+      lintGear({ fp, c, list, rows, lines, onPage, E, W, bracketsim: true });
+      continue;
+    }
 
-    // -------- whole-file rulings
-    const has = re => lines.some(l => re.test(l));
-    const where = re => lines.map((l, i) => re.test(l) ? i + 1 : 0).filter(Boolean);
+    // -------- whole-file rulings (Raidbots-era profiles)
 
     for (const n of where(/^external_buffs\.pool=/))
-      if (list !== "alltime_buffed") // the buffed tier IS externally buffed
+      if (list !== "alltime") // the buffed tier IS externally buffed
         E(`line ${n}: external_buffs pool — external buffs are out; the rail is self-buffed`);
     for (const n of where(/^actions[^#]*invoke_external_buff/))
-      if (list !== "alltime_buffed") // the buffed tier IS externally buffed
+      if (list !== "alltime") // the buffed tier IS externally buffed
         E(`line ${n}: invoke_external_buff — external buffs are out; the rail is self-buffed`);
     if ((c.cls || c.id) !== "priest")
       for (const n of where(/^actions[^#]*\/power_infusion\b(?!_)/))
@@ -206,17 +231,18 @@ for (const dir of DIRS) {
       E(`line ${n}: target_level=+N parses as absolute level N — use target_level+=N`);
     for (const n of where(/^target_level=(\d|1[0-9])$/))
       E(`line ${n}: absolute target_level below 20 — level-3-boss bug`);
-    // alltime_buffed is the self-buffed rail's sanctioned exception (see
-    // PROJECT.md): external buffs and live consumables are the tier's point,
-    // so the two rail checks below don't apply to it.
-    if (list !== "alltime_buffed" && (c.cls || c.id) !== "hunter" && has(/^override\.hunters_mark=1/))
+    // A Raidbots-era file on All-Time is a Full buffed one (the self-buffed
+    // rail's sanctioned exception, PROJECT.md): external buffs and live
+    // consumables are the tier's point, so the two rail checks below don't
+    // apply to it.
+    if (list !== "alltime" && (c.cls || c.id) !== "hunter" && has(/^override\.hunters_mark=1/))
       E(`hunters_mark=1 — the hunter's own permanent debuff; on a non-hunter it assumes an actor the rail excludes`);
-    if (list !== "alltime_buffed" && !has(/^temporary_enchant=disabled/)) E(`temporary_enchant=disabled missing`);
+    if (list !== "alltime" && !has(/^temporary_enchant=disabled/)) E(`temporary_enchant=disabled missing`);
     // Full buffed sims its weapon buff, so the line names one or says
     // "disabled" - but it has to be there. With no line the druid and evoker
     // modules add an oil of their own (Feral Full buffed, 87 DPS, until
     // 2026-10-11).
-    if (list === "alltime_buffed" && !has(/^temporary_enchant=\S/))
+    if (list === "alltime" && !has(/^temporary_enchant=\S/))
       E(`no temporary_enchant= line - name the weapon buff or write temporary_enchant=disabled; with no line the class module may add its own`);
     for (const n of where(/^temporary_enchant=\s*$/))
       E(`line ${n}: blank temporary_enchant= — triggers the fallback; delete the line`);
@@ -231,228 +257,244 @@ for (const dir of DIRS) {
       if (t && pageT && t.slice(8) !== pageT) W(`talents string differs from page talents.${list} — expected until the wave rebases the page`);
     }
 
-    // -------- gear lines
-    const seenSlot = {};
-    const pairIds = {};                       // "finger"/"trinket" -> [{id,ilvl,ln}]
-    const gear = [];                          // every line that should have a page row
-    lines.forEach((line, i) => {
-      const ln = i + 1;
-      const gm = line.match(/^([a-z_0-9]+)=(.*)$/);
-      if (!gm || !SLOTS.includes(gm[1])) return;
-      const slot = gm[1], rest = gm[2];
-      if (seenSlot[slot]) E(`line ${ln}: duplicate ${slot}= line (first at ${seenSlot[slot]})`);
-      else seenSlot[slot] = ln;
+    lintGear({ fp, c, list, rows, lines, onPage, E, W, bracketsim: false });
+  }
+}
 
-      const parts = rest.split(",");
-      const named = parts[0] && !parts[0].includes("=") ? parts[0] : null;
-      const kv = {};
-      for (const p of parts) { const j = p.indexOf("="); if (j > 0) kv[p.slice(0, j)] = p.slice(j + 1); }
 
-      // naming: id lines take no name token; nameless-id items are the house
-      // style, and a name mismatching the DBC entry only warns and confuses.
-      // True synthetics (no id=) are lowercase with the _proxy suffix.
-      if (named && kv.id)
-        E(`line ${ln}: name token "${named}" on an id= line — drop it (SimC resolves the item from the id)`);
-      else if (named && (/[A-Z]/.test(named) || !/_proxy$/.test(named)))
-        E(`line ${ln}: synthetic "${named}" — rename to "${named.toLowerCase().replace(/_proxy$/, "")}_proxy" (lowercase + _proxy; DBC name collisions drop silently)`);
+// ---------------------------------------------------------------- gear lines
+// Every gear line against the page: the row with its id, at its item level,
+// with its gems and its enchant. The Raidbots house-style rulings (nameless
+// id lines, proxies and their calibrations, the Desolation head token, the
+// Crusader ring) are skipped on a BracketSim profile.
+function lintGear({ fp, c, list, rows, lines, onPage, E, W, bracketsim }) {
+  // -------- gear lines
+  const seenSlot = {};
+  const pairIds = {};                       // "finger"/"trinket" -> [{id,ilvl,ln}]
+  const gear = [];                          // every line that should have a page row
+  lines.forEach((line, i) => {
+    const ln = i + 1;
+    const gm = line.match(/^([a-z_0-9]+)=(.*)$/);
+    if (!gm || !SLOTS.includes(gm[1])) return;
+    const slot = gm[1], rest = gm[2];
+    if (seenSlot[slot]) E(`line ${ln}: duplicate ${slot}= line (first at ${seenSlot[slot]})`);
+    else seenSlot[slot] = ln;
 
-      // enchant rules
-      if ("enchant" in kv && kv.enchant && kv.enchant !== "disabled") {
-        if (/^\d+[a-z_]+$/.test(kv.enchant)) {
-          if (slot !== "head")
-            E(`line ${ln}: stat-token enchant=${kv.enchant} on ${slot} — real enchants use enchant_id (head is the only proxy slot)`);
-          else if ("enchant_id" in kv)
-            E(`line ${ln}: head proxy shares the line with enchant_id — later param overrides the proxy`);
-        } else {
-          E(`line ${ln}: enchant=${kv.enchant} — use enchant_id`);
-        }
-      }
+    const parts = rest.split(",");
+    const named = parts[0] && !parts[0].includes("=") ? parts[0] : null;
+    const kv = {};
+    for (const p of parts) { const j = p.indexOf("="); if (j > 0) kv[p.slice(0, j)] = p.slice(j + 1); }
 
-      // gems
-      for (const g of (kv.gem_id || "").split("/").filter(Boolean)) {
-        if (g === "25899" && slot !== "main_hand" && slot !== "off_hand")
-          E(`line ${ln}: Brutal Earthstorm Diamond (25899) off-weapon — segfaults enchants.cpp:168; use 32409`);
-        if (g === "76885" && c.id === "shaman")
-          E(`line ${ln}: meta 76885 in a Restoration export — ruling is Mystical Skyfire Diamond 25893`);
-      }
+    // naming: id lines take no name token; nameless-id items are the house
+    // style, and a name mismatching the DBC entry only warns and confuses.
+    // True synthetics (no id=) are lowercase with the _proxy suffix.
+    if (bracketsim) { /* the export names every item; nothing is synthetic */ }
+    else if (named && kv.id)
+      E(`line ${ln}: name token "${named}" on an id= line — drop it (SimC resolves the item from the id)`);
+    else if (named && (/[A-Z]/.test(named) || !/_proxy$/.test(named)))
+      E(`line ${ln}: synthetic "${named}" — rename to "${named.toLowerCase().replace(/_proxy$/, "")}_proxy" (lowercase + _proxy; DBC name collisions drop silently)`);
 
-      // bonus ids
-      for (const b of (kv.bonus_id || "").split("/").filter(Boolean))
-        if (b.length >= 6) E(`line ${ln}: malformed bonus_id ${b} — six digits, likely two ids run together`);
-
-      if (kv.id === "50040")
-        E(`line ${ln}: Distant Land 50040 is the 2-socket variant — page mandates 50695 (3-socket)`);
-      if (rest.includes("108haste_10dur_20cd"))
-        E(`line ${ln}: Dragonspine payload 108 — the tooltip is 103; use 103haste_10dur_20cd_3.2%`);
-      if (/howling_rune(?!_\d)/.test(rest))
-        E(`line ${ln}: rankless howling_rune fails — use howling_rune_<rank>`);
-
-      // ilevel presence
-      if (kv.id && !kv.ilevel && slot !== "shirt" && slot !== "tabard")
-        E(`line ${ln}: id=${kv.id} has no ilevel= — drop_level alone is insufficient`);
-
-      // page agreement: find the row here, compare below once every line is read
-      if (onPage && slot !== "shirt" && slot !== "tabard") {
-        const g = { slot, ln, kv, named, rest, row: null };
-        gear.push(g);
-        if (PAIRS[slot]) {
-          const key = slot.replace(/[12]$/, "");
-          (pairIds[key] = pairIds[key] || []).push({ id: kv.id, ilvl: kv.ilevel, named, ln, slot, g });
-        } else {
-          const want = PAGE_SLOT[slot]; const row = rows.find(r => Array.isArray(want) ? want.includes(r.slot) : r.slot === want);
-          if (!row) { if (slot !== "off_hand") E(`line ${ln}: no page row for ${slot}`); }
-          else {
-            g.row = row;
-            if (kv.id && String(row.wowhead) !== kv.id)
-              E(`line ${ln}: ${slot} id=${kv.id} but page has ${row.item} (${row.wowhead})`);
-            if (kv.ilevel && row.ilvl != null && +kv.ilevel !== row.ilvl)
-              E(`line ${ln}: ${named ? "synthetic " : ""}${slot} ilevel=${kv.ilevel} but page pins ${row.ilvl} for ${row.item}`);
-          }
-        }
-      }
-
-      // proc calibration
-      const pm = rest.match(/procby\/attack[^,]*?_(\d+(?:\.\d+)?)(%|ppm)/) ||
-                 rest.match(/_(\d+(?:\.\d+)?)(ppm)_/);
-      if (pm) {
-        const rate = +pm[1], unit = pm[2];
-        const sig = Object.keys(CALIBRATIONS).find(s => rest.includes(s));
-        if (sig) {
-          const cal = CALIBRATIONS[sig];
-          const pend = (cal.pending || []).find(p => p.spec === c.id && p.rate === rate);
-          const pick = t => t ? (t[c.id] != null ? t[c.id] : t["*"]) : null;
-          const table = unit === "ppm" ? cal.ppm : cal.rates;
-          const want = pick(table), other = pick(unit === "ppm" ? cal.rates : cal.ppm);
-          if (pend) W(`line ${ln}: ${cal.label} at ${rate}${unit} — ${pend.note}`);
-          else if (want == null && other != null)
-            E(`line ${ln}: ${cal.label} at ${rate}${unit} — the calibration of record for ${c.id} is ${other}${unit === "ppm" ? "%" : "ppm"}, in the other unit`);
-          else if (want == null)
-            E(`line ${ln}: ${cal.label} has no calibration of record for ${c.id} — an encoding is solved per spec, not copied from another`);
-          else if (rate !== want)
-            E(`line ${ln}: ${cal.label} at ${rate}${unit} — calibration of record for ${c.id} is ${want}${unit}`);
-          const k = `${c.id}|${sig}`;
-          if (!seenRates.has(k)) seenRates.set(k, new Map());
-          const mm = seenRates.get(k);
-          if (!mm.has(rate)) mm.set(rate, []);
-          mm.get(rate).push(`${fp}:${ln}`);
-        }
-      }
-    });
-
-    // the Desolation pair carries its 2-piece on the head line
-    {
-      const dh = gear.find(g => g.slot === "head"), ds = gear.find(g => g.slot === "shoulder");
-      if (dh && ds && dh.kv.id === DESOLATION.head && ds.kv.id === DESOLATION.shoulder) {
-        const want = DESOLATION.withStone[`${c.id}/${list}`] || DESOLATION.token;
-        if (dh.kv.enchant !== want)
-          E(`line ${dh.ln}: the Helm and Pauldrons of Desolation are worn and the head line carries ` +
-            `${dh.kv.enchant ? "enchant=" + dh.kv.enchant : "no enchant= token"} — the 2-piece proxy of record is enchant=${want}`);
-      } else if (dh && /^\d+[a-z_]+$/.test(dh.kv.enchant || "")) {
-        // any other head token: the crit of this list's weapon stones, or nothing
-        const n = list === "alltime_buffed" ? stonesOn(c, list) : 0;
-        if (!n)
-          E(`line ${dh.ln}: head carries enchant=${dh.kv.enchant}, which is no proxy on record — a head token stands for the Desolation 2-piece ` +
-            `or for the crit of a Full buffed list's weapon stones, and this list has neither`);
-        else if (dh.kv.enchant !== `${STONE_CRIT * n}crit`)
-          E(`line ${dh.ln}: head carries enchant=${dh.kv.enchant}; the page names ${n} weapon stone(s) for this list, ` +
-            `so the token of record is enchant=${STONE_CRIT * n}crit`);
+    // enchant rules
+    if ("enchant" in kv && kv.enchant && kv.enchant !== "disabled") {
+      if (/^\d+[a-z_]+$/.test(kv.enchant)) {
+        if (slot !== "head")
+          E(`line ${ln}: stat-token enchant=${kv.enchant} on ${slot} — real enchants use enchant_id (head is the only proxy slot)`);
+        else if ("enchant_id" in kv)
+          E(`line ${ln}: head proxy shares the line with enchant_id — later param overrides the proxy`);
+      } else {
+        E(`line ${ln}: enchant=${kv.enchant} — use enchant_id`);
       }
     }
 
-    // ring/trinket pairs, order-insensitive
-    if (onPage) for (const key of Object.keys(pairIds)) {
-      const pageNames = key === "finger" ? ["Ring 1", "Ring 2"] : ["Trinket 1", "Trinket 2"];
-      const prows = rows.filter(r => pageNames.includes(r.slot));
-      const pids = prows.map(r => String(r.wowhead)).sort();
-      const got = pairIds[key];
-      const gids = got.filter(g => g.id).map(g => g.id).sort();
-      if (gids.length === pids.length && gids.length && gids.join() !== pids.join())
-        E(`${key} pair ids [${gids}] differ from page [${pids}] (${prows.map(r => r.item).join(" / ")})`);
-      for (const g of got) if (g.id && !pids.includes(g.id))
-        E(`line ${g.ln}: ${g.slot} id=${g.id} is not a page ${key} id [${pids}] (${prows.map(r => r.item).join(" / ")})`);
-      // Which page row a ring or trinket line stands for: the row with its
-      // id; for a proxy, the row whose name the proxy's name starts with
-      // (dragonspine_trophy_proxy, meteorite_crystal_macro_proxy); and when
-      // one line and one row are left, each other.
-      const left = prows.slice();
-      const take = (g, r) => { g.g.row = r; left.splice(left.indexOf(r), 1); };
-      for (const g of got) { const r = g.id && left.find(r => String(r.wowhead) === g.id); if (r) take(g, r); }
-      for (const g of got) {
-        if (g.g.row || g.id || !g.named) continue;
-        const r = left.find(r => g.named.startsWith(tokenizeName(r.item)));
-        if (r) take(g, r);
-      }
-      const open = got.filter(g => !g.g.row && !g.id);
-      if (open.length === 1 && left.length === 1) take(open[0], left[0]);
-      for (const g of got)
-        if (!g.g.row && !g.id) W(`line ${g.ln}: cannot tell which page ${key} row ${g.named || g.slot} stands for - its level, gems and enchant are not compared`);
-      for (const g of got) if (g.ilvl && g.g.row && g.g.row.ilvl != null && +g.ilvl !== g.g.row.ilvl)
-        E(`line ${g.ln}: ${g.named ? "synthetic " : ""}${g.slot} ilevel=${g.ilvl} but page pins ${g.g.row.ilvl} for ${g.g.row.item}`);
+    // gems
+    for (const g of (kv.gem_id || "").split("/").filter(Boolean)) {
+      if (g === "25899" && slot !== "main_hand" && slot !== "off_hand")
+        E(`line ${ln}: Brutal Earthstorm Diamond (25899) off-weapon — segfaults enchants.cpp:168; use 32409`);
+      if (g === "76885" && c.id === "shaman")
+        E(`line ${ln}: meta 76885 in a Restoration export — ruling is Mystical Skyfire Diamond 25893`);
     }
 
-    // -------- line against row: gems, enchant, sockets
-    let crusaderRows = 0, crusaderRings = 0;
-    for (const g of gear) {
-      const { slot, ln, kv, rest, row } = g;
-      const gems = (kv.gem_id || "").split("/").filter(x => x && x !== "0");
-      const eid = /^\d+$/.test(kv.enchant_id || "") ? +kv.enchant_id : null;
-      if (rest.includes(CRUSADER_RING)) crusaderRings++;
+    // bonus ids
+    for (const b of (kv.bonus_id || "").split("/").filter(Boolean))
+      if (b.length >= 6) E(`line ${ln}: malformed bonus_id ${b} — six digits, likely two ids run together`);
 
-      // every id the line names has to be in the game data
-      const it = kv.id ? GD.items[kv.id] : null;
-      if (kv.id && !it) E(`line ${ln}: item ${kv.id} ${REBUILD}`);
-      for (const x of new Set(gems)) {
-        if (!GD.items[x]) E(`line ${ln}: gem ${x} ${REBUILD}`);
-        else if (GD.items[x].class !== 3) E(`line ${ln}: gem_id ${x} is ${GD.items[x].name}, which is not a gem`);
+    if (kv.id === "50040")
+      E(`line ${ln}: Distant Land 50040 is the 2-socket variant — page mandates 50695 (3-socket)`);
+    if (rest.includes("108haste_10dur_20cd"))
+      E(`line ${ln}: Dragonspine payload 108 — the tooltip is 103; use 103haste_10dur_20cd_3.2%`);
+    if (/howling_rune(?!_\d)/.test(rest))
+      E(`line ${ln}: rankless howling_rune fails — use howling_rune_<rank>`);
+
+    // ilevel presence
+    if (!bracketsim && kv.id && !kv.ilevel && slot !== "shirt" && slot !== "tabard")
+      E(`line ${ln}: id=${kv.id} has no ilevel= — drop_level alone is insufficient`);
+
+    // page agreement: find the row here, compare below once every line is read
+    if (onPage && slot !== "shirt" && slot !== "tabard") {
+      const g = { slot, ln, kv, named, rest, row: null };
+      gear.push(g);
+      if (PAIRS[slot]) {
+        const key = slot.replace(/[12]$/, "");
+        (pairIds[key] = pairIds[key] || []).push({ id: kv.id, ilvl: kv.ilevel, named, ln, slot, g });
+      } else {
+        const want = PAGE_SLOT[slot]; const row = rows.find(r => Array.isArray(want) ? want.includes(r.slot) : r.slot === want);
+        if (!row) { if (slot !== "off_hand") E(`line ${ln}: no page row for ${slot}`); }
+        else {
+          g.row = row;
+          if (kv.id && String(row.wowhead) !== kv.id)
+            E(`line ${ln}: ${slot} id=${kv.id} but page has ${row.item} (${row.wowhead})`);
+          if (kv.ilevel && row.ilvl != null && +kv.ilevel !== row.ilvl)
+            E(`line ${ln}: ${named ? "synthetic " : ""}${slot} ilevel=${kv.ilevel} but page pins ${row.ilvl} for ${row.item}`);
+        }
       }
-      if (eid != null && !GD.enchants[eid]) E(`line ${ln}: enchant ${eid} ${REBUILD}`);
+    }
 
-      // Socket bonus ids are labels to the engine, which counts the gems; the
-      // lists keep them true all the same: the item's own sockets plus the
-      // bonus ids' have to be the gems on the line.
-      const bonusSockets = (kv.bonus_id || "").split("/").reduce((n, b) => n + (GD.socketBonus[b] || 0), 0);
-      if (bonusSockets && it && it.sockets + bonusSockets !== gems.length)
-        E(`line ${ln}: ${slot} carries ${gems.length} gem(s) on ${it.sockets} socket(s) plus ${bonusSockets} from its bonus ids`);
-      // No socket of the item is left empty. The engine grants an item its
-      // socket bonus whatever its sockets hold (PROJECT.md, Socket bonuses),
-      // so an empty one would be counted by the sim and not by the game. More
-      // gems than the item has sockets is not an error here: a belt buckle, a
-      // socket proc and a jeweller's setting add sockets no bonus id names.
-      else if (it && gems.length < it.sockets)
-        E(`line ${ln}: ${slot} leaves a socket empty: ${gems.length} gem(s) on the ${it.sockets} socket(s) of ${it.name}`);
+    // proc calibration
+    const pm = rest.match(/procby\/attack[^,]*?_(\d+(?:\.\d+)?)(%|ppm)/) ||
+               rest.match(/_(\d+(?:\.\d+)?)(ppm)_/);
+    if (pm) {
+      const rate = +pm[1], unit = pm[2];
+      const sig = Object.keys(CALIBRATIONS).find(s => rest.includes(s));
+      if (sig) {
+        const cal = CALIBRATIONS[sig];
+        const pend = (cal.pending || []).find(p => p.spec === c.id && p.rate === rate);
+        const pick = t => t ? (t[c.id] != null ? t[c.id] : t["*"]) : null;
+        const table = unit === "ppm" ? cal.ppm : cal.rates;
+        const want = pick(table), other = pick(unit === "ppm" ? cal.rates : cal.ppm);
+        if (pend) W(`line ${ln}: ${cal.label} at ${rate}${unit} — ${pend.note}`);
+        else if (want == null && other != null)
+          E(`line ${ln}: ${cal.label} at ${rate}${unit} — the calibration of record for ${c.id} is ${other}${unit === "ppm" ? "%" : "ppm"}, in the other unit`);
+        else if (want == null)
+          E(`line ${ln}: ${cal.label} has no calibration of record for ${c.id} — an encoding is solved per spec, not copied from another`);
+        else if (rate !== want)
+          E(`line ${ln}: ${cal.label} at ${rate}${unit} — calibration of record for ${c.id} is ${want}${unit}`);
+        const k = `${c.id}|${sig}`;
+        if (!seenRates.has(k)) seenRates.set(k, new Map());
+        const mm = seenRates.get(k);
+        if (!mm.has(rate)) mm.set(rate, []);
+        mm.get(rate).push(`${fp}:${ln}`);
+      }
+    }
+  });
 
-      if (!row) continue;
+  // the Desolation pair carries its 2-piece on the head line (a Raidbots
+  // profile: BracketSim's build holds the set bonus itself)
+  if (!bracketsim) {
+    const dh = gear.find(g => g.slot === "head"), ds = gear.find(g => g.slot === "shoulder");
+    if (dh && ds && dh.kv.id === DESOLATION.head && ds.kv.id === DESOLATION.shoulder) {
+      const want = DESOLATION.withStone[`${c.id}/${list}`] || DESOLATION.token;
+      if (dh.kv.enchant !== want)
+        E(`line ${dh.ln}: the Helm and Pauldrons of Desolation are worn and the head line carries ` +
+          `${dh.kv.enchant ? "enchant=" + dh.kv.enchant : "no enchant= token"} — the 2-piece proxy of record is enchant=${want}`);
+    } else if (dh && /^\d+[a-z_]+$/.test(dh.kv.enchant || "")) {
+      // any other head token: the crit of this list's weapon stones, or nothing
+      const n = list === "alltime" ? stonesOn(c, list) : 0;
+      if (!n)
+        E(`line ${dh.ln}: head carries enchant=${dh.kv.enchant}, which is no proxy on record — a head token stands for the Desolation 2-piece ` +
+          `or for the crit of a Full buffed list's weapon stones, and this list has neither`);
+      else if (dh.kv.enchant !== `${STONE_CRIT * n}crit`)
+        E(`line ${dh.ln}: head carries enchant=${dh.kv.enchant}; the page names ${n} weapon stone(s) for this list, ` +
+          `so the token of record is enchant=${STONE_CRIT * n}crit`);
+    }
+  }
 
-      // Gems: the same ones, as many times, as the page row shows - rings and
-      // trinkets included, and also when one side shows none.
-      const page = (row.gems || []).flatMap(x => Array(x.n || 1).fill(String(x.id))).sort().join("/");
-      if (gems.slice().sort().join("/") !== page)
-        E(`line ${ln}: ${slot} gems [${gems.join("/") || "none"}] disagree with the page row ${row.item} [${page || "none"}]`);
+  // ring/trinket pairs, order-insensitive
+  if (onPage) for (const key of Object.keys(pairIds)) {
+    const pageNames = key === "finger" ? ["Ring 1", "Ring 2"] : ["Trinket 1", "Trinket 2"];
+    const prows = rows.filter(r => pageNames.includes(r.slot));
+    const pids = prows.map(r => String(r.wowhead)).sort();
+    const got = pairIds[key];
+    const gids = got.filter(g => g.id).map(g => g.id).sort();
+    if (gids.length === pids.length && gids.length && gids.join() !== pids.join())
+      E(`${key} pair ids [${gids}] differ from page [${pids}] (${prows.map(r => r.item).join(" / ")})`);
+    for (const g of got) if (g.id && !pids.includes(g.id))
+      E(`line ${g.ln}: ${g.slot} id=${g.id} is not a page ${key} id [${pids}] (${prows.map(r => r.item).join(" / ")})`);
+    // Which page row a ring or trinket line stands for: the row with its
+    // id; for a proxy, the row whose name the proxy's name starts with
+    // (dragonspine_trophy_proxy, meteorite_crystal_macro_proxy); and when
+    // one line and one row are left, each other.
+    const left = prows.slice();
+    const take = (g, r) => { g.g.row = r; left.splice(left.indexOf(r), 1); };
+    for (const g of got) { const r = g.id && left.find(r => String(r.wowhead) === g.id); if (r) take(g, r); }
+    for (const g of got) {
+      if (g.g.row || g.id || !g.named) continue;
+      const r = left.find(r => g.named.startsWith(tokenizeName(r.item)));
+      if (r) take(g, r);
+    }
+    const open = got.filter(g => !g.g.row && !g.id);
+    if (open.length === 1 && left.length === 1) take(open[0], left[0]);
+    for (const g of got)
+      if (!g.g.row && !g.id) W(`line ${g.ln}: cannot tell which page ${key} row ${g.named || g.slot} stands for - its level, gems and enchant are not compared`);
+    for (const g of got) if (g.ilvl && g.g.row && g.g.row.ilvl != null && +g.ilvl !== g.g.row.ilvl)
+      E(`line ${g.ln}: ${g.named ? "synthetic " : ""}${g.slot} ilevel=${g.ilvl} but page pins ${g.g.row.ilvl} for ${g.g.row.item}`);
+  }
 
-      // Enchant: the spell the page links has to apply the enchant the line
-      // sims. Through the spell, because several spells apply one enchant
-      // (gloves and boots both give 1887) and the page links the right one
-      // for the slot. A head line's enchant=<stat> token is a proxy, not an
-      // enchant, and the page shows nothing for it.
-      const sp = row.enchsp != null ? GD.spells[row.enchsp] : null;
-      if (row.enchsp != null && !sp) { E(`line ${ln}: enchant spell ${row.enchsp} (${row.ench}) ${REBUILD}`); continue; }
-      if (sp && sp.enchants.includes(CRUSADER_ENCHANT)) {
-        crusaderRows++;
-        if (eid != null)
-          E(`line ${ln}: ${slot} carries enchant_id=${eid} under a Crusader row - Crusader is simmed on a ring, and enchant_id=1900 creates nothing in SimC`);
+  // -------- line against row: gems, enchant, sockets
+  let crusaderRows = 0, crusaderRings = 0;
+  for (const g of gear) {
+    const { slot, ln, kv, rest, row } = g;
+    const gems = (kv.gem_id || "").split("/").filter(x => x && x !== "0");
+    const eid = /^\d+$/.test(kv.enchant_id || "") ? +kv.enchant_id : null;
+    if (rest.includes(CRUSADER_RING)) crusaderRings++;
+
+    // every id the line names has to be in the game data
+    const it = kv.id ? GD.items[kv.id] : null;
+    if (kv.id && !it) E(`line ${ln}: item ${kv.id} ${REBUILD}`);
+    for (const x of new Set(gems)) {
+      if (!GD.items[x]) E(`line ${ln}: gem ${x} ${REBUILD}`);
+      else if (GD.items[x].class !== 3) E(`line ${ln}: gem_id ${x} is ${GD.items[x].name}, which is not a gem`);
+    }
+    if (eid != null && !GD.enchants[eid]) E(`line ${ln}: enchant ${eid} ${REBUILD}`);
+
+    // Socket bonus ids are labels to the engine, which counts the gems; the
+    // lists keep them true all the same: the item's own sockets plus the
+    // bonus ids' have to be the gems on the line.
+    const bonusSockets = (kv.bonus_id || "").split("/").reduce((n, b) => n + (GD.socketBonus[b] || 0), 0);
+    if (bonusSockets && it && it.sockets + bonusSockets !== gems.length)
+      E(`line ${ln}: ${slot} carries ${gems.length} gem(s) on ${it.sockets} socket(s) plus ${bonusSockets} from its bonus ids`);
+    // No socket of the item is left empty. The engine grants an item its
+    // socket bonus whatever its sockets hold (PROJECT.md, Socket bonuses),
+    // so an empty one would be counted by the sim and not by the game. More
+    // gems than the item has sockets is not an error here: a belt buckle, a
+    // socket proc and a jeweller's setting add sockets no bonus id names.
+    else if (it && gems.length < it.sockets)
+      E(`line ${ln}: ${slot} leaves a socket empty: ${gems.length} gem(s) on the ${it.sockets} socket(s) of ${it.name}`);
+
+    if (!row) continue;
+
+    // Gems: the same ones, as many times, as the page row shows - rings and
+    // trinkets included, and also when one side shows none.
+    const page = (row.gems || []).flatMap(x => Array(x.n || 1).fill(String(x.id))).sort().join("/");
+    if (gems.slice().sort().join("/") !== page)
+      E(`line ${ln}: ${slot} gems [${gems.join("/") || "none"}] disagree with the page row ${row.item} [${page || "none"}]`);
+
+    // Enchant: the spell the page links has to apply the enchant the line
+    // sims. Through the spell, because several spells apply one enchant
+    // (gloves and boots both give 1887) and the page links the right one
+    // for the slot. A head line's enchant=<stat> token is a proxy, not an
+    // enchant, and the page shows nothing for it.
+    const sp = row.enchsp != null ? GD.spells[row.enchsp] : null;
+    if (row.enchsp != null && !sp) { E(`line ${ln}: enchant spell ${row.enchsp} (${row.ench}) ${REBUILD}`); continue; }
+    if (sp && sp.enchants.includes(CRUSADER_ENCHANT)) {
+      crusaderRows++;
+      if (bracketsim) {       // native: the weapon line carries enchant_id=1900
+        if (eid !== CRUSADER_ENCHANT) E(`line ${ln}: page shows Crusader on ${row.item}; the ${slot} line sims enchant ${eid == null ? "none" : eid} - a BracketSim profile carries enchant_id=${CRUSADER_ENCHANT}`);
         continue;
       }
-      const ename = eid != null && GD.enchants[eid] ? ` (${GD.enchants[eid].name})` : "";
-      if (row.ench && eid == null)
-        E(`line ${ln}: page shows ${row.ench} on ${row.item}; the ${slot} line has no enchant_id`);
-      else if (!row.ench && eid != null)
-        E(`line ${ln}: ${slot} sims enchant ${eid}${ename}; the page row ${row.item} shows no enchant`);
-      else if (sp && !sp.enchants.includes(eid))
-        E(`line ${ln}: page shows ${row.ench} on ${row.item} (spell ${row.enchsp}, enchant ${sp.enchants.join("/") || "none"}); the ${slot} line sims enchant ${eid}${ename}`);
+      if (eid != null)
+        E(`line ${ln}: ${slot} carries enchant_id=${eid} under a Crusader row - Crusader is simmed on a ring, and enchant_id=1900 creates nothing in SimC`);
+      continue;
     }
-    if (onPage && crusaderRows !== crusaderRings)
-      E(`page shows Crusader on ${crusaderRows} weapon row(s) and the profile sims its proc on ${crusaderRings} ring(s) - one ring (${CRUSADER_RING}) per weapon that wears it`);
+    const ename = eid != null && GD.enchants[eid] ? ` (${GD.enchants[eid].name})` : "";
+    if (row.ench && eid == null)
+      E(`line ${ln}: page shows ${row.ench} on ${row.item}; the ${slot} line has no enchant_id`);
+    else if (!row.ench && eid != null)
+      E(`line ${ln}: ${slot} sims enchant ${eid}${ename}; the page row ${row.item} shows no enchant`);
+    else if (sp && !sp.enchants.includes(eid))
+      E(`line ${ln}: page shows ${row.ench} on ${row.item} (spell ${row.enchsp}, enchant ${sp.enchants.join("/") || "none"}); the ${slot} line sims enchant ${eid}${ename}`);
   }
+  if (!bracketsim && onPage && crusaderRows !== crusaderRings)
+    E(`page shows Crusader on ${crusaderRows} weapon row(s) and the profile sims its proc on ${crusaderRings} ring(s) - one ring (${CRUSADER_RING}) per weapon that wears it`);
 }
 
 // one spec, one rate — cross-file consistency for each calibrated proc

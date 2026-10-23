@@ -52,7 +52,7 @@ let CLASSES;
 }
 const LIST_OF_DIR = d => {
   const b = path.basename(d).toLowerCase();
-  if (/full.?buff/.test(b)) return "alltime_buffed";
+  if (/full.?buff/.test(b)) return null;              // list/old only
   if (/all.?time/.test(b)) return "alltime";
   if (/obtain/.test(b)) return "obtainable";
   if (/herald/.test(b)) return "herald";
