@@ -1,0 +1,156 @@
+# ============================================================================
+# Legacy Thirty BiS — All-time — Shadow Priest
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git 464f12e, WoW 12.1.5.70448 hotfix 2026-10-17
+# Result           : 5,385 DPS (±1.1 / 0.020%), 20,015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 5385 - Priest Shadow.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-22 by Fate
+#
+# BracketSim options (full-buffed set per PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [ ] Slip'kik's Savvy  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal   (Flame Cap not offered to Priest)
+#   Raid buffs:    [x] Arcane Intellect  [x] Mark of the Wild  [x] Skyfury
+#                  [x] Drums of Fury (15% haste, 40s at pull)
+#                  [x] Hunter's Mark (target, +3% damage taken)
+#                  [ ] Battle Shout  [ ] Blessing of the Bronze  [ ] Power Word: Fortitude
+#                  [ ] Chaos Brand  [ ] Mystic Touch  [ ] Bleeding
+#                  [ ] Power Infusion (own PI used; external = second priest)
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Int 16.89 > SP 15.13 > Mastery 10.72 > Crit 9.11 > Vers 7.70 > Haste 6.85
+# Note: BracketSim APL (bracketsim_* expressions, Tentacle Slam / Void Volley
+#       lines) — not portable to stock simc without its patch layer.
+# ============================================================================
+
+priest="fateprayer"
+source=default
+spec=shadow
+region=us
+server=thrall
+level=30
+race=orc
+role=spell
+position=back
+talents=CIQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAYgxgZzYMAAzAyAmGADAAAAAAwAYMDYhBAAA
+
+# Default consumables
+potion=volcanic_potion
+flask=flask_of_distilled_wisdom
+elixir=disabled
+food=severed_sagefish_head
+augmentation=disabled
+temporary_enchant=main_hand:superior_wizard_oil
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=snapshot_stats
+actions.precombat+=/shadowform,if=!buff.shadowform.up
+actions.precombat+=/variable,name=trinket_1_buffs,value=(trinket.1.has_buff.intellect|trinket.1.has_buff.mastery|trinket.1.has_buff.versatility|trinket.1.has_buff.haste|trinket.1.has_buff.crit|trinket.1.is.signet_of_the_priory)&(trinket.1.cooldown.duration>=20)
+actions.precombat+=/variable,name=trinket_2_buffs,value=(trinket.2.has_buff.intellect|trinket.2.has_buff.mastery|trinket.2.has_buff.versatility|trinket.2.has_buff.haste|trinket.2.has_buff.crit|trinket.2.is.signet_of_the_priory)&(trinket.2.cooldown.duration>=20)
+actions.precombat+=/variable,name=dr_force_prio,default=0,op=reset
+actions.precombat+=/variable,name=me_force_prio,default=0,op=reset
+actions.precombat+=/variable,name=max_vts,default=12,op=reset
+actions.precombat+=/variable,name=is_vt_possible,default=0,op=reset
+actions.precombat+=/arcane_torrent
+actions.precombat+=/potion,if=potion.liquid_luster
+actions.precombat+=/mind_blast,if=set_bonus.mid2_4pc
+actions.precombat+=/tentacle_slam
+
+# Executed every time the actor is available.
+actions=variable,name=holding_tentacle_slam,op=set,value=raid_event.adds.in<15
+actions+=/use_item,slot=trinket2,if=bracketsim_trinket_fallback.2
+actions+=/use_item,slot=trinket2,if=bracketsim_trinket_fallback.2
+actions+=/call_action_list,name=aoe,if=active_enemies>2
+actions+=/run_action_list,name=main
+
+actions.aoe=call_action_list,name=aoe_variables
+
+actions.aoe_variables=variable,name=max_vts,op=set,default=12,value=spell_targets.vampiric_touch>?12
+actions.aoe_variables+=/variable,name=is_vt_possible,op=set,value=0,default=1
+actions.aoe_variables+=/variable,name=is_vt_possible,op=set,value=1,target_if=max:(target.time_to_die*dot.vampiric_touch.refreshable),if=target.time_to_die>=18
+actions.aoe_variables+=/variable,name=dots_up,op=set,value=(active_dot.vampiric_touch>=variable.max_vts|!variable.is_vt_possible)&(active_dot.shadow_word_pain>=active_dot.vampiric_touch)
+actions.aoe_variables+=/variable,name=holding_tentacle_slam,op=set,value=(variable.max_vts-active_dot.vampiric_touch)<4&raid_event.adds.in>15|raid_event.adds.in<10&raid_event.adds.count>(variable.max_vts-active_dot.vampiric_touch),if=variable.holding_tentacle_slam&action.tentacle_slam.enabled&raid_event.adds.exists
+actions.aoe_variables+=/variable,name=manual_vts_applied,op=set,value=(active_dot.vampiric_touch+6*!variable.holding_tentacle_slam)>=variable.max_vts|!variable.is_vt_possible
+
+actions.cds=potion,if=(((buff.voidform.up|!talent.voidform)&buff.power_infusion.up)&(fight_remains>=320|time_to_bloodlust>=320|buff.bloodlust.react)|fight_remains<=30)
+actions.cds+=/fireblood,if=((buff.voidform.up|!talent.voidform)&buff.power_infusion.up)|fight_remains<=8
+actions.cds+=/berserking,if=((buff.voidform.up|!talent.voidform)&buff.power_infusion.up)|fight_remains<=12
+actions.cds+=/blood_fury,if=((buff.voidform.up|!talent.voidform)&buff.power_infusion.up)|fight_remains<=15
+actions.cds+=/ancestral_call,if=((buff.voidform.up|!talent.voidform)&buff.power_infusion.up)|fight_remains<=15
+actions.cds+=/invoke_external_buff,name=power_infusion,if=(buff.voidform.up|!talent.voidform)&!buff.power_infusion.up
+actions.cds+=/invoke_external_buff,name=bloodlust,if=buff.power_infusion.up&fight_remains<120|fight_remains<=40
+actions.cds+=/power_infusion,if=(buff.voidform.up|!talent.voidform)&!buff.power_infusion.up
+actions.cds+=/halo
+actions.cds+=/use_item,name=stormbound_emblem_of_dazar,if=cooldown.voidform.remains<=2&active_dot.shadow_word_pain>=active_dot.vampiric_touch&!buff.crushing_void.up
+actions.cds+=/voidform,if=active_dot.shadow_word_pain>=active_dot.vampiric_touch
+actions.cds+=/call_action_list,name=trinkets
+actions.cds+=/desperate_prayer,if=health.pct<=75
+
+actions.heal_for_tof=holy_nova,if=talent.lightburst
+
+actions.main=mind_blast,target_if=max:dot.shadow_word_madness.remains,if=((!buff.mind_devourer.react|!talent.mind_devourer)&(!talent.void_blast|!talent.thought_harvester|cooldown.void_torrent.remains>=gcd.max*2|variable.holding_tentacle_slam|!variable.dots_up))&active_enemies>1
+actions.main+=/variable,name=dots_up,op=set,value=active_dot.vampiric_touch=active_enemies&active_dot.shadow_word_pain>=active_dot.vampiric_touch,if=active_enemies<3
+actions.main+=/call_action_list,name=cds,if=fight_remains<30|target.time_to_die>15&(!variable.holding_tentacle_slam|active_enemies>2)&variable.dots_up
+actions.main+=/shadow_word_death,target_if=max:(target.health.pct<=20)*100+dot.shadow_word_madness.ticking,if=(priest.force_devour_matter|target.has_absorb)&talent.devour_matter
+actions.main+=/shadow_word_pain,if=time<gcd.max&!dot.shadow_word_pain.ticking&action.tentacle_slam.in_flight
+actions.main+=/tentacle_slam,target_if=min:dot.vampiric_touch.remains,if=!dot.vampiric_touch.ticking&target.time_to_die>=10&active_dot.vampiric_touch<5&!action.tentacle_slam.in_flight
+actions.main+=/vampiric_touch,target_if=min:dot.vampiric_touch.remains,if=!dot.vampiric_touch.ticking&target.time_to_die>=10&active_dot.vampiric_touch<5
+actions.main+=/void_volley,if=talent.improved_voidform&bracketsim_cast_stack_window_remains>0&bracketsim_cast_stack_window_remains<buff.void_volley.stack*gcd.max+1
+actions.main+=/shadow_word_madness,target_if=max:target.time_to_die*(dot.shadow_word_madness.remains<=gcd.max*2|variable.dr_force_prio|!talent.distorted_reality&variable.me_force_prio),if=active_dot.shadow_word_madness<=1&dot.shadow_word_madness.remains<=gcd.max|insanity.deficit<=35&(cooldown.voidform.remains>25|target.time_to_die<25|active_enemies>1|insanity.deficit<=5)|buff.mind_devourer.react|!raid_event.adds.exists&target.time_to_die<=10|buff.entropic_rift.up&(cooldown.voidform.remains>=75|!talent.ancient_madness)|buff.voidform.up
+actions.main+=/tentacle_slam,target_if=min:dot.vampiric_touch.remains,if=dot.vampiric_touch.refreshable&(!in_flight|active_dot.vampiric_touch+6<active_enemies)|cooldown.tentacle_slam.full_recharge_time<=gcd.max*2
+actions.main+=/void_torrent,target_if=max:(dot.shadow_word_madness.remains*1000+target.time_to_die),if=!variable.holding_tentacle_slam&variable.dots_up
+actions.main+=/shadow_word_pain,target_if=max:(refreshable*100000+target.time_to_die+dot.vampiric_touch.ticking*10000),if=talent.invoked_nightmare&refreshable&target.time_to_die>12&(dot.vampiric_touch.ticking|action.tentacle_slam.in_flight)
+actions.main+=/void_volley,if=bracketsim_cast_stack_window_remains<(talent.improved_voidform*(buff.void_volley.stack*gcd.max+1)+!talent.improved_voidform*5)&(cooldown.voidform.up)
+actions.main+=/void_blast,target_if=max:(dot.shadow_word_madness.remains*1000+target.time_to_die)
+actions.main+=/mind_blast,target_if=max:dot.shadow_word_madness.remains,if=(!buff.mind_devourer.react|!talent.mind_devourer)&(!talent.void_blast|!talent.thought_harvester|cooldown.void_torrent.remains>=gcd.max*2|variable.holding_tentacle_slam|!variable.dots_up)
+actions.main+=/mind_flay_insanity,target_if=max:dot.shadow_word_madness.remains
+actions.main+=/tentacle_slam,target_if=min:dot.vampiric_touch.remains,if=(talent.void_apparitions|talent.maddening_tentacles)&(raid_event.adds.in>30|raid_event.adds.in>5&cooldown.tentacle_slam.full_recharge_time<=gcd.max*2)
+actions.main+=/vampiric_touch,target_if=max:(refreshable*10000+target.time_to_die)*(dot.vampiric_touch.ticking|!variable.dots_up),if=refreshable&target.time_to_die>12&(dot.vampiric_touch.ticking|!variable.dots_up)&(variable.max_vts>0|active_enemies=1)&(action.tentacle_slam.usable_in>=dot.vampiric_touch.remains|variable.holding_tentacle_slam|!action.tentacle_slam.enabled)
+actions.main+=/call_action_list,name=heal_for_tof,if=!buff.twist_of_fate.up&buff.twist_of_fate_can_trigger_on_ally_heal.up&talent.halo
+actions.main+=/vampiric_touch,target_if=max:(refreshable*10000+target.time_to_die),if=refreshable&target.time_to_die>12
+actions.main+=/shadow_word_death,target_if=min:target.health.pct,if=(pet.mindbender.active|pet.voidwraith.active|pet.shadowfiend.active)&talent.inescapable_torment|target.health.pct<(20+15*talent.deathspeaker)&talent.shadowfiend&talent.idol_of_yshaarj
+actions.main+=/shadow_word_death,target_if=min:target.health.pct,if=(target.health.pct<(20+15*talent.deathspeaker))
+actions.main+=/void_volley,if=bracketsim_cast_stack_window_remains<(talent.improved_voidform*(buff.void_volley.stack*gcd.max+1)+!talent.improved_voidform*5)&(!talent.resonant_energy|cooldown.voidform.remains<60|buff.voidform.up|buff.resonant_energy_damage.react|buff.crushing_void.stack>=4|fight_remains<45)
+actions.main+=/mind_flay,target_if=max:dot.shadow_word_madness.remains,chain=1,interrupt_immediate=1,interrupt_if=ticks>=2,interrupt_global=1
+actions.main+=/tentacle_slam,if=raid_event.adds.in>20
+actions.main+=/shadow_word_death,target_if=target.health.pct<20
+actions.main+=/shadow_word_death,target_if=max:dot.shadow_word_madness.remains
+actions.main+=/shadow_word_pain,target_if=min:remains
+
+actions.trinkets=use_item,name=galactic_gladiators_badge_of_ferocity,if=(buff.voidform.up|buff.power_infusion.remains>=10|(talent.voidform&cooldown.voidform.remains>10))|fight_remains<20
+actions.trinkets+=/use_item,name=hex_lords_dooming_idol,if=buff.power_infusion.up&buff.hex_lords_doom.stack>5|fight_remains<=30
+actions.trinkets+=/use_item,name=font_of_venomous_rage
+actions.trinkets+=/use_item,name=vexhuls_everflowing_gland
+actions.trinkets+=/use_items,if=(buff.voidform.up|buff.power_infusion.remains>=10|equipped.neural_synapse_enhancer&buff.entropic_rift.up)|fight_remains<20
+
+head=cowl_of_icy_breaths,id=45464,bonus_id=9042,ilevel=42,gem_id=25893/213743
+neck=ukhel_ancestry_beads,id=193676,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213500/213482/213482,enchant_id=5890,drop_level=30
+shoulders=hatefury_mantle,id=30884,bonus_id=9036,ilevel=42,gem_id=213482/213482,enchant_id=3810,drop_level=30
+back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=213482,enchant_id=3243,drop_level=30
+chest=sunfire_robe,id=34364,bonus_id=9037,ilevel=44,gem_id=213482/71854/71854,enchant_id=6625,drop_level=30
+wrists=cuffs_of_absolution,id=34435,bonus_id=9037,ilevel=44,gem_id=71854,enchant_id=2332,drop_level=30
+hands=pharos_gloves,id=45665,bonus_id=9043,ilevel=43,gem_id=71854/71854,enchant_id=2937,drop_level=30
+waist=belt_of_blasting,id=30038,bonus_id=9035,ilevel=40,gem_id=71854/71854/71854,enchant_id=6904,drop_level=30
+legs=leggings_of_calamity,id=34181,bonus_id=9037,ilevel=44,gem_id=71854/71854/71854,enchant_id=6541,drop_level=30
+feet=treads_of_the_false_oracle,id=45537,bonus_id=9043,ilevel=43,gem_id=71854/71854,enchant_id=4069,drop_level=30
+finger1=archdruids_tainted_seal,id=134487,bonus_id=6652/6710/8810/10386,ilevel=47,gem_id=71854,enchant_id=6109,drop_level=30
+finger2=signet_of_the_false_accuser,id=178824,bonus_id=6652/6710/8810/10386,ilevel=47,gem_id=71854,enchant_id=6109,drop_level=30
+trinket1=gale_of_shadows,id=56462,bonus_id=6652/6710,ilevel=33,drop_level=30
+trinket2=pendant_of_the_violet_eye,id=28727,bonus_id=9034,ilevel=38,drop_level=30
+main_hand=abracadaver,id=51887,bonus_id=9049,ilevel=45,gem_id=71854/71854/71854,enchant_id=2669
+
+# Gear Summary
+# gear_ilvl=41.87
+# gear_stamina=106
+# gear_intellect=187
+# gear_spell_power=30
+# gear_crit_rating=76
+# gear_haste_rating=144
+# gear_mastery_rating=105
+# gear_versatility_rating=6
+# gear_armor=48

@@ -7,6 +7,15 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Restoration Shaman and Shadow Priest are the first two lists on BracketSim, both All-Time: 5,487 and 5,385.
+  Simmed by Fate on 2026-10-22 from each character's export, on the site's full-buffed set.
+  Restoration Shaman was 6,038 on Raidbots, shown as 5,883 without Power Infusion; Shadow
+  Priest was 5,705. Each list has new gear rows from its export, its talents, its stat panel
+  and its sim date, and its alternates are gone until a sweep is read on the new number. The
+  Shaman takes Band of the Ancient Dredger and Bloodoath Signet with Reckless Pyrestones,
+  Brilliant Crimson Spinels everywhere else, Lesser Inscription of the Storm and Major Healing;
+  the Priest's gear is unchanged but for Lesser Inscription of the Storm and the belt clasp's
+  rank. The two Full buffed files these runs replace move to list/old.
 - [page] BracketSim is the engine of record, and the four lists become three, every one fully raid-buffed: All-Time, Obtainable and Herald of the Titans.
   Ruled by Fate. All-Time takes over the Full buffed list's gear and numbers (the same item
   pool, the same buff set); the self-buffed All-Time list is retired. Obtainable and Herald
