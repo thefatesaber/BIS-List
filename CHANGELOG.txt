@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-22
+- [page] Devourer Demon Hunter All-Time on BracketSim: 5,420.
+  Simmed by Fate on 2026-10-22 from fateberserkr's export, on the site's full-buffed set.
+  It was 5,635 on Raidbots. New rows from the export, talents, stat panel and sim date: the
+  chest is Midnight Chestguard (Hyjal Summit, Kaz'rogal) for Harness of Carnal Instinct, the
+  rings take Accord of Haste for Accord of Mastery, the belt gets its clasp, the shoulders
+  Lesser Inscription of the Storm, and Quick Onyx and Masterful Emerald gems sit where the
+  Full buffed list had Artful Lava Corals. No alternates until a sweep is read on the new number. The Full buffed file
+  it replaces stays in list/old.
 - [repo] The list folders hold BracketSim runs only; every Raidbots-era profile moves to list/old.
   Asked by Fate. The site keeps every number it showed, tagged "re-sim pending" where it is
   still from Raidbots; the files behind those numbers sit in list/old under their old folder

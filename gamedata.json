@@ -46,6 +46,7 @@
     "30534": {"name":"Wyrmscale Greaves","quality":4,"class":4,"sub":3,"inv":7,"sockets":3,"bind":1,"reqLevel":27},
     "30536": {"name":"Greaves of the Martyr","quality":4,"class":4,"sub":4,"inv":7,"sockets":3,"bind":1,"reqLevel":27},
     "30884": {"name":"Hatefury Mantle","quality":4,"class":4,"sub":1,"inv":3,"sockets":2,"bind":1,"reqLevel":27},
+    "30905": {"name":"Midnight Chestguard","quality":4,"class":4,"sub":2,"inv":5,"sockets":3,"bind":1,"reqLevel":27},
     "30975": {"name":"Onslaught Breastplate","quality":4,"class":4,"sub":4,"inv":5,"sockets":3,"bind":1,"reqLevel":27,"classes":1},
     "30997": {"name":"Lightbringer Shoulderbraces","quality":4,"class":4,"sub":4,"inv":3,"sockets":2,"bind":1,"reqLevel":27,"classes":2},
     "31318": {"name":"Singing Crystal Axe","quality":4,"class":2,"sub":1,"inv":17,"sockets":0,"bind":2,"reqLevel":27},
