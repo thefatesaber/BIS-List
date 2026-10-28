@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Feral Druid All-Time: the run of record is Promoting's, 3,703.
+  Simmed by Fate on 2026-10-28, the same gear, levels, enchants and talents as the 3,704 run
+  of Serverman earlier today, on Fate's own character; the two read within a point of each
+  other, and the 3,703 pair replaces the 3,704 pair as the files of record. Nothing on the
+  list changes but the number.
 - [page] Feral Druid All-Time on BracketSim: 3,704.
   Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark), with the head
