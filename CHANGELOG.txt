@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Demonology Warlock All-Time on BracketSim: 3,428.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, Flame Cap). It
+  was 3,690 on Raidbots. Items, levels and talents are the Full buffed list's, both Solaces
+  included; a Deadly Emerald in the neck, two Brilliant Crimson Spinels on the shoulders and
+  Accord of Haste on one ring are the export's. Stat panel and sim date are new. No
+  alternates until a sweep is read on the new number.
 - [page] Retribution Paladin All-Time on BracketSim: 3,227.
   Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,318 on

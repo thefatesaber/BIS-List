@@ -1,0 +1,151 @@
+# ============================================================================
+# Legacy Thirty BiS — All-time — Demonology Warlock
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 3,428 DPS (±0.9 / 0.027%), 20015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 3428 - Warlock Demonology.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-28 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [x] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [x] Arcane Intellect  [ ] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Int 9.66 > SP 8.59 > Crit 5.22 > Vers 4.76 > Haste 4.72 > Mastery 3.10
+# ============================================================================
+
+warlock="Fatecastr"
+source=default
+region=us
+server=thrall
+spec=demonology
+level=30
+race=orc
+role=spell
+position=back
+professions=tailoring=75/inscription=75
+talents=CoQAMrNP5kak+EBqLfUa3dMm+CYGBGmZAAAAAAAAAAAAAAYsNghBAMMDDAwAAAAMYAAAA
+
+# Default consumables
+potion=volcanic_potion
+flask=flask_of_distilled_wisdom
+elixir=disabled
+food=severed_sagefish_head
+augmentation=disabled
+temporary_enchant=main_hand:superior_wizard_oil
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=summon_pet
+actions.precombat+=/snapshot_stats
+actions.precombat+=/potion
+actions.precombat+=/variable,name=in_opener,op=set,value=1
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
+actions.precombat+=/variable,name=trinket_1_buff_duration,value=trinket.1.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_2_buff_duration,value=trinket.2.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.summon_demonic_tyrant.duration=0|cooldown.summon_demonic_tyrant.duration%%trinket.1.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&(trinket.2.cooldown.duration%%cooldown.summon_demonic_tyrant.duration=0|cooldown.summon_demonic_tyrant.duration%%trinket.2.cooldown.duration=0)
+actions.precombat+=/variable,name=damage_trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&!variable.trinket_2_buffs&trinket.2.ilvl>trinket.1.ilvl
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs|variable.trinket_2_buffs&((trinket.2.cooldown.duration%variable.trinket_2_buff_duration)*(1.5+trinket.2.has_buff.intellect)*(variable.trinket_2_sync))>(((trinket.1.cooldown.duration%variable.trinket_1_buff_duration)*(1.5+trinket.1.has_buff.intellect)*(variable.trinket_1_sync))*(1+((trinket.1.ilvl-trinket.2.ilvl)%100)))
+actions.precombat+=/power_siphon
+actions.precombat+=/demonbolt,if=!buff.power_siphon.up&(talent.ruination&!talent.grimoire_imp_lord|talent.ruination&!talent.summon_doomguard)
+actions.precombat+=/shadow_bolt
+
+# Executed every time the actor is available.
+actions=potion,if=pet.demonic_tyrant.active|fight_remains<=30
+actions+=/invoke_external_buff,name=power_infusion,if=pet.demonic_tyrant.active
+actions+=/call_action_list,name=racials,if=pet.demonic_tyrant.active|!talent.summon_demonic_tyrant|fight_remains<22,use_off_gcd=1
+actions+=/call_action_list,name=items,use_off_gcd=1
+actions+=/call_action_list,name=diabolist,if=talent.diabolic_ritual
+actions+=/call_action_list,name=soulharvest,if=talent.demonic_soul
+actions+=/call_action_list,name=diabolist,if=!talent.diabolic_ritual&!talent.demonic_soul
+actions+=/thorn_bloom
+
+actions.diabolist=power_siphon,if=buff.demonic_core.stack<=1|fight_remains<10
+actions.diabolist+=/hand_of_guldan,if=buff.dominion_of_argus.up
+actions.diabolist+=/grimoire_imp_lord
+actions.diabolist+=/grimoire_fel_ravager
+actions.diabolist+=/summon_doomguard
+actions.diabolist+=/call_dreadstalkers,if=talent.reign_of_tyranny&(cooldown.summon_demonic_tyrant.remains>=20+gcd.max|cooldown.summon_demonic_tyrant.remains<=12-gcd.max)
+actions.diabolist+=/call_dreadstalkers,if=!talent.reign_of_tyranny
+actions.diabolist+=/summon_demonic_tyrant,if=soul_shard=5
+actions.diabolist+=/implosion,if=buff.wild_imps.stack>=6&(active_enemies>2|talent.to_hell_and_back.enabled)
+actions.diabolist+=/ruination
+actions.diabolist+=/hand_of_guldan,if=soul_shard>=3&cooldown.summon_demonic_tyrant.remains>5|soul_shard=5
+actions.diabolist+=/infernal_bolt,if=soul_shard<3
+actions.diabolist+=/demonbolt,target_if=(!debuff.doom.up),if=soul_shard<4&buff.demonic_core.react&talent.doom
+actions.diabolist+=/demonbolt,if=soul_shard<4&buff.demonic_core.react
+actions.diabolist+=/shadow_bolt
+actions.diabolist+=/infernal_bolt
+actions.diabolist+=/thorn_bloom
+
+actions.items=use_item,use_off_gcd=1,slot=trinket1,if=!((trinket.1.is.pendant_of_the_violet_eye|trinket.1.is.meteorite_crystal)&(trinket.2.is.pendant_of_the_violet_eye|trinket.2.is.meteorite_crystal)&trinket.2.cooldown.remains>100)&(variable.trinket_1_buffs&(!pet.demonic_tyrant.active&trinket.1.cast_time>0|!trinket.1.cast_time>0)&(pet.demonic_tyrant.active|trinket.1.cast_time>0&cooldown.summon_demonic_tyrant.remains<=4|!talent.summon_demonic_tyrant|variable.trinket_priority=2&cooldown.summon_demonic_tyrant.remains>20&!pet.demonic_tyrant.active&trinket.2.cooldown.remains<cooldown.summon_demonic_tyrant.remains+5)&(!trinket.2.has_cooldown|trinket.2.cooldown.remains|variable.trinket_priority=1)|variable.trinket_1_buff_duration>=fight_remains)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket2,if=!((trinket.1.is.pendant_of_the_violet_eye|trinket.1.is.meteorite_crystal)&(trinket.2.is.pendant_of_the_violet_eye|trinket.2.is.meteorite_crystal)&trinket.1.cooldown.remains>100)&(variable.trinket_2_buffs&(!pet.demonic_tyrant.active&trinket.2.cast_time>0|!trinket.2.cast_time>0)&(pet.demonic_tyrant.active|trinket.2.cast_time>0&cooldown.summon_demonic_tyrant.remains<=4|!talent.summon_demonic_tyrant|variable.trinket_priority=1&cooldown.summon_demonic_tyrant.remains>20&!pet.demonic_tyrant.active&trinket.1.cooldown.remains<cooldown.summon_demonic_tyrant.remains+5)&(!trinket.1.has_cooldown|trinket.1.cooldown.remains|variable.trinket_priority=2)|variable.trinket_2_buff_duration>=fight_remains)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket1,if=!((trinket.1.is.pendant_of_the_violet_eye|trinket.1.is.meteorite_crystal)&(trinket.2.is.pendant_of_the_violet_eye|trinket.2.is.meteorite_crystal)&trinket.2.cooldown.remains>100)&(!variable.trinket_1_buffs&((variable.damage_trinket_priority=1|trinket.2.cooldown.remains)&(trinket.1.cast_time>0&!pet.demonic_tyrant.active|!trinket.1.cast_time>0)|(time<20&variable.trinket_2_buffs)|cooldown.summon_demonic_tyrant.remains_expected>20))
+actions.items+=/use_item,use_off_gcd=1,slot=trinket2,if=!((trinket.1.is.pendant_of_the_violet_eye|trinket.1.is.meteorite_crystal)&(trinket.2.is.pendant_of_the_violet_eye|trinket.2.is.meteorite_crystal)&trinket.1.cooldown.remains>100)&(!variable.trinket_2_buffs&((variable.damage_trinket_priority=2|trinket.1.cooldown.remains)&(trinket.2.cast_time>0&!pet.demonic_tyrant.active|!trinket.2.cast_time>0)|(time<20&variable.trinket_1_buffs)|cooldown.summon_demonic_tyrant.remains_expected>20))
+actions.items+=/use_item,slot=trinket1,if=!((trinket.1.is.pendant_of_the_violet_eye|trinket.1.is.meteorite_crystal)&(trinket.2.is.pendant_of_the_violet_eye|trinket.2.is.meteorite_crystal)&trinket.2.cooldown.remains>100)&(!variable.trinket_1_buffs&(variable.damage_trinket_priority=1|trinket.2.cooldown.remains))
+actions.items+=/use_item,slot=trinket2,if=!((trinket.1.is.pendant_of_the_violet_eye|trinket.1.is.meteorite_crystal)&(trinket.2.is.pendant_of_the_violet_eye|trinket.2.is.meteorite_crystal)&trinket.1.cooldown.remains>100)&(!variable.trinket_2_buffs&(variable.damage_trinket_priority=2|trinket.1.cooldown.remains))
+actions.items+=/use_item,use_off_gcd=1,slot=main_hand
+actions.items+=/thorn_bloom
+
+actions.racials=berserking,use_off_gcd=1
+actions.racials+=/blood_fury
+actions.racials+=/fireblood
+actions.racials+=/ancestral_call
+actions.racials+=/thorn_bloom
+
+actions.soulharvest=power_siphon,if=buff.demonic_core.stack<=1|fight_remains<10
+actions.soulharvest+=/hand_of_guldan,if=buff.dominion_of_argus.up
+actions.soulharvest+=/grimoire_imp_lord
+actions.soulharvest+=/grimoire_fel_ravager
+actions.soulharvest+=/summon_doomguard
+actions.soulharvest+=/call_dreadstalkers
+actions.soulharvest+=/summon_demonic_tyrant
+actions.soulharvest+=/implosion,if=buff.wild_imps.stack>=6&(active_enemies>2|talent.to_hell_and_back.enabled)
+actions.soulharvest+=/hand_of_guldan
+actions.soulharvest+=/infernal_bolt,if=soul_shard<3
+actions.soulharvest+=/demonbolt,target_if=(!debuff.doom.up),if=soul_shard<4&buff.demonic_core.stack>=1&talent.doom
+actions.soulharvest+=/demonbolt,if=soul_shard<4&buff.demonic_core.stack>=2&!talent.doom
+actions.soulharvest+=/demonbolt,if=soul_shard<4&buff.demonic_core.react
+actions.soulharvest+=/shadow_bolt
+actions.soulharvest+=/thorn_bloom
+
+head=merciless_gladiators_felweave_cowl,id=31980,bonus_id=9357,ilevel=45,gem_id=25893/213743,drop_level=30
+neck=tuskarr_bone_necklace,id=193666,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213479/32196/32196,enchant_id=5437,drop_level=30
+shoulders=hatefury_mantle,id=30884,bonus_id=9036,ilevel=42,gem_id=32196/32196,enchant_id=3838,drop_level=30
+back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=32196,enchant_id=3243,drop_level=30
+chest=merciless_gladiators_felweave_raiment,id=31982,bonus_id=9357,ilevel=45,gem_id=32196/32196/32196,enchant_id=6625,drop_level=30
+wrists=bracers_of_the_malefic,id=34436,bonus_id=9037,ilevel=44,gem_id=32196,enchant_id=2332,drop_level=30
+hands=pharos_gloves,id=45665,bonus_id=9043,ilevel=43,gem_id=32196/32196,enchant_id=2937,drop_level=30
+waist=belt_of_blasting,id=30038,bonus_id=9035,ilevel=40,gem_id=32196/32196/32196,drop_level=30
+legs=leggings_of_calamity,id=34181,bonus_id=9037,ilevel=44,gem_id=32196/32196/32196,enchant_id=6541,drop_level=30
+feet=treads_of_the_false_oracle,id=45537,bonus_id=9043,ilevel=43,gem_id=32196/32196,enchant_id=4092,drop_level=30
+finger1=bloodoath_signet,id=178871,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32196/32196,enchant_id=6108,drop_level=30
+finger2=band_of_the_ancient_dredger,id=159461,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32196/32196,enchant_id=6109,drop_level=30
+trinket1=solace_of_the_fallen,id=47271,bonus_id=9047,ilevel=44
+trinket2=solace_of_the_fallen,id=47432,bonus_id=9047,ilevel=45
+main_hand=abracadaver,id=51887,bonus_id=9051,ilevel=45,gem_id=32196/32196/32196,enchant_id=2669
+
+# Gear Summary
+# gear_ilvl=41.47
+# gear_stamina=99
+# gear_intellect=235
+# gear_spell_power=30
+# gear_crit_rating=108
+# gear_haste_rating=90
+# gear_versatility_rating=59
+# gear_armor=48
+warlock.soul_shards=0
+warlock.default_pet=felguard
