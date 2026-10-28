@@ -6,6 +6,17 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-28
+- [page] Affliction Warlock All-Time on BracketSim: 4,130.
+  Simmed by Fate on 2026-10-28 from Fatecastr's export, on the site's full-buffed set (Arcane
+  Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, Flame Cap), with
+  Abracadaver written at 45, the level a 10-player heroic Icecrown drop has at 30 (the export
+  carried it at 47, and a first run at that level and 2,500 iterations was set aside). It was
+  4,623 on Raidbots. Gear and talents are the Full buffed list's but for Solace of the Fallen
+  in Pendant of the Violet Eye's slot (the trinkets swap) and a Brilliant Crimson Spinel in
+  one ring; the stat panel and sim date are new. No alternates until a sweep is read on the
+  new number.
+
 ## 2026-10-22
 - [page] Assassination Rogue All-Time on BracketSim: 4,332.
   Simmed by Fate on 2026-10-22 from the character's export, on the site's full-buffed set
