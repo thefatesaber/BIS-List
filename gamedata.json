@@ -1,5 +1,5 @@
 {
-  "source": {"repo":"simulationcraft/simc","ref":"midnight","commit":"73a372b","build":"12.1.5.70529"},
+  "source": {"repo":"simulationcraft/simc","ref":"midnight","commit":"710c240","build":"12.1.5.70575"},
   "items": {
     "647": {"name":"Destiny","quality":4,"class":2,"sub":8,"inv":17,"sockets":0,"bind":2,"reqLevel":22},
     "9423": {"name":"The Jackhammer","quality":3,"class":2,"sub":5,"inv":17,"sockets":0,"bind":2,"reqLevel":15},
@@ -208,6 +208,7 @@
     "1597": {"name":"+$k1 Attack Power","spell":60763},
     "1885": {"name":"+$k1 Strength","spell":20010},
     "1887": {"name":"+$k1 Agility","spell":20012},
+    "1896": {"name":"+$k1 Weapon Damage","spell":20030},
     "1900": {"name":"Crusader","spell":20034},
     "2322": {"name":"+$k1 Spell Power","spell":33999},
     "2326": {"name":"+$k1 Spell Power","spell":44635},
@@ -256,6 +257,7 @@
     "20012": {"name":"Greater Agility","enchants":[1887],"eqClass":4,"invMask":1024},
     "20023": {"name":"Greater Agility","enchants":[1887],"eqClass":4,"invMask":256},
     "20024": {"name":"Versatility","enchants":[851],"eqClass":4,"invMask":256},
+    "20030": {"name":"Superior Impact","enchants":[1896],"eqClass":2},
     "20034": {"name":"Crusader","enchants":[1900],"eqClass":2},
     "27960": {"name":"Exceptional Stats","enchants":[2661],"eqClass":4,"invMask":1048608},
     "27975": {"name":"Major Spellpower","enchants":[2669],"eqClass":2},

@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Feral Druid All-Time on BracketSim: 3,704.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark), with the head
+  written at 33 and Distant Land at 47 (the export carried the cap at its base 17 and the
+  staff at 45; a first run on those read 3,635 and was set aside). It was 4,028 on Raidbots.
+  New rows from the export, talents, stat panel and sim date: Midnight Chestguard for Harness
+  of Carnal Instinct, Superior Impact on the staff for Mighty Agility, Lesser Inscription of
+  the Axe, Greater Assault, the belt clasp, Delicate Crimson Spinels and a Quick Emerald
+  where the sweep ran Deft Ametrines and a Deadly Emerald. No alternates until a sweep is
+  read on the new number.
 - [page] Destruction Warlock All-Time on BracketSim: 3,700.
   Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
   (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, Flame Cap). It
