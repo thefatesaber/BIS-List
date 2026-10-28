@@ -85,6 +85,7 @@
     "34435": {"name":"Cuffs of Absolution","quality":4,"class":4,"sub":1,"inv":9,"sockets":1,"bind":1,"reqLevel":27,"classes":16},
     "34436": {"name":"Bracers of the Malefic","quality":4,"class":4,"sub":1,"inv":9,"sockets":1,"bind":1,"reqLevel":27,"classes":256},
     "34439": {"name":"Skyshatter Wristguards","quality":4,"class":4,"sub":3,"inv":9,"sockets":1,"bind":1,"reqLevel":27,"classes":64},
+    "34445": {"name":"Thunderheart Bracers","quality":4,"class":4,"sub":2,"inv":9,"sockets":1,"bind":1,"reqLevel":27,"classes":1024},
     "34447": {"name":"Bracers of the Tempest","quality":4,"class":4,"sub":1,"inv":9,"sockets":1,"bind":1,"reqLevel":27,"classes":128},
     "34569": {"name":"Onslaught Treads","quality":4,"class":4,"sub":4,"inv":8,"sockets":1,"bind":1,"reqLevel":27,"classes":1},
     "34575": {"name":"Slayer's Boots","quality":4,"class":4,"sub":2,"inv":8,"sockets":1,"bind":1,"reqLevel":27,"classes":8},

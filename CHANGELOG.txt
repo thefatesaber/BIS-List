@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Balance Druid All-Time on BracketSim: 3,590.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark), with
+  Plague-Soaked Leather Leggings written at 45 (the export carried them at 47; a first run at
+  that level read 3,616 and was set aside). It was 3,751 on Raidbots. New rows from the
+  export, talents, stat panel and sim date: Midnight Chestguard for Harness of Carnal
+  Instinct, Thunderheart Bracers (Sunwell Plateau, Felmyst token) for Umbrage Armbands,
+  Naturewarden's Treads (Hyjal Summit, Rage Winterchill) for Footpads of Impending Death,
+  Accord of Haste on both rings, the trinkets swapping slots. No alternates until a sweep is
+  read on the new number.
 - [page] Demonology Warlock All-Time on BracketSim: 3,428.
   Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
   (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, Flame Cap). It
