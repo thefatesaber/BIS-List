@@ -1,0 +1,73 @@
+# ============================================================================
+# Legacy Thirty BiS — All-time — Retribution Paladin
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 3,227 DPS (±1.6 / 0.051%), 20015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 3227 - Paladin Retribution.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-28 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [ ] Arcane Intellect  [x] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Wdps 55.11 > Str 9.47 > AP 9.26 > Mastery 7.50 > Haste 5.68 > Vers 5.15 > Crit 4.04
+# ============================================================================
+
+paladin="Exhibiting"
+source=default
+region=us
+server=thrall
+spec=retribution
+level=30
+race=tauren
+role=attack
+position=back
+talents=CYEAzbn3egSOtoSwvPw1U1vTLAAAAAwILbmZ2GYAAAAAAYUGAAbDmNwDAgFWAAAAAAAAAgBAYAAAADA
+
+# Default consumables
+potion=golemblood_potion
+flask=flask_of_endless_rage
+elixir=disabled
+food=beerbasted_crocolisk
+augmentation=disabled
+temporary_enchant=main_hand:adamantite_sharpening_stone
+
+head=helm_of_the_faceless,id=45502,bonus_id=9043,ilevel=43,gem_id=76886/213743,drop_level=30
+neck=ukhel_ancestry_beads,id=193676,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213500/213500/213500,enchant_id=5890,drop_level=30
+shoulders=spaulders_of_the_thalassian_savior,id=34193,bonus_id=9037,ilevel=44,gem_id=213500/71856,enchant_id=3808,drop_level=30
+back=titanskin_cloak,id=45496,bonus_id=9043,ilevel=43,gem_id=71856,enchant_id=3243,drop_level=30
+chest=hard_khorium_battleplate,id=34377,bonus_id=9037,ilevel=44,gem_id=71856/71856/71856,enchant_id=6625
+wrists=bracers_of_eradication,id=30057,bonus_id=9035,ilevel=40,gem_id=71856,enchant_id=1885,drop_level=30
+hands=hard_khorium_battlefists,id=34378,bonus_id=9037,ilevel=44,gem_id=71856/71856,enchant_id=4432,drop_level=30
+waist=red_belt_of_battle,id=30032,bonus_id=9035,ilevel=40,gem_id=71856/71856/71856,enchant_id=6904,drop_level=30
+legs=felfury_legplates,id=34180,bonus_id=9037,ilevel=44,gem_id=71856/71856/71856,enchant_id=4881,drop_level=30
+feet=dreadboots_of_the_legion,id=32345,bonus_id=9036,ilevel=42,gem_id=71856/71856,enchant_id=1597,drop_level=30
+finger1=archdruids_tainted_seal,id=134487,bonus_id=6652/6710/8810/10386,ilevel=47,gem_id=71856,enchant_id=6110,drop_level=30
+finger2=signet_of_the_false_accuser,id=178824,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=71856/71856,enchant_id=6110,drop_level=30
+trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
+trinket2=heart_of_roccor,id=231456,bonus_id=7756/12378,ilevel=36,drop_level=30,content_tuning=181
+main_hand=bonereavers_edge,id=17076,bonus_id=9029,ilevel=38,enchant_id=1900,drop_level=30
+
+# Gear Summary
+# gear_ilvl=40.60
+# gear_strength=146
+# gear_stamina=90
+# gear_attack_power=6
+# gear_crit_rating=87
+# gear_haste_rating=74
+# gear_mastery_rating=120
+# gear_versatility_rating=22
+# gear_armor=170
