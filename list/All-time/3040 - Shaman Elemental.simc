@@ -1,0 +1,167 @@
+# ============================================================================
+# Legacy Thirty BiS — All-time — Elemental Shaman
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 3,040 DPS (±1.5 / 0.048%), 20015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 3040 - Shaman Elemental.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-28 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [x] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [x] Arcane Intellect  [ ] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Int 9.12 > SP 8.19 > Mastery 5.39 > Crit 5.18 > Haste 4.84 > Vers 4.74
+# ============================================================================
+
+shaman="Broadcasting"
+source=default
+region=us
+server=thrall
+spec=elemental
+level=30
+race=pandaren
+role=spell
+position=back
+professions=alchemy=4/engineering=100
+talents=CYQAAAAAAAAAAAAAAAAAAAAAAAAAAAmZZZMgx2GAAAAAAAAAAECAglZAggB2MMPAgBAGAAAAADA
+
+# Default consumables
+potion=volcanic_potion
+flask=flask_of_distilled_wisdom
+elixir=disabled
+food=severed_sagefish_head
+augmentation=disabled
+temporary_enchant=main_hand:superior_wizard_oil
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=snapshot_stats
+actions.precombat+=/flametongue_weapon,if=talent.flametongue_weapon
+actions.precombat+=/lightning_shield
+actions.precombat+=/thunderstrike_ward
+actions.precombat+=/variable,name=trinket_1_buffs,value=(trinket.1.has_use_buff|trinket.1.is.funhouse_lens)
+actions.precombat+=/variable,name=trinket_2_buffs,value=(trinket.2.has_use_buff|trinket.2.is.funhouse_lens)
+actions.precombat+=/variable,name=trinket_1_special,value=(trinket.1.is.stormbound_emblem_of_dazar|trinket.1.is.hex_lords_dooming_idol|trinket.1.is.font_of_venomous_rage)
+actions.precombat+=/variable,name=trinket_2_special,value=(trinket.2.is.stormbound_emblem_of_dazar|trinket.2.is.hex_lords_dooming_idol|trinket.2.is.font_of_venomous_rage)
+actions.precombat+=/stormkeeper
+
+# Executed every time the actor is available.
+actions=thorn_bloom
+actions+=/spiritwalkers_grace,moving=1,if=movement.distance>6
+actions+=/wind_shear
+actions+=/blood_fury
+actions+=/berserking
+actions+=/fireblood
+actions+=/ancestral_call
+actions+=/use_item,name=stormbound_emblem_of_dazar,if=cooldown.ascendance.ready&(cooldown.stormkeeper.remains>15|cooldown.stormkeeper.remains<2)|fight_remains<23
+actions+=/use_item,name=hex_lords_dooming_idol,use_off_gcd=1,if=cooldown.ascendance.ready&cooldown.stormkeeper.remains>15|fight_remains<23
+actions+=/use_item,slot=trinket1,use_off_gcd=1,if=!variable.trinket_1_special&variable.trinket_1_buffs&(cooldown.ascendance.remains>trinket.1.cooldown.duration-5|cooldown.ascendance.ready&(!buff.stormkeeper.up|spell_targets.chain_lightning>=2)|fight_remains<21)
+actions+=/use_item,slot=trinket2,use_off_gcd=1,if=!variable.trinket_2_special&variable.trinket_2_buffs&(cooldown.ascendance.remains>trinket.2.cooldown.duration-5|cooldown.ascendance.ready&(!buff.stormkeeper.up|spell_targets.chain_lightning>=2)|fight_remains<21)
+actions+=/use_item,slot=main_hand,use_off_gcd=1
+actions+=/use_item,name=font_of_venomous_rage,if=!variable.trinket_1_buffs&!variable.trinket_2_buffs&!buff.ascendance.up|!buff.ascendance.up&!cooldown.ascendance.ready|fight_remains<23
+actions+=/use_item,slot=trinket1,use_off_gcd=1,if=!variable.trinket_1_special&!variable.trinket_1_buffs&(cooldown.ascendance.remains>20|trinket.2.cooldown.remains>20)
+actions+=/use_item,slot=trinket2,use_off_gcd=1,if=!variable.trinket_2_special&!variable.trinket_2_buffs&(cooldown.ascendance.remains>20|trinket.1.cooldown.remains>20)
+actions+=/lightning_shield,if=buff.lightning_shield.down
+actions+=/natures_swiftness
+actions+=/invoke_external_buff,name=power_infusion
+actions+=/potion,if=buff.bloodlust.up|cooldown.ascendance.ready|fight_remains<31
+actions+=/run_action_list,name=aoe,if=spell_targets.chain_lightning>=3&talent.chain_lightning
+actions+=/run_action_list,name=single_target
+
+actions.aoe=stormkeeper,if=set_bonus.mid2_4pc|cooldown.ascendance.remains>10|cooldown.ascendance.remains<gcd|fight_remains<20
+actions.aoe+=/ancestral_swiftness
+actions.aoe+=/flame_shock,if=!buff.master_of_the_elements.up&((dot.flame_shock.refreshable&(!talent.ascendance|cooldown.ascendance.remains>5))|(buff.fire_elemental.up&buff.fire_elemental.remains<2))&talent.master_of_the_elements&talent.inferno_arc&spell_targets.chain_lightning=3
+actions.aoe+=/voltaic_blaze,if=!buff.master_of_the_elements.up&((dot.flame_shock.refreshable&(!talent.ascendance|cooldown.ascendance.remains>5))|(buff.fire_elemental.up&buff.fire_elemental.remains<2)|talent.purging_flames)
+actions.aoe+=/chain_lightning,if=buff.stormkeeper.up&maelstrom.deficit>(spell_targets.chain_lightning>?5)*(2+(spell_targets.chain_lightning>?5)+2)&talent.call_of_the_ancestors&set_bonus.mid2_4pc
+actions.aoe+=/ascendance,if=set_bonus.mid2_4pc|cooldown.stormkeeper.remains>15|fight_remains<20
+actions.aoe+=/elemental_blast,target_if=min:debuff.lightning_rod.remains,if=buff.tempest.stack<2&(buff.elemental_blast_critical_strike.up+buff.elemental_blast_haste.up+buff.elemental_blast_mastery.up=0)&talent.tempest
+actions.aoe+=/earthquake,if=buff.tempest.stack<2&lightning_rod<active_enemies&(spell_targets.chain_lightning>=3+talent.elemental_blast)&(buff.elemental_blast_critical_strike.up+buff.elemental_blast_haste.up+buff.elemental_blast_mastery.up>0|!talent.elemental_blast)&talent.tempest
+actions.aoe+=/earthquake,if=buff.call_of_the_ancestors.up|(spell_targets.chain_lightning>=3+2*talent.elemental_blast)&talent.call_of_the_ancestors
+actions.aoe+=/elemental_blast,target_if=min:debuff.lightning_rod.remains,if=buff.tempest.stack<2&(spell_targets.chain_lightning<=3+talent.call_of_the_ancestors)&!buff.call_of_the_ancestors.up
+actions.aoe+=/lava_burst,if=buff.purging_flames.up&(buff.lava_surge.up|cooldown.voltaic_blaze.remains<2)
+actions.aoe+=/lava_burst,if=(buff.tempest.up|!talent.purging_flames&talent.call_of_the_ancestors)&buff.lava_surge.up&talent.master_of_the_elements&spell_targets.chain_lightning=3
+actions.aoe+=/tempest,target_if=min:debuff.lightning_rod.remains,if=buff.master_of_the_elements.up
+actions.aoe+=/tempest,target_if=min:debuff.lightning_rod.remains,if=buff.stormkeeper.stack<4&buff.tempest.stack=2
+actions.aoe+=/chain_lightning,if=buff.stormkeeper.up&maelstrom.deficit>(spell_targets.chain_lightning>?5)*(2+(spell_targets.chain_lightning>?5)+2)
+actions.aoe+=/earthquake,if=!talent.elemental_blast&maelstrom.deficit<15+(buff.stormkeeper.up*(spell_targets.chain_lightning>?5)*(2+(spell_targets.chain_lightning>?5)))
+actions.aoe+=/elemental_blast,if=talent.tempest
+actions.aoe+=/tempest,target_if=min:debuff.lightning_rod.remains
+actions.aoe+=/chain_lightning
+actions.aoe+=/flame_shock,moving=1
+actions.aoe+=/voltaic_blaze,moving=1
+actions.aoe+=/frost_shock,moving=1
+
+actions.single_target=stormkeeper,if=!buff.stormkeeper.up&!buff.tempest.up&set_bonus.mid2_4pc|!set_bonus.mid2_4pc&(cooldown.ascendance.remains>10|cooldown.ascendance.remains<gcd|fight_remains<20)
+actions.single_target+=/ancestral_swiftness
+actions.single_target+=/lightning_bolt,if=set_bonus.mid2_4pc&buff.stormkeeper.up&cooldown.ascendance.remains<2*gcd&(spell_targets.chain_lightning=1|talent.tempest)
+actions.single_target+=/flame_shock,if=!buff.master_of_the_elements.up&dot.flame_shock.refreshable&(!talent.ascendance|cooldown.ascendance.remains>5)
+actions.single_target+=/flame_shock,target_if=min:dot.flame_shock.remains,if=!buff.master_of_the_elements.up&!buff.ascendance.up&buff.fire_elemental.up&buff.fire_elemental.remains<6*active_enemies-4
+actions.single_target+=/voltaic_blaze,if=!buff.master_of_the_elements.up&(dot.flame_shock.refreshable&(!talent.ascendance|cooldown.ascendance.remains>5)|talent.purging_flames&spell_targets.chain_lightning=2)
+actions.single_target+=/ascendance,if=set_bonus.mid2_4pc|cooldown.stormkeeper.remains>15|fight_remains<20
+actions.single_target+=/earthquake,if=buff.flowing_elements.up&buff.overcharge_tier.up&buff.call_of_the_ancestors.stack>=3&spell_targets.chain_lightning=2
+actions.single_target+=/elemental_blast,if=buff.flowing_elements.up&buff.overcharge_tier.up
+actions.single_target+=/earthquake,if=buff.flowing_elements.up&buff.overcharge_tier.up&buff.call_of_the_ancestors.up&spell_targets.chain_lightning=2
+actions.single_target+=/earth_shock,if=buff.flowing_elements.up&buff.overcharge_tier.up
+actions.single_target+=/lava_burst,if=talent.master_of_the_elements&!buff.master_of_the_elements.up&maelstrom.deficit>15&cooldown.lava_burst.charges_fractional>1.8&((!buff.storm_elemental.up|buff.wind_gust.stack=4)+talent.call_of_the_ancestors>=spell_targets.chain_lightning)
+actions.single_target+=/lava_burst,if=talent.master_of_the_elements&!buff.master_of_the_elements.up&maelstrom.deficit>15&(maelstrom>52-5*talent.eye_of_the_storm*(1+talent.elemental_blast)+30*talent.elemental_blast)
+actions.single_target+=/lava_burst,if=talent.master_of_the_elements&!buff.master_of_the_elements.up&maelstrom.deficit>15&(maelstrom>52-5*talent.eye_of_the_storm)&buff.call_of_the_ancestors.stack>=3&spell_targets.chain_lightning=2
+actions.single_target+=/lava_burst,if=!talent.master_of_the_elements&maelstrom.deficit>15&(!buff.storm_elemental.up|buff.wind_gust.stack=4)&((cooldown.lava_burst.charges_fractional>1.8|!buff.call_of_the_ancestors.up)&(talent.molten_wrath|talent.purging_flames)|buff.lava_surge.up)
+actions.single_target+=/lava_burst,if=!buff.master_of_the_elements.up&maelstrom.deficit>15&buff.flowing_elements.up
+actions.single_target+=/lava_burst,if=!buff.master_of_the_elements.up&maelstrom.deficit>15&buff.purging_flames.up&cooldown.voltaic_blaze.remains<2&active_dot.flame_shock=2
+actions.single_target+=/tempest,if=buff.master_of_the_elements.up|!talent.master_of_the_elements
+actions.single_target+=/lightning_bolt,if=buff.stormkeeper.up&buff.master_of_the_elements.up&talent.tempest
+actions.single_target+=/earthquake,if=buff.call_of_the_ancestors.stack>=3&(buff.master_of_the_elements.up|!talent.master_of_the_elements|maelstrom.deficit<15)&spell_targets.chain_lightning=2
+actions.single_target+=/elemental_blast,target_if=min:debuff.lightning_rod.remains,if=buff.master_of_the_elements.up|maelstrom.deficit<15
+actions.single_target+=/earthquake,if=(buff.master_of_the_elements.up|!talent.master_of_the_elements|maelstrom.deficit<15)&buff.call_of_the_ancestors.up&!talent.elemental_blast&spell_targets.chain_lightning=2
+actions.single_target+=/earth_shock,target_if=min:debuff.lightning_rod.remains,if=buff.master_of_the_elements.up|maelstrom.deficit<15
+actions.single_target+=/flame_shock,target_if=min:dot.flame_shock.remains,if=buff.master_of_the_elements.up&dot.flame_shock.refreshable
+actions.single_target+=/voltaic_blaze,if=talent.crackling_fury&!buff.ascendance.up
+actions.single_target+=/tempest
+actions.single_target+=/chain_lightning,if=spell_targets.chain_lightning=2
+actions.single_target+=/lightning_bolt
+actions.single_target+=/flame_shock,moving=1
+actions.single_target+=/voltaic_blaze,moving=1
+actions.single_target+=/frost_shock,moving=1
+
+head=helm_of_desolation,id=28192,bonus_id=7202,ilevel=33,gem_id=76885/213743/213500,drop_level=30
+neck=phoenix_feather_pendant,id=200284,bonus_id=6652/8782/9156/9477,ilevel=33,gem_id=213464/32218/32218,enchant_id=5890,drop_level=30
+shoulders=pauldrons_of_desolation,id=27713,bonus_id=7202,ilevel=33,gem_id=32218/32218,enchant_id=3838,drop_level=30
+back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=32218,enchant_id=3243,drop_level=30
+chest=embrace_of_the_phoenix,id=34373,bonus_id=9037,ilevel=44,gem_id=32218/32218/32218,enchant_id=6625,drop_level=30
+wrists=bracers_of_the_forest_stalker,id=34698,bonus_id=7202,ilevel=33,gem_id=32218/32218,enchant_id=4414,drop_level=30
+hands=thalassian_ranger_gauntlets,id=34343,bonus_id=9037,ilevel=44,gem_id=32218/32218,enchant_id=2937,drop_level=30
+waist=terror_pit_girdle,id=28778,bonus_id=9034,ilevel=38,gem_id=32218/32218/32218,enchant_id=6906,drop_level=30
+legs=wyrmscale_greaves,id=30534,bonus_id=7202,ilevel=33,gem_id=71854/71854/71854,enchant_id=6541,drop_level=30
+feet=starstrider_boots,id=29951,bonus_id=9035,ilevel=40,gem_id=71854/71854,enchant_id=4092,drop_level=30
+finger1=fleshfused_circle,id=178869,bonus_id=6652/6710/10386/10395/10879,ilevel=33,gem_id=71854/71854,enchant_id=6110,drop_level=30
+finger2=seal_of_the_city_watch,id=162542,bonus_id=6652/6710/10386/10395/10879,ilevel=33,gem_id=71854/71854,enchant_id=6110,drop_level=30
+trinket1=solace_of_the_fallen,id=47432,bonus_id=9047,ilevel=45
+trinket2=gale_of_shadows,id=56462,bonus_id=6652/6710,ilevel=33,drop_level=30
+main_hand=royal_scepter_of_terenas_ii,id=50734,bonus_id=9051,ilevel=47,gem_id=32218,enchant_id=2669
+off_hand=the_boreal_guard,id=45877,bonus_id=9041,ilevel=43,gem_id=32218/32218,enchant_id=4434
+
+# Gear Summary
+# gear_ilvl=38.00
+# gear_strength=4
+# gear_agility=1
+# gear_stamina=112
+# gear_intellect=209
+# gear_spell_power=24
+# gear_attack_power=4
+# gear_crit_rating=149
+# gear_haste_rating=81
+# gear_mastery_rating=76
+# gear_versatility_rating=8
+# gear_armor=194
