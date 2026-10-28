@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Destruction Warlock All-Time on BracketSim: 3,700.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, Flame Cap). It
+  was 4,091 on Raidbots. Gear and talents are the Full buffed list's but for Arch-Druid's
+  Tainted Seal at 47 for Fleshfused Circle, Solace of the Fallen for Pendant of the Violet
+  Eye, and a Masterful Onyx in the neck; the stat panel and sim date are new. No alternates
+  until a sweep is read on the new number.
 - [page] Affliction Warlock All-Time on BracketSim: 4,130.
   Simmed by Fate on 2026-10-28 from Fatecastr's export, on the site's full-buffed set (Arcane
   Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark, Flame Cap), with
