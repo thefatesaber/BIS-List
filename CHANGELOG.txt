@@ -7,6 +7,13 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Survival Hunter All-Time on BracketSim: 3,750.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 3,909 on
+  Raidbots. Items, levels and talents are the Full buffed list's; Lesser Inscription of the
+  Axe replaces the Master's, and Masterful Onyx sits in the rings, a boot socket and the
+  whole neck where the sweep ran Adept Lava Corals. Stat panel and sim date are new. No
+  alternates until a sweep is read on the new number.
 - [page] Feral Druid All-Time: the run of record is Promoting's, 3,703.
   Simmed by Fate on 2026-10-28, the same gear, levels, enchants and talents as the 3,704 run
   of Serverman earlier today, on Fate's own character; the two read within a point of each
