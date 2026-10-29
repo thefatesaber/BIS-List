@@ -2,35 +2,35 @@
 # Legacy Thirty BiS — All-time — Restoration Shaman (DPS twink)
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
-#                    git 464f12e, WoW 12.1.5.70448 hotfix 2026-10-17
-# Result           : 5,487 DPS (±1.3 / 0.025%), 20,011 iterations
+#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 5,490 DPS (±1.3 / 0.024%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 5487 - Shaman Restoration.html (same folder; /r/ share links expire)
-# Simmed           : 2026-10-22 by Fate
+# Report           : 5490 - Shaman Restoration.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-28 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
 #   Raid buff preset: Optimal Raid Buffs
-#   World buffs:   [x] Flame Cap (+21 fire SP, 60s every 180s)
-#                  [ ] Slip'kik's Savvy  [ ] Icecrown Citadel  [ ] Plague Stream
+#   World buffs:   [x] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
 #                  [ ] Adventurer's Journal
-#   Raid buffs:    [x] Arcane Intellect  [x] Battle Shout  [x] Mark of the Wild
-#                  [x] Skyfury (self)    [x] Drums of Fury (15% haste, 40s at pull)
-#                  [x] Hunter's Mark (target, +3% damage taken)
-#                  [ ] Blessing of the Bronze  [ ] Power Word: Fortitude
-#                  [ ] Chaos Brand  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Raid buffs:    [x] Arcane Intellect  [ ] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
 #   Teammate armor reduction: none
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Int 14.92 > SP 14.05 > Haste 9.22 > Vers 8.56 ~= Crit 8.54
+# Stat weights (DPS): Int 15.53 > SP 14.02 > Haste 9.24 > Vers 8.54 > Crit 8.54
 # ============================================================================
 
 shaman="Broadcasting"
 source=default
-spec=restoration
 region=us
 server=thrall
+spec=restoration
 level=30
 race=orc
 role=spell
@@ -39,7 +39,7 @@ talents=CgQALMl7AwW51MWzGneuHE3tPCAAAAAAAAAGLbMDYAwAAAAAAYGglHYgADMwmh5BAMAAAAAA
 
 # Default consumables
 potion=volcanic_potion
-flask=flask_of_distilled_wisdom
+flask=flask_of_supreme_power
 elixir=disabled
 food=severed_sagefish_head
 augmentation=disabled
@@ -71,7 +71,7 @@ actions+=/frost_shock,moving=1
 
 head=helm_of_desolation,id=28192,bonus_id=6652/6710/8810,ilevel=33,gem_id=213743/25893/32196,drop_level=30
 neck=tuskarr_bone_necklace,id=193666,bonus_id=6652/7975/7978/8782/9477,gem_id=213464/32196/32196,enchant_id=5437,drop_level=30
-shoulders=pauldrons_of_desolation,id=27713,bonus_id=6652/6710,ilevel=33,gem_id=32196/32196,enchant_id=3810,drop_level=30
+shoulders=pauldrons_of_desolation,id=27713,bonus_id=6652/6710,ilevel=33,gem_id=32196/32196,enchant_id=3838,drop_level=30
 back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=32196,enchant_id=3243,drop_level=30
 chest=embrace_of_the_phoenix,id=34373,bonus_id=9037,ilevel=44,gem_id=32196/32196/32196,enchant_id=6625,drop_level=30
 wrists=bracers_of_the_forest_stalker,id=34698,bonus_id=6652/7202/8810,ilevel=33,gem_id=32196/32196,enchant_id=2332,drop_level=30
@@ -92,7 +92,7 @@ off_hand=the_boreal_guard,id=45877,bonus_id=9043,ilevel=43,gem_id=32196/32196,en
 # gear_agility=1
 # gear_stamina=113
 # gear_intellect=230
-# gear_spell_power=27
+# gear_spell_power=28
 # gear_attack_power=4
 # gear_crit_rating=119
 # gear_haste_rating=122
