@@ -2,11 +2,11 @@
 # Legacy Thirty BiS — All-time — Fire Mage
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
-#                    git a95d356, WoW 12.1.5.70448 hotfix 2026-10-17
-# Result           : 4,502 DPS (±0.7 / 0.017%), 20015 iterations
+#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 4,721 DPS (±0.8 / 0.017%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 4502 - Mage Fire.html (same folder; /r/ share links expire)
-# Simmed           : 2026-10-22 by Fate
+# Report           : 4721 - Mage Fire.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-29 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
@@ -23,7 +23,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Int 11.76 > SP 11.05 > Haste 6.60 > Vers 6.08 > Mastery 5.34 > Crit 2.81
+# Stat weights (DPS): Int 12.32 > SP 11.58 > Haste 6.94 > Vers 6.38 > Mastery 5.59 > Crit 2.99
 # ============================================================================
 
 mage="Fateccaster"
@@ -89,7 +89,7 @@ legs=leggings_of_calamity,id=34181,bonus_id=9037,ilevel=44,gem_id=32196/32196/32
 feet=boots_of_fiery_resolution,id=45135,bonus_id=9043,ilevel=43,gem_id=32196/32196,enchant_id=4069,drop_level=30
 finger1=emperors_seal,id=231437,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32196/32196,enchant_id=6109,drop_level=30
 finger2=stitchfleshs_misplaced_signet,id=178736,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32196/32196,enchant_id=6109,drop_level=30
-trinket1=gale_of_shadows,id=56462,bonus_id=6652/6710,drop_level=30
+trinket1=gale_of_shadows,id=56462,bonus_id=6652/6710,ilevel=33,drop_level=30
 trinket2=solace_of_the_fallen,id=47432,bonus_id=9047,ilevel=45
 main_hand=maghari_chieftains_staff,id=51898,bonus_id=9049,ilevel=45,gem_id=32196/32196/32196,enchant_id=2669,drop_level=30
 
