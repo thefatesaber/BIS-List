@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Outlaw Rogue All-Time re-run with the neck at its level: 4,255.
+  Simmed by Fate on 2026-10-28, the 4,236 run of 2026-10-22 with Ukhel Ancestry Beads written
+  at 33 (that export had carried it at 30); +19 DPS, and BracketSim's rotation of the day adds
+  Thorn Bloom lines. The 4255 pair replaces the 4236 pair; the Frost Death Knight is now the
+  one list still carrying the neck at 30.
 - [page] Survival Hunter All-Time re-run dual-wielding Vibroblade and Blade of the Unrequited: 4,387.
   Simmed by Fate on 2026-10-28, the 3,750 run of earlier today with Vibroblade in the main
   hand and Blade of the Unrequited (Karazhan, the Opera) in the off hand for Distant Land,
