@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Havoc Demon Hunter All-Time on BracketSim: 3,237.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark), with Plague-Soaked
+  Leather Leggings written at 45 (the export carried them at 47; a first run at that level
+  read 3,263 and was set aside). It was 3,176 on Raidbots, one of two lists to rise on the
+  move (Outlaw is the other). New rows from the export, stat panel and sim date: Midnight
+  Chestguard for Harness of Carnal Instinct, Dragonspine Trophy for Herkuml War Token,
+  Lesser Inscription of the Axe, a Masterful Ruby and Deadly Pyrestones in the neck and Adept
+  Lava Corals in the belt. Talents are the Full buffed list's. No alternates until a sweep
+  is read on the new number.
 - [page] Enhancement Shaman All-Time on BracketSim: 3,327, the sim's own number.
   Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 3,563 on
