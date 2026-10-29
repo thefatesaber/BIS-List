@@ -3,9 +3,9 @@
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
 #                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
-# Result           : 2,575 DPS (±0.7 / 0.027%), 20015 iterations
+# Result           : 2,681 DPS (±0.7 / 0.026%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 2575 - Hunter Beast Mastery.html (same folder; /r/ share links expire)
+# Report           : 2681 - Hunter Beast Mastery.html (same folder; /r/ share links expire)
 # Simmed           : 2026-10-28 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
@@ -23,7 +23,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Wdps 42.79 > Agi 7.68 > AP 7.21 > Mastery 4.34 > Crit 4.33 > Haste 4.21 > Vers 4.10
+# Stat weights (DPS): Wdps 44.51 > Agi 7.97 > AP 7.46 > Haste 4.64 > Mastery 4.55 > Crit 4.48 > Vers 4.23
 # ============================================================================
 
 hunter="Legacythirty"
@@ -36,7 +36,7 @@ race=goblin
 role=attack
 position=ranged_back
 professions=leatherworking=66/engineering=1
-talents=C0PAD57yiELKEty14ekTDtZEqAAAAAAAAAADzghBgBMmZGDgxDYGAEAAAAAAAAgBAAAzCAAA
+talents=C0PAD57yiELKEty14ekTDtZEqAAAAAAAAgBDDzghBgBMMzYYsYADACAAAAAAAAwAAAgZBAAA
 
 # Default consumables
 potion=potion_of_the_tolvir

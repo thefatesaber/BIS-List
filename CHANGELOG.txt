@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Beast Mastery Hunter All-Time re-run on a new talent build: 2,681.
+  Simmed by Fate on 2026-10-28, the gear of the 2,575 run of earlier today with a new talent
+  string - the only change, worth +106. The 2681 pair replaces the 2575 pair.
 - [page] Outlaw Rogue All-Time re-run with the neck at its level: 4,255.
   Simmed by Fate on 2026-10-28, the 4,236 run of 2026-10-22 with Ukhel Ancestry Beads written
   at 33 (that export had carried it at 30); +19 DPS, and BracketSim's rotation of the day adds
