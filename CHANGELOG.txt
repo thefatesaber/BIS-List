@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Buff worth: the Δ0 / Δmax axis line is gone from each chart.
+  Asked by Fate. The value beside every bar already says what the line said; a chart no
+  spec has been measured on now says "not measured yet" in its title instead.
 - [page] Buff worth: the value sits to the right of its bar, in a column of its own.
   Asked by Fate; it was printed over the bar's end, where the longest bars covered it. The
   axis ends where the bars do.

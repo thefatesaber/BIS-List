@@ -444,9 +444,8 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 .bwctl .hbtn{margin:0}
 .bwcharts{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap:16px; max-width:1100px}
 .bwchart{background:var(--slate); border:1px solid var(--edge); border-radius:4px; padding:12px 14px 10px; min-width:0}
-.bwchart h3{margin:0; font-size:13.5px; font-weight:600; letter-spacing:.02em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; font-family:var(--mono); color:var(--parchment)}
+.bwchart h3{margin:0 0 10px; font-size:13.5px; font-weight:600; letter-spacing:.02em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; font-family:var(--mono); color:var(--parchment)}
 .bwchart h3 small{color:var(--dim); font-size:11px; font-weight:400}
-.bwaxis{display:flex; justify-content:space-between; color:var(--dim); font-size:10.5px; margin:8px 0 4px; padding-left:var(--lab); padding-right:calc(6.5ch + 8px)}
 .bwrows{display:grid; gap:3px; --lab:160px}
 .bwrow{display:grid; grid-template-columns:var(--lab) minmax(0,1fr) 6.5ch; align-items:center; gap:8px; font-size:12px}
 .bwrow .nm{display:flex; align-items:center; gap:7px; min-width:0; color:var(--dust); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-decoration:none}
@@ -3072,8 +3071,7 @@ function renderBuffs(){
     const list = sort === "val" ? rows.slice().sort((a, b) => ((b.v == null ? -1 : b.v) - (a.v == null ? -1 : a.v)))
                                 : rows.slice().sort((a, b) => (a.c.name + specOf(a.c, "alltime")).localeCompare(b.c.name + specOf(b.c, "alltime")));
     charts.push('<section class="bwchart" aria-label="'+esc(buff)+'"><h3>'+esc(buff)+(sub ? '<small>'+esc(sub)+'</small>' : '')
-      + '<small>'+have.length+' of '+rows.length+' specs</small></h3>'
-      + '<div class="bwaxis"><span>\u03940</span><span>'+(have.length ? '\u0394'+(mode === "dps" ? max.toLocaleString() : max.toFixed(1)+'%') : 'not measured yet')+'</span></div>'
+      + '<small>'+(have.length ? have.length+' of '+rows.length+' specs' : 'not measured yet')+'</small></h3>'
       + '<div class="bwrows">' + list.map(r => {
           const name = '<a class="nm" style="--cc:'+r.c.color+'" href="#'+classSlug(r.c)+'/'+specSlug(r.c, "alltime")+'/alltime"><i class="dot"></i><b>'+esc(specOf(r.c, "alltime"))+'</b><small>'+esc(r.c.name)+'</small></a>';
           if(r.v == null) return '<div class="bwrow missing" style="--cc:'+r.c.color+'">'+name+'<span class="bar"></span><span class="v">\u2014</span></div>';
