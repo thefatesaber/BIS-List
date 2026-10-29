@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Subtlety Rogue All-Time on BracketSim: 2,565 - and every All-Time list is now on BracketSim.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 2,647 on
+  Raidbots. New rows from the export, stat panel and sim date: Vibroblade in the off hand for
+  Heartpierce (BracketSim sims the shred, on the target 89% of the fight, so no factor and
+  the row's note says so), Tuskarr Bone Necklace for Amnesia, Midnight Chestguard for Harness
+  of Carnal Instinct, Lesser Inscription of the Axe, Deft Ametrines and a Quick Emerald where
+  the sweep mixed Deadly Pyrestones. Talents are the Full buffed list's. No alternates until
+  a sweep is read on the new number. With this list the 27 All-Time numbers are all
+  BracketSim's; Obtainable and Herald still carry their Raidbots numbers, tagged re-sim
+  pending, until each is re-run.
 - [page] Havoc Demon Hunter All-Time on BracketSim: 3,237.
   Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark), with Plague-Soaked
