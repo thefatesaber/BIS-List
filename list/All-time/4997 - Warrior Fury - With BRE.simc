@@ -1,11 +1,11 @@
 # ============================================================================
-# Legacy Thirty BiS — All-time — Fury Warrior, without The Jackhammer
+# Legacy Thirty BiS — All-time — Fury Warrior, With BRE (Bonereaver's Edge off hand)
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
 #                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
 # Result           : 4,997 DPS (±1.9 / 0.038%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 4997 - Warrior Fury - No Jackhammer.html (same folder; /r/ share links expire)
+# Report           : 4997 - Warrior Fury - With BRE.html (same folder; /r/ share links expire)
 # Simmed           : 2026-10-29 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs

@@ -7,6 +7,10 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-29
+- [page] Fury's second build is called With BRE.
+  Fate's naming: the build is defined by Bonereaver's Edge in the off hand under Titan's
+  Grip, not by the Jackhammer's absence. Its address is #warrior/fury/alltime/with-bre and
+  its files are renamed; nothing else changes.
 - [page] A list can carry alternative builds beside its number of record; Fury has its first: Without The Jackhammer, 4,997.
   Asked by Fate, who chose the shape from a mock-up. A Build row of pills sits under the list
   tabs when the list has more than one build; the record build is outlined in the class

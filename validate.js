@@ -209,7 +209,7 @@ const ilvlById = new Map();
 // Builds (2026-10-29): an entry's builds[list] holds alternative builds beside
 // the list's number of record - each with dps, prov, talents, stats, rows and
 // maybe consumables. Their rows are held to every rule a list's rows are, as
-// synthetic entries ("warrior@no-jackhammer") carrying that one list; being
+// synthetic entries ("warrior@with-bre") carrying that one list; being
 // hidden they owe no other list and no place in the class invariants below.
 const BUILD_ENTRIES = [];
 for (const c of CLASSES) for (const [L, bs] of Object.entries(c.builds || {})) {
