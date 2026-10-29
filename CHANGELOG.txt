@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Devourer Demon Hunter All-Time re-run with the Master's inscription: 5,435.
+  Simmed by Fate on 2026-10-28, the same gear as the 5,420 run of 2026-10-22 with Master's
+  Inscription of the Storm on the shoulders in place of the Lesser; +15 DPS, the row shows
+  the Scribe only badge again, and the 5435 pair replaces the 5420 pair. Nothing else on the
+  list changes.
 - [page] Shadow Priest All-Time re-run with the Master's inscription: 5,400.
   Simmed by Fate on 2026-10-28, the same gear as the 5,385 run of 2026-10-22 with Master's
   Inscription of the Storm on the shoulders in place of the Lesser; +15 DPS, the row shows

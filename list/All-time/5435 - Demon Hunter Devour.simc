@@ -2,36 +2,36 @@
 # Legacy Thirty BiS — All-time — Devourer Demon Hunter
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
-#                    git 464f12e, WoW 12.1.5.70448 hotfix 2026-10-17
-# Result           : 5,420 DPS (±1.7 / 0.031%), 20,015 iterations
+#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 5,435 DPS (±1.7 / 0.031%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 5420 - Demon Hunter Devour.html (same folder; /r/ share links expire)
-# Simmed           : 2026-10-22 by Fate
+# Report           : 5435 - Demon Hunter Devour.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-28 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
 #   Raid buff preset: Optimal Raid Buffs
-#   World buffs:   [ ] Slip'kik's Savvy  [ ] Icecrown Citadel  [ ] Plague Stream
-#                  [ ] Adventurer's Journal   (Flame Cap not offered to Demon Hunter)
-#   Raid buffs:    [x] Arcane Intellect  [x] Mark of the Wild  [x] Skyfury
-#                  [x] Drums of Fury (15% haste, 40s at pull)
-#                  [x] Hunter's Mark (target, +3% damage taken)
-#                  [ ] Battle Shout  [ ] Blessing of the Bronze  [ ] Power Word: Fortitude
-#                  [ ] Chaos Brand  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [x] Arcane Intellect  [ ] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
 #   Teammate armor reduction: none
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Int 15.83 > SP 14.83 > Mastery 10.64 > Haste 9.34 > Crit 9.20 > Vers 6.94
-# Note: BracketSim APL (bracketsim_* expressions) — not portable to stock simc
-#       without its patch layer.
+# Stat weights (DPS): Int 15.82 > SP 14.82 > Mastery 10.71 > Haste 9.37 > Crit 9.25 > Vers 7.00
+# Note: BracketSim APL (bracketsim_* expressions) - not portable to stock simc without its patch layer.
 # ============================================================================
 
 demonhunter="fateberserkr"
 source=default
-spec=devourer
 region=us
 server=thrall
+spec=devourer
 level=30
 race=void_elf
 role=spell
@@ -225,7 +225,7 @@ actions.vsm_st+=/consume
 
 head=frayed_scoundrels_cap,id=50206,bonus_id=6652/6710/8810,ilevel=33,gem_id=25893/213743/213500,drop_level=30
 neck=ukhel_ancestry_beads,id=193676,bonus_id=6652/7975/8782/9477/13642,ilevel=33,gem_id=213482/213482/213482,enchant_id=5890,drop_level=30
-shoulders=mantle_of_perenolde,id=27434,bonus_id=40/7202,ilevel=33,gem_id=213482/213494,enchant_id=3810,drop_level=30
+shoulders=mantle_of_perenolde,id=27434,bonus_id=40/7202,ilevel=33,gem_id=213482/213494,enchant_id=3838,drop_level=30
 back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=213494,enchant_id=3243
 chest=midnight_chestguard,id=30905,bonus_id=9036,ilevel=42,gem_id=213494/213494/213494,enchant_id=6625,drop_level=30
 wrists=umbrage_armbands,id=54580,bonus_id=9051,ilevel=47,gem_id=213494,enchant_id=2332,drop_level=30
@@ -245,7 +245,7 @@ off_hand=rigormortis,id=50704,bonus_id=9051,ilevel=47,gem_id=71854,enchant_id=26
 # gear_agility=3
 # gear_stamina=110
 # gear_intellect=212
-# gear_spell_power=41
+# gear_spell_power=42
 # gear_attack_power=1
 # gear_crit_rating=66
 # gear_haste_rating=140
