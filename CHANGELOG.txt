@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Buff worth: the value sits to the right of its bar, in a column of its own.
+  Asked by Fate; it was printed over the bar's end, where the longest bars covered it. The
+  axis ends where the bars do.
 - [page] Buff worth gains a Flame Cap chart.
   Asked by Fate. Flame Cap is in the site's BracketSim buff set where BracketSim offers it,
   which is the fire casters: Fire Mage, Restoration and Elemental Shaman, the three warlocks

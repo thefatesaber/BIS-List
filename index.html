@@ -446,9 +446,9 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 .bwchart{background:var(--slate); border:1px solid var(--edge); border-radius:4px; padding:12px 14px 10px; min-width:0}
 .bwchart h3{margin:0; font-size:13.5px; font-weight:600; letter-spacing:.02em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; font-family:var(--mono); color:var(--parchment)}
 .bwchart h3 small{color:var(--dim); font-size:11px; font-weight:400}
-.bwaxis{display:flex; justify-content:space-between; color:var(--dim); font-size:10.5px; margin:8px 0 4px; padding-left:var(--lab)}
+.bwaxis{display:flex; justify-content:space-between; color:var(--dim); font-size:10.5px; margin:8px 0 4px; padding-left:var(--lab); padding-right:calc(6.5ch + 8px)}
 .bwrows{display:grid; gap:3px; --lab:160px}
-.bwrow{display:grid; grid-template-columns:var(--lab) minmax(0,1fr); align-items:center; gap:8px; font-size:12px}
+.bwrow{display:grid; grid-template-columns:var(--lab) minmax(0,1fr) 6.5ch; align-items:center; gap:8px; font-size:12px}
 .bwrow .nm{display:flex; align-items:center; gap:7px; min-width:0; color:var(--dust); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-decoration:none}
 .bwrow .nm:hover b{text-decoration:underline}
 .bwrow .nm .dot{width:8px; height:8px; border-radius:2px; background:var(--cc); flex:0 0 8px}
@@ -457,9 +457,9 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 .bwrow .bar{position:relative; height:14px; background:var(--slate2); border-radius:2px; overflow:hidden}
 .bwrow .bar i{position:absolute; inset:0 auto 0 0; width:var(--w); background:var(--cc); opacity:.85; border-radius:2px}
 .bwrow .bar i.own{background:repeating-linear-gradient(135deg, var(--cc) 0 6px, transparent 6px 9px)}
-.bwrow .v{position:absolute; right:6px; top:0; line-height:14px; font-size:10.5px; color:var(--parchment); font-variant-numeric:tabular-nums; text-shadow:0 0 3px var(--void)}
+.bwrow .v{font-size:11px; color:var(--parchment); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
 .bwrow.missing .bar{background:transparent}
-.bwrow.missing .v{color:var(--dim); right:auto; left:6px}
+.bwrow.missing .v{color:var(--dim)}
 .bwkeyall{display:flex; flex-wrap:wrap; gap:6px 16px; color:var(--dim); font-size:11px; margin:14px 2px 0}
 .bwkeyall i{display:inline-block; width:14px; height:9px; vertical-align:middle; margin-right:6px; background:repeating-linear-gradient(135deg, var(--dust) 0 4px, transparent 4px 6px)}
 .bwall{color:var(--dust); font-size:11px; text-decoration:none; margin-left:auto; white-space:nowrap}
@@ -3076,10 +3076,10 @@ function renderBuffs(){
       + '<div class="bwaxis"><span>\u03940</span><span>'+(have.length ? '\u0394'+(mode === "dps" ? max.toLocaleString() : max.toFixed(1)+'%') : 'not measured yet')+'</span></div>'
       + '<div class="bwrows">' + list.map(r => {
           const name = '<a class="nm" style="--cc:'+r.c.color+'" href="#'+classSlug(r.c)+'/'+specSlug(r.c, "alltime")+'/alltime"><i class="dot"></i><b>'+esc(specOf(r.c, "alltime"))+'</b><small>'+esc(r.c.name)+'</small></a>';
-          if(r.v == null) return '<div class="bwrow missing" style="--cc:'+r.c.color+'">'+name+'<span class="bar"><span class="v">\u2014</span></span></div>';
+          if(r.v == null) return '<div class="bwrow missing" style="--cc:'+r.c.color+'">'+name+'<span class="bar"></span><span class="v">\u2014</span></div>';
           const w = max ? Math.max(0, r.v / max * 100) : 0;
           const label = mode === "dps" ? (r.v > 0 ? "+" : "") + r.v.toLocaleString() : (r.v > 0 ? "+" : "") + r.v.toFixed(1) + "%";
-          return '<div class="bwrow" style="--cc:'+r.c.color+'">'+name+'<span class="bar"><i class="'+(r.own ? "own" : "")+'" style="--w:'+w.toFixed(1)+'%" title="'+esc(r.status)+'"></i><span class="v">'+label+'</span></span></div>';
+          return '<div class="bwrow" style="--cc:'+r.c.color+'">'+name+'<span class="bar"><i class="'+(r.own ? "own" : "")+'" style="--w:'+w.toFixed(1)+'%" title="'+esc(r.status)+'"></i></span><span class="v">'+label+'</span></div>';
         }).join('') + '</div></section>');
   }
   $("buffs").innerHTML =
