@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-29
+- [page] The build pills showed on every spec, not only on Fury.
+  The row's display:flex outranked the hidden attribute, so once Fury had drawn
+  its pills every other spec kept them. A .builds[hidden] rule puts it right.
 - [page] Fire Mage All-Time re-simmed: 4,502 becomes 4,721.
   Same gear, talents, consumables and APL as the 2026-10-22 run; the gain is
   BracketSim's newer SimulationCraft build (e40a6d0, WoW 12.1.5.70575 hotfix
