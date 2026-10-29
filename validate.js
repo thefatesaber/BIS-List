@@ -593,7 +593,10 @@ const MAIN_STAT = {
       // A fully buffed list sims its weapon buff, so a melee list's panel names
       // one. A Raidbots number carried on Obtainable or Herald was simmed
       // self-buffed, with the weapon buff disabled (ruling D3): exempt.
-      if (melee && !listed.length && (L === "alltime" || engineOf(c, L) === "bracketsim"))
+      // A shaman's weapons carry its own imbues, which a stone cannot share:
+      // Enhancement's BracketSim profile runs temporary_enchant=disabled and
+      // its panel lists no stone (2026-10-28).
+      if (melee && !listed.length && c.cls !== "shaman" && (L === "alltime" || engineOf(c, L) === "bracketsim"))
         err(`${c.id}/${L}: a melee fully buffed list sims a weapon stone, and its Consumables panel lists no weapon buff`);
       for (const [slot, e] of listed) {
         const it = held(slot), st = STONE[e.wowhead];

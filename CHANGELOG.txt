@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Enhancement Shaman All-Time on BracketSim: 3,327, the sim's own number.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 3,563 on
+  Raidbots. New rows from the export, stat panel and sim date: Vibroblade in the off hand
+  for Hand of the Deceiver - BracketSim sims its Puncture Armor shred, on the target 83% of
+  the fight, so the number carries no factor, and the row's note says so - Dancing Steel on
+  Eskhandar's Right Claw for Landslide, Bloodoath Signet and Band of the Ancient Dredger at
+  33 on Accord of Critical Strike for the Timewalking pair, Lesser Inscription of the Axe.
+  The Consumables panel drops the weightstones: the profile runs no weapon stone, since the
+  shaman's imbues take the slot, and the validator no longer asks a shaman list for one.
+  Talents are the Full buffed list's. No alternates until a sweep is read on the new number.
 - [page] Arms Warrior All-Time on BracketSim: 3,416.
   Simmed by Fate on 2026-10-28 from Kleaveland's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark), with Helm of the
