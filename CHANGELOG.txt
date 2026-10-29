@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Beast Mastery Hunter All-Time on BracketSim: 2,575.
+  Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 2,640 on
+  Raidbots. Items, levels, talents and all but one gem are the Full buffed list's; a Masterful
+  Ruby in the neck and Lesser Inscription of the Axe are the export's, with the stat panel and
+  sim date. No alternates until a sweep is read on the new number.
 - [page] Arcane Mage All-Time on BracketSim: 2,829.
   Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
   (Arcane Intellect, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 3,212

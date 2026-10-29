@@ -1,0 +1,145 @@
+# ============================================================================
+# Legacy Thirty BiS — All-time — Beast Mastery Hunter
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 2,575 DPS (±0.7 / 0.027%), 20015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 2575 - Hunter Beast Mastery.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-28 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [ ] Arcane Intellect  [x] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Wdps 42.79 > Agi 7.68 > AP 7.21 > Mastery 4.34 > Crit 4.33 > Haste 4.21 > Vers 4.10
+# ============================================================================
+
+hunter="Legacythirty"
+source=default
+region=us
+server=thrall
+spec=beast_mastery
+level=30
+race=goblin
+role=attack
+position=ranged_back
+professions=leatherworking=66/engineering=1
+talents=C0PAD57yiELKEty14ekTDtZEqAAAAAAAAAADzghBgBMmZGDgxDYGAEAAAAAAAAgBAAAzCAAA
+
+# Default consumables
+potion=potion_of_the_tolvir
+flask=flask_of_endless_rage
+elixir=disabled
+food=skewered_eel
+augmentation=disabled
+temporary_enchant=main_hand:superior_mana_oil
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=summon_pet
+actions.precombat+=/snapshot_stats
+actions.precombat+=/use_item,name=algethar_puzzle_box
+actions.precombat+=/potion,pre_pot_time=6,if=potion.liquid_luster
+
+# Executed every time the actor is available.
+actions=lights_judgment
+actions+=/bag_of_tricks
+actions+=/thorn_bloom
+actions+=/retarget,target_if=max:target.health,line_cd=5,if=fight_style.dungeonroute
+actions+=/auto_shot
+actions+=/call_action_list,name=cds
+actions+=/call_action_list,name=trinkets
+actions+=/call_action_list,name=drst,if=talent.black_arrow&(active_enemies<2|!talent.beast_cleave&active_enemies<3)
+actions+=/call_action_list,name=drcleave,if=talent.black_arrow&(active_enemies>2|talent.beast_cleave&active_enemies>1)
+actions+=/call_action_list,name=st,if=!talent.black_arrow&(active_enemies<2|!talent.beast_cleave)
+actions+=/call_action_list,name=cleave,if=!talent.black_arrow&talent.beast_cleave&active_enemies>1
+
+actions.cds=invoke_external_buff,name=power_infusion,if=buff.bestial_wrath.up|cooldown.bestial_wrath.remains<30|fight_remains<16
+actions.cds+=/berserking,if=cooldown.bestial_wrath.ready|fight_remains<13
+actions.cds+=/blood_fury,if=cooldown.bestial_wrath.ready|fight_remains<16
+actions.cds+=/ancestral_call,if=cooldown.bestial_wrath.ready|fight_remains<16
+actions.cds+=/fireblood,if=cooldown.bestial_wrath.ready|fight_remains<9
+actions.cds+=/potion,if=cooldown.bestial_wrath.ready&!potion.liquid_luster|cooldown.bestial_wrath.remains<6&potion.liquid_luster|fight_remains<31
+
+actions.cleave=wild_thrash,if=talent.beast_cleave&(prev_gcd.1.bestial_wrath|!buff.beast_cleave.up)
+actions.cleave+=/barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage,if=full_recharge_time<gcd
+actions.cleave+=/bestial_wrath,if=buff.beast_cleave.remains&cooldown.wild_thrash.remains<gcd|!talent.beast_cleave|!talent.wild_thrash
+actions.cleave+=/wild_thrash,if=!talent.beast_cleave
+actions.cleave+=/kill_command,if=(buff.natures_ally.react|talent.master_handler&(active_enemies>3|howl_summon.ready)|!apex.3)&(buff.beast_cleave.remains>gcd*0.25|!talent.beast_cleave)
+actions.cleave+=/cobra_shot,if=buff.cobra_fang.up&buff.beast_cleave.remains>gcd*0.25
+actions.cleave+=/barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage,if=(buff.beast_cleave.remains>gcd*0.25|!talent.beast_cleave)
+actions.cleave+=/cobra_shot,if=buff.beast_cleave.remains>gcd*0.25|!talent.beast_cleave
+
+actions.drcleave=black_arrow,if=buff.beast_cleave.remains<gcd&cooldown.bestial_wrath.remains<gcd&active_enemies>2
+actions.drcleave+=/bestial_wrath,if=buff.beast_cleave.remains|!talent.beast_cleave
+actions.drcleave+=/wild_thrash,if=talent.beast_cleave&(prev_gcd.1.bestial_wrath|!buff.beast_cleave.up|cooldown.bestial_wrath.remains>buff.beast_cleave.remains)|!talent.beast_cleave
+actions.drcleave+=/kill_command,if=cooldown.bestial_wrath.remains>full_recharge_time+gcd&buff.natures_ally.react|!apex.3
+actions.drcleave+=/barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage,if=full_recharge_time<1*gcd
+actions.drcleave+=/black_arrow,if=buff.withering_fire.up
+actions.drcleave+=/wailing_arrow,if=buff.withering_fire.remains<execute_time+gcd|time_to_die.remains<execute_time+gcd
+actions.drcleave+=/barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage
+actions.drcleave+=/black_arrow
+actions.drcleave+=/wailing_arrow
+actions.drcleave+=/cobra_shot
+
+actions.drst=barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage,if=(talent.bloody_frenzy&talent.snakeskin_quiver&talent.jagged_wounds)&cooldown.bestial_wrath.remains<2*gcd
+actions.drst+=/bestial_wrath
+actions.drst+=/black_arrow,if=buff.withering_fire.up&cooldown.kill_command.full_recharge_time>gcd
+actions.drst+=/kill_command,if=cooldown.bestial_wrath.remains>full_recharge_time+gcd&buff.natures_ally.react|!apex.3
+actions.drst+=/wailing_arrow,if=buff.withering_fire.remains<execute_time+2*gcd|time_to_die.remains<execute_time+gcd
+actions.drst+=/cobra_shot,if=buff.cobra_fang.at_max_stacks
+actions.drst+=/cobra_shot,if=talent.killer_cobra&buff.bestial_wrath.up&cooldown.barbed_shot.charges_fractional<1.4
+actions.drst+=/black_arrow
+actions.drst+=/barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage
+actions.drst+=/cobra_shot,if=cooldown.bestial_wrath.remains>gcd
+
+actions.st=barbed_shot,target_if=min:dot.barbed_shot.remains|max_prio_damage,if=talent.bestial_wrath&cooldown.bestial_wrath.remains<gcd|full_recharge_time<gcd
+actions.st+=/bestial_wrath
+actions.st+=/wild_thrash,if=active_enemies>1
+actions.st+=/barbed_shot,if=howl_summon.ready&!buff.natures_ally.react&cooldown.barbed_shot.charges_fractional>1.5
+actions.st+=/kill_command,if=howl_summon.ready|(cooldown.bestial_wrath.remains>full_recharge_time&buff.natures_ally.react|!apex.3)&(talent.alpha_predator|buff.howl_of_the_pack_leader_cooldown.remains>4|cooldown.kill_command.charges_fractional>1.8)
+actions.st+=/cobra_shot,if=buff.cobra_fang.at_max_stacks
+actions.st+=/barbed_shot,if=(focus<75|full_recharge_time<gcd)&!talent.serpentine_strikes|talent.serpentine_strikes
+actions.st+=/cobra_shot,if=cooldown.bestial_wrath.remains>gcd|!talent.bestial_wrath
+
+actions.trinkets=use_item,name=voracious_heart_of_ulatek,if=cooldown.bestial_wrath.remains<6
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_buff&(cooldown.bestial_wrath.ready|cooldown.bestial_wrath.remains<this_trinket.proc.any_dps.duration-15)|fight_remains<21
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_damage&!potion.liquid_luster|!equipped.font_of_venomous_rage|((buff.liquid_luster.up&buff.liquid_luster.remains<6)|(fight_remains<cooldown.potion.remains&!buff.liquid_luster.up))|fight_remains<10
+
+head=helm_of_desolation,id=28192,bonus_id=7202,ilevel=33,gem_id=76884/213743/32194,drop_level=30
+neck=tuskarr_bone_necklace,id=193666,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213458/32194/32194,enchant_id=5437,drop_level=30
+shoulders=pauldrons_of_desolation,id=27713,bonus_id=7202,ilevel=33,gem_id=32194/32194,enchant_id=3808,drop_level=30
+back=drape_of_the_faceless_general,id=46032,bonus_id=9043,ilevel=43,gem_id=32194/32194,enchant_id=3243,drop_level=30
+chest=embrace_of_the_phoenix,id=34373,bonus_id=9037,ilevel=44,gem_id=32194/32194/32194,enchant_id=6625,drop_level=30
+wrists=bracers_of_the_forest_stalker,id=34698,bonus_id=6652/6710/8810,ilevel=33,gem_id=32194/32194,enchant_id=4416,drop_level=30
+hands=thalassian_ranger_gauntlets,id=34343,bonus_id=9037,ilevel=44,gem_id=32194/32194,enchant_id=5259,drop_level=30
+waist=belt_of_dragons,id=45553,bonus_id=9035,ilevel=43,gem_id=32194/32194/32194,drop_level=30
+legs=wyrmscale_greaves,id=30534,bonus_id=6652/6710,ilevel=33,gem_id=32194/32194/32194,enchant_id=4880,drop_level=30
+feet=starstrider_boots,id=29951,bonus_id=9035,ilevel=40,gem_id=32194/32194,enchant_id=1887,drop_level=30
+finger1=seal_of_the_city_watch,id=162542,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32194/32194,enchant_id=6108,drop_level=30
+finger2=bloodoath_signet,id=178871,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32194/32194,enchant_id=6108,drop_level=30
+trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
+trinket2=herkuml_war_token,id=50355,ilevel=15
+main_hand=falinrush_defender_of_quelthalas,id=50733,bonus_id=9051,ilevel=47,gem_id=32194,enchant_id=5950,drop_level=30
+
+# Gear Summary
+# gear_ilvl=36.33
+# gear_agility=191
+# gear_stamina=107
+# gear_attack_power=8
+# gear_crit_rating=136
+# gear_haste_rating=83
+# gear_mastery_rating=14
+# gear_versatility_rating=24
+# gear_armor=107
