@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Arms Warrior All-Time on BracketSim: 3,416.
+  Simmed by Fate on 2026-10-28 from Kleaveland's export, on the site's full-buffed set
+  (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark), with Helm of the
+  Faceless written at 43, its hard-mode level (the export carried it at 42; a first run at
+  that level read 3,411 and was set aside). It was 3,683 on Raidbots. New rows from the
+  export, stat panel and sim date: Bromach's Disentombed Locket (Brackenhide Hollow, Gutshot)
+  for Crystallized Sigil, Bonereaver's Edge for The Untamed Blade, the Signet at 33 and
+  Footbomb Championship Ring for the Timewalking Seal and Signet at 47, Skillful Lava Corals
+  where the sweep ran Inscribed Pyrestones. Talents are the Full buffed list's. No
+  alternates until a sweep is read on the new number.
 - [page] Unholy Death Knight All-Time on BracketSim: 3,338.
   Simmed by Fate on 2026-10-28 from Asimiir's export, on the site's full-buffed set (Battle
   Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,041 on Raidbots,
