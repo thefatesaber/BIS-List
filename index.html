@@ -3047,6 +3047,9 @@ const BW_CHARTS = [
   ["Arcane Intellect", "intellect"],
   ["Mark of the Wild", "versatility"],
   ["Hunter's Mark", "+3% damage taken"],
+  // Flame Cap is in the BracketSim set where the site offers it, fire casters
+  // only; the chart lists those specs and fills as their minus-one runs land.
+  ["Flame Cap", "+21 fire spell power for 1 min every 3 min; fire casters only", ["shaman", "shaman_elemental", "mage_fire", "warlock", "warlock_demonology", "warlock_destruction", "evoker"]],
   ["Power Infusion", "the priest's, pooled on Raidbots; off the BracketSim set"],
   ["Bloodlust (Drums)", "15% haste for 40 s at the pull"],
   ["Sharpening Stone", "weapon stone, melee"],
@@ -3058,19 +3061,19 @@ function renderBuffs(){
   const mode = state.bwmode, sort = state.bwsort;
   const btn = (k, v, label) => '<button type="button" class="hbtn'+(state[k] === v ? " on" : "")+'" data-bw="'+k+':'+v+'" aria-pressed="'+(state[k] === v)+'">'+label+'</button>';
   const charts = [];
-  for(const [buff, sub] of BW_CHARTS){
-    const rows = specs.map(c => {
+  for(const [buff, sub, only] of BW_CHARTS){
+    const rows = specs.filter(c => !only || only.includes(c.id)).map(c => {
       const b = c.buffWorth.find(x => x.buff === buff);
       return b ? { c, v: mode === "dps" ? b.dps : b.pct, own: /own cast/.test(b.note || ""), status: b.status } : { c, v: null };
     });
     const have = rows.filter(r => r.v != null);
-    if(!have.length) continue;
-    const max = Math.max(...have.map(r => r.v));
+    if(!have.length && !only) continue;   // a chart with a spec list shows its dashes until measured
+    const max = have.length ? Math.max(...have.map(r => r.v)) : 0;
     const list = sort === "val" ? rows.slice().sort((a, b) => ((b.v == null ? -1 : b.v) - (a.v == null ? -1 : a.v)))
                                 : rows.slice().sort((a, b) => (a.c.name + specOf(a.c, "alltime")).localeCompare(b.c.name + specOf(b.c, "alltime")));
     charts.push('<section class="bwchart" aria-label="'+esc(buff)+'"><h3>'+esc(buff)+(sub ? '<small>'+esc(sub)+'</small>' : '')
-      + '<small>'+have.length+' of '+specs.length+' specs</small></h3>'
-      + '<div class="bwaxis"><span>\u03940</span><span>\u0394'+(mode === "dps" ? max.toLocaleString() : max.toFixed(1)+'%')+'</span></div>'
+      + '<small>'+have.length+' of '+rows.length+' specs</small></h3>'
+      + '<div class="bwaxis"><span>\u03940</span><span>'+(have.length ? '\u0394'+(mode === "dps" ? max.toLocaleString() : max.toFixed(1)+'%') : 'not measured yet')+'</span></div>'
       + '<div class="bwrows">' + list.map(r => {
           const name = '<a class="nm" style="--cc:'+r.c.color+'" href="#'+classSlug(r.c)+'/'+specSlug(r.c, "alltime")+'/alltime"><i class="dot"></i><b>'+esc(specOf(r.c, "alltime"))+'</b><small>'+esc(r.c.name)+'</small></a>';
           if(r.v == null) return '<div class="bwrow missing" style="--cc:'+r.c.color+'">'+name+'<span class="bar"><span class="v">\u2014</span></span></div>';

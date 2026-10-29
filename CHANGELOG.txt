@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Buff worth gains a Flame Cap chart.
+  Asked by Fate. Flame Cap is in the site's BracketSim buff set where BracketSim offers it,
+  which is the fire casters: Fire Mage, Restoration and Elemental Shaman, the three warlocks
+  and Devastation Evoker. The chart lists those seven with a dash each and "not measured
+  yet" on its axis until a minus-one run lands for each; the other charts still skip a buff
+  no spec has a figure for.
 - [page] A Buff worth view joins the header: every buff as one chart, every spec a bar.
   Asked by Fate, who chose it from a test page. The third header button, Buff worth, opens
   the view in place at #buff-worth, as All specs opens #all-specs: thirteen charts (the
