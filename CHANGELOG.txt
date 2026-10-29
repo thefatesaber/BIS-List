@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] A Buff worth view joins the header: every buff as one chart, every spec a bar.
+  Asked by Fate, who chose it from a test page. The third header button, Buff worth, opens
+  the view in place at #buff-worth, as All specs opens #all-specs: thirteen charts (the
+  Consumables total, Skyfury, Battle Shout, Arcane Intellect, Mark of the Wild, Hunter's
+  Mark, Power Infusion, Drums, the weapon stone and oil, potion, flask and food), the specs
+  as bars in their class colour, longest first, with the value at the bar's end. Values show
+  as DPS or as a share of the number the A/B was read on; the rows sort by value or by spec;
+  a hatched bar is the spec's own cast and a dash a spec the buff was never measured on; a
+  spec's name opens its All-Time list. The figures are the Buff worth panels' own, the
+  Raidbots-era minus-one runs of October 2026, and the view says so until the BracketSim
+  lists have theirs. Each spec's Buff worth panel now carries an "all specs" link to the
+  view. No list, number or row changes.
 - [page] Beast Mastery Hunter All-Time re-run on a new talent build: 2,681.
   Simmed by Fate on 2026-10-28, the gear of the 2,575 run of earlier today with a new talent
   string - the only change, worth +106. The 2681 pair replaces the 2575 pair.

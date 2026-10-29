@@ -21,7 +21,7 @@ list is re-run.
 
 | Path | What it is |
 |---|---|
-| `index.html` | The site: one self-contained page, data included |
+| `index.html` | The site: one self-contained page, data included. Three views beside the lists: How to read this, All specs (`#all-specs`) and Buff worth (`#buff-worth`) |
 | `list/All-time/`, `list/Obtainable/`, `list/Herald/` | The BracketSim runs behind the site's numbers, one pair per list: `<DPS> - <Class> <Spec>.simc` and its report `<DPS> - <Class> <Spec>.html`. A list the site still shows from Raidbots has no file here until it is re-run |
 | `list/old/` | The Raidbots-era profiles: the self-buffed rail (`All-time/`, `Obtainable/`, `Herald/`), `All-time Full buffed/`, and `Dummy mode/` working copies. The numbers tagged "re-sim pending" on the site came from these; no check covers them |
 | The loose profiles in `list/` | Working copies that Fate keeps and uses; not lists of record either |

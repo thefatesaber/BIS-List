@@ -433,8 +433,39 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
    has the slot after it, which holds the star of an effective number. The
    first column is never under 176 px, the longest name ("Devourer Demon
    Hunter", "Beast Mastery Hunter") with its dot. */
-main.ov > :not(#overview){display:none !important}
-.overview[hidden]{display:none}
+main.ov > :not(#overview):not(#buffs){display:none !important}
+.overview[hidden], .buffs[hidden]{display:none}
+/* ---------- buff worth, every spec ---------- */
+/* One chart a buff (ruling 2026-10-28): the specs as bars in their class
+   colour, longest first, the way bloodmallet draws a buff. A hatched bar is
+   the spec's own cast; a dash, a spec the buff was never measured on.     */
+.bwctl{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin:0 0 12px}
+.bwctl .lbl{color:var(--dim); font-size:10.5px; text-transform:uppercase; letter-spacing:.09em}
+.bwctl .hbtn{margin:0}
+.bwcharts{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap:16px; max-width:1100px}
+.bwchart{background:var(--slate); border:1px solid var(--edge); border-radius:4px; padding:12px 14px 10px; min-width:0}
+.bwchart h3{margin:0; font-size:13.5px; font-weight:600; letter-spacing:.02em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; font-family:var(--mono); color:var(--parchment)}
+.bwchart h3 small{color:var(--dim); font-size:11px; font-weight:400}
+.bwaxis{display:flex; justify-content:space-between; color:var(--dim); font-size:10.5px; margin:8px 0 4px; padding-left:var(--lab)}
+.bwrows{display:grid; gap:3px; --lab:160px}
+.bwrow{display:grid; grid-template-columns:var(--lab) minmax(0,1fr); align-items:center; gap:8px; font-size:12px}
+.bwrow .nm{display:flex; align-items:center; gap:7px; min-width:0; color:var(--dust); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-decoration:none}
+.bwrow .nm:hover b{text-decoration:underline}
+.bwrow .nm .dot{width:8px; height:8px; border-radius:2px; background:var(--cc); flex:0 0 8px}
+.bwrow .nm b{font-weight:500; color:var(--parchment)}
+.bwrow .nm small{font-size:11px}
+.bwrow .bar{position:relative; height:14px; background:var(--slate2); border-radius:2px; overflow:hidden}
+.bwrow .bar i{position:absolute; inset:0 auto 0 0; width:var(--w); background:var(--cc); opacity:.85; border-radius:2px}
+.bwrow .bar i.own{background:repeating-linear-gradient(135deg, var(--cc) 0 6px, transparent 6px 9px)}
+.bwrow .v{position:absolute; right:6px; top:0; line-height:14px; font-size:10.5px; color:var(--parchment); font-variant-numeric:tabular-nums; text-shadow:0 0 3px var(--void)}
+.bwrow.missing .bar{background:transparent}
+.bwrow.missing .v{color:var(--dim); right:auto; left:6px}
+.bwkeyall{display:flex; flex-wrap:wrap; gap:6px 16px; color:var(--dim); font-size:11px; margin:14px 2px 0}
+.bwkeyall i{display:inline-block; width:14px; height:9px; vertical-align:middle; margin-right:6px; background:repeating-linear-gradient(135deg, var(--dust) 0 4px, transparent 4px 6px)}
+.bwall{color:var(--dust); font-size:11px; text-decoration:none; margin-left:auto; white-space:nowrap}
+.bwall:hover{color:var(--parchment); text-decoration:underline}
+@media (max-width:520px){ .bwrows{--lab:112px} .bwrow .nm small{display:none} }
+@media (prefers-reduced-motion:no-preference){ .bwrow .bar i{transition:width .3s ease} }
 .ovhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin:0 0 6px}
 .ovhead h2{margin:0; font-family:var(--display); font-weight:600; font-size:clamp(17px,2.6vw,22px);
   letter-spacing:.03em; color:var(--parchment)}
@@ -634,6 +665,7 @@ main.ov > :not(#overview){display:none !important}
   <div class="hbtns">
     <button type="button" class="hbtn" id="howtobtn" aria-expanded="false" aria-controls="howto">How to read this</button>
     <button type="button" class="hbtn" id="ovbtn" aria-pressed="false" aria-label="Overview of all specs" title="All specs on the three lists, in one table">All specs</button>
+    <button type="button" class="hbtn" id="bwbtn" aria-pressed="false" aria-label="Buff worth, every spec" title="What each buff adds, every spec in one chart">Buff worth</button>
   </div>
 </header>
 <section class="howto" id="howto" aria-labelledby="howtohead" hidden>
@@ -672,6 +704,7 @@ main.ov > :not(#overview){display:none !important}
   </aside>
   <main id="main" tabindex="-1">
     <div class="overview" id="overview" hidden></div>
+    <div class="buffs" id="buffs" hidden></div>
     <div class="spec-head" id="spechead"></div>
     <div class="tabs" id="tabs" role="tablist"></div>
     <p class="constraint" id="constraint"></p>
@@ -689,7 +722,7 @@ main.ov > :not(#overview){display:none !important}
         <button class="tbtn" id="talentcopy">Copy</button>
       </div>
       <div class="consum buffworth" id="buffworth" hidden>
-        <h3 title="What each buff added to the Full buffed profile of record on Raidbots (2026-10): that number minus the same input re-run with the buff removed. Kept as information since the move to BracketSim on 2026-10-22.">Buff worth</h3>
+        <div class="chead"><h3 title="What each buff added to the Full buffed profile of record on Raidbots (2026-10): that number minus the same input re-run with the buff removed. Kept as information since the move to BracketSim on 2026-10-22.">Buff worth</h3><a class="bwall" href="#buff-worth" title="The same buffs across every spec, one chart a buff">all specs &rsaquo;</a></div>
         <span id="buffworthlines"></span>
         <p class="bwkey" id="bwkey"></p>
       </div>
@@ -2515,7 +2548,9 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 // rail rather than a one-spec list.
 // ov: the overview of all specs is up instead of a list (ruling D36); ovsort
 // is the column it is sorted by, null for the list the visitor was on.
-let state = { cls: CLASSES[0].id, list: "alltime", sort: "dps", view: "best", ov: false, ovsort: null };
+// ov: a page view is up in place of the lists; page says which one: "specs"
+// (All specs, #all-specs) or "buffs" (Buff worth, #buff-worth).
+let state = { cls: CLASSES[0].id, list: "alltime", sort: "dps", view: "best", ov: false, page: "specs", ovsort: null, bwmode: "dps", bwsort: "val" };
 const classKey = c => c.cls || c.id;
 const bestOf = (ck, list) => {
   let best = null;
@@ -2559,7 +2594,8 @@ function readHash(){
   if(!raw) return false;
   const seg = raw.split("/").map(x => slugify(decodeURIComponent(x || ""))).filter(Boolean);
   if(!seg.length) return false;
-  if(seg[0] === "all-specs"){ state.ov = true; return true; }
+  if(seg[0] === "all-specs"){ state.ov = true; state.page = "specs"; return true; }
+  if(seg[0] === "buff-worth"){ state.ov = true; state.page = "buffs"; return true; }
 
   // Trailing segment is the list when it names one; otherwise treat all
   // segments as class/spec so #warrior/fury works as well as #warrior/fury/herald.
@@ -2607,7 +2643,7 @@ function readHash(){
    Forward or a typed address, where the browser has already moved.         */
 function writeHash(push){
   const c = CLASSES.find(x => x.id === state.cls);
-  const h = state.ov ? "#all-specs" : "#" + classSlug(c) + "/" + specSlug(c, state.list) + "/" + state.list;
+  const h = state.ov ? (state.page === "buffs" ? "#buff-worth" : "#all-specs") : "#" + classSlug(c) + "/" + specSlug(c, state.list) + "/" + state.list;
   if(location.hash === h) return;
   // A browser may refuse the call (Safari allows 100 in 30 seconds). The view
   // is drawn by then; only its address goes unwritten.
@@ -2706,7 +2742,7 @@ function renderRail(){
     b.setAttribute("aria-pressed", String(on));
   }
   const cur = entryOf(state.cls);
-  $("classsel").innerHTML = (state.ov ? '<option value="">All specs</option>' : "") + sortedClasses().map(c =>
+  $("classsel").innerHTML = (state.ov ? '<option value="">'+(state.page === "buffs" ? "Buff worth" : "All specs")+'</option>' : "") + sortedClasses().map(c =>
     '<option value="'+c.id+'">'+esc(c.name)+" \u2014 "+esc(specOf(c))+"</option>"
   ).join("")
     + (cur && cur.hidden ? '<option value="'+cur.id+'">'+esc(cur.name)+" \u2014 "+esc(specOf(cur))+" (preview)</option>" : "");
@@ -2997,6 +3033,60 @@ function simDateHtml(cls){
    was on. The overview has an address of its own, #all-specs, and a history
    entry like any view; the order of its rows is not part of the address.   */
 const OV_LABEL = { alltime: "All-Time", obtainable: "Obtainable", herald: "Herald" };
+/* Buff worth, every spec (ruling 2026-10-28): the buffWorth arrays of the
+   entries, one chart a buff, the specs as bars longest first. The figures
+   are the Raidbots-era minus-one A/Bs (the Full buffed lists of 2026-10)
+   until each spec's BracketSim list has its own; the page says so. A buff
+   a spec brings itself (note "own cast") is hatched; a spec with no row for
+   the buff shows a dash. The values show as DPS or as a share of the
+   number the A/B was read on, and sort by value or by spec.              */
+const BW_CHARTS = [
+  ["Consumables", "potion, flask, food and weapon buff together"],
+  ["Skyfury", "the shaman's totem"],
+  ["Battle Shout", "attack power"],
+  ["Arcane Intellect", "intellect"],
+  ["Mark of the Wild", "versatility"],
+  ["Hunter's Mark", "+3% damage taken"],
+  ["Power Infusion", "the priest's, pooled on Raidbots; off the BracketSim set"],
+  ["Bloodlust (Drums)", "15% haste for 40 s at the pull"],
+  ["Sharpening Stone", "weapon stone, melee"],
+  ["Weapon Oil", "weapon oil, casters"],
+  ["Potion", ""], ["Flask", ""], ["Food", ""]
+];
+function renderBuffs(){
+  const specs = CLASSES.filter(c => !c.hidden && c.buffWorth && c.buffWorth.length);
+  const mode = state.bwmode, sort = state.bwsort;
+  const btn = (k, v, label) => '<button type="button" class="hbtn'+(state[k] === v ? " on" : "")+'" data-bw="'+k+':'+v+'" aria-pressed="'+(state[k] === v)+'">'+label+'</button>';
+  const charts = [];
+  for(const [buff, sub] of BW_CHARTS){
+    const rows = specs.map(c => {
+      const b = c.buffWorth.find(x => x.buff === buff);
+      return b ? { c, v: mode === "dps" ? b.dps : b.pct, own: /own cast/.test(b.note || ""), status: b.status } : { c, v: null };
+    });
+    const have = rows.filter(r => r.v != null);
+    if(!have.length) continue;
+    const max = Math.max(...have.map(r => r.v));
+    const list = sort === "val" ? rows.slice().sort((a, b) => ((b.v == null ? -1 : b.v) - (a.v == null ? -1 : a.v)))
+                                : rows.slice().sort((a, b) => (a.c.name + specOf(a.c, "alltime")).localeCompare(b.c.name + specOf(b.c, "alltime")));
+    charts.push('<section class="bwchart" aria-label="'+esc(buff)+'"><h3>'+esc(buff)+(sub ? '<small>'+esc(sub)+'</small>' : '')
+      + '<small>'+have.length+' of '+specs.length+' specs</small></h3>'
+      + '<div class="bwaxis"><span>\u03940</span><span>\u0394'+(mode === "dps" ? max.toLocaleString() : max.toFixed(1)+'%')+'</span></div>'
+      + '<div class="bwrows">' + list.map(r => {
+          const name = '<a class="nm" style="--cc:'+r.c.color+'" href="#'+classSlug(r.c)+'/'+specSlug(r.c, "alltime")+'/alltime"><i class="dot"></i><b>'+esc(specOf(r.c, "alltime"))+'</b><small>'+esc(r.c.name)+'</small></a>';
+          if(r.v == null) return '<div class="bwrow missing" style="--cc:'+r.c.color+'">'+name+'<span class="bar"><span class="v">\u2014</span></span></div>';
+          const w = max ? Math.max(0, r.v / max * 100) : 0;
+          const label = mode === "dps" ? (r.v > 0 ? "+" : "") + r.v.toLocaleString() : (r.v > 0 ? "+" : "") + r.v.toFixed(1) + "%";
+          return '<div class="bwrow" style="--cc:'+r.c.color+'">'+name+'<span class="bar"><i class="'+(r.own ? "own" : "")+'" style="--w:'+w.toFixed(1)+'%" title="'+esc(r.status)+'"></i><span class="v">'+label+'</span></span></div>';
+        }).join('') + '</div></section>');
+  }
+  $("buffs").innerHTML =
+    '<div class="ovhead"><h2>Buff worth</h2><span>What one buff adds to each spec: the number of record minus the same profile re-run without it. Click a spec to open its list.</span></div>'
+    + '<div class="bwctl"><span class="lbl">Values</span>'+btn("bwmode", "dps", "DPS")+btn("bwmode", "pct", "% of total")
+    + '<span class="lbl" style="margin-left:10px">Sort</span>'+btn("bwsort", "val", "by value")+btn("bwsort", "name", "by spec")+'</div>'
+    + '<p class="ovnote">Measured on Raidbots against the Full buffed lists of October 2026, '+specs.length+' specs. The BracketSim lists have not had their minus-one runs yet: these bars show the shape, not today\'s numbers.</p>'
+    + '<div class="bwcharts">'+charts.join("")+'</div>'
+    + '<p class="bwkeyall"><span><i></i>own cast: the spec brings the buff itself</span><span>\u2014 not measured for this spec</span></p>';
+}
 function renderOverview(){
   const specs = CLASSES.filter(c => !c.hidden);
   const byDps = l => (a, b) => (dpsFor(b, l) - dpsFor(a, l)) || ((b.dps||0) - (a.dps||0));
@@ -3177,12 +3267,16 @@ function render(push){
   }
   // The overview takes main's place while it is up; the list under it is
   // drawn again when the visitor leaves it.
+  const specs = state.ov && state.page !== "buffs", buffs = state.ov && state.page === "buffs";
   $("main").classList.toggle("ov", state.ov);
-  $("overview").hidden = !state.ov;
-  $("ovbtn").classList.toggle("on", state.ov);
-  $("ovbtn").setAttribute("aria-pressed", String(state.ov));
+  $("overview").hidden = !specs;
+  $("buffs").hidden = !buffs;
+  $("ovbtn").classList.toggle("on", specs);
+  $("ovbtn").setAttribute("aria-pressed", String(specs));
+  $("bwbtn").classList.toggle("on", buffs);
+  $("bwbtn").setAttribute("aria-pressed", String(buffs));
   renderRail();
-  if(state.ov) renderOverview(); else renderMain();
+  if(buffs) renderBuffs(); else if(specs) renderOverview(); else renderMain();
   whRefresh(); writeHash(push); countView(); }
 
 function asText(){
@@ -3256,7 +3350,12 @@ $("howtobtn").addEventListener("click", () => {
   b.classList.toggle("on", open);
   b.setAttribute("aria-expanded", String(open));
 });
-$("ovbtn").addEventListener("click", () => { state.ov = !state.ov; render(true); });
+$("ovbtn").addEventListener("click", () => { const on = state.ov && state.page === "specs"; state.ov = !on; state.page = "specs"; render(true); });
+$("bwbtn").addEventListener("click", () => { const on = state.ov && state.page === "buffs"; state.ov = !on; state.page = "buffs"; render(true); });
+$("buffs").addEventListener("click", ev => {
+  const b = ev.target.closest("button[data-bw]"); if(!b) return;
+  const [k, v] = b.dataset.bw.split(":"); state[k] = v; renderBuffs();
+});
 document.addEventListener("click", ev => {
   // A column head of the overview: the table is drawn again in that order,
   // and the head keeps the keyboard's focus. The address does not change.
