@@ -2,37 +2,36 @@
 # Legacy Thirty BiS — All-time — Shadow Priest
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
-#                    git 464f12e, WoW 12.1.5.70448 hotfix 2026-10-17
-# Result           : 5,385 DPS (±1.1 / 0.020%), 20,015 iterations
+#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 5,400 DPS (±1.1 / 0.019%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 5385 - Priest Shadow.html (same folder; /r/ share links expire)
-# Simmed           : 2026-10-22 by Fate
+# Report           : 5400 - Priest Shadow.html (same folder; /r/ share links expire)
+# Simmed           : 2026-10-28 by Fate
 #
-# BracketSim options (full-buffed set per PROJECT.md; BracketSim hides buffs
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
 #   Raid buff preset: Optimal Raid Buffs
-#   World buffs:   [ ] Slip'kik's Savvy  [ ] Icecrown Citadel  [ ] Plague Stream
-#                  [ ] Adventurer's Journal   (Flame Cap not offered to Priest)
-#   Raid buffs:    [x] Arcane Intellect  [x] Mark of the Wild  [x] Skyfury
-#                  [x] Drums of Fury (15% haste, 40s at pull)
-#                  [x] Hunter's Mark (target, +3% damage taken)
-#                  [ ] Battle Shout  [ ] Blessing of the Bronze  [ ] Power Word: Fortitude
-#                  [ ] Chaos Brand  [ ] Mystic Touch  [ ] Bleeding
-#                  [ ] Power Infusion (own PI used; external = second priest)
+#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [x] Arcane Intellect  [ ] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
 #   Teammate armor reduction: none
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Int 16.89 > SP 15.13 > Mastery 10.72 > Crit 9.11 > Vers 7.70 > Haste 6.85
-# Note: BracketSim APL (bracketsim_* expressions, Tentacle Slam / Void Volley
-#       lines) — not portable to stock simc without its patch layer.
+# Stat weights (DPS): Int 16.82 > SP 15.06 > Mastery 10.67 > Crit 9.07 > Vers 7.64 > Haste 6.84
+# Note: BracketSim APL (bracketsim_* expressions) - not portable to stock simc without its patch layer.
 # ============================================================================
 
-priest="fateprayer"
+priest="Fateprayer"
 source=default
-spec=shadow
 region=us
 server=thrall
+spec=shadow
 level=30
 race=orc
 role=spell
@@ -130,7 +129,7 @@ actions.trinkets+=/use_items,if=(buff.voidform.up|buff.power_infusion.remains>=1
 
 head=cowl_of_icy_breaths,id=45464,bonus_id=9042,ilevel=42,gem_id=25893/213743
 neck=ukhel_ancestry_beads,id=193676,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213500/213482/213482,enchant_id=5890,drop_level=30
-shoulders=hatefury_mantle,id=30884,bonus_id=9036,ilevel=42,gem_id=213482/213482,enchant_id=3810,drop_level=30
+shoulders=hatefury_mantle,id=30884,bonus_id=9036,ilevel=42,gem_id=213482/213482,enchant_id=3838,drop_level=30
 back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=213482,enchant_id=3243,drop_level=30
 chest=sunfire_robe,id=34364,bonus_id=9037,ilevel=44,gem_id=213482/71854/71854,enchant_id=6625,drop_level=30
 wrists=cuffs_of_absolution,id=34435,bonus_id=9037,ilevel=44,gem_id=71854,enchant_id=2332,drop_level=30
@@ -148,7 +147,7 @@ main_hand=abracadaver,id=51887,bonus_id=9049,ilevel=45,gem_id=71854/71854/71854,
 # gear_ilvl=41.87
 # gear_stamina=106
 # gear_intellect=187
-# gear_spell_power=30
+# gear_spell_power=31
 # gear_crit_rating=76
 # gear_haste_rating=144
 # gear_mastery_rating=105
