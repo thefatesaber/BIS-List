@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Midnight Chestguard drops from Archimonde, not Kaz'rogal: eight rows corrected.
+  Fate's correction. The source line read Hyjal Summit — Kaz'rogal since the chest first came
+  on the page on 2026-10-22 (Devourer), and was carried to Windwalker, Outlaw, Assassination,
+  Feral, Balance, Havoc and Subtlety as each landed. Numbers, items and rows are otherwise
+  unchanged.
 - [page] Restoration Shaman All-Time re-run with the Master's inscription and Flask of Supreme Power: 5,490.
   Simmed by Fate on 2026-10-28, the gear of the 5,487 run of 2026-10-22 with Master's
   Inscription of the Storm on the shoulders in place of the Lesser and Flask of Supreme Power
