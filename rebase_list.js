@@ -26,8 +26,12 @@ const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
 const PAGE = opt("--page", "index.html"), SPEC = opt("--spec"), LIST = opt("--list");
 const PROFILE = opt("--profile"), REPORT = opt("--report"), DRY = args.includes("--dry");
+// --build <id> --label "<name>" [--tag "<what the number measures>"]: the run
+// goes on an alternative build of the list, beside the number of record, not
+// in its place. --record-label names the record build's pill the first time.
+const BUILD = opt("--build"), BUILD_LABEL = opt("--label"), BUILD_TAG = opt("--tag"), RECORD_LABEL = opt("--record-label");
 if (!SPEC || !LIST || !PROFILE || !REPORT) {
-  console.error("usage: node rebase_list.js --spec <page id> --list alltime|obtainable|herald --profile <.simc> --report <.html> [--page index.html] [--dry]");
+  console.error("usage: node rebase_list.js --spec <page id> --list alltime|obtainable|herald --profile <.simc> --report <.html> [--build <id> --label <name> [--tag <text>] [--record-label <name>]] [--page index.html] [--dry]");
   process.exit(2);
 }
 const GD = require("./gamedata.js").load();
@@ -99,7 +103,9 @@ if (repDps && Math.round(+repDps[1].replace(/,/g, "")) !== dps) console.error(`w
 // ---------------------------------------------------------------- rows
 const everyRow = [];
 for (const x of CLASSES) for (const L of Object.keys(x.lists || {})) for (const r of x.lists[L]) everyRow.push({ c: x, L, r });
-const prevRows = (c.lists || {})[LIST] || [];
+const prevBuild = BUILD ? ((c.builds || {})[LIST] || []).find((b) => b.id === BUILD) : null;
+const prevRows = prevBuild ? prevBuild.rows : (c.lists || {})[LIST] || [];
+if (BUILD && !BUILD_LABEL && !prevBuild) { console.error("--build needs --label the first time"); process.exit(2); }
 const problems = [];
 const rows = [];
 for (const g of gear) {
@@ -165,6 +171,16 @@ for (const k of ["potion", "flask", "food"]) {
 }
 
 // ---------------------------------------------------------------- write
+if (BUILD) {
+  c.builds = c.builds || {}; c.builds[LIST] = c.builds[LIST] || [];
+  const b = prevBuild || { id: BUILD, label: BUILD_LABEL };
+  if (BUILD_LABEL) b.label = BUILD_LABEL;
+  if (BUILD_TAG) b.tag = BUILD_TAG;
+  Object.assign(b, { dps, prov: `simmed ${simDate} · BracketSim`, talents, stats, rows });
+  // (a build whose consumables differ from the list panel is caught above; set its consumables by hand)
+  if (!prevBuild) c.builds[LIST].push(b);
+  if (RECORD_LABEL) { c.buildLabel = c.buildLabel || {}; c.buildLabel[LIST] = RECORD_LABEL; }
+} else {
 c.dpsByList = c.dpsByList || {}; c.dpsByList[LIST] = dps;
 if (LIST === "alltime") c.dps = dps;
 c.talents = c.talents || {}; c.talents[LIST] = talents;
@@ -172,6 +188,7 @@ c.prov = c.prov || {}; c.prov[LIST] = `simmed ${simDate} · BracketSim`;
 c.stats = c.stats || {}; c.stats[LIST] = stats;
 c.lists = c.lists || {}; c.lists[LIST] = rows;
 if (c.rawByList && c.rawByList[LIST] != null) { delete c.rawByList[LIST]; if (!Object.keys(c.rawByList).length) delete c.rawByList; problems.push(`rawByList.${LIST} dropped: an effective number needs its factor re-read on the new run`); }
+}
 
 const J = (v) => JSON.stringify(v).replace(/,"/g, ', "').replace(/":/g, '": ');
 const Jrow = (v) => J(v).replace(/,\{/g, ", {");
@@ -200,7 +217,7 @@ function fmtSpec(x) {
 html = html.slice(0, S) + "const CLASSES = [\n" + CLASSES.map(fmtSpec).join(",\n") + "\n];" + html.slice(E);
 if (!DRY) fs.writeFileSync(PAGE, html);
 
-console.log(`${SPEC}/${LIST}: ${dps} DPS, simmed ${simDate} on BracketSim, ${rows.length} rows, stats main ${stats.main} stam ${stats.stam} crit ${stats.crit} mastery ${stats.mastery} haste ${stats.haste} vers ${stats.vers}`);
+console.log(`${SPEC}/${LIST}${BUILD ? " build " + BUILD : ""}: ${dps} DPS, simmed ${simDate} on BracketSim, ${rows.length} rows, stats main ${stats.main} stam ${stats.stam} crit ${stats.crit} mastery ${stats.mastery} haste ${stats.haste} vers ${stats.vers}`);
 for (const r of rows) console.log(`  ${r.slot.padEnd(9)} ${r.item} (${r.wowhead}) ilvl ${r.ilvl}${r.ench ? " / " + r.ench : ""}${r.gems ? " / " + r.gems.map((g) => (g.n > 1 ? g.n + "x " : "") + g.name).join(", ") : ""}${r.hm ? " / hm:" + r.hm : ""}`);
 for (const p of problems) console.log("!  " + p);
 console.log(DRY ? "(dry run - nothing written)" : `${PAGE} written - now: node validate.js ${PAGE} && node lint_profiles.js --page ${PAGE} "${path.dirname(PROFILE)}"`);

@@ -206,7 +206,34 @@ const altBaseOldSeen = new Map();
 // ------------------------------------------------------------------ rows
 const ilvlById = new Map();
 
-for (const c of CLASSES) {
+// Builds (2026-10-29): an entry's builds[list] holds alternative builds beside
+// the list's number of record - each with dps, prov, talents, stats, rows and
+// maybe consumables. Their rows are held to every rule a list's rows are, as
+// synthetic entries ("warrior@no-jackhammer") carrying that one list; being
+// hidden they owe no other list and no place in the class invariants below.
+const BUILD_ENTRIES = [];
+for (const c of CLASSES) for (const [L, bs] of Object.entries(c.builds || {})) {
+  if (!LISTS.includes(L)) { err(`${c.id}: builds names an unknown list "${L}"`); continue; }
+  if (!Array.isArray(bs) || !bs.length) { err(`${c.id}/${L}: builds is not a non-empty array`); continue; }
+  if (!(c.buildLabel && c.buildLabel[L])) err(`${c.id}/${L}: carries builds but buildLabel.${L} does not name the record build`);
+  const seen = new Set();
+  for (const b of bs) {
+    const at = `${c.id}/${L}/${b.id}`;
+    if (!b.id || !/^[a-z0-9-]+$/.test(b.id)) { err(`${at}: build id must be a lowercase slug`); continue; }
+    if (seen.has(b.id)) err(`${at}: duplicate build id`); seen.add(b.id);
+    if (!b.label) err(`${at}: build has no label`);
+    if (!(Number.isInteger(b.dps) && b.dps > 0)) err(`${at}: build dps must be a positive integer`);
+    if (!(b.rows && b.rows.length)) err(`${at}: build has no rows`);
+    if (!b.prov) err(`${at}: build has no prov stamp`);
+    const cc = c.consumables || {};
+    const listCons = (cc.potion || cc.flask || cc.food || cc.oil) ? cc : cc[L];
+    BUILD_ENTRIES.push(Object.assign({}, c, { id: `${c.id}@${b.id}`, hidden: true, primary: false,
+      lists: { [L]: b.rows || [] }, dpsByList: { [L]: b.dps }, prov: { [L]: b.prov }, talents: { [L]: b.talents },
+      stats: { [L]: b.stats }, consumables: { [L]: b.consumables || listCons }, rawByList: undefined, builds: undefined, buildLabel: undefined }));
+  }
+}
+
+for (const c of CLASSES.concat(BUILD_ENTRIES)) {
   for (const L of LISTS) {
     const rows = (c.lists && c.lists[L]) || [];
     const at = `${c.id}/${L}`;
@@ -240,11 +267,12 @@ for (const c of CLASSES) {
     {
       const mh = rows.find((r) => r.slot === "Main Hand"), oh = rows.find((r) => r.slot === "Off Hand");
       const mi = mh && GD.items[mh.wowhead], oi = oh && GD.items[oh.wowhead];
-      if (mi && twoHanded(mi) && oh && !TITANS_GRIP.has(c.id))
+      const baseId = c.id.replace(/@.*$/, "");   // a build entry answers for its spec
+      if (mi && twoHanded(mi) && oh && !TITANS_GRIP.has(baseId))
         err(`${at}: ${mh.item} takes both hands, and the list has an Off Hand row`);
       if (mi && !twoHanded(mi) && !oh)
         err(`${at}: ${mh.item} is one-handed and the list has no Off Hand row`);
-      if (oi && oi.inv === 17 && !TITANS_GRIP.has(c.id))
+      if (oi && oi.inv === 17 && !TITANS_GRIP.has(baseId))
         err(`${at}: ${oh.item} is two-handed and sits in the Off Hand`);
     }
 
@@ -580,7 +608,7 @@ const MAIN_STAT = {
   const STONE = { 23529: [EDGED, "an edged weapon"], 28421: [BLUNT, "a blunt weapon"] };
   const hands = (o) => !o ? [] : (o.mh || o.oh) ? [o.mh && ["Main Hand", o.mh], o.oh && ["Off Hand", o.oh]].filter(Boolean)
     : !o.item ? [] : o.hands === "MH/OH" ? [["Main Hand", o], ["Off Hand", o]] : [["Main Hand", o]];
-  for (const c of CLASSES)
+  for (const c of CLASSES.concat(BUILD_ENTRIES))
     for (const L of LISTS) {
       const rows = (c.lists || {})[L] || [];
       if (!rows.length) continue;
@@ -588,7 +616,7 @@ const MAIN_STAT = {
       const cons = !cc ? null : (cc.potion || cc.flask || cc.food || cc.oil) ? cc : cc[L];
       const held = (slot) => { const r = rows.find((x) => x.slot === slot); return r ? GD.items[r.wowhead] : null; };
       const mh = held("Main Hand");
-      const melee = ["Strength", "Agility"].includes(MAIN_STAT[c.id]) && mh && mh.class === 2 && ![2, 3, 18].includes(mh.sub);
+      const melee = ["Strength", "Agility"].includes(MAIN_STAT[c.id.replace(/@.*$/, "")]) && mh && mh.class === 2 && ![2, 3, 18].includes(mh.sub);
       const listed = hands(cons && cons.oil);
       // A fully buffed list sims its weapon buff, so a melee list's panel names
       // one. A Raidbots number carried on Obtainable or Herald was simmed

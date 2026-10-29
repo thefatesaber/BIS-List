@@ -171,7 +171,11 @@ for (const dir of DIRS) {
     const m = fname.match(/^(\d+)\s*-\s*(.+)\.(txt|simc)$/);
     if (!m) { E(`filename does not parse as "<dps> - <Class> <Spec>.txt" or ".simc"`); continue; }
     const fdps = +m[1];
-    const words = m[2].replace(/_/g, " ").trim();
+    // "<dps> - <Class> <Spec> - <Build>": the file of an alternative build of
+    // the list (2026-10-29), matched to builds[list] by label.
+    let words = m[2].replace(/_/g, " ").trim(), buildName = null;
+    const bm = words.match(/^(.+?)\s+-\s+(.+)$/);
+    if (bm) { words = bm[1].trim(); buildName = bm[2].trim(); }
     const cls = [...new Set(CLASSES.map(c => c.name))].sort((a, b) => b.length - a.length)
       .find(n => words.toLowerCase().startsWith(n.toLowerCase()));
     if (!cls) { E(`no class matches "${words}"`); continue; }
@@ -183,8 +187,17 @@ for (const dir of DIRS) {
       (specStr(x).toLowerCase() === specName.toLowerCase() ||
        specStr(x).toLowerCase().startsWith(specName.toLowerCase()));
     const cands = CLASSES.filter(x => x.name === cls);
-    const c = cands.find(specHit) || cands[0];
+    let c = cands.find(specHit) || cands[0];
     const onPage = cands.some(specHit);
+    if (onPage && buildName) {
+      const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      const b = ((c.builds || {})[list] || []).find(x => slug(x.label) === slug(buildName) || x.id === slug(buildName));
+      if (!b) { E(`no build "${buildName}" on ${c.id}/${list} - the page's builds.${list} names ${((c.builds || {})[list] || []).map(x => '"' + x.label + '"').join(", ") || "none"}`); continue; }
+      // the build stands in for the entry: its rows, number, stamp and talents
+      const cc = c.consumables || {};
+      c = Object.assign({}, c, { lists: { [list]: b.rows }, dpsByList: { [list]: b.dps }, prov: { [list]: b.prov }, talents: { [list]: b.talents },
+        consumables: { [list]: b.consumables || ((cc.potion || cc.flask || cc.food || cc.oil) ? cc : cc[list]) } });
+    }
     if (!onPage) {
       // Off-page spec files are archived frozen artifacts (e.g. a tier not
       // yet published for a spec) — no checks.

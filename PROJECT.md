@@ -1684,6 +1684,20 @@ the list's number (T11), so a list that moves sends its alternates back
 to be read; the rows ruled to keep an older sweep are named in the
 validator's ALT_BASE_OLD. `prov` — a provenance stamp (sim date and
 build) whose rendering is gated on ruling B.
+Builds (2026-10-29): `builds {list: [{id, label, dps, prov, talents, stats,
+rows, consumables?, tag?}]}` holds alternative builds beside a list's number
+of record, and `buildLabel {list: name}` names the record build on its pill.
+The record is what the rail, the Best-class view, All specs, monotonicity
+and the Buff worth charts read; a build is shown in place of the record
+when the address names it (`#warrior/fury/alltime/no-jackhammer`) or its
+pill is clicked, swapping badge, stat panel, talents, rows and Consumables
+panel. A build's profile and report sit in the list folder as `<DPS> -
+<Class> <Spec> - <Build>.simc/.html`; validate.js holds its rows to every
+rule a list's rows meet, lint_profiles.js matches the file to the build by
+its label, and `rebase_list.js --build <id> --label <name> [--tag <text>]
+[--record-label <name>]` puts a run on one. First: Fury, With / Without
+The Jackhammer (the Without build runs Titan's Grip, a two-hander in each
+hand, which the Fury entry is allowed).
 Spec level: `rawByList {list: N}` on a spec with effective-DPS lists — the raw
 sim result behind the list's number. The page's "effective" tag reads it, and
 validate.js holds it to the off-hand note and to `dpsByList`.

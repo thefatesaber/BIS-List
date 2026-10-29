@@ -6,6 +6,23 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-10-29
+- [page] A list can carry alternative builds beside its number of record; Fury has its first: Without The Jackhammer, 4,997.
+  Asked by Fate, who chose the shape from a mock-up. A Build row of pills sits under the list
+  tabs when the list has more than one build; the record build is outlined in the class
+  colour and tagged "number of record", and a pill shows a build's name and number. Clicking
+  one swaps the DPS badge, sim date, stat panel, talents, rows and Consumables panel in place,
+  and the address takes a fourth part (#warrior/fury/alltime/no-jackhammer) so a build can be
+  linked and Back returns from it. The class list, Best per class, All specs and the Buff
+  worth charts read the record alone.
+  Fury's All-Time, With The Jackhammer at 5,390, now shows a Without The Jackhammer build
+  beside it: Kleaveland's Titan's Grip set, simmed by Fate on 2026-10-29 on the full-buffed
+  set, 4,997 - The Untamed Blade with Bonereaver's Edge in the off hand, both on Crusader and
+  a sharpening stone, Onslaught Breastplate, Bromach's Disentombed Locket, the Timewalking
+  rings, Heart of Roccor, Masterful Emeralds and Quick Onyx. Its profile and report sit in
+  list/All-time beside the record's. The Buff worth panel's "all specs" link sits on the
+  panel's title line.
+
 ## 2026-10-28
 - [page] Buff worth: the Δ0 / Δmax axis line is gone from each chart.
   Asked by Fate. The value beside every bar already says what the line said; a chart no
