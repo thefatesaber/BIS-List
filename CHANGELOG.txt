@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Survival Hunter All-Time re-run dual-wielding Vibroblade and Blade of the Unrequited: 4,387.
+  Simmed by Fate on 2026-10-28, the 3,750 run of earlier today with Vibroblade in the main
+  hand and Blade of the Unrequited (Karazhan, the Opera) in the off hand for Distant Land,
+  Dancing Steel on both, a sharpening stone and a Hissing Rune for the weightstone; +637.
+  BracketSim sims Vibroblade's Puncture Armor shred, on the target 71% of the fight, so the
+  number carries no factor and the main-hand note says so. Masterful Onyx moves to the head,
+  shoulders and back and Adept Lava Corals to the rings and feet. The 4387 pair replaces the
+  3750 pair.
 - [page] Midnight Chestguard drops from Archimonde, not Kaz'rogal: eight rows corrected.
   Fate's correction. The source line read Hyjal Summit — Kaz'rogal since the chest first came
   on the page on 2026-10-22 (Devourer), and was carried to Windwalker, Outlaw, Assassination,

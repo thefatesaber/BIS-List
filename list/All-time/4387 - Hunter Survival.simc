@@ -3,9 +3,9 @@
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
 #                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
-# Result           : 3,750 DPS (±1.2 / 0.031%), 20015 iterations
+# Result           : 4,387 DPS (±1.9 / 0.043%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 3750 - Hunter Survival.html (same folder; /r/ share links expire)
+# Report           : 4387 - Hunter Survival.html (same folder; /r/ share links expire)
 # Simmed           : 2026-10-28 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
@@ -23,7 +23,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Wdps 62.05 > Agi 11.04 > AP 10.47 > Mastery 7.30 > Crit 6.37 > Vers 6.17 > Haste 5.51
+# Stat weights (DPS): Wdps 66.96 > Agi 13.82 > AP 12.43 > Mastery 7.96 > Crit 7.78 > Haste 7.36 > Vers 7.21
 # ============================================================================
 
 hunter="Legacythirty"
@@ -44,7 +44,7 @@ flask=flask_of_endless_rage
 elixir=disabled
 food=skewered_eel
 augmentation=disabled
-temporary_enchant=main_hand:adamantite_weightstone
+temporary_enchant=main_hand:adamantite_sharpening_stone/off_hand:hissing_rune_3
 
 # Executed before combat begins. Accepts non-harmful actions only.
 actions.precombat=summon_pet
@@ -121,29 +121,30 @@ actions.sentst+=/kill_command,if=cooldown.takedown.remains
 actions.sentst+=/wildfire_bomb
 actions.sentst+=/takedown
 
-head=helm_of_desolation,id=28192,bonus_id=7202,ilevel=33,gem_id=76884/213743/71852,drop_level=30
+head=helm_of_desolation,id=28192,bonus_id=7202,ilevel=33,gem_id=76884/213743/213500,drop_level=30
 neck=ukhel_ancestry_beads,id=193676,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213500/213500/213500,enchant_id=5890,drop_level=30
-shoulders=pauldrons_of_desolation,id=27713,bonus_id=7202,ilevel=33,gem_id=71852/71852,enchant_id=3808,drop_level=30
-back=drape_of_the_faceless_general,id=46032,bonus_id=9043,ilevel=43,gem_id=71852/71852,enchant_id=3243,drop_level=30
+shoulders=pauldrons_of_desolation,id=27713,bonus_id=7202,ilevel=33,gem_id=213500/213500,enchant_id=3808,drop_level=30
+back=drape_of_the_faceless_general,id=46032,bonus_id=9043,ilevel=43,gem_id=213500/213500,enchant_id=3243,drop_level=30
 chest=embrace_of_the_phoenix,id=34373,bonus_id=9037,ilevel=44,gem_id=71852/71852/71852,enchant_id=6625,drop_level=30
 wrists=bracers_of_the_forest_stalker,id=34698,bonus_id=6652/6710/8810,ilevel=33,gem_id=71852/71852,enchant_id=4416,drop_level=30
 hands=thalassian_ranger_gauntlets,id=34343,bonus_id=9037,ilevel=44,gem_id=71852/71852,enchant_id=5259,drop_level=30
 waist=belt_of_dragons,id=45553,bonus_id=9035,ilevel=43,gem_id=71852/71852/71852,drop_level=30
 legs=wyrmscale_greaves,id=30534,bonus_id=6652/6710,ilevel=33,gem_id=71852/71852/71852,enchant_id=4880,drop_level=30
-feet=starstrider_boots,id=29951,bonus_id=9035,ilevel=40,gem_id=71852/213500,enchant_id=1887,drop_level=30
-finger1=signet_of_the_false_accuser,id=178824,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=213500/213500,enchant_id=6110,drop_level=30
-finger2=fleshfused_circle,id=178869,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=213500/213500,enchant_id=6110,drop_level=30
+feet=starstrider_boots,id=29951,bonus_id=9035,ilevel=40,gem_id=71852/71852,enchant_id=1887,drop_level=30
+finger1=signet_of_the_false_accuser,id=178824,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=71852/71852,enchant_id=6110,drop_level=30
+finger2=fleshfused_circle,id=178869,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=71852/71852,enchant_id=6110,drop_level=30
 trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
 trinket2=chaos_talisman,id=137459,bonus_id=6652/6710,ilevel=33,drop_level=30
-main_hand=distant_land,id=50695,bonus_id=9051,ilevel=47,gem_id=71852/71852/71852,enchant_id=4227
+main_hand=vibroblade,id=9485,bonus_id=6710,ilevel=33,enchant_id=4444,drop_level=30
+off_hand=blade_of_the_unrequited,id=28572,bonus_id=9034,ilevel=38,gem_id=71852/71852/71852,enchant_id=4444,drop_level=30
 
 # Gear Summary
-# gear_ilvl=37.53
-# gear_agility=164
-# gear_stamina=102
-# gear_attack_power=8
-# gear_crit_rating=103
-# gear_haste_rating=92
-# gear_mastery_rating=142
+# gear_ilvl=36.69
+# gear_agility=147
+# gear_stamina=98
+# gear_attack_power=9
+# gear_crit_rating=96
+# gear_haste_rating=82
+# gear_mastery_rating=151
 # gear_versatility_rating=5
 # gear_armor=107

@@ -189,7 +189,6 @@
     "193809": {"name":"Bromach's Disentombed Locket","quality":3,"class":4,"sub":0,"inv":2,"sockets":0,"bind":1,"reqLevel":58},
     "200210": {"name":"Amnesia","quality":3,"class":4,"sub":0,"inv":2,"sockets":0,"bind":1,"reqLevel":60},
     "200284": {"name":"Phoenix Feather Pendant","quality":3,"class":4,"sub":0,"inv":2,"sockets":0,"bind":1,"reqLevel":60},
-    "200446": {"name":"Crystallized Sigil","quality":3,"class":4,"sub":0,"inv":2,"sockets":0,"bind":1,"reqLevel":60},
     "213458": {"name":"Masterful Ruby","quality":3,"class":3,"sub":10,"inv":0,"sockets":0,"bind":0,"reqLevel":1},
     "213464": {"name":"Deadly Ruby","quality":3,"class":3,"sub":5,"inv":0,"sockets":0,"bind":0,"reqLevel":1},
     "213470": {"name":"Quick Sapphire","quality":3,"class":3,"sub":10,"inv":0,"sockets":0,"bind":0,"reqLevel":1},
