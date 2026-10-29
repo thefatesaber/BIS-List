@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-28
+- [page] Unholy Death Knight All-Time on BracketSim: 3,338.
+  Simmed by Fate on 2026-10-28 from Asimiir's export, on the site's full-buffed set (Battle
+  Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 4,041 on Raidbots,
+  a number that rested on the plague coefficient overrides the Raidbots profile carried (the
+  open Unholy calibration in PROJECT.md); BracketSim runs the stock module. Items, levels and
+  talents are the Full buffed list's; the export's Lionsmane Inscription on the shoulders (a
+  scribe's own, badged Scribe only like the Master's) for the Master's Inscription of the
+  Axe, Accord of Haste on both rings for Accord of Mastery, the Signet at 33 with two gems for
+  its Timewalking 47, and the trinkets swapping slots are new, with the stat panel and sim
+  date. No alternates until a sweep is read on the new number.
 - [page] Beast Mastery Hunter All-Time on BracketSim: 2,575.
   Simmed by Fate on 2026-10-28 from the character's export, on the site's full-buffed set
   (Battle Shout, Mark of the Wild, Skyfury, Drums of Fury, Hunter's Mark). It was 2,640 on
