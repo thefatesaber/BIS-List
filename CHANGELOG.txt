@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-29
+- [page] The page is restyled: the Ledger direction.
+  Prose in Plex Sans, numbers and strings in Plex Mono; a lighter palette; the content
+  centred at 1400 px. The class list is 236 px wide with a colour bar a row, and a
+  sideways strip of chips on a phone (the phone's class menu is gone). The number of
+  record stands large on the right of the spec head, with the sim date and the
+  professions line under the name; each tab carries its list's number; the gear table
+  has three columns with the level and source under the item's name and enchant and
+  gems as chips; the stat panel is unchanged, with Consumables, Talent string and Buff
+  worth as cards beside it, Buff worth with a bar a buff. No number, row, profile, link,
+  talent string or export text changes.
 - [page] The build pills showed on every spec, not only on Fury.
   The row's display:flex outranked the hidden attribute, so once Fury had drawn
   its pills every other spec kept them. A .builds[hidden] rule puts it right.

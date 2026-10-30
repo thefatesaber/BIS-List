@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fate — L30 BiS Compendium</title>
 <meta name="description" content="Sim-validated best-in-slot gear lists for 27 specs across all 13 classes at level 30 (patch 12.1.0, Midnight). All-Time, Obtainable and Herald of the Titans, every list fully raid-buffed, with talents, consumables and stat panels.">
-<meta name="theme-color" content="#0b0d12">
+<meta name="theme-color" content="#0c0f15">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fate BiS Compendium">
 <meta property="og:title" content="Fate — L30 BiS Compendium">
@@ -25,28 +25,34 @@
 <!-- Loaded without holding the page: a sheet for print does not block rendering,
      and becomes a sheet for the screen once it has arrived. Until then, and if
      the host never answers, the text shows in the fallback fonts. -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <style>
 :root{
-  --void:#0b0d12; --slate:#141822; --slate2:#181d29; --edge:#232a39;
-  /* --dim is the quietest text: level and source lines, labels, column heads,
-     spec names in the class list. #7b8597 is 4.5 to 1 on the lightest row
-     background and 5.2 on the page; it was #5c6575, 2.9 to 3.3 (ruling L1,
-     2026-10-11: lift the grey, leave the sizes). */
-  --parchment:#e7e4dc; --dust:#8e97a8; --dim:#7b8597;
+  /* The Ledger palette (ruling 2026-10-29): a touch warmer and lighter than
+     the 2026-10-11 set, every grey a step up. --dim is still the quietest
+     text: levels and sources, labels, column heads. */
+  --void:#0c0f15; --slate:#141822; --slate2:#191e2b; --edge:#262d3c;
+  --parchment:#e8e5dd; --dust:#9ba4b5; --dim:#8691a3;
   --epic:#a335ee;
+  --rare:#2f8dff;
+  --amber:#e0a53f;
   --confirmed:#41c176;
+  --sans:"IBM Plex Sans", system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
   --display:"Cinzel", "Friz Quadrata", Georgia, serif;
+  --wrap:1400px;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
+/* Prose is Plex Sans (ruling 2026-10-29, which supersedes L1: the sizes move).
+   Everything numeric and every string stays in Plex Mono, tabular. */
 body{
   background:var(--void); color:var(--parchment);
-  font-family:var(--mono); font-size:13.5px; line-height:1.5;
+  font-family:var(--sans); font-size:14px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
 /* Off screen until it takes keyboard focus: one Tab from the top, then Enter,
    lands past the class list. */
 .skip{position:absolute; left:8px; top:-48px; z-index:10; padding:6px 12px; border-radius:4px;
@@ -55,125 +61,68 @@ a{color:inherit}
 main:focus{outline:none}
 
 /* ---------- masthead ---------- */
-header{
-  border-bottom:1px solid var(--edge);
-  padding:20px 24px 16px;
-  display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 18px;
-}
+/* The page is centred: the masthead's contents and the rail-plus-main block
+   each sit in a 1400 px container, while the masthead's border and the body
+   background run edge to edge. Below 1400 px nothing changes. */
+.wrap{max-width:var(--wrap); margin:0 auto}
+header{border-bottom:1px solid var(--edge); padding:20px 24px 16px}
+header .wrap{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 18px}
 header h1{
   margin:0; font-family:var(--display); font-weight:700;
   font-size:clamp(19px,3.2vw,26px); letter-spacing:.04em; color:var(--parchment);
 }
 header h1 .thirty{color:var(--epic)}
-.meta{color:var(--dust); font-size:12px; letter-spacing:.02em}
+.meta{color:var(--dust); font-size:12.5px; letter-spacing:.02em}
 .meta b{color:var(--parchment); font-weight:500}
+.meta .updated{color:var(--dim)}
 
 /* ---------- layout ---------- */
 .layout{display:flex; min-height:calc(100vh - 70px)}
 .side{
-  width:196px; flex:0 0 196px; border-right:1px solid var(--edge);
+  width:236px; flex:0 0 236px; border-right:1px solid var(--edge);
   display:flex; flex-direction:column; min-height:0;
 }
 nav{flex:1; padding:8px 0 12px; overflow-y:auto}
-/* Capped: past this the gap between an item's name and its enchant only grows
-   (890 px of it on a 2560 px screen). */
-main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
+main{flex:1; min-width:0; padding:20px 24px 48px}
 
 /* ---------- class rail ---------- */
+/* 236 px wide, so Demon Hunter and Death Knight never wrap. A row is a bar
+   in the class colour, the class over its spec, and the number. */
 .sortrow{display:flex; align-items:center; gap:10px; padding:12px 14px 10px;
   border-bottom:1px solid var(--edge)}
-.sortlabel{color:var(--dust); font-size:11px; letter-spacing:.1em; text-transform:uppercase}
-.classrow{display:none; align-items:center; gap:10px; padding:10px 14px;
-  border-bottom:1px solid var(--edge)}
-#sortsel, #classsel{
+.sortlabel{color:var(--dust); font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:600}
+#sortsel{
   flex:0 0 auto; width:auto; background:var(--slate2); border:1px solid var(--edge);
-  color:var(--parchment); font:inherit; font-size:12px; letter-spacing:.05em;
+  color:var(--parchment); font:inherit; font-family:var(--mono); font-size:12px; letter-spacing:.04em;
   padding:6px 28px 6px 12px; border-radius:6px; cursor:pointer;
   appearance:none; -webkit-appearance:none;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'><path d='M0 0l4 5 4-5z' fill='%238a93a6'/></svg>");
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'><path d='M0 0l4 5 4-5z' fill='%239ba4b5'/></svg>");
   background-repeat:no-repeat; background-position:right 10px center;
 }
-#classsel{flex:1; min-width:0; width:100%}
-#sortsel:hover, #classsel:hover{border-color:var(--dust)}
-#sortsel:focus-visible, #classsel:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+#sortsel:hover{border-color:var(--dust)}
+#sortsel:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
 
 .cls{
-  display:flex; align-items:center; gap:10px; width:100%;
-  padding:8px 16px; background:none; border:0; border-left:3px solid transparent;
-  color:var(--dust); font:inherit; font-size:13px; cursor:pointer; text-align:left;
+  display:grid; grid-template-columns:3px minmax(0,1fr) auto; align-items:center; gap:0 11px; width:100%;
+  padding:7px 14px 7px 0; background:none; border:0;
+  color:var(--dust); font:inherit; font-size:14px; cursor:pointer; text-align:left;
 }
+.cls .bar{align-self:stretch; background:var(--cc); opacity:.55; border-radius:0 2px 2px 0}
 .cls:hover{color:var(--parchment); background:var(--slate)}
-.cls.on{color:var(--parchment); background:var(--slate); border-left-color:var(--cc)}
-.cls .dot{width:9px; height:9px; border-radius:2px; background:var(--cc); flex:0 0 9px}
-.cls .who{display:flex; flex-direction:column; min-width:0}
-.cls .who small{color:var(--dim); font-size:10.5px; letter-spacing:.03em}
-.cls .dps{flex:none; white-space:nowrap; margin-left:auto; padding-left:8px; color:var(--dim); font-size:11px;
-  font-variant-numeric:tabular-nums; letter-spacing:.02em; transition:color .15s ease}
+.cls.on{color:var(--parchment); background:var(--slate)}
+.cls.on .bar{opacity:1}
+.cls .who{display:flex; flex-direction:column; min-width:0; line-height:1.3}
+.cls .who small{color:var(--dim); font-size:12px; letter-spacing:.02em}
+.cls .dps{white-space:nowrap; color:var(--dim); font-family:var(--mono); font-size:12.5px;
+  font-variant-numeric:tabular-nums; transition:color .15s ease}
 .cls:hover .dps{color:var(--dust)}
 .cls.on .dps{color:var(--cc); font-weight:600}
-
-/* ---------- spec header + tabs ---------- */
-.spec-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin:0 0 14px}
-.spec-head h2{
-  margin:0; font-family:var(--display); font-weight:600;
-  font-size:clamp(17px,2.6vw,22px); letter-spacing:.03em; color:var(--cc,#fff);
-}
-/* Class colours are the game's own and are used as they are, on small text
-   too (ruling L2, 2026-10-11). Three are dark for small text on this
-   background: Death Knight 3.0 to 1, Demon Hunter 3.2, Shaman 3.7. A lighter
-   cut for the numbers was built and not taken. */
-.dpsbadge{display:inline-flex; align-items:baseline; gap:5px; margin-left:2px; padding:3px 10px;
-  border:1px solid color-mix(in srgb, var(--cc) 45%, transparent); border-radius:999px;
-  background:color-mix(in srgb, var(--cc) 12%, transparent);
-  color:var(--cc); font-size:14px; font-weight:700; letter-spacing:0;
-  font-variant-numeric:tabular-nums; text-transform:none}
-.dpsbadge b{font-weight:700}
-.efftag{font:inherit; font-size:10px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
-  padding:2px 7px; border-radius:3px; white-space:nowrap; cursor:pointer;
-  color:#e0a53f; background:none; border:1px solid currentColor}
-.efftag .effraw{display:none; font-weight:500; letter-spacing:.02em; text-transform:none}
-.efftag.open .effraw{display:inline}
-.efftag:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
-.simdate{color:var(--dust); font-size:11.5px; white-space:nowrap}
-.resim{font-size:10px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
-  padding:2px 7px; border-radius:3px; white-space:nowrap; color:#e0a53f; border:1px solid currentColor; vertical-align:1px}
-.preview{font-size:10px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
-  padding:2px 7px; border-radius:3px; white-space:nowrap; color:#e0a53f; border:1px solid currentColor}
-.cls .dps .eff{font-size:8.5px; font-weight:600; letter-spacing:.05em;
-  text-transform:uppercase; color:#e0a53f; font-style:normal}
+.cls .dps .eff{font-size:10px; font-weight:600; letter-spacing:.05em; font-family:var(--sans);
+  text-transform:uppercase; color:var(--amber); font-style:normal}
 .cls .who small .specvar{margin-left:3px; font-style:normal; opacity:.75}
-.spec-head .clsname{color:var(--cc,var(--dust)); font-family:var(--display); font-weight:600;
-  letter-spacing:.03em; font-size:clamp(17px,2.6vw,22px)}
-.tabs{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:6px}
-.tab{
-  font:inherit; font-size:12px; letter-spacing:.02em; cursor:pointer;
-  color:var(--dust); background:var(--slate); border:1px solid var(--edge);
-  border-radius:3px; padding:5px 12px;
-}
-.tab:hover{color:var(--parchment)}
-.tab.on{color:var(--void); background:var(--parchment); border-color:var(--parchment); font-weight:600}
-/* Builds (ruling 2026-10-29): a list may carry alternative builds beside its
-   number of record; the row of pills shows only when it does. The record
-   build is outlined in the class colour; a pill's small tag says what its
-   number measures when that differs from the record's.                    */
-.builds{display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin:0 0 10px}
-.builds[hidden]{display:none}
-.builds .lbl{color:var(--dim); font-size:10.5px; text-transform:uppercase; letter-spacing:.09em; margin-right:4px}
-.build{font:inherit; font-size:12px; cursor:pointer; color:var(--dust); background:transparent; border:1px solid var(--edge); border-radius:14px; padding:3px 11px; display:inline-flex; gap:8px; align-items:baseline}
-.build b{font-weight:600; color:var(--parchment); font-variant-numeric:tabular-nums}
-.build small{color:var(--dim); font-size:10.5px}
-.build:hover{color:var(--parchment); border-color:var(--dust)}
-.build.on{border-color:var(--cc); color:var(--parchment); box-shadow:inset 0 0 0 1px var(--cc)}
-.build.on b{color:var(--cc)}
-.build:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
-.constraint{color:var(--dim); font-size:11.5px; margin:0 0 16px; font-style:italic}
-.meta .updated{color:var(--dim)}
-.notice a{color:var(--dim); text-decoration:underline dotted}
-.notice a:hover{color:var(--parchment)}
-/* Two-way switch above the class list. The rail is 196 px wide, so the labels
-   are set at 10.5px: "Best per class" and "All specs" need 172 px of the 176. */
-.viewtoggle{display:flex; margin:12px 10px 0}
-.viewtoggle button{flex:1 1 auto; min-width:0; overflow:hidden; padding:5px 6px; font:inherit; font-size:10.5px;
+/* Two-way switch above the class list. */
+.viewtoggle{display:flex; margin:12px 12px 0}
+.viewtoggle button{flex:1 1 auto; min-width:0; overflow:hidden; padding:6px 6px; font:inherit; font-size:12.5px;
   white-space:nowrap; background:none; border:1px solid var(--edge); color:var(--dust); cursor:pointer;
   transition:background-color .15s ease, color .15s ease, border-color .15s ease}
 .viewtoggle button:first-child{border-radius:6px 0 0 6px}
@@ -181,48 +130,108 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .viewtoggle button:hover{color:var(--parchment)}
 .viewtoggle button.on{color:var(--parchment); background:var(--edge)}
 .viewtoggle button:focus-visible{outline:2px solid var(--epic); outline-offset:2px; position:relative}
+
+/* ---------- spec head, tabs, builds ---------- */
+.spec-head{display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px 24px; margin:0 0 16px}
+.spec-head .shtext{min-width:0; flex:1 1 320px}
+.spec-head h2{
+  margin:0; font-family:var(--display); font-weight:600; display:inline;
+  font-size:clamp(22px,3vw,30px); letter-spacing:.03em; color:var(--cc,#fff); line-height:1.2;
+}
+.spec-head .clsname{color:var(--dust); font-family:var(--display); font-weight:600;
+  letter-spacing:.03em; font-size:clamp(22px,3vw,30px); line-height:1.2; margin-left:.35em}
+.shline{margin:4px 0 0; color:var(--dust); font-size:12.5px; display:flex; flex-wrap:wrap; gap:0 6px}
+.shline .profs{color:var(--dim)}
+.shline .profs b{color:var(--dust); font-weight:600}
+.shline .profs .sep{opacity:.6; margin:0 5px}
+.shline .sep{color:var(--dim)}
+/* The number of record (ruling 2026-10-29): mono 40 px in the class colour,
+   on the right of the head row, its list's label and the tags beside it.
+   Class colours are the game's own and are used as they are, on small text
+   too (ruling L2, 2026-10-11): Death Knight 3.0 to 1 here, Demon Hunter 3.2,
+   Shaman 3.7. */
+.dpsbig{margin-left:auto; display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 10px; justify-content:flex-end}
+.dpsbig b{font-family:var(--mono); font-size:40px; font-weight:600; line-height:1; color:var(--cc);
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.dpsbig .lbl{color:var(--dim); font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:600; white-space:nowrap}
+.efftag{font:inherit; font-size:10px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+  padding:2px 7px; border-radius:3px; white-space:nowrap; cursor:pointer;
+  color:var(--amber); background:none; border:1px solid currentColor}
+.efftag .effraw{display:none; font-weight:500; letter-spacing:.02em; text-transform:none; font-family:var(--mono)}
+.efftag.open .effraw{display:inline}
+.efftag:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+.resim, .preview{font-size:10px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+  padding:2px 7px; border-radius:3px; white-space:nowrap; color:var(--amber); border:1px solid currentColor}
+/* One segmented control: each tab carries its list's number, the same number
+   the rail shows for that list. */
+.tabs{display:inline-flex; max-width:100%; border:1px solid var(--edge); border-radius:6px; overflow:hidden; margin-bottom:10px}
+.tab{
+  font:inherit; font-size:13px; cursor:pointer; display:inline-flex; align-items:baseline; gap:9px;
+  color:var(--dust); background:var(--slate); border:0; border-left:1px solid var(--edge);
+  padding:8px 16px; white-space:nowrap;
+}
+.tab:first-child{border-left:0}
+.tab b{font-family:var(--mono); font-weight:500; color:var(--parchment); font-variant-numeric:tabular-nums}
+.tab:hover{color:var(--parchment)}
+.tab.on{color:var(--void); background:var(--parchment); font-weight:600}
+.tab.on b{color:var(--void); font-weight:600}
+/* Builds (ruling 2026-10-29): a list may carry alternative builds beside its
+   number of record; the row of pills shows only when it does. The current
+   pill is outlined in the class colour; a pill's small tag says what its
+   number measures when that differs from the record's.                    */
+.builds{display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin:0 0 12px}
+.builds[hidden]{display:none}
+.builds .lbl{color:var(--dim); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; margin-right:4px}
+.build{font:inherit; font-size:12.5px; cursor:pointer; color:var(--dust); background:transparent; border:1px solid var(--edge);
+  border-radius:999px; padding:4px 12px; display:inline-flex; gap:8px; align-items:baseline}
+.build b{font-family:var(--mono); font-weight:600; color:var(--parchment); font-variant-numeric:tabular-nums}
+.build small{color:var(--dim); font-size:11px}
+.build:hover{color:var(--parchment); border-color:var(--dust)}
+.build.on{border-color:var(--cc); color:var(--parchment); box-shadow:inset 0 0 0 1px var(--cc)}
+.build.on b{color:var(--cc)}
+.build:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+.constraint{color:var(--dust); font-size:13px; margin:0 0 16px; max-width:78ch}
+.notice a{color:var(--dim); text-decoration:underline dotted}
+.notice a:hover{color:var(--parchment)}
 .notice{color:var(--dim); font-size:12.5px; margin-top:4px; max-width:78ch}
 .notice .nbtn{background:none; border:none; color:var(--dim); cursor:pointer; font:inherit;
   text-decoration:underline dotted; padding:0}
 .notice .nbtn:hover{color:var(--parchment)}
-.notice .chip{display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:.4px;
-  border:1px solid var(--edge); border-radius:3px; padding:0 4px; margin-right:6px; color:var(--dim)}
+.notice .chip{display:inline-block; font-size:11px; text-transform:uppercase; letter-spacing:.06em;
+  border:1px solid var(--edge); border-radius:3px; padding:0 5px; margin-right:6px; color:var(--dim)}
 .notice ul.nlist{list-style:none; margin:6px 0 0; padding:0; max-height:38vh; overflow-y:auto}
 .notice ul.nlist li{margin:0 0 6px; padding-left:2px}
 
 /* ---------- header buttons, "How to read this" ---------- */
-/* Two buttons in the header (ruling D36, 2026-10-13). One opens the panel
-   under the header, the other the overview of all specs. They take the
+/* Three buttons in the header (ruling D36, 2026-10-13). They take the
    title's row where it has room for them, the update line's row where it has
-   not, and a row of their own on a phone. From 1200 to 1839 px the title's
-   row holds them but not the update line as well, so that line is sent to the
-   next row: up to 1535 px it was there already, and from 1536 it used to
-   share the title's row. Each threshold leaves about 20 px to spare, so a
-   longer date or a fallback font moves nothing to another row.
-   In the document the buttons come before the update line, which is the
-   order they are seen in from 1200 to 1839 px, so that is where Tab follows
-   the eye; at the other widths they are drawn after the line. */
+   not, and a row of their own on a phone. From 1200 px up the title's row
+   holds them but not the update line as well, so that line is sent to the
+   next row (the masthead's contents are capped at 1400 px, so no width holds
+   all three on one row). In the document the buttons come before the update
+   line, which is the order they are seen in from 1200 px up, so that is
+   where Tab follows the eye; at narrower widths they are drawn after it. */
 .hbtns{display:flex; gap:8px; margin-left:auto; align-self:center; order:1}
-.hbtn{background:none; border:1px solid var(--edge); color:var(--dust); font:inherit; font-size:10.5px;
-  letter-spacing:.06em; text-transform:uppercase; padding:4px 10px; border-radius:4px; cursor:pointer;
+.hbtn{background:none; border:1px solid var(--edge); color:var(--dust); font:inherit; font-size:11.5px;
+  letter-spacing:.06em; text-transform:uppercase; padding:7px 12px; border-radius:5px; cursor:pointer;
   white-space:nowrap; transition:color .15s ease, border-color .15s ease, background-color .15s ease}
 .hbtn:hover{color:var(--parchment); border-color:var(--dust)}
 .hbtn.on{color:var(--parchment); background:var(--edge); border-color:var(--edge)}
 .hbtn:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
-@media (min-width:1200px) and (max-width:1839px){
+@media (min-width:1200px){
   .hbtns{order:0}
   /* A row of its own, its text still held to 78 characters. */
   header .notice{flex:0 0 100%; max-width:none; padding-right:max(0px, calc(100% - 78ch))}
 }
 @media (max-width:899px){
-  .hbtns{margin-left:0; flex:0 0 100%}
+  .hbtns{margin-left:0; flex:0 0 100%; flex-wrap:wrap}
 }
 /* The panel says once what the page otherwise says in pieces or not at all:
    how a number is made, which buffs a list counts, whom to tell of a mistake.
    Closed on arrival; the button opens it in place, under the header. */
 .howto{background:var(--slate); border-bottom:1px solid var(--edge); padding:16px 24px 18px}
 .howto[hidden]{display:none}
-.howto h2{margin:0 0 10px; font:600 12.5px var(--display); letter-spacing:.08em; color:var(--dust)}
+.howto h2{margin:0 0 10px; font:600 13px var(--display); letter-spacing:.08em; color:var(--dust)}
 .howto dl{margin:0; display:grid; grid-template-columns:max-content minmax(0,1fr); gap:7px 18px; max-width:104ch}
 .howto dt{color:var(--parchment); font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:600; padding-top:2px}
 .howto dd{margin:0; color:var(--dust); font-size:12.5px; line-height:1.55}
@@ -230,85 +239,58 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .howto dd a{color:var(--dust); text-decoration:underline dotted}
 .howto dd a:hover{color:var(--parchment)}
 
-/* ---------- slot ledger ---------- */
-.ledger{border:1px solid var(--edge); border-radius:4px; overflow:hidden}
+/* ---------- gear table ---------- */
+/* Three columns: slot, item, setup (enchant and gems together as chips). A
+   row's level and source sit under the item's name; its notes, why line and
+   alternates span the item and setup columns under them. */
+.ledger{border:1px solid var(--edge); border-radius:6px; overflow:hidden}
 .row{
-  display:grid; grid-template-columns:104px minmax(0,1.9fr) minmax(0,.8fr) minmax(0,1fr);
-  gap:0 14px; padding:7px 14px; align-items:center;
+  display:grid; grid-template-columns:96px minmax(0,1.55fr) minmax(0,1fr);
+  gap:0 16px; padding:9px 14px; align-items:center;
   border-bottom:1px solid var(--edge); background:var(--slate);
 }
 .row:nth-child(even){background:var(--slate2)}
 .row:last-child{border-bottom:0}
 .row.head{
-  background:var(--void); color:var(--dim); font-size:10.5px;
+  background:var(--void); color:var(--dim); font-size:11px; font-weight:600;
   text-transform:uppercase; letter-spacing:.09em; padding:8px 14px;
 }
-.slot{color:var(--dust); font-size:12px}
-.item a{color:var(--epic); text-decoration:none; font-weight:500; display:inline-flex; align-items:center; gap:10px}
-/* Icons carry no quality ring (ruling L4, 2026-10-11). One was declared here
-   from the start, as a box-shadow in the item's quality colour. The clip-path
-   that rounds the icon clipped it, all but a stray one-pixel sliver along an
-   edge wherever an icon landed on a fraction of a pixel. */
-.item a span[class*="icon"]{flex:none; width:34px !important; height:34px !important;
-  box-sizing:border-box !important; border:0 !important; padding:0 !important; margin:0 !important;
+.slot{color:var(--dust); font-size:13px; align-self:center}
+.item{min-width:0; min-height:36px; line-height:1.3}
+.item a{color:var(--epic); text-decoration:none; font-weight:500; font-size:14.5px}
+/* The icon floats left of the name and the line under it, so the two lines
+   sit beside it. Icons carry no quality ring (ruling L4, 2026-10-11). */
+.item a span[class*="icon"]{float:left; width:36px !important; height:36px !important; margin:0 10px 0 0 !important;
+  box-sizing:border-box !important; border:0 !important; padding:0 !important;
   border-radius:4px; overflow:hidden; clip-path:inset(0 round 4px);
-  background-size:34px 34px !important; background-position:center !important}
+  background-size:36px 36px !important; background-position:center !important}
 .item a span[class*="icon"] ins{display:block; position:static !important; width:100% !important; height:100% !important;
   margin:0 !important; border:0 !important; background-size:cover !important; background-position:center !important}
 .item a span[class*="icon"] del{display:none !important}
 /* Quality colours. The classes are the page's own, quality-1 to quality-5,
    and must not be q1 to q5: Wowhead's style sheet colours anything with a
-   class q0 to q6, with !important. Until 2026-10-11 the links carried q3, and
-   on the live site every rare name was drawn in the blue below (5.1 to 5.4 to
-   1 on these rows) and repainted a moment later in Wowhead's darker #0070dd
-   (3.5 to 3.7). Ruling D9: the lighter blue. A link with no class is epic. */
-.item a.quality-1{color:#eaeaea}.item a.quality-2{color:#1eff00}.item a.quality-3{color:#2f8dff}.item a.quality-5{color:#ff8000}
+   class q0 to q6, with !important. Ruling D9: the lighter rare blue. A link
+   with no class is epic. */
+.item a.quality-1{color:#eaeaea}.item a.quality-2{color:#1eff00}.item a.quality-3{color:var(--rare)}.item a.quality-5{color:#ff8000}
 .gems a{--qc:var(--epic)}
 .gems a.quality-1{--qc:#eaeaea}
 .gems a.quality-2{--qc:#1eff00}
-.gems a.quality-3{--qc:#2f8dff}
+.gems a.quality-3{--qc:var(--rare)}
 .gems a.quality-5{--qc:#ff8000}
 .item a:hover{text-decoration:underline}
-.item .none{color:var(--dim); margin-left:44px}
-.ench,.gems{color:var(--dust); font-size:12px; overflow-wrap:anywhere}
-.ench a{color:#2f8dff; text-decoration:none}
+.item .none{color:var(--dim)}
+.item .sub{display:block; color:var(--dust); font-size:12.5px; margin-top:1px}
+.setup{display:flex; flex-wrap:wrap; align-items:center; gap:6px; min-width:0}
+.ench, .gems{display:contents}
+.ench a{display:inline-flex; align-items:center; color:var(--rare); text-decoration:none; font-size:12.5px;
+  border:1px solid var(--edge); border-radius:4px; padding:3px 9px; overflow-wrap:anywhere}
 .ench a:hover{text-decoration:underline}
 .ench a ins, .ench a del, .ench a span[class*="icon"]{display:none !important}
-.gemgrp{display:flex; align-items:center; gap:6px; padding:2px 0; flex-wrap:wrap}
-.gems a{color:var(--qc); text-decoration:none; display:inline-flex; align-items:center; gap:8px}
-/* icon-only socket: keeps a visible socket square even if Wowhead never iconizes */
-/* Extra socket icons must look identical to the named one, which has no ring.
-   Background is a fallback so the socket is still countable if iconization
-   ever fails. */
-.gems a.gicon{width:24px; height:24px; border-radius:3px; flex:none;
-  background:rgba(255,255,255,.045)}
-.hm{margin-left:8px; font-size:10px; font-weight:600; letter-spacing:.06em;
-  text-transform:uppercase; padding:1px 6px; border-radius:3px; white-space:nowrap;
-  border:1px solid currentColor}
-.hm.only{color:#ff9d5c}
-.hm.socket{color:#ff5c5c}
-.hm.craft{color:#6fc3d6}
-.profs{color:var(--dust); font-size:11.5px; margin:-10px 0 16px}
-.profs b{color:var(--parchment); font-weight:600}
-.profs .sep{opacity:.5; margin:0 5px}
-.vtag{margin-left:7px; font-size:9.5px; font-weight:600; letter-spacing:.07em;
-  text-transform:uppercase; padding:1px 5px; border-radius:3px; white-space:nowrap;
-  color:#e0a53f; border:1px solid currentColor; vertical-align:1px}
-.alts{grid-column:2 / -1; padding-left:44px; padding-top:2px;
-  color:var(--dim); font-size:11px; overflow-wrap:anywhere}
-.alts em{font-style:normal; color:var(--dim); text-transform:uppercase;
-  font-size:9.5px; letter-spacing:.07em; margin-right:5px}
-.alts a{color:#9fb6d4; text-decoration:none}
-/* An alternate with a quality on record takes that colour; one without keeps
-   the muted blue above. Wowhead's sheet used to do this, once it had loaded. */
-.alts a.quality-1{color:#eaeaea}.alts a.quality-2{color:#1eff00}.alts a.quality-3{color:#2f8dff}
-.alts a.quality-4{color:var(--epic)}.alts a.quality-5{color:#ff8000}
-.alts a:hover{text-decoration:underline}
-.alts a ins, .alts a del, .alts a span[class*="icon"]{display:none !important}
-.alts .delta{color:var(--dust)}
-.alts .pending{color:var(--dim); font-style:italic}
-.alts .sep{opacity:.5; margin:0 3px}
-.alts.fb{opacity:.82}
+/* A gem chip: its icon, its name, and the count when above one. */
+.gems a{color:var(--qc); text-decoration:none; display:inline-flex; align-items:center; gap:7px; font-size:12.5px;
+  border:1px solid var(--edge); border-radius:4px; padding:2px 9px 2px 2px; min-width:0}
+.gems a b{color:var(--parchment); font-weight:500; font-family:var(--mono); font-variant-numeric:tabular-nums}
+.gems a:hover{text-decoration:underline}
 .gems a span[class*="icon"], .consum a span[class*="icon"]{flex:none; width:24px !important; height:24px !important;
   box-sizing:border-box !important; border:0 !important; padding:0 !important; margin:0 !important;
   border-radius:3px; overflow:hidden; clip-path:inset(0 round 3px);
@@ -316,13 +298,49 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .gems a span[class*="icon"] ins, .consum a span[class*="icon"] ins{display:block; position:static !important; width:100% !important; height:100% !important;
   margin:0 !important; border:0 !important; background-size:cover !important; background-position:center !important}
 .gems a span[class*="icon"] del, .consum a span[class*="icon"] del{display:none !important}
-.gems a:hover{text-decoration:underline}
-.note{
-  grid-column:2 / -1; color:var(--dim); font-size:11.5px; padding-top:1px; padding-left:44px;
-}
+.hm{margin-left:8px; font-size:10px; font-weight:600; letter-spacing:.06em; font-family:var(--sans);
+  text-transform:uppercase; padding:1px 6px; border-radius:3px; white-space:nowrap;
+  border:1px solid currentColor; vertical-align:2px}
+.hm.only{color:#ff9d5c}
+.hm.socket{color:#ff5c5c}
+.hm.craft{color:#6fc3d6}
+.vtag{margin-left:7px; font-size:10px; font-weight:600; letter-spacing:.07em; font-family:var(--sans);
+  text-transform:uppercase; padding:1px 5px; border-radius:3px; white-space:nowrap;
+  color:var(--amber); border:1px solid currentColor; vertical-align:2px}
+.alts{grid-column:2 / -1; padding-left:46px; padding-top:3px;
+  color:var(--dim); font-size:12px; overflow-wrap:anywhere}
+.alts em{font-style:normal; color:var(--dim); text-transform:uppercase; font-weight:600;
+  font-size:11px; letter-spacing:.07em; margin-right:5px}
+.alts a{color:#9fb6d4; text-decoration:none}
+/* An alternate with a quality on record takes that colour; one without keeps
+   the muted blue above. */
+.alts a.quality-1{color:#eaeaea}.alts a.quality-2{color:#1eff00}.alts a.quality-3{color:var(--rare)}
+.alts a.quality-4{color:var(--epic)}.alts a.quality-5{color:#ff8000}
+.alts a:hover{text-decoration:underline}
+.alts a ins, .alts a del, .alts a span[class*="icon"]{display:none !important}
+.alts .delta{color:var(--dust); font-family:var(--mono); font-variant-numeric:tabular-nums}
+.alts .pending{color:var(--dim); font-style:italic}
+.alts .sep{opacity:.5; margin:0 3px}
+.alts.fb{opacity:.82}
+.why{grid-column:2 / -1; margin:6px 0 2px 46px; padding:7px 10px; border-left:2px solid var(--edge);
+  background:rgba(255,255,255,.025); border-radius:0 4px 4px 0;
+  color:var(--dust); font-size:12px; line-height:1.55; font-style:normal; max-width:78ch}
+.why b{color:var(--parchment); font-weight:600; letter-spacing:.02em}
+.why a{color:#8ab4f8; text-decoration:none; border-bottom:1px dotted rgba(138,180,248,.5)}
+.why a:hover{border-bottom-style:solid}
+.why a ins, .why a del, .why a span[class*="icon"]{display:none !important}
 
-/* ---------- notes + actions ---------- */
-.statpanel{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:0 18px;
+/* ---------- panels band ---------- */
+/* The stat panel on the left, centred against its column; Consumables,
+   Talent string and Buff worth stacked on the right. */
+.paneline{display:grid; grid-template-columns:430px minmax(0,1fr); gap:14px; margin:0 0 16px; align-items:start}
+.paneline > .statpanel{grid-column:1; grid-row:1 / span 3; margin:0; align-self:center}
+.paneline > .consum, .paneline > .talents, .paneline > .buffworth{grid-column:2; margin:0; min-width:0}
+.paneline.solo{grid-template-columns:minmax(0,1fr)}
+.paneline.solo > .consum, .paneline.solo > .talents, .paneline.solo > .buffworth{grid-column:1}
+/* The stat panel is kept exactly as it was (ruling 2026-10-29): geometry,
+   sizes, colours, and its face, which was the body's mono. */
+.statpanel{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:0 18px; font-family:var(--mono); font-size:13.5px;
   margin:0 0 14px; padding:14px 16px; border:1px solid var(--edge); border-radius:6px;
   background:linear-gradient(180deg, rgba(255,255,255,.035), transparent 65%), var(--slate)}
 .statcell{display:flex; flex-direction:column; gap:3px; padding:7px 0}
@@ -345,149 +363,109 @@ main{flex:1; min-width:0; max-width:1400px; padding:20px 24px 48px}
 .statweb .area{fill:color-mix(in srgb, var(--cc) 26%, transparent); stroke:var(--cc); stroke-width:1.5;
   stroke-linejoin:round}
 .statweb .dot{fill:var(--parchment); stroke:var(--cc); stroke-width:1.5}
-.paneline{display:grid; grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto auto;
-  gap:14px; margin:0 0 14px}
-.paneline > .statpanel{grid-column:1; grid-row:1 / 3; margin:0}
-.paneline > .consum{grid-column:2; grid-row:1; margin:0; min-width:0}
-.paneline > .talents{grid-column:2; grid-row:2; margin:0; min-width:0}
-.paneline > .buffworth{grid-column:2; grid-row:3; margin:0; min-width:0}
-.paneline.wbw > .statpanel{grid-row:1 / 4; align-content:center}
-.consum.buffworth{display:block}
-.buffworth h3{margin:0 0 8px; font:600 13.5px var(--display); letter-spacing:.08em;
-  color:var(--cc,var(--parchment)); display:flex; align-items:center; gap:10px; text-transform:none}
-.buffworth h3::after{content:""; flex:1; height:1px;
-  background:linear-gradient(90deg, var(--cc,var(--edge)), var(--edge) 38%)}
-#buffworthlines{display:grid; grid-template-columns:max-content max-content max-content max-content minmax(0,1fr);
-  gap:3px 12px; align-items:baseline}
-.buffworth .cline{display:contents}
-.buffworth .cline > *{white-space:nowrap}
-.buffworth .cline > .bwnote{white-space:normal}
-.buffworth .bwval{color:var(--dust); font-weight:600; text-align:right}
-.buffworth .bwpct{text-align:right}
-.buffworth .bwtag{border:1px solid rgba(255,255,255,.22); border-radius:8px; padding:0 6px;
-  font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; cursor:help; justify-self:start}
-.buffworth .cline.bwsub{display:none}
-#buffworthlines.cmpopen .cline.bwsub{display:contents}
-.buffworth .bwhead{cursor:pointer}
-.buffworth .bwtoggle{font:inherit; letter-spacing:inherit; text-transform:inherit; color:inherit;
-  background:none; border:0; padding:0; margin:0; cursor:pointer}
-.buffworth .bwtoggle:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
-.buffworth .bwhead b::before{content:"\25B8 "; color:var(--dust)}
-#buffworthlines.cmpopen .bwhead b::before{content:"\25BE "}
-.buffworth .cline.bwsub b{font-weight:400; color:var(--dust); padding-left:14px; position:relative}
-.buffworth .cline.bwsub b::before{content:"\2514"; position:absolute; left:2px; color:var(--dim)}
-.buffworth .cline.bwsub .bwval{color:var(--dust); font-weight:400}
-.paneline.solo{grid-template-columns:minmax(0,1fr)}
-.paneline.solo > .consum, .paneline.solo > .talents{grid-column:1}
-.statpanel[hidden], .consum[hidden]{display:none !important}
-.consum{display:flex; align-items:center; align-content:center; flex-wrap:wrap; gap:6px 14px;
-  margin:0 0 14px; padding:9px 12px;
-  border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
-.consum h3{margin:0; flex:none; font:600 12.5px var(--display); letter-spacing:.08em;
-  color:var(--dust)}
-.consum .chead{flex:none; display:flex; flex-direction:column; gap:1px}
-.consum .chead small{color:var(--dust); font-size:11px}
-#consumlines{display:contents}
-.consum .cline{color:var(--dust); font-size:12px}
-.consum .cline b{color:var(--dim); font-weight:600; font-size:10px; letter-spacing:.07em;
-  text-transform:uppercase; margin-right:5px}
-.consum .cline small{color:var(--dim); font-size:10.5px; margin-left:3px}
-/* A consumable line is one unit: label, icon, name, hand. It only breaks inside
-   when it is alone on its row and still too wide (a 320 px phone). */
-#consumlines .cline{display:inline-flex; align-items:center; min-width:0}
-#consumlines .cline b, #consumlines .cline small{flex:none}
-#consumlines .cline a{display:inline-flex; align-items:center; gap:7px; min-width:0}
-#consumlines .cline small{margin-left:8px}
-.consum .cbreak{flex:1 0 100%; height:0; margin:0; padding:0}
-.consum .tbtn{margin-left:auto}
-.talents{display:flex; align-items:center; gap:10px; margin:0 0 14px; padding:9px 12px;
-  border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
-.talents h3{margin:0; flex:none; font:600 12.5px var(--display); letter-spacing:.08em;
-  color:var(--dust)}
+.statpanel[hidden], .consum[hidden], .talents[hidden]{display:none !important}
+/* A card: heading, a hairline filling the rest of the row, the card's button
+   at the end of it. */
+.card{background:var(--slate); border:1px solid var(--edge); border-radius:6px; padding:12px 14px}
+.chead{display:flex; align-items:center; gap:10px; margin:0 0 10px}
+.chead h3{flex:1; margin:0; display:flex; align-items:center; gap:10px; font:600 13px var(--display);
+  letter-spacing:.08em; color:var(--dust); text-transform:none}
+.chead h3::after{content:""; flex:1; height:1px; background:var(--edge)}
+.consum .cnote{display:block; color:var(--dust); font-size:12px; margin:-4px 0 8px}
+.consum .cnote[hidden]{display:none}
+#consumlines{display:grid; grid-template-columns:64px minmax(0,1fr); gap:5px 10px; align-items:center}
+#consumlines .cline{display:contents}
+#consumlines .cline b{color:var(--dim); font-weight:600; font-size:11px; letter-spacing:.09em; text-transform:uppercase}
+#consumlines .cline .cv{display:flex; align-items:center; gap:8px; min-width:0; font-size:13px; color:var(--parchment)}
+#consumlines .cline .cv a{color:var(--parchment); text-decoration:underline dotted; text-underline-offset:3px;
+  display:inline-flex; align-items:center; gap:8px; min-width:0}
+#consumlines .cline .cv a:hover{text-decoration-style:solid}
+#consumlines .cline .cv small{color:var(--dim); font-size:11px; letter-spacing:.06em; text-transform:uppercase; font-weight:600}
 /* The string is longer than its box on most screens and scrolls sideways. The
    fade at the right edge says so; the padding lets the last characters scroll
    clear of it. */
-.talents code{flex:1; min-width:0; overflow-x:auto; white-space:nowrap; color:var(--dust);
+.talents code{display:block; overflow-x:auto; white-space:nowrap; color:var(--dust); font-family:var(--mono);
   font-size:11.5px; letter-spacing:.01em; scrollbar-width:thin; padding-right:28px;
   -webkit-mask-image:linear-gradient(90deg, #000 calc(100% - 28px), transparent);
   mask-image:linear-gradient(90deg, #000 calc(100% - 28px), transparent)}
 .tbtn{flex:none; background:none; border:1px solid var(--edge); color:var(--dust); font:inherit;
-  font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px;
+  font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px;
   border-radius:4px; cursor:pointer; transition:color .15s ease, border-color .15s ease, transform .13s ease}
 .tbtn:hover{color:var(--parchment); border-color:var(--dust); transform:translateY(-1px)}
 .tbtn:active{transform:translateY(0) scale(.98)}
-.classnotes{margin:18px 0 0; padding:12px 14px; border:1px solid var(--edge); border-radius:4px; background:var(--slate)}
-.classnotes h3{margin:0 0 6px; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--dim); font-weight:600}
-.classnotes p{margin:3px 0; color:var(--dust); font-size:12px}
-.credit{margin:10px 2px 0; color:var(--dim); font-size:11.5px; font-style:italic}
-.why{grid-column:2 / -1; margin:5px 0 2px 44px; padding:7px 10px; border-left:2px solid var(--edge);
-  background:rgba(255,255,255,.025); border-radius:0 4px 4px 0;
-  color:var(--dust); font-size:11.5px; line-height:1.55; font-style:normal; max-width:78ch}
-.why b{color:var(--parchment); font-weight:600; letter-spacing:.02em}
-.why a{color:#8ab4f8; text-decoration:none; border-bottom:1px dotted rgba(138,180,248,.5)}
-.why a:hover{border-bottom-style:solid}
-.why a ins, .why a del, .why a span[class*="icon"]{display:none !important}
+/* Buff worth: one row a buff, its bar scaled to the largest row. A hatched bar
+   is the spec's own cast. The Consumables row opens its component rows. */
+.buffworth .chead h3{color:var(--cc,var(--parchment))}
+.bwall{color:var(--dust); font-size:12px; text-decoration:none; white-space:nowrap}
+.bwall:hover{color:var(--parchment); text-decoration:underline}
+#buffworthlines{display:grid; gap:4px}
+.buffworth .cline{display:grid; grid-template-columns:150px minmax(0,1fr) 54px 62px 80px; gap:0 10px; align-items:center; font-size:12.5px}
+.buffworth .cline > b{font-weight:500; color:var(--parchment); display:flex; flex-direction:column; min-width:0; line-height:1.3}
+.buffworth .cline > b .bwnote{color:var(--dim); font-size:11.5px; font-weight:400}
+.buffworth .cline > b .bwnote:empty{display:none}
+.buffworth .bwbar{position:relative; height:9px; background:#1e2433; border-radius:2px; overflow:hidden}
+.buffworth .bwbar i{position:absolute; inset:0 auto 0 0; width:var(--w); background:var(--cc); border-radius:2px}
+.buffworth .bwbar i.own{background:repeating-linear-gradient(135deg, var(--cc) 0 5px, transparent 5px 8px)}
+.buffworth .bwval{color:var(--parchment); font-weight:500; text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+.buffworth .bwpct{color:var(--dim); text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap; font-size:12.5px}
+.buffworth .bwtag{border:1px solid rgba(255,255,255,.22); border-radius:8px; padding:0 6px; color:var(--dust);
+  font-size:10px; letter-spacing:.06em; text-transform:uppercase; cursor:help; justify-self:start; white-space:nowrap}
+.buffworth .bwtag:empty{border:0}
+.buffworth .cline.bwsub{display:none}
+#buffworthlines.cmpopen .cline.bwsub{display:grid}
+.buffworth .bwhead{cursor:pointer}
+.buffworth .bwtoggle{font:inherit; letter-spacing:inherit; text-transform:inherit; color:inherit; text-align:left;
+  background:none; border:0; padding:0; margin:0; cursor:pointer}
+.buffworth .bwtoggle:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+.buffworth .bwhead .bwtoggle::before{content:"\25B8 "; color:var(--dust)}
+#buffworthlines.cmpopen .bwhead .bwtoggle::before{content:"\25BE "}
+.buffworth .cline.bwsub > b{font-weight:400; color:var(--dust); padding-left:14px; position:relative}
+.buffworth .cline.bwsub > b::before{content:"\2514"; position:absolute; left:2px; color:var(--dim)}
+.buffworth .cline.bwsub .bwval{color:var(--dust); font-weight:400}
+.buffworth .cline.bwsub .bwbar i{opacity:.55}
+.bwkey{margin:10px 0 0; color:var(--dim); font-size:11.5px; line-height:1.5}
+.bwkey b{color:var(--dust); font-weight:600; font-size:10px; letter-spacing:.06em;
+  text-transform:uppercase}
+.classnotes{margin:18px 0 0; padding:12px 14px; border:1px solid var(--edge); border-radius:6px; background:var(--slate)}
+.classnotes h3{margin:0 0 6px; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--dim); font-weight:600}
+.classnotes p{margin:3px 0; color:var(--dust); font-size:12.5px}
+.credit{margin:10px 2px 0; color:var(--dim); font-size:12px; font-style:italic}
+
+/* ---------- key, actions ---------- */
+/* Under the list: one line per kind of badge the list carries, in the words
+   of the hover tooltips, for a screen with no hover. */
+.key{margin:10px 2px 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:5px 18px;
+  color:var(--dim); font-size:12px}
+.key[hidden]{display:none}
+.key li{display:flex; align-items:baseline; gap:7px; min-width:0}
+.key .hm, .key .vtag{margin-left:0; flex:none}
 .actions{margin-top:16px; display:flex; gap:10px; align-items:center}
 .btn{
-  font:inherit; font-size:12px; cursor:pointer; border-radius:3px;
+  font:inherit; font-size:12.5px; cursor:pointer; border-radius:4px;
   color:var(--parchment); background:var(--slate); border:1px solid var(--edge); padding:6px 14px;
 }
 .btn:hover{border-color:var(--dust)}
-#copymsg{color:var(--confirmed); font-size:11.5px; opacity:0; transition:opacity .2s}
+#copymsg{color:var(--confirmed); font-size:12px; opacity:0; transition:opacity .2s}
 #copyout{
   display:none; width:100%; margin-top:10px; min-height:180px;
   background:var(--void); color:var(--dust); border:1px solid var(--edge);
-  border-radius:3px; font:inherit; font-size:11.5px; padding:10px;
+  border-radius:4px; font:inherit; font-family:var(--mono); font-size:12px; padding:10px;
 }
 
 /* ---------- overview of all specs ---------- */
 /* Every listed spec on the three lists, one row a spec (ruling D36,
    2026-10-13). While it is up, it is all that main shows. Numbers stand in
    one column per list: the place before a number has a fixed width, and so
-   has the slot after it, which holds the star of an effective number. The
-   first column is never under 176 px, the longest name ("Devourer Demon
-   Hunter", "Beast Mastery Hunter") with its dot. */
+   has the slot after it, which holds the star of an effective number. */
 main.ov > :not(#overview):not(#buffs){display:none !important}
 .overview[hidden], .buffs[hidden]{display:none}
-/* ---------- buff worth, every spec ---------- */
-/* One chart a buff (ruling 2026-10-28): the specs as bars in their class
-   colour, longest first, the way bloodmallet draws a buff. A hatched bar is
-   the spec's own cast; a dash, a spec the buff was never measured on.     */
-.bwctl{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin:0 0 12px}
-.bwctl .lbl{color:var(--dim); font-size:10.5px; text-transform:uppercase; letter-spacing:.09em}
-.bwctl .hbtn{margin:0}
-.bwcharts{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap:16px; max-width:1100px}
-.bwchart{background:var(--slate); border:1px solid var(--edge); border-radius:4px; padding:12px 14px 10px; min-width:0}
-.bwchart h3{margin:0 0 10px; font-size:13.5px; font-weight:600; letter-spacing:.02em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; font-family:var(--mono); color:var(--parchment)}
-.bwchart h3 small{color:var(--dim); font-size:11px; font-weight:400}
-.bwrows{display:grid; gap:3px; --lab:160px}
-.bwrow{display:grid; grid-template-columns:var(--lab) minmax(0,1fr) 6.5ch; align-items:center; gap:8px; font-size:12px}
-.bwrow .nm{display:flex; align-items:center; gap:7px; min-width:0; color:var(--dust); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-decoration:none}
-.bwrow .nm:hover b{text-decoration:underline}
-.bwrow .nm .dot{width:8px; height:8px; border-radius:2px; background:var(--cc); flex:0 0 8px}
-.bwrow .nm b{font-weight:500; color:var(--parchment)}
-.bwrow .nm small{font-size:11px}
-.bwrow .bar{position:relative; height:14px; background:var(--slate2); border-radius:2px; overflow:hidden}
-.bwrow .bar i{position:absolute; inset:0 auto 0 0; width:var(--w); background:var(--cc); opacity:.85; border-radius:2px}
-.bwrow .bar i.own{background:repeating-linear-gradient(135deg, var(--cc) 0 6px, transparent 6px 9px)}
-.bwrow .v{font-size:11px; color:var(--parchment); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
-.bwrow.missing .bar{background:transparent}
-.bwrow.missing .v{color:var(--dim)}
-.bwkeyall{display:flex; flex-wrap:wrap; gap:6px 16px; color:var(--dim); font-size:11px; margin:14px 2px 0}
-.bwkeyall i{display:inline-block; width:14px; height:9px; vertical-align:middle; margin-right:6px; background:repeating-linear-gradient(135deg, var(--dust) 0 4px, transparent 4px 6px)}
-.buffworth .chead{flex-direction:row; align-items:center; gap:12px; margin:0 0 8px}
-.buffworth .chead h3{flex:1; margin:0}
-.bwall{color:var(--dust); font-size:11px; text-decoration:none; white-space:nowrap}
-.bwall:hover{color:var(--parchment); text-decoration:underline}
-@media (max-width:520px){ .bwrows{--lab:112px} .bwrow .nm small{display:none} }
-@media (prefers-reduced-motion:no-preference){ .bwrow .bar i{transition:width .3s ease} }
-.ovhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin:0 0 6px}
-.ovhead h2{margin:0; font-family:var(--display); font-weight:600; font-size:clamp(17px,2.6vw,22px);
+.ovhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin:0 0 10px}
+.ovhead h2{margin:0; font-family:var(--display); font-weight:600; font-size:clamp(20px,2.6vw,26px);
   letter-spacing:.03em; color:var(--parchment)}
-.ovhead span{color:var(--dust); font-size:11.5px}
-.ovt{border:1px solid var(--edge); border-radius:4px; overflow:hidden; max-width:860px}
+.ovhead span{color:var(--dust); font-size:12.5px}
+.ovt{border:1px solid var(--edge); border-radius:6px; overflow:hidden; max-width:860px}
 .ovr{display:grid; grid-template-columns:minmax(176px,1.7fr) repeat(4, minmax(0,1fr)); align-items:center; gap:0 12px;
-  padding:5px 14px; border-bottom:1px solid var(--edge); background:var(--slate)}
+  padding:6px 14px; border-bottom:1px solid var(--edge); background:var(--slate)}
 .ovr:nth-child(even){background:var(--slate2)}
 .ovr:last-child{border-bottom:0}
 .ovr.head{background:var(--void); padding:8px 14px}
@@ -495,7 +473,7 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 .ovr:not(.head):hover{background:rgba(255,255,255,.03)}
 .ovr > [role="cell"], .ovr > [role="columnheader"]{justify-self:end; min-width:0}
 .ovr > [role="columnheader"]:first-child{justify-self:start}
-.ovh{font:inherit; font-size:10.5px; text-transform:uppercase; letter-spacing:.09em; color:var(--dim); background:none;
+.ovh{font:inherit; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--dim); background:none;
   border:0; padding:0; cursor:pointer; white-space:nowrap}
 .ovr > [role="columnheader"]:not(:first-child) .ovh{padding-right:9px}
 .ovh:hover, .ovh.on{color:var(--parchment)}
@@ -503,38 +481,54 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 .ovh:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
 .ovspec{display:flex; align-items:baseline; gap:9px; min-width:0}
 .ovspec .dot{width:9px; height:9px; border-radius:2px; background:var(--cc); flex:0 0 9px; align-self:center}
-.ovspec b{color:var(--parchment); font-weight:500; font-size:13px; white-space:nowrap}
-.ovspec small{color:var(--dim); font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.ovspec b{color:var(--parchment); font-weight:500; font-size:13.5px; white-space:nowrap}
+.ovspec small{color:var(--dim); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 /* The link is a little taller than its text, for a finger; the row is not. */
 .ovn{display:inline-flex; align-items:baseline; color:var(--dust); text-decoration:none; font-size:13px;
-  font-variant-numeric:tabular-nums; white-space:nowrap; padding:3px 0; margin:-3px 0; transition:color .15s ease}
+  font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap; padding:3px 0; margin:-3px 0; transition:color .15s ease}
 .ovn:hover{color:var(--parchment); text-decoration:underline}
 .ovn.sorted{color:var(--cc); font-weight:600}
 .ovn:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
-.ovn .rk{color:var(--dim); font-size:10.5px; font-weight:400; min-width:2ch; text-align:right; margin-right:9px}
-.ovn .ef{flex:0 0 9px; padding-left:2px; color:#e0a53f; font-style:normal; font-weight:600; font-size:12px; text-align:left}
-.ovnote{color:var(--dim); font-size:11.5px; margin:10px 2px 0; font-style:italic; max-width:860px}
-.ovnote b{color:#e0a53f; font-style:normal}
-
-/* ---------- key ---------- */
-/* Under the list: one line per kind of badge the list carries. Under Buff
-   worth: what its tags mean. Both say what the hover tooltips say, for a
-   screen with no hover. */
-.key{margin:10px 2px 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:5px 18px;
-  color:var(--dim); font-size:11.5px}
-.key[hidden]{display:none}
-.key li{display:flex; align-items:baseline; gap:7px; min-width:0}
-.key .hm, .key .vtag{margin-left:0; flex:none}
-.bwkey{margin:8px 0 0; color:var(--dim); font-size:11px; line-height:1.5}
-.bwkey b{color:var(--dust); font-weight:600; font-size:9.5px; letter-spacing:.06em;
-  text-transform:uppercase}
+.ovn .rk{color:var(--dim); font-size:11px; font-weight:400; min-width:2ch; text-align:right; margin-right:9px}
+.ovn .ef{flex:0 0 9px; padding-left:2px; color:var(--amber); font-style:normal; font-weight:600; font-size:12px; text-align:left}
+.ovnote{color:var(--dim); font-size:12px; margin:10px 2px 0; max-width:860px}
+.ovnote b{color:var(--amber); font-style:normal}
+/* ---------- buff worth, every spec ---------- */
+/* One chart a buff (ruling 2026-10-28): the specs as bars in their class
+   colour, longest first, the way bloodmallet draws a buff. A hatched bar is
+   the spec's own cast; a dash, a spec the buff was never measured on.     */
+.bwctl{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin:0 0 12px}
+.bwctl .lbl{color:var(--dim); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em}
+.bwctl .hbtn{margin:0}
+.bwcharts{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap:16px; max-width:1100px}
+.bwchart{background:var(--slate); border:1px solid var(--edge); border-radius:6px; padding:12px 14px 10px; min-width:0}
+.bwchart h3{margin:0 0 10px; font-size:14px; font-weight:600; letter-spacing:.01em; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; color:var(--parchment)}
+.bwchart h3 small{color:var(--dim); font-size:12px; font-weight:400}
+.bwrows{display:grid; gap:3px; --lab:160px}
+.bwrow{display:grid; grid-template-columns:var(--lab) minmax(0,1fr) 6.5ch; align-items:center; gap:8px; font-size:12.5px}
+.bwrow .nm{display:flex; align-items:center; gap:7px; min-width:0; color:var(--dust); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-decoration:none}
+.bwrow .nm:hover b{text-decoration:underline}
+.bwrow .nm .dot{width:8px; height:8px; border-radius:2px; background:var(--cc); flex:0 0 8px}
+.bwrow .nm b{font-weight:500; color:var(--parchment)}
+.bwrow .nm small{font-size:12px}
+.bwrow .bar{position:relative; height:14px; background:#1e2433; border-radius:2px; overflow:hidden}
+.bwrow .bar i{position:absolute; inset:0 auto 0 0; width:var(--w); background:var(--cc); opacity:.85; border-radius:2px}
+.bwrow .bar i.own{background:repeating-linear-gradient(135deg, var(--cc) 0 6px, transparent 6px 9px)}
+.bwrow .v{font-size:12px; color:var(--parchment); font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
+.bwrow.missing .bar{background:transparent}
+.bwrow.missing .v{color:var(--dim)}
+.bwkeyall{display:flex; flex-wrap:wrap; gap:6px 16px; color:var(--dim); font-size:12px; margin:14px 2px 0}
+.bwkeyall i{display:inline-block; width:14px; height:9px; vertical-align:middle; margin-right:6px; background:repeating-linear-gradient(135deg, var(--dust) 0 4px, transparent 4px 6px)}
+@media (max-width:520px){ .bwrows{--lab:112px} .bwrow .nm small{display:none} }
+@media (prefers-reduced-motion:no-preference){ .bwrow .bar i{transition:width .3s ease} }
 
 /* ---------- motion ---------- */
 .row{transition:background-color .16s ease}
 .row:hover{background:rgba(255,255,255,.03)}
 .row.head{transition:none}
-.item a, .gems a, .ench a{transition:color .15s ease, filter .15s ease}
+.item a, .gems a, .ench a{transition:color .15s ease, filter .15s ease, border-color .15s ease}
 .item a:hover, .gems a:hover{filter:brightness(1.16)}
+.gems a:hover, .ench a:hover{border-color:var(--dust)}
 .item a span[class*="icon"], .gems a span[class*="icon"]{
   transition:transform .18s cubic-bezier(.2,.8,.36,1.15);
 }
@@ -544,10 +538,6 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 .item a:hover span[class*="icon"] ins{transform:scale(1.1)}
 .cls, .tab, .btn, #sortsel{transition:background-color .15s ease, color .15s ease,
   border-color .15s ease, transform .13s ease, box-shadow .18s ease}
-.tab:hover{transform:translateY(-1px)}
-.tab:active{transform:translateY(0) scale(.98)}
-.cls:hover{transform:translateX(2px)}
-.cls:active{transform:translateX(2px) scale(.985)}
 .btn:hover{transform:translateY(-1px); box-shadow:0 3px 10px -4px rgba(0,0,0,.7)}
 .btn:active{transform:translateY(0) scale(.98)}
 @media (prefers-reduced-motion: no-preference){
@@ -561,91 +551,66 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 }
 
 /* ---------- responsive ---------- */
-/* Two columns need about 900 px beside the class list: the stat panel takes
-   438, a consumable line up to 320 and a Buff worth row with its note about
-   460. Below that the four panels stack. From 861 to about 1000 px the two
-   columns used to push every view past the right edge, and to 1100 on the
-   All-Time tab. */
+/* The panels band goes to one column at 1180 px, the stat panel first: beside
+   the 236 px rail and the 430 px stat panel, a narrower window leaves the
+   right column under the 390 px a Buff worth row needs. */
 @media (max-width:1180px){
-  .paneline, .paneline.wbw{grid-template-columns:minmax(0,1fr)}
-  .paneline > .statpanel, .paneline.wbw > .statpanel,
-  .paneline > .consum, .paneline > .talents, .paneline > .buffworth{grid-column:1; grid-row:auto}
+  .paneline{grid-template-columns:minmax(0,1fr)}
+  .paneline > .statpanel, .paneline > .consum, .paneline > .talents, .paneline > .buffworth{grid-column:1; grid-row:auto}
 }
 /* Stacked and wider than a phone, the stat panel keeps its labels beside the
    chart instead of at the two ends of a 900 px card. */
 @media (min-width:521px) and (max-width:1180px){
   .statpanel{grid-template-columns:minmax(0,200px) auto minmax(0,200px); justify-content:center}
 }
-/* On a phone a Buff worth row is name, DPS, percent and tag, set a little
-   tighter so the longest name (Bloodlust (Drums)) fits a 360 px screen; its
-   note takes a line of its own. Consumables go one to a row, icons in line. */
-@media (max-width:520px){
-  #buffworthlines{grid-template-columns:minmax(0,1fr) max-content max-content max-content; gap:3px 6px}
-  .buffworth .cline > b{white-space:normal; letter-spacing:.02em; margin-right:0}
-  .buffworth .cline > small{margin-left:0}
-  .buffworth .bwtag{padding:0 5px; letter-spacing:.03em}
-  .buffworth .cline > .bwnote{grid-column:1 / -1; margin:-3px 0 3px}
-  .buffworth .cline.bwsub > .bwnote{padding-left:14px}
-  .buffworth .cline > .bwnote:empty{display:none}
-  #consumlines .cline{flex:1 0 100%}
-  #consumlines .cline b{min-width:50px}
-  #consumlines .cline.cont{padding-left:55px}
-}
-/* Below 350 px the tag goes: a name would otherwise run into its number. */
-@media (max-width:350px){
-  #buffworthlines{grid-template-columns:minmax(0,1fr) max-content max-content}
-  .buffworth .bwtag{display:none}
-}
+/* At 860 px and below the rail keeps its switch and Order row, and the class
+   list is one strip that scrolls sideways, each class a chip. */
 @media (max-width:860px){
   .layout{display:block}
-  .side{width:auto; flex:none; display:block; border-right:0}
+  .side{width:auto; flex:none; display:block; border-right:0; border-bottom:1px solid var(--edge)}
   .viewtoggle{margin:12px 12px 2px}
-  .viewtoggle button{font-size:12px; padding:7px 8px}
-  .sortrow{padding:10px 12px}
-  .classrow{display:flex; padding:10px 12px}
-  nav{display:none}
+  .viewtoggle button{padding:7px 8px}
+  .sortrow{padding:10px 12px; border-bottom:0}
+  nav{display:flex; gap:6px; padding:2px 12px 12px; overflow-x:auto; overflow-y:hidden; scrollbar-width:thin}
+  .cls{width:auto; flex:none; gap:0 9px; padding:6px 10px 6px 0; border:1px solid var(--edge); border-radius:6px;
+    background:var(--slate); overflow:hidden}
+  .cls .bar{border-radius:0}
+  .cls:hover, .cls.on{background:var(--slate2)}
+  .cls.on{border-color:var(--cc)}
+  .cls .who{line-height:1.25}
   main{padding:16px 14px 40px}
   .statpanel{gap:0 10px; padding:12px}
   .statweb{width:104px; height:104px}
-  .consum{gap:5px 10px}
-  .consum .tbtn{margin-left:0; flex:1 0 100%; order:9}
   .statcell .pct{font-size:14px}
-  .talents{flex-wrap:wrap; gap:6px}
-  .talents code{flex:1 0 100%; order:3}
 }
-/* Gear rows stack below 701 px, and a row then reads top to bottom: slot,
-   item, its level and source, its enchant, its gems by name, the note, the
-   alternates. Nothing the table shows is left out (ruling M1 and M2,
-   2026-10-11: a phone used to get no enchant at all and gems as icons with
-   no name). The enchant has no column head here, so it carries its own
-   label. From 701 px up the four-column table fits, so an upright tablet
-   (744 or 768 px) and a narrow desktop window get the table. */
+/* At 700 px and below the number sits under the name, the tabs stack as
+   rows, a gear row stacks (slot, item, chips), and a Buff worth row is name,
+   DPS and percent. Nothing the table shows is left out (rulings M1 and M2,
+   2026-10-11). From 701 px up the three-column table fits, so an upright
+   tablet (744 or 768 px) and a narrow desktop window get the table. */
 @media (max-width:700px){
-  .row{grid-template-columns:minmax(0,1fr); gap:2px 0; padding:9px 12px}
+  .spec-head{flex-direction:column; gap:6px}
+  .spec-head .shtext{flex:none; width:100%}
+  .dpsbig{margin-left:0; justify-content:flex-start}
+  .dpsbig b{font-size:34px}
+  .tabs{display:flex; flex-direction:column; width:100%}
+  .tab{justify-content:space-between; border-left:0; border-top:1px solid var(--edge)}
+  .tab:first-child{border-top:0}
+  .row{grid-template-columns:minmax(0,1fr); gap:3px 0; padding:9px 12px}
   .row.head{display:none}
-  .slot{font-size:10.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--dim)}
-  .note{order:1}
-  .ench{order:2; padding-left:44px}
-  .ench:empty, .gems:empty{display:none}
-  .ench:not(:empty)::before{content:"Enchant"; margin-right:8px; color:var(--dim); font-weight:600;
-    font-size:10px; letter-spacing:.07em; text-transform:uppercase}
-  .gems{order:3; padding-left:44px}
-  /* A gem's icons and its name stay on one line; on a 320 px screen a long
-     name wraps beside the icons instead of dropping under them. */
-  .gemgrp{padding:1px 0; flex-wrap:nowrap}
-  .why{order:4; margin-left:0; max-width:none}
-  .alts{order:5; padding-left:44px}
-  .note, .why, .alts{grid-column:1}
-}
-/* Where the gear rows stack, so do these two. The panel sets each term over
-   its text. A row of the overview is the spec on a line of its own with its
-   four numbers under it, each under its list's head: beside the name there
-   is no room for four numbers with their places. */
-@media (max-width:700px){
+  .slot{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--dim)}
+  .setup{padding-left:48px}
+  .why{margin-left:0; max-width:none}
+  .alts{padding-left:48px}
+  .why, .alts{grid-column:1}
+  .buffworth .cline{grid-template-columns:minmax(0,1fr) 54px 62px}
+  .buffworth .bwbar, .buffworth .bwtag{display:none}
   .howto{padding:14px 14px 16px}
   .howto dl{grid-template-columns:minmax(0,1fr); gap:1px 0}
   .howto dd{margin-bottom:8px}
   .howto dd:last-child{margin-bottom:0}
+  /* A row of the overview is the spec on a line of its own with its numbers
+     under it, each under its list's head. */
   .ovr{grid-template-columns:repeat(4, minmax(0,1fr)); gap:2px 4px; padding:7px 10px 8px}
   .ovr.head{padding:8px 10px}
   .ovr.head > [role="columnheader"]:first-child{grid-column:1 / -1; margin-bottom:4px}
@@ -653,15 +618,16 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 }
 @media (max-width:520px){
   .ovn{font-size:12.5px}
-  .ovn .rk{font-size:10px; margin-right:6px}
-  .ovh{font-size:9.5px; letter-spacing:.03em}
+  .ovn .rk{margin-right:6px}
+  .ovh{letter-spacing:.03em}
 }
 @media (max-width:350px){
   .ovn{font-size:12px}
   .ovn .rk{margin-right:4px; min-width:0}
-  .ovh{font-size:9px; letter-spacing:0}
+  .ovh{letter-spacing:0}
+  .buffworth .cline{grid-template-columns:minmax(0,1fr) 50px 56px; gap:0 6px}
 }
-.tab:focus-visible,.cls:focus-visible,.btn:focus-visible,.item a:focus-visible{
+.tab:focus-visible,.cls:focus-visible,.btn:focus-visible,.item a:focus-visible,.gems a:focus-visible,.ench a:focus-visible{
   outline:2px solid var(--epic); outline-offset:2px;
 }
 </style>
@@ -675,6 +641,7 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
 
 <a class="skip" id="skiplink" href="#main">Skip to the list</a>
 <header>
+ <div class="wrap">
   <h1><span class="thirty">FATE</span> · BiS COMPENDIUM</h1>
   <span class="meta" id="metaline"></span>
   <div class="hbtns">
@@ -682,8 +649,10 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
     <button type="button" class="hbtn" id="ovbtn" aria-pressed="false" aria-label="Overview of all specs" title="All specs on the three lists, in one table">All specs</button>
     <button type="button" class="hbtn" id="bwbtn" aria-pressed="false" aria-label="Buff worth, every spec" title="What each buff adds, every spec in one chart">Buff worth</button>
   </div>
+ </div>
 </header>
 <section class="howto" id="howto" aria-labelledby="howtohead" hidden>
+ <div class="wrap">
   <h2 id="howtohead">How to read this</h2>
   <dl>
     <dt>Numbers</dt>
@@ -699,9 +668,10 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
     <dt>Contact</dt>
     <dd>Found a mistake? Reach Fate in game (NA-Thrall) or on Discord.</dd>
   </dl>
+ </div>
 </section>
 
-<div class="layout">
+<div class="layout wrap">
   <aside class="side">
   <div class="viewtoggle" id="viewtoggle" role="group" aria-label="Spec view"><button type="button" data-view="best" class="on" aria-pressed="true">Best per class</button><button type="button" data-view="all" aria-pressed="false">All specs</button></div>
   <div class="sortrow">
@@ -710,10 +680,6 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
       <option value="dps">DPS</option>
       <option value="alpha">A–Z</option>
     </select>
-  </div>
-  <div class="classrow">
-    <label class="sortlabel" for="classsel">Class</label>
-    <select id="classsel" aria-label="Class"></select>
   </div>
   <nav id="rail" aria-label="Classes"></nav>
   </aside>
@@ -724,22 +690,20 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
     <div class="tabs" id="tabs" role="tablist"></div>
     <div class="builds" id="builds" hidden></div>
     <p class="constraint" id="constraint"></p>
-    <p class="profs" id="profs" hidden></p>
     <div class="paneline" id="paneline">
       <div class="statpanel" id="statpanel" hidden></div>
-      <div class="consum" id="consum" hidden>
-        <div class="chead"><h3>Consumables</h3><small id="consumnote" hidden>Not included in the DPS shown</small></div>
-        <span id="consumlines"></span>
-        <button class="tbtn" id="consumcopy">Copy SimC</button>
+      <div class="consum card" id="consum" hidden>
+        <div class="chead"><h3>Consumables</h3><button class="tbtn" id="consumcopy">Copy SimC</button></div>
+        <small class="cnote" id="consumnote" hidden>Not included in the DPS shown</small>
+        <div id="consumlines"></div>
       </div>
-      <div class="talents" id="talents" hidden>
-        <h3>Talent string</h3>
+      <div class="talents card" id="talents" hidden>
+        <div class="chead"><h3>Talent string</h3><button class="tbtn" id="talentcopy">Copy</button></div>
         <code id="talentstr"></code>
-        <button class="tbtn" id="talentcopy">Copy</button>
       </div>
-      <div class="consum buffworth" id="buffworth" hidden>
+      <div class="buffworth card" id="buffworth" hidden>
         <div class="chead"><h3 title="What each buff added to the Full buffed profile of record on Raidbots (2026-10): that number minus the same input re-run with the buff removed. Kept as information since the move to BracketSim on 2026-10-22.">Buff worth</h3><a class="bwall" href="#buff-worth" title="The same buffs across every spec, one chart a buff">all specs &rsaquo;</a></div>
-        <span id="buffworthlines"></span>
+        <div id="buffworthlines"></div>
         <p class="bwkey" id="bwkey"></p>
       </div>
     </div>
@@ -2782,16 +2746,10 @@ function renderRail(){
     b.classList.toggle("on", on);
     b.setAttribute("aria-pressed", String(on));
   }
-  const cur = entryOf(state.cls);
-  $("classsel").innerHTML = (state.ov ? '<option value="">'+(state.page === "buffs" ? "Buff worth" : "All specs")+'</option>' : "") + sortedClasses().map(c =>
-    '<option value="'+c.id+'">'+esc(c.name)+" \u2014 "+esc(specOf(c))+"</option>"
-  ).join("")
-    + (cur && cur.hidden ? '<option value="'+cur.id+'">'+esc(cur.name)+" \u2014 "+esc(specOf(cur))+" (preview)</option>" : "");
-  $("classsel").value = state.ov ? "" : state.cls;
   $("rail").innerHTML = sortedClasses().map(c => {
     const on = !state.ov && c.id === state.cls ? " on" : "";
     return '<button class="cls'+on+'"'+(on ? ' aria-current="true"' : '')+' style="--cc:'+c.color+'" data-cls="'+c.id+'">'
-      + '<span class="dot"></span>'
+      + '<span class="bar"></span>'
       + '<span class="who">'+esc(c.name)+'<small>'+esc(specOf(c))
         + (specVaries(c) ? '<i class="specvar" title="This class uses a different spec on some lists">\u2217</i>' : "")
         + '</small></span>'
@@ -2799,6 +2757,15 @@ function renderRail(){
           + (effOf(c) ? '<i class="eff" title="'+esc(effOf(c).tip)+'"> eff</i>' : '')+'</span>' : "")
       + '</button>';
   }).join("");
+  // Where the list is a strip (860 px and below), the current class is
+  // brought into view when it is not already: on arrival, and after Back,
+  // Forward or a typed address.
+  const nav = $("rail"), cur = nav.querySelector(".cls.on");
+  if(cur && nav.scrollWidth > nav.clientWidth){
+    const l = cur.offsetLeft - nav.offsetLeft, r = l + cur.offsetWidth;
+    if(l < nav.scrollLeft || r > nav.scrollLeft + nav.clientWidth)
+      nav.scrollLeft = l - (nav.clientWidth - cur.offsetWidth) / 2;
+  }
 }
 
 /* Professions a list assumes, read from its own rows (ruling D2, 2026-10-11).
@@ -2941,16 +2908,10 @@ function gemLinks(e){
     const n    = g.n || 1;
     const q    = g.q ? " quality-"+g.q : "";
     const href = "https://www.wowhead.com/item="+g.id;
-    // One icon per socket. Empty leading anchors render icon-only; the last
-    // carries the name. Socket count has to be readable at a glance.
-    let out = '<span class="gemgrp">';
-    for(let k=0;k<n-1;k++){
-      out += '<a class="gicon'+q+'" href="'+href+'" target="_blank" rel="noopener" '
-           + 'aria-hidden="true" tabindex="-1" title="'+esc(g.name)+'"></a>';
-    }
-    out += '<a class="gname'+q+'" href="'+href+'" target="_blank" rel="noopener">'
-         + esc(g.name) + (n>1 ? " \u00d7"+n : "") + '</a></span>';
-    return out;
+    // One chip a kind of gem: its icon, its name and the count when above
+    // one (ruling 2026-10-29; until then every socket drew its own icon).
+    return '<a class="gname'+q+'" href="'+href+'" target="_blank" rel="noopener">'
+         + esc(g.name) + (n>1 ? ' <b>\u00d7'+n+'</b>' : "") + '</a>';
   }).join("");
 }
 
@@ -3018,13 +2979,13 @@ function consumHtml(c){
     if(k === "oil"){
       const parts = oilParts(c.oil);
       if(!parts.length) return "";
-      // Weapon buffs always start their own row, however many hands are listed.
-      return '<span class="cbreak"></span>' + parts.map((e,i) =>
-        '<span class="cline'+(i ? " cont" : "")+'">'+(i ? "" : '<b>'+label+'</b>')+whLink(e)+vTag(e)
-        + ' <small>'+esc(e.hand)+'</small></span>').join("");
+      // A weapon buff a hand: the second line carries no label.
+      return parts.map((e,i) =>
+        '<span class="cline'+(i ? " cont" : "")+'"><b>'+(i ? "" : label)+'</b><span class="cv">'+whLink(e)+vTag(e)
+        + ' <small>'+esc(e.hand)+'</small></span></span>').join("");
     }
     const e = c[k]; if(!e || !e.item) return "";
-    return '<span class="cline"><b>'+label+'</b>'+whLink(e)+vTag(e)+'</span>';
+    return '<span class="cline"><b>'+label+'</b><span class="cv">'+whLink(e)+vTag(e)+'</span></span>';
   }).filter(Boolean).join("");
 }
 const tokenOf = e => e.token || simcTok(e.item);
@@ -3061,10 +3022,10 @@ function fmtUpdated(iso){
 function simDateHtml(cls){
   const m = /^simmed (\d{4}-\d{2}-\d{2}) \u00b7 (.+)$/.exec((cls.prov && cls.prov[state.list]) || "");
   if(!m) return "";
-  const pending = engineOf(cls) !== "bracketsim"
-    ? ' <span class="resim" title="Number of record from the earlier engine; it stands until this list is re-run on BracketSim">re-sim pending</span>' : "";
-  return '<span class="simdate">simmed '+esc(fmtUpdated(m[1]))+' \u00b7 '+esc(m[2].replace(/^Raidbots Advanced$/, "Raidbots"))+'</span>'+pending;
+  return '<span class="simdate">simmed '+esc(fmtUpdated(m[1]))+' \u00b7 '+esc(m[2].replace(/^Raidbots Advanced$/, "Raidbots"))+'</span>';
 }
+const resimTag = cls => (dpsFor(cls) && engineOf(cls) !== "bracketsim")
+  ? '<span class="resim" title="Number of record from the earlier engine; it stands until this list is re-run on BracketSim">re-sim pending</span>' : "";
 /* The overview (ruling D36, 2026-10-13): every listed spec on the three lists,
    one row a spec. A number is the one its list shows, and it is a link to
    that list.
@@ -3173,24 +3134,39 @@ function renderMain(){
   const cls = shown();
   const lt  = LIST_TYPES.find(l => l.id === state.list);
   const eff = effOf(cls);
+  const rows = mergedList(cls, state.list);
+  const pf = profsOf(rows);
+  const base = entryOf(state.cls), builds = buildsOf(base, state.list);
 
+  // The head (ruling 2026-10-29): the names, and under them the sim date and
+  // the professions the list assumes; the number of record on the right with
+  // its list's label, and the effective, re-sim and preview tags beside it.
+  const line = [dpsFor(cls) ? simDateHtml(cls) : "",
+    pf.length ? '<span class="profs" id="profs">Professions assumed: ' + pf.map(p => '<b>'+esc(p[0])+'</b> ('+esc(p[1])+')').join('<span class="sep">\u00b7</span>') + '</span>' : ""
+  ].filter(Boolean);
   $("spechead").innerHTML =
-    '<h2 style="--cc:'+cls.color+'">'+esc(specOf(cls, state.list))+'</h2>'
-    + '<span class="clsname" style="--cc:'+cls.color+'">'+esc(cls.name)+'</span>'
-    + (dpsFor(cls) ? '<span class="dpsbadge" style="--cc:'+cls.color+'"'+(cls.prov && cls.prov[state.list] ? ' title="'+esc(cls.prov[state.list])+'"' : '')+'><b>'+dpsFor(cls).toLocaleString()+'</b> DPS</span>' : "")
+    '<div class="shtext"><h2 style="--cc:'+cls.color+'">'+esc(specOf(cls, state.list))+'</h2>'
+    + '<span class="clsname">'+esc(cls.name)+'</span>'
+    + (line.length ? '<div class="shline">'+line.join('<span class="sep">\u00b7</span>')+'</div>' : "")
+    + '</div>'
+    + '<div class="dpsbig" style="--cc:'+cls.color+'">'
+    + (dpsFor(cls) ? '<b'+(cls.prov && cls.prov[state.list] ? ' title="'+esc(cls.prov[state.list])+'"' : '')+'>'+dpsFor(cls).toLocaleString()+'</b><span class="lbl">DPS \u00b7 '+esc(lt.label)+'</span>' : "")
     + (eff ? '<button type="button" class="efftag" aria-expanded="false" title="'+esc(eff.tip)+'">effective<span class="effraw"> \u00b7 '+esc(eff.raw)+'</span></button>' : "")
-    + (dpsFor(cls) ? simDateHtml(cls) : "")
+    + resimTag(cls)
     // Ruling D6, 2026-10-11: an entry kept out of the class list (hidden:true)
     // still opens from its link, and says in the open that it is a preview.
-    + (cls.hidden ? '<span class="preview"'+(cls.prov && cls.prov[state.list] ? ' title="'+esc(cls.prov[state.list])+'"' : '')+'>Preview, number pending</span>' : "");
+    + (cls.hidden ? '<span class="preview"'+(cls.prov && cls.prov[state.list] ? ' title="'+esc(cls.prov[state.list])+'"' : '')+'>Preview, number pending</span>' : "")
+    + '</div>';
 
+  // A tab carries its list's number: the one the rail shows for that list,
+  // effective where effective, the record's and not a build's.
   $("tabs").innerHTML = LIST_TYPES.map(l =>
-    '<button class="tab'+(l.id===state.list?" on":"")+'" role="tab" aria-selected="'+(l.id===state.list)+'" data-list="'+l.id+'">'+esc(l.label)+'</button>'
+    '<button class="tab'+(l.id===state.list?" on":"")+'" role="tab" aria-selected="'+(l.id===state.list)+'" data-list="'+l.id+'">'+esc(l.label)
+    + (dpsFor(base, l.id) ? '<b>'+dpsFor(base, l.id).toLocaleString()+'</b>' : '')+'</button>'
   ).join("");
 
   $("constraint").textContent = lt.desc;
 
-  const base = entryOf(state.cls), builds = buildsOf(base, state.list);
   $("builds").hidden = !builds.length;
   if(builds.length){
     const pill = (id, label, dps, tag, on) => '<button type="button" class="build'+(on ? " on" : "")+'" data-build="'+esc(id)+'" aria-pressed="'+on+'">'
@@ -3201,16 +3177,12 @@ function renderMain(){
       + builds.map(b => pill(b.id, b.label, b.dps, b.tag || "", state.build === b.id)).join("");
   }
 
-  const rows = mergedList(cls, state.list);
-  const pf = profsOf(rows);
-  $("profs").hidden = !pf.length;
-  $("profs").innerHTML = pf.length
-    ? 'Professions assumed: ' + pf.map(p => '<b>'+esc(p[0])+'</b> ('+esc(p[1])+')').join('<span class="sep">\u00b7</span>')
-    : "";
-
   const head = '<div class="row head"><span>Slot</span><span>Item</span>'
-    + '<span>Enchant</span><span>Gems</span></div>';
+    + '<span>Enchant \u00b7 Gems</span></div>';
 
+  // A row: the slot, the item (icon, name, badges, and under the name its
+  // level and source), the setup (enchant and gems as chips); then the why
+  // line and the alternates under the item and setup columns.
   $("ledger").innerHTML = head + rows.map((e, i) => {
     let ilvlTxt = "";
     if (e.ilvl != null){
@@ -3219,10 +3191,10 @@ function renderMain(){
     const sub = [ilvlTxt, e.source?esc(e.source):""].filter(Boolean).join(" · ");
     return '<div class="row" style="--i:'+i+'">'
       + '<span class="slot">'+esc(e.slot)+'</span>'
-      + '<span class="item">'+(e.item ? whLink(e)+vTag(e) : '<span class="none">—</span>')+'</span>'
-      + '<span class="ench">'+enchLink(e)+'</span>'
-      + '<span class="gems">'+gemLinks(e)+'</span>'
-      + ((e.item && sub) ? '<span class="note">'+sub+hmBadge(e)+'</span>' : "")
+      + '<span class="item">'+(e.item ? whLink(e)+vTag(e)+hmBadge(e) : '<span class="none">—</span>')
+      + ((e.item && sub) ? '<span class="sub">'+sub+'</span>' : "")+'</span>'
+      + '<span class="setup"><span class="ench">'+enchLink(e)+'</span>'
+      + '<span class="gems">'+gemLinks(e)+'</span></span>'
       + (e.why ? '<span class="why">'+whyHtml(e.why)+'</span>' : "")
       + (e.item ? altLinks(e) : "")
       + '</div>';
@@ -3253,20 +3225,25 @@ function renderMain(){
   const bw = state.list === "alltime" ? (cls.buffWorth || null) : null;
   $("buffworth").hidden = !bw || !bw.length;
   if (bw && bw.length) $("buffworth").style.setProperty("--cc", cls.color);
+  // A row is the buff (its note under it), a bar scaled to the largest row,
+  // the DPS, the percent and the tag; a hatched bar is the spec's own cast.
+  const bwmax = bw && bw.length ? Math.max(...bw.map(b => Math.abs(b.dps || 0))) : 0;
   if (bw && bw.length) { $("buffworthlines").classList.remove("cmpopen"); $("buffworthlines").innerHTML = bw.map(b => {
     const tip = (BW_TAG[b.status] || BW_TAG.measured)[0];
     const isComp = !!(b.note && b.note.indexOf("Consumables") !== -1);
     const isHead = b.buff === "Consumables";
     let note = b.note || "";
     if (isComp) note = note.replace(/^in Consumables(, )?/, "");
+    const w = bwmax ? Math.abs(b.dps || 0) / bwmax * 100 : 0;
     return '<span class="cline'+(isComp ? ' bwsub' : '')+(isHead ? ' bwhead' : '')+'"'+(isHead ? ' title="Click to show the component split"' : '')+'><b>'
     // The head row opens the split. A real button, so it takes the keyboard and
     // says whether it is open; a click anywhere on the row still works.
-    + (isHead ? '<button type="button" class="bwtoggle" aria-expanded="false">'+esc(b.buff)+'</button>' : esc(b.buff))+'</b>'
-    + '<span class="bwval">'+(b.dps > 0 ? "+" : "")+b.dps.toLocaleString()+' DPS</span>'
-    + '<small class="bwpct">('+(b.pct > 0 ? "+" : "")+b.pct.toFixed(1)+'%)</small>'
-    + '<small class="bwtag"'+(isComp ? ' style="border:none"' : ' title="'+tip.replace(/"/g, "&quot;")+'"')+'>'+(isComp ? "" : esc(b.status))+'</small>'
-    + '<small class="bwnote">'+esc(note)+'</small>'
+    + (isHead ? '<button type="button" class="bwtoggle" aria-expanded="false">'+esc(b.buff)+'</button>' : esc(b.buff))
+    + '<small class="bwnote">'+esc(note)+'</small></b>'
+    + '<span class="bwbar"><i'+(/own cast/.test(note) ? ' class="own"' : '')+' style="--w:'+w.toFixed(1)+'%"></i></span>'
+    + '<span class="bwval">'+(b.dps > 0 ? "+" : "")+b.dps.toLocaleString()+'</span>'
+    + '<small class="bwpct">'+(b.pct > 0 ? "+" : "")+b.pct.toFixed(1)+'%</small>'
+    + '<small class="bwtag"'+(isComp ? '' : ' title="'+tip.replace(/"/g, "&quot;")+'"')+'>'+(isComp ? "" : esc(b.status))+'</small>'
     + '</span>'; }).join("");
   $("buffworthlines").onclick = e => {
     if (!(e.target.closest && e.target.closest(".bwhead"))) return;
@@ -3278,7 +3255,6 @@ function renderMain(){
   const tags = (bw || []).filter(b => !(b.note && b.note.indexOf("Consumables") !== -1)).map(b => b.status);
   $("bwkey").innerHTML = Object.keys(BW_TAG).filter(s => tags.includes(s)).map(s =>
     '<b>'+esc(s)+'</b> '+esc(BW_TAG[s][1] || BW_TAG[s][0])).join(" ");
-  $("paneline").classList.toggle("wbw", !(!bw || !bw.length));
   $("paneline").classList.toggle("solo", $("statpanel").hidden);
   $("classnotes").hidden = true; // class notes hidden for now
   const cr = cls.credits && cls.credits[state.list];
@@ -3394,10 +3370,6 @@ $("consumcopy").addEventListener("click", () => {
   const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy SimC", 1400); };
   if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(()=>{});
   else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); done(); }
-});
-$("classsel").addEventListener("change", ev => {
-  if(!ev.target.value) return;   // "All specs", the overview's own entry
-  state.cls = ev.target.value; state.ov = false; render(true);
 });
 // "How to read this" opens in place and is not a view: no address, no entry.
 $("howtobtn").addEventListener("click", () => {

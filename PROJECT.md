@@ -886,7 +886,7 @@ re-sync from upstream must not bring them back.
   "a > ins" selectors, which match nothing under Wowhead's script (live page: 0 matches
   over 109 views, every icon a span.iconmedium).
   L2, ruling: class colours stay the official ones, small text included (Death Knight 3.0
-  to 1, Demon Hunter 3.2, Shaman 3.7); a comment at .dpsbadge says so.
+  to 1, Demon Hunter 3.2, Shaman 3.7); a comment at .dpsbadge (since 2026-10-29, .dpsbig) says so.
   ROUND TWO was then checked like round one: the patched page, byte for byte this tree's
   index.html (SHA-256 compared), in Fate's browser on the live origin under the real
   Wowhead script. 109 views at ten widths from 320 to 1920 px: no sideways scroll, nothing
@@ -1622,6 +1622,45 @@ re-sync from upstream must not bring them back.
   A THIRD HELM, missed by that sweep: Fire Herald wore Mystical Skyfire where Fire's other
   three lists wear Burning Shadowspirit. The Herald gem survey found it and S20 moved it
   (patch 403, 2026-10-12): the meta gem alone reads 2905 against 2894.
+- Ledger redesign (2026-10-29, project doc claude/ledger-redesign-brief.md, patch 00245): the
+  page restyled to Fate's brief; no number, row, profile, link, talent string or export text
+  changes (the CLASSES block is byte-identical; "Copy list as text" and "Copy SimC" produce the
+  same text on all 83 views). Supersedes L1: the sizes move. Type: Plex Sans 14px for prose,
+  Plex Mono tabular for every number and string, Cinzel for the title, the spec name and the
+  card headings; uppercase labels 11px, badges and Buff worth tags 10px, nothing else under
+  12px. Palette lifted a step (--void #0c0f15 ... --dim #8691a3). The masthead's contents and
+  the rail-plus-main block sit in a 1400 px container (main's own cap goes). Rail 236 px, a row
+  a 3 px class-colour bar, class over spec, number right in mono; at 860 px and below the class
+  list is a sideways strip of chips scrolled to the current class, and the phone's <select>
+  (#classsel) is gone with it, so a hidden preview entry has no chip on a phone (it never had a
+  rail row). Spec head: names at clamp(22px,3vw,30px), the class name in --dust; under them one
+  line with the sim date and engine and the professions-assumed text (#profs now lives in the
+  head); the number of record at mono 40px in the class colour on the right (.dpsbig replaces
+  .dpsbadge), its list's label beside it, and the effective, re-sim and preview tags beside the
+  number. Tabs are one segmented control, each tab carrying its list's number of record (the
+  rail's number, effective where effective; a build does not change it). Gear table in three
+  columns, SLOT / ITEM / ENCHANT · GEMS: the icon floats left of the name and the "ilvl · source"
+  line under it (the old .note cell is gone; badges sit inline after the name), enchant and gems
+  are chips in one setup cell, one chip a kind of gem with its count (the extra icon-only anchors
+  a socket used to draw are gone), why lines and alternates span the item and setup columns.
+  Panels: a 430px + 1fr band, the stat panel on the left at its own height, centred against
+  the column, and byte-identical in its geometry, sizes, colours and face (it keeps Plex Mono
+  13.5px, the old body face); Consumables, Talent string and Buff worth are cards with a
+  heading, hairline and button row; Consumables is a label/value grid, one line a consumable,
+  the two weapon stones on two lines; Buff worth rows carry a 9px bar scaled to the largest
+  row, hatched for an own cast, with the note under the buff's name (the brief's five columns
+  have no note column; the note is kept rather than dropped). Two departures from the brief,
+  both for fit: the band goes to one column at 1180 px, not 1000 (beside the 236 px rail and
+  the 430 px panel, a 1024 px window leaves 296 px for a Buff worth row that needs 390), and
+  the masthead's 1200-1839 px rule has no upper bound now that its contents are capped at
+  1400 px. Checked: six widths (1440, 1280, 1024, 768, 390, 360) on list, build, overview and
+  Buff worth views with no sideways scroll, nothing outside its box and no script error;
+  27 checks on the accessibility tree, the keyboard (skip link, tabs, the Consumables
+  expander), history (Back and Forward), the build address, the update line and the strip's
+  scroll, at 1440 and 390; rows drawn with Wowhead hanging; the stat panel compared pixel for
+  pixel against the page before at 768 and 390 (identical but for the palette). Wowhead's icons
+  were not loaded in the sandbox (no network); the float and the 36 px icon rules are written
+  for the span.iconmedium markup the live site uses.
 
 Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
 convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
