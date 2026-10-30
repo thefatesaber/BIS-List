@@ -282,8 +282,13 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .item .sub{display:block; color:var(--dust); font-size:12.5px; margin-top:1px}
 .setup{display:flex; flex-wrap:wrap; align-items:center; gap:6px; min-width:0}
 .ench, .gems{display:contents}
-.ench a{display:inline-flex; align-items:center; color:var(--rare); text-decoration:none; font-size:12.5px;
-  border:1px solid var(--edge); border-radius:4px; padding:3px 9px; overflow-wrap:anywhere}
+/* The enchant chip says what it is: a small label before the name, and a
+   tint of its blue, where a gem chip has its icon (2026-10-29: with the
+   icons live, the two kinds of chip read the same at a glance). */
+.ench a{display:inline-flex; align-items:center; gap:7px; color:var(--rare); text-decoration:none; font-size:12.5px;
+  border:1px solid color-mix(in srgb, var(--rare) 35%, var(--edge)); background:color-mix(in srgb, var(--rare) 9%, transparent);
+  border-radius:4px; padding:3px 9px; overflow-wrap:anywhere}
+.ench a::before{content:"Enchant"; color:var(--dim); font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase}
 .ench a:hover{text-decoration:underline}
 .ench a ins, .ench a del, .ench a span[class*="icon"]{display:none !important}
 /* A gem chip: its icon, its name, and the count when above one. */
@@ -600,6 +605,7 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
   .row.head{display:none}
   .slot{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--dim)}
   .setup{padding-left:48px}
+  .ench a::before{content:"Ench"}
   .why{margin-left:0; max-width:none}
   .alts{padding-left:48px}
   .why, .alts{grid-column:1}

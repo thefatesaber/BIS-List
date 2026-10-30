@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-10-29
+- [page] An enchant chip now says "Enchant" before its name and takes a tint of its blue.
+  With Wowhead's icons live, an enchant chip and a gem chip read the same at a glance;
+  the label and the tint tell them apart. Nothing else changes.
 - [page] The page is restyled: the Ledger direction.
   Prose in Plex Sans, numbers and strings in Plex Mono; a lighter palette; the content
   centred at 1400 px. The class list is 236 px wide with a colour bar a row, and a
