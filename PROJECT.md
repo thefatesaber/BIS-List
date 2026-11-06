@@ -1750,6 +1750,11 @@ build may carry its own `consumables` when its run differs from the record's
 (Resto's Nibelung run: Flask of Distilled Wisdom); the panel shows them.
 Holy Priest and Resto Druid Nibelung reports were sent too, but those specs
 have no entry on the page, so a build has no record to sit beside; held.
+Then the weapon builds of the four Vibroblade records (Outlaw, Subtlety,
+Enhancement, Survival), 2026-11-05: the off hand (Survival's main hand)
+without Puncture Armor, one build an alternative weapon, all under the
+record by 2% to 9%; the record pill reads "Vibroblade". These answer the
+"what if I never get a Vibroblade" question the alternates used to carry.
 Spec level: `rawByList {list: N}` on a spec with effective-DPS lists — the raw
 sim result behind the list's number. The page's "effective" tag reads it, and
 validate.js holds it to the off-hand note and to `dpsByList`.

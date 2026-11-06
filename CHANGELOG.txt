@@ -7,6 +7,18 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-05
+- [page] Frost Mage All-Time re-simmed: 4,305 becomes 4,315.
+  The two rings now export with their explicit ilevel 33; the rest of the input is the
+  same, and the gain is the newer BracketSim build.
+- [page] Seven weapon builds beside the Vibroblade records: the off hand without Puncture Armor.
+  Outlaw: Night Blade 3,935, Heartrazor 3,931, Blackout Truncheon 3,853 (record 4,255).
+  Subtlety: Night Blade 2,527, Heartpierce 2,479 (record 2,565). Enhancement: Hand of the
+  Deceiver 3,258, Blackout Truncheon 3,254 (record 3,327). Survival, main hand: Heartrazor
+  4,187 (record 4,387). The record pill reads "Vibroblade". The Subtlety and Enhancement
+  builds also take Jeweled Signet of Melandrus at 47 (Timewalking, socket-proc roll) in
+  Ring 2; the Outlaw Blackout Truncheon build takes a weightstone on both hands, and its
+  Consumables panel says so. New to the page: Blackout Truncheon (Shadow Labyrinth,
+  Blackheart the Inciter) and the Melandrus ring (Court of Stars).
 - [page] Nine more All-Time lists carry a Nibelung build beside their number of record.
   Frost Mage 4,442 (+3.2% on the record), Fire 5,026 (+6.5%), Arcane 2,952 (+4.3%),
   Restoration Shaman 5,672 (+3.3%), Shadow 5,457 (+1.1%), Affliction 4,342 (+5.1%),
