@@ -7,6 +7,16 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-05
+- [page] Nine more All-Time lists carry a Nibelung build beside their number of record.
+  Frost Mage 4,442 (+3.2% on the record), Fire 5,026 (+6.5%), Arcane 2,952 (+4.3%),
+  Restoration Shaman 5,672 (+3.3%), Shadow 5,457 (+1.1%), Affliction 4,342 (+5.1%),
+  Demonology 3,667 (+7.0%), Destruction 3,839 (+3.8%), Devastation 4,295 (+1.7%). As on
+  Balance, the record stays the build without Nibelung and the pill is tagged "RNG
+  ceiling". The Restoration build ran with Flask of Distilled Wisdom where the record
+  takes Flask of Supreme Power; its Consumables panel says so. Four items are new to the
+  page: Nibelung (Icecrown Citadel, Lady Deathwhisper), Merciless Gladiator's Felweave
+  Amice and Vindicator's Silk Cuffs (legacy PvP vendors), Ritual Binder's Ring at 47
+  (Timewalking, socket-proc roll) on Fire.
 - [page] Balance Druid All-Time carries a second build, Nibelung: 3,855.
   Nibelung in the main hand with Leather Gauntlets of the Sun and a Reckless Pyrestone
   in the feet, against Abracadaver and Gloves of the Endless Dark on the record. It

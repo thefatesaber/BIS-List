@@ -1742,7 +1742,14 @@ Nibelung / Nibelung. The Nibelung build out-sims the record (3,855 against
 Val'kyr summons are RNG (the note on the record's main hand, D8), so the
 rail, the overview and the Best-class view read the consistent build and the
 Nibelung pill carries the tag "RNG ceiling". A build that out-sims its record
-is allowed; the record is the one Fate names, not the higher number.
+is allowed; the record is the one Fate names, not the higher number. The same
+evening nine more casters took a Nibelung build (every int spec on the page
+but Elemental and Augmentation): Frost, Fire and Arcane Mage, Resto Shaman,
+Shadow, the three warlocks, Devastation, +1.1% to +7.4% on their records. A
+build may carry its own `consumables` when its run differs from the record's
+(Resto's Nibelung run: Flask of Distilled Wisdom); the panel shows them.
+Holy Priest and Resto Druid Nibelung reports were sent too, but those specs
+have no entry on the page, so a build has no record to sit beside; held.
 Spec level: `rawByList {list: N}` on a spec with effective-DPS lists — the raw
 sim result behind the list's number. The page's "effective" tag reads it, and
 validate.js holds it to the off-hand note and to `dpsByList`.
