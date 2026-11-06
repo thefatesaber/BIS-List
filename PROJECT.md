@@ -1736,7 +1736,13 @@ rule a list's rows meet, lint_profiles.js matches the file to the build by
 its label, and `rebase_list.js --build <id> --label <name> [--tag <text>]
 [--record-label <name>]` puts a run on one. First: Fury, With The
 Jackhammer / With BRE (the BRE build runs Titan's Grip, a two-hander in each
-hand, which the Fury entry is allowed).
+hand, which the Fury entry is allowed). Second (2026-11-05): Balance, Without
+Nibelung / Nibelung. The Nibelung build out-sims the record (3,855 against
+3,590), and by Fate's ruling the record stays the build without it: the
+Val'kyr summons are RNG (the note on the record's main hand, D8), so the
+rail, the overview and the Best-class view read the consistent build and the
+Nibelung pill carries the tag "RNG ceiling". A build that out-sims its record
+is allowed; the record is the one Fate names, not the higher number.
 Spec level: `rawByList {list: N}` on a spec with effective-DPS lists — the raw
 sim result behind the list's number. The page's "effective" tag reads it, and
 validate.js holds it to the off-hand note and to `dpsByList`.

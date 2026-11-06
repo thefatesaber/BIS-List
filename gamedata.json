@@ -1,5 +1,5 @@
 {
-  "source": {"repo":"simulationcraft/simc","ref":"midnight","commit":"710c240","build":"12.1.5.70575"},
+  "source": {"repo":"simulationcraft/simc","ref":"midnight","commit":"d38855b","build":"12.1.5.70783"},
   "items": {
     "647": {"name":"Destiny","quality":4,"class":2,"sub":8,"inv":17,"sockets":0,"bind":2,"reqLevel":22},
     "9423": {"name":"The Jackhammer","quality":3,"class":2,"sub":5,"inv":17,"sockets":0,"bind":2,"reqLevel":15},
@@ -77,6 +77,7 @@
     "34364": {"name":"Sunfire Robe","quality":4,"class":4,"sub":1,"inv":20,"sockets":3,"bind":1,"reqLevel":27},
     "34365": {"name":"Robe of Eternal Light","quality":4,"class":4,"sub":1,"inv":20,"sockets":3,"bind":1,"reqLevel":27},
     "34370": {"name":"Gloves of Immortal Dusk","quality":4,"class":4,"sub":2,"inv":10,"sockets":2,"bind":2,"reqLevel":27},
+    "34372": {"name":"Leather Gauntlets of the Sun","quality":4,"class":4,"sub":2,"inv":10,"sockets":2,"bind":2,"reqLevel":27},
     "34373": {"name":"Embrace of the Phoenix","quality":4,"class":4,"sub":3,"inv":5,"sockets":3,"bind":1,"reqLevel":27},
     "34374": {"name":"Fletcher's Gloves of the Phoenix","quality":4,"class":4,"sub":3,"inv":10,"sockets":2,"bind":2,"reqLevel":27},
     "34375": {"name":"Sun-Drenched Scale Chestguard","quality":4,"class":4,"sub":3,"inv":5,"sockets":3,"bind":1,"reqLevel":27},
@@ -137,6 +138,7 @@
     "49982": {"name":"Heartpierce","quality":4,"class":2,"sub":15,"inv":13,"sockets":0,"bind":1,"reqLevel":30,"icc":"25n"},
     "50206": {"name":"Frayed Scoundrel's Cap","quality":4,"class":4,"sub":2,"inv":1,"sockets":2,"bind":1,"reqLevel":30},
     "50355": {"name":"Herkuml War Token","quality":4,"class":4,"sub":0,"inv":12,"sockets":0,"bind":1,"reqLevel":30},
+    "50648": {"name":"Nibelung","quality":4,"class":2,"sub":10,"inv":17,"sockets":3,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
     "50670": {"name":"Toskk's Maximized Wristguards","quality":4,"class":4,"sub":2,"inv":9,"sockets":1,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
     "50695": {"name":"Distant Land","quality":4,"class":2,"sub":10,"inv":17,"sockets":3,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},
     "50704": {"name":"Rigormortis","quality":4,"class":2,"sub":7,"inv":13,"sockets":1,"bind":1,"reqLevel":30,"heroic":true,"icc":"25h"},

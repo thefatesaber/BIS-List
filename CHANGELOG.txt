@@ -6,6 +6,15 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-11-05
+- [page] Balance Druid All-Time carries a second build, Nibelung: 3,855.
+  Nibelung in the main hand with Leather Gauntlets of the Sun and a Reckless Pyrestone
+  in the feet, against Abracadaver and Gloves of the Endless Dark on the record. It
+  out-sims the record (3,590) by 7%, but its Val'kyr summons are RNG, so by the standing
+  ruling the number of record stays the build without it; the pill is tagged "RNG
+  ceiling". Address #druid/balance/alltime/nibelung. Profile and report in list/All-time.
+- [repo] gamedata.json refreshed from simc d38855b (12.1.5.70783) for the two new items.
+
 ## 2026-10-29
 - [page] An enchant chip now says "Enchant" before its name and takes a tint of its blue.
   With Wowhead's icons live, an enchant chip and a gem chip read the same at a glance;
