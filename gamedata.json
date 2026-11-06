@@ -99,6 +99,7 @@
     "34697": {"name":"Bindings of Raging Fire","quality":3,"class":4,"sub":1,"inv":9,"sockets":1,"bind":1,"reqLevel":27},
     "34698": {"name":"Bracers of the Forest Stalker","quality":3,"class":4,"sub":3,"inv":9,"sockets":1,"bind":1,"reqLevel":27},
     "34708": {"name":"Cloak of the Coming Night","quality":3,"class":4,"sub":1,"inv":16,"sockets":0,"bind":1,"reqLevel":27},
+    "35088": {"name":"Brutal Gladiator's Scaled Chestpiece","quality":4,"class":4,"sub":4,"inv":5,"sockets":3,"bind":1,"reqLevel":27,"classes":2},
     "35760": {"name":"Reckless Pyrestone","quality":4,"class":3,"sub":10,"inv":0,"sockets":0,"bind":0,"reqLevel":0},
     "37684": {"name":"Forgotten Shadow Hood","quality":3,"class":4,"sub":1,"inv":1,"sockets":2,"bind":1,"reqLevel":30},
     "37799": {"name":"Reanimator's Cloak","quality":3,"class":4,"sub":1,"inv":16,"sockets":1,"bind":2,"reqLevel":30},
@@ -208,7 +209,6 @@
     "213500": {"name":"Masterful Onyx","quality":3,"class":3,"sub":6,"inv":0,"sockets":0,"bind":0,"reqLevel":1},
     "213743": {"name":"Culminating Blasphemite","quality":4,"class":3,"sub":9,"inv":0,"sockets":0,"bind":0,"reqLevel":1},
     "213746": {"name":"Elusive Blasphemite","quality":4,"class":3,"sub":9,"inv":0,"sockets":0,"bind":0,"reqLevel":1},
-    "231437": {"name":"Emperor's Seal","quality":4,"class":4,"sub":0,"inv":11,"sockets":0,"bind":1,"reqLevel":22},
     "231456": {"name":"Heart of Roccor","quality":4,"class":4,"sub":0,"inv":12,"sockets":0,"bind":1,"reqLevel":22}
   },
   "enchants": {

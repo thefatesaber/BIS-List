@@ -1,12 +1,12 @@
 # ============================================================================
-# Legacy Thirty BiS — All-time — Fire Mage
+# Legacy Thirty BiS — All-time — Mage Fire
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
 #                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
-# Result           : 4,721 DPS (±0.8 / 0.017%), 20015 iterations
+# Result           : 4,764 DPS (±0.9 / 0.018%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 4721 - Mage Fire.html (same folder; /r/ share links expire)
-# Simmed           : 2026-10-29 by Fate
+# Report           : 4764 - Mage Fire.html (same folder; /r/ share links expire)
+# Simmed           : 2026-11-05 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
@@ -23,7 +23,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Int 12.32 > SP 11.58 > Haste 6.94 > Vers 6.38 > Mastery 5.59 > Crit 2.99
+# Stat weights (DPS): Int 12.80 > SP 12.03 > Vers 6.55 > Haste 6.47 > Mastery 5.70 > Crit 2.95
 # ============================================================================
 
 mage="Fateccaster"
@@ -78,28 +78,28 @@ actions+=/scorch,if=target.health.pct<30|buff.heat_shimmer.up
 actions+=/fireball
 
 head=vengeful_gladiators_silk_cowl,id=33758,bonus_id=9357,ilevel=44,gem_id=68780/213743,drop_level=30
-neck=amnesia,id=200210,bonus_id=6652/8782/9156/9477,ilevel=33,gem_id=213470/32196/32196,enchant_id=5890,drop_level=30
+neck=amnesia,id=200210,bonus_id=6652/8782/9156/9477,ilevel=33,gem_id=213485/32196/32196,enchant_id=5890,drop_level=30
 shoulders=vengeful_gladiators_silk_amice,id=33757,bonus_id=9357,ilevel=44,gem_id=32196/32196,enchant_id=3838,drop_level=30
 back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=32196,enchant_id=3243,drop_level=30
 chest=robe_of_eternal_light,id=34365,bonus_id=9037,ilevel=44,gem_id=32196/32196/32196,enchant_id=6625,drop_level=30
 wrists=bracers_of_the_tempest,id=34447,bonus_id=9037,ilevel=44,gem_id=32196,enchant_id=2326,drop_level=30
 hands=handguards_of_the_dawn,id=34342,bonus_id=9037,ilevel=44,gem_id=32196/32196,enchant_id=2322,drop_level=30
 waist=belt_of_blasting,id=30038,bonus_id=9035,ilevel=40,gem_id=32196/32196/32196,drop_level=30
-legs=leggings_of_calamity,id=34181,bonus_id=9037,ilevel=44,gem_id=32196/32196/32196,enchant_id=6541,drop_level=30
-feet=boots_of_fiery_resolution,id=45135,bonus_id=9043,ilevel=43,gem_id=32196/32196,enchant_id=4069,drop_level=30
-finger1=emperors_seal,id=231437,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32196/32196,enchant_id=6109,drop_level=30
-finger2=stitchfleshs_misplaced_signet,id=178736,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32196/32196,enchant_id=6109,drop_level=30
+legs=leggings_of_calamity,id=34181,bonus_id=9037,ilevel=44,gem_id=32196/35760/35760,enchant_id=6541,drop_level=30
+feet=boots_of_fiery_resolution,id=45135,bonus_id=9043,ilevel=43,gem_id=35760/35760,enchant_id=4069,drop_level=30
+finger1=stitchfleshs_misplaced_signet,id=178736,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=35760/35760,enchant_id=6109,drop_level=30
+finger2=ritual_binders_ring,id=159459,bonus_id=6652/6710/8810/10386,ilevel=47,gem_id=35760,enchant_id=6109,drop_level=30
 trinket1=gale_of_shadows,id=56462,bonus_id=6652/6710,ilevel=33,drop_level=30
 trinket2=solace_of_the_fallen,id=47432,bonus_id=9047,ilevel=45
 main_hand=maghari_chieftains_staff,id=51898,bonus_id=9049,ilevel=45,gem_id=32196/32196/32196,enchant_id=2669,drop_level=30
 
 # Gear Summary
-# gear_ilvl=40.80
-# gear_stamina=101
-# gear_intellect=228
+# gear_ilvl=41.73
+# gear_stamina=103
+# gear_intellect=218
 # gear_spell_power=30
 # gear_crit_rating=37
-# gear_haste_rating=112
+# gear_haste_rating=140
 # gear_mastery_rating=5
-# gear_versatility_rating=111
+# gear_versatility_rating=102
 # gear_armor=48

@@ -1,12 +1,12 @@
 # ============================================================================
-# Legacy Thirty BiS — All-time — Fury Warrior
+# Legacy Thirty BiS — All-time — Fury Warrior, UTB + UTB build
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
-#                    git a95d356, WoW 12.1.5.70448 hotfix 2026-10-17
-# Result           : 5,390 DPS (±2.4 / 0.045%), 20015 iterations
+#                    git f1de415, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 4,927 DPS (±1.7 / 0.035%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 5390 - Warrior Fury.html (same folder; /r/ share links expire)
-# Simmed           : 2026-10-22 by Fate
+# Report           : 4927 - Warrior Fury - UTB + UTB.html (same folder; /r/ share links expire)
+# Simmed           : 2026-11-05 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
@@ -23,7 +23,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Wdps 54.05 > Str 12.66 > AP 12.00 > Crit 8.76 > Vers 8.52 > Mastery 8.12 > Haste 6.21
+# Stat weights (DPS): Wdps 40.25 > Str 9.52 > AP 9.02 > Mastery 8.79 > Haste 8.59 > Crit 8.53 > Vers 7.85
 # ============================================================================
 
 warrior="Kleaveland"
@@ -35,7 +35,7 @@ level=30
 race=tauren
 role=attack
 position=back
-talents=CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDGmhlxYAAYGjFMYGYMDAAEAAAAAAAAAAAAAAYA
+talents=CgEASWsDSHNyPDXnbxuIhH3ZdDAAAAAAgGDmhhlBjBAYMjFMYGYMDAAEAAAAAAAAAAAAAAYA
 
 # Default consumables
 potion=golemblood_potion
@@ -43,7 +43,7 @@ flask=flask_of_endless_rage
 elixir=disabled
 food=beerbasted_crocolisk
 augmentation=disabled
-temporary_enchant=main_hand:adamantite_sharpening_stone/off_hand:adamantite_weightstone
+temporary_enchant=main_hand:adamantite_sharpening_stone/off_hand:adamantite_sharpening_stone
 
 # Executed before combat begins. Accepts non-harmful actions only.
 actions.precombat=snapshot_stats
@@ -178,31 +178,31 @@ actions.variables+=/variable,name=adds_remain,value=active_enemies>=2&(!raid_eve
 actions.variables+=/variable,name=execute_phase,value=(talent.massacre.enabled&target.health.pct<35)|target.health.pct<20
 actions.variables+=/variable,name=on_gcd_racials,value=buff.recklessness.down&buff.recklessness.down&rage<80&buff.sudden_death.down&!cooldown.bladestorm.ready&(!cooldown.execute.ready|!variable.execute_phase)
 
-head=helm_of_the_faceless,id=45502,bonus_id=9043,ilevel=43,gem_id=76886/213743,drop_level=30
-neck=ukhel_ancestry_beads,id=193676,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213500/213500/213500,enchant_id=5890,drop_level=30
-shoulders=spaulders_of_the_thalassian_savior,id=34193,bonus_id=9037,ilevel=44,gem_id=213500/213500,enchant_id=3808,drop_level=30
-back=titanskin_cloak,id=45496,bonus_id=9043,ilevel=43,gem_id=213500,enchant_id=3243,drop_level=30
-chest=hard_khorium_battleplate,id=34377,bonus_id=9037,ilevel=44,gem_id=213500/213500/213500,enchant_id=6625
-wrists=bracers_of_eradication,id=30057,bonus_id=9035,ilevel=40,gem_id=213500,enchant_id=1885,drop_level=30
-hands=hard_khorium_battlefists,id=34378,bonus_id=9037,ilevel=44,gem_id=213500/213500,enchant_id=4432,drop_level=30
-waist=red_belt_of_battle,id=30032,bonus_id=9035,ilevel=40,gem_id=213500/213500/213500,enchant_id=6904,drop_level=30
-legs=felfury_legplates,id=34180,bonus_id=9037,ilevel=44,gem_id=213500/213500/213458,enchant_id=4881,drop_level=30
-feet=onslaught_treads,id=34569,bonus_id=9037,ilevel=44,gem_id=213458,enchant_id=1597,drop_level=30
-finger1=seal_of_the_city_watch,id=162542,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=213458/213458,enchant_id=6110,drop_level=30
-finger2=fleshfused_circle,id=178869,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=213458/213458,enchant_id=6110,drop_level=30
-trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
-trinket2=tiny_abomination_in_a_jar,id=50706,bonus_id=9051,ilevel=47,drop_level=30
+head=helm_of_the_faceless,id=45502,bonus_id=9043,ilevel=43,gem_id=76886/213743
+neck=ukhel_ancestry_beads,id=193676,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213482/213482/213482,enchant_id=5890,drop_level=30
+shoulders=spaulders_of_the_thalassian_savior,id=34193,bonus_id=9037,ilevel=44,gem_id=213482/213482,enchant_id=3808
+back=titanskin_cloak,id=45496,bonus_id=9043,ilevel=43,gem_id=213482,enchant_id=3243
+chest=onslaught_breastplate,id=30975,bonus_id=9036,ilevel=42,gem_id=213482/213482/213482,enchant_id=6625
+wrists=bracers_of_eradication,id=30057,bonus_id=9035,ilevel=40,gem_id=213482,enchant_id=1885
+hands=hard_khorium_battlefists,id=34378,bonus_id=9037,ilevel=44,gem_id=213482/213482,enchant_id=4106,drop_level=30
+waist=red_belt_of_battle,id=30032,bonus_id=9035,ilevel=40,gem_id=213482/213482/213482,enchant_id=6904
+legs=felfury_legplates,id=34180,bonus_id=9037,ilevel=44,gem_id=213482/213482/213494,enchant_id=4881
+feet=onslaught_treads,id=34569,bonus_id=9037,ilevel=44,gem_id=213494,enchant_id=1597
+finger1=signet_of_the_false_accuser,id=178824,bonus_id=6652/6710/8810/10386,ilevel=47,gem_id=213494,enchant_id=6110,drop_level=30
+finger2=archdruids_tainted_seal,id=134487,bonus_id=6652/6710/8810/10386,ilevel=47,gem_id=213500,enchant_id=6110,drop_level=30
+trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38
+trinket2=heart_of_roccor,id=231456,bonus_id=7756/12378,ilevel=36,drop_level=30,content_tuning=181
 main_hand=the_untamed_blade,id=19334,bonus_id=9031,ilevel=40,enchant_id=1900
-off_hand=the_jackhammer,id=9423,bonus_id=6710,ilevel=33,enchant_id=1900,drop_level=30
+off_hand=the_untamed_blade,id=19334,bonus_id=9031,ilevel=40,enchant_id=1900
 
 # Gear Summary
-# gear_ilvl=40.19
+# gear_ilvl=41.56
 # gear_strength=110
-# gear_agility=7
-# gear_stamina=85
+# gear_agility=14
+# gear_stamina=95
 # gear_attack_power=6
-# gear_crit_rating=120
-# gear_haste_rating=62
-# gear_mastery_rating=147
+# gear_crit_rating=85
+# gear_haste_rating=149
+# gear_mastery_rating=100
 # gear_versatility_rating=22
-# gear_armor=171
+# gear_armor=170

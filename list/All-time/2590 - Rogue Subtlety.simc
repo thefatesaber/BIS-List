@@ -1,12 +1,12 @@
 # ============================================================================
-# Legacy Thirty BiS — All-time — Subtlety Rogue
+# Legacy Thirty BiS — All-time — Rogue Subtlety
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
-#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
-# Result           : 2,565 DPS (±1.0 / 0.038%), 20015 iterations
+#                    git 55c62a0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 2,590 DPS (±1.0 / 0.038%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 2565 - Rogue Subtlety.html (same folder; /r/ share links expire)
-# Simmed           : 2026-10-28 by Fate
+# Report           : 2590 - Rogue Subtlety.html (same folder; /r/ share links expire)
+# Simmed           : 2026-11-05 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
@@ -23,7 +23,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Wdps 33.49 > Agi 7.26 > AP 6.83 > Haste 4.49 > Crit 4.46 > Vers 4.15 > Mastery 2.13
+# Stat weights (DPS): Wdps 33.80 > Agi 7.40 > AP 6.94 > Haste 4.61 > Crit 4.57 > Vers 4.29 > Mastery 2.23
 # ============================================================================
 
 rogue="Fatesneak"
@@ -120,22 +120,22 @@ chest=midnight_chestguard,id=30905,bonus_id=9036,ilevel=42,gem_id=40150/40150/40
 wrists=umbrage_armbands,id=54580,bonus_id=9051,ilevel=47,gem_id=40150,enchant_id=4416,drop_level=30
 hands=gloves_of_the_endless_dark,id=46043,bonus_id=9043,ilevel=43,gem_id=40150/40150,enchant_id=5259,drop_level=30
 waist=souldevouring_cinch,id=46095,bonus_id=9043,ilevel=43,gem_id=40150/40150/40150,drop_level=30
-legs=plaguesoaked_leather_leggings,id=51889,bonus_id=9049,ilevel=45,gem_id=40150/40150/40150,enchant_id=4880,drop_level=30
+legs=plaguesoaked_leather_leggings,id=51889,bonus_id=9051,ilevel=45,gem_id=40150/40150/40150,enchant_id=4880,drop_level=30
 feet=slayers_boots,id=34575,bonus_id=9043,ilevel=44,gem_id=40150,enchant_id=1887,drop_level=30
 finger1=stitchfleshs_misplaced_signet,id=178736,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=40150/40150,enchant_id=6109,drop_level=30
-finger2=bloodoath_signet,id=178871,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=40150/40150,enchant_id=6109,drop_level=30
+finger2=jeweled_signet_of_melandrus,id=134542,bonus_id=6652/6710/8810/10386,ilevel=47,gem_id=40150,enchant_id=6109,drop_level=30
 trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
 trinket2=chaos_talisman,id=137459,bonus_id=6652/6710,ilevel=33,drop_level=30
 main_hand=heartrazor,id=29962,bonus_id=9035,ilevel=40,enchant_id=4099,drop_level=30,content_tuning=2659
 off_hand=vibroblade,id=9485,bonus_id=6710,ilevel=33,enchant_id=5950,drop_level=30
 
 # Gear Summary
-# gear_ilvl=38.50
-# gear_agility=156
-# gear_stamina=93
+# gear_ilvl=39.38
+# gear_agility=154
+# gear_stamina=95
 # gear_attack_power=4
-# gear_crit_rating=97
-# gear_haste_rating=172
+# gear_crit_rating=100
+# gear_haste_rating=173
 # gear_versatility_rating=17
 # gear_armor=79
 # gear_dodge_rating=1

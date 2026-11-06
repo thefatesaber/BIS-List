@@ -7,6 +7,17 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-05
+- [page] Eight All-Time lists re-simmed on the current BracketSim build, every one up.
+  Fury 5,390 -> 5,396 (Phoenix Feather Pendant for the Ukhel beads), Restoration Shaman
+  5,490 -> 5,545, Enhancement 3,327 -> 3,345, Feral 3,703 -> 3,757 (Reckless Pyrestones
+  in waist, legs and feet), Fire 4,721 -> 4,764 (Reckless Pyrestones in legs, feet and
+  ring; Ritual Binder's Ring at 47 in Ring 2), Subtlety 2,565 -> 2,590, Assassination
+  4,332 -> 4,370, Retribution 3,227 -> 3,238 (Brutal Gladiator's Scaled Chestpiece for
+  the Hard Khorium Battleplate). Enhancement, Feral, Subtlety and Assassination take
+  Jeweled Signet of Melandrus at 47 (Timewalking, socket-proc roll) in Ring 2.
+- [page] Fury's builds: With BRE re-simmed, 4,997 -> 5,004 (Ukhel beads, two Sovereign
+  gems in the legs); a third build, UTB + UTB, 4,927: The Untamed Blade in both hands,
+  sharpening stones on both.
 - [page] Frost Mage All-Time re-simmed: 4,305 becomes 4,315.
   The two rings now export with their explicit ilevel 33; the rest of the input is the
   same, and the gain is the newer BracketSim build.

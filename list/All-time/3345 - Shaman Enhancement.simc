@@ -1,12 +1,12 @@
 # ============================================================================
-# Legacy Thirty BiS — All-time — Enhancement Shaman
+# Legacy Thirty BiS — All-time — Shaman Enhancement
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
-#                    git e40a6d0, WoW 12.1.5.70575 hotfix 2026-10-28
-# Result           : 3,327 DPS (±1.6 / 0.049%), 20015 iterations
+#                    git 55c62a0, WoW 12.1.5.70575 hotfix 2026-10-28
+# Result           : 3,345 DPS (±1.6 / 0.048%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 3327 - Shaman Enhancement.html (same folder; /r/ share links expire)
-# Simmed           : 2026-10-28 by Fate
+# Report           : 3345 - Shaman Enhancement.html (same folder; /r/ share links expire)
+# Simmed           : 2026-11-05 by Fate
 #
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
@@ -23,7 +23,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Wdps 39.69 > Agi 10.65 > AP 10.10 > Crit 5.48 > Vers 5.43 > Mastery 5.40 > Haste 5.36
+# Stat weights (DPS): Wdps 39.65 > Agi 10.56 > AP 10.01 > Crit 5.50 > Mastery 5.40 > Vers 5.36 > Haste 5.02
 # ============================================================================
 
 shaman="Broadcasting"
@@ -175,8 +175,8 @@ actions.single_totemic+=/lightning_bolt,if=buff.maelstrom_weapon.stack>=5
 actions.single_totemic+=/flame_shock
 actions.single_totemic+=/bag_of_tricks
 
-head=helm_of_desolation,id=28192,bonus_id=7202,ilevel=33,gem_id=76884/213743/213464,drop_level=30
-neck=tuskarr_bone_necklace,id=193666,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213500/32194/32194,enchant_id=5890,drop_level=30
+head=helm_of_desolation,id=28192,bonus_id=7202,ilevel=33,gem_id=76884/213743/32194,drop_level=30
+neck=tuskarr_bone_necklace,id=193666,bonus_id=6652/7975/7978/8782/9477,ilevel=33,gem_id=213464/32194/32194,enchant_id=5890,drop_level=30
 shoulders=pauldrons_of_desolation,id=27713,bonus_id=7202,ilevel=33,gem_id=32194/32194,enchant_id=3808,drop_level=30
 back=drape_of_the_faceless_general,id=46032,bonus_id=9043,ilevel=43,gem_id=32194/32194,enchant_id=3243,drop_level=30
 chest=embrace_of_the_phoenix,id=34373,bonus_id=9037,ilevel=44,gem_id=32194/32194/32194,enchant_id=6625,drop_level=30
@@ -186,19 +186,19 @@ waist=belt_of_dragons,id=45553,bonus_id=9035,ilevel=43,gem_id=32194/32194/32194,
 legs=wyrmscale_greaves,id=30534,bonus_id=6652/6710,ilevel=33,gem_id=32194/32194/32194,enchant_id=4880,drop_level=30
 feet=starstrider_boots,id=29951,bonus_id=9035,ilevel=40,gem_id=32194/32194,enchant_id=1887,drop_level=30
 finger1=bloodoath_signet,id=178871,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32194/32194,enchant_id=6108,drop_level=30
-finger2=band_of_the_ancient_dredger,id=159461,bonus_id=6652/6710/10386/10396/10879,ilevel=33,gem_id=32194/32194,enchant_id=6108,drop_level=30
+finger2=jeweled_signet_of_melandrus,id=134542,bonus_id=6652/6710/8810/10386,ilevel=47,gem_id=32194,enchant_id=6108,drop_level=30
 trinket1=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
 trinket2=chaos_talisman,id=137459,bonus_id=6652/6710,ilevel=33,drop_level=30
 main_hand=eskhandars_right_claw,id=18203,bonus_id=9029,ilevel=38,enchant_id=4444,drop_level=30
-off_hand=vibroblade,id=9485,bonus_id=6710,enchant_id=5950,drop_level=30
+off_hand=vibroblade,id=9485,bonus_id=6710,ilevel=33,enchant_id=5950,drop_level=30
 
 # Gear Summary
-# gear_ilvl=36.69
+# gear_ilvl=37.56
 # gear_agility=176
-# gear_stamina=95
+# gear_stamina=97
 # gear_attack_power=8
-# gear_crit_rating=129
-# gear_haste_rating=91
-# gear_mastery_rating=10
+# gear_crit_rating=130
+# gear_haste_rating=96
+# gear_mastery_rating=5
 # gear_versatility_rating=14
 # gear_armor=107
