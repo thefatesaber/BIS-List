@@ -1819,6 +1819,14 @@ and the report into the list folder as `<DPS> - <Class> <Spec>.simc` and
 `.html`, and `node rebase_list.js --spec <id> --list <list> --profile
 <file> --report <file>` rebases the page; the two gates run; a changelog
 entry and a patch follow. Items the page has never shown get their source line by hand.
+Obtainable began 2026-11-05 with fifteen lists (the first fully buffed numbers on that
+list; the Raidbots ones were self-buffed without consumables, so the jump is +17% to
++73% and says nothing about gear). On a list wave the Consumables panel is rewritten
+from each profile's potion/flask/food/temporary_enchant lines (a FLAT consumables
+object becomes per-list), a one-gem, no-socket neck or ring is badged Socket Proc,
+and an Outlaw/Vibroblade row's Raidbots "effective" note is replaced by the native
+Puncture Armor note with the report's uptime. Twelve Obtainable lists and all of
+Herald still carry Raidbots numbers.
 
 Until 2026-10-22 (Raidbots):
 

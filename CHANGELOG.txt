@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-05
+- [page] Fifteen Obtainable lists on BracketSim, fully raid-buffed: the first of that list.
+  Fury 4,786, Frost DK 4,345, Marksmanship 4,162, Survival 4,231, Frost Mage 4,146, Fire
+  4,619, Feral 3,595, Restoration Shaman 5,324, Devourer 5,199, Shadow 5,174, Affliction
+  3,994, Destruction 3,586, Outlaw 4,076, Windwalker 4,284, Devastation 4,088. Each
+  replaces a self-buffed Raidbots number without consumables (+17% to +73%), so the
+  "re-sim pending" tag and the Consumables panel's "not included" note come off these
+  fifteen; the other twelve keep theirs. Every list's Consumables panel now reads the
+  profile it ran with. Outlaw's Vibroblade is simmed natively here as on All-Time, so
+  its number is the sim's own and the Obtainable "effective" factor goes. Seven items
+  are new to the page: Gemshard Heart (Maraudon), Band of Vigor and Glowing Eye of
+  Mordresh (Dire Maul, Razorfen Downs), Stormcharged Choker, Band of Twisted Bark and
+  Ring of Contempt (Legion dungeons), Platinum Star Band (Algeth'ar Academy). Fury
+  Obtainable's two weapon rows lose their Raidbots-era alternates (D31 closed).
+- [repo] list/Obtainable holds its first fifteen BracketSim profiles and reports.
 - [page] Eight All-Time lists re-simmed on the current BracketSim build, every one up.
   Fury 5,390 -> 5,396 (Phoenix Feather Pendant for the Ukhel beads), Restoration Shaman
   5,490 -> 5,545, Enhancement 3,327 -> 3,345, Feral 3,703 -> 3,757 (Reckless Pyrestones

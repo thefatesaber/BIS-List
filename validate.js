@@ -197,9 +197,9 @@ if (/SET ME/i.test(CONFIG.heraldRule || ""))
 // every run, and it fails when its row no longer needs it or when its reason
 // says that something is still to be done.
 const ALT_BASE_TOL = 3;
+// Empty since 2026-11-05: Fury Obtainable's two rows (D31) were re-simmed on
+// BracketSim without alternates.
 const ALT_BASE_OLD = new Map([
-  ["warrior/obtainable/Main Hand", "Fury Obtainable, Main Hand: its four alternates keep the sweep of record, on a base of 3384; ruled 2026-10-12 (D31)"],
-  ["warrior/obtainable/Off Hand", "Fury Obtainable, Off Hand: its five alternates, the same sweep and ruling (D31)"],
 ]);
 const altBaseOldSeen = new Map();
 

@@ -1,0 +1,160 @@
+# ============================================================================
+# Legacy Thirty BiS — Obtainable — Mage Frost
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git f729566, WoW 12.1.5.70783 hotfix 2026-11-04
+# Result           : 4,146 DPS (±1.4 / 0.033%), 20015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 4146 - Mage Frost.html (same folder; /r/ share links expire)
+# Simmed           : 2026-11-05 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
+# the class cannot use, so the visible list varies by class):
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [x] Arcane Intellect  [ ] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
+#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Int 13.02 > SP 11.64 > Mastery 8.82 > Crit 6.66 > Vers 5.79 > Haste 4.93
+# ============================================================================
+
+mage="Fateccaster"
+source=default
+region=us
+server=thrall
+spec=frost
+level=30
+race=orc
+role=spell
+position=back
+talents=CAEAche08tHz49KSVf7iKFnyuBAAmRMDDmxgZmBAAAAAAAAALAAAAAstBmBAgFAAAAwAAAA
+
+# Default consumables
+potion=volcanic_potion
+flask=flask_of_distilled_wisdom
+elixir=disabled
+food=severed_sagefish_head
+augmentation=disabled
+temporary_enchant=main_hand:superior_wizard_oil
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=arcane_intellect
+actions.precombat+=/snapshot_stats
+actions.precombat+=/summon_water_elemental
+actions.precombat+=/blizzard,if=talent.frostfire_bolt&active_enemies>=(8-3*talent.freezing_winds-2*talent.freezing_rain)|!talent.frostfire_bolt&active_enemies>=(7-2*talent.freezing_winds-2*talent.freezing_rain)
+actions.precombat+=/glacial_spike
+actions.precombat+=/frostbolt
+
+# Executed every time the actor is available.
+actions=use_item,slot=trinket2,if=bracketsim_trinket_fallback.2
+actions+=/use_item,slot=trinket1,if=bracketsim_trinket_fallback.1
+actions+=/use_item,slot=trinket2,if=bracketsim_trinket_fallback.2
+actions+=/use_item,slot=trinket1,if=bracketsim_trinket_fallback.1
+actions+=/call_action_list,name=cds
+actions+=/run_action_list,name=frostfire,if=talent.frostfire_bolt
+actions+=/run_action_list,name=spellslinger
+actions+=/thorn_bloom
+
+actions.cds=variable,name=ff_trinket_timing,value=talent.frostfire_bolt&(fight_remains<15|prev_gcd.1.frozen_orb|prev_gcd.1.comet_storm|prev_gcd.1.glacial_spike|cooldown.ray_of_frost.charges>=1&debuff.freezing.react<12&buff.fingers_of_frost.react<2&buff.icicles.react<5&(!buff.frostfire_empowerment.react|active_enemies<=2)&(!buff.brain_freeze.react|buff.thermal_void.up))
+actions.cds+=/variable,name=ss_trinket_timing,value=!talent.frostfire_bolt&(fight_remains<15|prev_gcd.1.frozen_orb|time>1.5&cooldown.ray_of_frost.charges>=1&debuff.freezing.react<6&!buff.fingers_of_frost.react&buff.icicles.react<=3&(!buff.brain_freeze.react|buff.thermal_void.up))
+actions.cds+=/invoke_external_buff,name=power_infusion,if=buff.power_infusion.down&(variable.ff_trinket_timing|variable.ss_trinket_timing)
+actions.cds+=/blood_fury,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/berserking,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/fireblood,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/ancestral_call,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/use_item,name=font_of_venomous_rage,if=cooldown.potion.remains|!potion.potion_of_recklessness
+actions.cds+=/use_item,name=vexhuls_everflowing_gland,if=cooldown.potion.remains|!potion.potion_of_recklessness
+actions.cds+=/use_item,name=nevermelting_ice_crystal,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/use_item,name=freightrunners_flask,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/use_item,name=vaelgors_final_stare,if=(variable.ff_trinket_timing|variable.ss_trinket_timing)&(stat.haste_rating>stat.crit_rating|stat.versatility_rating>stat.crit_rating)
+actions.cds+=/potion,if=variable.ff_trinket_timing|variable.ss_trinket_timing|(trinket.font_of_venomous_rage.cooldown.ready|trinket.vexhuls_everflowing_gland.cooldown.ready)&potion.potion_of_recklessness|fight_remains<35
+actions.cds+=/use_item,name=vaelgors_final_stare,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/use_item,name=vile_vial_of_volatile_venom,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/use_items
+actions.cds+=/use_item,name=hex_lords_dooming_idol,if=variable.ff_trinket_timing|variable.ss_trinket_timing
+actions.cds+=/ray_of_frost,if=talent.frostfire_bolt,interrupt_if=!talent.hand_of_frost_4&active_enemies>=2&tick_time>gcd.remains&(!talent.crystalline_refraction|talent.crystalline_refraction&buff.fingers_of_frost.react=2),interrupt_global=1,interrupt_immediate=1,line_cd=9999
+actions.cds+=/flurry,if=talent.frostfire_bolt&talent.wintertide,line_cd=9999
+actions.cds+=/frozen_orb,if=talent.frostfire_bolt,line_cd=9999
+actions.cds+=/flurry,if=!talent.frostfire_bolt&talent.wintertide,line_cd=9999
+actions.cds+=/frozen_orb,if=!talent.frostfire_bolt,line_cd=9999
+actions.cds+=/ray_of_frost,if=!talent.frostfire_bolt,line_cd=9999
+actions.cds+=/ray_of_frost,if=fight_remains<12|charges=2,interrupt_if=talent.frostfire_bolt&!talent.hand_of_frost_4&active_enemies>=2&tick_time>gcd.remains&(!talent.crystalline_refraction|talent.crystalline_refraction&buff.fingers_of_frost.react=2),interrupt_global=1,interrupt_immediate=1
+actions.cds+=/comet_storm,if=fight_remains<8
+actions.cds+=/thorn_bloom
+
+actions.frostfire=glacial_spike,if=buff.glacial_spike.react|time-buff.rapid_refreezing.last_trigger<1.5
+actions.frostfire+=/comet_storm,if=active_enemies<=2|prev_gcd.2.glacial_spike&(time-buff.rapid_refreezing.last_trigger>1.5|!set_bonus.midnight_season_2_4pc)
+actions.frostfire+=/flurry,if=buff.brain_freeze.react&buff.thermal_void.down
+actions.frostfire+=/ice_lance,if=buff.fingers_of_frost.react=2
+actions.frostfire+=/ray_of_frost,if=!talent.hand_of_frost_4,interrupt_if=active_enemies>=2&tick_time>gcd.remains&(!talent.crystalline_refraction|talent.crystalline_refraction&buff.fingers_of_frost.react=2),interrupt_global=1,interrupt_immediate=1
+actions.frostfire+=/frozen_orb
+actions.frostfire+=/blizzard,if=active_enemies>=(8-3*talent.freezing_winds-2*talent.freezing_rain)|active_enemies>=3&buff.freezing_rain.up
+actions.frostfire+=/ice_lance,if=buff.fingers_of_frost.react&buff.thermal_void.up
+actions.frostfire+=/ice_lance,if=debuff.freezing.stack>=12
+actions.frostfire+=/flurry,if=cooldown_react
+actions.frostfire+=/ice_nova,if=active_enemies>=5&talent.cone_of_frost&!buff.frostfire_empowerment.react&cooldown.ray_of_frost.charges>=1
+actions.frostfire+=/cone_of_cold,if=active_enemies>=5&talent.cone_of_frost&!buff.frostfire_empowerment.react&cooldown.ray_of_frost.charges>=1
+actions.frostfire+=/ray_of_frost,if=active_enemies<=2|!buff.frostfire_empowerment.react
+actions.frostfire+=/glacial_spike
+actions.frostfire+=/frostbolt
+actions.frostfire+=/call_action_list,name=movement
+actions.frostfire+=/thorn_bloom
+
+actions.movement=any_blink,if=movement.distance>5
+actions.movement+=/blizzard,if=buff.freezing_rain.up
+actions.movement+=/ice_nova,if=talent.cone_of_frost
+actions.movement+=/cone_of_cold,if=talent.cone_of_frost
+actions.movement+=/ice_lance
+actions.movement+=/thorn_bloom
+
+actions.spellslinger=comet_storm
+actions.spellslinger+=/flurry,if=buff.brain_freeze.react&buff.thermal_void.down
+actions.spellslinger+=/ice_lance,if=buff.fingers_of_frost.react=2
+actions.spellslinger+=/frozen_orb
+actions.spellslinger+=/glacial_spike,if=buff.glacial_spike.react|time-buff.rapid_refreezing.last_trigger<1.5
+actions.spellslinger+=/blizzard,if=active_enemies>=(5-2*talent.freezing_winds)&buff.freezing_rain.up
+actions.spellslinger+=/ice_lance,if=buff.fingers_of_frost.react
+actions.spellslinger+=/ice_lance,if=debuff.freezing.react>=6
+actions.spellslinger+=/ray_of_frost,if=buff.icicles.react<=3|active_enemies>=3
+actions.spellslinger+=/flurry,if=cooldown_react
+actions.spellslinger+=/ice_nova,if=active_enemies>=4&talent.cone_of_frost
+actions.spellslinger+=/cone_of_cold,if=active_enemies>=4&talent.cone_of_frost
+actions.spellslinger+=/blizzard,if=active_enemies>=(7-2*talent.freezing_winds-2*talent.freezing_rain)
+actions.spellslinger+=/glacial_spike
+actions.spellslinger+=/frostbolt
+actions.spellslinger+=/call_action_list,name=movement
+actions.spellslinger+=/thorn_bloom
+
+head=cowl_of_icy_breaths,id=45464,bonus_id=9042,ilevel=42,gem_id=76885/213743
+neck=ukhel_ancestry_beads,id=193676,bonus_id=6710/8810,ilevel=33,gem_id=213500,enchant_id=5890,drop_level=30
+shoulders=hatefury_mantle,id=30884,bonus_id=9036,ilevel=42,gem_id=71854/71854,enchant_id=3838,drop_level=30
+back=drape_of_the_messenger,id=46042,bonus_id=9043,ilevel=43,gem_id=71854,enchant_id=3243,drop_level=30
+chest=sunfire_robe,id=34364,bonus_id=9037,ilevel=44,gem_id=71854/71854/71854,enchant_id=6625,drop_level=30
+wrists=bracers_of_the_tempest,id=34447,bonus_id=9037,ilevel=44,gem_id=71854,enchant_id=2326,drop_level=30
+hands=pharos_gloves,id=45665,bonus_id=9043,ilevel=43,gem_id=71854/71854,enchant_id=2322,drop_level=30
+waist=belt_of_blasting,id=30038,bonus_id=9035,ilevel=40,gem_id=71854/71854/71854,enchant_id=6904,drop_level=30
+legs=leggings_of_calamity,id=34181,bonus_id=9037,ilevel=44,gem_id=71854/71854/71854,enchant_id=6541,drop_level=30
+feet=treads_of_the_false_oracle,id=45537,bonus_id=9043,ilevel=43,gem_id=71854/71854,enchant_id=4429,drop_level=30
+finger1=signet_of_the_false_accuser,id=178824,bonus_id=6710/8810,ilevel=33,gem_id=71854,enchant_id=6110,drop_level=30
+finger2=scalebane_signet,id=193768,bonus_id=6710/8810,ilevel=33,gem_id=71854,enchant_id=6110,drop_level=30
+trinket1=meteorite_crystal,id=46051,bonus_id=9043,ilevel=43,drop_level=30
+trinket2=pendant_of_the_violet_eye,id=28727,bonus_id=9034,ilevel=38,drop_level=30
+main_hand=abracadaver,id=51887,bonus_id=9049,ilevel=45,gem_id=71854/71854/71854,enchant_id=2669
+
+# Gear Summary
+# gear_ilvl=40.67
+# gear_stamina=101
+# gear_intellect=206
+# gear_spell_power=31
+# gear_crit_rating=84
+# gear_haste_rating=90
+# gear_mastery_rating=109
+# gear_armor=48
