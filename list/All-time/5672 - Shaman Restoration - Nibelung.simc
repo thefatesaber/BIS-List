@@ -11,7 +11,7 @@
 # BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
 # the class cannot use, so the visible list varies by class):
 #   Raid buff preset: Optimal Raid Buffs
-#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#   World buffs:   [x] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
 #                  [ ] Icecrown Citadel  [ ] Plague Stream
 #                  [ ] Adventurer's Journal
 #   Raid buffs:    [x] Arcane Intellect  [ ] Battle Shout

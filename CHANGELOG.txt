@@ -6,6 +6,21 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-11-09
+- [page] Buff worth is on BracketSim, every list and build: 62 entries, 20,000 iterations a run.
+  A 614-file minus-one batch on 7 November (BracketSim's Batch Sim) priced every buff on
+  the 27 All-Time records, their 20 builds and the 15 Obtainable records: Consumables as
+  a whole and potion, flask, food and weapon buff apart, Skyfury, Mark of the Wild,
+  Battle Shout or Arcane Intellect, Drums, and Flame Cap on the fire casters. Hunter's
+  Mark is computed (a flat 3%). The panel shows the rows of the list open, and a build's
+  own rows when a build is shown; the all-specs charts read the All-Time records. The
+  spec's own cast is not measured and shows a dash. Three cells are still missing (the
+  Enhancement builds' Battle Shout, Balance Nibelung's Arcane Intellect). The Raidbots-era
+  rows, Power Infusion included, are gone.
+- [repo] list/Buff worth holds the batch summaries and the script that writes the files.
+  Ten fire-caster profile headers that said "[ ] Flame Cap" are corrected to "[x]": their
+  runs had it (the batch baselines with it on sit on their records).
+
 ## 2026-11-05
 - [page] Fifteen Obtainable lists on BracketSim, fully raid-buffed: the first of that list.
   Fury 4,786, Frost DK 4,345, Marksmanship 4,162, Survival 4,231, Frost Mage 4,146, Fire

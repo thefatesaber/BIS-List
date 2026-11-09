@@ -1661,6 +1661,31 @@ re-sync from upstream must not bring them back.
   pixel against the page before at 768 and 390 (identical but for the palette). Wowhead's icons
   were not loaded in the sandbox (no network); the float and the 36 px icon rules are written
   for the span.iconmedium markup the live site uses.
+- Buff worth on BracketSim (2026-11-07 to 09): the whole board re-measured on the engine
+  of record. Method: BracketSim's Batch Sim (shipped 2026-11-06 after Fate's suggestion
+  to TheDruidMan) runs a zip of .simc files on the user's PC, each with the options set
+  by the "BracketSim simulation options" comment block that Copy SimC input writes, so a
+  file can switch one buff off by itself. 614 files = 62 entries x (baseline + Skyfury,
+  Mark of the Wild, the primary-stat buff, Drums, Flame Cap on the fire casters, potion,
+  flask, food, weapon buff, all four). Every baseline landed on its record. Precision
+  scare and its answer: the reports say 646 iterations because Batch Sim splits the
+  20,000 across the cores and reports the first part; summary.csv carries the mean of all
+  parts, and that is the number of record for a cell (Foxilego, 2026-11-09). An in-file
+  `iterations=` line changes nothing. Rejected on the way: a multi-actor file of all 62
+  entries under single_actor_batch - SimC turns Chaos Brand and Mystic Touch on when a
+  DH and a Monk are present and BracketSim gives Drums and Hunter's Mark to one actor, so
+  casters read +2% and rogues -1.5% against their records. Flame Cap: a sim-wide option
+  BracketSim applies to every caster, so the fire casters' files carry it and the others'
+  do not; the batch also showed that ten fire-caster profiles whose headers said "[ ]
+  Flame Cap" had in fact run with it (baselines with it on sit on the records), and the
+  headers were corrected. The primary-stat buff is the spec's main stat, not the class's
+  (Havoc and Enhancement take Battle Shout, Balance Arcane Intellect); the first batch
+  got those wrong and the ten-file test of 2026-11-09 replaced them. Own casts are not
+  measured (the batch did not try switching a spec's own buff off), Hunter's Mark is
+  computed. Three cells remain unmeasured: the two Enhancement builds' Battle Shout and
+  Balance Nibelung's Arcane Intellect. Power Infusion leaves the board with the Raidbots
+  rows. Herald, and the twelve Obtainable lists still on Raidbots, have no rows until
+  they are re-simmed and run through the same batch.
 
 Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
 convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
@@ -1723,8 +1748,17 @@ the list's number (T11), so a list that moves sends its alternates back
 to be read; the rows ruled to keep an older sweep are named in the
 validator's ALT_BASE_OLD. `prov` — a provenance stamp (sim date and
 build) whose rendering is gated on ruling B.
+Buff worth (2026-11-09): `buffWorth {list: [{buff, dps, pct, status,
+note?}]}` on a record entry and `buffWorth [rows]` on a build; status is
+"measured" (baseline minus the minus-one run) or "computed" (Hunter's Mark,
+x 3/103); a row noted "in Consumables" sits under the Consumables row. The
+rows come from BracketSim Batch Sim minus-one runs (list/Buff worth, 2026-11-07:
+614 single-actor files, one an entry and a buff, 20,000 iterations read off
+summary.csv - the HTML reports are one part of the run only). Own casts are
+not rows. Until 2026-11-09 buffWorth was one Raidbots-era array shown on
+All-Time only.
 Builds (2026-10-29): `builds {list: [{id, label, dps, prov, talents, stats,
-rows, consumables?, tag?}]}` holds alternative builds beside a list's number
+rows, consumables?, tag?, buffWorth?}]}` holds alternative builds beside a list's number
 of record, and `buildLabel {list: name}` names the record build on its pill.
 The record is what the rail, the Best-class view, All specs, monotonicity
 and the Buff worth charts read; a build is shown in place of the record
