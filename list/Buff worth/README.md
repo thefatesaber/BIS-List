@@ -29,6 +29,12 @@ character provides; a mage's precombat `arcane_intellect` line is removed as wel
   removed the raid aura but not their own precombat cast.
 - `2026-11-09 own casts mages - summary.csv`: the eight mage files again with the
   precombat line removed; these are the mages' own-cast cells.
+- `2026-11-09 flame cap on non-fire specs - summary.csv`: the 44 non-fire entries run
+  with Flame Cap ticked. Every cell is within 3 DPS of zero: BracketSim gives those
+  classes nothing from it, so Flame Cap stays a fire-caster row. (The All-Time Survival
+  file lost its main-hand stone in this run as in the first batch - a Batch Sim flake
+  with a main-hand stone beside an off-hand rune; the ten-file run of the same file
+  kept it, and that is the baseline of record.)
 
 A multi-actor file (every entry as a co-actor under single_actor_batch) was tried and
 rejected on 2026-11-09: in a many-actor sim SimC switches Chaos Brand and Mystic Touch

@@ -7,6 +7,8 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-09
+- [repo] Flame Cap tried on every non-fire entry: nothing, within noise. The csv is in list/Buff worth;
+  the site's seven-spec Flame Cap chart stands.
 - [page] Buff worth is on BracketSim, every list and build: 62 entries, 20,000 iterations a run.
   A 614-file minus-one batch on 7 November (BracketSim's Batch Sim) priced every buff on
   the 27 All-Time records, their 20 builds and the 15 Obtainable records: Consumables as

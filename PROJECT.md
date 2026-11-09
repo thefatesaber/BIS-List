@@ -1685,7 +1685,10 @@ re-sync from upstream must not bring them back.
   buff forced off in the file: BracketSim's box may leave a buff the character provides,
   SimC's `override.<buff>=0` removes the aura, and a mage's own precombat
   arcane_intellect line has to go as well (the override alone read 0 on the mages).
-  Resto Shaman's Skyfury reads 0, as on Raidbots. Hunter's Mark is computed. Power
+  Resto Shaman's Skyfury reads 0, as on Raidbots. Hunter's Mark is computed. Flame Cap
+  was tried on the 44 non-fire entries the same day (Fate: "test out the damage of
+  flame cap for melee too"): every cell within 3 DPS of zero, so it stays a row of the
+  seven fire casters. Power
   Infusion leaves the board with the Raidbots
   rows. Herald, and the twelve Obtainable lists still on Raidbots, have no rows until
   they are re-simmed and run through the same batch.
