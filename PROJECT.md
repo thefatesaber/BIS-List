@@ -1680,10 +1680,13 @@ re-sync from upstream must not bring them back.
   Flame Cap" had in fact run with it (baselines with it on sit on the records), and the
   headers were corrected. The primary-stat buff is the spec's main stat, not the class's
   (Havoc and Enhancement take Battle Shout, Balance Arcane Intellect); the first batch
-  got those wrong and the ten-file test of 2026-11-09 replaced them. Own casts are not
-  measured (the batch did not try switching a spec's own buff off), Hunter's Mark is
-  computed. Three cells remain unmeasured: the two Enhancement builds' Battle Shout and
-  Balance Nibelung's Arcane Intellect. Power Infusion leaves the board with the Raidbots
+  got those wrong and the ten-file test of 2026-11-09 replaced them. Own casts (ruled
+  2026-11-09: every spec gets a cell, the one it brings included) are measured with the
+  buff forced off in the file: BracketSim's box may leave a buff the character provides,
+  SimC's `override.<buff>=0` removes the aura, and a mage's own precombat
+  arcane_intellect line has to go as well (the override alone read 0 on the mages).
+  Resto Shaman's Skyfury reads 0, as on Raidbots. Hunter's Mark is computed. Power
+  Infusion leaves the board with the Raidbots
   rows. Herald, and the twelve Obtainable lists still on Raidbots, have no rows until
   they are re-simmed and run through the same batch.
 

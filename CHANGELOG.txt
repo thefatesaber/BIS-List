@@ -14,9 +14,10 @@ served by the site and linked from the header.
   Battle Shout or Arcane Intellect, Drums, and Flame Cap on the fire casters. Hunter's
   Mark is computed (a flat 3%). The panel shows the rows of the list open, and a build's
   own rows when a build is shown; the all-specs charts read the All-Time records. The
-  spec's own cast is not measured and shows a dash. Three cells are still missing (the
-  Enhancement builds' Battle Shout, Balance Nibelung's Arcane Intellect). The Raidbots-era
-  rows, Power Infusion included, are gone.
+  spec's own cast is measured too, with the buff forced off in the file, and shows
+  hatched (Fury's Battle Shout 348, Elemental's Skyfury 51, a mage's Arcane Intellect
+  170 to 206, Feral's Mark of the Wild 329). The Raidbots-era rows, Power Infusion
+  included, are gone.
 - [repo] list/Buff worth holds the batch summaries and the script that writes the files.
   Ten fire-caster profile headers that said "[ ] Flame Cap" are corrected to "[x]": their
   runs had it (the batch baselines with it on sit on their records).
