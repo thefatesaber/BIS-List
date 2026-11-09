@@ -1691,7 +1691,16 @@ re-sync from upstream must not bring them back.
   the box ticked on the baseline, and for sixteen entries whose rotation carries a
   conditional invoke_external_buff line that never fires at 30 the line was removed, since
   BracketSim honours it instead of applying PI itself (they read 0-1.6% before, 2.5-3.8%
-  after; the row says so). Flame Cap
+  after; the row says so). Armor rows
+  (Fate, 2026-11-09: "how much the armor reduction benefits each spec", the three
+  scenarios): a teammate's Annihilator + Phantom Blade, Annihilator, Phantom Blade on the
+  target, set in the batch files by the option block's "Teammate armor reduction:" line
+  (the raw bracketsim_ally_armor_shred= line that Copy SimC input writes is not honoured by
+  Batch Sim; the block is). The pair is worth 25-34% to a pure physical spec, the largest
+  thing on the board; the Vibroblade lists gain only Annihilator's 20 over their own -90
+  plus Phantom Blade. Batch Sim drops a file's temporary_enchant now and then (about 1 run
+  in 60 on melee files; the report shows the stone missing): every run is checked against
+  its file and the dropped ones run again before a cell is read. Flame Cap
   was tried on the 44 non-fire entries the same day (Fate: "test out the damage of
   flame cap for melee too"): every cell within 3 DPS of zero, so it stays a row of the
   seven fire casters. Power

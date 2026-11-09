@@ -7,6 +7,14 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-09
+- [page] Buff worth: three Armor rows and charts, a teammate's debuff on the boss.
+  Annihilator + Phantom Blade (-133 armor), Annihilator alone (-110), Phantom Blade alone
+  (-23), each measured on every entry. Physical specs gain 25% to 34% from the pair (Fury
+  +1,702, Windwalker +1,499, Marksmanship +1,206, Feral +1,000, Arms +1,074), Phantom Blade
+  alone 4% to 5%; the four Vibroblade lists gain less on their records because they keep
+  -90 up themselves (Outlaw +12%, Subtlety +9%, Enhancement +8%, Survival +16%), their
+  other-weapon builds the full amount; mostly-magic melee a little (Unholy 11%, Havoc 8%,
+  Ret 7%, Frost DK 5%, Demonology's pets 5%); casters nothing.
 - [page] Buff worth gains two rows on every panel and two charts: Total and Power Infusion.
   Total is one run with every raid buff, Hunter's Mark and every consumable off: 18% to 36%
   of the number of record (the rogues highest), 8% to 12% less than the rows summed, which

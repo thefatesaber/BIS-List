@@ -38,6 +38,11 @@ character provides; a mage's precombat `arcane_intellect` line is removed as wel
   condition that never fires at 30; BracketSim honours the line instead of applying PI
   itself, so they read 0 to 1.6%. Run again with the line removed they read 2.5 to 3.8%
   like the rest; these are their cells.
+- `2026-11-09 armor shred - summary.csv` and `... rerun - summary.csv`: every entry with a
+  teammate's armor debuff on the target - Annihilator + Phantom Blade, Annihilator alone,
+  Phantom Blade alone - written in the option block as `Teammate armor reduction: Annihilator,
+  Phantom Blade` (a raw `bracketsim_ally_armor_shred=` line is NOT honoured by the batch;
+  the block is). Two runs of the first pass dropped their stone and were run again.
 - `2026-11-09 flame cap on non-fire specs - summary.csv`: the 44 non-fire entries run
   with Flame Cap ticked. Every cell is within 3 DPS of zero: BracketSim gives those
   classes nothing from it, so Flame Cap stays a fire-caster row. (The All-Time Survival
