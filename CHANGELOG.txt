@@ -7,6 +7,12 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-09
+- [page] Buff worth gains two rows on every panel and two charts: Total and Power Infusion.
+  Total is one run with every raid buff, Hunter's Mark and every consumable off: 18% to 36%
+  of the number of record (the rogues highest), 8% to 12% less than the rows summed, which
+  is the overlap. Power Infusion is an external one, off the list's buff set: 2.4% to 7.4%,
+  Assassination highest; for the sixteen entries whose rotation gates its own PI line on a
+  condition that never fires at 30, the run removed the line (noted on the row).
 - [repo] Flame Cap tried on every non-fire entry: nothing, within noise. The csv is in list/Buff worth;
   the site's seven-spec Flame Cap chart stands.
 - [page] Buff worth is on BracketSim, every list and build: 62 entries, 20,000 iterations a run.

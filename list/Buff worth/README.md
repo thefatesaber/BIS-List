@@ -29,6 +29,15 @@ character provides; a mage's precombat `arcane_intellect` line is removed as wel
   removed the raid aura but not their own precombat cast.
 - `2026-11-09 own casts mages - summary.csv`: the eight mage files again with the
   precombat line removed; these are the mages' own-cast cells.
+- `2026-11-09 bare and power infusion - summary.csv`: every entry run bare (every raid
+  buff, Hunter's Mark and every consumable off, the own cast overridden) for the Total
+  row, and with the Power Infusion box ticked for the Power Infusion row.
+- `2026-11-09 power infusion without the rotation line - summary.csv`: sixteen entries
+  (Balance, Survival, Windwalker, Demonology, Fury, Devastation and their builds) whose
+  rotation carries its own `invoke_external_buff,name=power_infusion` line with a
+  condition that never fires at 30; BracketSim honours the line instead of applying PI
+  itself, so they read 0 to 1.6%. Run again with the line removed they read 2.5 to 3.8%
+  like the rest; these are their cells.
 - `2026-11-09 flame cap on non-fire specs - summary.csv`: the 44 non-fire entries run
   with Flame Cap ticked. Every cell is within 3 DPS of zero: BracketSim gives those
   classes nothing from it, so Flame Cap stays a fire-caster row. (The All-Time Survival

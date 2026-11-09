@@ -1685,7 +1685,13 @@ re-sync from upstream must not bring them back.
   buff forced off in the file: BracketSim's box may leave a buff the character provides,
   SimC's `override.<buff>=0` removes the aura, and a mage's own precombat
   arcane_intellect line has to go as well (the override alone read 0 on the mages).
-  Resto Shaman's Skyfury reads 0, as on Raidbots. Hunter's Mark is computed. Flame Cap
+  Resto Shaman's Skyfury reads 0, as on Raidbots. Hunter's Mark is computed. Total and
+  Power Infusion rows (Fate, 2026-11-09): Total is measured in one bare run (everything
+  off, own cast overridden), not summed - the rows summed overstate it by 8-12%; PI is
+  the box ticked on the baseline, and for sixteen entries whose rotation carries a
+  conditional invoke_external_buff line that never fires at 30 the line was removed, since
+  BracketSim honours it instead of applying PI itself (they read 0-1.6% before, 2.5-3.8%
+  after; the row says so). Flame Cap
   was tried on the 44 non-fire entries the same day (Fate: "test out the damage of
   flame cap for melee too"): every cell within 3 DPS of zero, so it stays a row of the
   seven fire casters. Power
