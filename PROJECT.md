@@ -1881,7 +1881,12 @@ from each profile's potion/flask/food/temporary_enchant lines (a FLAT consumable
 object becomes per-list), a one-gem, no-socket neck or ring is badged Socket Proc,
 and an Outlaw/Vibroblade row's Raidbots "effective" note is replaced by the native
 Puncture Armor note with the report's uptime. Twelve Obtainable lists and all of
-Herald still carry Raidbots numbers.
+Herald still carry Raidbots numbers. Havoc followed on 2026-11-16 at 3,026 (from 1,894), the first
+of the twelve: its input was built from the All-Time record with the unfarmable pieces
+replaced, and Fate ran it with Chain of the Green Flight on the neck and Band of Twisted
+Bark in Ring 2. The run is 910 iterations (plus or minus 6.3 DPS), not the 20,015 of
+the other records; a 20,015 run replaces it when one is made. Eleven Obtainable lists and
+all of Herald still carry Raidbots numbers.
 
 Until 2026-10-22 (Raidbots):
 

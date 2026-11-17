@@ -6,6 +6,18 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-11-16
+- [page] Havoc Demon Hunter Obtainable on BracketSim, fully raid-buffed: 3,026.
+  It replaces a self-buffed Raidbots number without consumables (1,894), so the
+  "re-sim pending" tag and the Consumables panel's "not included" note come off; eleven
+  Obtainable lists keep theirs. The gear is the All-Time record's with what can no longer
+  be farmed replaced: Chain of the Green Flight for Phoenix Feather Pendant (a Dragonflight
+  rare drop), Fleshfused Circle at its regular 33 with one gem, and Band of Twisted Bark
+  for Seal of the City Watch. Against the Raidbots list: Midnight Chestguard for Harness
+  of Carnal Instinct and Dragonspine Trophy for Herkuml War Token. The run is 910
+  iterations (plus or minus 6.3, 0.21%), where the other lists of record ran 20,015.
+- [repo] list/Obtainable holds the Havoc profile and report.
+
 ## 2026-11-09
 - [page] Buff worth: three Armor rows and charts, a teammate's debuff on the boss.
   Annihilator + Phantom Blade (-133 armor), Annihilator alone (-110), Phantom Blade alone
