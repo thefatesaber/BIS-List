@@ -1,4 +1,4 @@
-# Fate — L30 BiS Compendium
+# Fate — BiS Compendium
 
 Sim-validated best-in-slot lists for World of Warcraft at level 30: 27 specs
 across all 13 classes, three lists each, every list fully raid-buffed.

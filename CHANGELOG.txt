@@ -6,6 +6,14 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-11-20
+- [page] The name loses its "L30": the page title, the share title and the share image
+  read "Fate BiS Compendium", as the header already did, and the two Shaman stat
+  priority notes open on "Stat priority". The level 30 statements stay where they
+  describe the bracket.
+- [repo] assets/og.png redrawn from its source with the one title line changed; the
+  README title follows.
+
 ## 2026-11-16
 - [page] Havoc Demon Hunter Obtainable on BracketSim, fully raid-buffed: 3,026.
   It replaces a self-buffed Raidbots number without consumables (1,894), so the
