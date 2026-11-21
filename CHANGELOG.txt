@@ -7,7 +7,7 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-20
-- [page] The name loses its "L30": the page title, the share title and the share image
+- [page] The name is shortened: the page title, the share title and the share image
   read "Fate BiS Compendium", as the header already did, and the two Shaman stat
   priority notes open on "Stat priority". The level 30 statements stay where they
   describe the bracket.
