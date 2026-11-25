@@ -336,13 +336,12 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
 .why a ins, .why a del, .why a span[class*="icon"]{display:none !important}
 
 /* ---------- panels band ---------- */
-/* The stat panel on the left, centred against its column; Consumables,
-   Talent string and Buff worth stacked on the right. */
-.paneline{display:grid; grid-template-columns:430px minmax(0,1fr); gap:14px; margin:0 0 16px; align-items:start}
-.paneline > .statpanel{grid-column:1; grid-row:1 / span 3; margin:0; align-self:center}
-.paneline > .consum, .paneline > .talents, .paneline > .buffworth{grid-column:2; margin:0; min-width:0}
+/* Two columns of equal width. Left: the stat panel, then Talents. Right:
+   Consumables, then Buff worth. Without a stat panel the columns stack. */
+.paneline{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px; margin:0 0 16px; align-items:start}
+.pcol{display:flex; flex-direction:column; gap:14px; min-width:0}
+.pcol > *{margin:0; min-width:0}
 .paneline.solo{grid-template-columns:minmax(0,1fr)}
-.paneline.solo > .consum, .paneline.solo > .talents, .paneline.solo > .buffworth{grid-column:1}
 /* The stat panel is kept exactly as it was (ruling 2026-10-29): geometry,
    sizes, colours, and its face, which was the body's mono. */
 .statpanel{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:0 18px; font-family:var(--mono); font-size:13.5px;
@@ -588,11 +587,10 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
    right column under the 390 px a Buff worth row needs. */
 @media (max-width:1180px){
   .paneline{grid-template-columns:minmax(0,1fr)}
-  .paneline > .statpanel, .paneline > .consum, .paneline > .talents, .paneline > .buffworth{grid-column:1; grid-row:auto}
 }
 /* Stacked and wider than a phone, the stat panel keeps its labels beside the
    chart instead of at the two ends of a 900 px card. */
-@media (min-width:521px) and (max-width:1180px){
+@media (min-width:521px){
   .statpanel{grid-template-columns:minmax(0,200px) auto minmax(0,200px); justify-content:center}
 }
 /* At 860 px and below the rail keeps its switch and Order row, and the class
@@ -727,21 +725,25 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
     <div class="builds" id="builds" hidden></div>
     <p class="constraint" id="constraint"></p>
     <div class="paneline" id="paneline">
+      <div class="pcol">
       <div class="statpanel" id="statpanel" hidden></div>
-      <div class="consum card" id="consum" hidden>
-        <div class="chead"><h3>Consumables</h3><button class="tbtn" id="consumcopy">Copy SimC</button></div>
-        <small class="cnote" id="consumnote" hidden>Not included in the DPS shown</small>
-        <div id="consumlines"></div>
-      </div>
       <div class="talents card" id="talents" hidden>
         <div class="chead"><h3>Talents</h3><a class="tbtn" id="talentwh" target="_blank" rel="noopener" title="Open this build in Wowhead's talent calculator">Wowhead</a><button class="tbtn" id="talentcopy">Copy string</button></div>
         <div class="ttrees" id="talenttree" hidden></div>
         <code id="talentstr"></code>
       </div>
+      </div>
+      <div class="pcol">
+      <div class="consum card" id="consum" hidden>
+        <div class="chead"><h3>Consumables</h3><button class="tbtn" id="consumcopy">Copy SimC</button></div>
+        <small class="cnote" id="consumnote" hidden>Not included in the DPS shown</small>
+        <div id="consumlines"></div>
+      </div>
       <div class="buffworth card" id="buffworth" hidden>
         <div class="chead"><h3 title="What each buff adds to this list: its number of record minus the same profile re-run on BracketSim with the buff off (20,000 iterations each). Total is one run with every buff and consumable off. Power Infusion and the Armor rows are a teammate's, not in the number of record. Hunter's Mark is a flat 3% and is computed.">Buff worth</h3><a class="bwall" href="#buff-worth" title="The same buffs across every spec, one chart a buff">all specs &rsaquo;</a></div>
         <div id="buffworthlines"></div>
         <p class="bwkey" id="bwkey"></p>
+      </div>
       </div>
     </div>
     <div class="ledger" id="ledger"></div>

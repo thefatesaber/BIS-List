@@ -7,6 +7,11 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-24
+- [page] The panels are two even columns: stats and Talents left, the rest right.
+  Talents had joined Consumables and Buff worth on the right, beside a left column that
+  held the stat panel alone. The stat panel now sits at the top of the left column with
+  Talents under it, and the two columns have the same width. Below 1181 px the panels
+  stack as before, Talents now straight after the stat panel.
 - [page] The Talents card draws the build: class tree and spec tree, picks outlined.
   The card that held the talent string reads the string and shows both trees on the
   game's rows and columns, each talent with its icon and Wowhead tooltip: gold outline
