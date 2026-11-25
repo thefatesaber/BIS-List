@@ -7,6 +7,9 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-25
+- [page] The share image is linked as assets/og.png?v=2. Discord keeps a preview image
+  by its address, so links were still showing the image from before 2026-11-20; the
+  new address makes it fetch the current one. The file itself is unchanged.
 - [page] Every talent tree is drawn the same way: the game's layout, one size, with lines.
   A nine-column class tree, the Priest's and the Druid's, no longer drops the spec tree
   under it with smaller talents: every tree of every spec sits in the same box, class
