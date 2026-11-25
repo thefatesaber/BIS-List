@@ -6,6 +6,19 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-11-24
+- [page] The Talents card draws the build: class tree and spec tree, picks outlined.
+  The card that held the talent string reads the string and shows both trees on the
+  game's rows and columns, each talent with its icon and Wowhead tooltip: gold outline
+  for a talent taken, with its rank where it has more than one, a light outline for
+  one the spec grants, dimmed for the rest. Only the rows a level-30 character can reach
+  are drawn, and no lines between talents. The string stays under the trees; "Copy
+  string" copies it and "Wowhead" opens the build in Wowhead's talent calculator.
+- [repo] assets/talents.js holds the trees and talentdata.js writes it, from
+  SimulationCraft's trait table and WoWAnalyzer's icon names (game build 12.1.5.70961).
+  `node talentdata.js --check` reads every talent string on the page against it: all 42
+  are legal level-30 builds, 11 class points and 10 spec points.
+
 ## 2026-11-20
 - [page] The name is shortened: the page title, the share title and the share image
   read "Fate BiS Compendium", as the header already did, and the two Shaman stat

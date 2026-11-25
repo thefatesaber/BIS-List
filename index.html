@@ -393,6 +393,33 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   font-size:11.5px; letter-spacing:.01em; scrollbar-width:thin; padding-right:28px;
   -webkit-mask-image:linear-gradient(90deg, #000 calc(100% - 28px), transparent);
   mask-image:linear-gradient(90deg, #000 calc(100% - 28px), transparent)}
+/* The build, drawn from the string: class tree and spec tree side by side, one
+   cell per talent on the game's own row and column. Cells shrink with the card
+   down to 26 px, then the spec tree goes under the class tree; on a phone the
+   trees always stack. Wowhead's script adds
+   an icon to every link it finds, and these links carry their own. */
+.ttrees{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:flex-start; margin:0 0 12px}
+.ttrees[hidden]{display:none}
+.ttree{flex:1 1 40%; min-width:calc(var(--n)*26px + (var(--n) - 1)*6px)}
+.ttree h4{display:flex; align-items:baseline; gap:8px; margin:0 0 8px; font:600 11px var(--sans); letter-spacing:.08em;
+  text-transform:uppercase; color:var(--dim)}
+.ttree h4 b{font:500 12px var(--mono); letter-spacing:0; color:var(--parchment)}
+.tgrid{display:grid; gap:6px; grid-template-columns:repeat(var(--n), minmax(0,36px)); justify-content:center}
+.tn{position:relative; display:block; aspect-ratio:1; border:1px solid var(--edge); border-radius:5px; background:var(--slate2);
+  color:var(--dim); text-decoration:none}
+.tn i{position:absolute; inset:0; display:grid; place-items:center; font:600 10px var(--mono); font-style:normal}
+.tn img{position:relative; display:block; width:100%; height:100%; border-radius:4px; object-fit:cover}
+.tn.off img{filter:grayscale(1) brightness(.42)}
+.tn.on{border-color:var(--amber); box-shadow:0 0 0 1px var(--amber); color:var(--parchment)}
+.tn.free{border-color:var(--dust); color:var(--parchment)}
+.tn b{position:absolute; right:-5px; bottom:-6px; padding:0 3px; border:1px solid var(--edge); border-radius:3px;
+  background:var(--void); color:var(--amber); font:600 10px/14px var(--mono)}
+.tn:hover{border-color:var(--parchment)}
+.tn:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
+.tn ins, .tn del, .tn span[class*="icon"]{display:none !important}
+.tkey{flex-basis:100%; margin:0; color:var(--dust); font-size:12px}
+a.tbtn{text-decoration:none}
+@media (max-width:700px){ .ttree{flex:1 1 100%; min-width:0} .tgrid{justify-content:start} }
 .tbtn{flex:none; background:none; border:1px solid var(--edge); color:var(--dust); font:inherit;
   font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px;
   border-radius:4px; cursor:pointer; transition:color .15s ease, border-color .15s ease, transform .13s ease}
@@ -642,6 +669,9 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
      slow or blocked Wowhead left the whole page blank. The script scans the
      links it finds when it starts, so the first list gets its icons either way. -->
 <script defer src="https://wow.zamimg.com/js/tooltips.js"></script>
+<!-- The talent trees, written by talentdata.js. Deferred like the script above:
+     the card shows the string at once and draws the build when this arrives. -->
+<script defer src="assets/talents.js" onload="window.drawTalents && drawTalents()"></script>
 </head>
 <body>
 
@@ -704,7 +734,8 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
         <div id="consumlines"></div>
       </div>
       <div class="talents card" id="talents" hidden>
-        <div class="chead"><h3>Talent string</h3><button class="tbtn" id="talentcopy">Copy</button></div>
+        <div class="chead"><h3>Talents</h3><a class="tbtn" id="talentwh" target="_blank" rel="noopener" title="Open this build in Wowhead's talent calculator">Wowhead</a><button class="tbtn" id="talentcopy">Copy string</button></div>
+        <div class="ttrees" id="talenttree" hidden></div>
         <code id="talentstr"></code>
       </div>
       <div class="buffworth card" id="buffworth" hidden>
@@ -783,7 +814,7 @@ const CONFIG = {
   patch: "12.1.0 (Midnight)",
   bracket: "Level 30",
   // Bump on every data change — a sim-derived list with no date can't be trusted.
-  updated: "2026-11-20",
+  updated: "2026-11-24",
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Shown under the header until the changelog feed loads, and in its place when the
@@ -3260,6 +3291,7 @@ function renderMain(){
   const tal = cls.talents && cls.talents[state.list];
   $("talents").hidden = !tal;
   if (tal) $("talentstr").textContent = tal;
+  drawTalents();
   const cons = consumFor(cls, state.list);
   $("consum").hidden = !cons;
   // Every BracketSim list sims its consumables. A Raidbots number carried on
@@ -3403,10 +3435,71 @@ function asText(){
   return lines.join("\n");
 }
 
+/* ---------- talents ---------- */
+/* A talent string, as the game writes it: 8 bits of version, 16 of spec id, a
+   128-bit tree hash, then for each node of the class in id order: selected;
+   if so, purchased; if so, partly ranked (and 6 bits of rank) and choice node
+   (and 2 bits of which). Six bits a character, lowest first. assets/talents.js
+   holds the node order and what sits on each node; talentdata.js writes it and
+   carries the same reader for its --check. */
+function readTalents(str, D){
+  const B = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+  const v = Array.from(str, ch => B.indexOf(ch));
+  if(!v.length || v.includes(-1)) return null;
+  let pos = 0;
+  const bits = n => { let x = 0; for(let i = 0; i < n; i++, pos++){ const ch = v[Math.floor(pos/6)]; if(ch !== undefined && (ch >> (pos%6)) & 1) x += 2**i; } return x; };
+  bits(8); const spec = bits(16); pos += 128;
+  const cls = D.classes[D.specs[spec]];
+  if(!cls) return null;
+  const picks = {};
+  for(const id of cls.order){
+    if(!bits(1)) continue;
+    const p = { bought: !!bits(1), rank: 0, choice: 0 };
+    if(p.bought){ if(bits(1)) p.rank = bits(6); if(bits(1)) p.choice = bits(2); }
+    picks[id] = p;
+  }
+  return pos > v.length*6 ? null : { spec, cls, picks };
+}
+/* Draws the string the card shows. Nothing is drawn, and the string stays,
+   when the tree file has not arrived or the string does not read. */
+function drawTalents(){
+  const box = $("talenttree"), str = $("talentstr").textContent, D = window.TALENTS;
+  $("talentwh").href = "https://www.wowhead.com/talent-calc/blizzard/" + str;
+  const r = D && str && !$("talents").hidden ? readTalents(str, D) : null;
+  box.hidden = !r;
+  if(!r){ box.innerHTML = ""; return; }
+  const cur = CLASSES.find(c => c.id === state.cls) || {};
+  const tree = (t, label) => {
+    let pts = 0, n = 1, rows = 1; const cells = [];
+    for(const id in r.cls.nodes){
+      const nd = r.cls.nodes[id];
+      if(nd[0] !== t) continue;
+      const es = nd[3].filter(e => !e[4].length || e[4].includes(r.spec));
+      if(!es.length) continue;
+      const p = r.picks[id], e = (p && es[p.choice]) || es[0];
+      const rank = p ? (p.bought ? (p.rank || e[1]) : e[1]) : 0;
+      if(p && p.bought) pts += rank;
+      n = Math.max(n, nd[2]); rows = Math.max(rows, nd[1]);
+      const state_ = !p ? "off" : p.bought ? "on" : "free";
+      const say = e[2] + (!p ? ", not taken" : p.bought ? ", " + rank + " of " + e[1] : ", granted") +
+        (!p && es.length > 1 ? " (or " + es.slice(1).map(x => x[2]).join(", ") + ")" : "");
+      cells.push('<a class="tn '+state_+'" href="https://www.wowhead.com/spell='+e[0]+'" target="_blank" rel="noopener" style="grid-row:'+nd[1]+';grid-column:'+nd[2]+'" aria-label="'+esc(say)+'">' +
+        '<i aria-hidden="true">'+esc(e[2].replace(/[^A-Za-z ]/g, "").split(" ").filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase())+'</i>' +
+        (e[3] ? '<img src="https://wow.zamimg.com/images/wow/icons/medium/'+esc(e[3])+'.jpg" alt="" loading="lazy" onerror="this.remove()">' : '') +
+        (p && e[1] > 1 ? '<b>'+rank+'/'+e[1]+'</b>' : '') + '</a>');
+    }
+    return '<div class="ttree" style="--n:'+n+'"><h4>'+esc(label)+' <b>'+pts+'</b></h4><div class="tgrid" role="group" aria-label="'+esc(label)+' talents, '+pts+' points" style="grid-template-rows:repeat('+rows+',auto)">'+cells.join("")+'</div></div>';
+  };
+  const spec = cur.spec && typeof cur.spec === "object" ? cur.spec[state.list] : cur.spec;
+  box.innerHTML = tree(1, cur.name || "Class") + tree(2, spec || "Spec") +
+    '<p class="tkey">Gold outline: taken. Light outline: granted with the spec. The rows a level-30 character cannot reach are not shown.</p>';
+  if (window.$WowheadPower && window.$WowheadPower.refreshLinks) window.$WowheadPower.refreshLinks();
+}
+
 $("sortsel").addEventListener("change", ev => { state.sort = ev.target.value; render(); });
 $("talentcopy").addEventListener("click", () => {
   const t = $("talentstr").textContent, b = $("talentcopy");
-  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1400); };
+  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy string", 1400); };
   if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(()=>{});
   else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); done(); }
 });

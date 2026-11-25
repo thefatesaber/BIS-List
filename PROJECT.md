@@ -1906,6 +1906,16 @@ gated on `validate.js` monotonicity against the untouched lists.
   Since 2026-10-11 it holds every row to the game data in `gamedata.json`.
   Since 2026-10-12 it fails a row whose alternates were measured on a
   number its list no longer has.
+- `node talentdata.js --fetch` — rebuilds assets/talents.js, the talent
+  trees the Talents card draws (since 2026-11-24): node order per class
+  and, for the rows 11 class and 10 spec points can reach, each talent's
+  row, column, spell, ranks and icon. Sources: SimulationCraft's
+  trait_data.inc and WoWAnalyzer's talent tables (icon names); neither
+  holds the lines between talents, so the page draws none. The page reads
+  a list's string against the file in the browser, so a new string needs
+  no rebuild; a game patch that changes a tree does. `node talentdata.js
+  --check` reads every string on the page and exits 1 on one that is not
+  a legal level-30 build of a known spec. Not a CI gate.
 - `node gamedata.js <simc checkout>` or `node gamedata.js --fetch` —
   rebuilds `gamedata.json` from SimulationCraft's client tables, for the
   ids the page and the list profiles name. Run it when a row or a profile

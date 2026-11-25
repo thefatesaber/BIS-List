@@ -35,7 +35,8 @@ list is re-run.
 | `stale.js` | Re-runs the stored profiles on a local SimulationCraft build, to spot numbers that have drifted |
 | `diffdata.js` | Prints what changed in the page's data between two versions |
 | `stats.xlsx` | A scratch sheet for comparing gem budgets |
-| `assets/` | Icons and the share image |
+| `talentdata.js`, `assets/talents.js` | The talent trees the Talents card draws, and the script that rebuilds them |
+| `assets/` | Icons, the share image and the talent trees |
 
 ## Checking a change
 
