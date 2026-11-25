@@ -1909,9 +1909,11 @@ gated on `validate.js` monotonicity against the untouched lists.
 - `node talentdata.js --fetch` — rebuilds assets/talents.js, the talent
   trees the Talents card draws (since 2026-11-24): node order per class
   and, for the rows 11 class and 10 spec points can reach, each talent's
-  row, column, spell, ranks and icon. Sources: SimulationCraft's
-  trait_data.inc and WoWAnalyzer's talent tables (icon names); neither
-  holds the lines between talents, so the page draws none. The page reads
+  place, spell, ranks and icon, and the lines that leave it. Sources:
+  SimulationCraft's trait_data.inc, WoWAnalyzer's talent tables (icon
+  names) and Raidbots' talents.json (places, lines, active or passive;
+  since 2026-11-25). A run that cannot reach Raidbots
+  carries the places on file over and says so. The page reads
   a list's string against the file in the browser, so a new string needs
   no rebuild; a game patch that changes a tree does. `node talentdata.js
   --check` reads every string on the page and exits 1 on one that is not

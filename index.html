@@ -385,40 +385,49 @@ main{flex:1; min-width:0; padding:20px 24px 48px}
   display:inline-flex; align-items:center; gap:8px; min-width:0}
 #consumlines .cline .cv a:hover{text-decoration-style:solid}
 #consumlines .cline .cv small{color:var(--dim); font-size:11px; letter-spacing:.06em; text-transform:uppercase; font-weight:600}
-/* The string is longer than its box on most screens and scrolls sideways. The
-   fade at the right edge says so; the padding lets the last characters scroll
-   clear of it. */
-.talents code{display:block; overflow-x:auto; white-space:nowrap; color:var(--dust); font-family:var(--mono);
-  font-size:11.5px; letter-spacing:.01em; scrollbar-width:thin; padding-right:28px;
-  -webkit-mask-image:linear-gradient(90deg, #000 calc(100% - 28px), transparent);
-  mask-image:linear-gradient(90deg, #000 calc(100% - 28px), transparent)}
-/* The build, drawn from the string: class tree and spec tree side by side, one
-   cell per talent on the game's own row and column. Cells shrink with the card
-   down to 26 px, then the spec tree goes under the class tree; on a phone the
-   trees always stack. Wowhead's script adds
-   an icon to every link it finds, and these links carry their own. */
-.ttrees{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:flex-start; margin:0 0 12px}
+/* The string is longer than its box on most screens. It is cut with an
+   ellipsis and never scrolls: the button beside it copies all of it. */
+.talents code{flex:1; min-width:0; display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--dust);
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.01em}
+/* The build, drawn from the string: class tree and spec tree side by side,
+   every talent where the game draws it, with the game's lines between them.
+   Every tree of every spec is drawn in the same box, 9 columns by 7 rows, a
+   narrower tree centred in it, so a talent is the same size on every list:
+   22 px per half column at most, less when the card is narrow. In a card
+   under 500 px the spec tree goes below the class tree, for every spec alike.
+   Square: an active ability. Round: a passive. Cut corners: a choice.
+   Wowhead's script adds an icon to every link it finds, and these links
+   carry their own. */
+.talents{container-type:inline-size}
+.ttrees{display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px 24px; align-items:flex-start; margin:0 0 14px}
 .ttrees[hidden]{display:none}
-.ttree{flex:1 1 40%; min-width:calc(var(--n)*26px + (var(--n) - 1)*6px)}
-.ttree h4{display:flex; align-items:baseline; gap:8px; margin:0 0 8px; font:600 11px var(--sans); letter-spacing:.08em;
+.ttree{flex:1 1 0; min-width:0; max-width:calc(var(--w)*22px)}
+@container (max-width:500px){ .ttree{flex:1 1 100%} }
+.ttree h4{display:flex; align-items:baseline; gap:8px; margin:0 0 10px; font:600 11px var(--sans); letter-spacing:.08em;
   text-transform:uppercase; color:var(--dim)}
 .ttree h4 b{font:500 12px var(--mono); letter-spacing:0; color:var(--parchment)}
-.tgrid{display:grid; gap:6px; grid-template-columns:repeat(var(--n), minmax(0,36px)); justify-content:center}
-.tn{position:relative; display:block; aspect-ratio:1; border:1px solid var(--edge); border-radius:5px; background:var(--slate2);
-  color:var(--dim); text-decoration:none}
-.tn i{position:absolute; inset:0; display:grid; place-items:center; font:600 10px var(--mono); font-style:normal}
-.tn img{position:relative; display:block; width:100%; height:100%; border-radius:4px; object-fit:cover}
-.tn.off img{filter:grayscale(1) brightness(.42)}
-.tn.on{border-color:var(--amber); box-shadow:0 0 0 1px var(--amber); color:var(--parchment)}
-.tn.free{border-color:var(--dust); color:var(--parchment)}
-.tn b{position:absolute; right:-5px; bottom:-6px; padding:0 3px; border:1px solid var(--edge); border-radius:3px;
+.tmap{position:relative; aspect-ratio:var(--w) / var(--h)}
+.tmap svg{position:absolute; inset:0; width:100%; height:100%; overflow:visible}
+.tmap line{stroke:var(--edge); stroke-width:2; vector-effect:non-scaling-stroke}
+.tmap line.on{stroke:var(--amber)}
+.tn{position:absolute; display:block; padding:2px; border-radius:5px; background:#39425a; color:var(--dim); text-decoration:none}
+.tn.rd{border-radius:50%}
+.tn.ch{border-radius:0; clip-path:polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%)}
+.tn s{position:relative; display:block; width:100%; height:100%; border-radius:inherit; background:var(--slate2); overflow:hidden; text-decoration:none}
+.tn.ch s{border-radius:0; clip-path:inherit}
+.tn i{position:absolute; inset:0; display:grid; place-items:center; font:600 9px var(--mono); font-style:normal}
+.tn img{position:relative; display:block; width:100%; height:100%; object-fit:cover; transform:scale(1.12)}
+.tn.off img{filter:grayscale(1) brightness(.5)}
+.tn.on{background:var(--amber); color:var(--parchment)}
+.tn.free{background:var(--dust); color:var(--parchment)}
+.tn b{position:absolute; right:-6px; bottom:-6px; padding:0 3px; border:1px solid var(--edge); border-radius:3px;
   background:var(--void); color:var(--amber); font:600 10px/14px var(--mono)}
-.tn:hover{border-color:var(--parchment)}
+.tn:hover{background:var(--parchment)}
 .tn:focus-visible{outline:2px solid var(--epic); outline-offset:2px}
 .tn ins, .tn del, .tn span[class*="icon"]{display:none !important}
 .tkey{flex-basis:100%; margin:0; color:var(--dust); font-size:12px}
 a.tbtn{text-decoration:none}
-@media (max-width:700px){ .ttree{flex:1 1 100%; min-width:0} .tgrid{justify-content:start} }
+.tstr{display:flex; align-items:center; gap:12px}
 .tbtn{flex:none; background:none; border:1px solid var(--edge); color:var(--dust); font:inherit;
   font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px;
   border-radius:4px; cursor:pointer; transition:color .15s ease, border-color .15s ease, transform .13s ease}
@@ -728,9 +737,9 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
       <div class="pcol">
       <div class="statpanel" id="statpanel" hidden></div>
       <div class="talents card" id="talents" hidden>
-        <div class="chead"><h3>Talents</h3><a class="tbtn" id="talentwh" target="_blank" rel="noopener" title="Open this build in Wowhead's talent calculator">Wowhead</a><button class="tbtn" id="talentcopy">Copy string</button></div>
+        <div class="chead"><h3>Talents</h3><a class="tbtn" id="talentwh" target="_blank" rel="noopener" title="Open this build in Wowhead's talent calculator">Wowhead</a></div>
         <div class="ttrees" id="talenttree" hidden></div>
-        <code id="talentstr"></code>
+        <div class="tstr"><code id="talentstr"></code><button class="tbtn" id="talentcopy">Copy talent string</button></div>
       </div>
       </div>
       <div class="pcol">
@@ -816,7 +825,7 @@ const CONFIG = {
   patch: "12.1.0 (Midnight)",
   bracket: "Level 30",
   // Bump on every data change — a sim-derived list with no date can't be trusted.
-  updated: "2026-11-24",
+  updated: "2026-11-25",
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Shown under the header until the changelog feed loads, and in its place when the
@@ -3471,37 +3480,51 @@ function drawTalents(){
   box.hidden = !r;
   if(!r){ box.innerHTML = ""; return; }
   const cur = CLASSES.find(c => c.id === state.cls) || {};
+  // What this spec sees of each tree: node id -> [node, its talents here].
+  const seen = [null, {}, {}]; let y0 = 1e9, y1 = 0;
+  for(const id in r.cls.nodes){
+    const nd = r.cls.nodes[id], es = nd[3].filter(e => !e[4].length || e[4].includes(r.spec));
+    if(!es.length) continue;
+    seen[nd[0]][id] = [nd, es]; y0 = Math.min(y0, nd[2]); y1 = Math.max(y1, nd[2]);
+  }
+  // The box every tree is drawn in: 9 columns by 7 rows of the game's grid,
+  // two units a step, plus a talent's own side. A tree is centred across it.
+  const C = 1.7, W = 16 + C, H = Math.max(12, y1 - y0) + C;
+  const span = t => { let a = 1e9, b = 0; for(const id in seen[t]){ a = Math.min(a, seen[t][id][0][1]); b = Math.max(b, seen[t][id][0][1]); } return (a + b)/2 - 8; };
   const tree = (t, label) => {
-    let pts = 0, n = 1, rows = 1; const cells = [];
-    for(const id in r.cls.nodes){
-      const nd = r.cls.nodes[id];
-      if(nd[0] !== t) continue;
-      const es = nd[3].filter(e => !e[4].length || e[4].includes(r.spec));
-      if(!es.length) continue;
-      const p = r.picks[id], e = (p && es[p.choice]) || es[0];
+    const x0 = span(t); let pts = 0; const cells = [], lines = [];
+    const pc = (v, of) => (100*v/of).toFixed(3) + "%";
+    for(const id in seen[t]){
+      const [nd, es] = seen[t][id];
+      const p = r.picks[id], k = p && es[p.choice] ? p.choice : 0, e = es[k];
       const rank = p ? (p.bought ? (p.rank || e[1]) : e[1]) : 0;
       if(p && p.bought) pts += rank;
-      n = Math.max(n, nd[2]); rows = Math.max(rows, nd[1]);
+      for(const to of nd[4]){
+        const o = seen[t][to]; if(!o) continue;
+        lines.push('<line'+(p && r.picks[to] ? ' class="on"' : '')+' x1="'+(nd[1]-x0+C/2)+'" y1="'+(nd[2]-y0+C/2)+'" x2="'+(o[0][1]-x0+C/2)+'" y2="'+(o[0][2]-y0+C/2)+'"/>');
+      }
+      const shape = nd[5] & 4 ? " ch" : (nd[5] >> k) & 1 ? "" : " rd";
       const state_ = !p ? "off" : p.bought ? "on" : "free";
       const say = e[2] + (!p ? ", not taken" : p.bought ? ", " + rank + " of " + e[1] : ", granted") +
         (!p && es.length > 1 ? " (or " + es.slice(1).map(x => x[2]).join(", ") + ")" : "");
-      cells.push('<a class="tn '+state_+'" href="https://www.wowhead.com/spell='+e[0]+'" target="_blank" rel="noopener" style="grid-row:'+nd[1]+';grid-column:'+nd[2]+'" aria-label="'+esc(say)+'">' +
+      cells.push('<a class="tn '+state_+shape+'" href="https://www.wowhead.com/spell='+e[0]+'" target="_blank" rel="noopener" style="left:'+pc(nd[1]-x0, W)+';top:'+pc(nd[2]-y0, H)+';width:'+pc(C, W)+';height:'+pc(C, H)+'" aria-label="'+esc(say)+'"><s>' +
         '<i aria-hidden="true">'+esc(e[2].replace(/[^A-Za-z ]/g, "").split(" ").filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase())+'</i>' +
-        (e[3] ? '<img src="https://wow.zamimg.com/images/wow/icons/medium/'+esc(e[3])+'.jpg" alt="" loading="lazy" onerror="this.remove()">' : '') +
+        (e[3] ? '<img src="https://wow.zamimg.com/images/wow/icons/medium/'+esc(e[3])+'.jpg" alt="" loading="lazy" onerror="this.remove()">' : '') + '</s>' +
         (p && e[1] > 1 ? '<b>'+rank+'/'+e[1]+'</b>' : '') + '</a>');
     }
-    return '<div class="ttree" style="--n:'+n+'"><h4>'+esc(label)+' <b>'+pts+'</b></h4><div class="tgrid" role="group" aria-label="'+esc(label)+' talents, '+pts+' points" style="grid-template-rows:repeat('+rows+',auto)">'+cells.join("")+'</div></div>';
+    return '<div class="ttree" style="--w:'+W.toFixed(2)+';--h:'+H.toFixed(2)+'"><h4>'+esc(label)+' <b>'+pts+'</b></h4><div class="tmap" role="group" aria-label="'+esc(label)+' talents, '+pts+' points">' +
+      '<svg viewBox="0 0 '+W.toFixed(2)+' '+H.toFixed(2)+'" preserveAspectRatio="none" aria-hidden="true">'+lines.join("")+'</svg>'+cells.join("")+'</div></div>';
   };
   const spec = cur.spec && typeof cur.spec === "object" ? cur.spec[state.list] : cur.spec;
   box.innerHTML = tree(1, cur.name || "Class") + tree(2, spec || "Spec") +
-    '<p class="tkey">Gold outline: taken. Light outline: granted with the spec. The rows a level-30 character cannot reach are not shown.</p>';
+    '<p class="tkey">Gold: taken. Light: granted with the spec. Square: an active ability. Round: a passive. Cut corners: a choice. The rows a level-30 character cannot reach are not shown.</p>';
   if (window.$WowheadPower && window.$WowheadPower.refreshLinks) window.$WowheadPower.refreshLinks();
 }
 
 $("sortsel").addEventListener("change", ev => { state.sort = ev.target.value; render(); });
 $("talentcopy").addEventListener("click", () => {
   const t = $("talentstr").textContent, b = $("talentcopy");
-  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy string", 1400); };
+  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy talent string", 1400); };
   if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done).catch(()=>{});
   else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); done(); }
 });

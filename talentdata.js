@@ -2,21 +2,27 @@
 // Talent trees for the page. assets/talents.js holds, for every class, the
 // order of its tree nodes (what a talent string is read against) and, for the
 // rows a level-30 character can reach, each talent's place, spell, name and
-// icon. The page reads a list's talent string against it and draws the build.
+// icon, and the lines that leave it. The page reads a list's talent string against it and draws the build.
 // This script writes that file.
 //
-//   node talentdata.js --fetch [ref]            rebuild from GitHub
-//   node talentdata.js <trait_data.inc> <dir>   rebuild from local copies: the
-//                                               SimulationCraft table and
-//                                               WoWAnalyzer's src/common/TALENTS
+//   node talentdata.js --fetch [ref]            rebuild from GitHub and Raidbots
+//   node talentdata.js <trait_data.inc> <dir> [talents.json]
+//                                               rebuild from local copies: the
+//                                               SimulationCraft table, WoWAnalyzer's
+//                                               src/common/TALENTS and, optionally,
+//                                               Raidbots' talents.json
 //   node talentdata.js --check [index.html]     read every talent string on the
 //                                               page against the file; exit 1 if
 //                                               one does not read as a legal
 //                                               level-30 build of its spec
 //
 // Sources: SimulationCraft's generated client data (trait_data.inc: node ids,
-// rows, columns, ranks, spells) and WoWAnalyzer's talent tables (icon names).
-// Neither holds the lines between talents, so the page draws none.
+// ranks, spells, which spec sees what), WoWAnalyzer's talent tables (icon
+// names) and Raidbots' talents.json (https://www.raidbots.com/static/data/live/
+// talents.json: where the game draws each talent, the lines between talents,
+// and which are active abilities). When Raidbots cannot be reached, the places
+// and lines already in assets/talents.js are carried over, and the run says so;
+// a talent with no place on file is left out and named.
 // Rebuild after a game patch that changes a tree; --check says when one has.
 
 const fs = require("fs");
@@ -42,13 +48,24 @@ function parseTraits(txt) {
   return { build, traits: out };
 }
 
+// Icon names WoWAnalyzer's tables spell differently from Wowhead's icon
+// server, each read there on 2026-11-25: the name on the left answers 404.
+const ICON_FIX = {
+  ability_rogue_shuriken_storm: "ability_rogue_shurikenstorm",
+  spell_priest_power_word: "spell_priest_power-word",
+  spell_priest_void_flay: "spell_priest_void-flay",
+  spell_priest_void_blast: "spell_priest_void-blast",
+  spell_frost_ice_shards: "spell_frost_ice-shards",
+  spell_firefrost_orb: "spell_firefrost-orb",
+};
+
 function parseIcons(texts) {
   const byEntry = new Map(), bySpell = new Map(), byName = new Map();
   for (const txt of texts) {
     const re = /id:\s*(\d+),\s*name:\s*(?:'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)"),\s*icon:\s*'([^']*)',\s*maxRanks:\s*\d+,\s*entryIds:\s*\[([^\]]*)\]/g;
     let m;
     while ((m = re.exec(txt))) {
-      const icon = m[4], name = (m[2] !== undefined ? m[2] : m[3]).replace(/\\(.)/g, "$1");
+      const icon = ICON_FIX[m[4]] || m[4], name = (m[2] !== undefined ? m[2] : m[3]).replace(/\\(.)/g, "$1");
       for (const e of m[5].split(",").map(Number).filter(Boolean)) byEntry.set(e, icon);
       if (!bySpell.has(+m[1])) bySpell.set(+m[1], icon);
       if (!byName.has(name)) byName.set(name, icon);
@@ -58,10 +75,37 @@ function parseIcons(texts) {
 }
 
 // -------------------------------------------------------------------- build
-function build(traitTxt, iconTexts, refs) {
+// Where each node sits and what it leads to, by node id: { x, y, next, f }.
+// x and y are the game's own coordinates in units of 300, half a column; f is
+// 1 when the first talent on the node is an active ability, 2 the second, 4 a
+// choice node.
+function layoutFromRaidbots(txt) {
+  const L = {};
+  for (const s of JSON.parse(txt)) for (const n of [...s.classNodes, ...s.specNodes]) {
+    const es = (n.entries || []).filter(e => e.spellId).sort((a, b) => a.index - b.index);
+    if (!es.length) continue;
+    const c = L[n.id] || (L[n.id] = { x: Math.floor(n.posX / 300), y: Math.floor(n.posY / 300), next: new Set(), f: 0 });
+    for (const v of n.next || []) c.next.add(v);
+    es.slice(0, 2).forEach((e, i) => { if (e.type === "active") c.f |= 1 << i; });
+    if (n.type === "choice") c.f |= 4;
+  }
+  for (const c of Object.values(L)) c.next = [...c.next];
+  return L;
+}
+function layoutFromFile() {
+  const L = {};
+  try {
+    const w = {}; new Function("window", fs.readFileSync(FILE, "utf8"))(w);
+    for (const c of Object.values(w.TALENTS.classes)) for (const [id, n] of Object.entries(c.nodes))
+      if (n.length >= 6) L[id] = { x: n[1], y: n[2], next: n[4], f: n[5] };
+  } catch (e) { /* no file yet */ }
+  return L;
+}
+
+function build(traitTxt, iconTexts, refs, layout) {
   const { build: wowBuild, traits } = parseTraits(traitTxt);
   const iconOf = parseIcons(iconTexts);
-  const classes = {}, specs = {}; const noIcon = [];
+  const classes = {}, specs = {}; const noIcon = [], noPlace = new Set();
   for (const t of traits) {
     if (!t.cls || !t.node) continue;
     const c = classes[t.cls] || (classes[t.cls] = { order: new Set(), nodes: {} });
@@ -69,7 +113,9 @@ function build(traitTxt, iconTexts, refs) {
     if (t.tree === 2) for (const s of t.specs) specs[s] = t.cls;
     const reach = t.tree === 1 ? t.req < CLASS_POINTS : t.tree === 2 ? t.req < SPEC_POINTS : false;
     if (!reach || t.row < 1 || t.col < 1 || !t.spell) continue;   // spell 0: a placeholder the game does not show
-    const n = c.nodes[t.node] || (c.nodes[t.node] = { t: t.tree, r: t.row, c: t.col, e: [] });
+    const at = layout[t.node];
+    if (!at) { noPlace.add(`${t.name} (node ${t.node})`); continue; }
+    const n = c.nodes[t.node] || (c.nodes[t.node] = { t: t.tree, at, e: [] });
     const icon = iconOf(t);
     if (!icon) noIcon.push(`${t.name} (${t.spell})`);
     n.e.push({ sel: t.sel, v: [t.spell, t.max, t.name, icon, t.specs] });
@@ -78,10 +124,11 @@ function build(traitTxt, iconTexts, refs) {
   for (const [id, c] of Object.entries(classes)) {
     const nodes = {};
     for (const [nid, n] of Object.entries(c.nodes))
-      nodes[nid] = [n.t, n.r, n.c, n.e.sort((a, b) => a.sel - b.sel).map(e => e.v)];
+      nodes[nid] = [n.t, n.at.x, n.at.y, n.e.sort((a, b) => a.sel - b.sel).map(e => e.v),
+                    n.at.next.filter(v => c.nodes[v]).sort((a, b) => a - b), n.at.f];
     out.classes[id] = { order: [...c.order].sort((a, b) => a - b), nodes };
   }
-  return { data: out, noIcon };
+  return { data: out, noIcon, noPlace: [...noPlace] };
 }
 
 function write(data) {
@@ -161,19 +208,31 @@ async function main() {
     const traitTxt = await get(`https://raw.githubusercontent.com/simulationcraft/simc/${simc}/engine/dbc/generated/trait_data.inc`);
     const icons = [];
     for (const f of WA_FILES) icons.push(await get(`https://raw.githubusercontent.com/WoWAnalyzer/WoWAnalyzer/${wa}/src/common/TALENTS/${f}.ts`));
-    return finish(build(traitTxt, icons, { simc: simc.slice(0, 7), wowanalyzer: wa.slice(0, 7) }));
+    const refs = { simc: simc.slice(0, 7), wowanalyzer: wa.slice(0, 7) };
+    let layout;
+    try { layout = layoutFromRaidbots(await get("https://www.raidbots.com/static/data/live/talents.json")); refs.layout = "raidbots " + new Date().toISOString().slice(0, 10); }
+    catch (e) { layout = layoutFromFile(); refs.layout = carried(); process.stderr.write(`Raidbots not reached (${e.message}): places and lines carried over from assets/talents.js\n`); }
+    return finish(build(traitTxt, icons, refs, layout));
   }
-  if (args.length === 2) {
+  if (args.length === 2 || args.length === 3) {
     const icons = WA_FILES.map(f => fs.readFileSync(path.join(args[1], f + ".ts"), "utf8"));
-    return finish(build(fs.readFileSync(args[0], "utf8"), icons, { simc: "local", wowanalyzer: "local" }));
+    const refs = { simc: "local", wowanalyzer: "local", layout: args[2] ? "raidbots, local copy" : carried() };
+    const layout = args[2] ? layoutFromRaidbots(fs.readFileSync(args[2], "utf8")) : layoutFromFile();
+    return finish(build(fs.readFileSync(args[0], "utf8"), icons, refs, layout));
   }
-  console.log("usage: node talentdata.js --fetch [ref] | <trait_data.inc> <WoWAnalyzer TALENTS dir> | --check [index.html]");
+  console.log("usage: node talentdata.js --fetch [ref] | <trait_data.inc> <WoWAnalyzer TALENTS dir> [talents.json] | --check [index.html]");
   process.exit(2);
 }
-function finish({ data, noIcon }) {
+// The layout stamp of the file on disk, for a run that carries its places over.
+function carried() {
+  try { const w = {}; new Function("window", fs.readFileSync(FILE, "utf8"))(w); return w.TALENTS.sources.layout || "carried"; }
+  catch (e) { return "none"; }
+}
+function finish({ data, noIcon, noPlace }) {
   write(data);
   const n = Object.values(data.classes).reduce((a, c) => a + Object.keys(c.nodes).length, 0);
   console.log(`assets/talents.js: game build ${data.build}, ${Object.keys(data.classes).length} classes, ${Object.keys(data.specs).length} specs, ${n} nodes drawn, ${fs.statSync(FILE).size} bytes`);
   if (noIcon.length) console.log(`no icon on file for ${noIcon.length}: ${noIcon.join(", ")}`);
+  if (noPlace.length) console.log(`no place on file for ${noPlace.length}, left out: ${noPlace.join(", ")}`);
 }
 main().catch(e => { console.error(e.message); process.exit(1); });

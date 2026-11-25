@@ -6,6 +6,18 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-11-25
+- [page] Every talent tree is drawn the same way: the game's layout, one size, with lines.
+  A nine-column class tree, the Priest's and the Druid's, no longer drops the spec tree
+  under it with smaller talents: every tree of every spec sits in the same box, class
+  beside spec, each talent where the game puts it and the same size on every list. The
+  lines between talents are drawn, gold between two taken; a square is an active
+  ability, a circle a passive, cut corners a choice. Six icons that did not load now
+  do (Voidform among them). The talent string no longer scrolls: it is cut with an
+  ellipsis, and "Copy talent string" beside it copies all of it.
+- [repo] talentdata.js also reads Raidbots' talents.json, for the places, the lines and
+  which talents are active, and corrects six icon names; assets/talents.js is rebuilt.
+
 ## 2026-11-24
 - [page] The panels are two even columns: stats and Talents left, the rest right.
   Talents had joined Consumables and Buff worth on the right, beside a left column that
