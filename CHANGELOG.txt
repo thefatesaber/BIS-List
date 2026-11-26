@@ -7,6 +7,30 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-25
+- [page] Eleven more Obtainable lists on BracketSim: all 27 are now fully raid-buffed.
+  Assassination 4,173, Balance 3,452, Demonology 3,307, Arms 3,252, Unholy 3,160, Enhancement
+  3,098, Retribution 3,049, Elemental 2,938, Arcane 2,727, Beast Mastery 2,583, Subtlety 2,469.
+  Each replaces a self-buffed Raidbots number without consumables (+5% to +65%), so the "re-sim
+  pending" tag and the Consumables panel's "not included" note come off these eleven: no
+  Obtainable list carries them now, and every Herald list still does. Each list is its All-Time
+  record with what can no longer be farmed replaced: the neck and rings at their regular 33 with
+  one gem, Chaos Talisman for Heart of Roccor (Arms, Unholy, Retribution), Band of Vigor for
+  Jeweled Signet of Melandrus (Assassination, Subtlety, Enhancement) and for Band of the Ancient
+  Dredger (Demonology), Gemshard Heart for Amnesia (Assassination), Stormcharged Choker for
+  Phoenix Feather Pendant (Elemental). Three lists move a neck or ring besides: Arcane takes
+  Chain of the Green Flight and Scalebane Signet, Elemental takes Band of Twisted Bark, and
+  Balance takes Arch-Druid's Tainted Seal in Ring 1, with a crit and a mastery enchant on its
+  rings where All-Time has haste on both. They sit 3% to 7% under their All-Time numbers.
+  Subtlety and Enhancement keep the Vibroblade, simmed natively: Puncture Armor is on the target
+  86% and 82% of the fight. Assassination is the Rogue's best spec on Obtainable as on All-Time
+  (Outlaw 4,076). Retribution's Consumables panel reads Adamantite Sharpening Stone where it
+  read Hissing Rune, and Beast Mastery's adds the Superior Mana Oil its profile sims.
+  Demonology's run is 1,819 iterations (plus or minus 2.9, 0.09%), where the other lists of
+  record ran 20,015.
+- [page] Havoc Demon Hunter Obtainable re-run at 20,015 iterations: 3,028.
+  The same list as the 910-iteration run of 2026-11-16, which it replaces: 3,026 becomes 3,028,
+  and the error is plus or minus 1.4 where it was 6.3.
+- [repo] list/Obtainable holds the profile and report of all 27 Obtainable lists.
 - [page] The share image is linked as assets/og.png?v=2. Discord keeps a preview image
   by its address, so links were still showing the image from before 2026-11-20; the
   new address makes it fetch the current one. The file itself is unchanged.

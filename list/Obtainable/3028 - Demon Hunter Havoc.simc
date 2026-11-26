@@ -2,28 +2,28 @@
 # Legacy Thirty BiS — Obtainable — Demon Hunter Havoc
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
-#                    git 1c8e68c, WoW 12.1.5.70783 hotfix 2026-11-04
-# Result           : 3,026 DPS (±6.3 / 0.209%), 910 iterations
+#                    git b474ea6, WoW 12.1.5.70961 hotfix 2026-11-17
+# Result           : 3,028 DPS (±1.4 / 0.047%), 20015 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
-# Report           : 3026 - Demon Hunter Havoc.html (same folder; /r/ share links expire)
-# Simmed           : 2026-11-16 by Fate
+# Report           : 3028 - Demon Hunter Havoc.html (same folder; /r/ share links expire)
+# Simmed           : 2026-11-25 by Fate
 #
-# BracketSim options (the full-buffed set of PROJECT.md; BracketSim hides buffs
-# the class cannot use, so the visible list varies by class):
+# BracketSim options (the full-buffed set of PROJECT.md), ticked as the report's
+# buff tables show them; this run carries every raid buff, not only its class's:
 #   Raid buff preset: Optimal Raid Buffs
 #   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
 #                  [ ] Icecrown Citadel  [ ] Plague Stream
 #                  [ ] Adventurer's Journal
-#   Raid buffs:    [ ] Arcane Intellect  [x] Battle Shout
+#   Raid buffs:    [x] Arcane Intellect  [x] Battle Shout
 #                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
-#                  [x] Hunter's Mark  [ ] Blessing of the Bronze
-#                  [ ] Power Word: Fortitude  [ ] Chaos Brand
-#                  [ ] Mystic Touch  [ ] Bleeding  [ ] Power Infusion
+#                  [x] Hunter's Mark  [x] Blessing of the Bronze
+#                  [x] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [x] Bleeding  [ ] Power Infusion
 #   Teammate armor reduction: none
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Wdps 41.09 > Agi 9.10 > AP 8.62 > Crit 5.37 > Vers 5.02 > Mastery 5.01 > Haste 4.37
+# Stat weights (DPS): Wdps 41.04 > WOHdps 10.35 > Agi 9.04 > AP 8.55 > Vers 4.96 > Mastery 4.94 > Crit 4.84 > Haste 4.42
 # ============================================================================
 
 demonhunter="Fateberserkr"
@@ -105,7 +105,7 @@ chest=midnight_chestguard,id=30905,bonus_id=9036,ilevel=42,gem_id=32222/32222/32
 wrists=umbrage_armbands,id=54580,bonus_id=9051,ilevel=47,gem_id=32222,enchant_id=4416,drop_level=30
 hands=gloves_of_the_endless_dark,id=46043,bonus_id=9043,ilevel=43,gem_id=32222/32222,enchant_id=5259,drop_level=30
 waist=souldevouring_cinch,id=46095,bonus_id=9043,ilevel=43,gem_id=71852/71852/71852,drop_level=30
-legs=plaguesoaked_leather_leggings,id=51889,bonus_id=9049,ilevel=45,gem_id=71852/71852/71852,enchant_id=4880,drop_level=30
+legs=plaguesoaked_leather_leggings,id=51889,bonus_id=9079,ilevel=45,gem_id=71852/71852/71852,enchant_id=4880,drop_level=30
 feet=footpads_of_impending_death,id=49895,bonus_id=9051,ilevel=47,gem_id=71852/71852,enchant_id=1887,drop_level=30
 finger1=fleshfused_circle,id=178869,bonus_id=6710/8810,ilevel=33,gem_id=71852,enchant_id=6110,drop_level=30
 finger2=band_of_twisted_bark,id=134531,bonus_id=6710/8810,ilevel=33,gem_id=71852,enchant_id=6110,drop_level=30

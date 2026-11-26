@@ -1705,8 +1705,9 @@ re-sync from upstream must not bring them back.
   flame cap for melee too"): every cell within 3 DPS of zero, so it stays a row of the
   seven fire casters. Power
   Infusion leaves the board with the Raidbots
-  rows. Herald, and the twelve Obtainable lists still on Raidbots, have no rows until
-  they are re-simmed and run through the same batch.
+  rows. Herald has no rows until it is re-simmed; the twelve Obtainable lists re-simmed
+  on 2026-11-25 (Havoc first on 2026-11-16) have none until they are run through the
+  same batch.
 
 Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
 convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
@@ -1887,6 +1888,40 @@ replaced, and Fate ran it with Chain of the Green Flight on the neck and Band of
 Bark in Ring 2. The run is 910 iterations (plus or minus 6.3 DPS), not the 20,015 of
 the other records; a 20,015 run replaces it when one is made. Eleven Obtainable lists and
 all of Herald still carry Raidbots numbers.
+The eleven followed on 2026-11-25, and a 20,015-iteration Havoc run with them (3,028, in
+place of the 910-iteration 3,026): Assassination 4,173 (from 2,623), Balance 3,452 (from
+2,698), Demonology 3,307 (from 2,650), Arms 3,252 (from 2,416), Unholy 3,160 (from 2,619),
+Enhancement 3,098 (from 2,408), Retribution 3,049 (from 2,895), Elemental 2,938 (from
+2,297), Arcane 2,727 (from 2,271), Beast Mastery 2,583 (from 2,064), Subtlety 2,469 (from
+1,496). Every Obtainable list is on BracketSim; all of Herald still carries Raidbots
+numbers. Demonology's run is 1,819 iterations (plus or minus 2.9 DPS, 0.09%); a 20,015 run
+replaces it when one is made. Fate sent the twelve reports without their profiles, so each
+profile of record is the one its report embeds, under the usual header and with the region
+and server lines every stored export has. Five gear lines ran under the name of another item
+(the id was changed and the name token left: Arcane's neck and Ring 2, Elemental's neck and
+Ring 2, Balance's Ring 1, and Havoc's Ring 2 again); SimulationCraft goes by the id, the
+report's gear table shows the id's item with the token in brackets, and the stored line and
+the page row carry the id's name. rebase_list.js cannot read such a table line: it says the
+slot has no line and takes the level from the profile, which is the same level. The reports
+of this wave carry 40 to 85 CRLF pairs each, inside spell tooltips; they are stored with LF,
+which is what git am leaves of them. A report's "Talent string:" line stops at the first +
+or / of the string (Subtlety, Assassination, Demonology); its Talent row and the profile's
+talents= line are whole.
+
+The buff tables of these twelve reports, and of the Havoc report of 2026-11-16, show more
+than the earlier records do: all six raid buffs on every class (Arcane Intellect, Battle
+Shout, Mark of the Wild, Skyfury, Blessing of the Bronze, Power Word: Fortitude) and the
+bleeding flag held on the target for the whole fight, where the reports of 2026-10-23 to
+2026-11-06 show only the buffs their class uses and bleeding only while the spec's own
+bleeds run. Drums, Hunter's Mark and Flame Cap (Elemental and Demonology here) are as
+before; there is no external Power Infusion, no Chaos Brand or Mystic Touch from the raid
+(Havoc applies its own Chaos Brand) and no teammate armor debuff. The headers of this wave
+tick what the report shows. SimulationCraft's source (midnight, e549ab0) reads the bleeding
+flag in two places, Survival's Bloodseeker and Feral's Merciless Claws, so none of these
+twelve numbers depends on it; the other additions are stamina, movement speed, intellect on
+a spec that does not use it and attack power on a caster, expected to move nothing and not
+measured. A Feral or Survival list re-run under these options would carry the flag where its
+record of 2026-11-05 does not.
 
 Until 2026-10-22 (Raidbots):
 
