@@ -485,6 +485,8 @@ const ILVL_SPLIT_OK = new Map([
              why: "Ukhel Ancestry Beads: Frost DK All-Time ran Asimiir's export at 30 (bonus 13642 in place of 7978), the sim of record on 2026-10-22; Outlaw ran the same error and was re-simmed at 33 on 2026-10-28, which is the fix for the DK as well" }],
   [134487, { levels: { 33: null, 47: ["alltime"] },
              why: "Arch-Druid's Tainted Seal: 47 is its Timewalking version, on nine of the same ten (Fury keeps Fleshfused Circle in Ring 1); the same two rulings" }],
+  [231456, { levels: { 36: null, 51: ["alltime"] },
+             why: "Heart of Roccor: Retribution All-Time ran it at 51, the sim of record on 2026-11-25 (ilevel=51 beside drop_level=30 in the input); Arms, Frost DK, Unholy and two Fury builds ran it at 36, the level SimulationCraft's game data gives its bonus 12378 at drop level 30 (51 is its level at drop level 43)" }],
 ]);
 for (const [id, byIlvl] of ilvlById) {
   if (byIlvl.size < 2) continue;

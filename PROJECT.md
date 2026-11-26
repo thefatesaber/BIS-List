@@ -1708,6 +1708,25 @@ re-sync from upstream must not bring them back.
   rows. Herald has no rows until it is re-simmed; the twelve Obtainable lists re-simmed
   on 2026-11-25 (Havoc first on 2026-11-16) have none until they are run through the
   same batch.
+  Retribution's All-Time rows are those of the 3,238 run, carried under the 3,321 of 2026-11-25.
+- Heart of Roccor at two item levels (2026-11-25): OPEN, Fate's. Retribution's All-Time re-run
+  of that day (3,321, from 3,238) has the trinket at 51: the input reads ilevel=51 beside
+  drop_level=30, with the two bonus ids every Roccor line in the repo has (7756, 12378). The
+  five other entries that wear it ran it at 36: Arms, Frost DK and Unholy on All-Time, and
+  Fury's With BRE and UTB + UTB builds. SimulationCraft's game data (build 12.1.5.70961) makes
+  12378 a level-scaled bonus on content tuning 181, which gives 36 to a drop at level 30 and 51
+  to a drop at level 43; 7756 only adds a name tag. At 51 the trinket carries 15 crit for 11 and
+  Iron Strength gives 3.29 Strength a stack for 2.52 (10 stacks, held 93% of the fight): about 7
+  Strength and 4 crit, about 88 DPS by the run's stat weights, against a number that rose by 83.
+  So the level is the whole gain of the re-run, and the board sets a Retribution at 51 beside
+  entries at 36. The raid is open again from 2026-11-17 to 2026-12-08 (the 22nd anniversary, in
+  Raid Finder; read on the web on 2026-11-25, not checked in game), which the note of 2026-10-11
+  above ("Roccor's raid is gone") predates. Whether a level-30 drop reads 51 in game is for
+  Fate's tooltip to say, as the standing rule on pins asks (Items are explicit: a pin above an
+  item's base level needs the version to exist in game). To rule: the level All-Time takes. At
+  51 the five other entries are run at 51; at 36 Retribution is run at 36. validate.js holds the
+  pair as an item-level exception (ILVL_SPLIT_OK, 231456) and fails once the page shows a single
+  level, which is when the entry comes out.
 
 Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
 convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
@@ -1922,6 +1941,16 @@ twelve numbers depends on it; the other additions are stamina, movement speed, i
 a spec that does not use it and attack power on a caster, expected to move nothing and not
 measured. A Feral or Survival list re-run under these options would carry the flag where its
 record of 2026-11-05 does not.
+
+Retribution's All-Time record was run again on 2026-11-25: 3,321, in place of the 3,238 of
+2026-11-05, and the first All-Time record whose report shows the wider buff tables above. Fate
+sent the report alone, so the profile of record is the one it embeds, with the region and server
+lines. Three gear lines differ from the 3,238 record: Heart of Roccor reads ilevel=51 where it
+read ilevel=36 (Open rulings, "Heart of Roccor at two item levels"), and the neck and Ring 2
+lines carry no ilevel option where they read ilevel=33; the report's gear table shows both at
+33, the level their bonus ids give, so the page rows do not move. The stat panel moves by the
+trinket's crit (91 rating for 87) and by Fortitude (1,170 stamina for 1,114). Carried: the Buff
+worth panel, measured on the 3,238 run. The report's 70 CRLF pairs are stored as LF.
 
 Until 2026-10-22 (Raidbots):
 

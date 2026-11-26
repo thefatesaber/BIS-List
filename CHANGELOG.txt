@@ -7,6 +7,20 @@ entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
 ## 2026-11-25
+- [page] Retribution All-Time re-run: 3,321, with Heart of Roccor at item level 51.
+  Run by Fate on BracketSim at 20,015 iterations (plus or minus 1.7), in place of the 3,238 of
+  2026-11-05. Talents, consumables and every slot, gem and enchant are the same. One line
+  differs: Heart of Roccor ran at item level 51 where it ran at 36. At 51 it carries 15 crit for
+  11, and Iron Strength gives 3.29 Strength a stack for 2.52, about 7 Strength more across the
+  fight. The run's own stat weights price that at about 88 DPS and the number rose by 83, so the
+  trinket's level is the whole gain. Arms, Frost DK, Unholy and two Fury builds (With BRE, UTB +
+  UTB) still show the trinket at 36, which is what the game data gives a drop at level 30; it
+  gives 51 to a drop at level 43. Which level All-Time takes is not ruled: it is the newest item
+  under Open rulings in PROJECT.md, and validate.js prints the two levels on every run. The stat
+  panel reads 91 crit rating (23.25%) for 87 and 1,170 stamina for 1,114; the stamina is Power
+  Word: Fortitude, which this report carries as the Obtainable reports of the same day do. No
+  place changes: Retribution stays 22nd on All-Time, 17 behind Unholy. The Buff worth panel is
+  carried from the 3,238 run.
 - [page] Eleven more Obtainable lists on BracketSim: all 27 are now fully raid-buffed.
   Assassination 4,173, Balance 3,452, Demonology 3,307, Arms 3,252, Unholy 3,160, Enhancement
   3,098, Retribution 3,049, Elemental 2,938, Arcane 2,727, Beast Mastery 2,583, Subtlety 2,469.
