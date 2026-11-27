@@ -794,7 +794,9 @@ main.ov > :not(#overview):not(#buffs){display:none !important}
      stats      {list: {crit|haste|mastery|vers: [percent, rating]}} — optional stat panel;
                 also takes main: N (primary stat rating, label auto per class)
                 and stam: N (stamina), shown in a band above the secondaries
-     consumables  {potion, flask, food, oil}, each {item, wowhead}; any of them
+     consumables  {potion, flask, food, oil}, each {item, wowhead}; a list
+                  simmed with an elixir in the flask's place writes elixir
+                  where flask would be. Any of them
                   may add token:"..." to override the SimC token derived from
                   the name, needed for ranked items like hissing_rune_3. oil is
                   either {item, wowhead, hands:"MH/OH"|"MH"} for one weapon
@@ -825,7 +827,7 @@ const CONFIG = {
   patch: "12.1.0 (Midnight)",
   bracket: "Level 30",
   // Bump on every data change — a sim-derived list with no date can't be trusted.
-  updated: "2026-11-25",
+  updated: "2026-11-26",
   // Herald of the Titans achievement requirements.
   heraldRule: "Defeat Algalon the Observer at level 30 with no one in the raid wearing items above item level 41. Other than necks, rings and trinkets, every piece must come from Classic, TBC or WotLK.",
   // Shown under the header until the changelog feed loads, and in its place when the
@@ -1104,7 +1106,9 @@ const CLASSES = [
       {"slot": "Trinket 2", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul"},
       {"slot": "Main Hand", "item": "Bonereaver's Edge", "wowhead": 17076, "ilvl": 38, "source": "Molten Core — Ragnaros", "ench": "Rune of the Fallen Crusader", "enchsp": 53344}
     ]
-  }
+  },
+  builds:{"herald": [{"id": "wotlk", "label": "WotLK", "tag": "Classic, TBC and WotLK gear only", "consumables": {"potion": {"item": "Golemblood Potion", "wowhead": 58146}, "elixir": {"item": "Darkmoon Firewater", "wowhead": 78883}, "food": {"item": "Beer-Basted Crocolisk", "wowhead": 62670}, "oil": {"item": "Adamantite Sharpening Stone", "wowhead": 23529, "hands": "MH"}}, "dps": 3479, "prov": "simmed 2026-11-26 · BracketSim", "talents": "CsPAkXBWxkyfx9CbGaHonEAhLBwAAYAzMDDamBgZgHAwMzMDAAAAAAAAAAAAAAAAAAAGAAA", "stats": {"main": 221, "stam": 1098, "crit": [19.84,74], "mastery": [38.86,47], "haste": [22.1,83], "vers": [9.49,38]}, "rows": [{"slot": "Head", "item": "Helm of the Unsubmissive", "wowhead": 39403, "ilvl": 38, "source": "Naxxramas — Sapphiron", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 71856, "name": "Skillful Lava Coral", "n": 1}]}, {"slot": "Neck", "item": "Gemshard Heart", "wowhead": 17707, "q": 3, "ilvl": 33, "source": "Maraudon — Princess Theradras", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "hm": "socket"}, {"slot": "Shoulders", "item": "Pauldrons of the Wardancer", "wowhead": 30053, "ilvl": 40, "source": "Serpentshrine Cavern — Hydross the Unstable", "ench": "Lesser Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}, {"id": 168636, "name": "Leviathan's Eye of Strength", "n": 1}]}, {"slot": "Back", "item": "Cloak of the Shadowed Sun", "wowhead": 40252, "ilvl": 39, "source": "Naxxramas — trash", "ench": "Minor Power", "enchsp": 44582}, {"slot": "Chest", "item": "Netherforce Chestplate", "wowhead": 34615, "ilvl": 33, "source": "Sunwell Plateau — trash", "ench": "Waking Stats", "enchsp": 389410, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 3}]}, {"slot": "Wrist", "item": "Bracers of Eradication", "wowhead": 30057, "ilvl": 40, "source": "Serpentshrine Cavern — The Lurker Below", "gems": [{"id": 213743, "name": "Culminating Blasphemite", "n": 1}]}, {"slot": "Hands", "item": "Faith Bearer's Gauntlets", "wowhead": 25942, "q": 3, "ilvl": 33, "source": "Mana-Tombs — Pandemonius", "ench": "Super Strength", "enchsp": 104419, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}]}, {"slot": "Waist", "item": "Red Belt of Battle", "wowhead": 30032, "ilvl": 40, "source": "Crafted — Blacksmithing", "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 3}]}, {"slot": "Legs", "item": "Greaves of the Martyr", "wowhead": 30536, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Draconic Leg Reinforcements", "enchsp": 124561, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 3}]}, {"slot": "Feet", "item": "Sabatons of Sudden Reprisal", "wowhead": 39706, "ilvl": 39, "source": "Naxxramas — Anub'Rekhan", "ench": "Greater Assault", "enchsp": 60763, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}]}, {"slot": "Ring 1", "item": "Gordok Nose Ring", "wowhead": 18464, "q": 3, "ilvl": 33, "source": "Dire Maul — Guard Mol'dar", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "hm": "socket"}, {"slot": "Ring 2", "item": "Emerald Flame Ring", "wowhead": 18395, "q": 3, "ilvl": 33, "source": "Dire Maul — Prince Tortheldrin", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "hm": "socket"}, {"slot": "Trinket 1", "item": "Herkuml War Token", "wowhead": 50355, "ilvl": 15, "source": "Dalaran — Emblem of Frost vendor"}, {"slot": "Trinket 2", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul"}, {"slot": "Main Hand", "item": "Bonereaver's Edge", "wowhead": 17076, "ilvl": 38, "source": "Molten Core — Ragnaros"}]}]},
+  buildLabel:{"herald": "Standard"}
 },
 { id:"deathknight_unholy", cls:"deathknight", name:"Death Knight", spec:"Unholy", color:"#C41E3A", dps:3338, dpsByList:{"alltime": 3338, "obtainable": 3160, "herald": 2414},
   talents:{"alltime": "CwPAkXBWxkyfx9CbGaHonEAhLBwADADDjGGMMAAAAAAAAAYMAAYWMzYAAAAAAAAAgxAAAA", "obtainable": "CwPAkXBWxkyfx9CbGaHonEAhLBwADADDjGGMMAAAAAAAAAYMAAYWMzYAAAAAAAAAgxAAAA", "herald": "CwPAkXBWxkyfx9CbGaHonEAhLBwADADDjGGMMAAAAAAAAAYMAAYWMzYAAAAAAAAAgxAAAA"},
@@ -1164,7 +1168,9 @@ const CLASSES = [
       {"slot": "Trinket 2", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul"},
       {"slot": "Main Hand", "item": "Bonereaver's Edge", "wowhead": 17076, "q": 4, "ilvl": 38, "source": "Molten Core — Ragnaros", "ench": "Rune of the Fallen Crusader", "enchsp": 53344}
     ]
-  }
+  },
+  builds:{"herald": [{"id": "wotlk", "label": "WotLK", "tag": "Classic, TBC and WotLK gear only", "dps": 2557, "prov": "simmed 2026-11-26 · BracketSim", "talents": "CwPAkXBWxkyfx9CbGaHonEAhLBwADADDjGGMMAAAAAAAAAYMAAYWMzYAAAAAAAAAgxAAAA", "stats": {"main": 228, "stam": 1100, "crit": [20.25,76], "mastery": [35.69,49], "haste": [18.83,68], "vers": [9.32,37]}, "rows": [{"slot": "Head", "item": "Helm of the Corrupted Mind", "wowhead": 39260, "ilvl": 38, "source": "Naxxramas — Loatheb", "gems": [{"id": 76886, "name": "Reverberating Primal Diamond", "n": 1, "q": 3}, {"id": 71856, "name": "Skillful Lava Coral", "n": 1}]}, {"slot": "Neck", "item": "Amulet of the Stampede", "wowhead": 43309, "q": 3, "ilvl": 33, "source": "Gundrak — Gal'darah", "ench": "Mark of the Trained Soldier", "enchsp": 228405, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "hm": "socket"}, {"slot": "Shoulders", "item": "Pauldrons of the Wardancer", "wowhead": 30053, "ilvl": 40, "source": "Serpentshrine Cavern — Hydross the Unstable", "ench": "Lesser Inscription of the Axe", "enchsp": 59934, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}, {"id": 168636, "name": "Leviathan's Eye of Strength", "n": 1}]}, {"slot": "Back", "item": "Cloak of the Shadowed Sun", "wowhead": 40252, "ilvl": 39, "source": "Naxxramas — trash", "ench": "Minor Power", "enchsp": 44582}, {"slot": "Chest", "item": "Netherforce Chestplate", "wowhead": 34615, "ilvl": 33, "source": "Sunwell Plateau — trash", "ench": "Waking Stats", "enchsp": 389410, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 3}]}, {"slot": "Wrist", "item": "Bracers of Eradication", "wowhead": 30057, "ilvl": 40, "source": "Serpentshrine Cavern — The Lurker Below", "gems": [{"id": 213743, "name": "Culminating Blasphemite", "n": 1}]}, {"slot": "Hands", "item": "Gauntlets of Martial Perfection", "wowhead": 28824, "ilvl": 38, "source": "Gruul's Lair — Gruul", "ench": "Super Strength", "enchsp": 104419, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}]}, {"slot": "Waist", "item": "Red Belt of Battle", "wowhead": 30032, "ilvl": 40, "source": "Crafted — Blacksmithing", "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 3}]}, {"slot": "Legs", "item": "Greaves of the Martyr", "wowhead": 30536, "ilvl": 33, "source": "Old Hillsbrad — Epoch Hunter", "ench": "Draconic Leg Reinforcements", "enchsp": 124561, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 3}]}, {"slot": "Feet", "item": "Sunstrider Warboots", "wowhead": 34807, "ilvl": 33, "source": "Magisters' Terrace — Kael'thas Sunstrider", "ench": "Greater Assault", "enchsp": 60763, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 2}]}, {"slot": "Ring 1", "item": "Ring of Demonic Guile", "wowhead": 18314, "q": 3, "ilvl": 33, "source": "Dire Maul — Alzzin the Wildshaper", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "hm": "socket"}, {"slot": "Ring 2", "item": "Gordok Nose Ring", "wowhead": 18464, "q": 3, "ilvl": 33, "source": "Dire Maul — Guard Mol'dar", "ench": "Accord of Mastery", "enchsp": 297995, "gems": [{"id": 71856, "name": "Skillful Lava Coral", "n": 1}], "hm": "socket"}, {"slot": "Trinket 1", "item": "Herkuml War Token", "wowhead": 50355, "ilvl": 15, "source": "Dalaran — Emblem of Frost vendor"}, {"slot": "Trinket 2", "item": "Dragonspine Trophy", "wowhead": 28830, "ilvl": 38, "source": "Gruul's Lair — Gruul"}, {"slot": "Main Hand", "item": "Bonereaver's Edge", "wowhead": 17076, "ilvl": 38, "source": "Molten Core — Ragnaros"}]}]},
+  buildLabel:{"herald": "Standard"}
 },
 { id:"hunter", cls:"hunter", primary:true, name:"Hunter", spec:"Marksmanship", color:"#AAD372", dps:4327, dpsByList:{"alltime": 4327, "obtainable": 4162, "herald": 3143},
   talents:{"alltime": "C4PAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAmxwYxgxAgwAsYMMDDglBDAAADAAAGAAA", "obtainable": "C4PAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAmxwYxgxAgwAsYMMDDglBDAAADAAAGAAA", "herald": "C4PAD57yiELKEty14ekTDtZEqAAAAAAAAAAAAAAADDjFDGDDQAwixwMMAWGMAAAMAAAYAgBA"},
@@ -3031,7 +3037,7 @@ function altLinks(e){
   return band2("within noise", e.alts.filter(altNear), "")
        + band2("fallback",     e.alts.filter(a => !altNear(a)), "fb");
 }
-const CONSUM_ORDER = [["potion","Potion"],["flask","Flask"],["food","Food"],["oil","Weapon"]];
+const CONSUM_ORDER = [["potion","Potion"],["flask","Flask"],["elixir","Elixir"],["food","Food"],["oil","Weapon"]];
 function consumFor(cls, listId){
   const c = cls.consumables;
   if(!c) return null;
@@ -3080,6 +3086,8 @@ function consumSimc(c){
   const L = [];
   if(c.potion) L.push("potion="+tokenOf(c.potion));
   if(c.flask)  L.push("flask="+tokenOf(c.flask));
+  // An elixir stands in for the flask, and the profile says so on both lines.
+  if(c.elixir) L.push((c.flask ? "" : "flask=disabled\n")+"elixir="+tokenOf(c.elixir));
   if(c.food)   L.push("food="+tokenOf(c.food));
   const parts = oilParts(c.oil);
   if(parts.length){

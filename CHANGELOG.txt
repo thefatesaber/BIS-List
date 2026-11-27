@@ -6,6 +6,31 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-11-26
+- [page] Herald gains a WotLK build on Frost and Unholy Death Knight: 3,479 and 2,557.
+  Run by Fate on BracketSim, fully raid-buffed, 10,015 iterations each (plus or minus 3.2 and
+  1.5). The build holds the Herald list to one rule more: only gear from Classic, TBC and WotLK,
+  in every slot. The Herald lists take their neck, rings and trinkets from any expansion; on the
+  build those come from the same three as the rest: Gemshard Heart or Amulet of the Stampede on
+  the neck, Gordok Nose Ring with Emerald Flame Ring or Ring of Demonic Guile, and Herkuml War
+  Token beside Dragonspine Trophy. Gems and enchants are not gear and stay as on the other
+  lists. The build has its pill on the Herald tab, "WotLK", beside the list of record,
+  "Standard". That list still carries its Raidbots number (2,758 and 2,414), simmed self-buffed
+  and without consumables, so the two pills do not compare.
+  Both runs have no rune on Bonereaver's Edge and no wrist enchant, which every other Death
+  Knight list carries (Rune of the Fallen Crusader, Superior Strength). By the runs' own stat
+  weights the rune is worth about 10% on each, so both numbers read low. Frost was simmed with
+  Darkmoon Firewater in place of Flask of Endless Rage (7.01 attack power against 7.32), and its
+  Consumables panel shows the elixir on a line of its own. Both helms ran at item level 38; Helm
+  of the Corrupted Mind is 39 on the five Herald lists that wear it.
+- [repo] validate.js holds a WotLK build to Classic, TBC and WotLK gear in every slot.
+  A Herald list may take its neck, rings and trinkets from a later expansion; a build named
+  wotlk may not. The gate also takes an elixir where a list has one in its flask's place, and
+  names Helm of the Corrupted Mind at 38 and 39 as an item-level exception.
+- [repo] list/Herald holds its first profiles and reports; gamedata.json rebuilt for ten new ids.
+  Nine items and one gem are new to the page. The rebuild, at the commit already on file, also
+  drops 28 entries that no list or profile names any more.
+
 ## 2026-11-25
 - [page] Retribution All-Time re-run: 3,321, with Heart of Roccor at item level 51.
   Run by Fate on BracketSim at 20,015 iterations (plus or minus 1.7), in place of the 3,238 of

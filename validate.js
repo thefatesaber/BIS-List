@@ -292,6 +292,11 @@ for (const c of CLASSES.concat(BUILD_ENTRIES)) {
           err(`${at}: ${item} is ilvl ${r.ilvl}, cap is ${HERALD_ILVL_CAP}`);
         if (!ERA_EXEMPT_SLOTS.has(r.slot) && r.wowhead > HERALD_ERA_LAST_ID && !ERA_ID_OK.has(r.wowhead))
           err(`${at}: ${item} in ${r.slot} is outside Classic/TBC/WotLK by its id (above ${HERALD_ERA_LAST_ID}) — if it is a Wrath or Anniversary item, add it to ERA_ID_OK with the reason`);
+        // The WotLK build of a Herald list (Fate, 2026-11-26: "Only use gear from
+        // Classic, TBC and WotLK") exempts no slot: its neck, rings and trinkets
+        // are held to the same line. Gems and enchants are not gear.
+        if (/@wotlk$/.test(c.id) && ERA_EXEMPT_SLOTS.has(r.slot) && r.wowhead > HERALD_ERA_LAST_ID && !ERA_ID_OK.has(r.wowhead))
+          err(`${at}: ${item} in ${r.slot} is outside Classic/TBC/WotLK by its id (above ${HERALD_ERA_LAST_ID}), and the WotLK build exempts no slot`);
       }
 
       // Ulduar drops have normal and hardmode versions; each needs a decision
@@ -464,8 +469,11 @@ for (const c of CLASSES.concat(BUILD_ENTRIES)) {
     const cons = !cc ? null
       : (cc.potion || cc.flask || cc.food || cc.oil) ? cc : cc[L];
     if (!cons) { warn(`${c.id}/${L}: no consumables`); continue; }
-    for (const k of ["potion", "flask", "food"])
+    for (const k of ["potion", "food"])
       if (!cons[k] || !cons[k].item) err(`${c.id}/${L}: consumables.${k} missing`);
+    // a flask, or the elixir a list was simmed with in its place
+    if (!(cons.flask && cons.flask.item) && !(cons.elixir && cons.elixir.item))
+      err(`${c.id}/${L}: consumables.flask missing, and no elixir in its place`);
   }
 }
 
@@ -487,6 +495,8 @@ const ILVL_SPLIT_OK = new Map([
              why: "Arch-Druid's Tainted Seal: 47 is its Timewalking version, on nine of the same ten (Fury keeps Fleshfused Circle in Ring 1); the same two rulings" }],
   [231456, { levels: { 36: null, 51: ["alltime"] },
              why: "Heart of Roccor: Retribution All-Time ran it at 51, the sim of record on 2026-11-25 (ilevel=51 beside drop_level=30 in the input); Arms, Frost DK, Unholy and two Fury builds ran it at 36, the level SimulationCraft's game data gives its bonus 12378 at drop level 30 (51 is its level at drop level 43)" }],
+  [39260, { levels: { 39: null, 38: ["herald"] },
+            why: "Helm of the Corrupted Mind: Unholy's Herald WotLK build ran it at 38 (ilevel=38 in the input), the sim of record on 2026-11-26; the five Herald lists that wear it (Fury, Arms, Retribution, Frost DK, Unholy) carry it at 39, the level of bonus 9039 on their Raidbots-era profiles" }],
 ]);
 for (const [id, byIlvl] of ilvlById) {
   if (byIlvl.size < 2) continue;

@@ -1,0 +1,150 @@
+# ============================================================================
+# Legacy Thirty BiS — Herald — Unholy Death Knight, WotLK build
+# ----------------------------------------------------------------------------
+# Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
+#                    git b474ea6, WoW 12.1.5.70961 hotfix 2026-11-17
+# Result           : 2,557 DPS (±1.5 / 0.058%), 10015 iterations
+#                    Patchwerk 300s, fixed length (vary_combat_length=0)
+# Report           : 2557 - Death Knight Unholy - WotLK.html (same folder; /r/ share links expire)
+# Simmed           : 2026-11-26 by Fate
+#
+# BracketSim options (the full-buffed set of PROJECT.md), ticked as the report's
+# buff tables show them; this run carries every raid buff, not only its class's:
+#   Raid buff preset: Optimal Raid Buffs
+#   World buffs:   [ ] Flame Cap  [ ] Fengus' Ferocity  [ ] Slip'kik's Savvy
+#                  [ ] Icecrown Citadel  [ ] Plague Stream
+#                  [ ] Adventurer's Journal
+#   Raid buffs:    [x] Arcane Intellect  [x] Battle Shout
+#                  [x] Mark of the Wild  [x] Skyfury  [x] Drums of Fury
+#                  [x] Hunter's Mark  [x] Blessing of the Bronze
+#                  [x] Power Word: Fortitude  [ ] Chaos Brand
+#                  [ ] Mystic Touch  [x] Bleeding  [ ] Power Infusion
+#   Teammate armor reduction: none
+#   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
+#                  [ ] Augmentation Evoker    [x] Stat weights
+#
+# Stat weights (DPS): Wdps 47.72 > Str 8.48 > AP 7.96 > Mastery 5.01 > Haste 4.60 > Vers 4.00 > Crit 3.67
+# ============================================================================
+
+deathknight="Asimiir"
+source=default
+region=us
+server=thrall
+spec=unholy
+level=30
+race=orc
+role=attack
+position=back
+talents=CwPAkXBWxkyfx9CbGaHonEAhLBwADADDjGGMMAAAAAAAAAYMAAYWMzYAAAAAAAAAgxAAAA
+
+# Default consumables
+potion=golemblood_potion
+flask=flask_of_endless_rage
+elixir=disabled
+food=beerbasted_crocolisk
+augmentation=disabled
+temporary_enchant=main_hand:adamantite_sharpening_stone
+
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat=snapshot_stats
+actions.precombat+=/potion
+actions.precombat+=/raise_dead
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
+actions.precombat+=/variable,name=trinket_1_duration,op=setif,value=0,value_else=trinket.1.proc.any_dps.duration,condition=0
+actions.precombat+=/variable,name=trinket_2_duration,op=setif,value=0,value_else=trinket.2.proc.any_dps.duration,condition=0
+actions.precombat+=/variable,name=trinket_1_high_value,op=setif,value=2,value_else=1,condition=trinket.1.is.treacherous_transmitter
+actions.precombat+=/variable,name=trinket_2_high_value,op=setif,value=2,value_else=1,condition=trinket.2.is.treacherous_transmitter
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&talent.dark_transformation&trinket.1.cooldown.duration%%cooldown.dark_transformation.duration=0
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&talent.dark_transformation&trinket.2.cooldown.duration%%cooldown.dark_transformation.duration=0
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs&(trinket.2.has_cooldown|!trinket.1.has_cooldown)|variable.trinket_2_buffs&((trinket.2.cooldown.duration%variable.trinket_2_duration)*(1.5+trinket.2.has_buff.strength)*(variable.trinket_2_sync)*(variable.trinket_2_high_value)*(1+((trinket.2.ilvl-trinket.1.ilvl)%100)))>((trinket.1.cooldown.duration%variable.trinket_1_duration)*(1.5+trinket.1.has_buff.strength)*(variable.trinket_1_sync)*(variable.trinket_1_high_value)*(1+((trinket.1.ilvl-trinket.2.ilvl)%100)))
+actions.precombat+=/variable,name=damage_trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&!variable.trinket_2_buffs&trinket.2.ilvl>=trinket.1.ilvl
+
+# Executed every time the actor is available.
+actions=putrefy
+actions+=/auto_attack
+actions+=/call_action_list,name=variables
+actions+=/call_action_list,name=racials,if=variable.st_planning|variable.adds_remain|fight_remains<30
+actions+=/call_action_list,name=high_priority
+actions+=/call_action_list,name=trinkets,if=variable.st_planning|variable.adds_remain|fight_remains<30
+actions+=/call_action_list,name=cooldowns
+actions+=/call_action_list,name=aoe,if=active_enemies>=3
+actions+=/call_action_list,name=single_target,if=active_enemies<3
+
+actions.aoe=festering_strike,target_if=min:health.pct,if=talent.festering_scythe&(buff.festering_scythe.up&(buff.festering_scythe.remains<=3*gcd|buff.festering_scythe_tt.remains<3*gcd)|!buff.festering_scythe.up&buff.festering_scythe_tt.remains<3*gcd)
+actions.aoe+=/putrefy,if=buff.dark_transformation.up|charges=max_charges
+actions.aoe+=/soul_reaper,target_if=is_boss,if=buff.dark_transformation.up&cooldown.dark_transformation.remains<38|target.health.pct<35
+actions.aoe+=/epidemic,if=variable.epidemic_prio&(buff.sudden_doom.react|runic_power.deficit<15|buff.essence_of_the_blood_queen.stack>=buff.essence_of_the_blood_queen.max_stack-1|buff.essence_of_the_blood_queen.remains<7&!buff.vampiric_strike.react|rune<2)
+actions.aoe+=/festering_strike,target_if=min:health.pct,if=buff.lesser_ghoul_ready.stack<3
+actions.aoe+=/scourge_strike,target_if=min:health.pct,if=buff.lesser_ghoul_ready.stack>=1
+actions.aoe+=/death_coil,target_if=min:health.pct,if=!variable.epidemic_prio&(buff.sudden_doom.react|runic_power.deficit<15|buff.essence_of_the_blood_queen.stack>=buff.essence_of_the_blood_queen.max_stack-1|buff.essence_of_the_blood_queen.remains<7&!buff.vampiric_strike.react|rune<2)
+actions.aoe+=/epidemic,if=variable.epidemic_prio
+actions.aoe+=/death_coil,target_if=min:health.pct
+
+actions.cooldowns=outbreak,if=(!talent.blightburst|talent.blightburst&(cooldown.putrefy.remains>gcd.max*2|time<5))&dot.dread_plague.active_dots=0&(fight_remains>gcd.max*2&!raid_event.adds.exists|raid_event.adds.exists&raid_event.adds.remains>gcd.max*2)
+actions.cooldowns+=/death_and_decay,if=active_enemies>=3&talent.cycle_of_death&(buff.festering_scythe_tt.up|!talent.festering_scythe)&(cooldown.putrefy.charges<cooldown.putrefy.max_charges&(raid_event.adds.exists&raid_event.adds.remains>=duration*0.75|!raid_event.adds.exists&fight_remains>=duration*0.75)&(raid_event.adds.exists&raid_event.adds.count<active_enemies|!raid_event.adds.exists|charges=max_charges))
+actions.cooldowns+=/army_of_the_dead,if=(variable.st_planning|variable.adds_remain)&(buff.festering_scythe_tt.up|!talent.festering_scythe)
+actions.cooldowns+=/dark_transformation,if=(variable.st_planning|variable.adds_remain)&!buff.blightfall.up&(pet.army_ghoul.active|cooldown.army_of_the_dead.remains>30|!talent.army_of_the_dead)|buff.blightfall.up&((active_enemies<=3|raid_event.pull.has_boss)&(talent.reaping&talent.soul_reaper&debuff.soul_reaper_debuff.up&debuff.soul_reaper_debuff.remains<gcd*2)|fight_remains<3|raid_event.adds.exists&raid_event.adds.remains<3|buff.dark_transformation.up&buff.dark_transformation.remains<gcd*2|trinket.1.proc.any_dps.up&trinket.1.proc.any_dps.remains<gcd*2|trinket.2.proc.any_dps.up&trinket.2.proc.any_dps.remains<gcd*2|cooldown.dark_transformation.remains<3)
+
+actions.high_priority=potion,if=(variable.st_planning|variable.adds_remain)&variable.cds_active
+actions.high_priority+=/invoke_external_buff,name=power_infusion,if=pet.army_ghoul.active|buff.forbidden_knowledge.up|buff.dark_transformation.up
+actions.high_priority+=/scourge_strike,if=buff.vampiric_strike.up&buff.essence_of_the_blood_queen.up&buff.essence_of_the_blood_queen.remains<gcd*3
+
+actions.racials=ancestral_call,if=variable.cds_active
+actions.racials+=/arcane_pulse,if=runic_power<20&rune<2
+actions.racials+=/arcane_torrent,if=runic_power<20&rune<2
+actions.racials+=/bag_of_tricks,if=runic_power<20&rune<2
+actions.racials+=/blood_fury,if=buff.dark_transformation.up
+actions.racials+=/berserking,if=variable.cds_active
+actions.racials+=/fireblood,if=variable.cds_active
+actions.racials+=/lights_judgment,if=runic_power<20&rune<2
+
+actions.single_target=festering_strike,if=talent.festering_scythe&fight_remains>10&(buff.festering_scythe.up&(buff.festering_scythe.remains<=3|buff.festering_scythe_tt.remains<3)|!buff.festering_scythe.up&buff.festering_scythe_tt.remains<3)
+actions.single_target+=/soul_reaper,target_if=min:health.pct,if=buff.dark_transformation.up&cooldown.dark_transformation.remains<38|target.health.pct<35
+actions.single_target+=/putrefy,if=buff.dark_transformation.up&runic_power.deficit>10
+actions.single_target+=/scourge_strike,if=runic_power.deficit<90&buff.essence_of_the_blood_queen.up&buff.essence_of_the_blood_queen.stack<buff.essence_of_the_blood_queen.max_stack
+actions.single_target+=/death_coil,if=buff.sudden_doom.react|runic_power.deficit<=10
+actions.single_target+=/putrefy,if=buff.dark_transformation.up
+actions.single_target+=/death_coil,if=buff.dark_transformation.up|buff.forbidden_knowledge.up|buff.essence_of_the_blood_queen.remains<5&!buff.vampiric_strike.react
+actions.single_target+=/scourge_strike,if=buff.lesser_ghoul_ready.stack>=1&buff.blighted.up
+actions.single_target+=/death_coil,if=cooldown.army_of_the_dead.remains>5|runic_power.deficit<50
+actions.single_target+=/scourge_strike,if=buff.lesser_ghoul_ready.stack>=1
+actions.single_target+=/festering_strike
+
+actions.trinkets=use_item,slot=trinket1,if=variable.trinket_1_buffs&(variable.trinket_priority=1|!variable.trinket_2_buffs|!trinket.2.has_cooldown|trinket.2.cooldown.remains)&(trinket.1.cast_time>0&trinket.1.cast_time>cooldown.army_of_the_dead.remains&(!talent.festering_scythe|buff.festering_scythe_tt.up)|trinket.1.cast_time=0&variable.cds_active)
+actions.trinkets+=/use_item,slot=trinket2,if=variable.trinket_2_buffs&(variable.trinket_priority=2|!variable.trinket_1_buffs|!trinket.1.has_cooldown|trinket.1.cooldown.remains)&(trinket.2.cast_time>0&trinket.2.cast_time>cooldown.army_of_the_dead.remains&(!talent.festering_scythe|buff.festering_scythe_tt.up)|trinket.2.cast_time=0&variable.cds_active)
+actions.trinkets+=/use_item,slot=trinket1,if=!variable.trinket_1_buffs&(!trinket.2.has_cooldown|trinket.2.cooldown.remains|!variable.trinket_2_buffs)&(variable.damage_trinket_priority=1|trinket.2.cooldown.remains)
+actions.trinkets+=/use_item,slot=trinket2,if=!variable.trinket_2_buffs&(!trinket.1.has_cooldown|trinket.1.cooldown.remains|!variable.trinket_1_buffs)&(variable.damage_trinket_priority=2|trinket.1.cooldown.remains)
+
+actions.variables=variable,name=st_planning,op=setif,value=1,value_else=0,condition=active_enemies=1&(!raid_event.adds.exists|!raid_event.adds.in|raid_event.adds.in>15|!raid_event.pull.exists|raid_event.pull.exists&raid_event.pull.in>15)
+actions.variables+=/variable,name=adds_remain,value=active_enemies>=2&((!raid_event.adds.exists|!raid_event.pull.exists)|raid_event.adds.remains>5|raid_event.pull.remains>5)
+actions.variables+=/variable,name=cds_active,value=pet.army_ghoul.active|buff.forbidden_knowledge.up|buff.dark_transformation.up&buff.dark_transformation.remains>5
+actions.variables+=/variable,name=epidemic_prio,value=active_enemies>=3&!buff.forbidden_knowledge.up|active_enemies>=4&buff.forbidden_knowledge.up
+
+head=helm_of_the_corrupted_mind,id=39260,ilevel=38,gem_id=76886/71856
+neck=amulet_of_the_stampede,id=43309,bonus_id=1808,ilevel=33,gem_id=71856,enchant_id=5890
+shoulders=pauldrons_of_the_wardancer,id=30053,ilevel=40,gem_id=71856/168636,enchant_id=3808
+back=cloak_of_the_shadowed_sun,id=40252,ilevel=39,enchant_id=3243
+chest=netherforce_chestplate,id=34615,ilevel=33,gem_id=71856/71856/71856,enchant_id=6625
+wrists=bracers_of_eradication,id=30057,bonus_id=9035,ilevel=40,gem_id=213743,drop_level=30
+hands=gauntlets_of_martial_perfection,id=28824,ilevel=38,gem_id=71856/71856,enchant_id=4432
+waist=red_belt_of_battle,id=30032,ilevel=40,gem_id=71856/71856/71856
+legs=greaves_of_the_martyr,id=30536,ilevel=33,gem_id=71856/71856/71856,enchant_id=4881
+feet=sunstrider_warboots,id=34807,ilevel=33,gem_id=71856/71856,enchant_id=1597
+finger1=ring_of_demonic_guile,id=18314,bonus_id=1808,ilevel=33,gem_id=71856,enchant_id=6110
+finger2=gordok_nose_ring,id=18464,bonus_id=1808,ilevel=33,gem_id=71856,enchant_id=6110
+trinket1=herkuml_war_token,id=50355,ilevel=15
+trinket2=dragonspine_trophy,id=28830,bonus_id=9034,ilevel=38,drop_level=30
+main_hand=bonereavers_edge,id=17076,bonus_id=9029,ilevel=38,drop_level=30
+
+# Gear Summary
+# gear_ilvl=34.93
+# gear_strength=145
+# gear_stamina=89
+# gear_attack_power=6
+# gear_crit_rating=76
+# gear_haste_rating=68
+# gear_mastery_rating=49
+# gear_versatility_rating=37
+# gear_armor=154
+# gear_dodge_rating=6

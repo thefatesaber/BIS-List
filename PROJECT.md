@@ -1727,6 +1727,21 @@ re-sync from upstream must not bring them back.
   51 the five other entries are run at 51; at 36 Retribution is run at 36. validate.js holds the
   pair as an item-level exception (ILVL_SPLIT_OK, 231456) and fails once the page shows a single
   level, which is when the entry comes out.
+- Herald WotLK builds of the two Death Knights (2026-11-26): OPEN, Fate's. Three things in the
+  runs as sent. (1) No rune and no wrist enchant. Bonereaver's Edge carries no enchant, neither
+  buff table shows Unholy Strength, and Bracers of Eradication carry none either, where the
+  Raidbots-era Herald lists and every BracketSim record of the two specs have Rune of the Fallen
+  Crusader (3368) and Superior Strength (1885). The base the runs were built on had every
+  enchant removed. On the Obtainable reports Unholy Strength is 18% Strength for 77% of the
+  fight; on these runs' Strength (221 and 228) and weights (11.12 and 8.48 DPS a point) that is
+  about 340 DPS on Frost and 270 on Unholy, some 10% each, so both numbers read low until the
+  runs are made again with the rune. (2) Frost ran Darkmoon Firewater (an elixir, 7.01 attack
+  power) with the flask disabled; Unholy ran Flask of Endless Rage (7.32). That is about 3 DPS,
+  and nothing says which was meant. (3) Both helms ran at 38. Helm of the Corrupted Mind is 39
+  on the five Raidbots-era Herald lists that wear it (Fury, Arms, Retribution and the two Death
+  Knights, bonus 9039), and Helm of the Unsubmissive, from the same raid, is new to the page;
+  validate.js names the 38 and 39 as an item-level exception (ILVL_SPLIT_OK, 39260). Also open:
+  whether the WotLK build becomes the Herald list (Data shape, Builds).
 
 Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
 convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
@@ -1830,6 +1845,18 @@ Enhancement, Survival), 2026-11-05: the off hand (Survival's main hand)
 without Puncture Armor, one build an alternative weapon, all under the
 record by 2% to 9%; the record pill reads "Vibroblade". These answer the
 "what if I never get a Vibroblade" question the alternates used to carry.
+Herald took its first builds on 2026-11-26: a WotLK build on Frost and Unholy Death Knight
+(3,479 and 2,557), beside records whose pill reads "Standard". Fate's rule for it, in his words:
+"the WotLK gear restriction follow this rule : Only use gear from Classic, TBC and WotLK". The
+Herald list exempts necks, rings and trinkets from the era rule; the build exempts no slot, and
+validate.js holds a build whose id is `wotlk` to it (ids up to 51999, ERA_ID_OK for a Wrath item
+with a later id). Gems and enchants are not gear: both builds wear later gems and enchants, as
+every list does. The pill's tag reads "Classic, TBC and WotLK gear only". The two reports came
+named `<DPS> - <Class> <Spec> - WotLK`, a build's name, and were landed as builds for that
+reason; whether the WotLK build is to become the Herald list itself, on these two specs or on
+all 27, is not ruled. A `consumables` object takes `elixir` where a run has an elixir in its
+flask's place (Frost's WotLK build, Darkmoon Firewater): the panel shows an Elixir line, the
+SimC export writes flask=disabled and the elixir, and validate.js asks for a flask or an elixir.
 Spec level: `rawByList {list: N}` on a spec with effective-DPS lists — the raw
 sim result behind the list's number. The page's "effective" tag reads it, and
 validate.js holds it to the off-hand note and to `dpsByList`.
@@ -1951,6 +1978,26 @@ lines carry no ilevel option where they read ilevel=33; the report's gear table 
 33, the level their bonus ids give, so the page rows do not move. The stat panel moves by the
 trinket's crit (91 rating for 87) and by Fortitude (1,170 stamina for 1,114). Carried: the Buff
 worth panel, measured on the 3,238 run. The report's 70 CRLF pairs are stored as LF.
+
+The first Herald runs on BracketSim came on 2026-11-26, as WotLK builds (Data shape, Builds):
+Frost Death Knight 3,479 and Unholy 2,557, 10,015 iterations each (plus or minus 3.2 and 1.5)
+where the records ran 20,015. Fate built them on the Herald base of 2026-11-25, the Obtainable
+profile with every gear line at item level 1 and its gems and enchants removed, which stays out
+of the repo: so talents, action list and consumables are the Obtainable record's but for Frost's
+elixir, and each gear line was written by hand, an id and an ilevel, with a bonus id on five
+lines of Frost's and six of Unholy's. The reports came without profiles, so each profile of
+record is the one its report embeds, under the header and with the region and server lines; the
+reports' 42 and 58 CRLF pairs are stored as LF. Nine items were new to the page and took their
+source lines by hand, each read on the web that day: Helm of the Unsubmissive (Naxxramas,
+Sapphiron), Pauldrons of the Wardancer (Serpentshrine Cavern, Hydross the Unstable), Sabatons of
+Sudden Reprisal (Naxxramas, Anub'Rekhan; Gluth drops them too), Gordok Nose Ring (Dire Maul,
+Guard Mol'dar), Emerald Flame Ring (Dire Maul, Prince Tortheldrin), Amulet of the Stampede
+(Gundrak, Gal'darah), Sunstrider Warboots (Magisters' Terrace, Kael'thas Sunstrider), Gauntlets
+of Martial Perfection (Gruul's Lair, Gruul) and Ring of Demonic Guile (Dire Maul, Alzzin the
+Wildshaper). The four necks and rings among them hold one gem on no socket (bonus 1808) and are
+badged Socket Proc. gamedata.json was rebuilt at the commit on file (d38855b) for the nine and
+the gem Leviathan's Eye of Strength, which also dropped the 28 entries (26 items, an enchant, an
+enchant spell) that no list or profile names any more. What the runs lack is under Open rulings.
 
 Until 2026-10-22 (Raidbots):
 
