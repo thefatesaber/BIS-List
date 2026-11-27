@@ -6,6 +6,45 @@ index.html. Every commit that modifies index.html adds its own dated
 entry to this file — CHANGELOG.txt is the single canonical changelog,
 served by the site and linked from the header.
 
+## 2026-11-27
+- [page] Herald gains a WotLK build on five more specs, from Devourer at 4,556 to Beast Mastery at 2,459.
+  Run by Fate on BracketSim, fully raid-buffed: Devourer 4,556, Devastation 3,783, Balance 3,053,
+  Havoc 2,749 and Beast Mastery 2,459. As on the two Death Knights, the build holds the Herald
+  list to gear from Classic, TBC and WotLK in every slot, neck, rings and trinkets included, and
+  has its pill on the Herald tab, "WotLK", beside the list of record, "Standard". Those lists
+  still carry their Raidbots numbers (2,943, 2,824, 2,229, 1,683 and 1,878), simmed self-buffed
+  and without consumables, so the two pills do not compare. Talents are the Obtainable lists'.
+  BracketSim ran each sim in 31 parts, one per core, and the number is the one it shows for all
+  parts together: 9,969 iterations, 19,969 on Devourer. The report kept beside each profile is
+  the first part alone, 323 iterations (646 on Devourer): its own figure sits 2 to 6 DPS off
+  the number, and its stat weights are rough.
+  Three things in the runs as sent. Beast Mastery wears Herkuml War Token at item level 1, the
+  level of the base file, where every other list has it at 15: at 1 it has no haste and its
+  stacks give no attack power, about 60 DPS (2.4%) by the Obtainable list's stat weights.
+  Devastation ran without Flame Cap, which its All-Time and Obtainable lists carry: 43 DPS (1.1%)
+  on the Buff worth board. Devourer's belt, Binding of the Tranquil Glade, carries three gems, in
+  its own socket, the buckle's and a socket proc's, where the lists count a socket proc on a
+  helm, bracers, a neck or a ring and never on a belt; the row wears the Socket Proc badge, and
+  the third gem is about 45 DPS (1%).
+  Beast Mastery, Devastation and Havoc were simmed on Skullfish Soup (5 crit and 5 versatility
+  where the lists' food gives 5 of the main stat) and show a Consumables panel of their own.
+  Enchants new to the page: Force Multiplier on Beast Mastery's gun, Mongoose and Crusher on
+  Havoc's main hand and gloves, Greater Inscription of the Crag on the three casters' shoulders.
+- [repo] rebase_list.js reads a report BracketSim split in parts; the gates name two exceptions.
+  A report that carries BracketSim's parts banner is held to the number the banner gives for all
+  parts together. The tool also reads a gear line with no stats (Fury of the Five Flights),
+  carries a source line from a build's rows, writes the Socket Proc badge on a helm, bracers, a
+  neck or a ring one gem over its sockets, and gives a new build none of its record's row
+  notes. validate.js names Herkuml War Token at 1 and 15 as an item-level exception and
+  Devourer's three-gem belt as a belt exception of its own (BELT_PROC_OK), and lint_profiles.js
+  lets a belt line with a socket bonus id carry the buckle's gem as well.
+- [repo] list/Herald holds five more profiles and reports; gamedata.json rebuilt for 29 new ids.
+  24 items, one gem and four enchants are new to the page. Greater Inscription of the Crag's
+  spell (59936) is not in SimulationCraft's spell data and is named by hand in gamedata.js.
+- [repo] Demonology Obtainable's header says what its run was: 19,989 iterations in 11 parts.
+  The entry of 2026-11-25 called the 3,307 a 1,819-iteration run. That is the first part, the
+  one the stored report shows; the number is BracketSim's for all 11 parts, as its banner says.
+
 ## 2026-11-26
 - [page] Herald gains a WotLK build on Frost and Unholy Death Knight: 3,479 and 2,557.
   Run by Fate on BracketSim, fully raid-buffed, 10,015 iterations each (plus or minus 3.2 and

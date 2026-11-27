@@ -3,7 +3,8 @@
 # ----------------------------------------------------------------------------
 # Engine of record : BracketSim (https://bracketsim.gg) — SimulationCraft 1210-01
 #                    git b474ea6, WoW 12.1.5.70961 hotfix 2026-11-17
-# Result           : 3,307 DPS (±2.9 / 0.089%), 1819 iterations
+# Result           : 3,307 DPS, 19,989 iterations in 11 parts (the number BracketSim shows)
+#                    stored report: the first part alone, 3,307.2 DPS (±2.9 / 0.089%), 1819 iterations
 #                    Patchwerk 300s, fixed length (vary_combat_length=0)
 # Report           : 3307 - Warlock Demonology.html (same folder; /r/ share links expire)
 # Simmed           : 2026-11-25 by Fate
@@ -23,7 +24,7 @@
 #   Misc:          [x] Detailed SimC Report   [ ] Vary fight length
 #                  [ ] Augmentation Evoker    [x] Stat weights
 #
-# Stat weights (DPS): Int 9.74 > SP 8.67 > Crit 5.04 > Haste 4.69 > Vers 4.60 > Mastery 2.99
+# Stat weights (DPS, first part): Int 9.74 > SP 8.67 > Crit 5.04 > Haste 4.69 > Vers 4.60 > Mastery 2.99
 # ============================================================================
 
 warlock="Fatecastr"

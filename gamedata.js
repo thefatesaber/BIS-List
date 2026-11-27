@@ -34,6 +34,8 @@ const MANUAL_SPELLS = {
            manual: "not in SimulationCraft's spell data; spell_item_enchantment.inc names 59934 as the spell of enchant 3808 (Sons of Hodir, honored); read 2026-10-22" },
   59937: { name: "Lesser Inscription of the Storm", enchants: [3810],
            manual: "not in SimulationCraft's spell data; spell_item_enchantment.inc names 59937 as the spell of enchant 3810 (Sons of Hodir, honored); read 2026-10-22" },
+  59936: { name: "Greater Inscription of the Crag", enchants: [3809],
+           manual: "not in SimulationCraft's spell data; spell_item_enchantment.inc names 59936 as the spell of enchant 3809, 21 Intellect and 16 of its second stat at base where the Lesser (enchant 3807, spell 59928) has 15 and 10, the figures the Warcraft Wiki gives the two inscriptions (Sons of Hodir, exalted); read 2026-11-27" },
 };
 
 // Spell effects that put an enchant on an item, misc value = enchant id.

@@ -1742,6 +1742,33 @@ re-sync from upstream must not bring them back.
   Knights, bonus 9039), and Helm of the Unsubmissive, from the same raid, is new to the page;
   validate.js names the 38 and 39 as an item-level exception (ILVL_SPLIT_OK, 39260). Also open:
   whether the WotLK build becomes the Herald list (Data shape, Builds).
+- Herald WotLK builds of 2026-11-27 (Devourer, Devastation, Balance, Havoc, Beast Mastery):
+  OPEN, Fate's. Three things in the runs as sent. (1) Beast Mastery's Herkuml War Token ran at
+  item level 1, the level every line of the Herald base carries; Havoc's run of the same day has
+  it at 15, as do the ten other rows that wear it. At 1 the token has no stats (6 Haste at 15)
+  and Rage of the Fallen gives 0.00 attack power a stack where it gives 0.25 at 15, 5 at its 20
+  stacks: about 60 DPS, 2.4%, on the Obtainable record's weights (Haste 4.47, AP 7.52).
+  validate.js names the 1 and 15 as an item-level exception (ILVL_SPLIT_OK, 50355). (2)
+  Devastation ran without Flame Cap: its buff table shows no bracketsim_fire_spell_power, which
+  the All-Time and Obtainable reports do. Flame Cap is 43 DPS on both of its Buff worth boards
+  (1.0% and 1.1%). The four other runs are of specs whose records do not carry it. (3) Devourer's
+  belt, Binding of the Tranquil Glade, ran with three gems on one socket: bonus 1808 on the line
+  adds a socket and the buckle's is the third. The standing rule counts a socket proc on a helm,
+  bracers, a neck or a ring, and on a belt the buckle alone; no other belt on the page is simmed
+  with a proc. To rule: whether a dungeon belt counts a socket proc beside its buckle. If so,
+  validate.js takes the waist among its proc slots; if not, the run is made again with two gems
+  (a Quick Onyx less, about 45 DPS on this run's weights). Meanwhile the row is an exception by
+  name (BELT_PROC_OK) and wears the Socket Proc badge.
+- The Sons of Hodir shoulder inscriptions by name (found 2026-11-27): OPEN, Fate's. The three
+  WotLK casters wear enchant 3809, which the page names Greater Inscription of the Crag:
+  SimulationCraft's enchant table gives it 21 and 16 at base where enchant 3807 has 15 and 10,
+  the Warcraft Wiki's figures for the Greater (exalted, account-bound) and the Lesser (honored).
+  By the same table enchant 3808, which 40 rows show as Lesser Inscription of the Axe (26 on
+  lists, 14 on builds; spell 59934), is the Greater's: 20 and 15, against 15 and 10 for enchant
+  3875. The name dates from the first export that carried the enchant (2026-10-22) and was not
+  read against the table then. Nothing was renamed: the 40 rows and the two names in
+  gamedata.js (59934, and 59937 for enchant 3810, which no row wears now) move together, on
+  Fate's word.
 
 Closed: A (per-spec confirmed; Dragonspine resolved universal by two-log
 convergence — 3.5 and 2.7 both retired for 3.2), B (public), the rogue
@@ -1857,6 +1884,14 @@ reason; whether the WotLK build is to become the Herald list itself, on these tw
 all 27, is not ruled. A `consumables` object takes `elixir` where a run has an elixir in its
 flask's place (Frost's WotLK build, Darkmoon Firewater): the panel shows an Elixir line, the
 SimC export writes flask=disabled and the elixir, and validate.js asks for a flask or an elixir.
+Five more specs took the WotLK build on 2026-11-27: Devourer 4,556, Devastation 3,783, Balance
+3,053, Havoc 2,749 and Beast Mastery 2,459, each beside a record whose pill reads "Standard".
+Three of them (Beast Mastery, Devastation, Havoc) carry `consumables` of their own: their runs'
+food is Skullfish Soup, Devastation's flask is the Obtainable list's, and Beast Mastery's and
+Havoc's runs have a weapon buff, which their Herald panels do not list. One build row wears the
+Socket Proc
+badge on a belt (Devourer, Binding of the Tranquil Glade), an exception by name in
+validate.js (Open rulings).
 Spec level: `rawByList {list: N}` on a spec with effective-DPS lists — the raw
 sim result behind the list's number. The page's "effective" tag reads it, and
 validate.js holds it to the off-hand note and to `dpsByList`.
@@ -1902,6 +1937,20 @@ names, so a list folder reads as the roster of what is on the new engine.
 `rebase_list.js` turns a profile and its report into the page's number,
 talents, stat panel and rows.
 
+A run BracketSim splits across the cores (Batch Sim does, and so do some single runs since
+2026-11-25) comes with a report of its first part alone, and says so in a banner over the
+report: "BracketSim ran this sim on your PC in 31 parts at once, one per core. This detailed
+report is the first part only: 322 iterations on one thread, so its numbers are less precise.
+The DPS BracketSim shows (2,459) is from all 31 parts together, 9,969 iterations." The number of
+record is the banner's, the mean of all parts (as ruled for Batch Sim on 2026-11-09), and the
+file name carries it. The profile's header gives the result on two lines, the number with the
+iterations and parts of the whole run, then the stored report's own figure, error and
+iterations, and it labels the stat weights "first part". `rebase_list.js` holds the header to
+the banner's number. The report's stat table and gear table do not depend on the iteration
+count; its stat weights and ability tables do. First recorded this way on 2026-11-27 (the five
+Herald WotLK builds); Demonology Obtainable, landed on 2026-11-25 as a 1,819-iteration run, was
+such a report and its header was corrected the same day.
+
 Earlier ruling, 2026-09-02: numbers of record come from Raidbots Advanced —
 Fate's platform throughout the project and the one any reader can
 reproduce. The local/parity midnight builds remain the calibration and
@@ -1940,8 +1989,10 @@ place of the 910-iteration 3,026): Assassination 4,173 (from 2,623), Balance 3,4
 Enhancement 3,098 (from 2,408), Retribution 3,049 (from 2,895), Elemental 2,938 (from
 2,297), Arcane 2,727 (from 2,271), Beast Mastery 2,583 (from 2,064), Subtlety 2,469 (from
 1,496). Every Obtainable list is on BracketSim; all of Herald still carries Raidbots
-numbers. Demonology's run is 1,819 iterations (plus or minus 2.9 DPS, 0.09%); a 20,015 run
-replaces it when one is made. Fate sent the twelve reports without their profiles, so each
+numbers. Demonology's run is 19,989 iterations in 11 parts, and its stored report is the
+first part alone, 1,819 iterations (plus or minus 2.9 DPS, 0.09%); this record and the profile's
+header first gave the 1,819 as the whole run, an error corrected on 2026-11-27 (Engine of
+record). Fate sent the twelve reports without their profiles, so each
 profile of record is the one its report embeds, under the usual header and with the region
 and server lines every stored export has. Five gear lines ran under the name of another item
 (the id was changed and the name token left: Arcane's neck and Ring 2, Elemental's neck and
@@ -1999,6 +2050,47 @@ badged Socket Proc. gamedata.json was rebuilt at the commit on file (d38855b) fo
 the gem Leviathan's Eye of Strength, which also dropped the 28 entries (26 items, an enchant, an
 enchant spell) that no list or profile names any more. What the runs lack is under Open rulings.
 
+Five more WotLK builds came on 2026-11-27: Devourer 4,556, Devastation 3,783, Balance 3,053,
+Havoc 2,749 and Beast Mastery 2,459. BracketSim ran each in 31 parts (19,969 iterations on
+Devourer, 9,969 on the others) and the reports are first parts (646 iterations and 323), reading
+4,560.6, 3,787.5, 3,049.9, 2,743.2 and 2,461.2; Engine of record says how such a run is
+recorded. Beast Mastery's and Devastation's reports are from a newer BracketSim build (git
+1d676a6), the three others from b474ea6, all on game build 12.1.5.70961. As on 2026-11-26 the
+reports came without profiles and each profile of record is the one its report embeds; the
+reports' 94, 50, 75, 83 and 40 CRLF pairs are stored as LF. Talents are the Obtainable records'.
+Gems and enchants were chosen anew (Reckless Ametrine and Brilliant Cardinal Ruby on the casters;
+Force Multiplier, Mongoose, Crusher, Greater Inscription of the Crag), and every slot the Herald
+lists enchant is enchanted. Twenty-four items were new to the page and took their source lines
+by hand. Eleven were read on the web that day. On the Warcraft Wiki: Charged Gear (Gnomeregan,
+Mekgineer Thermaplugg), Fury of the Five Flights (Obsidian Sanctum, Sartharion, 25-player),
+Barbed Ymirheim Choker (Pit of Saron, Forgemaster Garfrost), Shamblehide Chestguard (The
+Underbog, The Black Stalker), Stygian Bone Amulet (Razorfen Kraul, Groyat, the Blind Hunter),
+Greatstaff of the Nexus (The Eye of Eternity, Malygos, 10-player), Dying Curse (Naxxramas,
+25-player: Maexxna, Gothik the Harvester, Heigan the Unclean and Grobbulus all drop it, and the
+row names Maexxna) and Slasher's Amulet (Ahn'kahet: The Old Kingdom, Prince Taldaram). On
+wowclassicdb: Cloak of the Inciter (Shadow Labyrinth, Blackheart the Inciter) and Gloves of
+Quickening (Karazhan, on the loot of NPC 16457, Maiden of Virtue). In a Wowhead comment on the
+item: Lavishly Jeweled Ring (The Deadmines, Admiral Ripsnarl; Gilnid dropped it in the dungeon
+as it was before Cataclysm). Thirteen come from AtlasLootClassic's dungeon and raid tables
+(Hoizame/AtlasLootClassic on GitHub, master, read the same day), which give the original drops
+and so fit instances the game has not rebuilt: Rift Stalker Hauberk (Tempest Keep, Kael'thas
+Sunstrider, by its token, Chestguard of the Vanquished Hero), Gronn-Stitched Girdle (Gruul's
+Lair, Gruul), Midnight Legguards (The Slave Pens, Quagmirran, heroic), Boots of the Shifting
+Sands (The Botanica, Laj), Rod of the Blazing Light (Magisters' Terrace, Vexallus, heroic), Claw
+of the Watcher (Auchenai Crypts, Shirrak the Dead Watcher, heroic), Bracers of Finesse (Hellfire
+Ramparts, Watchkeeper Gargolmar), The Prospector's Prize (Halls of Stone, Krystallus, heroic),
+Brilliant Hailstone Amulet (Trial of the Champion, Argent Confessor Paletress), Abyssal Rune
+(Trial of the Champion, Eadric the Pure; Paletress drops it too), Binding of the Tranquil Glade
+(Trial of the Champion, Grand Champions), Band of Flesh (Stratholme, Ramstein the Gorger) and
+Archaedic Stone (Uldaman, Archaedas). The 25 helms, necks, bracers and rings one gem over their
+sockets wear the Socket Proc badge, which the tool writes since this landing where no row of the
+page carries it. Skullfish Soup is item
+33825 in SimulationCraft's item data, the Burning Crusade food; at level 30 its buff is 5.30
+crit and 5.30 versatility, where Severed Sagefish Head gives 5.23 Intellect. gamedata.json was
+rebuilt at the commit on file (d38855b) for the 24 items, the gem Brilliant Cardinal Ruby and
+four enchants (Force Multiplier, Mongoose, Crusher and 3809), and dropped nothing. What the runs
+carry that the lists do not is under Open rulings.
+
 Until 2026-10-22 (Raidbots):
 
 Fix set is cut per list directory and linted to zero. Sims run at 50k
@@ -2016,7 +2108,10 @@ gated on `validate.js` monotonicity against the untouched lists.
 - `node validate.js index.html` — page dataset gate (blocking in CI).
   Since 2026-10-11 it holds every row to the game data in `gamedata.json`.
   Since 2026-10-12 it fails a row whose alternates were measured on a
-  number its list no longer has.
+  number its list no longer has. Since 2026-11-27 a belt simmed with a
+  socket proc beside its buckle is an exception by name (BELT_PROC_OK),
+  data like the item-level exceptions: printed on every run, and failing
+  once the page no longer shows the row that way.
 - `node talentdata.js --fetch` — rebuilds assets/talents.js, the talent
   trees the Talents card draws (since 2026-11-24): node order per class
   and, for the rows 11 class and 10 spec points can reach, each talent's
@@ -2065,7 +2160,13 @@ gated on `validate.js` monotonicity against the untouched lists.
   and qualities from `gamedata.json`, sources, enchant spells and badges
   carried from rows the page already has. Says what it could not resolve
   (an item never shown before, an enchant with no spell on file) and exits
-  1 until those are written by hand. Since 2026-10-22.
+  1 until those are written by hand. Since 2026-10-22. Since 2026-11-27 it
+  holds a report BracketSim split in parts to the number its banner gives
+  for all parts, carries from a build's rows as from a list's, writes the
+  Socket Proc badge on a helm, bracers, a neck or a ring one gem over its
+  item's sockets, and gives a new build none of its record's row notes
+  (Devourer's WotLK build had taken the Standard list's note on Pendant of
+  the Violet Eye, a Raidbots-era trinket race).
 - Planned: `gen_profiles.js`, page-to-profile generation, druid pilot
   first.
 

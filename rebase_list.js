@@ -14,10 +14,13 @@
 // and the list's rows, then the whole CLASSES block in its canonical layout.
 // A row's name and quality come from gamedata.json; its source line, its
 // enchant's spell and its badges (hm) are carried from a row the page already
-// has for the item. An item the page has never shown gets "SOURCE?" and the
-// run says so: write the source by hand before landing. Alternates are not
-// carried: a re-run list has no sweep of record until one is read on it.
-// Run the two gates after it.
+// has for the item, on a list or on a build; a helm, bracers, a neck or a ring
+// one gem over its item's sockets is badged Socket Proc. An item the page has
+// never shown gets "SOURCE?" and the run says so: write the source by hand
+// before landing. A report BracketSim split in parts is held to the number its
+// banner gives for all parts together. Alternates are not carried: a re-run
+// list has no sweep of record until one is read on it. Nor does a new build
+// take its record's row notes. Run the two gates after it.
 
 const fs = require("fs");
 const path = require("path");
@@ -85,7 +88,8 @@ const ilvlAt = {};
 const SLOT_REPORT = { Head: "Head", Neck: "Neck", Shoulders: "Shoulders", Back: "Back", Chest: "Chest", Wrists: "Wrist", Hands: "Hands",
   Waist: "Waist", Legs: "Legs", Feet: "Feet", Finger1: "Ring 1", Finger2: "Ring 2", Trinket1: "Trinket 1", Trinket2: "Trinket 2",
   "Main Hand": "Main Hand", "Off Hand": "Off Hand" };
-for (const m of text.matchAll(/\|(Head|Neck|Shoulders|Back|Chest|Wrists|Hands|Waist|Legs|Feet|Finger1|Finger2|Trinket1|Trinket2|Main Hand|Off Hand)\| \|([^|]+)\|[ |]*ilevel: (\d+),/g))
+// (a trinket with no stats of its own reads "ilevel: 39" and nothing after it)
+for (const m of text.matchAll(/\|(Head|Neck|Shoulders|Back|Chest|Wrists|Hands|Waist|Legs|Feet|Finger1|Finger2|Trinket1|Trinket2|Main Hand|Off Hand)\| \|([^|]+)\|[ |]*ilevel: (\d+)(?!\d)/g))
   ilvlAt[SLOT_REPORT[m[1]]] = { ilvl: +m[2 + 1], name: m[2].trim() };
 // raid-buffed stat table: "|Intellect|65|-1|337|308|230 (52)|" (buffed, unbuffed, gear)
 // the stat table follows its "Raid-Buffed" head; the first table after it
@@ -98,15 +102,26 @@ const main = stat(mainLabel), stam = stat("Stamina");
 const stats = { main: +main[2], stam: +stam[2], crit: pct("Crit"), mastery: pct("Mastery"), haste: pct("Haste"), vers: pct("Versatility") };
 for (const [k, v] of Object.entries(stats)) if (v == null || Number.isNaN(v)) { console.error(`report: cannot read ${k}`); process.exit(2); }
 const repDps = text.match(/\|([\d,]+\.\d)\|[\d,.]+\|[\d.]+ \/ [\d.]+%\|/);
-if (repDps && Math.round(+repDps[1].replace(/,/g, "")) !== dps) console.error(`warning: report DPS ${repDps[1]} differs from the header's ${dps}`);
+// A run BracketSim split across the cores says so in a banner over the report:
+// the report is the first part alone, and the number BracketSim shows, the mean
+// of all parts, is the number of record (PROJECT.md, Engine of record).
+const parts = rep.match(/This detailed report is the first part only: [\d,]+ iterations on one thread, so its numbers are less precise\. The DPS BracketSim shows \(([\d,]+)\) is from all (\d+) parts together, ([\d,]+) iterations\./);
+if (parts) {
+  if (+parts[1].replace(/,/g, "") !== dps) console.error(`warning: BracketSim shows ${parts[1]} for the ${parts[2]} parts together (${parts[3]} iterations) and the header says ${dps}`);
+} else if (/first part only|parts together/.test(rep)) console.error("warning: the report carries a parts banner this script cannot read");
+else if (repDps && Math.round(+repDps[1].replace(/,/g, "")) !== dps) console.error(`warning: report DPS ${repDps[1]} differs from the header's ${dps}`);
 
 // ---------------------------------------------------------------- rows
 const everyRow = [];
 for (const x of CLASSES) for (const L of Object.keys(x.lists || {})) for (const r of x.lists[L]) everyRow.push({ c: x, L, r });
+// a build's rows are on the page too; a list's own rows come first
+for (const x of CLASSES) for (const L of Object.keys(x.builds || {})) for (const b of x.builds[L]) for (const r of b.rows || []) everyRow.push({ c: x, L, r });
 const prevBuild = BUILD ? ((c.builds || {})[LIST] || []).find((b) => b.id === BUILD) : null;
 const prevRows = prevBuild ? prevBuild.rows : (c.lists || {})[LIST] || [];
 if (BUILD && !BUILD_LABEL && !prevBuild) { console.error("--build needs --label the first time"); process.exit(2); }
 const problems = [];
+const notes = [];
+const PROC_SLOTS = ["Head", "Wrist", "Neck", "Ring 1", "Ring 2"];   // validate.js, SOCKET_PROC_SLOTS
 const rows = [];
 for (const g of gear) {
   const it = GD.items[g.id];
@@ -156,7 +171,12 @@ for (const g of gear) {
   // other sockets).
   const gemsOf = (r) => (r.gems || []).reduce((n, x) => n + (x.n || 1), 0);
   if (anyRow && anyRow.hm && (anyRow.hm !== "socket" || gemsOf(anyRow) === g.gems.length)) row.hm = anyRow.hm;
-  if (prev && prev.why) row.why = prev.why;
+  // One gem over the item's sockets on a helm, bracers, a neck or a ring is a
+  // socket proc, and validate.js asks for the badge: written here.
+  if (!row.hm && PROC_SLOTS.includes(g.slot) && g.gems.length - it.sockets === 1) { row.hm = "socket"; notes.push(`${g.slot}: ${it.name} shows one gem more than its ${it.sockets} socket(s) - badged Socket Proc`); }
+  // A note stays with the list or the build it was written on: a new build
+  // is read against the record's rows for sources and badges, not its notes.
+  if (prev && prev.why && !(BUILD && !prevBuild)) row.why = prev.why;
   rows.push(row);
 }
 rows.sort((a, b) => ORDER.indexOf(a.slot) - ORDER.indexOf(b.slot));
@@ -219,6 +239,7 @@ if (!DRY) fs.writeFileSync(PAGE, html);
 
 console.log(`${SPEC}/${LIST}${BUILD ? " build " + BUILD : ""}: ${dps} DPS, simmed ${simDate} on BracketSim, ${rows.length} rows, stats main ${stats.main} stam ${stats.stam} crit ${stats.crit} mastery ${stats.mastery} haste ${stats.haste} vers ${stats.vers}`);
 for (const r of rows) console.log(`  ${r.slot.padEnd(9)} ${r.item} (${r.wowhead}) ilvl ${r.ilvl}${r.ench ? " / " + r.ench : ""}${r.gems ? " / " + r.gems.map((g) => (g.n > 1 ? g.n + "x " : "") + g.name).join(", ") : ""}${r.hm ? " / hm:" + r.hm : ""}`);
+for (const n of notes) console.log("   " + n);
 for (const p of problems) console.log("!  " + p);
 console.log(DRY ? "(dry run - nothing written)" : `${PAGE} written - now: node validate.js ${PAGE} && node lint_profiles.js --page ${PAGE} "${path.dirname(PROFILE)}"`);
 process.exit(problems.length ? 1 : 0);

@@ -463,9 +463,11 @@ function lintGear({ fp, c, list, rows, lines, onPage, E, W, bracketsim }) {
 
     // Socket bonus ids are labels to the engine, which counts the gems; the
     // lists keep them true all the same: the item's own sockets plus the
-    // bonus ids' have to be the gems on the line.
+    // bonus ids' have to be the gems on the line. A belt may carry one more,
+    // in the buckle's socket, which no bonus id names.
     const bonusSockets = (kv.bonus_id || "").split("/").reduce((n, b) => n + (GD.socketBonus[b] || 0), 0);
-    if (bonusSockets && it && it.sockets + bonusSockets !== gems.length)
+    const named = it ? it.sockets + bonusSockets : 0;
+    if (bonusSockets && it && named !== gems.length && !(slot === "waist" && named + 1 === gems.length))
       E(`line ${ln}: ${slot} carries ${gems.length} gem(s) on ${it.sockets} socket(s) plus ${bonusSockets} from its bonus ids`);
     // No socket of the item is left empty. The engine grants an item its
     // socket bonus whatever its sockets hold (PROJECT.md, Socket bonuses),

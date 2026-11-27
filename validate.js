@@ -142,16 +142,32 @@ function equipIssues(it, c, slot) {
 // A row may show one gem more than its item has sockets only where the lists
 // count on a socket: the belt buckle on the waist, and a socket proc on a
 // helm, bracers, a neck or a ring, which then wears the Socket Proc badge.
+// A belt with both, two gems over, is an exception by name (BELT_PROC_OK).
 // Necks and rings on All-Time and Full buffed may carry two or three: their
 // sockets come from the jeweller's settings, named by bonus id in the profile.
 const SOCKET_PROC_SLOTS = new Set(["Head", "Wrist", "Neck", "Ring 1", "Ring 2"]);
 const JEWELLERY = new Set(["Neck", "Ring 1", "Ring 2"]);
-function socketIssue(r, it, L) {
+// A belt simmed with a socket proc beside its buckle shows two gems more than
+// it has sockets. The lists count no socket proc on a belt, so such a row is
+// an exception, named here by entry and item with what was simmed. Like an
+// item-level exception it is data: printed on every run, the row has to wear
+// the Socket Proc badge, and the entry fails once the page no longer shows
+// the row that way or its reason says something is still to be done.
+const BELT_PROC_OK = new Map([
+  ["demonhunter@wotlk/47174", "Binding of the Tranquil Glade: Devourer's Herald WotLK build ran it with three gems, in its own socket, the buckle's and a socket proc's (bonus 1808 on the line), the sim of record on 2026-11-27; no other belt on the page is simmed with a socket proc"],
+]);
+const beltProcSeen = new Set();
+function socketIssue(r, it, L, id) {
   const gems = (r.gems || []).reduce((n, g) => n + (g.n || 1), 0);
   const extra = gems - it.sockets;
   const badge = r.hm === "socket";
   if (extra < 0) return `shows ${gems} gem(s) and has ${it.sockets} socket(s) — an empty socket`;
   if (r.slot === "Waist") {
+    const key = `${id}/${r.wowhead}`;
+    if (BELT_PROC_OK.has(key) && extra === 2) {
+      beltProcSeen.add(key);
+      return badge ? null : `is simmed with a socket proc beside its buckle and has no Socket Proc badge (hm:"socket")`;
+    }
     if (extra > 1) return `shows ${gems} gems on ${it.sockets} socket(s) — the buckle adds one`;
     return badge ? `wears the Socket Proc badge; a belt's extra socket is the buckle` : null;
   }
@@ -321,7 +337,7 @@ for (const c of CLASSES.concat(BUILD_ENTRIES)) {
           warn(`${at}: ${item} is ${ARMOR[it.sub]} on a class that wears ${ARMOR[CLASS_RULES[c.cls].armor]} — wearable, but the armour specialization is lost`);
         if (it.skill)
           err(`${at}: ${item} needs a profession to wear (skill line ${it.skill}) and the Professions line does not know it`);
-        const sock = socketIssue(r, it, L);
+        const sock = socketIssue(r, it, L, c.id);
         if (sock) err(`${at}: ${item} ${sock}`);
         if (it.icc && r.ilvl != null) {
           const want = ICC_ILVL[it.icc];
@@ -497,6 +513,8 @@ const ILVL_SPLIT_OK = new Map([
              why: "Heart of Roccor: Retribution All-Time ran it at 51, the sim of record on 2026-11-25 (ilevel=51 beside drop_level=30 in the input); Arms, Frost DK, Unholy and two Fury builds ran it at 36, the level SimulationCraft's game data gives its bonus 12378 at drop level 30 (51 is its level at drop level 43)" }],
   [39260, { levels: { 39: null, 38: ["herald"] },
             why: "Helm of the Corrupted Mind: Unholy's Herald WotLK build ran it at 38 (ilevel=38 in the input), the sim of record on 2026-11-26; the five Herald lists that wear it (Fury, Arms, Retribution, Frost DK, Unholy) carry it at 39, the level of bonus 9039 on their Raidbots-era profiles" }],
+  [50355, { levels: { 15: null, 1: ["herald"] },
+            why: "Herkuml War Token: Beast Mastery's Herald WotLK build ran it at 1 (ilevel=1 in the input, the level every line of the Herald base file carries), the sim of record on 2026-11-27; every other row that wears it carries it at 15, Havoc's WotLK build of the same day among them" }],
 ]);
 for (const [id, byIlvl] of ilvlById) {
   if (byIlvl.size < 2) continue;
@@ -515,6 +533,12 @@ for (const [id, ok] of ILVL_SPLIT_OK) {
   if (!byIlvl || byIlvl.size < 2) err(`ILVL_SPLIT_OK still lists ${id}, which the page no longer shows at two levels — remove the exception`);
   if (/pending|re-?run|until|to do|todo|tbd|await/i.test(ok.why)) err(`ILVL_SPLIT_OK ${id}: the reason says something is still open ("${ok.why}") — an exception needs a ruling, not a promise`);
   notes.push(`item-level exception in force: ${ok.why} (${id}; levels ${Object.keys(ok.levels).join(" and ")})`);
+}
+
+for (const [key, why] of BELT_PROC_OK) {
+  if (!beltProcSeen.has(key)) err(`BELT_PROC_OK still lists ${key}, which the page no longer shows two gems over its sockets — remove the exception`);
+  if (/pending|re-?run|until|to do|todo|tbd|await/i.test(why)) err(`BELT_PROC_OK ${key}: the reason says something is still open ("${why}") — an exception needs a ruling, not a promise`);
+  notes.push(`belt socket-proc exception in force: ${why} (${key})`);
 }
 
 for (const [key, why] of ALT_BASE_OLD) {
